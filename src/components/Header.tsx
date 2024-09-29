@@ -1,21 +1,40 @@
+import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Dropdown from "./Dropdown";
+import { useNavigate } from "react-router-dom";
+
+const options = ["Features"];
+
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleSelect = (option: string) => {
+    navigate(`#${option.toLowerCase()}`);
+  };
+
   return (
-    <header className="bg-white shadow">
+    <header className="bg-white shadow sticky top-0">
       <div className="container mx-auto px-4 py-6 flex justify-between items-center">
-        <h1 className="text-2xl font-bold text-gray-800">My React Table</h1>
-        <nav>
-          <a
-            href="#features"
-            className="text-gray-600 hover:text-gray-800 mx-4"
-          >
-            Features
-          </a>
-          <a href="#demo" className="text-gray-600 hover:text-gray-800 mx-4">
-            Demo
-          </a>
-          <a href="#contact" className="text-gray-600 hover:text-gray-800 mx-4">
-            Contact
-          </a>
+        <a href="/#" className="text-2xl font-bold text-gray-800">
+          Simple Table
+        </a>
+        <div className="md:hidden">
+          <Dropdown options={options} onSelect={handleSelect}>
+            <button className="text-gray-600 hover:text-gray-800">
+              <FontAwesomeIcon icon={faBars} />
+            </button>
+          </Dropdown>
+        </div>
+        <nav className="hidden md:flex">
+          {options.map((option) => (
+            <a
+              key={option}
+              href={`#${option.toLowerCase()}`}
+              className="text-gray-600 hover:text-gray-800 mx-4"
+            >
+              {option}
+            </a>
+          ))}
         </nav>
       </div>
     </header>
