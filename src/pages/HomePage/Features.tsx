@@ -2,6 +2,11 @@ import React, { useState } from "react";
 
 const featuresData = [
   {
+    title: "Beautiful",
+    description:
+      "The table looks good. Like, really good. It's the supermodel of tables. You'll want to swipe right.",
+  },
+  {
     title: "Fast",
     description:
       "We don't import any third-party libraries, leading to a small bundle size. Did we mention the table updates almost immediately? Blink and you'll miss it!",
@@ -10,11 +15,6 @@ const featuresData = [
     title: "Customizable",
     description:
       "Everything is customizable. Every color, padding, margin, transition speed, etc. You name it, you can tweak it. Go wild!",
-  },
-  {
-    title: "Beautiful",
-    description:
-      "The table looks good. Like, really good. It's the supermodel of tables. You'll want to swipe right.",
   },
   {
     title: "Feature Rich",
