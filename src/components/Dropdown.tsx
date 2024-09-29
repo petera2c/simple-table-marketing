@@ -8,10 +8,8 @@ interface DropdownProps {
 
 const Dropdown: React.FC<DropdownProps> = ({ options, onSelect, children }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string | null>(null);
 
   const handleSelect = (option: string) => {
-    setSelectedOption(option);
     onSelect(option);
     setIsOpen(false);
   };
