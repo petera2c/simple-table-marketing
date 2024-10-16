@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { SimpleTable } from "simple-table-core";
+import "simple-table-core/dist/style.css";
+
+export const SAMPLE_HEADERS: any[] = [
+  { label: "Product ID", accessor: "id", width: 150 },
+  { label: "Product Name", accessor: "productName", width: 200 },
+  { label: "Category", accessor: "category", width: 150 },
+  { label: "Quantity", accessor: "quantity", width: 100 },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SimpleTable
+      defaultHeaders={SAMPLE_HEADERS}
+      height="auto"
+      // height="calc(100dvh - 4rem)"
+      rows={[
+        {
+          id: 1,
+          productName: "Product 1",
+          category: "Category 1",
+          quantity: 10,
+        },
+      ]}
+      // shouldPaginate={false}
+    />
   );
 }
 
