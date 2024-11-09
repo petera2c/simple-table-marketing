@@ -1,3 +1,30 @@
+:root {
+  --st-border-radius: 50px;
+}
 .st-table-cell {
-  background-color: red !important;
+}
+
+.st-table-header-label {
+  font-weight: bold;
+  color: red;
+}
+
+.border-top-blue {
+  border-top-color: red;
+}
+
+.border-bottom-blue {
+  border-bottom-color: red;
+}
+
+.border-left-blue {
+  border-left-color: red;
+}
+
+.border-right-blue {
+  border-right-color: red;
+}
+
+.st-table-cell-selected {
+  background-color: rgb(13, 148, 132);
 }
