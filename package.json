@@ -20,7 +20,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^0.7.2"
+    "simple-table-core": "^0.7.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

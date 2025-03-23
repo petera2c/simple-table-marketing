@@ -1,5 +1,3 @@
-// pages/Home.jsx
-import React from "react";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
@@ -26,13 +24,7 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="mb-16">
-        <img
-          src="https://github.com/petera2c/simple-table-marketing/blob/main/src/assets/simple-table-demo-fast.gif?raw=true"
-          alt="Simple Table Demo"
-          className="max-w-full mx-auto rounded-lg shadow-lg"
-        />
-      </section>
+      <section className="mb-16"></section>
 
       <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[
