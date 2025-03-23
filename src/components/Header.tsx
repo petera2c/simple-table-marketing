@@ -36,7 +36,7 @@ const Header = () => {
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600"
             >
-              Docs
+              Demos
             </a>
           </div>
         </div>

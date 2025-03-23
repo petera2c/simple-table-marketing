@@ -1,6 +1,6 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faNpm } from "@fortawesome/free-brands-svg-icons";
 import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns";
 
 const Home = () => {
@@ -19,7 +19,7 @@ const Home = () => {
             Live Demo
           </Button>
           <Button size="large" href="https://www.npmjs.com/package/simple-table-core" target="_blank">
-            <FontAwesomeIcon icon={faGithub} className="mr-2" />
+            <FontAwesomeIcon icon={faNpm} className="mr-2" />
             Get Started
           </Button>
         </div>

@@ -271,7 +271,7 @@ const ThemeBuilder: React.FC = () => {
             ))}
           </Collapse>
           <Button className="mt-6 w-full" type="primary" onClick={downloadCSS}>
-            Download CSS
+            Download Theme
           </Button>
         </div>
         {/* Right Column: Live Preview (Wider) */}
