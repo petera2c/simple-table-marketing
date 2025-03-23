@@ -1,5 +1,15 @@
 @import "tailwindcss";
+@import "../node_modules/simple-table-core/dist/styles.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
+
+.simple-table-root {
+  /* Already defined in the package, but reinforcing proper scoping */
+  /* This ensures styles don't leak out and cause conflicts with Tailwind */
+}
 
 body {
-  font-family: "Roboto", sans-serif;
+  font-family: "Nunito", sans-serif;
+}
+.theme-custom {
+  --st-border-color: #ff0004;
 }

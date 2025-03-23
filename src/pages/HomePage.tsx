@@ -1,6 +1,7 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns";
 
 const Home = () => {
   return (
@@ -24,7 +25,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="mb-16"></section>
+      <section className="mb-16">
+        <PinnedColumnsExample />
+      </section>
 
       <section className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
         {[

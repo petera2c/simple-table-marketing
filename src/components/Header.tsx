@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 
@@ -8,8 +8,10 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <FontAwesomeIcon icon={faTable} className="text-blue-600 text-2xl mr-2" />
-            <span className="text-xl font-bold text-gray-800">Simple Table</span>
+            <Link to="/" className="flex items-center text-xl font-bold text-gray-800">
+              <FontAwesomeIcon icon={faTable} className="text-blue-600 text-2xl mr-2" />
+              Simple Table
+            </Link>
           </div>
           <div className="space-x-8">
             <NavLink
