@@ -97,8 +97,6 @@ const getHoverColor = (theme: Theme) => {
 };
 
 const ThemingExample = () => {
-  // const [headers, setHeaders] = useState(SAMPLE_HEADERS);
-  const [rows, setRows] = useState(EXAMPLE_DATA);
   const [theme, setTheme] = useState<Theme>("light");
 
   useEffect(() => {
@@ -147,7 +145,7 @@ const ThemingExample = () => {
         defaultHeaders={HEADERS} // Set the headers
         draggable // Enable draggable columns
         editColumns // Enable editing columns
-        rows={rows} // Set rows data
+        rows={EXAMPLE_DATA} // Set rows data
         selectableCells // Enable selectable cells
         selectableColumns // Select column by clicking on the header. This will override sort on header click
         theme={theme} // Set the theme
