@@ -1,22 +1,24 @@
-import React from "react";
-import { Routes, Route, BrowserRouter } from "react-router-dom";
-import Layout from "./components/layout/Layout";
-import HomePage from "./pages/HomePage";
-import ThemeBuilderPage from "./pages/ThemeBuilderPage";
-// @ts-ignore
-import "./index.css";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Header from "./components/Header.tsx";
+import Footer from "./components/Footer.tsx";
+import Home from "./pages/HomePage.tsx";
+import ThemeBuilder from "./pages/ThemeBuilderPage.tsx";
 
-const App: React.FC = () => {
+function App() {
   return (
     <BrowserRouter>
-      <Layout>
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/theme-builder" element={<ThemeBuilderPage />} />
-        </Routes>
-      </Layout>
+      <div className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/theme-builder" element={<ThemeBuilder />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
-};
+}
 
 export default App;
