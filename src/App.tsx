@@ -1,13 +1,22 @@
-import "simple-table-core/dist/style.css";
-// import "./style-overrides.css";
-import SimpleTableExample from "./SimpleTableExample";
+import React from "react";
+import { Routes, Route, BrowserRouter } from "react-router-dom";
+import Layout from "./components/layout/Layout";
+import HomePage from "./pages/HomePage";
+import ThemeBuilderPage from "./pages/ThemeBuilderPage";
+// @ts-ignore
+import "./index.css";
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div style={{ padding: "2rem" }}>
-      <SimpleTableExample />
-    </div>
+    <BrowserRouter>
+      <Layout>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/theme-builder" element={<ThemeBuilderPage />} />
+        </Routes>
+      </Layout>
+    </BrowserRouter>
   );
-}
+};
 
 export default App;
