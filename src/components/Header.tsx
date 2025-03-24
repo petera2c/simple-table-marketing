@@ -26,6 +26,14 @@ const Header = () => {
               Home
             </NavLink>
             <NavLink
+              to="/docs"
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
+              }
+            >
+              Documentation
+            </NavLink>
+            <NavLink
               to="/theme-builder"
               className={({ isActive }) =>
                 `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
@@ -34,12 +42,12 @@ const Header = () => {
               Theme Builder
             </NavLink>
             <a
-              href="https://docs.simple-table.com/"
+              href="https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Demos
+              Demo
             </a>
           </div>
         </div>

@@ -3,6 +3,7 @@ import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import Home from "./pages/HomePage.tsx";
 import ThemeBuilder from "./pages/ThemeBuilderPage.tsx";
+import Docs from "./pages/DocsPage.tsx";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/theme-builder" element={<ThemeBuilder />} />
+            <Route path="/docs" element={<Docs />} />
           </Routes>
         </main>
         <Footer />
