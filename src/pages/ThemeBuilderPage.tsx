@@ -108,7 +108,6 @@ const ThemeBuilder: React.FC = () => {
       // Set each CSS variable
       Object.entries(theme).forEach(([key, value]) => {
         const cssVarName = `--st-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
-        console.log(cssVarName, value);
         document.documentElement.style.setProperty(cssVarName, value);
       });
       // Track theme change
