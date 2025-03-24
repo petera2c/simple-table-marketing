@@ -1,8 +1,13 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
+import { trackLinkClick } from "../utils/analytics";
 
 const Footer = () => {
+  const handleLinkClick = (linkName: string, linkUrl: string) => {
+    trackLinkClick(linkName, linkUrl);
+  };
+
   return (
     <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12 relative z-10">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -25,18 +30,29 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Links</h3>
             <ul className="space-y-2">
               <li>
-                <a href="https://docs.simple-table.com/" className="text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="https://docs.simple-table.com/"
+                  onClick={() => handleLinkClick("Footer Documentation", "https://docs.simple-table.com/")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Documentation
                 </a>
               </li>
               <li>
-                <a href="https://www.simple-table.com/" className="text-gray-400 hover:text-white transition-colors">
+                <a
+                  href="https://www.simple-table.com/"
+                  onClick={() => handleLinkClick("Footer Website", "https://www.simple-table.com/")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   Website
                 </a>
               </li>
               <li>
                 <a
                   href="https://www.npmjs.com/package/simple-table-core"
+                  onClick={() =>
+                    handleLinkClick("Footer NPM Package", "https://www.npmjs.com/package/simple-table-core")
+                  }
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   NPM Package
@@ -52,6 +68,7 @@ const Footer = () => {
                 href="https://discord.gg/RvKHCfg3PC"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleLinkClick("Footer Discord", "https://discord.gg/RvKHCfg3PC")}
                 className="text-gray-400 hover:text-white"
                 whileHover={{ scale: 1.2, color: "#7289DA" }}
                 transition={{ duration: 0.2 }}
@@ -62,6 +79,7 @@ const Footer = () => {
                 href="https://github.com/petera2c/simple-table-marketing"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => handleLinkClick("Footer GitHub", "https://github.com/petera2c/simple-table-marketing")}
                 className="text-gray-400 hover:text-white"
                 whileHover={{ scale: 1.2, color: "#ffffff" }}
                 transition={{ duration: 0.2 }}

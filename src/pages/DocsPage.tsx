@@ -4,8 +4,17 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import AnimatedBackground from "../components/AnimatedBackground";
+import { trackButtonClick, trackLinkClick } from "../utils/analytics";
 
 const Docs = () => {
+  const handleButtonClick = (buttonName: string) => {
+    trackButtonClick(buttonName, "Documentation Page");
+  };
+
+  const handleLinkClick = (linkName: string, linkUrl: string) => {
+    trackLinkClick(linkName, linkUrl);
+  };
+
   return (
     <>
       <AnimatedBackground />
@@ -62,6 +71,7 @@ const Docs = () => {
               href="https://discord.gg/RvKHCfg3PC"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => handleLinkClick("Documentation Discord", "https://discord.gg/RvKHCfg3PC")}
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
               https://discord.gg/RvKHCfg3PC
@@ -89,6 +99,7 @@ const Docs = () => {
               size="large"
               href="https://www.npmjs.com/package/simple-table-core"
               target="_blank"
+              onClick={() => handleButtonClick("NPM Package")}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faNpm} className="mr-2" />
@@ -98,6 +109,7 @@ const Docs = () => {
               size="large"
               href="https://discord.gg/RvKHCfg3PC"
               target="_blank"
+              onClick={() => handleButtonClick("Join Discord")}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faDiscord} className="mr-2" />
@@ -107,6 +119,7 @@ const Docs = () => {
               size="large"
               href="https://github.com/petera2c/simple-table-marketing"
               target="_blank"
+              onClick={() => handleButtonClick("GitHub")}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faGithub} className="mr-2" />

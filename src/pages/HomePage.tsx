@@ -5,6 +5,7 @@ import { faTable, faColumns, faEdit, faList, faScroll, faRocket } from "@fortawe
 import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../components/AnimatedBackground";
+import { trackButtonClick } from "../utils/analytics";
 
 const Home = () => {
   // Animation variants
@@ -41,6 +42,18 @@ const Home = () => {
       "Performance Optimized": faRocket,
     };
     return iconMap[title as keyof typeof iconMap] || faTable;
+  };
+
+  const handleDemoClick = () => {
+    trackButtonClick("Live Demo", "Homepage Hero");
+  };
+
+  const handleGetStartedClick = () => {
+    trackButtonClick("Get Started", "Homepage Hero");
+  };
+
+  const handleFeatureClick = (featureTitle: string) => {
+    trackButtonClick("Feature Click", featureTitle);
   };
 
   return (
@@ -88,6 +101,7 @@ const Home = () => {
                 size="large"
                 href="https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d"
                 target="_blank"
+                onClick={handleDemoClick}
                 className="hover:scale-105 transition-transform"
               >
                 Live Demo
@@ -97,6 +111,7 @@ const Home = () => {
                 size="large"
                 href="https://www.npmjs.com/package/simple-table-core"
                 target="_blank"
+                onClick={handleGetStartedClick}
                 className="hover:scale-105 transition-transform"
               >
                 <FontAwesomeIcon icon={faNpm} className="mr-2" />
@@ -137,6 +152,7 @@ const Home = () => {
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
               variants={itemVariants}
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
+              onClick={() => handleFeatureClick(feature.title)}
             >
               <div className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">

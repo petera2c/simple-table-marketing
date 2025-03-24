@@ -4,6 +4,7 @@ import type { Color } from "antd/es/color-picker";
 import RowGroupingExample from "../demos/examples/row-grouping/RowGrouping";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
+import { trackThemeChange, trackDownload } from "../utils/analytics";
 
 const { Panel } = Collapse;
 
@@ -110,6 +111,8 @@ const ThemeBuilder: React.FC = () => {
         console.log(cssVarName, value);
         document.documentElement.style.setProperty(cssVarName, value);
       });
+      // Track theme change
+      trackThemeChange("Custom Theme");
     }
   }, [theme]);
 
@@ -145,6 +148,7 @@ const ThemeBuilder: React.FC = () => {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
+    trackDownload("simple-table-theme.css");
   };
 
   // Group theme options into categories
