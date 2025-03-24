@@ -6,12 +6,12 @@
   /* Already defined in the package, but reinforcing proper scoping */
   /* This ensures styles don't leak out and cause conflicts with Tailwind */
 }
+html {
+  overflow: hidden;
+  font-family: "Nunito", sans-serif;
+}
 
 body {
-  font-family: "Nunito", sans-serif;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
 }
 
 #root {

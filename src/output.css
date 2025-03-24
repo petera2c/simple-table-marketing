@@ -315,14 +315,11 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
-  .h-auto {
-    height: auto;
+  .h-screen {
+    height: 100vh;
   }
   .min-h-\[200vh\] {
     min-height: 200vh;
-  }
-  .min-h-screen {
-    min-height: 100vh;
   }
   .w-10 {
     width: calc(var(--spacing) * 10);
@@ -338,9 +335,6 @@
   }
   .max-w-7xl {
     max-width: var(--container-7xl);
-  }
-  .max-w-full {
-    max-width: 100%;
   }
   .flex-grow {
     flex-grow: 1;
@@ -417,6 +411,9 @@
   .self-start {
     align-self: flex-start;
   }
+  .overflow-auto {
+    overflow: auto;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -473,23 +470,11 @@
   .bg-blue-100 {
     background-color: var(--color-blue-100);
   }
-  .bg-blue-400\/20 {
-    background-color: color-mix(in oklab, var(--color-blue-400) 20%, transparent);
-  }
   .bg-blue-400\/35 {
     background-color: color-mix(in oklab, var(--color-blue-400) 35%, transparent);
   }
   .bg-blue-400\/40 {
     background-color: color-mix(in oklab, var(--color-blue-400) 40%, transparent);
-  }
-  .bg-blue-500\/5 {
-    background-color: color-mix(in oklab, var(--color-blue-500) 5%, transparent);
-  }
-  .bg-blue-500\/20 {
-    background-color: color-mix(in oklab, var(--color-blue-500) 20%, transparent);
-  }
-  .bg-blue-500\/25 {
-    background-color: color-mix(in oklab, var(--color-blue-500) 25%, transparent);
   }
   .bg-blue-500\/30 {
     background-color: color-mix(in oklab, var(--color-blue-500) 30%, transparent);
@@ -499,9 +484,6 @@
   }
   .bg-blue-500\/40 {
     background-color: color-mix(in oklab, var(--color-blue-500) 40%, transparent);
-  }
-  .bg-blue-600\/15 {
-    background-color: color-mix(in oklab, var(--color-blue-600) 15%, transparent);
   }
   .bg-blue-600\/30 {
     background-color: color-mix(in oklab, var(--color-blue-600) 30%, transparent);
@@ -515,17 +497,8 @@
   .bg-gray-800 {
     background-color: var(--color-gray-800);
   }
-  .bg-indigo-400\/15 {
-    background-color: color-mix(in oklab, var(--color-indigo-400) 15%, transparent);
-  }
   .bg-indigo-400\/30 {
     background-color: color-mix(in oklab, var(--color-indigo-400) 30%, transparent);
-  }
-  .bg-indigo-500\/15 {
-    background-color: color-mix(in oklab, var(--color-indigo-500) 15%, transparent);
-  }
-  .bg-indigo-500\/25 {
-    background-color: color-mix(in oklab, var(--color-indigo-500) 25%, transparent);
   }
   .bg-indigo-500\/30 {
     background-color: color-mix(in oklab, var(--color-indigo-500) 30%, transparent);
@@ -533,17 +506,11 @@
   .bg-indigo-500\/40 {
     background-color: color-mix(in oklab, var(--color-indigo-500) 40%, transparent);
   }
-  .bg-sky-400\/15 {
-    background-color: color-mix(in oklab, var(--color-sky-400) 15%, transparent);
-  }
   .bg-sky-400\/30 {
     background-color: color-mix(in oklab, var(--color-sky-400) 30%, transparent);
   }
   .bg-sky-400\/45 {
     background-color: color-mix(in oklab, var(--color-sky-400) 45%, transparent);
-  }
-  .bg-sky-500\/20 {
-    background-color: color-mix(in oklab, var(--color-sky-500) 20%, transparent);
   }
   .bg-sky-500\/35 {
     background-color: color-mix(in oklab, var(--color-sky-500) 35%, transparent);
@@ -593,9 +560,6 @@
   .py-12 {
     padding-block: calc(var(--spacing) * 12);
   }
-  .py-20 {
-    padding-block: calc(var(--spacing) * 20);
-  }
   .pt-4 {
     padding-top: calc(var(--spacing) * 4);
   }
@@ -604,9 +568,6 @@
   }
   .pt-8 {
     padding-top: calc(var(--spacing) * 8);
-  }
-  .pl-5 {
-    padding-left: calc(var(--spacing) * 5);
   }
   .pl-8 {
     padding-left: calc(var(--spacing) * 8);
@@ -673,12 +634,6 @@
   }
   .text-white {
     color: var(--color-white);
-  }
-  .opacity-\[0\.03\] {
-    opacity: 0.03;
-  }
-  .opacity-\[0\.05\] {
-    opacity: 0.05;
   }
   .opacity-\[0\.08\] {
     opacity: 0.08;
@@ -2054,11 +2009,9 @@
   transition: transform var(--st-transition-duration) var(--st-transition-ease);
 }
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
-body {
+html {
+  overflow: hidden;
   font-family: "Nunito", sans-serif;
-  min-height: 100vh;
-  position: relative;
-  overflow-x: hidden;
 }
 #root {
   min-height: 100vh;

@@ -8,7 +8,7 @@ import Docs from "./pages/DocsPage.tsx";
 function App() {
   return (
     <BrowserRouter>
-      <div className="min-h-screen flex flex-col">
+      <div className="h-screen flex flex-col overflow-auto">
         <Header />
         <main className="flex-grow">
           <Routes>
