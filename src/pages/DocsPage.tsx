@@ -28,15 +28,14 @@ const Docs = () => {
           </motion.div>
 
           <motion.div
-            className="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6 rounded"
+            className="bg-blue-50 border-l-4 border-blue-400 p-4 my-6 rounded"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-xl font-bold text-gray-800 mb-2">⚠️ Important: CSS Styles</h2>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">CSS Styles Setup</h2>
             <p className="text-gray-700">
-              For Simple Table to function correctly, you <strong>must</strong> import the package's CSS styles in your
-              application:
+              For Simple Table to function correctly, you need to import the package's CSS styles in your application:
             </p>
             <div className="bg-gray-800 text-white p-4 rounded-md mt-3 overflow-x-auto">
               <pre className="whitespace-pre-wrap">
@@ -47,8 +46,8 @@ const Docs = () => {
               </pre>
             </div>
             <p className="text-gray-700 mt-3">
-              Without importing these styles, the table components will not display correctly. Make sure this import is
-              included before using any Simple Table components.
+              This import provides all the necessary styling for the table components and should be included in your
+              main CSS file.
             </p>
           </motion.div>
 

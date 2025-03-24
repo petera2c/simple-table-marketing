@@ -13,7 +13,6 @@ const PinnedColumnsExample = () => {
       rows={EXAMPLE_DATA} // Set rows data
       height="50dvh" // If not using pagination use a fixed height
       selectableCells
-      selectableColumns
     />
   );
 };

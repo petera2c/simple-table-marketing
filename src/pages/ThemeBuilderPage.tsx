@@ -277,7 +277,7 @@ const ThemeBuilder: React.FC = () => {
         {/* Right Column: Live Preview (Wider) */}
         <div className="md:col-span-8">
           <h2 className="text-lg font-semibold text-gray-900 mb-4">Live Preview</h2>
-          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm">
+          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm sticky top-20">
             <RowGroupingExample />
           </div>
         </div>
