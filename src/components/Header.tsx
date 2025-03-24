@@ -42,12 +42,12 @@ const Header = () => {
               Theme Builder
             </NavLink>
             <a
-              href="https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d"
+              href="https://docs.simple-table.com/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-gray-600 hover:text-blue-600 transition-colors"
             >
-              Demo
+              Demos
             </a>
           </div>
         </div>
