@@ -74,7 +74,6 @@ export const RETAIL_SALES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "left",
-    pinned: "left",
   },
   { accessor: "city", label: "City", width: 150, isSortable: true, isEditable: true, align: "left" },
   { accessor: "employees", label: "Employees", width: 150, isSortable: true, isEditable: true, align: "right" },
