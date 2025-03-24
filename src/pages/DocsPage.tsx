@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faTable, faCode } from "@fortawesome/free-solid-svg-icons";
+import { faTable } from "@fortawesome/free-solid-svg-icons";
 import AnimatedBackground from "../components/AnimatedBackground";
 
 const Docs = () => {
