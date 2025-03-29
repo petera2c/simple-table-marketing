@@ -4,6 +4,7 @@ import Footer from "./components/Footer.tsx";
 import Home from "./pages/HomePage.tsx";
 import ThemeBuilder from "./pages/ThemeBuilderPage.tsx";
 import Docs from "./pages/DocsPage.tsx";
+import NotFound from "./pages/NotFoundPage.tsx";
 import ReactGA from "react-ga4";
 import RouteContainer from "./components/RouteContainer.tsx";
 import { HelmetProvider } from "react-helmet-async";
@@ -22,6 +23,7 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
                 <Route path="/docs" element={<Docs />} />
+                <Route path="*" element={<NotFound />} />
               </Route>
             </Routes>
           </main>

@@ -6,7 +6,9 @@ import { faTable } from "@fortawesome/free-solid-svg-icons";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick, trackLinkClick } from "../utils/analytics";
 import SEO from "../components/SEO";
-import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
+import { SEO_STRINGS } from "../constants/strings/seo";
+import { UI_STRINGS } from "../constants/strings/ui";
+import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 const Docs = () => {
   const handleButtonClick = (buttonName: string) => {

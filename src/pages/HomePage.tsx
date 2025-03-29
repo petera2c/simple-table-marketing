@@ -1,13 +1,15 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
-import { faTable, faColumns, faEdit, faList, faScroll, faRocket } from "@fortawesome/free-solid-svg-icons";
+import { faTable, faColumns, faEdit, faList, faScroll, faRocket, faLightbulb } from "@fortawesome/free-solid-svg-icons";
 import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick } from "../utils/analytics";
 import SEO from "../components/SEO";
-import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
+import { UI_STRINGS } from "../constants/strings/ui";
+import { SEO_STRINGS } from "../constants/strings/seo";
+import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 const Home = () => {
   // Animation variants
@@ -164,6 +166,45 @@ const Home = () => {
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
+        </motion.section>
+
+        {/* Fun Facts section */}
+        <motion.section
+          className="mt-16 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <motion.h2
+            className="text-2xl font-bold text-gray-800 mb-6 flex items-center justify-center gap-3"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            viewport={{ once: true }}
+          >
+            <FontAwesomeIcon icon={faLightbulb} className="text-yellow-500" />
+            {UI_STRINGS.home.funFacts.title}
+          </motion.h2>
+
+          <motion.div
+            className="grid md:grid-cols-2 gap-6"
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+          >
+            {UI_STRINGS.home.funFacts.facts.map((fact, index) => (
+              <motion.div
+                key={index}
+                className="bg-white/80 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-blue-100"
+                variants={itemVariants}
+                whileHover={{ scale: 1.02, transition: { duration: 0.2 } }}
+              >
+                <p className="text-gray-700">{fact}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </motion.section>
 
         {/* Installation section with animation */}

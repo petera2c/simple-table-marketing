@@ -1,5 +1,5 @@
 import { Helmet } from "react-helmet-async";
-import { SEO_STRINGS } from "../constants/strings";
+import { SEO_STRINGS } from "../constants/strings/seo";
 
 interface SEOProps {
   title: string;

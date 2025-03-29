@@ -6,7 +6,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { trackThemeChange, trackDownload } from "../utils/analytics";
 import SEO from "../components/SEO";
-import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
+import { UI_STRINGS } from "../constants/strings/ui";
+import { SEO_STRINGS } from "../constants/strings/seo";
+import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 const { Panel } = Collapse;
 
