@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F8FAFC"/>
+  
+  <!-- Table Icon (inspired by FontAwesome table icon) -->
+  <g transform="translate(460, 165) scale(2.5)">
+    <path d="M0 32C0 14.3 14.3 0 32 0H96C113.7 0 128 14.3 128 32V96C128 113.7 113.7 128 96 128H32C14.3 128 0 113.7 0 96V32zM64 96H96V64H64V96zM32 96H48V64H32V96zM32 48H48V32H32V48zM64 32V48H96V32H64z" fill="#1E40AF"/>
+  </g>
+
+  <!-- Text -->
+  <text x="600" y="450" fill="#1F2937" font-family="system-ui" font-size="72" font-weight="bold" text-anchor="middle">Simple Table</text>
+  <text x="600" y="510" fill="#4B5563" font-family="system-ui" font-size="36" text-anchor="middle">The Best React Table Component</text>
+</svg> 
