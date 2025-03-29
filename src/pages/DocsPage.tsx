@@ -5,6 +5,8 @@ import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick, trackLinkClick } from "../utils/analytics";
+import SEO from "../components/SEO";
+import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
 
 const Docs = () => {
   const handleButtonClick = (buttonName: string) => {
@@ -17,6 +19,13 @@ const Docs = () => {
 
   return (
     <>
+      <SEO
+        title={SEO_STRINGS.docs.title}
+        description={SEO_STRINGS.docs.description}
+        keywords={SEO_STRINGS.docs.keywords}
+        canonicalUrl="/docs"
+      />
+
       <AnimatedBackground />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -33,7 +42,7 @@ const Docs = () => {
             transition={{ duration: 0.5, delay: 0.2 }}
           >
             <FontAwesomeIcon icon={faTable} className="text-blue-600 text-3xl" />
-            <h1 className="text-3xl font-bold text-gray-800">Simple Table</h1>
+            <h1 className="text-3xl font-bold text-gray-800">{UI_STRINGS.docs.title}</h1>
           </motion.div>
 
           <motion.div
@@ -42,22 +51,14 @@ const Docs = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <h2 className="text-xl font-bold text-gray-800 mb-2">CSS Styles Setup</h2>
-            <p className="text-gray-700">
-              For Simple Table to function correctly, you need to import the package's CSS styles in your application:
-            </p>
+            <h2 className="text-xl font-bold text-gray-800 mb-2">{UI_STRINGS.docs.cssSetup.title}</h2>
+            <p className="text-gray-700">{UI_STRINGS.docs.cssSetup.description}</p>
             <div className="bg-gray-800 text-white p-4 rounded-md mt-3 overflow-x-auto">
               <pre className="whitespace-pre-wrap">
-                <code>
-                  {`/* In your CSS file */
-@import "../node_modules/simple-table-core/dist/styles.css";`}
-                </code>
+                <code>{TECHNICAL_STRINGS.css.import}</code>
               </pre>
             </div>
-            <p className="text-gray-700 mt-3">
-              This import provides all the necessary styling for the table components and should be included in your
-              main CSS file.
-            </p>
+            <p className="text-gray-700 mt-3">{UI_STRINGS.docs.cssSetup.note}</p>
           </motion.div>
 
           <motion.p
@@ -66,15 +67,15 @@ const Docs = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 0.3 }}
           >
-            Any questions, support or features requests join me on Discord{" "}
+            {UI_STRINGS.docs.discord.text}{" "}
             <a
-              href="https://discord.gg/RvKHCfg3PC"
+              href={TECHNICAL_STRINGS.links.discord}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handleLinkClick("Documentation Discord", "https://discord.gg/RvKHCfg3PC")}
+              onClick={() => handleLinkClick("Documentation Discord", TECHNICAL_STRINGS.links.discord)}
               className="text-blue-600 hover:text-blue-800 transition-colors"
             >
-              https://discord.gg/RvKHCfg3PC
+              {TECHNICAL_STRINGS.links.discord}
             </a>
             . I am happy to help and make this table even better!
           </motion.p>
@@ -97,33 +98,33 @@ const Docs = () => {
           >
             <Button
               size="large"
-              href="https://www.npmjs.com/package/simple-table-core"
+              href={TECHNICAL_STRINGS.links.npm}
               target="_blank"
-              onClick={() => handleButtonClick("NPM Package")}
+              onClick={() => handleButtonClick(UI_STRINGS.docs.buttons.npmPackage)}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faNpm} className="mr-2" />
-              NPM Package
+              {UI_STRINGS.docs.buttons.npmPackage}
             </Button>
             <Button
               size="large"
-              href="https://discord.gg/RvKHCfg3PC"
+              href={TECHNICAL_STRINGS.links.discord}
               target="_blank"
-              onClick={() => handleButtonClick("Join Discord")}
+              onClick={() => handleButtonClick(UI_STRINGS.docs.buttons.joinDiscord)}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faDiscord} className="mr-2" />
-              Join Discord
+              {UI_STRINGS.docs.buttons.joinDiscord}
             </Button>
             <Button
               size="large"
-              href="https://github.com/petera2c/simple-table-marketing"
+              href={TECHNICAL_STRINGS.links.github}
               target="_blank"
-              onClick={() => handleButtonClick("GitHub")}
+              onClick={() => handleButtonClick(UI_STRINGS.docs.buttons.github)}
               className="flex items-center hover:scale-105 transition-transform"
             >
               <FontAwesomeIcon icon={faGithub} className="mr-2" />
-              GitHub
+              {UI_STRINGS.docs.buttons.github}
             </Button>
           </motion.div>
 
@@ -133,7 +134,7 @@ const Docs = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.1 }}
           >
-            Installation
+            {UI_STRINGS.docs.sections.installation}
           </motion.h2>
 
           <motion.div
@@ -145,13 +146,13 @@ const Docs = () => {
             <pre className="whitespace-pre-wrap">
               <code>
                 {`# npm
-npm install simple-table-core
+${TECHNICAL_STRINGS.installation.npm}
 
 # yarn
-yarn add simple-table-core
+${TECHNICAL_STRINGS.installation.yarn}
 
 # pnpm
-pnpm add simple-table-core`}
+${TECHNICAL_STRINGS.installation.pnpm}`}
               </code>
             </pre>
           </motion.div>
@@ -162,7 +163,7 @@ pnpm add simple-table-core`}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.3 }}
           >
-            Props
+            {UI_STRINGS.docs.sections.props}
           </motion.h2>
 
           <motion.div
@@ -300,7 +301,7 @@ pnpm add simple-table-core`}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.5 }}
           >
-            Customizable Styles
+            {UI_STRINGS.docs.sections.styles}
           </motion.h2>
 
           <motion.div
@@ -321,54 +322,7 @@ pnpm add simple-table-core`}
 
             <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto">
               <pre className="whitespace-pre-wrap">
-                <code>
-                  {`/* light theme */
-.theme-custom {
-  --st-border-radius: 4px;
-  --st-border-width: 1px;
-  --st-cell-padding: 8px;
-  --st-font-size: 0.875rem;
-  --st-font-weight-normal: 400;
-  --st-font-weight-bold: 600;
-  --st-transition-duration: 0.2s;
-  --st-transition-ease: ease;
-  --st-opacity-disabled: 0.5;
-  --st-spacing-small: 4px;
-  --st-spacing-medium: 8px;
-  --st-spacing-large: 16px;
-  --st-scrollbar-bg-color: transparent;
-  --st-scrollbar-thumb-color: var(--slate-200);
-
-  --st-border-color: var(--gray-300);
-  --st-odd-row-background-color: var(--white);
-  --st-even-row-background-color: var(--white);
-  --st-header-background-color: var(--white);
-  --st-dragging-background-color: var(--gray-200);
-  --st-selected-cell-background-color: var(--blue-200);
-  --st-selected-first-cell-background-color: var(--blue-200);
-  --st-footer-background-color: var(--white);
-  --st-cell-color: var(--gray-800);
-  --st-cell-odd-row-color: var(--gray-700);
-  --st-edit-cell-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 1px -1px rgba(0, 0, 0, 0.05);
-  --st-selected-cell-color: var(--gray-900);
-  --st-selected-first-cell-color: var(--gray-900);
-  --st-resize-handle-color: var(--blue-300);
-  --st-separator-border-color: var(--slate-100);
-  --st-last-group-row-separator-border-color: var(--slate-300);
-  --st-selected-border-top-color: var(--blue-600);
-  --st-selected-border-bottom-color: var(--blue-600);
-  --st-selected-border-left-color: var(--blue-600);
-  --st-selected-border-right-color: var(--blue-600);
-  --st-checkbox-checked-background-color: var(--blue-600);
-  --st-checkbox-checked-border-color: var(--blue-600);
-  --st-column-editor-background-color: var(--white);
-  --st-column-editor-popout-background-color: var(--white);
-  --st-button-hover-background-color: var(--gray-200);
-  --st-button-active-background-color: var(--blue-800);
-  --st-font-family: "Roboto", sans-serif;
-  --st-editable-cell-focus-border-color: var(--blue-600);
-}`}
-                </code>
+                <code>{TECHNICAL_STRINGS.css.themeVariables.light}</code>
               </pre>
             </div>
           </motion.div>
@@ -379,7 +333,7 @@ pnpm add simple-table-core`}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.5, delay: 1.7 }}
           >
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">License</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">{UI_STRINGS.docs.sections.license}</h2>
             <p>This project is licensed under the MIT License</p>
           </motion.div>
         </motion.div>

@@ -5,6 +5,8 @@ import RowGroupingExample from "../demos/examples/row-grouping/RowGrouping";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { trackThemeChange, trackDownload } from "../utils/analytics";
+import SEO from "../components/SEO";
+import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
 
 const { Panel } = Collapse;
 
@@ -142,17 +144,17 @@ const ThemeBuilder: React.FC = () => {
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "simple-table-theme.css";
+    a.download = TECHNICAL_STRINGS.files.theme;
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    trackDownload("simple-table-theme.css");
+    trackDownload(TECHNICAL_STRINGS.files.theme);
   };
 
   // Group theme options into categories
   const themeCategories: { [key: string]: (keyof ThemeConfig)[] } = {
-    Colors: [
+    [UI_STRINGS.themeBuilder.categories.colors]: [
       "borderColor",
       "buttonActiveBackgroundColor",
       "buttonHoverBackgroundColor",
@@ -182,17 +184,38 @@ const ThemeBuilder: React.FC = () => {
       "selectedFirstCellColor",
       "separatorBorderColor",
     ],
-    Spacing: ["borderRadius", "borderWidth", "cellPadding", "spacingLarge", "spacingMedium", "spacingSmall"],
-    Typography: ["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"],
-    Effects: ["editCellShadow", "opacityDisabled", "transitionDuration", "transitionEase"],
+    [UI_STRINGS.themeBuilder.categories.spacing]: [
+      "borderRadius",
+      "borderWidth",
+      "cellPadding",
+      "spacingLarge",
+      "spacingMedium",
+      "spacingSmall",
+    ],
+    [UI_STRINGS.themeBuilder.categories.typography]: ["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"],
+    [UI_STRINGS.themeBuilder.categories.effects]: [
+      "editCellShadow",
+      "opacityDisabled",
+      "transitionDuration",
+      "transitionEase",
+    ],
   };
 
   // Subcategories for Colors
   const colorSubcategories: { [key: string]: (keyof ThemeConfig)[] } = {
-    "Table Structure": ["borderColor", "lastGroupRowSeparatorBorderColor", "separatorBorderColor"],
-    Button: ["buttonActiveBackgroundColor", "buttonHoverBackgroundColor"],
-    Cell: ["cellColor", "cellOddRowColor", "evenRowBackgroundColor", "oddRowBackgroundColor"],
-    Selection: [
+    [UI_STRINGS.themeBuilder.subcategories.tableStructure]: [
+      "borderColor",
+      "lastGroupRowSeparatorBorderColor",
+      "separatorBorderColor",
+    ],
+    [UI_STRINGS.themeBuilder.subcategories.button]: ["buttonActiveBackgroundColor", "buttonHoverBackgroundColor"],
+    [UI_STRINGS.themeBuilder.subcategories.cell]: [
+      "cellColor",
+      "cellOddRowColor",
+      "evenRowBackgroundColor",
+      "oddRowBackgroundColor",
+    ],
+    [UI_STRINGS.themeBuilder.subcategories.selection]: [
       "selectedBorderBottomColor",
       "selectedBorderLeftColor",
       "selectedBorderRightColor",
@@ -202,10 +225,19 @@ const ThemeBuilder: React.FC = () => {
       "selectedFirstCellBackgroundColor",
       "selectedFirstCellColor",
     ],
-    Checkbox: ["checkboxCheckedBackgroundColor", "checkboxCheckedBorderColor"],
-    Editor: ["columnEditorBackgroundColor", "columnEditorPopoutBackgroundColor", "editableCellFocusBorderColor"],
-    "Interactive Elements": ["draggingBackgroundColor", "resizeHandleColor"],
-    Background: ["footerBackgroundColor", "headerBackgroundColor", "scrollbarBgColor", "scrollbarThumbColor"],
+    [UI_STRINGS.themeBuilder.subcategories.checkbox]: ["checkboxCheckedBackgroundColor", "checkboxCheckedBorderColor"],
+    [UI_STRINGS.themeBuilder.subcategories.editor]: [
+      "columnEditorBackgroundColor",
+      "columnEditorPopoutBackgroundColor",
+      "editableCellFocusBorderColor",
+    ],
+    [UI_STRINGS.themeBuilder.subcategories.interactiveElements]: ["draggingBackgroundColor", "resizeHandleColor"],
+    [UI_STRINGS.themeBuilder.subcategories.background]: [
+      "footerBackgroundColor",
+      "headerBackgroundColor",
+      "scrollbarBgColor",
+      "scrollbarThumbColor",
+    ],
   };
 
   // Custom expand icon for Collapse
@@ -229,63 +261,76 @@ const ThemeBuilder: React.FC = () => {
   };
 
   return (
-    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-      <h1 className="text-3xl font-bold text-gray-900 mb-8">Theme Builder</h1>
-      <div className="grid md:grid-cols-12 gap-8">
-        {/* Left Column: Theme Options */}
-        <div className="flex flex-col md:col-span-4 space-y-6 sticky top-0 self-start">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Settings</h2>
-          <Collapse defaultActiveKey={["Colors"]} expandIcon={expandIcon} className="border-none">
-            {Object.entries(themeCategories).map(([category, keys]) => (
-              <Panel header={category} key={category} className="mb-2">
-                {category === "Colors" ? (
-                  <div className="space-y-6">
-                    {Object.entries(colorSubcategories).map(([subcategory, subKeys], subIndex) => (
-                      <div key={subcategory} className={subIndex !== 0 ? "pt-6 border-t-2 border-gray-200" : ""}>
-                        <div className="text-sm font-semibold text-gray-800 mb-3">{subcategory}</div>
-                        <div className="space-y-4">
-                          {subKeys.map((key, index) => (
-                            <div key={key} className={index !== 0 ? "pt-4 border-t border-gray-100" : ""}>
-                              <label className="block text-sm font-medium text-gray-700 mb-2">
-                                {shortenLabel(key)}
-                              </label>
-                              <ColorPicker value={theme[key].toString()} onChange={handleColorChange(key)} />
-                            </div>
-                          ))}
+    <>
+      <SEO
+        title={SEO_STRINGS.themeBuilder.title}
+        description={SEO_STRINGS.themeBuilder.description}
+        keywords={SEO_STRINGS.themeBuilder.keywords}
+        canonicalUrl="/theme-builder"
+      />
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <h1 className="text-3xl font-bold text-gray-900 mb-8">{UI_STRINGS.themeBuilder.title}</h1>
+        <div className="grid md:grid-cols-12 gap-8">
+          {/* Left Column: Theme Options */}
+          <div className="flex flex-col md:col-span-4 space-y-6 sticky top-0 self-start">
+            <h2 className="text-xl font-semibold text-gray-900 mb-4">{UI_STRINGS.themeBuilder.sections.settings}</h2>
+            <Collapse
+              defaultActiveKey={[UI_STRINGS.themeBuilder.categories.colors]}
+              expandIcon={expandIcon}
+              className="border-none"
+            >
+              {Object.entries(themeCategories).map(([category, keys]) => (
+                <Panel header={category} key={category} className="mb-2">
+                  {category === UI_STRINGS.themeBuilder.categories.colors ? (
+                    <div className="space-y-6">
+                      {Object.entries(colorSubcategories).map(([subcategory, subKeys], subIndex) => (
+                        <div key={subcategory} className={subIndex !== 0 ? "pt-6 border-t-2 border-gray-200" : ""}>
+                          <div className="text-sm font-semibold text-gray-800 mb-3">{subcategory}</div>
+                          <div className="space-y-4">
+                            {subKeys.map((key, index) => (
+                              <div key={key} className={index !== 0 ? "pt-4 border-t border-gray-100" : ""}>
+                                <label className="block text-sm font-medium text-gray-700 mb-2">
+                                  {shortenLabel(key)}
+                                </label>
+                                <ColorPicker value={theme[key].toString()} onChange={handleColorChange(key)} />
+                              </div>
+                            ))}
+                          </div>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                ) : (
-                  <div className="space-y-4">
-                    {keys.map((key, index) => (
-                      <div key={key} className={index !== 0 ? "pt-4 border-t border-gray-100" : ""}>
-                        <label className="block text-sm font-medium text-gray-700 mb-2">{shortenLabel(key)}</label>
-                        {key.includes("Color") ? (
-                          <ColorPicker value={theme[key].toString()} onChange={handleColorChange(key)} />
-                        ) : (
-                          <Input value={theme[key]} onChange={(e) => handleValueChange(key)(e.target.value)} />
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </Panel>
-            ))}
-          </Collapse>
-          <Button className="mt-6 w-full" type="primary" onClick={downloadCSS}>
-            Download Theme
-          </Button>
-        </div>
-        {/* Right Column: Live Preview (Wider) */}
-        <div className="md:col-span-8">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Live Preview</h2>
-          <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm sticky top-20">
-            <RowGroupingExample />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="space-y-4">
+                      {keys.map((key, index) => (
+                        <div key={key} className={index !== 0 ? "pt-4 border-t border-gray-100" : ""}>
+                          <label className="block text-sm font-medium text-gray-700 mb-2">{shortenLabel(key)}</label>
+                          {key.includes("Color") ? (
+                            <ColorPicker value={theme[key].toString()} onChange={handleColorChange(key)} />
+                          ) : (
+                            <Input value={theme[key]} onChange={(e) => handleValueChange(key)(e.target.value)} />
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </Panel>
+              ))}
+            </Collapse>
+            <Button className="mt-6 w-full" type="primary" onClick={downloadCSS}>
+              {UI_STRINGS.common.download} {UI_STRINGS.common.theme}
+            </Button>
+          </div>
+          {/* Right Column: Live Preview (Wider) */}
+          <div className="md:col-span-8">
+            <h2 className="text-lg font-semibold text-gray-900 mb-4">{UI_STRINGS.themeBuilder.sections.livePreview}</h2>
+            <div className="border border-gray-200 rounded-lg p-4 bg-gray-50 shadow-sm sticky top-20">
+              <RowGroupingExample />
+            </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

@@ -6,6 +6,8 @@ import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns
 import { motion } from "framer-motion";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick } from "../utils/analytics";
+import SEO from "../components/SEO";
+import { SEO_STRINGS, UI_STRINGS, TECHNICAL_STRINGS } from "../constants/strings";
 
 const Home = () => {
   // Animation variants
@@ -34,22 +36,22 @@ const Home = () => {
   // Map icons to feature titles
   const getFeatureIcon = (title: string) => {
     const iconMap = {
-      "Highly Customizable": faTable,
-      "Cell Editing": faEdit,
-      "Column Management": faColumns,
-      Pagination: faList,
-      "Infinite Scroll": faScroll,
-      "Performance Optimized": faRocket,
+      [UI_STRINGS.home.features.highlyCustomizable.title]: faTable,
+      [UI_STRINGS.home.features.cellEditing.title]: faEdit,
+      [UI_STRINGS.home.features.columnManagement.title]: faColumns,
+      [UI_STRINGS.home.features.pagination.title]: faList,
+      [UI_STRINGS.home.features.infiniteScroll.title]: faScroll,
+      [UI_STRINGS.home.features.performanceOptimized.title]: faRocket,
     };
     return iconMap[title as keyof typeof iconMap] || faTable;
   };
 
   const handleDemoClick = () => {
-    trackButtonClick("Live Demo", "Homepage Hero");
+    trackButtonClick(UI_STRINGS.common.liveDemo, "Homepage Hero");
   };
 
   const handleGetStartedClick = () => {
-    trackButtonClick("Get Started", "Homepage Hero");
+    trackButtonClick(UI_STRINGS.common.getStarted, "Homepage Hero");
   };
 
   const handleFeatureClick = (featureTitle: string) => {
@@ -58,6 +60,13 @@ const Home = () => {
 
   return (
     <>
+      <SEO
+        title={SEO_STRINGS.home.title}
+        description={SEO_STRINGS.home.description}
+        keywords={SEO_STRINGS.home.keywords}
+        canonicalUrl="/"
+      />
+
       {/* Page-wide animated background */}
       <AnimatedBackground />
 
@@ -77,7 +86,7 @@ const Home = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              Simple Table
+              {UI_STRINGS.home.hero.title}
             </motion.h1>
 
             <motion.p
@@ -86,8 +95,7 @@ const Home = () => {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              A powerful yet lightweight React grid component that brings beautiful data visualization to your
-              applications
+              {UI_STRINGS.home.hero.subtitle}
             </motion.p>
 
             <motion.div
@@ -99,23 +107,23 @@ const Home = () => {
               <Button
                 type="primary"
                 size="large"
-                href="https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d"
+                href={TECHNICAL_STRINGS.links.demo}
                 target="_blank"
                 onClick={handleDemoClick}
                 className="hover:scale-105 transition-transform"
               >
-                Live Demo
+                {UI_STRINGS.common.liveDemo}
               </Button>
 
               <Button
                 size="large"
-                href="https://www.npmjs.com/package/simple-table-core"
+                href={TECHNICAL_STRINGS.links.npm}
                 target="_blank"
                 onClick={handleGetStartedClick}
                 className="hover:scale-105 transition-transform"
               >
                 <FontAwesomeIcon icon={faNpm} className="mr-2" />
-                Get Started
+                {UI_STRINGS.common.getStarted}
               </Button>
             </motion.div>
           </motion.div>
@@ -139,14 +147,7 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {[
-            { title: "Highly Customizable", desc: "Fully customizable appearance with CSS variables and themes" },
-            { title: "Cell Editing", desc: "Built-in support for editable cells with controlled state" },
-            { title: "Column Management", desc: "Resize, reorder, pin, and hide columns with intuitive UI" },
-            { title: "Pagination", desc: "Built-in pagination with customizable controls" },
-            { title: "Infinite Scroll", desc: "Alternative to pagination for large datasets" },
-            { title: "Performance Optimized", desc: "Efficiently renders thousands of rows and columns" },
-          ].map((feature) => (
+          {Object.values(UI_STRINGS.home.features).map((feature) => (
             <motion.div
               key={feature.title}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
@@ -160,7 +161,7 @@ const Home = () => {
                 </div>
                 <h3 className="text-lg font-semibold text-gray-800">{feature.title}</h3>
               </div>
-              <p className="text-gray-600">{feature.desc}</p>
+              <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
         </motion.section>
@@ -180,7 +181,7 @@ const Home = () => {
             transition={{ delay: 0.2 }}
             viewport={{ once: true }}
           >
-            Get Started
+            {UI_STRINGS.common.getStarted}
           </motion.h2>
 
           <motion.div
@@ -191,7 +192,7 @@ const Home = () => {
             viewport={{ once: true }}
             whileHover={{ scale: 1.03 }}
           >
-            <code className="text-sm text-gray-800">npm install simple-table-core</code>
+            <code className="text-sm text-gray-800">{TECHNICAL_STRINGS.installation.npm}</code>
           </motion.div>
         </motion.section>
       </div>
