@@ -19,7 +19,6 @@ import {
   faPaintBrush,
 } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
-import { SEO_STRINGS } from "../../constants/strings/seo";
 import { trackLinkClick } from "../../utils/analytics";
 
 // Demo card component for consistent styling

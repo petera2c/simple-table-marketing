@@ -30,7 +30,7 @@ import CellRendererPage from "./pages/docs/CellRendererPage";
 // Import demo pages
 import DemosLayout from "./pages/demos/DemosLayout.tsx";
 import DemosPage from "./pages/demos/DemosPage.tsx";
-import ColumnSortingDemo from "./pages/demos/ColumnSortingDemo.tsx";
+import ColumnSortingDemo from "./demos/examples/column-sorting/ColumnSortingDemo.tsx";
 
 ReactGA.initialize("G-HS01JZP3DM");
 

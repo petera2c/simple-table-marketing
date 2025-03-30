@@ -296,11 +296,17 @@
   .top-\[84px\] {
     top: 84px;
   }
+  .top-\[200px\] {
+    top: 200px;
+  }
   .right-6 {
     right: calc(var(--spacing) * 6);
   }
   .bottom-4 {
     bottom: calc(var(--spacing) * 4);
+  }
+  .bottom-\[4rem\] {
+    bottom: 4rem;
   }
   .left-0 {
     left: calc(var(--spacing) * 0);
@@ -479,11 +485,26 @@
   .h-\[calc\(100\%-4rem\)\] {
     height: calc(100% - 4rem);
   }
+  .h-\[calc\(100\%-84px-4rem\)\] {
+    height: calc(100% - 84px - 4rem);
+  }
+  .h-\[calc\(100dvh\)\] {
+    height: calc(100dvh);
+  }
+  .h-\[calc\(100dvh-84px-4rem\)\] {
+    height: calc(100dvh - 84px - 4rem);
+  }
   .h-\[calc\(100vh-72px\)\] {
     height: calc(100vh - 72px);
   }
   .h-\[calc\(100vh-84px-4rem\)\] {
     height: calc(100vh - 84px - 4rem);
+  }
+  .h-\[calc\(100vh-84px-6rem\)\] {
+    height: calc(100vh - 84px - 6rem);
+  }
+  .h-\[calc\(100vh-84px-8rem\)\] {
+    height: calc(100vh - 84px - 8rem);
   }
   .h-\[calc\(100vh-90px\)\] {
     height: calc(100vh - 90px);
@@ -499,6 +520,9 @@
   }
   .h-\[calc\(100vh-600px\)\] {
     height: calc(100vh - 600px);
+  }
+  .h-\[calc\(dvh-84px-4rem\)\] {
+    height: calc(dvh - 84px - 4rem);
   }
   .h-auto {
     height: auto;
@@ -945,6 +969,9 @@
   }
   .bg-red-100 {
     background-color: var(--color-red-100);
+  }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
   }
   .bg-sky-400\/30 {
     background-color: color-mix(in oklab, var(--color-sky-400) 30%, transparent);
