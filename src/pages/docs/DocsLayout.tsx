@@ -45,6 +45,7 @@ const docSections = [
     label: "Column Features",
     icon: faColumns,
     subsections: [
+      { id: "columns-overview", label: "Overview", path: "/docs/columns" },
       { id: "column-properties", label: "Column Properties", path: "/docs/column-properties" },
       { id: "column-resizing", label: "Column Resizing", path: "/docs/column-resizing" },
       { id: "column-visibility", label: "Column Visibility", path: "/docs/column-visibility" },
@@ -54,10 +55,19 @@ const docSections = [
     ],
   },
   {
+    id: "cells",
+    label: "Cell Features",
+    icon: faEdit,
+    subsections: [
+      { id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" },
+      { id: "cell-highlighting", label: "Cell Highlighting", path: "/docs/cell-highlighting" },
+    ],
+  },
+  {
     id: "core-concepts",
     label: "Core Concepts",
     icon: faBook,
-    subsections: [{ id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" }],
+    subsections: [],
   },
   {
     id: "advanced-features",
@@ -94,6 +104,7 @@ const subsectionIcons: Record<string, any> = {
   "column-alignment": faAlignLeft,
   "column-sorting": faSort,
   "cell-editing": faEdit,
+  "cell-highlighting": faEdit,
   "row-grouping": faLayerGroup,
   pagination: faPager,
   responsive: faExpand,

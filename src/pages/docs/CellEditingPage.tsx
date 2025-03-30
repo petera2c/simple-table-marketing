@@ -392,7 +392,7 @@ const headers = [
           transition={{ duration: 0.5, delay: 1.1 }}
         >
           <a
-            href="/docs/column-features"
+            href="/docs/column-sorting"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -404,14 +404,14 @@ const headers = [
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Management
+            Previous: Column Sorting
           </a>
 
           <a
-            href="/docs/column-sorting"
+            href="/docs/cell-highlighting"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Sorting
+            Next: Cell Highlighting
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

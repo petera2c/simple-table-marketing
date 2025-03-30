@@ -24,6 +24,7 @@ import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
 import ColumnPinningPage from "./pages/docs/ColumnPinningPage";
 import ColumnAlignmentPage from "./pages/docs/ColumnAlignmentPage";
 import ColumnSortingPage from "./pages/docs/ColumnSortingPage";
+import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 
 ReactGA.initialize("G-HS01JZP3DM");
 
@@ -53,6 +54,7 @@ function App() {
 
                   {/* Other routes */}
                   <Route path="cell-editing" element={<CellEditingPage />} />
+                  <Route path="cell-highlighting" element={<CellHighlightingPage />} />
                   <Route path="sorting-filtering" element={<Navigate to="/docs/column-sorting" replace />} />
                   <Route path="pagination" element={<PaginationPage />} />
                   <Route path="responsive" element={<UnderConstruction />} />
