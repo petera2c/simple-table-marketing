@@ -136,10 +136,6 @@ const CellSelectionExample = () => {
   rows={rows}
   selectableCells={true}
   selectableColumns={true} // Enable column selection
-  onColumnSelect={(columnAccessor, isSelected) => {
-    console.log('Column selected:', columnAccessor);
-    console.log('Is selected:', isSelected);
-  }}
 />`}</code>
             </pre>
           </div>

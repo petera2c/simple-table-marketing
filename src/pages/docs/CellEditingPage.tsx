@@ -134,7 +134,7 @@ const BasicEditingExample = () => {
       defaultHeaders={headers}
       rows={rows}
       enableEditing={true}
-      onCellEdit={handleCellEdit}
+      onCellChange={handleCellEdit}
     />
   );
 };`}</code>
@@ -196,7 +196,7 @@ const BasicEditingExample = () => {
   rows={rows}
   enableEditing={true}
   editMode="dblclick"  // Change this to your preferred mode
-  onCellEdit={handleCellEdit}
+  onCellChange={handleCellEdit}
 />`}</code>
             </pre>
           </div>

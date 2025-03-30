@@ -13,7 +13,6 @@ import {
   faPager,
   faTableCells,
   faRocket,
-  faBook,
   faPuzzlePiece,
   faChevronDown,
   faChevronRight,
@@ -23,7 +22,6 @@ import {
   faThumbtack,
   faAlignLeft,
   faCopy,
-  faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import AnimatedBackground from "../../components/AnimatedBackground";

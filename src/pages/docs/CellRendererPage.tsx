@@ -33,9 +33,9 @@ const CellRendererPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table allows you to customize how each cell is rendered using the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> property. This gives you
-          complete control over the appearance and behavior of your table cells.
+          Simple Table allows you to customize how cells are rendered using the{" "}
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> property defined on each
+          column. This gives you complete control over the appearance and behavior of individual columns in your table.
         </motion.p>
 
         {/* Basic Usage Section */}
@@ -55,7 +55,8 @@ const CellRendererPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> is a function that
+            Each column in your table can have its own{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> function. This function
             receives information about the cell and returns either a ReactNode or a string to be rendered in the cell.
           </p>
 
@@ -65,11 +66,52 @@ const CellRendererPage = () => {
 import { SimpleTable } from 'simple-table';
 
 const CellRendererExample = () => {
+  // Define headers with custom cell renderers
   const headers = [
-    { label: 'ID', accessor: 'id', width: 80 },
-    { label: 'Name', accessor: 'name', width: 180 },
-    { label: 'Status', accessor: 'status', width: 120 },
-    { label: 'Progress', accessor: 'progress', width: 150 }
+    { 
+      label: 'ID', 
+      accessor: 'id', 
+      width: 80 
+    },
+    { 
+      label: 'Name', 
+      accessor: 'name', 
+      width: 180 
+    },
+    { 
+      label: 'Status', 
+      accessor: 'status', 
+      width: 120,
+      // Custom renderer for the Status column
+      cellRenderer: ({ accessor, colIndex, row }) => {
+        const value = row.rowData[accessor];
+        const isActive = value === 'active';
+        return (
+          <span className={\`px-2 py-1 rounded \${
+            isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+          }\`}>
+            {value}
+          </span>
+        );
+      }
+    },
+    { 
+      label: 'Progress', 
+      accessor: 'progress', 
+      width: 150,
+      // Custom renderer for the Progress column
+      cellRenderer: ({ accessor, colIndex, row }) => {
+        const value = row.rowData[accessor];
+        return (
+          <div className="w-full bg-gray-200 rounded-full h-2.5">
+            <div 
+              className="bg-blue-600 h-2.5 rounded-full" 
+              style={{ width: \`\${value}%\` }}
+            ></div>
+          </div>
+        );
+      }
+    }
   ];
 
   const rows = [
@@ -78,41 +120,10 @@ const CellRendererExample = () => {
     { id: 3, name: 'Bob Johnson', status: 'active', progress: 100 }
   ];
 
-  // Custom cell renderer
-  const customCellRenderer = ({ accessor, colIndex, row }) => {
-    // Access the value for this cell
-    const value = row.rowData[accessor];
-    
-    // Render different components based on the column
-    if (accessor === 'status') {
-      const isActive = value === 'active';
-      return (
-        <span className={\`px-2 py-1 rounded \${isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}\`}>
-          {value}
-        </span>
-      );
-    }
-    
-    if (accessor === 'progress') {
-      return (
-        <div className="w-full bg-gray-200 rounded-full h-2.5">
-          <div 
-            className="bg-blue-600 h-2.5 rounded-full" 
-            style={{ width: \`\${value}%\` }}
-          ></div>
-        </div>
-      );
-    }
-    
-    // Default rendering for other columns
-    return String(value);
-  };
-
   return (
     <SimpleTable
       defaultHeaders={headers}
       rows={rows}
-      cellRenderer={customCellRenderer}
     />
   );
 };`}</code>
@@ -121,7 +132,7 @@ const CellRendererExample = () => {
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">cellRenderer Parameters</h3>
-            <p className="text-gray-700 mb-2">The cellRenderer function receives an object with these properties:</p>
+            <p className="text-gray-700 mb-2">Each cellRenderer function receives an object with these properties:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
               <li>
                 <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>: The column accessor
@@ -223,100 +234,12 @@ const CellRendererExample = () => {
           <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">Important Notes</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>Each column can have its own unique renderer</li>
+              <li>Columns without a cellRenderer will display their values as plain text</li>
               <li>Avoid expensive operations in cell renderers as they run frequently</li>
               <li>Consider memoizing complex components to improve performance</li>
-              <li>Cell renderers can access any external data or context as needed</li>
-              <li>
-                For editable cells, coordinate with the{" "}
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code> handlers
-              </li>
             </ul>
           </div>
-        </motion.div>
-
-        {/* Advanced Examples */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          Advanced Examples
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
-        >
-          <p className="text-gray-700 mb-4">
-            Here's an example of a more advanced cell renderer that includes interactive elements and conditional
-            formatting:
-          </p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`// Advanced cell renderer with interactive elements
-const advancedCellRenderer = ({ accessor, colIndex, row }) => {
-  const value = row.rowData[accessor];
-  
-  // Render a user profile cell with avatar
-  if (accessor === 'user') {
-    return (
-      <div className="flex items-center">
-        <img 
-          src={row.rowData.avatar} 
-          alt={value} 
-          className="w-8 h-8 rounded-full mr-2" 
-        />
-        <div>
-          <div className="font-medium">{value}</div>
-          <div className="text-xs text-gray-500">{row.rowData.email}</div>
-        </div>
-      </div>
-    );
-  }
-  
-  // Render an actions column with buttons
-  if (accessor === 'actions') {
-    return (
-      <div className="flex space-x-2">
-        <button 
-          onClick={() => handleEdit(row.rowMeta.rowId)}
-          className="px-2 py-1 bg-blue-100 text-blue-700 rounded hover:bg-blue-200"
-        >
-          Edit
-        </button>
-        <button 
-          onClick={() => handleDelete(row.rowMeta.rowId)}
-          className="px-2 py-1 bg-red-100 text-red-700 rounded hover:bg-red-200"
-        >
-          Delete
-        </button>
-      </div>
-    );
-  }
-  
-  // Conditional formatting based on value
-  if (accessor === 'score') {
-    let color = 'text-gray-800';
-    if (value > 80) color = 'text-green-600 font-bold';
-    else if (value < 40) color = 'text-red-600 font-bold';
-    
-    return <span className={color}>{value}</span>;
-  }
-  
-  // Default rendering for other columns
-  return String(value);
-};`}</code>
-            </pre>
-          </div>
-
-          <p className="text-gray-700 mb-4">
-            With cell renderers, you have complete flexibility to create rich, interactive table cells that can display
-            complex data or provide user interactions.
-          </p>
         </motion.div>
 
         <motion.div
