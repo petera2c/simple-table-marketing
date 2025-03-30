@@ -10,8 +10,11 @@ import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 const Home = () => {
+  const isMobile = useIsMobile();
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -101,7 +104,7 @@ const Home = () => {
             </motion.p>
 
             <motion.div
-              className="flex justify-center gap-4"
+              className={`${isMobile ? "flex flex-col gap-4" : "flex justify-center gap-4"}`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6 }}

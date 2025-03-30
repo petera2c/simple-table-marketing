@@ -25,3 +25,30 @@ body {
   background-image: linear-gradient(to right, rgba(100, 116, 139, 0.05) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(100, 116, 139, 0.05) 1px, transparent 1px);
 }
+
+/* Custom scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(241, 245, 249, 0.5); /* slate-100 with transparency */
+  border-radius: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(148, 163, 184, 0.4); /* slate-400 with transparency */
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(148, 163, 184, 0.6); /* slate-400 with more opacity on hover */
+}
+
+/* Firefox scrollbar styling */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(148, 163, 184, 0.4) #fff;
+}
