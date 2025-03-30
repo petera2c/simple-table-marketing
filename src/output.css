@@ -247,6 +247,9 @@
   .top-\[72px\] {
     top: 72px;
   }
+  .top-\[84px\] {
+    top: 84px;
+  }
   .right-6 {
     right: calc(var(--spacing) * 6);
   }
@@ -393,6 +396,9 @@
   }
   .h-\[calc\(100vh-72px\)\] {
     height: calc(100vh - 72px);
+  }
+  .h-\[calc\(100vh-90px\)\] {
+    height: calc(100vh - 90px);
   }
   .h-\[calc\(100vh-150px\)\] {
     height: calc(100vh - 150px);

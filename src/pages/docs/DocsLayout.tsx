@@ -23,9 +23,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import AnimatedBackground from "../../components/AnimatedBackground";
-import { trackButtonClick, trackLinkClick } from "../../utils/analytics";
-import { UI_STRINGS } from "../../constants/strings/ui";
-import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
+import { trackLinkClick } from "../../utils/analytics";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
 // Define section groups and navigation structure
@@ -161,12 +159,12 @@ const DocsLayout = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
               className={`md:w-72 w-full ${
-                isMobile ? "fixed left-0 top-0 h-full z-40" : "sticky h-[calc(100vh-72px)] mt-6"
+                isMobile ? "fixed left-0 top-0 h-full z-40" : "sticky top-[84px] mb-8 self-start h-[calc(100vh-72px)]"
               }`}
             >
               <div
                 className={`bg-white/90 backdrop-blur-sm ${
-                  isMobile ? "rounded-none pt-16 h-full shadow-xl" : "flex flex-col rounded-xl h-full"
+                  isMobile ? "rounded-none pt-16 h-full shadow-xl" : "flex flex-col rounded-xl h-full overflow-hidden"
                 } shadow-[4px_0_16px_rgba(0,0,0,0.08)] p-1`}
               >
                 <h2 className="text-xl font-bold mb-2 text-blue-600 flex items-center gap-2 pt-3 px-3">
