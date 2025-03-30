@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Button, Tabs } from "antd";
+import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
@@ -9,11 +9,8 @@ import {
   faColumns,
   faEdit,
   faSort,
-  faFilter,
   faLayerGroup,
-  faExpand,
   faPager,
-  faTableCells,
   faGears,
   faRocket,
 } from "@fortawesome/free-solid-svg-icons";

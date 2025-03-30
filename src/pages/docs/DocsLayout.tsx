@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import {
   faTable,
   faCode,
@@ -9,12 +8,10 @@ import {
   faColumns,
   faEdit,
   faSort,
-  faFilter,
   faLayerGroup,
   faExpand,
   faPager,
   faTableCells,
-  faGears,
   faRocket,
   faBook,
   faPuzzlePiece,
@@ -83,33 +80,6 @@ const subsectionIcons: Record<string, any> = {
   theming: faPaintBrush,
   "custom-renderers": faEdit,
 };
-
-const navigationItems = [
-  {
-    heading: "Introduction",
-    items: [{ name: "Getting Started", href: "/docs/getting-started" }],
-  },
-  {
-    heading: "Core Features",
-    items: [
-      { name: "Column Features", href: "/docs/column-features" },
-      { name: "Cell Editing", href: "/docs/cell-editing" },
-      { name: "Sorting & Filtering", href: "/docs/sorting-filtering" },
-      { name: "Pagination", href: "/docs/pagination" },
-    ],
-  },
-  {
-    heading: "Customization",
-    items: [{ name: "Theming & Styling", href: "/docs/theming" }],
-  },
-  {
-    heading: "Advanced Topics",
-    items: [
-      { name: "Accessibility", href: "/docs/accessibility" },
-      { name: "Performance", href: "/docs/performance" },
-    ],
-  },
-];
 
 const DocsLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);

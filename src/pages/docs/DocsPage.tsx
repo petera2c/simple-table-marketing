@@ -6,7 +6,6 @@ import {
   faPencilAlt,
   faSort,
   faPager,
-  faMobile,
   faPalette,
   faUniversalAccess,
   faBolt,
