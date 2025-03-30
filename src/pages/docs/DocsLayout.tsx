@@ -13,7 +13,6 @@ import {
   faPager,
   faTableCells,
   faRocket,
-  faBook,
   faPuzzlePiece,
   faChevronDown,
   faChevronRight,
@@ -45,7 +44,6 @@ const docSections = [
     label: "Column Features",
     icon: faColumns,
     subsections: [
-      { id: "columns-overview", label: "Overview", path: "/docs/columns" },
       { id: "column-properties", label: "Column Properties", path: "/docs/column-properties" },
       { id: "column-resizing", label: "Column Resizing", path: "/docs/column-resizing" },
       { id: "column-visibility", label: "Column Visibility", path: "/docs/column-visibility" },
@@ -64,20 +62,12 @@ const docSections = [
     ],
   },
   {
-    id: "core-concepts",
-    label: "Core Concepts",
-    icon: faBook,
-    subsections: [],
-  },
-  {
     id: "advanced-features",
     label: "Advanced Features",
     icon: faPuzzlePiece,
     subsections: [
       { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping" },
       { id: "pagination", label: "Pagination", path: "/docs/pagination" },
-      { id: "responsive", label: "Responsive Design", path: "/docs/responsive" },
-      { id: "advanced", label: "Advanced Usage", path: "/docs/advanced" },
     ],
   },
   {

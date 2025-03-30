@@ -57,7 +57,7 @@ const CellHighlightingPage = () => {
           <p className="text-gray-700 mb-4">
             Enable users to select individual cells by enabling the{" "}
             <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code> property. This allows
-            users to click on cells to highlight them and use keyboard shortcuts to copy their contents.
+            users to click on cells to highlight them and copy their contents using keyboard shortcuts.
           </p>
 
           <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
@@ -98,9 +98,10 @@ const CellSelectionExample = () => {
             <p className="text-gray-700 mb-2">When cell selection is enabled:</p>
             <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
               <li>Click a cell to select it</li>
-              <li>Hold Shift and click another cell to select a range</li>
-              <li>Hold Ctrl/Cmd and click to select multiple individual cells</li>
-              <li>Press Ctrl/Cmd+C to copy selected cell contents to clipboard</li>
+              <li>Click and drag to select multiple cells in a range</li>
+              <li>Click outside the table or in a non-selected area to clear the selection</li>
+              <li>Copy selected cells with Ctrl+C (Windows) or ⌘+C (Mac)</li>
+              <li>Paste into spreadsheet applications with Ctrl+V (Windows) or ⌘+V (Mac)</li>
               <li>Press Escape to clear the selection</li>
             </ul>
           </div>
@@ -146,8 +147,8 @@ const CellSelectionExample = () => {
           <p className="text-gray-700 mb-4">
             When a user clicks a column header with{" "}
             <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code> enabled, all cells
-            in that column are selected. This is perfect for exporting specific data columns to spreadsheet
-            applications.
+            in that column are selected. Users can then copy the data with Ctrl+C (Windows) or ⌘+C (Mac). This is
+            perfect for exporting specific data columns to spreadsheet applications like Excel or Google Sheets.
           </p>
         </motion.div>
 
@@ -169,8 +170,8 @@ const CellSelectionExample = () => {
         >
           <p className="text-gray-700 mb-4">
             Simple Table's selection features integrate with the browser's copy functionality. When cells are selected,
-            users can press Ctrl/Cmd+C to copy the data in a tab-delimited format that works well with spreadsheet
-            applications like Excel or Google Sheets.
+            users can press Ctrl+C (Windows) or ⌘+C (Mac) to copy the data in a tab-delimited format that works well
+            with spreadsheet applications like Excel or Google Sheets.
           </p>
 
           <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
@@ -202,60 +203,13 @@ const CellSelectionExample = () => {
           <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">Copy/Paste Tips</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>Click and drag to quickly select multiple cells</li>
               <li>Selected cells will be copied in the same structure as they appear in the table</li>
               <li>When pasting into a spreadsheet, the structure will be preserved</li>
               <li>For best results with Excel, use tab as the delimiter (the default)</li>
               <li>You can customize the delimiter for special use cases</li>
             </ul>
           </div>
-        </motion.div>
-
-        {/* Selection Styling */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          Customizing Selection Styles
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
-        >
-          <p className="text-gray-700 mb-4">
-            You can customize the appearance of selected cells and columns to match your application's design:
-          </p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`<SimpleTable
-  defaultHeaders={headers}
-  rows={rows}
-  selectableCells={true}
-  selectableColumns={true}
-  
-  // Custom selection styles
-  selectionStyles={{
-    selectedCell: {
-      backgroundColor: 'rgba(59, 130, 246, 0.2)', // Light blue background
-      border: '1px solid #3b82f6', // Blue border
-    },
-    selectedColumn: {
-      backgroundColor: 'rgba(59, 130, 246, 0.1)', // Lighter blue for column
-    }
-  }}
-/>`}</code>
-            </pre>
-          </div>
-
-          <p className="text-gray-700 mb-4">
-            Customizing selection styles helps provide clear visual feedback to users about what is currently selected,
-            improving the overall usability of your table.
-          </p>
         </motion.div>
 
         <motion.div
