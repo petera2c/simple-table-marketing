@@ -18,7 +18,6 @@ import DocsPage from "./pages/docs/DocsPage";
 import GettingStartedPage from "./pages/docs/GettingStartedPage";
 import SortingFilteringPage from "./pages/docs/SortingFilteringPage";
 import PaginationPage from "./pages/docs/PaginationPage";
-import ResponsivePage from "./pages/docs/ResponsivePage";
 import ThemingPage from "./pages/docs/ThemingPage";
 import AccessibilityPage from "./pages/docs/AccessibilityPage";
 import PerformancePage from "./pages/docs/PerformancePage";
@@ -44,7 +43,6 @@ function App() {
                   <Route path="cell-editing" element={<CellEditingPage />} />
                   <Route path="sorting-filtering" element={<SortingFilteringPage />} />
                   <Route path="pagination" element={<PaginationPage />} />
-                  <Route path="responsive" element={<ResponsivePage />} />
                   <Route path="theming" element={<ThemingPage />} />
                   <Route path="accessibility" element={<AccessibilityPage />} />
                   <Route path="performance" element={<PerformancePage />} />

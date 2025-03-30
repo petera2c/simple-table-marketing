@@ -465,7 +465,7 @@ const materialTheme = {
           transition={{ duration: 0.5, delay: 1.5 }}
         >
           <a
-            href="/docs/responsive"
+            href="/docs/pagination"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -477,7 +477,7 @@ const materialTheme = {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Responsive Design
+            Previous: Pagination
           </a>
 
           <a

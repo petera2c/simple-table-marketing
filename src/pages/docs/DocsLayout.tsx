@@ -55,8 +55,6 @@ const docSections = [
     subsections: [
       { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping" },
       { id: "pagination", label: "Pagination", path: "/docs/pagination" },
-      { id: "responsive", label: "Responsive Design", path: "/docs/responsive" },
-      { id: "advanced", label: "Advanced Usage", path: "/docs/advanced" },
     ],
   },
   {
@@ -102,10 +100,7 @@ const navigationItems = [
   },
   {
     heading: "Customization",
-    items: [
-      { name: "Responsive Design", href: "/docs/responsive" },
-      { name: "Theming & Styling", href: "/docs/theming" },
-    ],
+    items: [{ name: "Theming & Styling", href: "/docs/theming" }],
   },
   {
     heading: "Advanced Topics",

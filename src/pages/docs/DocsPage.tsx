@@ -116,13 +116,6 @@ const DocsPage = () => {
           />
 
           <DocsCard
-            title="Responsive Design"
-            description="Make your tables work beautifully across all devices."
-            link="/docs/responsive"
-            icon={faMobile}
-          />
-
-          <DocsCard
             title="Theming & Styling"
             description="Customize the look and feel of your tables."
             link="/docs/theming"

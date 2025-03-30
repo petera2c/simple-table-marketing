@@ -84,8 +84,6 @@ const Docs = () => {
     { id: "row-grouping", label: "Row Grouping", icon: faLayerGroup },
     { id: "pagination", label: "Pagination", icon: faPager },
     { id: "theming", label: "Theming", icon: faPaintBrush },
-    { id: "responsive", label: "Responsive Design", icon: faExpand },
-    { id: "advanced", label: "Advanced Usage", icon: faTableCells },
   ];
 
   return (
