@@ -13,6 +13,7 @@ import {
   faPager,
   faTableCells,
   faRocket,
+  faBook,
   faPuzzlePiece,
   faChevronDown,
   faChevronRight,
@@ -21,6 +22,8 @@ import {
   faEye,
   faThumbtack,
   faAlignLeft,
+  faCopy,
+  faWrench,
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import AnimatedBackground from "../../components/AnimatedBackground";
@@ -55,10 +58,11 @@ const docSections = [
   {
     id: "cells",
     label: "Cell Features",
-    icon: faEdit,
+    icon: faTableCells,
     subsections: [
       { id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" },
       { id: "cell-highlighting", label: "Cell Highlighting", path: "/docs/cell-highlighting" },
+      { id: "cell-renderer", label: "Cell Renderer", path: "/docs/cell-renderer" },
     ],
   },
   {
@@ -94,7 +98,8 @@ const subsectionIcons: Record<string, any> = {
   "column-alignment": faAlignLeft,
   "column-sorting": faSort,
   "cell-editing": faEdit,
-  "cell-highlighting": faEdit,
+  "cell-highlighting": faCopy,
+  "cell-renderer": faCode,
   "row-grouping": faLayerGroup,
   pagination: faPager,
   responsive: faExpand,

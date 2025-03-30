@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEdit } from "@fortawesome/free-solid-svg-icons";
+import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 
@@ -22,7 +22,7 @@ const CellHighlightingPage = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="p-2 bg-blue-100 rounded-lg">
-            <FontAwesomeIcon icon={faEdit} className="text-blue-600 text-2xl" />
+            <FontAwesomeIcon icon={faCopy} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Cell Highlighting</h1>
         </motion.div>
@@ -235,10 +235,10 @@ const CellSelectionExample = () => {
           </a>
 
           <a
-            href="/docs/row-grouping"
+            href="/docs/cell-renderer"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Row Grouping
+            Next: Cell Renderer
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"
