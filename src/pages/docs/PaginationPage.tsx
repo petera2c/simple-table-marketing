@@ -250,7 +250,7 @@ const ServerPaginationExample = () => {
               <li>Always include a loading indicator to show when data is being fetched</li>
               <li>Provide the total row count from your API for accurate page count calculation</li>
               <li>Consider adding debounce to pagination changes to prevent excessive API calls</li>
-              <li>When using server-side pagination, use server-side sorting and filtering as well for consistency</li>
+              <li>When using server-side pagination, use server-side sorting as well for consistency</li>
             </ul>
           </div>
         </motion.div>
@@ -409,7 +409,7 @@ const CustomPagination = ({
           transition={{ duration: 0.5, delay: 1.1 }}
         >
           <a
-            href="/docs/sorting-filtering"
+            href="/docs/column-sorting"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg

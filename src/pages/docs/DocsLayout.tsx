@@ -17,6 +17,11 @@ import {
   faPuzzlePiece,
   faChevronDown,
   faChevronRight,
+  faList,
+  faArrowsAlt,
+  faEye,
+  faThumbtack,
+  faAlignLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { Outlet, useLocation, NavLink } from "react-router-dom";
 import AnimatedBackground from "../../components/AnimatedBackground";
@@ -36,14 +41,24 @@ const docSections = [
     ],
   },
   {
+    id: "columns",
+    label: "Column Features",
+    icon: faColumns,
+    subsections: [
+      { id: "columns-overview", label: "Overview", path: "/docs/columns" },
+      { id: "column-properties", label: "Column Properties", path: "/docs/column-properties" },
+      { id: "column-resizing", label: "Column Resizing", path: "/docs/column-resizing" },
+      { id: "column-visibility", label: "Column Visibility", path: "/docs/column-visibility" },
+      { id: "column-pinning", label: "Column Pinning", path: "/docs/column-pinning" },
+      { id: "column-alignment", label: "Column Alignment", path: "/docs/column-alignment" },
+      { id: "column-sorting", label: "Column Sorting", path: "/docs/column-sorting" },
+    ],
+  },
+  {
     id: "core-concepts",
     label: "Core Concepts",
     icon: faBook,
-    subsections: [
-      { id: "column-features", label: "Column Management", path: "/docs/column-features" },
-      { id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" },
-      { id: "sorting-filtering", label: "Sorting & Filtering", path: "/docs/sorting-filtering" },
-    ],
+    subsections: [{ id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" }],
   },
   {
     id: "advanced-features",
@@ -52,6 +67,8 @@ const docSections = [
     subsections: [
       { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping" },
       { id: "pagination", label: "Pagination", path: "/docs/pagination" },
+      { id: "responsive", label: "Responsive Design", path: "/docs/responsive" },
+      { id: "advanced", label: "Advanced Usage", path: "/docs/advanced" },
     ],
   },
   {
@@ -70,9 +87,14 @@ const subsectionIcons: Record<string, any> = {
   installation: faCode,
   "quick-start": faRocket,
   "basic-usage": faTable,
-  "column-features": faColumns,
+  columns: faColumns,
+  "column-properties": faList,
+  "column-resizing": faArrowsAlt,
+  "column-visibility": faEye,
+  "column-pinning": faThumbtack,
+  "column-alignment": faAlignLeft,
+  "column-sorting": faSort,
   "cell-editing": faEdit,
-  "sorting-filtering": faSort,
   "row-grouping": faLayerGroup,
   pagination: faPager,
   responsive: faExpand,
@@ -93,7 +115,9 @@ const DocsLayout = () => {
     const initialExpandedState: Record<string, boolean> = {};
 
     docSections.forEach((section) => {
+      // Check if this section is active based on current pathname
       const isActive = section.subsections.some((subsection) => subsection.path === location.pathname);
+
       initialExpandedState[section.id] = isMobile ? isActive : true;
     });
 

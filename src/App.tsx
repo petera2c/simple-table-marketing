@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Header from "./components/Header.tsx";
 import Footer from "./components/Footer.tsx";
 import Home from "./pages/HomePage.tsx";
@@ -11,16 +11,21 @@ import { HelmetProvider } from "react-helmet-async";
 import InstallationPage from "./pages/docs/InstallationPage.tsx";
 import BasicUsagePage from "./pages/docs/BasicUsagePage.tsx";
 import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
-import UnderConstruction from "./components/UnderConstruction.tsx";
-import ColumnFeaturesPage from "./pages/docs/ColumnFeaturesPage";
+import UnderConstruction from "./components/UnderConstruction";
 import CellEditingPage from "./pages/docs/CellEditingPage";
 import DocsPage from "./pages/docs/DocsPage";
 import GettingStartedPage from "./pages/docs/GettingStartedPage";
-import SortingFilteringPage from "./pages/docs/SortingFilteringPage";
 import PaginationPage from "./pages/docs/PaginationPage";
 import ThemingPage from "./pages/docs/ThemingPage";
 import AccessibilityPage from "./pages/docs/AccessibilityPage";
 import PerformancePage from "./pages/docs/PerformancePage";
+import ColumnsPage from "./pages/docs/ColumnsPage";
+import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
+import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
+import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
+import ColumnPinningPage from "./pages/docs/ColumnPinningPage";
+import ColumnAlignmentPage from "./pages/docs/ColumnAlignmentPage";
+import ColumnSortingPage from "./pages/docs/ColumnSortingPage";
 
 ReactGA.initialize("G-HS01JZP3DM");
 
@@ -39,16 +44,28 @@ function App() {
                 <Route path="/docs" element={<DocsLayout />}>
                   <Route index element={<DocsPage />} />
                   <Route path="getting-started" element={<GettingStartedPage />} />
-                  <Route path="column-features" element={<ColumnFeaturesPage />} />
+
+                  {/* Column feature routes */}
+                  <Route path="columns" element={<ColumnsPage />} />
+                  <Route path="column-properties" element={<ColumnPropertiesPage />} />
+                  <Route path="column-resizing" element={<ColumnResizingPage />} />
+                  <Route path="column-visibility" element={<ColumnVisibilityPage />} />
+                  <Route path="column-pinning" element={<ColumnPinningPage />} />
+                  <Route path="column-alignment" element={<ColumnAlignmentPage />} />
+                  <Route path="column-sorting" element={<ColumnSortingPage />} />
+
+                  {/* Other routes */}
                   <Route path="cell-editing" element={<CellEditingPage />} />
-                  <Route path="sorting-filtering" element={<SortingFilteringPage />} />
+                  <Route path="sorting-filtering" element={<Navigate to="/docs/column-sorting" replace />} />
                   <Route path="pagination" element={<PaginationPage />} />
+                  <Route path="responsive" element={<UnderConstruction />} />
                   <Route path="theming" element={<ThemingPage />} />
                   <Route path="accessibility" element={<AccessibilityPage />} />
                   <Route path="performance" element={<PerformancePage />} />
                   <Route path="installation" element={<InstallationPage />} />
                   <Route path="quick-start" element={<QuickStartPage />} />
                   <Route path="basic-usage" element={<BasicUsagePage />} />
+                  <Route path="advanced" element={<UnderConstruction />} />
                   <Route path="*" element={<UnderConstruction />} />
                 </Route>
 

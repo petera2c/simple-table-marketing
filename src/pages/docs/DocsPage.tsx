@@ -101,9 +101,9 @@ const DocsPage = () => {
           />
 
           <DocsCard
-            title="Sorting & Filtering"
-            description="Implement sorting and filtering options for your data."
-            link="/docs/sorting-filtering"
+            title="Column Sorting"
+            description="Implement sorting options for your table columns."
+            link="/docs/column-sorting"
             icon={faSort}
           />
 
