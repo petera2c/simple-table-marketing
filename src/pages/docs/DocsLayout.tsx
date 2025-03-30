@@ -43,7 +43,6 @@ const docSections = [
     label: "Core Concepts",
     icon: faBook,
     subsections: [
-      { id: "props", label: "Props Reference", path: "/docs/props" },
       { id: "column-features", label: "Column Management", path: "/docs/column-features" },
       { id: "cell-editing", label: "Cell Editing", path: "/docs/cell-editing" },
       { id: "sorting-filtering", label: "Sorting & Filtering", path: "/docs/sorting-filtering" },
@@ -76,7 +75,6 @@ const subsectionIcons: Record<string, any> = {
   installation: faCode,
   "quick-start": faRocket,
   "basic-usage": faTable,
-  props: faGears,
   "column-features": faColumns,
   "cell-editing": faEdit,
   "sorting-filtering": faSort,
@@ -87,6 +85,36 @@ const subsectionIcons: Record<string, any> = {
   theming: faPaintBrush,
   "custom-renderers": faEdit,
 };
+
+const navigationItems = [
+  {
+    heading: "Introduction",
+    items: [{ name: "Getting Started", href: "/docs/getting-started" }],
+  },
+  {
+    heading: "Core Features",
+    items: [
+      { name: "Column Features", href: "/docs/column-features" },
+      { name: "Cell Editing", href: "/docs/cell-editing" },
+      { name: "Sorting & Filtering", href: "/docs/sorting-filtering" },
+      { name: "Pagination", href: "/docs/pagination" },
+    ],
+  },
+  {
+    heading: "Customization",
+    items: [
+      { name: "Responsive Design", href: "/docs/responsive" },
+      { name: "Theming & Styling", href: "/docs/theming" },
+    ],
+  },
+  {
+    heading: "Advanced Topics",
+    items: [
+      { name: "Accessibility", href: "/docs/accessibility" },
+      { name: "Performance", href: "/docs/performance" },
+    ],
+  },
+];
 
 const DocsLayout = () => {
   const [sidebarOpen, setSidebarOpen] = useState(true);
@@ -159,7 +187,9 @@ const DocsLayout = () => {
               animate={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.3 }}
               className={`md:w-72 w-full ${
-                isMobile ? "fixed left-0 top-0 h-full z-40" : "sticky top-[84px] mb-8 self-start h-[calc(100vh-72px)]"
+                isMobile
+                  ? "fixed left-0 top-0 h-full z-40"
+                  : "sticky top-[84px] mb-6 self-start h-[calc(100vh-84px-4rem)]"
               }`}
             >
               <div

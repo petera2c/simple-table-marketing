@@ -5,13 +5,23 @@ import Home from "./pages/HomePage.tsx";
 import ThemeBuilder from "./pages/ThemeBuilderPage.tsx";
 import NotFound from "./pages/NotFoundPage.tsx";
 import DocsLayout from "./pages/docs/DocsLayout.tsx";
-import DocsIndex from "./pages/docs/index.tsx";
-import InstallationPage from "./pages/docs/InstallationPage.tsx";
-import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
-import UnderConstruction from "./components/UnderConstruction.tsx";
 import ReactGA from "react-ga4";
 import RouteContainer from "./components/RouteContainer.tsx";
 import { HelmetProvider } from "react-helmet-async";
+import InstallationPage from "./pages/docs/InstallationPage.tsx";
+import BasicUsagePage from "./pages/docs/BasicUsagePage.tsx";
+import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
+import UnderConstruction from "./components/UnderConstruction.tsx";
+import ColumnFeaturesPage from "./pages/docs/ColumnFeaturesPage";
+import CellEditingPage from "./pages/docs/CellEditingPage";
+import DocsPage from "./pages/docs/DocsPage";
+import GettingStartedPage from "./pages/docs/GettingStartedPage";
+import SortingFilteringPage from "./pages/docs/SortingFilteringPage";
+import PaginationPage from "./pages/docs/PaginationPage";
+import ResponsivePage from "./pages/docs/ResponsivePage";
+import ThemingPage from "./pages/docs/ThemingPage";
+import AccessibilityPage from "./pages/docs/AccessibilityPage";
+import PerformancePage from "./pages/docs/PerformancePage";
 
 ReactGA.initialize("G-HS01JZP3DM");
 
@@ -27,13 +37,20 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
 
-                {/* Docs routes */}
                 <Route path="/docs" element={<DocsLayout />}>
-                  <Route index element={<DocsIndex />} />
+                  <Route index element={<DocsPage />} />
+                  <Route path="getting-started" element={<GettingStartedPage />} />
+                  <Route path="column-features" element={<ColumnFeaturesPage />} />
+                  <Route path="cell-editing" element={<CellEditingPage />} />
+                  <Route path="sorting-filtering" element={<SortingFilteringPage />} />
+                  <Route path="pagination" element={<PaginationPage />} />
+                  <Route path="responsive" element={<ResponsivePage />} />
+                  <Route path="theming" element={<ThemingPage />} />
+                  <Route path="accessibility" element={<AccessibilityPage />} />
+                  <Route path="performance" element={<PerformancePage />} />
                   <Route path="installation" element={<InstallationPage />} />
                   <Route path="quick-start" element={<QuickStartPage />} />
-                  {/* Add more doc pages here as they are created */}
-                  {/* Show "page under construction" for all other doc pages */}
+                  <Route path="basic-usage" element={<BasicUsagePage />} />
                   <Route path="*" element={<UnderConstruction />} />
                 </Route>
 
