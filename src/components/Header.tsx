@@ -71,15 +71,15 @@ const Header = () => {
             >
               Theme Builder
             </NavLink>
-            <a
-              href="https://docs.simple-table.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleNavClick("Demos", "https://docs.simple-table.com/")}
-              className="text-gray-600 hover:text-blue-600 transition-colors"
+            <NavLink
+              to="/demos"
+              onClick={() => handleNavClick("Demos", "/demos")}
+              className={({ isActive }) =>
+                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
+              }
             >
               Demos
-            </a>
+            </NavLink>
           </div>
         </div>
 
@@ -126,15 +126,19 @@ const Header = () => {
               >
                 Theme Builder
               </NavLink>
-              <a
-                href="https://docs.simple-table.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleNavClick("Demos", "https://docs.simple-table.com/")}
-                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors"
+              <NavLink
+                to="/demos"
+                onClick={() => handleNavClick("Demos", "/demos")}
+                className={({ isActive }) =>
+                  `px-3 py-2 rounded-md text-base ${
+                    isActive
+                      ? "bg-blue-50 text-blue-600 font-medium"
+                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                  } transition-colors`
+                }
               >
                 Demos
-              </a>
+              </NavLink>
             </div>
           </div>
         )}

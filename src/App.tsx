@@ -27,6 +27,11 @@ import ColumnSortingPage from "./pages/docs/ColumnSortingPage";
 import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
 
+// Import demo pages
+import DemosLayout from "./pages/demos/DemosLayout.tsx";
+import DemosPage from "./pages/demos/DemosPage.tsx";
+import ColumnSortingDemo from "./pages/demos/ColumnSortingDemo.tsx";
+
 ReactGA.initialize("G-HS01JZP3DM");
 
 function App() {
@@ -67,6 +72,31 @@ function App() {
                   <Route path="quick-start" element={<QuickStartPage />} />
                   <Route path="basic-usage" element={<BasicUsagePage />} />
                   <Route path="advanced" element={<UnderConstruction />} />
+                  <Route path="*" element={<UnderConstruction />} />
+                </Route>
+
+                {/* Demos Routes */}
+                <Route path="/demos" element={<DemosLayout />}>
+                  <Route index element={<DemosPage />} />
+
+                  {/* Column feature demos */}
+                  <Route path="column-properties" element={<UnderConstruction />} />
+                  <Route path="column-resizing" element={<UnderConstruction />} />
+                  <Route path="column-visibility" element={<UnderConstruction />} />
+                  <Route path="column-pinning" element={<UnderConstruction />} />
+                  <Route path="column-alignment" element={<UnderConstruction />} />
+                  <Route path="column-sorting" element={<ColumnSortingDemo />} />
+
+                  {/* Cell feature demos */}
+                  <Route path="cell-editing" element={<UnderConstruction />} />
+                  <Route path="cell-highlighting" element={<UnderConstruction />} />
+                  <Route path="cell-renderer" element={<UnderConstruction />} />
+
+                  {/* Advanced feature demos */}
+                  <Route path="row-grouping" element={<UnderConstruction />} />
+                  <Route path="pagination" element={<UnderConstruction />} />
+                  <Route path="theming" element={<UnderConstruction />} />
+
                   <Route path="*" element={<UnderConstruction />} />
                 </Route>
 

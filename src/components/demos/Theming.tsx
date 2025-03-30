@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { generateSpaceData, SPACE_HEADERS } from "../data/space-data";
+import { generateSpaceData, SPACE_HEADERS } from "../../components/demos/data/space-data";
 import { SimpleTable, Theme } from "simple-table-core";
 
 const EXAMPLE_DATA = generateSpaceData();

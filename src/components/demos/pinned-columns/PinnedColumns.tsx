@@ -1,5 +1,5 @@
 import { SimpleTable } from "simple-table-core";
-import { generateRetailSalesData, RETAIL_SALES_HEADERS } from "../../data/retail-data";
+import { generateRetailSalesData, RETAIL_SALES_HEADERS } from "../../../components/demos/data/retail-data";
 
 const EXAMPLE_DATA = generateRetailSalesData();
 const HEADERS = RETAIL_SALES_HEADERS;

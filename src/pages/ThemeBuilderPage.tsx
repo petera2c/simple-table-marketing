@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Button, ColorPicker, Input, Collapse } from "antd";
 import type { Color } from "antd/es/color-picker";
-import RowGroupingExample from "../demos/examples/row-grouping/RowGrouping";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronUp } from "@fortawesome/free-solid-svg-icons";
 import { trackThemeChange, trackDownload } from "../utils/analytics";
@@ -9,6 +8,7 @@ import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+import RowGroupingExample from "../components/demos/row-grouping/RowGrouping";
 
 const { Panel } = Collapse;
 

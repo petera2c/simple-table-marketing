@@ -2,7 +2,6 @@ import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
 import { faTable, faColumns, faEdit, faList, faScroll, faRocket, faLightbulb } from "@fortawesome/free-solid-svg-icons";
-import PinnedColumnsExample from "../demos/examples/pinned-columns/PinnedColumns";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick } from "../utils/analytics";
@@ -11,6 +10,7 @@ import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useIsMobile } from "../hooks/useIsMobile";
+import PinnedColumnsExample from "../components/demos/pinned-columns/PinnedColumns";
 
 const Home = () => {
   const isMobile = useIsMobile();
