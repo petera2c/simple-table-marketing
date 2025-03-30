@@ -13,13 +13,11 @@ import BasicUsagePage from "./pages/docs/BasicUsagePage.tsx";
 import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
 import UnderConstruction from "./components/UnderConstruction";
 import CellEditingPage from "./pages/docs/CellEditingPage";
-import DocsPage from "./pages/docs/DocsPage";
 import GettingStartedPage from "./pages/docs/GettingStartedPage";
 import PaginationPage from "./pages/docs/PaginationPage";
 import ThemingPage from "./pages/docs/ThemingPage";
 import AccessibilityPage from "./pages/docs/AccessibilityPage";
 import PerformancePage from "./pages/docs/PerformancePage";
-import ColumnsPage from "./pages/docs/ColumnsPage";
 import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
 import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
 import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
@@ -42,11 +40,10 @@ function App() {
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
 
                 <Route path="/docs" element={<DocsLayout />}>
-                  <Route index element={<DocsPage />} />
+                  <Route index element={<Navigate to="/docs/getting-started" replace />} />
                   <Route path="getting-started" element={<GettingStartedPage />} />
 
                   {/* Column feature routes */}
-                  <Route path="columns" element={<ColumnsPage />} />
                   <Route path="column-properties" element={<ColumnPropertiesPage />} />
                   <Route path="column-resizing" element={<ColumnResizingPage />} />
                   <Route path="column-visibility" element={<ColumnVisibilityPage />} />
