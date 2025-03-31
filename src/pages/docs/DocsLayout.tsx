@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, NavLink } from "react-router-dom";
 import {
   faTable,
   faCode,
@@ -20,12 +20,32 @@ import {
   faCopy,
   faPalette,
 } from "@fortawesome/free-solid-svg-icons";
-import { motion } from "framer-motion";
-import AnimatedBackground from "../../components/AnimatedBackground";
-import Sidebar, { Section } from "../../components/Sidebar";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { trackLinkClick } from "../../utils/analytics";
+import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import { useIsMobile } from "../../hooks/useIsMobile";
+import PageLayout from "../../components/PageLayout";
+import ExpandableSection from "../../components/ExpandableSection";
+import ConfigurableSidebar, { SidebarConfig } from "../../components/ConfigurableSidebar";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+// Define section structure type
+interface DocSection {
+  id: string;
+  label: string;
+  icon: IconDefinition;
+  subsections: DocSubSection[];
+}
+
+interface DocSubSection {
+  id: string;
+  label: string;
+  path: string;
+}
 
 // Define section groups and navigation structure
-const docSections: Section[] = [
+const docSections: DocSection[] = [
   {
     id: "getting-started",
     label: "Getting Started",
@@ -79,7 +99,7 @@ const docSections: Section[] = [
 ];
 
 // Icons mapping for subsections
-const subsectionIcons = {
+const subsectionIcons: Record<string, IconDefinition> = {
   "basic-usage": faTable,
   "cell-editing": faEdit,
   "cell-highlighting": faCopy,
@@ -103,28 +123,80 @@ const subsectionIcons = {
 };
 
 const DocsLayout = () => {
+  const location = useLocation();
+  const isMobile = useIsMobile();
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+
+  // Initialize expanded sections
+  useEffect(() => {
+    const initialExpandedState: Record<string, boolean> = {};
+
+    docSections.forEach((section) => {
+      const isActive = section.subsections.some((subsection) => subsection.path === location.pathname);
+      initialExpandedState[section.id] = isMobile ? isActive : true;
+    });
+
+    setExpandedSections(initialExpandedState);
+  }, [location.pathname, isMobile]);
+
+  const toggleSection = (sectionId: string) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [sectionId]: !prev[sectionId],
+    }));
+  };
+
+  const handleLinkClick = (linkName: string, linkUrl: string) => {
+    trackLinkClick(linkName, linkUrl);
+  };
+
+  // Create the sidebar content
+  const docsSidebarContent = (
+    <div>
+      {docSections.map((section) => (
+        <ExpandableSection
+          key={section.id}
+          title={section.label}
+          icon={section.icon}
+          expanded={expandedSections[section.id] || false}
+          onToggle={() => toggleSection(section.id)}
+        >
+          <ul className="space-y-1">
+            {section.subsections.map((subsection) => (
+              <li key={subsection.id}>
+                <NavLink
+                  to={subsection.path}
+                  onClick={() => handleLinkClick(subsection.label, subsection.path)}
+                  className={({ isActive }) =>
+                    `flex items-center gap-2 px-3 py-2 text-sm rounded transition-colors ${
+                      isActive ? "bg-blue-100 text-blue-700 font-medium" : "text-gray-600 hover:bg-gray-100"
+                    }`
+                  }
+                >
+                  {subsectionIcons[subsection.id] && (
+                    <FontAwesomeIcon icon={subsectionIcons[subsection.id]} className="w-3.5 h-3.5" />
+                  )}
+                  {subsection.label}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </ExpandableSection>
+      ))}
+    </div>
+  );
+
+  // Create sidebar config
+  const sidebarConfig: SidebarConfig = {
+    title: "Documentation",
+    icon: faCode,
+    sidebarContent: docsSidebarContent,
+  };
+
   return (
-    <>
-      <AnimatedBackground />
-
-      <div className="relative z-10 mx-auto max-w-7xl">
-        <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6 px-8">
-          <Sidebar title="Documentation" sections={docSections} subsectionIcons={subsectionIcons} />
-
-          {/* Main content area with width constraint */}
-          <div className="flex-1 mx-auto max-w-4xl mt-6">
-            <motion.div
-              className={`bg-white/80 backdrop-blur-sm rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.1)] p-8 mb-8 min-h-[calc(100dvh-84px-4rem)]`}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-            >
-              <Outlet />
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </>
+    <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
+      <Outlet />
+    </PageLayout>
   );
 };
 

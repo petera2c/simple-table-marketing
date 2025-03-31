@@ -80,10 +80,10 @@ export const UI_STRINGS = {
       livePreview: "Watch the Magic Happen",
     },
     categories: {
-      colors: "Pick Your Colors (No Bad Choices Here)",
+      colors: "Pick Your Colors",
       spacing: "Space It Out",
       typography: "Font Stuff",
-      effects: "Extra Pizzazz",
+      effects: "Extra",
     },
     subcategories: {
       tableStructure: "The Skeleton",
