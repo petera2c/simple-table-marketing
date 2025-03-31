@@ -26,8 +26,12 @@ import CellRendererPage from "./pages/docs/CellRendererPage";
 // Import demo pages
 import DemosLayout from "./pages/examples/ExamplesLayout.tsx";
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
+import { ANALYTICS_ENABLED } from "./utils/analyticsConfig.ts";
 
-ReactGA.initialize("G-HS01JZP3DM");
+// Only initialize Google Analytics in production
+if (ANALYTICS_ENABLED) {
+  ReactGA.initialize("G-HS01JZP3DM");
+}
 
 function App() {
   return (
