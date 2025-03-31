@@ -4,6 +4,7 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
+import CodeBlock from "../../components/CodeBlock";
 
 const InstallationPage = () => {
   return (
@@ -38,15 +39,8 @@ const InstallationPage = () => {
           you set up the library in your React project.
         </motion.p>
 
-        <motion.div
-          className="bg-gray-800 text-white p-4 rounded-md mb-8 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-        >
-          <pre className="whitespace-pre-wrap">
-            <code>
-              {`# npm
+        <CodeBlock
+          code={`# npm
 ${TECHNICAL_STRINGS.installation.npm}
 
 # yarn
@@ -54,9 +48,8 @@ ${TECHNICAL_STRINGS.installation.yarn}
 
 # pnpm
 ${TECHNICAL_STRINGS.installation.pnpm}`}
-            </code>
-          </pre>
-        </motion.div>
+          language="bash"
+        />
 
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
@@ -78,6 +71,62 @@ ${TECHNICAL_STRINGS.installation.pnpm}`}
           <ul className="list-disc pl-8 space-y-2 text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-100">
             <li>React 16.8+ (Hooks support)</li>
           </ul>
+        </motion.div>
+
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          Basic Setup
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <p className="text-gray-700 mb-4">
+            After installing the package, you can import and use Simple Table in your components:
+          </p>
+
+          <CodeBlock
+            code={`// App.tsx
+import React from 'react';
+import { SimpleTable } from 'simple-table';
+
+function App() {
+  const headers = [
+    { label: 'Name', accessor: 'name', width: 180 },
+    { label: 'Email', accessor: 'email', width: 220 },
+  ];
+
+  const rows = [
+    {
+      rowMeta: { rowId: '1' },
+      rowData: { name: 'John Doe', email: 'john@example.com' }
+    },
+    {
+      rowMeta: { rowId: '2' },
+      rowData: { name: 'Jane Smith', email: 'jane@example.com' }
+    }
+  ];
+
+  return (
+    <div className="App">
+      <h1>My First Simple Table</h1>
+      <SimpleTable 
+        defaultHeaders={headers}
+        rows={rows}
+        height="400px"
+        width="100%"
+      />
+    </div>
+  );
+}`}
+          />
         </motion.div>
 
         <motion.div

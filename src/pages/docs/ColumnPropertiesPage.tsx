@@ -4,6 +4,8 @@ import { faList } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnPropertiesDemo from "../../components/demos/ColumnPropertiesDemo";
+import ColumnPropertiesDemoCode from "../../components/demos/ColumnPropertiesDemo.tsx?raw";
+import CodeBlock from "../../components/CodeBlock";
 
 const ColumnPropertiesPage = () => {
   return (
@@ -28,15 +30,6 @@ const ColumnPropertiesPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Properties</h1>
         </motion.div>
 
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <ColumnPropertiesDemo />
-        </motion.div>
-
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
@@ -46,6 +39,15 @@ const ColumnPropertiesPage = () => {
           Column properties define how each column in your table behaves and appears. Simple Table offers a rich set of
           properties to customize columns according to your needs.
         </motion.p>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <ColumnPropertiesDemo />
+        </motion.div>
 
         <motion.div
           className="mb-8"
@@ -103,37 +105,7 @@ const ColumnPropertiesPage = () => {
             </ul>
           </div>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`// Example of header definitions
-const headers = [
-  { 
-    label: 'ID', 
-    accessor: 'id', 
-    width: 80,
-    align: "center",
-    type: "number"
-  },
-  { 
-    label: 'Name', 
-    accessor: 'name', 
-    width: 180,
-    isEditable: true
-  },
-  { 
-    label: 'Status', 
-    accessor: 'status', 
-    width: 120,
-    type: "enum",
-    cellRenderer: (row) => {
-      // This would return a styled status badge
-      const className = "status-badge status-" + row.status.toLowerCase();
-      return "Custom React component with className: " + className;
-    }
-  }
-];`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={ColumnPropertiesDemoCode} />
         </motion.div>
 
         <motion.div
@@ -143,7 +115,7 @@ const headers = [
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <a
-            href="/docs/columns"
+            href="/docs/basic-usage"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -155,7 +127,7 @@ const headers = [
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Features
+            Previous: Basic Usage
           </a>
 
           <a

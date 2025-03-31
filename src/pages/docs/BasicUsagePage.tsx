@@ -4,6 +4,8 @@ import { faTable } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import BasicUsageDemo from "../../components/demos/BasicUsageDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/BasicUsageDemo.tsx?raw";
 
 const BasicUsagePage = () => {
   return (
@@ -28,15 +30,6 @@ const BasicUsagePage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Basic Usage</h1>
         </motion.div>
 
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <BasicUsageDemo />
-        </motion.div>
-
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
@@ -46,6 +39,15 @@ const BasicUsagePage = () => {
           Simple Table is designed to be intuitive and straightforward to use. This guide covers the fundamental
           concepts and basic usage patterns to get you started with creating data tables in your React application.
         </motion.p>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <BasicUsageDemo />
+        </motion.div>
 
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
@@ -79,74 +81,7 @@ const BasicUsagePage = () => {
             </li>
           </ul>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-import { SimpleTable } from 'simple-table';
-
-// Define types for better development experience (optional but recommended)
-interface User {
-  id: string;
-  name: string;
-  email: string;
-  role: string;
-  status: string;
-}
-
-const BasicTableExample = () => {
-  // 1. Define headers 
-  const headers = [
-    { label: 'Name', accessor: 'name', width: 180 },
-    { label: 'Email', accessor: 'email', width: 220 },
-    { label: 'Role', accessor: 'role', width: 150 },
-    { label: 'Status', accessor: 'status', width: 120 },
-  ];
-
-  // 2. Define rows data
-  const rows = [
-    {
-      rowMeta: { rowId: '1' },
-      rowData: { 
-        name: 'John Doe', 
-        email: 'john@example.com', 
-        role: 'Administrator', 
-        status: 'Active' 
-      }
-    },
-    {
-      rowMeta: { rowId: '2' },
-      rowData: { 
-        name: 'Jane Smith', 
-        email: 'jane@example.com', 
-        role: 'Editor', 
-        status: 'Pending' 
-      }
-    },
-    {
-      rowMeta: { rowId: '3' },
-      rowData: { 
-        name: 'Bob Johnson', 
-        email: 'bob@example.com', 
-        role: 'Viewer', 
-        status: 'Inactive' 
-      }
-    },
-  ];
-
-  // 3. Render the table with your data
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      height="400px"
-      width="100%"
-    />
-  );
-};
-
-export default BasicTableExample;`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.h2
@@ -231,9 +166,9 @@ export default BasicTableExample;`}</code>
             dynamically loaded data:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React, { useState, useEffect } from 'react';
+          <CodeBlock
+            code={`// DynamicDataExample.tsx
+import React, { useState, useEffect } from 'react';
 import { SimpleTable } from 'simple-table';
 
 const DynamicDataExample = () => {
@@ -291,9 +226,8 @@ const DynamicDataExample = () => {
   );
 };
 
-export default DynamicDataExample;`}</code>
-            </pre>
-          </div>
+export default DynamicDataExample;`}
+          />
         </motion.div>
 
         <motion.div
