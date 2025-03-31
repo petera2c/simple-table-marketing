@@ -35,9 +35,7 @@ const CellEditingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <CellEditingDemo />
-          </div>
+          <CellEditingDemo />
         </motion.div>
 
         <motion.p

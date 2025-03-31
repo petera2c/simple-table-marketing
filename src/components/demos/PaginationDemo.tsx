@@ -1,202 +1,569 @@
-import React, { useState } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable } from "simple-table-core";
+
+const headers = [
+  { accessor: "id", label: "ID", width: 60 },
+  { accessor: "name", label: "Name", width: 160 },
+  { accessor: "email", label: "Email", width: 200 },
+  { accessor: "role", label: "Role", width: 140 },
+  { accessor: "department", label: "Department", width: 150 },
+  { accessor: "status", label: "Status", width: 110 },
+];
+
+const rows = [
+  {
+    rowMeta: { rowId: 1 },
+    rowData: {
+      id: 1,
+      name: "John Doe",
+      email: "john.doe@example.com",
+      role: "Senior Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 2 },
+    rowData: {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane.smith@example.com",
+      role: "Product Manager",
+      department: "Product",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 3 },
+    rowData: {
+      id: 3,
+      name: "Alice Johnson",
+      email: "alice.johnson@example.com",
+      role: "UX Designer",
+      department: "Design",
+      status: "On Leave",
+    },
+  },
+  {
+    rowMeta: { rowId: 4 },
+    rowData: {
+      id: 4,
+      name: "Bob Brown",
+      email: "bob.brown@example.com",
+      role: "DevOps Engineer",
+      department: "Infrastructure",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 5 },
+    rowData: {
+      id: 5,
+      name: "Charlie Davis",
+      email: "charlie.davis@example.com",
+      role: "Marketing Specialist",
+      department: "Marketing",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 6 },
+    rowData: {
+      id: 6,
+      name: "Diana White",
+      email: "diana.white@example.com",
+      role: "Data Scientist",
+      department: "Analytics",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 7 },
+    rowData: {
+      id: 7,
+      name: "Eve Green",
+      email: "eve.green@example.com",
+      role: "QA Engineer",
+      department: "Engineering",
+      status: "Inactive",
+    },
+  },
+  {
+    rowMeta: { rowId: 8 },
+    rowData: {
+      id: 8,
+      name: "Frank Black",
+      email: "frank.black@example.com",
+      role: "Sales Representative",
+      department: "Sales",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 9 },
+    rowData: {
+      id: 9,
+      name: "Grace Blue",
+      email: "grace.blue@example.com",
+      role: "Customer Support",
+      department: "Support",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 10 },
+    rowData: {
+      id: 10,
+      name: "Henry White",
+      email: "henry.white@example.com",
+      role: "Frontend Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 11 },
+    rowData: {
+      id: 11,
+      name: "Isabella Martinez",
+      email: "isabella.m@example.com",
+      role: "Backend Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 12 },
+    rowData: {
+      id: 12,
+      name: "Jack Wilson",
+      email: "jack.wilson@example.com",
+      role: "Product Designer",
+      department: "Design",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 13 },
+    rowData: {
+      id: 13,
+      name: "Kylie Brown",
+      email: "kylie.brown@example.com",
+      role: "Content Writer",
+      department: "Marketing",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 14 },
+    rowData: {
+      id: 14,
+      name: "Liam Johnson",
+      email: "liam.j@example.com",
+      role: "IT Support",
+      department: "IT",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 15 },
+    rowData: {
+      id: 15,
+      name: "Mia Thompson",
+      email: "mia.t@example.com",
+      role: "Accountant",
+      department: "Finance",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 16 },
+    rowData: {
+      id: 16,
+      name: "Nathan Clark",
+      email: "nathan.c@example.com",
+      role: "HR Specialist",
+      department: "Human Resources",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 17 },
+    rowData: {
+      id: 17,
+      name: "Olivia Davis",
+      email: "olivia.d@example.com",
+      role: "Social Media Manager",
+      department: "Marketing",
+      status: "On Leave",
+    },
+  },
+  {
+    rowMeta: { rowId: 18 },
+    rowData: {
+      id: 18,
+      name: "Peter Zhang",
+      email: "peter.z@example.com",
+      role: "Mobile Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 19 },
+    rowData: {
+      id: 19,
+      name: "Quinn Roberts",
+      email: "quinn.r@example.com",
+      role: "Project Manager",
+      department: "Product",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 20 },
+    rowData: {
+      id: 20,
+      name: "Ryan Cooper",
+      email: "ryan.c@example.com",
+      role: "Systems Analyst",
+      department: "IT",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 21 },
+    rowData: {
+      id: 21,
+      name: "Sophia Lee",
+      email: "sophia.l@example.com",
+      role: "UX Researcher",
+      department: "Design",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 22 },
+    rowData: {
+      id: 22,
+      name: "Thomas Garcia",
+      email: "thomas.g@example.com",
+      role: "Database Administrator",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 23 },
+    rowData: {
+      id: 23,
+      name: "Uma Patel",
+      email: "uma.p@example.com",
+      role: "Legal Counsel",
+      department: "Legal",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 24 },
+    rowData: {
+      id: 24,
+      name: "Victor Anderson",
+      email: "victor.a@example.com",
+      role: "Sales Manager",
+      department: "Sales",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 25 },
+    rowData: {
+      id: 25,
+      name: "Wendy Martinez",
+      email: "wendy.m@example.com",
+      role: "Customer Success",
+      department: "Support",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 26 },
+    rowData: {
+      id: 26,
+      name: "Xavier Johnson",
+      email: "xavier.j@example.com",
+      role: "Security Engineer",
+      department: "IT",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 27 },
+    rowData: {
+      id: 27,
+      name: "Yasmine Ali",
+      email: "yasmine.a@example.com",
+      role: "Data Analyst",
+      department: "Analytics",
+      status: "Inactive",
+    },
+  },
+  {
+    rowMeta: { rowId: 28 },
+    rowData: {
+      id: 28,
+      name: "Zachary Miller",
+      email: "zachary.m@example.com",
+      role: "Frontend Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 29 },
+    rowData: {
+      id: 29,
+      name: "Abigail Wilson",
+      email: "abigail.w@example.com",
+      role: "Backend Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 30 },
+    rowData: {
+      id: 30,
+      name: "Benjamin Taylor",
+      email: "benjamin.t@example.com",
+      role: "DevOps Engineer",
+      department: "Infrastructure",
+      status: "On Leave",
+    },
+  },
+  {
+    rowMeta: { rowId: 31 },
+    rowData: {
+      id: 31,
+      name: "Chloe Rodriguez",
+      email: "chloe.r@example.com",
+      role: "Graphic Designer",
+      department: "Design",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 32 },
+    rowData: {
+      id: 32,
+      name: "Daniel Kim",
+      email: "daniel.k@example.com",
+      role: "Product Manager",
+      department: "Product",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 33 },
+    rowData: {
+      id: 33,
+      name: "Emily Chen",
+      email: "emily.c@example.com",
+      role: "Content Strategist",
+      department: "Marketing",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 34 },
+    rowData: {
+      id: 34,
+      name: "Felix Wong",
+      email: "felix.w@example.com",
+      role: "Software Engineer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 35 },
+    rowData: {
+      id: 35,
+      name: "Gabriella Nguyen",
+      email: "gabriella.n@example.com",
+      role: "UX Designer",
+      department: "Design",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 36 },
+    rowData: {
+      id: 36,
+      name: "Hector Gomez",
+      email: "hector.g@example.com",
+      role: "Sales Representative",
+      department: "Sales",
+      status: "Inactive",
+    },
+  },
+  {
+    rowMeta: { rowId: 37 },
+    rowData: {
+      id: 37,
+      name: "Iris Scott",
+      email: "iris.s@example.com",
+      role: "Financial Analyst",
+      department: "Finance",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 38 },
+    rowData: {
+      id: 38,
+      name: "Julian Parker",
+      email: "julian.p@example.com",
+      role: "Technical Writer",
+      department: "Documentation",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 39 },
+    rowData: {
+      id: 39,
+      name: "Kara Williams",
+      email: "kara.w@example.com",
+      role: "Support Specialist",
+      department: "Support",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 40 },
+    rowData: {
+      id: 40,
+      name: "Leo Adams",
+      email: "leo.a@example.com",
+      role: "UI Developer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 41 },
+    rowData: {
+      id: 41,
+      name: "Maya Jackson",
+      email: "maya.j@example.com",
+      role: "QA Manager",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 42 },
+    rowData: {
+      id: 42,
+      name: "Noah Bennett",
+      email: "noah.b@example.com",
+      role: "Business Analyst",
+      department: "Product",
+      status: "On Leave",
+    },
+  },
+  {
+    rowMeta: { rowId: 43 },
+    rowData: {
+      id: 43,
+      name: "Olivia Franklin",
+      email: "olivia.f@example.com",
+      role: "User Researcher",
+      department: "Design",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 44 },
+    rowData: {
+      id: 44,
+      name: "Patrick Murphy",
+      email: "patrick.m@example.com",
+      role: "Backend Engineer",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 45 },
+    rowData: {
+      id: 45,
+      name: "Rachel Sanders",
+      email: "rachel.s@example.com",
+      role: "Marketing Director",
+      department: "Marketing",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 46 },
+    rowData: {
+      id: 46,
+      name: "Samuel Washington",
+      email: "samuel.w@example.com",
+      role: "Frontend Team Lead",
+      department: "Engineering",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 47 },
+    rowData: {
+      id: 47,
+      name: "Tara Wilson",
+      email: "tara.w@example.com",
+      role: "Operations Manager",
+      department: "Operations",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 48 },
+    rowData: {
+      id: 48,
+      name: "Umar Khan",
+      email: "umar.k@example.com",
+      role: "Machine Learning Engineer",
+      department: "AI Research",
+      status: "Active",
+    },
+  },
+  {
+    rowMeta: { rowId: 49 },
+    rowData: {
+      id: 49,
+      name: "Victoria Lopez",
+      email: "victoria.l@example.com",
+      role: "Customer Relations",
+      department: "Support",
+      status: "Inactive",
+    },
+  },
+  {
+    rowMeta: { rowId: 50 },
+    rowData: {
+      id: 50,
+      name: "William Chen",
+      email: "william.c@example.com",
+      role: "CTO",
+      department: "Executive",
+      status: "Active",
+    },
+  },
+];
 
 const PaginationDemo = () => {
-  // Generate larger dataset
-  const generateData = (count: number) => {
-    const data = [];
-    for (let i = 1; i <= count; i++) {
-      data.push({
-        id: i,
-        name: `User ${i}`,
-        email: `user${i}@example.com`,
-        status: i % 4 === 0 ? "Inactive" : "Active",
-        lastLogin: new Date(Date.now() - Math.floor(Math.random() * 30) * 24 * 60 * 60 * 1000)
-          .toISOString()
-          .split("T")[0],
-      });
-    }
-    return data;
-  };
-
-  const allData = generateData(100);
-
-  // Pagination state
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pageSize, setPageSize] = useState(10);
-
-  // Calculate total pages
-  const totalPages = Math.ceil(allData.length / pageSize);
-
-  // Get current page data
-  const getCurrentPageData = () => {
-    const startIndex = (currentPage - 1) * pageSize;
-    const endIndex = startIndex + pageSize;
-    return allData.slice(startIndex, endIndex);
-  };
-
-  // Headers
-  const headers: HeaderObject[] = [
-    { accessor: "id", label: "ID", width: 80 },
-    { accessor: "name", label: "Name", width: 150 },
-    { accessor: "email", label: "Email", width: 220 },
-    { accessor: "status", label: "Status", width: 120 },
-    { accessor: "lastLogin", label: "Last Login", width: 150 },
-  ];
-
-  // Map current page data to rows
-  const rows = getCurrentPageData().map((item) => ({
-    rowMeta: { rowId: item.id, isExpanded: false },
-    rowData: item,
-  }));
-
-  // Handle page change
-  const handlePageChange = (page: number) => {
-    setCurrentPage(page);
-  };
-
-  // Handle page size change
-  const handlePageSizeChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSize = parseInt(e.target.value, 10);
-    setPageSize(newSize);
-    setCurrentPage(1); // Reset to first page when changing page size
-  };
-
-  // Generate page buttons
-  const getPageButtons = () => {
-    const buttons = [];
-    const maxVisibleButtons = 5;
-
-    // Always show first page
-    buttons.push(
-      <button
-        key="first"
-        onClick={() => handlePageChange(1)}
-        className={`px-3 py-1 rounded ${currentPage === 1 ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"}`}
-      >
-        1
-      </button>
-    );
-
-    // Calculate range of visible page buttons
-    let startPage = Math.max(2, currentPage - Math.floor(maxVisibleButtons / 2));
-    let endPage = Math.min(totalPages - 1, startPage + maxVisibleButtons - 3);
-
-    if (endPage - startPage < maxVisibleButtons - 3) {
-      startPage = Math.max(2, endPage - (maxVisibleButtons - 3) + 1);
-    }
-
-    // Show ellipsis if needed
-    if (startPage > 2) {
-      buttons.push(
-        <span key="ellipsis1" className="px-2">
-          ...
-        </span>
-      );
-    }
-
-    // Add middle pages
-    for (let i = startPage; i <= endPage; i++) {
-      buttons.push(
-        <button
-          key={i}
-          onClick={() => handlePageChange(i)}
-          className={`px-3 py-1 rounded ${currentPage === i ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"}`}
-        >
-          {i}
-        </button>
-      );
-    }
-
-    // Show ellipsis if needed
-    if (endPage < totalPages - 1) {
-      buttons.push(
-        <span key="ellipsis2" className="px-2">
-          ...
-        </span>
-      );
-    }
-
-    // Always show last page if there is more than one page
-    if (totalPages > 1) {
-      buttons.push(
-        <button
-          key="last"
-          onClick={() => handlePageChange(totalPages)}
-          className={`px-3 py-1 rounded ${
-            currentPage === totalPages ? "bg-blue-500 text-white" : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          {totalPages}
-        </button>
-      );
-    }
-
-    return buttons;
-  };
-
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="bg-white shadow-sm rounded-lg p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Pagination Demo</h2>
-        <p className="text-gray-700 mb-6">
-          This demo shows how to implement pagination with SimpleTable to handle large datasets efficiently.
-        </p>
-
-        <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <SimpleTable defaultHeaders={headers} rows={rows} />
-        </div>
-
-        <div className="mt-4 flex justify-between items-center">
-          <div className="flex items-center">
-            <span className="text-sm text-gray-600 mr-2">Rows per page:</span>
-            <select value={pageSize} onChange={handlePageSizeChange} className="border rounded px-2 py-1 text-sm">
-              <option value={5}>5</option>
-              <option value={10}>10</option>
-              <option value={25}>25</option>
-              <option value={50}>50</option>
-            </select>
-          </div>
-
-          <div className="flex items-center">
-            <span className="text-sm text-gray-600 mr-3">
-              {`${(currentPage - 1) * pageSize + 1}-${Math.min(currentPage * pageSize, allData.length)} of ${
-                allData.length
-              }`}
-            </span>
-
-            <div className="flex space-x-1">
-              <button
-                onClick={() => handlePageChange(currentPage - 1)}
-                disabled={currentPage === 1}
-                className={`px-3 py-1 rounded ${
-                  currentPage === 1
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-              >
-                Prev
-              </button>
-
-              <div className="hidden md:flex space-x-1">{getPageButtons()}</div>
-
-              <button
-                onClick={() => handlePageChange(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className={`px-3 py-1 rounded ${
-                  currentPage === totalPages
-                    ? "bg-gray-100 text-gray-400 cursor-not-allowed"
-                    : "bg-gray-200 text-gray-700 hover:bg-gray-300"
-                }`}
-              >
-                Next
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  return <SimpleTable defaultHeaders={headers} rows={rows} height="auto" shouldPaginate rowsPerPage={6} />;
 };
 
 export default PaginationDemo;

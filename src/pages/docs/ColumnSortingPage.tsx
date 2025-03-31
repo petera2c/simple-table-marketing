@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
-import ColumnSortingDemo from "../../demos/examples/column-sorting/ColumnSortingDemo";
+import ColumnSortingDemo from "../../components/demos/ColumnSortingDemo";
 
 const ColumnSortingPage = () => {
   return (
@@ -35,9 +35,7 @@ const ColumnSortingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <ColumnSortingDemo />
-          </div>
+          <ColumnSortingDemo />
         </motion.div>
 
         <motion.p

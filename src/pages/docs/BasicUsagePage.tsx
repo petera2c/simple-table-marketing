@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
-import QuickStartDemo from "../../components/demos/QuickStartDemo";
+import BasicUsageDemo from "../../components/demos/BasicUsageDemo";
 
 const BasicUsagePage = () => {
   return (
@@ -34,9 +34,7 @@ const BasicUsagePage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <QuickStartDemo />
-          </div>
+          <BasicUsageDemo />
         </motion.div>
 
         <motion.p

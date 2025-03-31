@@ -3,9 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
-import { UI_STRINGS } from "../../constants/strings/ui";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
-import InstallationDemo from "../../components/demos/InstallationDemo";
 
 const InstallationPage = () => {
   return (
@@ -28,17 +26,6 @@ const InstallationPage = () => {
             <FontAwesomeIcon icon={faCode} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Installation</h1>
-        </motion.div>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <InstallationDemo />
-          </div>
         </motion.div>
 
         <motion.p
@@ -90,44 +77,7 @@ ${TECHNICAL_STRINGS.installation.pnpm}`}
 
           <ul className="list-disc pl-8 space-y-2 text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-100">
             <li>React 16.8+ (Hooks support)</li>
-            <li>ReactDOM 16.8+</li>
           </ul>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          Next Steps
-        </motion.h2>
-
-        <motion.div
-          className="mb-8 bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <p className="text-gray-700 mb-2">Once you've installed Simple Table, you need to:</p>
-
-          <ol className="list-decimal pl-8 space-y-1 text-gray-700">
-            <li>
-              <a href="/docs/quick-start" className="text-blue-600 hover:text-blue-800 transition-colors">
-                Set up the CSS styles
-              </a>
-            </li>
-            <li>
-              <a href="/docs/basic-usage" className="text-blue-600 hover:text-blue-800 transition-colors">
-                Import the components
-              </a>
-            </li>
-            <li>
-              <a href="/docs/basic-usage" className="text-blue-600 hover:text-blue-800 transition-colors">
-                Create your first table
-              </a>
-            </li>
-          </ol>
         </motion.div>
 
         <motion.div

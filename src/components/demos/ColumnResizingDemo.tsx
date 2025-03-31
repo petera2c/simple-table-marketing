@@ -1,4 +1,3 @@
-import React from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 
 const ColumnResizingDemo = () => {
@@ -32,21 +31,7 @@ const ColumnResizingDemo = () => {
     rowData: item,
   }));
 
-  return (
-    <div className="flex flex-col gap-4">
-      <div className="bg-white shadow-sm rounded-lg p-6">
-        <h2 className="text-xl font-bold text-gray-800 mb-4">Column Resizing Demo</h2>
-        <p className="text-gray-700 mb-6">
-          Try dragging the dividers between column headers to resize columns. Notice how the table maintains its layout
-          while allowing each column to be customized.
-        </p>
-
-        <div className="border border-gray-200 rounded-lg overflow-hidden">
-          <SimpleTable defaultHeaders={headers} rows={rows} />
-        </div>
-      </div>
-    </div>
-  );
+  return <SimpleTable columnResizing defaultHeaders={headers} rows={rows} />;
 };
 
 export default ColumnResizingDemo;

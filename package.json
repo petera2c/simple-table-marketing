@@ -26,7 +26,7 @@
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.4.0",
     "serve": "^14.2.4",
-    "simple-table-core": "^0.7.7"
+    "simple-table-core": "^0.7.11"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

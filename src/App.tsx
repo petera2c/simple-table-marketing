@@ -11,13 +11,9 @@ import { HelmetProvider } from "react-helmet-async";
 import InstallationPage from "./pages/docs/InstallationPage.tsx";
 import BasicUsagePage from "./pages/docs/BasicUsagePage.tsx";
 import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
-import UnderConstruction from "./components/UnderConstruction";
 import CellEditingPage from "./pages/docs/CellEditingPage";
-import GettingStartedPage from "./pages/docs/GettingStartedPage";
 import PaginationPage from "./pages/docs/PaginationPage";
 import ThemingPage from "./pages/docs/ThemingPage";
-import AccessibilityPage from "./pages/docs/AccessibilityPage";
-import PerformancePage from "./pages/docs/PerformancePage";
 import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
 import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
 import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
@@ -28,10 +24,7 @@ import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
 
 // Import demo pages
-import DemosLayout from "./pages/demos/DemosLayout.tsx";
-import DemosPage from "./pages/demos/DemosPage.tsx";
-import ColumnSortingDemo from "./demos/examples/column-sorting/ColumnSortingDemo.tsx";
-import RowGroupingDemo from "./components/demos/RowGroupingDemo.tsx";
+import DemosLayout from "./pages/examples/ExamplesLayout.tsx";
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
 
 ReactGA.initialize("G-HS01JZP3DM");
@@ -49,8 +42,12 @@ function App() {
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
 
                 <Route path="/docs" element={<DocsLayout />}>
-                  <Route index element={<Navigate to="/docs/getting-started" replace />} />
-                  <Route path="getting-started" element={<GettingStartedPage />} />
+                  <Route index element={<Navigate to="/docs/installation" replace />} />
+
+                  {/* Getting Started routes */}
+                  <Route path="installation" element={<InstallationPage />} />
+                  <Route path="quick-start" element={<QuickStartPage />} />
+                  <Route path="basic-usage" element={<BasicUsagePage />} />
 
                   {/* Column feature routes */}
                   <Route path="column-properties" element={<ColumnPropertiesPage />} />
@@ -60,29 +57,21 @@ function App() {
                   <Route path="column-alignment" element={<ColumnAlignmentPage />} />
                   <Route path="column-sorting" element={<ColumnSortingPage />} />
 
-                  {/* Other routes */}
+                  {/* Cell feature routes */}
                   <Route path="cell-editing" element={<CellEditingPage />} />
                   <Route path="cell-highlighting" element={<CellHighlightingPage />} />
                   <Route path="cell-renderer" element={<CellRendererPage />} />
-                  <Route path="sorting-filtering" element={<Navigate to="/docs/column-sorting" replace />} />
+
+                  {/* Other routes */}
                   <Route path="pagination" element={<PaginationPage />} />
                   <Route path="row-grouping" element={<RowGroupingPage />} />
-                  <Route path="responsive" element={<UnderConstruction />} />
                   <Route path="theming" element={<ThemingPage />} />
-                  <Route path="accessibility" element={<AccessibilityPage />} />
-                  <Route path="performance" element={<PerformancePage />} />
-                  <Route path="installation" element={<InstallationPage />} />
-                  <Route path="quick-start" element={<QuickStartPage />} />
-                  <Route path="basic-usage" element={<BasicUsagePage />} />
-                  <Route path="advanced" element={<UnderConstruction />} />
-                  <Route path="*" element={<UnderConstruction />} />
+                  <Route path="*" element={<NotFound />} />
                 </Route>
 
                 {/* Demos Routes */}
                 <Route path="/demos" element={<DemosLayout />}>
-                  <Route index element={<DemosPage />} />
-
-                  <Route path="*" element={<UnderConstruction />} />
+                  <Route path="*" element={<NotFound />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

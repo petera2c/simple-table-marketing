@@ -34,9 +34,7 @@ const ColumnVisibilityPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <ColumnVisibilityDemo />
-          </div>
+          <ColumnVisibilityDemo />
         </motion.div>
 
         <motion.p

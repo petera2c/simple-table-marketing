@@ -8,7 +8,7 @@ import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
-import RowGroupingExample from "../components/demos/row-grouping/RowGrouping";
+import RowGroupingExample from "../components/examples/FinanceExample";
 
 const { Panel } = Collapse;
 

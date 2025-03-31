@@ -10,7 +10,7 @@ import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useIsMobile } from "../hooks/useIsMobile";
-import PinnedColumnsExample from "../components/demos/pinned-columns/PinnedColumns";
+import PinnedColumnsExample from "../components/examples/retail-sales/RetailSalesExample";
 
 const Home = () => {
   const isMobile = useIsMobile();
