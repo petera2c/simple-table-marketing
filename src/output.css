@@ -312,6 +312,9 @@
   .mt-16 {
     margin-top: calc(var(--spacing) * 16);
   }
+  .mt-auto {
+    margin-top: auto;
+  }
   .mr-1 {
     margin-right: calc(var(--spacing) * 1);
   }
@@ -462,6 +465,9 @@
   .grid-cols-1 {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
+  .grid-cols-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
   .flex-col {
     flex-direction: column;
   }
@@ -530,6 +536,9 @@
       margin-block-end: calc(calc(var(--spacing) * 6) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .gap-x-2 {
+    column-gap: calc(var(--spacing) * 2);
+  }
   .space-x-2 {
     :where(& > :not(:last-child)) {
       --tw-space-x-reverse: 0;
@@ -551,8 +560,16 @@
       margin-inline-end: calc(calc(var(--spacing) * 8) * calc(1 - var(--tw-space-x-reverse)));
     }
   }
+  .gap-y-3 {
+    row-gap: calc(var(--spacing) * 3);
+  }
   .self-start {
     align-self: flex-start;
+  }
+  .truncate {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .overflow-auto {
     overflow: auto;
@@ -803,6 +820,9 @@
   .py-2 {
     padding-block: calc(var(--spacing) * 2);
   }
+  .py-3 {
+    padding-block: calc(var(--spacing) * 3);
+  }
   .py-4 {
     padding-block: calc(var(--spacing) * 4);
   }
@@ -826,6 +846,9 @@
   }
   .pt-16 {
     padding-top: calc(var(--spacing) * 16);
+  }
+  .pr-2 {
+    padding-right: calc(var(--spacing) * 2);
   }
   .pr-4 {
     padding-right: calc(var(--spacing) * 4);
