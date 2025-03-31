@@ -100,7 +100,11 @@ const ColumnPropertiesPage = () => {
                 </li>
                 <li>
                   <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">width</code>: Column width in pixels
-                  (default: 150)
+                  (required)
+                </li>
+                <li>
+                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">type</code>: Data type of the column
+                  ('string', 'number', 'boolean', 'date', 'enum')
                 </li>
               </ul>
             </div>
@@ -117,12 +121,8 @@ const ColumnPropertiesPage = () => {
                   function for cells in this column
                 </li>
                 <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">headerRenderer</code>: Custom render
-                  function for the column header
-                </li>
-                <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">formatValue</code>: Function to format
-                  the cell value for display
+                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code>: Whether to hide the
+                  column (boolean)
                 </li>
               </ul>
             </div>
@@ -131,55 +131,23 @@ const ColumnPropertiesPage = () => {
               <h3 className="font-semibold text-gray-800 mb-2">Interactive Properties</h3>
               <ul className="list-disc pl-5 space-y-1 text-gray-700">
                 <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortable</code>: Whether the column is
-                  sortable (boolean)
+                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable</code>: Whether the column
+                  is sortable (boolean)
                 </li>
                 <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortDirection</code>: Initial sort
-                  direction ('asc', 'desc', or null)
-                </li>
-                <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">resizable</code>: Whether the column
-                  can be resized (boolean)
+                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable</code>: Whether the column
+                  can be edited (boolean)
                 </li>
                 <li>
                   <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned</code>: Pin column to 'left' or
                   'right' side
                 </li>
                 <li>
-                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">editable</code>: Whether the column
-                  can be edited (boolean)
+                  <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandable</code>: Whether the column
+                  can be expanded (boolean)
                 </li>
               </ul>
             </div>
-          </div>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          Extended Example
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <p className="text-gray-700 mb-4">Here's a comprehensive example showcasing multiple column properties:</p>
-
-          <CodeBlock code={demoCode} />
-
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6 mt-4">
-            <h3 className="font-bold text-gray-800 mb-2">Tip</h3>
-            <p className="text-gray-700">
-              You don't need to define all properties for every column. Only specify the properties you want to
-              customize from the defaults.
-            </p>
           </div>
         </motion.div>
 
@@ -190,7 +158,7 @@ const ColumnPropertiesPage = () => {
           transition={{ duration: 0.5, delay: 0.9 }}
         >
           <a
-            href="/docs/column-alignment"
+            href="/docs/quick-start"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -202,14 +170,14 @@ const ColumnPropertiesPage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Alignment
+            Previous: Quick Start
           </a>
 
           <a
-            href="/docs/column-sorting"
+            href="/docs/column-resizing"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Column Sorting
+            Next: Column Resizing
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

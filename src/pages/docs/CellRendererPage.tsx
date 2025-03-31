@@ -72,75 +72,7 @@ const CellRendererPage = () => {
             receives information about the cell and returns either a ReactNode or a string to be rendered in the cell.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-import { SimpleTable } from 'simple-table';
-
-const CellRendererExample = () => {
-  // Define headers with custom cell renderers
-  const headers = [
-    { 
-      label: 'ID', 
-      accessor: 'id', 
-      width: 80 
-    },
-    { 
-      label: 'Name', 
-      accessor: 'name', 
-      width: 180 
-    },
-    { 
-      label: 'Status', 
-      accessor: 'status', 
-      width: 120,
-      // Custom renderer for the Status column
-      cellRenderer: ({ accessor, colIndex, row }) => {
-        const value = row.rowData[accessor];
-        const isActive = value === 'active';
-        return (
-          <span className={\`px-2 py-1 rounded \${
-            isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
-          }\`}>
-            {value}
-          </span>
-        );
-      }
-    },
-    { 
-      label: 'Progress', 
-      accessor: 'progress', 
-      width: 150,
-      // Custom renderer for the Progress column
-      cellRenderer: ({ accessor, colIndex, row }) => {
-        const value = row.rowData[accessor];
-        return (
-          <div className="w-full bg-gray-200 rounded-full h-2.5">
-            <div 
-              className="bg-blue-600 h-2.5 rounded-full" 
-              style={{ width: \`\${value}%\` }}
-            ></div>
-          </div>
-        );
-      }
-    }
-  ];
-
-  const rows = [
-    { id: 1, name: 'John Doe', status: 'active', progress: 75 },
-    { id: 2, name: 'Jane Smith', status: 'inactive', progress: 30 },
-    { id: 3, name: 'Bob Johnson', status: 'active', progress: 100 }
-  ];
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-    />
-  );
-};`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">cellRenderer Parameters</h3>

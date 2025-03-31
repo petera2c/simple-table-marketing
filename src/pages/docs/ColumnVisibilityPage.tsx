@@ -65,7 +65,10 @@ const ColumnVisibilityPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            To implement column visibility controls, you can use the built-in visibility management features:
+            Column visibility can be controlled using the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code> property in the header objects
+            and the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">editColumns</code> prop on the
+            SimpleTable component.
           </p>
 
           <CodeBlock code={demoCode} />
@@ -74,41 +77,19 @@ const ColumnVisibilityPage = () => {
             <h3 className="font-bold text-gray-800 mb-2">Key Visibility Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">visible</code>: Boolean property in
-                header objects to control initial visibility
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code>: Boolean property in header
+                objects to control initial visibility
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">visibilityToggleEnabled</code>: Enable
-                or disable visibility controls (default: true)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">editColumns</code>: Enable column
+                visibility controls
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">defaultVisibleColumns</code>: Array of
-                column accessors to show initially
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">editColumnsInitOpen</code>: Open the
+                column visibility menu by default
               </li>
             </ul>
           </div>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Custom Visibility Controls
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 mb-4">
-            You can build custom visibility controls to match your application's design:
-          </p>
-
-          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div

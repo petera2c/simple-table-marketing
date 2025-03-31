@@ -64,26 +64,41 @@ const RowGroupingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className="text-gray-700 mb-4">
-            To enable row grouping, you need to specify a grouping configuration that defines how your data should be
-            organized:
-          </p>
+          <p className="text-gray-700 mb-4">To enable row grouping in Simple Table, you need to:</p>
+
+          <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
+            <li>
+              Add the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandable: true</code> property
+              to the column you want to use for grouping
+            </li>
+            <li>
+              Structure your data with nested rows using the{" "}
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">children</code> property in{" "}
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowMeta</code>
+            </li>
+            <li>
+              Set <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isExpanded</code> in{" "}
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowMeta</code> to control the initial
+              expansion state
+            </li>
+          </ol>
 
           <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Key Grouping Properties</h3>
+            <h3 className="font-bold text-gray-800 mb-2">Key Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>: The field to group by
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandable: true</code>: Makes a column
+                expandable for grouping
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">headerRenderer</code>: Custom component
-                to display the group header
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowMeta.children</code>: Contains nested
+                rows for the group
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">initialExpandedGroups</code>: Groups
-                that should be expanded by default
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowMeta.isExpanded</code>: Controls
+                whether a group is expanded
               </li>
             </ul>
           </div>
@@ -95,7 +110,7 @@ const RowGroupingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Custom Group Headers
+          Data Structure
         </motion.h2>
 
         <motion.div
@@ -105,10 +120,28 @@ const RowGroupingPage = () => {
           transition={{ duration: 0.5, delay: 0.6 }}
         >
           <p className="text-gray-700 mb-4">
-            You can customize how group headers appear by providing a <code>headerRenderer</code> function:
+            Your data should be structured with nested rows using the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">children</code> property in{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowMeta</code>. Here's an example:
           </p>
 
-          <CodeBlock code={demoCode} />
+          <div className="bg-gray-50 p-4 rounded-lg mb-4">
+            <pre className="text-sm text-gray-700">
+              {`{
+  rowMeta: { 
+    rowId: 1,
+    isExpanded: false,
+    children: [
+      {
+        rowMeta: { rowId: 2, isExpanded: false },
+        rowData: { /* child row data */ }
+      }
+    ]
+  },
+  rowData: { /* parent row data */ }
+}`}
+            </pre>
+          </div>
         </motion.div>
 
         <motion.div
@@ -118,7 +151,7 @@ const RowGroupingPage = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <a
-            href="/docs/column-sorting"
+            href="/docs/cell-renderer"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -130,7 +163,7 @@ const RowGroupingPage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Sorting
+            Previous: Cell Renderer
           </a>
 
           <a

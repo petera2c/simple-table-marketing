@@ -32,7 +32,6 @@ const docSections: Section[] = [
     subsections: [
       { id: "installation", label: "Installation", path: "/docs/installation" },
       { id: "quick-start", label: "Quick Start", path: "/docs/quick-start" },
-      { id: "basic-usage", label: "Basic Usage", path: "/docs/basic-usage" },
     ],
   },
   {

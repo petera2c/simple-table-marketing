@@ -65,7 +65,8 @@ const ColumnPinningPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            To pin columns, specify which columns should be frozen using the <code>pinned</code> property:
+            To pin columns, simply add the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned</code>{" "}
+            property to your header objects:
           </p>
 
           <CodeBlock code={demoCode} />
@@ -74,41 +75,15 @@ const ColumnPinningPage = () => {
             <h3 className="font-bold text-gray-800 mb-2">Pinning Options</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "left"</code>: Freeze the column
-                to the left side
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "left"</code>: Pin the column to
+                the left side
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "right"</code>: Freeze the
-                column to the right side
-              </li>
-              <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">enableColumnPinning</code>: Main table
-                prop to enable/disable pinning functionality
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "right"</code>: Pin the column
+                to the right side
               </li>
             </ul>
           </div>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Dynamic Pinning
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 mb-4">
-            You can allow users to control which columns are pinned through a custom UI:
-          </p>
-
-          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div

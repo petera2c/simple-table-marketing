@@ -68,23 +68,25 @@ const CellHighlightingPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            Enable users to select individual cells by enabling the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code> property. This allows
-            users to click on cells to highlight them and copy their contents using keyboard shortcuts.
+            Enable cell selection by adding the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code> and{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code> props to your
+            SimpleTable component. This enables users to select individual cells and entire columns.
           </p>
 
           <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Selection Behavior</h3>
-            <p className="text-gray-700 mb-2">When cell selection is enabled:</p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-              <li>Click a cell to select it</li>
-              <li>Click and drag to select multiple cells in a range</li>
-              <li>Click outside the table or in a non-selected area to clear the selection</li>
-              <li>Copy selected cells with Ctrl+C (Windows) or ⌘+C (Mac)</li>
-              <li>Paste into spreadsheet applications with Ctrl+V (Windows) or ⌘+V (Mac)</li>
-              <li>Press Escape to clear the selection</li>
+            <h3 className="font-bold text-gray-800 mb-2">Selection Properties</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code>: Enables
+                selection of individual cells
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code>: Enables
+                selection of entire columns
+              </li>
             </ul>
           </div>
         </motion.div>
@@ -96,7 +98,7 @@ const CellHighlightingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Column Selection
+          Selection Behavior
         </motion.h2>
 
         <motion.div
@@ -105,45 +107,13 @@ const CellHighlightingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p className="text-gray-700 mb-4">
-            By enabling <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code>, users
-            can click on column headers to select all cells in that column. This is useful for quickly selecting and
-            copying entire columns of data.
-          </p>
-
-          <CodeBlock code={demoCode} />
-
-          <p className="text-gray-700 mb-4">
-            When a user clicks a column header with{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code> enabled, all cells
-            in that column are selected. Users can then copy the data with Ctrl+C (Windows) or ⌘+C (Mac). This is
-            perfect for exporting specific data columns to spreadsheet applications like Excel or Google Sheets.
-          </p>
-        </motion.div>
-
-        {/* Copy/Paste Integration */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          Copy/Paste Integration
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <p className="text-gray-700 mb-4">
-            Simple Table's selection features integrate with the browser's copy functionality. When cells are selected,
-            users can press Ctrl+C (Windows) or ⌘+C (Mac) to copy the data in a tab-delimited format that works well
-            with spreadsheet applications like Excel or Google Sheets.
-          </p>
-
-          <CodeBlock code={demoCode} />
+          <p className="text-gray-700 mb-4">When selection is enabled, users can:</p>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700">
+            <li>Click on individual cells to select them</li>
+            <li>Click on column headers to select entire columns</li>
+            <li>Use keyboard shortcuts (Ctrl+C/⌘+C) to copy selected data</li>
+            <li>Paste the data into spreadsheet applications</li>
+          </ul>
         </motion.div>
 
         <motion.div

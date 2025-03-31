@@ -69,12 +69,31 @@ const CellEditingPage = () => {
           <p className="text-gray-700 mb-4">To enable cell editing in Simple Table, you need to:</p>
 
           <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
-            <li>Set which rows are editable (all or specific ones)</li>
-            <li>Configure which cells in those rows can be edited</li>
-            <li>Handle data changes when edits are made</li>
+            <li>
+              Add the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code> property
+              to the columns you want to make editable
+            </li>
+            <li>
+              Provide an <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code> handler to
+              manage the data updates
+            </li>
           </ol>
 
           <CodeBlock code={demoCode} />
+
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
+            <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code>: Makes a column
+                editable
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>: Callback function to
+                handle cell edits
+              </li>
+            </ul>
+          </div>
         </motion.div>
 
         <motion.div

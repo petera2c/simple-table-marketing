@@ -9,7 +9,6 @@ import ReactGA from "react-ga4";
 import RouteContainer from "./components/RouteContainer.tsx";
 import { HelmetProvider } from "react-helmet-async";
 import InstallationPage from "./pages/docs/InstallationPage.tsx";
-import BasicUsagePage from "./pages/docs/BasicUsagePage.tsx";
 import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
 import CellEditingPage from "./pages/docs/CellEditingPage";
 import PaginationPage from "./pages/docs/PaginationPage";
@@ -47,7 +46,6 @@ function App() {
                   {/* Getting Started routes */}
                   <Route path="installation" element={<InstallationPage />} />
                   <Route path="quick-start" element={<QuickStartPage />} />
-                  <Route path="basic-usage" element={<BasicUsagePage />} />
 
                   {/* Column feature routes */}
                   <Route path="column-properties" element={<ColumnPropertiesPage />} />

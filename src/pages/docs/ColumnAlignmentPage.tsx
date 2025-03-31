@@ -130,8 +130,6 @@ const ColumnAlignmentPage = () => {
               </p>
             </div>
           </div>
-
-          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
@@ -157,10 +155,10 @@ const ColumnAlignmentPage = () => {
           </a>
 
           <a
-            href="/docs/column-properties"
+            href="/docs/column-sorting"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Column Properties
+            Next: Column Sorting
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

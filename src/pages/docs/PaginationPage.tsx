@@ -68,30 +68,35 @@ const PaginationPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            To enable pagination in Simple Table, you need to set up a few pagination-related props. Here's a basic
-            example:
+            To enable pagination in Simple Table, you need to add the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pagination</code> prop to your SimpleTable
+            component. This will automatically handle pagination of your data.
           </p>
 
           <CodeBlock code={demoCode} />
 
-          <p className="text-gray-700 mb-4">Simple Table's pagination component includes:</p>
-
-          <ul className="list-disc pl-8 space-y-2 text-gray-700 mb-6">
-            <li>Previous and next page buttons</li>
-            <li>Page number selector</li>
-            <li>Page size selector</li>
-            <li>Current page and total pages display</li>
-          </ul>
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
+            <h3 className="font-bold text-gray-800 mb-2">Pagination Properties</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pagination</code>: Enables pagination
+                functionality
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pageSize</code>: Number of rows per page
+                (default: 10)
+              </li>
+            </ul>
+          </div>
         </motion.div>
 
-        {/* Client-side Pagination Section */}
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Client-side Pagination
+          Pagination Features
         </motion.h2>
 
         <motion.div
@@ -100,96 +105,13 @@ const PaginationPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p className="text-gray-700 mb-4">
-            With client-side pagination, all data is loaded at once, and Simple Table handles the pagination logic
-            internally:
-          </p>
-
-          <CodeBlock code={demoCode} />
-
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">When to Use Client-side Pagination</h3>
-            <p className="text-gray-700">Client-side pagination is ideal for:</p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-              <li>Smaller datasets (typically under 1,000 rows)</li>
-              <li>When all data needs to be available for operations like global filtering or sorting</li>
-              <li>When you want to minimize network requests</li>
-              <li>Offline applications where all data is available locally</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Server-side Pagination Section */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          Server-side Pagination
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <p className="text-gray-700 mb-4">
-            Server-side pagination is essential for large datasets. With this approach, you fetch only the data needed
-            for the current page:
-          </p>
-
-          <CodeBlock code={demoCode} />
-
-          <p className="text-gray-700 mb-4">With server-side pagination, you'll need to provide:</p>
-
+          <p className="text-gray-700 mb-4">When pagination is enabled, Simple Table provides:</p>
           <ul className="list-disc pl-8 space-y-2 text-gray-700 mb-6">
-            <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">paginationMode="server"</code>: Tell
-              Simple Table that you're handling the pagination logic
-            </li>
-            <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalRows</code>: The total number of rows
-              in the dataset (for calculating total pages)
-            </li>
-            <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">loading</code>: A boolean to show a
-              loading state while fetching data
-            </li>
+            <li>Automatic page navigation controls</li>
+            <li>Page size selection</li>
+            <li>Current page indicator</li>
+            <li>Total pages display</li>
           </ul>
-
-          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">When to Use Server-side Pagination</h3>
-            <p className="text-gray-700">Server-side pagination is essential for:</p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-              <li>Large datasets (thousands or millions of records)</li>
-              <li>When you need to optimize network traffic and memory usage</li>
-              <li>When the backend requires pagination parameters</li>
-              <li>Real-time data that might change frequently</li>
-            </ul>
-          </div>
-        </motion.div>
-
-        {/* Custom Pagination UI Section */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          Custom Pagination UI
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
-        >
-          <p className="text-gray-700 mb-4">You can customize the pagination UI by providing your own component:</p>
-
-          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div

@@ -65,8 +65,9 @@ const ColumnResizingPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            Column resizing is enabled by default in Simple Table. Users can resize columns by dragging the column
-            dividers in the header row.
+            Column resizing is enabled by adding the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">columnResizing</code> prop to the
+            SimpleTable component. Users can resize columns by dragging the column dividers in the header row.
           </p>
 
           <CodeBlock code={demoCode} />
@@ -75,16 +76,8 @@ const ColumnResizingPage = () => {
             <h3 className="font-bold text-gray-800 mb-2">Resizing Configuration</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">enableColumnResizing</code>: Toggle
-                resizing ability (default: true)
-              </li>
-              <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">minColumnWidth</code>: Minimum column
-                width in pixels (default: 50)
-              </li>
-              <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">resizable</code>: Per-column property to
-                enable/disable resizing
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">columnResizing</code>: Enable column
+                resizing functionality
               </li>
             </ul>
           </div>

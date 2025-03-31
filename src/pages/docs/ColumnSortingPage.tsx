@@ -64,7 +64,11 @@ const ColumnSortingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className="text-gray-700 mb-4">To enable sorting, simply define which columns should be sortable:</p>
+          <p className="text-gray-700 mb-4">
+            To enable sorting, simply add the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable: true</code> property to your
+            header objects:
+          </p>
 
           <CodeBlock code={demoCode} />
 
@@ -72,35 +76,11 @@ const ColumnSortingPage = () => {
             <h3 className="font-bold text-gray-800 mb-2">Column Sorting Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortable: true</code>: Enables sorting
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable: true</code>: Enables sorting
                 for a column
-              </li>
-              <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortDirection</code>: Initial sort
-                direction ('asc' or 'desc')
               </li>
             </ul>
           </div>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Custom Sort Functions
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 mb-4">You can define custom sort functions for more complex sorting logic:</p>
-
-          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
@@ -110,7 +90,7 @@ const ColumnSortingPage = () => {
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           <a
-            href="/docs/column-properties"
+            href="/docs/column-sorting"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -122,14 +102,14 @@ const ColumnSortingPage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Properties
+            Previous: Column Sorting
           </a>
 
           <a
             href="/docs/row-grouping"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Row Grouping
+            Next: Cell Editing
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

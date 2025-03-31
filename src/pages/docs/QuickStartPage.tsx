@@ -91,34 +91,6 @@ const QuickStartPage = () => {
           <p className="text-gray-700 mb-4">Here's a minimal example to get you started with Simple Table:</p>
 
           <CodeBlock code={demoCode} />
-
-          <p className="text-gray-700 mb-6">
-            This creates a basic table with three columns and three rows. The table will have a fixed height of 400px.
-          </p>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          Key Features to Try
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <p className="text-gray-700 mb-4">Simple Table comes with many features enabled out of the box:</p>
-
-          <ul className="list-disc pl-8 space-y-2 text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-100">
-            <li>Try resizing columns by dragging the column dividers</li>
-            <li>Click on column headers to sort the data</li>
-            <li>Use the pagination controls to navigate through larger datasets</li>
-          </ul>
         </motion.div>
 
         <motion.div
@@ -157,10 +129,10 @@ const QuickStartPage = () => {
           </a>
 
           <a
-            href="/docs/basic-usage"
+            href="/docs/column-properties"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Basic Usage
+            Next: Column Properties
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

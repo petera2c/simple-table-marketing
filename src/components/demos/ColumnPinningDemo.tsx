@@ -1,74 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
 
-// Sample data with more columns to demonstrate horizontal scrolling
-const data = [
-  {
-    id: 1,
-    name: "John Doe",
-    email: "john@example.com",
-    role: "Developer",
-    department: "Engineering",
-    location: "Remote",
-    joinDate: "2020-05-15",
-    salary: 85000,
-    manager: "Jane Smith",
-    status: "Active",
-    projects: 4,
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    email: "jane@example.com",
-    role: "Designer",
-    department: "Product",
-    location: "New York",
-    joinDate: "2019-02-20",
-    salary: 92000,
-    manager: "Robert Johnson",
-    status: "Active",
-    projects: 6,
-  },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    email: "bob@example.com",
-    role: "Manager",
-    department: "Operations",
-    location: "San Francisco",
-    joinDate: "2018-11-10",
-    salary: 120000,
-    manager: "Michael Chen",
-    status: "Active",
-    projects: 8,
-  },
-  {
-    id: 4,
-    name: "Alice Williams",
-    email: "alice@example.com",
-    role: "Developer",
-    department: "Engineering",
-    location: "Remote",
-    joinDate: "2021-03-05",
-    salary: 78000,
-    manager: "John Doe",
-    status: "Active",
-    projects: 3,
-  },
-  {
-    id: 5,
-    name: "Charlie Brown",
-    email: "charlie@example.com",
-    role: "Marketing",
-    department: "Sales",
-    location: "Chicago",
-    joinDate: "2020-08-12",
-    salary: 82000,
-    manager: "Lisa Park",
-    status: "Active",
-    projects: 5,
-  },
-];
-
 // Define all headers with pinned status
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, pinned: "left" },
@@ -84,14 +15,92 @@ const headers: HeaderObject[] = [
   { accessor: "projects", label: "Projects", width: 120, align: "right", pinned: "right" },
 ];
 
-const ColumnPinningDemo = () => {
-  // Map data to rows format
-  const rows = data.map((item) => ({
-    rowMeta: { rowId: item.id, isExpanded: false },
-    rowData: item,
-  }));
+// Sample data with more columns to demonstrate horizontal scrolling
+const data = [
+  {
+    rowMeta: { rowId: 1 },
+    rowData: {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      role: "Developer",
+      department: "Engineering",
+      location: "Remote",
+      joinDate: "2020-05-15",
+      salary: 85000,
+      manager: "Jane Smith",
+      status: "Active",
+      projects: 4,
+    },
+  },
+  {
+    rowMeta: { rowId: 2 },
+    rowData: {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      role: "Designer",
+      department: "Product",
+      location: "New York",
+      joinDate: "2019-02-20",
+      salary: 92000,
+      manager: "Robert Johnson",
+      status: "Active",
+      projects: 6,
+    },
+  },
+  {
+    rowMeta: { rowId: 3 },
+    rowData: {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      role: "Manager",
+      department: "Operations",
+      location: "San Francisco",
+      joinDate: "2018-11-10",
+      salary: 120000,
+      manager: "Michael Chen",
+      status: "Active",
+      projects: 8,
+    },
+  },
+  {
+    rowMeta: { rowId: 4 },
+    rowData: {
+      id: 4,
+      name: "Alice Williams",
+      email: "alice@example.com",
+      role: "Developer",
+      department: "Engineering",
+      location: "Remote",
+      joinDate: "2021-03-05",
+      salary: 78000,
+      manager: "John Doe",
+      status: "Active",
+      projects: 3,
+    },
+  },
+  {
+    rowMeta: { rowId: 5 },
+    rowData: {
+      id: 5,
+      name: "Charlie Brown",
+      email: "charlie@example.com",
+      role: "Marketing",
+      department: "Sales",
+      location: "Chicago",
+      joinDate: "2020-08-12",
+      salary: 82000,
+      manager: "Lisa Park",
+      status: "Active",
+      projects: 5,
+    },
+  },
+];
 
-  return <SimpleTable defaultHeaders={headers} rows={rows} />;
+const ColumnPinningDemo = () => {
+  return <SimpleTable defaultHeaders={headers} rows={data} />;
 };
 
 export default ColumnPinningDemo;

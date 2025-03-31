@@ -703,7 +703,7 @@ const rows = [
 ];
 
 const RowGroupingDemo = () => {
-  return <SimpleTable defaultHeaders={headers} rows={rows} height="600px" />;
+  return <SimpleTable defaultHeaders={headers} rows={rows} height="400px" />;
 };
 
 export default RowGroupingDemo;

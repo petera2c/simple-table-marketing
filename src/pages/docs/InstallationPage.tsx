@@ -73,62 +73,6 @@ ${TECHNICAL_STRINGS.installation.pnpm}`}
           </ul>
         </motion.div>
 
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          Basic Setup
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          <p className="text-gray-700 mb-4">
-            After installing the package, you can import and use Simple Table in your components:
-          </p>
-
-          <CodeBlock
-            code={`// App.tsx
-import React from 'react';
-import { SimpleTable } from 'simple-table';
-
-function App() {
-  const headers = [
-    { label: 'Name', accessor: 'name', width: 180 },
-    { label: 'Email', accessor: 'email', width: 220 },
-  ];
-
-  const rows = [
-    {
-      rowMeta: { rowId: '1' },
-      rowData: { name: 'John Doe', email: 'john@example.com' }
-    },
-    {
-      rowMeta: { rowId: '2' },
-      rowData: { name: 'Jane Smith', email: 'jane@example.com' }
-    }
-  ];
-
-  return (
-    <div className="App">
-      <h1>My First Simple Table</h1>
-      <SimpleTable 
-        defaultHeaders={headers}
-        rows={rows}
-        height="400px"
-        width="100%"
-      />
-    </div>
-  );
-}`}
-          />
-        </motion.div>
-
         <motion.div
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
           initial={{ opacity: 0 }}
