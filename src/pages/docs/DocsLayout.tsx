@@ -114,7 +114,7 @@ const DocsLayout = () => {
           {/* Main content area with width constraint */}
           <div className="flex-1 mx-auto max-w-4xl mt-6">
             <motion.div
-              className="bg-white/80 backdrop-blur-sm rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.1)] p-8 mb-8"
+              className={`bg-white/80 backdrop-blur-sm rounded-xl shadow-[0_4px_16px_rgba(0,0,0,0.1)] p-8 mb-8 min-h-[calc(100dvh-84px-4rem)]`}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}

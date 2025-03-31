@@ -255,6 +255,9 @@
   .top-\[84px\] {
     top: 84px;
   }
+  .top-\[200px\] {
+    top: 200px;
+  }
   .left-0 {
     left: calc(var(--spacing) * 0);
   }
@@ -390,6 +393,9 @@
   .h-10 {
     height: calc(var(--spacing) * 10);
   }
+  .h-\[calc\(100\%-84px-4rem\)\] {
+    height: calc(100% - 84px - 4rem);
+  }
   .h-\[calc\(100vh-84px-4rem\)\] {
     height: calc(100vh - 84px - 4rem);
   }
@@ -402,8 +408,32 @@
   .max-h-\[500px\] {
     max-height: 500px;
   }
+  .max-h-\[calc\(100vh-200px\)\] {
+    max-height: calc(100vh - 200px);
+  }
   .min-h-\[200vh\] {
     min-height: 200vh;
+  }
+  .min-h-\[calc\(100dvh-84px\)\] {
+    min-height: calc(100dvh - 84px);
+  }
+  .min-h-\[calc\(100dvh-84px-2rem\)\] {
+    min-height: calc(100dvh - 84px - 2rem);
+  }
+  .min-h-\[calc\(100dvh-84px-3rem\)\] {
+    min-height: calc(100dvh - 84px - 3rem);
+  }
+  .min-h-\[calc\(100dvh-84px-4rem\)\] {
+    min-height: calc(100dvh - 84px - 4rem);
+  }
+  .min-h-\[calc\(100dvh-84px-6rem\)\] {
+    min-height: calc(100dvh - 84px - 6rem);
+  }
+  .min-h-\[calc\(100dvh-84px-6rem-8rem\)\] {
+    min-height: calc(100dvh - 84px - 6rem - 8rem);
+  }
+  .min-h-\[calc\(100vh-84px-4rem\)\] {
+    min-height: calc(100vh - 84px - 4rem);
   }
   .min-h-screen {
     min-height: 100vh;
