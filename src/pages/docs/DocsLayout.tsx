@@ -18,6 +18,7 @@ import {
   faThumbtack,
   faAlignLeft,
   faCopy,
+  faPalette,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import AnimatedBackground from "../../components/AnimatedBackground";
@@ -71,7 +72,7 @@ const docSections: Section[] = [
     label: "Customization",
     icon: faPaintBrush,
     subsections: [
-      { id: "theming", label: "Theming", path: "/docs/theming" },
+      { id: "themes", label: "Themes", path: "/docs/themes" },
       { id: "custom-theme", label: "Custom Theme", path: "/docs/custom-theme" },
     ],
   },
@@ -98,7 +99,7 @@ const subsectionIcons = {
   installation: faCode,
   pagination: faPager,
   responsive: faExpand,
-  theming: faPaintBrush,
+  themes: faPalette,
 };
 
 const DocsLayout = () => {

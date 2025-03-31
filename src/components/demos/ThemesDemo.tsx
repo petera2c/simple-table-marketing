@@ -49,7 +49,7 @@ const THEME_OPTIONS: Theme[] = [
   "vibrant",
 ];
 
-const ThemingDemo = () => {
+const ThemesDemo = () => {
   // State for current theme
   const [currentTheme, setCurrentTheme] = useState<Theme>();
 
@@ -107,4 +107,4 @@ const getThemeColor = (theme: Theme): { backgroundColor: string; color: string }
   }
 };
 
-export default ThemingDemo;
+export default ThemesDemo;

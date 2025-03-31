@@ -3,18 +3,18 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
-import ThemingDemo from "../../components/demos/ThemingDemo";
+import ThemesDemo from "../../components/demos/ThemesDemo";
 import CodeBlock from "../../components/CodeBlock";
-import demoCode from "../../components/demos/ThemingDemo.tsx?raw";
+import demoCode from "../../components/demos/ThemesDemo.tsx?raw";
 
-const ThemingPage = () => {
+const ThemesPage = () => {
   return (
     <>
       <SEO
-        title={`Theming - ${SEO_STRINGS.docs.title}`}
+        title={`Themes - ${SEO_STRINGS.docs.title}`}
         description="Customize the appearance of Simple Table to match your application's design system."
-        keywords={`theming, customization, styling, css, ${SEO_STRINGS.docs.keywords}`}
-        canonicalUrl="/docs/theming"
+        keywords={`themes, customization, styling, css, ${SEO_STRINGS.docs.keywords}`}
+        canonicalUrl="/docs/themes"
       />
 
       <div className="max-w-3xl mx-auto">
@@ -27,7 +27,7 @@ const ThemingPage = () => {
           <div className="p-2 bg-purple-100 rounded-lg">
             <FontAwesomeIcon icon={faPalette} className="text-purple-600 text-2xl" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Theming</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Themes</h1>
         </motion.div>
 
         <motion.p
@@ -46,7 +46,7 @@ const ThemingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.1 }}
         >
-          <ThemingDemo />
+          <ThemesDemo />
         </motion.div>
 
         <motion.h2
@@ -134,4 +134,4 @@ const ThemingPage = () => {
   );
 };
 
-export default ThemingPage;
+export default ThemesPage;

@@ -103,26 +103,6 @@ const CustomThemePage = () => {
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Component Implementation
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 mb-4">Here's how to apply a custom theme to your SimpleTable component:</p>
-
-          <CodeBlock code={demoCode} />
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.7 }}
         >
           CSS Variables Example
@@ -140,6 +120,25 @@ const CustomThemePage = () => {
 
           <CodeBlock code={cssCode} />
         </motion.div>
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Component Implementation
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray-700 mb-4">Here's how to apply a custom theme to your SimpleTable component:</p>
+
+          <CodeBlock code={demoCode} />
+        </motion.div>
 
         <motion.div
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
@@ -148,7 +147,7 @@ const CustomThemePage = () => {
           transition={{ duration: 0.5, delay: 0.9 }}
         >
           <a
-            href="/docs/theming"
+            href="/docs/themes"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -160,7 +159,7 @@ const CustomThemePage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Theming
+            Previous: Themes
           </a>
         </motion.div>
       </div>
