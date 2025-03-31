@@ -65,135 +65,29 @@ const ThemingPage = () => {
           transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            The simplest way to customize Simple Table is by providing a theme object to the <code>theme</code> prop:
+            To apply a theme to Simple Table, simply pass the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme</code> prop with one of the available
+            theme options:
           </p>
 
           <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Theme Structure</h3>
-            <p className="text-gray-700 mb-2">
-              The theme object follows a structured format with nested properties for different parts of the table:
-            </p>
-            <pre className="bg-white p-3 rounded border border-gray-200 text-sm overflow-x-auto">
-              {`{
-  colors: {
-    primary: "#3B82F6",
-    background: {
-      header: "#F9FAFB", 
-      body: "#FFFFFF",
-      footer: "#F9FAFB",
-      ...
-    },
-    text: {
-      header: "#111827",
-      body: "#374151",
-      ...
-    },
-    border: "#E5E7EB",
-    ...
-  },
-  spacing: {
-    cellPadding: "0.75rem 1rem",
-    ...
-  },
-  typography: {
-    fontFamily: "system-ui, sans-serif",
-    fontSize: {
-      header: "0.875rem",
-      body: "0.875rem",
-      ...
-    },
-    fontWeight: {
-      header: "600",
-      body: "400",
-      ...
-    },
-    ...
-  },
-  borders: {
-    radius: "0.375rem",
-    width: "1px",
-    style: "solid",
-    ...
-  }
-}`}
-            </pre>
-          </div>
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Dark Mode
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 mb-4">
-            Simple Table supports dark mode with a dedicated theme structure. You can provide both light and dark themes
-            and let the table respond to the user's system preferences:
-          </p>
-
-          <CodeBlock code={demoCode} />
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.7 }}
-        >
-          Custom Styling
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.8 }}
-        >
-          <p className="text-gray-700 mb-4">
-            For more advanced customization, you can target specific elements using CSS classes or custom style props:
-          </p>
-
-          <CodeBlock code={demoCode} />
-        </motion.div>
-
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.9 }}
-        >
-          Tailwind CSS Integration
-        </motion.h2>
-
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.0 }}
-        >
-          <p className="text-gray-700 mb-4">
-            Simple Table works great with Tailwind CSS. You can provide Tailwind classes to customize the appearance:
-          </p>
-
-          <CodeBlock code={demoCode} />
-
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Tailwind Tip</h3>
-            <p className="text-gray-700">
-              When using Tailwind with Simple Table, make sure that any utility classes you're using are included in
-              your PurgeCSS configuration so they don't get removed in production builds.
-            </p>
+            <h3 className="font-bold text-gray-800 mb-2">Available Themes</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>light - Default light theme</li>
+              <li>dark - Dark mode theme</li>
+              <li>90s - Retro 90s style</li>
+              <li>bubblegum - Pink bubblegum theme</li>
+              <li>desert - Warm desert colors</li>
+              <li>forest - Green forest theme</li>
+              <li>high-contrast - High contrast theme</li>
+              <li>ocean - Blue ocean theme</li>
+              <li>pastel - Soft pastel colors</li>
+              <li>solarized-dark - Dark solarized theme</li>
+              <li>solarized-light - Light solarized theme</li>
+              <li>vibrant - Bright vibrant colors</li>
+            </ul>
           </div>
         </motion.div>
 
@@ -204,7 +98,7 @@ const ThemingPage = () => {
           transition={{ duration: 0.5, delay: 1.1 }}
         >
           <a
-            href="/docs/custom-renderers"
+            href="/docs/pagination"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -216,14 +110,14 @@ const ThemingPage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Custom Renderers
+            Previous: Pagination
           </a>
 
           <a
-            href="/docs/advanced-usage"
+            href="/docs/custom-theme"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Advanced Usage
+            Next: Custom Theme
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

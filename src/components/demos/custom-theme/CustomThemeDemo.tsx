@@ -1,0 +1,79 @@
+import { SimpleTable, HeaderObject } from "simple-table-core";
+import "./CustomTheme.css";
+
+// Define headers
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 80 },
+  { accessor: "name", label: "Name", width: 180 },
+  { accessor: "email", label: "Email", width: 220 },
+  { accessor: "department", label: "Department", width: 150 },
+  { accessor: "status", label: "Status", width: 120 },
+  { accessor: "number", label: "Number", width: 120 },
+];
+
+// Sample data
+const data = [
+  {
+    rowMeta: { rowId: 1, isExpanded: false },
+    rowData: {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      department: "Engineering",
+      status: "Active",
+      number: 1234567890,
+    },
+  },
+  {
+    rowMeta: { rowId: 2, isExpanded: false },
+    rowData: {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      department: "Design",
+      status: "Active",
+      number: 1234567890,
+    },
+  },
+  {
+    rowMeta: { rowId: 3, isExpanded: false },
+    rowData: {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      department: "Marketing",
+      status: "Inactive",
+      number: 1234567890,
+    },
+  },
+  {
+    rowMeta: { rowId: 4, isExpanded: false },
+    rowData: {
+      id: 4,
+      name: "Alice Williams",
+      email: "alice@example.com",
+      department: "Engineering",
+      status: "Active",
+      number: 1234567890,
+    },
+  },
+  {
+    rowMeta: { rowId: 5, isExpanded: false },
+    rowData: {
+      id: 5,
+      name: "Charlie Brown",
+      email: "charlie@example.com",
+      department: "Sales",
+      status: "Active",
+      number: 1234567890,
+    },
+  },
+];
+
+const CustomCSSDemo = () => {
+  return (
+    <SimpleTable columnResizing defaultHeaders={headers} rows={data} selectableCells selectableColumns theme="custom" />
+  );
+};
+
+export default CustomCSSDemo;

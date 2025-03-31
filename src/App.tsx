@@ -13,6 +13,7 @@ import QuickStartPage from "./pages/docs/QuickStartPage.tsx";
 import CellEditingPage from "./pages/docs/CellEditingPage";
 import PaginationPage from "./pages/docs/PaginationPage";
 import ThemingPage from "./pages/docs/ThemingPage";
+import CustomThemePage from "./pages/docs/CustomThemePage";
 import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
 import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
 import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
@@ -64,6 +65,7 @@ function App() {
                   <Route path="pagination" element={<PaginationPage />} />
                   <Route path="row-grouping" element={<RowGroupingPage />} />
                   <Route path="theming" element={<ThemingPage />} />
+                  <Route path="custom-theme" element={<CustomThemePage />} />
                   <Route path="*" element={<NotFound />} />
                 </Route>
 

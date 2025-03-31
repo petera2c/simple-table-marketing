@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { generateSpaceData, SPACE_HEADERS } from "../examples/data/space-data";
+import { generateSpaceData, SPACE_HEADERS } from "./data/space-data";
 import { SimpleTable, Theme } from "simple-table-core";
 
 const EXAMPLE_DATA = generateSpaceData();
@@ -143,7 +143,7 @@ const ThemingExample = () => {
       <SimpleTable
         columnResizing // Enable column resizing
         defaultHeaders={HEADERS} // Set the headers
-        draggable // Enable draggable columns
+        columnReordering // Enable column reordering
         editColumns // Enable editing columns
         rows={EXAMPLE_DATA} // Set rows data
         selectableCells // Enable selectable cells

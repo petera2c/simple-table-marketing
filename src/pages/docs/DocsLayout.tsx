@@ -70,7 +70,10 @@ const docSections: Section[] = [
     id: "customization",
     label: "Customization",
     icon: faPaintBrush,
-    subsections: [{ id: "theming", label: "Theming", path: "/docs/theming" }],
+    subsections: [
+      { id: "theming", label: "Theming", path: "/docs/theming" },
+      { id: "custom-theme", label: "Custom Theme", path: "/docs/custom-theme" },
+    ],
   },
 ];
 
@@ -86,6 +89,7 @@ const subsectionIcons = {
   "column-resizing": faArrowsAlt,
   "column-sorting": faSort,
   "column-visibility": faEye,
+  "custom-theme": faCode,
   "custom-renderers": faEdit,
   "quick-start": faRocket,
   "row-grouping": faLayerGroup,
