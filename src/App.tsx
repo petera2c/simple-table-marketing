@@ -24,7 +24,7 @@ import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
 
 // Import demo pages
-import DemosLayout from "./pages/examples/ExamplesLayout.tsx";
+import ExamplesRoutes from "./pages/examples/ExamplesRoutes";
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
 import { ANALYTICS_ENABLED } from "./utils/analyticsConfig.ts";
 
@@ -73,10 +73,8 @@ function App() {
                   <Route path="*" element={<NotFound />} />
                 </Route>
 
-                {/* Demos Routes */}
-                <Route path="/demos" element={<DemosLayout />}>
-                  <Route path="*" element={<NotFound />} />
-                </Route>
+                {/* Examples Routes */}
+                <Route path="/examples/*" element={<ExamplesRoutes />} />
 
                 <Route path="*" element={<NotFound />} />
               </Route>

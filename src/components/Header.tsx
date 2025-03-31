@@ -72,13 +72,13 @@ const Header = () => {
               Theme Builder
             </NavLink>
             <NavLink
-              to="/demos"
-              onClick={() => handleNavClick("Demos", "/demos")}
+              to="/examples"
+              onClick={() => handleNavClick("Examples", "/examples")}
               className={({ isActive }) =>
                 `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
               }
             >
-              Demos
+              Examples
             </NavLink>
           </div>
         </div>
@@ -127,8 +127,8 @@ const Header = () => {
                 Theme Builder
               </NavLink>
               <NavLink
-                to="/demos"
-                onClick={() => handleNavClick("Demos", "/demos")}
+                to="/examples"
+                onClick={() => handleNavClick("Examples", "/examples")}
                 className={({ isActive }) =>
                   `px-3 py-2 rounded-md text-base ${
                     isActive
@@ -137,7 +137,7 @@ const Header = () => {
                   } transition-colors`
                 }
               >
-                Demos
+                Examples
               </NavLink>
             </div>
           </div>

@@ -15,7 +15,6 @@ import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
-import RowGroupingExample from "../components/examples/FinanceExample";
 
 // Import our reusable components
 import PageLayout from "../components/PageLayout";
@@ -348,7 +347,7 @@ const ThemeBuilder: React.FC = () => {
 
       <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">{UI_STRINGS.themeBuilder.sections.livePreview}</h1>
-        <RowGroupingExample />
+        {/* <RowGroupingExample /> */}
       </PageLayout>
     </>
   );
