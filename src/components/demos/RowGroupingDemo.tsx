@@ -26,7 +26,6 @@ const RowGroupingDemo = () => {
       rowMeta: {
         rowId: `dept-${deptIndex}`,
         isExpanded: true,
-        isGroupRow: true,
         groupLevel: 0,
         childRows: departmentData.map((item) => `emp-${item.id}`),
       },
@@ -63,14 +62,14 @@ const RowGroupingDemo = () => {
       align: "right",
       cellRenderer: (row) => {
         // For department rows (group rows), show average salary
-        if (row.rowMeta.isGroupRow) {
+        if (row.rowMeta.children) {
           return (
             <span className="font-medium">
-              ${row.rowData.salary.toLocaleString(undefined, { maximumFractionDigits: 0 })} avg
+              {row.rowData.salary?.toLocaleString(undefined, { maximumFractionDigits: 0 })} avg
             </span>
           );
         }
-        return <span>${row.rowData.salary.toLocaleString()}</span>;
+        return <span>{row.rowData.salary?.toLocaleString()}</span>;
       },
     },
   ];

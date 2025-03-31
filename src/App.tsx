@@ -31,6 +31,8 @@ import CellRendererPage from "./pages/docs/CellRendererPage";
 import DemosLayout from "./pages/demos/DemosLayout.tsx";
 import DemosPage from "./pages/demos/DemosPage.tsx";
 import ColumnSortingDemo from "./demos/examples/column-sorting/ColumnSortingDemo.tsx";
+import RowGroupingDemo from "./components/demos/RowGroupingDemo.tsx";
+import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
 
 ReactGA.initialize("G-HS01JZP3DM");
 
@@ -64,6 +66,7 @@ function App() {
                   <Route path="cell-renderer" element={<CellRendererPage />} />
                   <Route path="sorting-filtering" element={<Navigate to="/docs/column-sorting" replace />} />
                   <Route path="pagination" element={<PaginationPage />} />
+                  <Route path="row-grouping" element={<RowGroupingPage />} />
                   <Route path="responsive" element={<UnderConstruction />} />
                   <Route path="theming" element={<ThemingPage />} />
                   <Route path="accessibility" element={<AccessibilityPage />} />
@@ -78,24 +81,6 @@ function App() {
                 {/* Demos Routes */}
                 <Route path="/demos" element={<DemosLayout />}>
                   <Route index element={<DemosPage />} />
-
-                  {/* Column feature demos */}
-                  <Route path="column-properties" element={<UnderConstruction />} />
-                  <Route path="column-resizing" element={<UnderConstruction />} />
-                  <Route path="column-visibility" element={<UnderConstruction />} />
-                  <Route path="column-pinning" element={<UnderConstruction />} />
-                  <Route path="column-alignment" element={<UnderConstruction />} />
-                  <Route path="column-sorting" element={<ColumnSortingDemo />} />
-
-                  {/* Cell feature demos */}
-                  <Route path="cell-editing" element={<UnderConstruction />} />
-                  <Route path="cell-highlighting" element={<UnderConstruction />} />
-                  <Route path="cell-renderer" element={<UnderConstruction />} />
-
-                  {/* Advanced feature demos */}
-                  <Route path="row-grouping" element={<UnderConstruction />} />
-                  <Route path="pagination" element={<UnderConstruction />} />
-                  <Route path="theming" element={<UnderConstruction />} />
 
                   <Route path="*" element={<UnderConstruction />} />
                 </Route>

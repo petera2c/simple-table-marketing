@@ -71,10 +71,7 @@ const docSections: Section[] = [
     id: "customization",
     label: "Customization",
     icon: faPaintBrush,
-    subsections: [
-      { id: "theming", label: "Theming", path: "/docs/theming" },
-      { id: "custom-renderers", label: "Custom Renderers", path: "/docs/custom-renderers" },
-    ],
+    subsections: [{ id: "theming", label: "Theming", path: "/docs/theming" }],
   },
 ];
 
