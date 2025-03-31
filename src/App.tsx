@@ -24,9 +24,9 @@ import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
 
 // Import demo pages
-import ExamplesRoutes from "./pages/examples/ExamplesRoutes";
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
 import { ANALYTICS_ENABLED } from "./utils/analyticsConfig.ts";
+import ExamplesRoutes from "./pages/examples/ExamplesRoutes.tsx";
 
 // Only initialize Google Analytics in production
 if (ANALYTICS_ENABLED) {
