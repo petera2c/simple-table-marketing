@@ -1,5 +1,6 @@
-.theme-custom {
-  /* Base properties */
+/* Only applied when the "custom" theme is selected */
+:root.custom-theme-enabled .theme-custom,
+.custom-theme-container .theme-custom {
   --st-border-radius: 8px;
   --st-border-width: 1px;
   --st-cell-padding: 12px;
@@ -59,7 +60,7 @@
 }
 
 /* Custom styles for table headers */
-.theme-custom .st-header-label {
+.custom-theme-container .theme-custom .st-header-label {
   color: white !important;
   font-weight: 600 !important;
   letter-spacing: 0.025em !important;

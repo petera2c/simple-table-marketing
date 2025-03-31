@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "./CustomTheme.css";
 
@@ -70,10 +71,30 @@ const data = [
   },
 ];
 
-const CustomCSSDemo = () => {
+const CustomThemeDemo = () => {
+  // Add effect to apply/remove the custom CSS class when component mounts/unmounts
+  useEffect(() => {
+    // Add the custom-theme-enabled class to root when component mounts
+    document.documentElement.classList.add("custom-theme-enabled");
+
+    // Clean up function to remove the class when component unmounts
+    return () => {
+      document.documentElement.classList.remove("custom-theme-enabled");
+    };
+  }, []);
+
   return (
-    <SimpleTable columnResizing defaultHeaders={headers} rows={data} selectableCells selectableColumns theme="custom" />
+    <div className="custom-theme-container">
+      <SimpleTable
+        columnResizing
+        defaultHeaders={headers}
+        rows={data}
+        selectableCells
+        selectableColumns
+        theme="custom"
+      />
+    </div>
   );
 };
 
-export default CustomCSSDemo;
+export default CustomThemeDemo;
