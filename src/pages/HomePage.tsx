@@ -1,8 +1,18 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faNpm } from "@fortawesome/free-brands-svg-icons";
-import { faTable, faColumns, faEdit, faList, faScroll, faRocket, faLightbulb } from "@fortawesome/free-solid-svg-icons";
+import {
+  faTable,
+  faColumns,
+  faEdit,
+  faList,
+  faScroll,
+  faRocket,
+  faLightbulb,
+  faCode,
+} from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
+import { useNavigate } from "react-router-dom";
 import AnimatedBackground from "../components/AnimatedBackground";
 import { trackButtonClick } from "../utils/analytics";
 import SEO from "../components/SEO";
@@ -14,6 +24,7 @@ import PinnedColumnsExample from "../components/examples/retail-sales/RetailSale
 
 const Home = () => {
   const isMobile = useIsMobile();
+  const navigate = useNavigate();
 
   // Animation variants
   const containerVariants = {
@@ -51,8 +62,9 @@ const Home = () => {
     return iconMap[title as keyof typeof iconMap] || faTable;
   };
 
-  const handleDemoClick = () => {
-    trackButtonClick(UI_STRINGS.common.liveDemo, "Homepage Hero");
+  const handleDocumentationClick = () => {
+    trackButtonClick("Documentation", "Homepage Hero");
+    navigate("/docs");
   };
 
   const handleGetStartedClick = () => {
@@ -110,14 +122,13 @@ const Home = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
             >
               <Button
-                type="primary"
-                size="large"
-                href={TECHNICAL_STRINGS.links.demo}
-                target="_blank"
-                onClick={handleDemoClick}
                 className="hover:scale-105 transition-transform"
+                icon={<FontAwesomeIcon icon={faCode} />}
+                onClick={handleDocumentationClick}
+                size="large"
+                type="primary"
               >
-                {UI_STRINGS.common.liveDemo}
+                Documentation
               </Button>
 
               <Button
