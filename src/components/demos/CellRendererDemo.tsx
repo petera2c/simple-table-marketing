@@ -92,7 +92,7 @@ const headers: HeaderObject[] = [
     accessor: "email",
     label: "Email",
     width: 200,
-    cellRenderer: (row) => (
+    cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faEnvelope} className="text-gray-400 mr-2" />
         <a href={`mailto:${row.rowData.email}`} className="text-blue-600 hover:underline">
@@ -105,7 +105,7 @@ const headers: HeaderObject[] = [
     accessor: "phone",
     label: "Phone",
     width: 180,
-    cellRenderer: (row) => (
+    cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faPhone} className="text-gray-400 mr-2" />
         <a href={`tel:${row.rowData.phone}`} className="text-blue-600 hover:underline">
@@ -118,7 +118,7 @@ const headers: HeaderObject[] = [
     accessor: "website",
     label: "Website",
     width: 150,
-    cellRenderer: (row) => (
+    cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faGlobe} className="text-gray-400 mr-2" />
         <a
@@ -136,7 +136,7 @@ const headers: HeaderObject[] = [
     accessor: "status",
     label: "Status",
     width: 120,
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const status = row.rowData.status as string;
       let color = "gray";
       let icon = faCheckCircle;
@@ -164,7 +164,7 @@ const headers: HeaderObject[] = [
     accessor: "progress",
     label: "Progress",
     width: 150,
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const progress = row.rowData.progress as number;
       let color = "blue";
 
@@ -186,7 +186,7 @@ const headers: HeaderObject[] = [
     accessor: "rating",
     label: "Rating",
     width: 150,
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const rating = row.rowData.rating as number;
       const fullStars = Math.floor(rating);
       const hasHalfStar = rating % 1 >= 0.5;
@@ -217,7 +217,7 @@ const headers: HeaderObject[] = [
     accessor: "verified",
     label: "Verified",
     width: 100,
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const verified = row.rowData.verified as boolean;
 
       return verified ? (

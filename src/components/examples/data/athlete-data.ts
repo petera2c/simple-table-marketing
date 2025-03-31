@@ -51,7 +51,7 @@ export const ATHLETES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${(row.rowData.personalBest as number).toFixed(2)}`,
+    cellRenderer: ({ row }) => `${(row.rowData.personalBest as number).toFixed(2)}`,
   },
   {
     accessor: "lastCompeted",
@@ -60,7 +60,7 @@ export const ATHLETES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "left",
-    cellRenderer: (row) => `${row.rowData.lastCompeted}`,
+    cellRenderer: ({ row }) => `${row.rowData.lastCompeted}`,
   },
   { accessor: "age", label: "Age", width: 80, isSortable: true, isEditable: true, align: "right" },
   {
@@ -70,7 +70,7 @@ export const ATHLETES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${(row.rowData.height as number).toFixed(2)}m`,
+    cellRenderer: ({ row }) => `${(row.rowData.height as number).toFixed(2)}m`,
   },
   {
     accessor: "weight",
@@ -79,7 +79,7 @@ export const ATHLETES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${row.rowData.weight}kg`,
+    cellRenderer: ({ row }) => `${row.rowData.weight}kg`,
   },
   { accessor: "team", label: "Team", width: 250, isSortable: true, isEditable: true, align: "left" },
   { accessor: "sponsor", label: "Sponsor", width: 150, isSortable: true, isEditable: true, align: "left" },

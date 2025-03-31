@@ -27,14 +27,14 @@ const headers: HeaderObject[] = [
     width: 120,
     isSortable: true,
     align: "right",
-    cellRenderer: (row) => `${row.rowData.visits} visits`,
+    cellRenderer: ({ row }) => `${row.rowData.visits} visits`,
   },
   {
     accessor: "status",
     label: "Status",
     width: 120,
     isSortable: true,
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const status = row.rowData.status as string;
       let color = "gray";
       if (status === "Active") color = "green";

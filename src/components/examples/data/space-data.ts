@@ -53,7 +53,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "left",
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       const date = new Date(row.rowData.launchDate as string);
       return date.toLocaleDateString("en-US", {
         month: "numeric",
@@ -72,7 +72,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       return `$${(row.rowData.budget as number).toLocaleString("en-US", {
         minimumFractionDigits: 1,
         maximumFractionDigits: 1,
@@ -86,7 +86,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       if (row.rowData.duration === "Ongoing") return "Ongoing";
       return `${row.rowData.duration}y`;
     },
@@ -98,7 +98,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${row.rowData.payloadWeight as number}kg`,
+    cellRenderer: ({ row }) => `${row.rowData.payloadWeight as number}kg`,
   },
   { accessor: "launchSite", label: "Launch Site", width: 180, isSortable: true, isEditable: true, align: "left" },
   {
@@ -108,7 +108,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => {
+    cellRenderer: ({ row }) => {
       return `$${(row.rowData.missionCostPerKg as number).toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
@@ -122,7 +122,7 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${row.rowData.successRate}%`,
+    cellRenderer: ({ row }) => `${row.rowData.successRate}%`,
   },
   {
     accessor: "scientificYield",
@@ -131,6 +131,6 @@ export const SPACE_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     align: "right",
-    cellRenderer: (row) => `${row.rowData.scientificYield}TB`,
+    cellRenderer: ({ row }) => `${row.rowData.scientificYield}TB`,
   },
 ];
