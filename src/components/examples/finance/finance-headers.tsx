@@ -1,8 +1,18 @@
 import { HeaderObject } from "simple-table-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faThumbsUp, faThumbsDown, faArrowUp, faArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { Tag, Tooltip } from "antd";
 
 export const HEADERS: HeaderObject[] = [
+  {
+    accessor: "ticker",
+    label: "Symbol",
+    width: 100,
+    isSortable: true,
+    isEditable: false,
+    align: "left",
+    pinned: "left",
+  },
   {
     accessor: "sectorName",
     label: "Sector/Company",
@@ -12,14 +22,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
   },
-  {
-    accessor: "ticker",
-    label: "Symbol",
-    width: 100,
-    isSortable: true,
-    isEditable: false,
-    align: "left",
-  },
+
   {
     accessor: "companyName",
     label: "Name",
@@ -44,21 +47,73 @@ export const HEADERS: HeaderObject[] = [
     },
   },
   {
-    accessor: "priceChangePercent",
-    label: "Change %",
-    width: 120,
+    accessor: "analystRating",
+    label: "Analyst Rating",
+    width: 150,
+    isSortable: true,
+    isEditable: false,
+    align: "center",
+    cellRenderer: ({ row }) => {
+      if (row.rowData.analystRating === "—") return "—";
+      const value = row.rowData.analystRating as number;
+
+      // Text ratings
+      const ratingLabels = {
+        5: "Strong Buy",
+        4.5: "Buy+",
+        4: "Buy",
+        3.5: "Overweight",
+        3: "Hold",
+        2.5: "Underweight",
+        2: "Sell",
+        1.5: "Sell+",
+        1: "Strong Sell",
+      };
+
+      // Color based on rating
+      const getRatingColor = (val: number) => {
+        if (val >= 4.5) return "green";
+        if (val >= 4) return "green";
+        if (val >= 3.5) return "cyan";
+        if (val >= 3) return "blue";
+        if (val >= 2.5) return "orange";
+        if (val >= 2) return "volcano";
+        return "red";
+      };
+
+      const ratingLabel = ratingLabels[(Math.round(value * 2) / 2) as keyof typeof ratingLabels] || "Hold";
+      const color = getRatingColor(value);
+
+      const icon = value >= 4 ? faThumbsUp : value < 3 ? faThumbsDown : null;
+      const direction = value >= 4 ? faArrowUp : value < 3 ? faArrowDown : null;
+
+      return (
+        <Tooltip title={`${value.toFixed(1)} / 5.0`}>
+          <Tag color={color} className="py-1 px-2">
+            {icon && <FontAwesomeIcon icon={icon} className="mr-1" />}
+            {ratingLabel}
+            {direction && <FontAwesomeIcon icon={direction} className="ml-1" size="xs" />}
+          </Tag>
+        </Tooltip>
+      );
+    },
+  },
+  {
+    accessor: "revenueGrowth",
+    label: "Rev Growth",
+    width: 130,
     isSortable: true,
     isEditable: false,
     align: "right",
     cellRenderer: ({ row }) => {
-      if (row.rowData.priceChangePercent === "—") return "—";
-      const value = row.rowData.priceChangePercent as number;
+      if (row.rowData.revenueGrowth === "—") return "—";
+      const value = row.rowData.revenueGrowth as number;
       const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
       const prefix = value > 0 ? "+" : "";
       return (
         <span className={color}>
           {prefix}
-          {value.toFixed(2)}%
+          {value}%
         </span>
       );
     },
@@ -103,42 +158,6 @@ export const HEADERS: HeaderObject[] = [
     },
   },
   {
-    accessor: "volume",
-    label: "Volume (M)",
-    width: 120,
-    isSortable: true,
-    isEditable: false,
-    align: "right",
-  },
-  {
-    accessor: "region",
-    label: "Region",
-    width: 150,
-    isSortable: true,
-    isEditable: false,
-    align: "left",
-  },
-  {
-    accessor: "revenueGrowth",
-    label: "Rev Growth",
-    width: 130,
-    isSortable: true,
-    isEditable: false,
-    align: "right",
-    cellRenderer: ({ row }) => {
-      if (row.rowData.revenueGrowth === "—") return "—";
-      const value = row.rowData.revenueGrowth as number;
-      const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
-      const prefix = value > 0 ? "+" : "";
-      return (
-        <span className={color}>
-          {prefix}
-          {value}%
-        </span>
-      );
-    },
-  },
-  {
     accessor: "profitMargin",
     label: "Profit Margin",
     width: 130,
@@ -148,28 +167,6 @@ export const HEADERS: HeaderObject[] = [
     cellRenderer: ({ row }) => {
       if (row.rowData.profitMargin === "—") return "—";
       return `${row.rowData.profitMargin}%`;
-    },
-  },
-  {
-    accessor: "riskFactor",
-    label: "Risk Factor",
-    width: 120,
-    isSortable: true,
-    isEditable: false,
-    align: "center",
-    cellRenderer: ({ row }) => {
-      if (row.rowData.riskFactor === "—") return "—";
-      const value = row.rowData.riskFactor as number;
-      // Visualize risk factor with colored dots
-      const colorClass = value <= 3 ? "bg-green-500" : value <= 7 ? "bg-orange-400" : "bg-red-500";
-      return (
-        <div className="flex justify-center items-center gap-1">
-          {Array.from({ length: Math.min(value, 5) }, (_, i) => (
-            <span key={i} className={`inline-block w-2 h-2 rounded-full ${colorClass}`} />
-          ))}
-          <span className="ml-1 text-gray-600">{value}/10</span>
-        </div>
-      );
     },
   },
   {
@@ -194,28 +191,24 @@ export const HEADERS: HeaderObject[] = [
     },
   },
   {
-    accessor: "analystRating",
-    label: "Analyst Rating",
-    width: 130,
+    accessor: "priceChangePercent",
+    label: "Change %",
+    width: 120,
     isSortable: true,
     isEditable: false,
-    align: "center",
+    align: "right",
     pinned: "right",
     cellRenderer: ({ row }) => {
-      if (row.rowData.analystRating === "—") return "—";
-      const value = row.rowData.analystRating as number;
+      if (row.rowData.priceChangePercent === "—") return "—";
+      const value = row.rowData.priceChangePercent as number;
+      const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
+      const prefix = value > 0 ? "+" : "";
+      const bgColor = value < 0 ? "bg-red-50" : value > 0 ? "bg-green-50" : "";
 
-      // Display star rating
       return (
-        <div className="flex items-center justify-center gap-1">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <FontAwesomeIcon
-              key={star}
-              icon={faChartLine}
-              className={`text-xs ${star <= value ? "text-blue-500" : "text-gray-300"}`}
-            />
-          ))}
-          <span className="ml-1 text-gray-600">{value}</span>
+        <div className={`px-2 py-1 rounded font-medium ${bgColor} ${color}`}>
+          {prefix}
+          {value.toFixed(2)}%
         </div>
       );
     },

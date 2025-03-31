@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { SimpleTable } from "simple-table-core";
-import { generateFinanceData } from "./finance-rows";
-import { HEADERS } from "./finance-headers";
+import { generateBillingData } from "./billing-rows";
+import { HEADERS } from "./billing-headers";
 
-const FinancialDashboard = () => {
-  const [data] = useState(generateFinanceData());
+const BillingDashboard = () => {
+  const [data] = useState(generateBillingData());
 
   return (
     <SimpleTable
@@ -20,4 +20,4 @@ const FinancialDashboard = () => {
   );
 };
 
-export default FinancialDashboard;
+export default BillingDashboard;

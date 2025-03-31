@@ -20,6 +20,7 @@ import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useIsMobile } from "../hooks/useIsMobile";
+import FinancialDashboard from "../components/examples/finance/FinancialDashboard";
 
 const Home = () => {
   const isMobile = useIsMobile();
@@ -151,7 +152,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          {/* <PinnedColumnsExample /> */}
+          <FinancialDashboard />
         </motion.section>
 
         {/* Features section with staggered animation */}

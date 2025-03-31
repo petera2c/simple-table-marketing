@@ -8,13 +8,14 @@ const HRManagement = () => {
 
   return (
     <SimpleTable
-      columnResizing
       columnReordering
+      columnResizing
       defaultHeaders={HEADERS}
       rows={data}
-      height="70dvh"
-      theme="light"
+      rowsPerPage={10}
       selectableCells
+      shouldPaginate
+      theme="light"
     />
   );
 };

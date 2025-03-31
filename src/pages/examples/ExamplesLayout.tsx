@@ -3,7 +3,7 @@ import { Outlet, NavLink, useLocation } from "react-router-dom";
 import { trackLinkClick } from "../../utils/analytics";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine, faUsers, faIndustry } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine, faUsers, faIndustry, faTable, faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import PageLayout from "../../components/PageLayout";
 import ConfigurableSidebar, { SidebarConfig } from "../../components/ConfigurableSidebar";
@@ -27,13 +27,14 @@ interface ExampleSubsection {
 // Define example sections - only including implemented examples
 const exampleSections: ExampleSection[] = [
   {
-    id: "examples",
-    label: "Dashboard Examples",
+    id: "example-dashboards",
+    label: "Simple Table Examples",
     icon: faChartLine,
     subsections: [
       { id: "finance", label: "Financial Dashboard", path: "/examples/finance", icon: faChartLine },
       { id: "manufacturing", label: "Manufacturing Metrics", path: "/examples/manufacturing", icon: faIndustry },
       { id: "hr", label: "HR Management", path: "/examples/hr", icon: faUsers },
+      { id: "billing", label: "Billing & Revenue", path: "/examples/billing", icon: faFileInvoiceDollar },
     ],
   },
 ];
@@ -102,8 +103,8 @@ const ExamplesLayout = () => {
 
   // Create sidebar config
   const sidebarConfig: SidebarConfig = {
-    title: "Data Table Examples",
-    icon: faChartLine,
+    title: "Simple Table Examples",
+    icon: faTable,
     sidebarContent,
   };
 

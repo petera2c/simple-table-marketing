@@ -22,6 +22,7 @@ import ConfigurableSidebar, { SidebarConfig } from "../components/ConfigurableSi
 import ExpandableSection from "../components/ExpandableSection";
 import ThemeColorPicker from "../components/ThemeColorPicker";
 import ThemeInput from "../components/ThemeInput";
+import HRManagement from "../components/examples/hr/HRManagement";
 
 interface ThemeConfig {
   borderColor: string;
@@ -347,7 +348,7 @@ const ThemeBuilder: React.FC = () => {
 
       <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
         <h1 className="text-3xl font-bold text-gray-900 mb-4">{UI_STRINGS.themeBuilder.sections.livePreview}</h1>
-        {/* <RowGroupingExample /> */}
+        <HRManagement />
       </PageLayout>
     </>
   );
