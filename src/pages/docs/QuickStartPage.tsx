@@ -6,6 +6,8 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
 import QuickStartDemo from "../../components/demos/QuickStartDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/QuickStartDemo.tsx?raw";
 
 const QuickStartPage = () => {
   return (
@@ -30,15 +32,6 @@ const QuickStartPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Quick Start</h1>
         </motion.div>
 
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <QuickStartDemo />
-        </motion.div>
-
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
@@ -48,6 +41,15 @@ const QuickStartPage = () => {
           This guide will help you quickly set up Simple Table in your React project. In just a few minutes, you'll have
           a fully functional data table.
         </motion.p>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <QuickStartDemo />
+        </motion.div>
 
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
@@ -66,11 +68,7 @@ const QuickStartPage = () => {
         >
           <p className="text-gray-700 mb-4">{UI_STRINGS.docs.cssSetup.description}</p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{TECHNICAL_STRINGS.css.import}</code>
-            </pre>
-          </div>
+          <CodeBlock code={TECHNICAL_STRINGS.css.import} language="js" />
 
           <p className="text-gray-700">{UI_STRINGS.docs.cssSetup.note}</p>
         </motion.div>
@@ -92,48 +90,7 @@ const QuickStartPage = () => {
         >
           <p className="text-gray-700 mb-4">Here's a minimal example to get you started with Simple Table:</p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-import { SimpleTable } from 'simple-table';
-import 'simple-table/dist/style.css';
-
-const QuickStartExample = () => {
-  // Define your headers
-  const headers = [
-    { label: 'Name', accessor: 'name', width: 150 },
-    { label: 'Email', accessor: 'email', width: 200 },
-    { label: 'Age', accessor: 'age', width: 80 },
-  ];
-
-  // Define your data rows
-  const rows = [
-    {
-      rowMeta: { rowId: '1' },
-      rowData: { name: 'John Doe', email: 'john@example.com', age: 28 }
-    },
-    {
-      rowMeta: { rowId: '2' },
-      rowData: { name: 'Jane Smith', email: 'jane@example.com', age: 32 }
-    },
-    {
-      rowMeta: { rowId: '3' },
-      rowData: { name: 'Bob Johnson', email: 'bob@example.com', age: 45 }
-    },
-  ];
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      height="400px"
-    />
-  );
-};
-
-export default QuickStartExample;`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <p className="text-gray-700 mb-6">
             This creates a basic table with three columns and three rows. The table will have a fixed height of 400px.

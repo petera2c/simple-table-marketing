@@ -4,14 +4,16 @@ import { faSort } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnSortingDemo from "../../components/demos/ColumnSortingDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/ColumnSortingDemo.tsx?raw";
 
 const ColumnSortingPage = () => {
   return (
     <>
       <SEO
         title={`Column Sorting - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement sorting functionality in Simple Table."
-        keywords={`column sorting, sort data, ascending, descending, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement column sorting in Simple Table."
+        keywords={`column sorting, data sorting, sort ascending, sort descending, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-sorting"
       />
 
@@ -28,7 +30,16 @@ const ColumnSortingPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Sorting</h1>
         </motion.div>
 
-        {/* Demo Section */}
+        <motion.p
+          className="text-gray-700 mb-6 text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Column sorting allows users to organize data in ascending or descending order based on column values, making
+          it easier to find and analyze information.
+        </motion.p>
+
         <motion.div
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -38,24 +49,13 @@ const ColumnSortingPage = () => {
           <ColumnSortingDemo />
         </motion.div>
 
-        <motion.p
-          className="text-gray-700 mb-6 text-lg"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          Column sorting allows users to organize data in ascending or descending order based on column values, making
-          it easier to analyze and find information in your tables.
-        </motion.p>
-
-        {/* Basic Sorting Section */}
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Basic Sorting
+          Default Sorting Implementation
         </motion.h2>
 
         <motion.div
@@ -64,73 +64,82 @@ const ColumnSortingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
         >
-          <p className="text-gray-700 mb-4">
-            Sorting in Simple Table is enabled by default and allows users to click on column headers to sort data. You
-            can control which columns are sortable using the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable</code> property.
-          </p>
+          <p className="text-gray-700 mb-4">To enable sorting, simply define which columns should be sortable:</p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-import { SimpleTable } from 'simple-table';
-
-const SortingExample = () => {
-  // Define headers with sorting configuration
-  const headers = [
-    { 
-      label: 'ID', 
-      accessor: 'id', 
-      width: 80,
-      isSortable: true // This column can be sorted (default is false)
-    },
-    { 
-      label: 'Name', 
-      accessor: 'name', 
-      width: 180,
-      isSortable: true
-    },
-    { 
-      label: 'Age', 
-      accessor: 'age', 
-      width: 100,
-      isSortable: true
-    },
-    { 
-      label: 'Actions', 
-      accessor: 'actions', 
-      width: 100,
-      isSortable: false // This column cannot be sorted
-    }
-  ];
-
-  // Handle sort changes
-  const handleSortChange = (accessor, direction) => {
-    console.log('Sorting by:', accessor, 'in', direction, 'order');
-    // You can implement your own sort logic here
-  };
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      enableSorting={true} // Default is true
-      onSortChange={handleSortChange}
-    />
-  );
-};`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Sorting Behavior</h3>
-            <p className="text-gray-700">When a user clicks a column header:</p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-              <li>First click: Sort ascending</li>
-              <li>Second click: Sort descending</li>
-              <li>Third click: Remove sorting (return to default order)</li>
+            <h3 className="font-bold text-gray-800 mb-2">Column Sorting Properties</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortable: true</code>: Enables sorting
+                for a column
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortDirection</code>: Initial sort
+                direction ('asc' or 'desc')
+              </li>
             </ul>
           </div>
+        </motion.div>
+
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Custom Sort Functions
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray-700 mb-4">You can define custom sort functions for more complex sorting logic:</p>
+
+          <CodeBlock code={demoCode} />
+        </motion.div>
+
+        <motion.div
+          className="flex justify-between mt-12 pt-4 border-t border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          <a
+            href="/docs/column-properties"
+            className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous: Column Properties
+          </a>
+
+          <a
+            href="/docs/row-grouping"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            Next: Row Grouping
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </>

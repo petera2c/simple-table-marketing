@@ -4,6 +4,8 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import CellHighlightingDemo from "../../components/demos/CellHighlightingDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/CellHighlightingDemo.tsx?raw";
 
 const CellHighlightingPage = () => {
   return (
@@ -28,16 +30,6 @@ const CellHighlightingPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Cell Highlighting</h1>
         </motion.div>
 
-        {/* Demo Section */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <CellHighlightingDemo />
-        </motion.div>
-
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
@@ -48,6 +40,16 @@ const CellHighlightingPage = () => {
           tables. This is especially useful for copy-paste operations, data analysis, and drawing attention to important
           values.
         </motion.p>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <CellHighlightingDemo />
+        </motion.div>
 
         {/* Basic Cell Selection Section */}
         <motion.h2
@@ -71,38 +73,7 @@ const CellHighlightingPage = () => {
             users to click on cells to highlight them and copy their contents using keyboard shortcuts.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-import { SimpleTable } from 'simple-table';
-
-const CellSelectionExample = () => {
-  // Define your headers and rows
-  const headers = [
-    { label: 'ID', accessor: 'id', width: 80 },
-    { label: 'Name', accessor: 'name', width: 180 },
-    { label: 'Email', accessor: 'email', width: 220 },
-    { label: 'Department', accessor: 'department', width: 150 }
-  ];
-
-  const rows = [
-    // Your row data here
-  ];
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      selectableCells={true} // Enable cell selection
-      onCellSelect={(cell, selectedCells) => {
-        console.log('Selected cell:', cell);
-        console.log('All selected cells:', selectedCells);
-      }}
-    />
-  );
-};`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">Selection Behavior</h3>
@@ -140,16 +111,7 @@ const CellSelectionExample = () => {
             copying entire columns of data.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`<SimpleTable
-  defaultHeaders={headers}
-  rows={rows}
-  selectableCells={true}
-  selectableColumns={true} // Enable column selection
-/>`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <p className="text-gray-700 mb-4">
             When a user clicks a column header with{" "}
@@ -181,49 +143,14 @@ const CellSelectionExample = () => {
             with spreadsheet applications like Excel or Google Sheets.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`<SimpleTable
-  defaultHeaders={headers}
-  rows={rows}
-  selectableCells={true}
-  selectableColumns={true}
-  
-  // Customize the copy format
-  copyConfig={{
-    delimiter: '\\t', // Tab delimiter (default)
-    quoteStrings: true, // Add quotes around string values
-    includeHeaders: true, // Include column headers in copied data
-    
-    // Custom formatter for cell values
-    formatCellValue: (value, column) => {
-      if (column.accessor === 'price') {
-        return \`$\${value.toFixed(2)}\`;
-      }
-      return value;
-    }
-  }}
-/>`}</code>
-            </pre>
-          </div>
-
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Copy/Paste Tips</h3>
-            <ul className="list-disc pl-5 space-y-1 text-gray-700">
-              <li>Click and drag to quickly select multiple cells</li>
-              <li>Selected cells will be copied in the same structure as they appear in the table</li>
-              <li>When pasting into a spreadsheet, the structure will be preserved</li>
-              <li>For best results with Excel, use tab as the delimiter (the default)</li>
-              <li>You can customize the delimiter for special use cases</li>
-            </ul>
-          </div>
+          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 1.1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
         >
           <a
             href="/docs/cell-editing"

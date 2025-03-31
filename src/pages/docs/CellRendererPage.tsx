@@ -4,6 +4,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import CellRendererDemo from "../../components/demos/CellRendererDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/CellRendererDemo.tsx?raw";
 
 const CellRendererPage = () => {
   return (

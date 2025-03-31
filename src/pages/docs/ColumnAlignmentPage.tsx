@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAlignLeft } from "@fortawesome/free-solid-svg-icons";
+import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnAlignmentDemo from "../../components/demos/ColumnAlignmentDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/ColumnAlignmentDemo.tsx?raw";
 
 const ColumnAlignmentPage = () => {
   return (
     <>
       <SEO
         title={`Column Alignment - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to control text alignment in Simple Table columns."
-        keywords={`column alignment, text alignment, ${SEO_STRINGS.docs.keywords}`}
+        description="Control the horizontal alignment of text and content in your Simple Table columns."
+        keywords={`column alignment, text alignment, center align, right align, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-alignment"
       />
 
@@ -23,10 +25,20 @@ const ColumnAlignmentPage = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="p-2 bg-blue-100 rounded-lg">
-            <FontAwesomeIcon icon={faAlignLeft} className="text-blue-600 text-2xl" />
+            <FontAwesomeIcon icon={faAlignCenter} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Column Alignment</h1>
         </motion.div>
+
+        <motion.p
+          className="text-gray-700 mb-6 text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Column alignment allows you to control how content is positioned horizontally within each column, improving
+          readability and visual organization of your data.
+        </motion.p>
 
         <motion.div
           className="mb-8"
@@ -37,70 +49,96 @@ const ColumnAlignmentPage = () => {
           <ColumnAlignmentDemo />
         </motion.div>
 
-        <motion.p
-          className="text-gray-700 mb-6 text-lg"
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Column alignment allows you to control how content is positioned within cells, improving the readability of
-          your data. Different types of data benefit from different alignments.
-        </motion.p>
+          Basic Usage
+        </motion.h2>
 
         <motion.div
           className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            Control the text alignment within columns using the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align</code> property. This affects all
-            cells in the column, including the header.
+            Control column alignment by setting the <code>align</code> property in your header definitions:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`const headers = [
-  // Left alignment (default)
-  { label: 'Name', accessor: 'name', width: 180 },
-  
-  // Center alignment
-  { label: 'Status', accessor: 'status', width: 120, align: 'center' },
-  
-  // Right alignment (good for numbers)
-  { label: 'Amount', accessor: 'amount', width: 100, align: 'right', type: 'number' }
-];`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Alignment Best Practices</h3>
-            <p className="text-gray-700 mb-3">For optimal readability, consider these alignment conventions:</p>
+            <h3 className="font-bold text-gray-800 mb-2">Alignment Options</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <strong>Left alignment</strong>: Use for text data (names, descriptions, etc.)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align: "left"</code> (default):
+                Left-align content
               </li>
               <li>
-                <strong>Right alignment</strong>: Use for numerical data (amounts, quantities, percentages)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align: "center"</code>: Center content
+                horizontally
               </li>
               <li>
-                <strong>Center alignment</strong>: Use for short status labels, boolean values, or action buttons
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align: "right"</code>: Right-align
+                content
               </li>
             </ul>
           </div>
+        </motion.div>
 
-          <p className="text-gray-700 mb-4">
-            Consistent alignment across your table makes the data more scannable and helps users interpret the
-            information more quickly.
-          </p>
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Best Practices
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray-700 mb-4">Consider these guidelines for optimal column alignment:</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-gray-800 mb-2">Text Content</h3>
+              <p className="text-gray-700">
+                Left-align text content such as names, descriptions, and other textual data for easier reading.
+              </p>
+            </div>
+            <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-gray-800 mb-2">Numeric Values</h3>
+              <p className="text-gray-700">
+                Right-align numbers, currencies, and percentages to make decimal points align vertically.
+              </p>
+            </div>
+            <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-gray-800 mb-2">Headers</h3>
+              <p className="text-gray-700">Match the header alignment with its column content for consistency.</p>
+            </div>
+            <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
+              <h3 className="font-semibold text-gray-800 mb-2">Status Indicators</h3>
+              <p className="text-gray-700">
+                Center-align status badges, icons, and other indicator elements to create visual focus.
+              </p>
+            </div>
+          </div>
+
+          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
         >
           <a
             href="/docs/column-pinning"
@@ -119,10 +157,10 @@ const ColumnAlignmentPage = () => {
           </a>
 
           <a
-            href="/docs/column-sorting"
+            href="/docs/column-properties"
             className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
           >
-            Next: Column Sorting
+            Next: Column Properties
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="h-4 w-4"

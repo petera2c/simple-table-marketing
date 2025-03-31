@@ -4,14 +4,16 @@ import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnPinningDemo from "../../components/demos/ColumnPinningDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/ColumnPinningDemo.tsx?raw";
 
 const ColumnPinningPage = () => {
   return (
     <>
       <SEO
         title={`Column Pinning - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement column pinning in Simple Table to keep important columns visible while scrolling."
-        keywords={`column pinning, freeze columns, fixed columns, ${SEO_STRINGS.docs.keywords}`}
+        description="Keep important columns visible while scrolling through wide tables."
+        keywords={`column pinning, freeze columns, sticky columns, fixed columns, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-pinning"
       />
 
@@ -28,6 +30,16 @@ const ColumnPinningPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Pinning</h1>
         </motion.div>
 
+        <motion.p
+          className="text-gray-700 mb-6 text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Column pinning (also known as freezing or sticking) allows you to keep important columns visible while
+          horizontally scrolling through wide tables, making it easier to maintain context.
+        </motion.p>
+
         <motion.div
           className="mb-8"
           initial={{ opacity: 0 }}
@@ -37,81 +49,73 @@ const ColumnPinningPage = () => {
           <ColumnPinningDemo />
         </motion.div>
 
-        <motion.p
-          className="text-gray-700 mb-6 text-lg"
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Column pinning allows you to keep important columns visible while scrolling horizontally. This is especially
-          useful for tables with many columns or when viewed on smaller screens.
-        </motion.p>
+          Basic Implementation
+        </motion.h2>
 
         <motion.div
           className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            Column pinning is useful for keeping important columns visible when scrolling horizontally in large tables.
-            You can pin columns to the left or right side of the table using the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned</code> property.
+            To pin columns, specify which columns should be frozen using the <code>pinned</code> property:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`const headers = [
-  // Left-pinned column
-  { 
-    label: 'ID', 
-    accessor: 'id', 
-    width: 80,
-    pinned: 'left'
-  },
-  
-  // Regular scrollable columns
-  { label: 'Name', accessor: 'name', width: 180 },
-  { label: 'Email', accessor: 'email', width: 220 },
-  { label: 'Phone', accessor: 'phone', width: 150 },
-  { label: 'Department', accessor: 'department', width: 180 },
-  { label: 'Role', accessor: 'role', width: 150 },
-  
-  // Right-pinned column
-  { 
-    label: 'Actions', 
-    accessor: 'actions', 
-    width: 120,
-    pinned: 'right'
-  }
-];`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">When to Use Column Pinning</h3>
-            <p className="text-gray-700">Column pinning is particularly useful for:</p>
-            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
-              <li>Tables with many columns where horizontal scrolling is necessary</li>
-              <li>Identifier columns that should always be visible (like ID or Name)</li>
-              <li>Action columns with buttons or controls that users need frequent access to</li>
+            <h3 className="font-bold text-gray-800 mb-2">Pinning Options</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "left"</code>: Freeze the column
+                to the left side
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned: "right"</code>: Freeze the
+                column to the right side
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">enableColumnPinning</code>: Main table
+                prop to enable/disable pinning functionality
+              </li>
             </ul>
           </div>
+        </motion.div>
 
-          <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Implementation Note</h3>
-            <p className="text-gray-700">
-              Pinned columns are rendered in separate table containers that are positioned absolutely relative to the
-              main table. This ensures they stay fixed while the rest of the table scrolls horizontally.
-            </p>
-          </div>
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Dynamic Pinning
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray-700 mb-4">
+            You can allow users to control which columns are pinned through a custom UI:
+          </p>
+
+          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
         >
           <a
             href="/docs/column-visibility"

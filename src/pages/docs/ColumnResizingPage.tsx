@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowsAlt } from "@fortawesome/free-solid-svg-icons";
+import { faExpand } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnResizingDemo from "../../components/demos/ColumnResizingDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/ColumnResizingDemo.tsx?raw";
 
 const ColumnResizingPage = () => {
   return (
     <>
       <SEO
         title={`Column Resizing - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement column resizing in Simple Table."
-        keywords={`column resizing, resize columns, drag columns, ${SEO_STRINGS.docs.keywords}`}
+        description="Adjust column widths easily with Simple Table's resizing feature."
+        keywords={`column resizing, adjustable columns, dynamic width, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-resizing"
       />
 
@@ -23,10 +25,20 @@ const ColumnResizingPage = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="p-2 bg-blue-100 rounded-lg">
-            <FontAwesomeIcon icon={faArrowsAlt} className="text-blue-600 text-2xl" />
+            <FontAwesomeIcon icon={faExpand} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Column Resizing</h1>
         </motion.div>
+
+        <motion.p
+          className="text-gray-700 mb-6 text-lg"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+        >
+          Column resizing allows users to adjust column widths to better view and interact with data according to their
+          preferences.
+        </motion.p>
 
         <motion.div
           className="mb-8"
@@ -37,45 +49,44 @@ const ColumnResizingPage = () => {
           <ColumnResizingDemo />
         </motion.div>
 
-        <motion.p
-          className="text-gray-700 mb-6 text-lg"
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
         >
-          Column resizing allows users to adjust column widths to better fit their data and screen space, providing a
-          more customized and comfortable viewing experience.
-        </motion.p>
+          Basic Implementation
+        </motion.h2>
 
         <motion.div
           className="mb-8"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
         >
           <p className="text-gray-700 mb-4">
-            Simple Table supports column resizing through the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">columnResizing</code> prop. When enabled,
-            users can drag the column dividers to adjust column widths.
+            Column resizing is enabled by default in Simple Table. Users can resize columns by dragging the column
+            dividers in the header row.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-4 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`// Enable column resizing for all columns
-<SimpleTable
-  defaultHeaders={headers}
-  rows={rows}
-  columnResizing={true} // Default is false
-/>`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Note About Column Resizing</h3>
-            <p className="text-gray-700">
-              When column resizing is enabled, it applies to all columns in the table. The <code>width</code> property
-              in your header definitions sets the initial width of each column before any user resizing.
-            </p>
+            <h3 className="font-bold text-gray-800 mb-2">Resizing Configuration</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">enableColumnResizing</code>: Toggle
+                resizing ability (default: true)
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">minColumnWidth</code>: Minimum column
+                width in pixels (default: 50)
+              </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">resizable</code>: Per-column property to
+                enable/disable resizing
+              </li>
+            </ul>
           </div>
         </motion.div>
 
@@ -83,10 +94,10 @@ const ColumnResizingPage = () => {
           className="flex justify-between mt-12 pt-4 border-t border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
           <a
-            href="/docs/column-properties"
+            href="/docs/quick-start"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -98,7 +109,7 @@ const ColumnResizingPage = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Column Properties
+            Previous: Quick Start
           </a>
 
           <a

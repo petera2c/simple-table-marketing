@@ -1,17 +1,19 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaintBrush } from "@fortawesome/free-solid-svg-icons";
+import { faCode } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import CustomRenderersDemo from "../../components/demos/CustomRenderersDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/CustomRenderersDemo.tsx?raw";
 
 const CustomRenderersPage = () => {
   return (
     <>
       <SEO
-        title={`Custom Cell Renderers - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to create custom cell renderers in Simple Table to display rich, interactive content."
-        keywords={`custom cell renderers, cell formatting, dynamic cells, ${SEO_STRINGS.docs.keywords}`}
+        title={`Custom Renderers - ${SEO_STRINGS.docs.title}`}
+        description="Create custom cell, header, and row renderers to build a uniquely styled table experience."
+        keywords={`custom renderers, custom cells, component overrides, advanced styling, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/custom-renderers"
       />
 
@@ -23,21 +25,9 @@ const CustomRenderersPage = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="p-2 bg-purple-100 rounded-lg">
-            <FontAwesomeIcon icon={faPaintBrush} className="text-purple-600 text-2xl" />
+            <FontAwesomeIcon icon={faCode} className="text-purple-600 text-2xl" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Custom Cell Renderers</h1>
-        </motion.div>
-
-        {/* Demo Section */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-            <CustomRenderersDemo />
-          </div>
+          <h1 className="text-3xl font-bold text-gray-800">Custom Renderers</h1>
         </motion.div>
 
         <motion.p
@@ -46,361 +36,179 @@ const CustomRenderersPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Custom cell renderers allow you to take full control over how cell content is displayed in your table,
-          enabling rich, interactive elements like buttons, links, progress bars, and more.
+          Custom renderers allow you to completely control the appearance and behavior of cells, headers, and rows in
+          your table. This powerful feature enables you to create tables with complex visualizations, interactive
+          elements, and unique styling.
         </motion.p>
 
-        {/* Basic Usage Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.3 }}>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200">
-            Basic Usage
-          </h2>
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <CustomRenderersDemo />
+        </motion.div>
 
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+        >
+          Custom Cell Renderers
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+        >
           <p className="text-gray-700 mb-4">
-            Custom cell renderers are defined as functions in your header configuration. Each renderer receives
-            information about the cell and returns a React element to be displayed.
+            Cell renderers allow you to customize how individual cells are displayed in your table. You can use them to
+            add formatting, icons, badges, or any custom React components.
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`// Define headers with custom renderers
-const headers = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "name", label: "Name", width: 200 },
-  { 
-    accessor: "status", 
-    label: "Status", 
-    width: 120,
-    // Define a custom renderer for the status column
-    cellRenderer: ({ row }) => {
-      const status = row.rowData.status;
-      // Return different elements based on status value
-      switch(status) {
-        case "active":
-          return <span className="px-2 py-1 bg-green-100 text-green-800 rounded-full">Active</span>;
-        case "inactive":
-          return <span className="px-2 py-1 bg-red-100 text-red-800 rounded-full">Inactive</span>;
-        default:
-          return <span>{status}</span>;
-      }
-    }
-  }
-];
-
-// Use the headers in SimpleTable
-<SimpleTable defaultHeaders={headers} rows={rows} />`}
-              </code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Cell Renderer Parameters</h3>
-            <p className="text-gray-700 mb-2">
-              The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> function receives
-              an object with the following properties:
-            </p>
-            <pre className="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <code>{`cellRenderer: ({ 
-  accessor,  // The column accessor (string)
-  colIndex,  // The column index (number)
-  row        // The row object
-}) => React.ReactNode`}</code>
-            </pre>
-            <p className="text-gray-700 mt-3 mb-2">
-              The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">Row</code> type has this structure:
-            </p>
-            <pre className="bg-gray-800 text-white p-3 rounded-md text-sm overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <code>{`type Row = {
-  // Row metadata
-  rowMeta: {
-    children?: Row[];    // Child rows (for row grouping)
-    isExpanded?: boolean; // Whether the row is expanded
-    rowId: number;       // Unique identifier for the row
+            <h3 className="font-bold text-gray-800 mb-2">Cell Renderer Props</h3>
+            <p className="text-gray-700 mb-2">Your custom cell renderer receives these props:</p>
+            <pre className="bg-white p-3 rounded border border-gray-200 text-sm overflow-x-auto">
+              {`{
+  value: any;            // The cell value
+  rowData: Record<string, any>; // All data for the current row
+  rowIndex: number;      // The index of the row
+  column: {
+    accessor: string;    // The column identifier
+    label: string;       // The column label
+    // ...other column properties
   };
-
-  // Actual cell values
-  rowData: { [key: string]: CellValue };
-};`}</code>
+  // ...additional context properties
+}`}
             </pre>
           </div>
         </motion.div>
 
-        {/* Common Use Cases Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.4 }}>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200">
-            Common Use Cases
-          </h2>
-
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Status Indicators</h3>
-          <p className="text-gray-700 mb-4">Create visually distinct status indicators with custom colors and icons:</p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`{
-  accessor: "status",
-  label: "Status",
-  width: 120,
-  cellRenderer: ({ row }) => {
-    const status = row.rowData.status;
-    let color = "gray";
-    let bgColor = "bg-gray-100";
-    let textColor = "text-gray-800";
-    
-    if (status === "active") {
-      bgColor = "bg-green-100";
-      textColor = "text-green-800";
-    } else if (status === "inactive") {
-      bgColor = "bg-red-100";
-      textColor = "text-red-800";
-    } else if (status === "pending") {
-      bgColor = "bg-yellow-100";
-      textColor = "text-yellow-800";
-    }
-    
-    return (
-      <span className={\`px-2 py-1 rounded-full \${bgColor} \${textColor}\`}>
-        {status}
-      </span>
-    );
-  }
-}`}
-              </code>
-            </pre>
-          </div>
-
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Interactive Components</h3>
-          <p className="text-gray-700 mb-4">Add buttons, links, or other interactive elements to your cells:</p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`{
-  accessor: "actions",
-  label: "Actions",
-  width: 150,
-  cellRenderer: ({ row }) => {
-    const userId = row.rowData.id;
-    
-    return (
-      <div className="flex space-x-2">
-        <button 
-          onClick={() => handleEdit(userId)}
-          className="p-1 bg-blue-500 text-white rounded hover:bg-blue-600"
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
         >
-          Edit
-        </button>
-        <button 
-          onClick={() => handleDelete(userId)}
-          className="p-1 bg-red-500 text-white rounded hover:bg-red-600"
+          Custom Header Renderers
+        </motion.h2>
+
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
         >
-          Delete
-        </button>
-      </div>
-    );
-  }
-}`}
-              </code>
-            </pre>
-          </div>
+          <p className="text-gray-700 mb-4">
+            Header renderers allow you to create custom column headers with additional functionality, such as filters,
+            tooltips, or help text.
+          </p>
 
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Progress Bars</h3>
-          <p className="text-gray-700 mb-4">Visualize progress or completion percentages:</p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`{
-  accessor: "progress",
-  label: "Progress",
-  width: 150,
-  cellRenderer: ({ row }) => {
-    const progress = row.rowData.progress || 0;
-    let color = "blue";
-    
-    if (progress < 30) color = "red";
-    else if (progress < 70) color = "yellow";
-    else color = "green";
-    
-    return (
-      <div className="w-full">
-        <div className="text-xs mb-1">{progress}%</div>
-        <div className="w-full bg-gray-200 rounded-full h-2.5">
-          <div 
-            className={\`bg-\${color}-500 h-2.5 rounded-full\`} 
-            style={{ width: \`\${progress}%\` }} 
-          />
-        </div>
-      </div>
-    );
-  }
-}`}
-              </code>
-            </pre>
-          </div>
-
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Formatting Numbers and Dates</h3>
-          <p className="text-gray-700 mb-4">Apply specific formatting to numeric or date values:</p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`// Currency formatter
-{
-  accessor: "price",
-  label: "Price",
-  width: 120,
-  align: "right",
-  cellRenderer: ({ row }) => {
-    const price = row.rowData.price;
-    return <span>\${price.toLocaleString(undefined, { 
-      minimumFractionDigits: 2, 
-      maximumFractionDigits: 2 
-    })}</span>;
-  }
-}
-
-// Date formatter
-{
-  accessor: "date",
-  label: "Date",
-  width: 150,
-  cellRenderer: ({ row }) => {
-    const date = new Date(row.rowData.date);
-    return <span>{date.toLocaleDateString('en-US', { 
-      year: 'numeric', 
-      month: 'short', 
-      day: 'numeric' 
-    })}</span>;
-  }
-}`}
-              </code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
         </motion.div>
 
-        {/* Advanced Techniques Section */}
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.5, delay: 0.5 }}>
-          <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 mt-8">
-            Advanced Techniques
-          </h2>
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.7 }}
+        >
+          Custom Row Renderers
+        </motion.h2>
 
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Conditional Formatting</h3>
-          <p className="text-gray-700 mb-4">Apply different styles based on cell values or conditions:</p>
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.8 }}
+        >
+          <p className="text-gray-700 mb-4">
+            Row renderers give you complete control over how entire rows are displayed, allowing for expandable rows,
+            nested content, or conditional styling.
+          </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`{
-  accessor: "change",
-  label: "Change",
-  width: 120,
-  align: "right",
-  cellRenderer: ({ row }) => {
-    const change = row.rowData.change;
-    const isPositive = change >= 0;
-    
-    return (
-      <span className={\`font-medium \${isPositive ? 'text-green-600' : 'text-red-600'}\`}>
-        {isPositive ? '+' : ''}{change.toFixed(2)}%
-      </span>
-    );
-  }
-}`}
-              </code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
+        </motion.div>
 
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Rich Media Content</h3>
-          <p className="text-gray-700 mb-4">Display images, avatars, or other media in cells:</p>
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.9 }}
+        >
+          Advanced Examples
+        </motion.h2>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`{
-  accessor: "user",
-  label: "User",
-  width: 200,
-  cellRenderer: ({ row }) => {
-    const { name, avatar, role } = row.rowData;
-    
-    return (
-      <div className="flex items-center">
-        <img 
-          src={avatar} 
-          alt={name} 
-          className="w-8 h-8 rounded-full mr-3" 
-        />
-        <div>
-          <div className="font-medium">{name}</div>
-          <div className="text-xs text-gray-500">{role}</div>
-        </div>
-      </div>
-    );
-  }
-}`}
-              </code>
-            </pre>
-          </div>
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.0 }}
+        >
+          <h3 className="text-xl font-semibold text-gray-800 mb-3">Interactive Cells</h3>
+          <p className="text-gray-700 mb-4">Create cells with interactive elements:</p>
 
-          <h3 className="text-xl font-bold text-gray-800 mb-3 mt-6">Dynamic Cell Content</h3>
-          <p className="text-gray-700 mb-4">Create cells that react to changes in application state:</p>
+          <CodeBlock code={demoCode} />
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>
-                {`// In a functional component
-const YourComponent = () => {
-  const [selectedRows, setSelectedRows] = useState([]);
-  
-  // Cell renderer that shows different content based on selection state
-  const selectionRenderer = ({ row }) => {
-    const isSelected = selectedRows.includes(row.rowMeta.rowId);
-    
-    return (
-      <button
-        onClick={() => handleRowSelection(row.rowMeta.rowId)}
-        className={\`p-1 rounded \${
-          isSelected ? 'bg-blue-500 text-white' : 'bg-gray-200'
-        }\`}
-      >
-        {isSelected ? 'Selected' : 'Select'}
-      </button>
-    );
-  };
-  
-  const headers = [
-    // Other headers...
-    {
-      accessor: "selection",
-      label: "Select",
-      width: 100,
-      cellRenderer: selectionRenderer
-    }
-  ];
-  
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-    />
-  );
-};`}
-              </code>
-            </pre>
-          </div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-3 mt-6">Data Visualization</h3>
+          <p className="text-gray-700 mb-4">Incorporate charts and visualizations in your cells:</p>
 
-          <div className="mt-8 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded-lg">
-            <h3 className="font-bold text-gray-800 mb-2">Best Practices</h3>
-            <ul className="list-disc pl-6 space-y-2 text-gray-700">
-              <li>Keep renderers performant by minimizing complex calculations</li>
-              <li>Memoize renderers with React.useMemo when appropriate</li>
-              <li>Use proper TypeScript types for better autocompletion and error checking</li>
-              <li>Consider accessibility when designing custom UI elements</li>
-              <li>Maintain consistent styling with the rest of your table</li>
+          <CodeBlock code={demoCode} />
+
+          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6 mt-6">
+            <h3 className="font-bold text-gray-800 mb-2">Performance Tips</h3>
+            <ul className="list-disc pl-5 space-y-1 text-gray-700">
+              <li>Use React.memo() to prevent unnecessary re-renders of complex custom renderers</li>
+              <li>Load heavy visualizations lazily or only when they enter the viewport</li>
+              <li>Consider the impact on scroll performance when using many complex renderers</li>
             </ul>
           </div>
+        </motion.div>
+
+        <motion.div
+          className="flex justify-between mt-12 pt-4 border-t border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 1.1 }}
+        >
+          <a
+            href="/docs/cell-highlighting"
+            className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            </svg>
+            Previous: Cell Highlighting
+          </a>
+
+          <a
+            href="/docs/theming"
+            className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
+          >
+            Next: Theming
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-4 w-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </motion.div>
       </div>
     </>

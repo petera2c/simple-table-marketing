@@ -4,6 +4,8 @@ import { faPager } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import PaginationDemo from "../../components/demos/PaginationDemo";
+import CodeBlock from "../../components/CodeBlock";
+import demoCode from "../../components/demos/PaginationDemo.tsx?raw";
 
 const PaginationPage = () => {
   return (
@@ -28,16 +30,6 @@ const PaginationPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Pagination</h1>
         </motion.div>
 
-        {/* Demo Section */}
-        <motion.div
-          className="mb-8"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.1 }}
-        >
-          <PaginationDemo />
-        </motion.div>
-
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
@@ -48,6 +40,16 @@ const PaginationPage = () => {
           performance, reduces visual clutter, and provides a better user experience for navigating through extensive
           data collections.
         </motion.p>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <PaginationDemo />
+        </motion.div>
 
         {/* Basic Pagination Section */}
         <motion.h2
@@ -70,39 +72,7 @@ const PaginationPage = () => {
             example:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React, { useState } from 'react';
-import { SimpleTable } from 'simple-table';
-
-const BasicPaginationExample = () => {
-  // Pagination state
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,  // Current page (0-based)
-    pageSize: 10,  // Items per page
-  });
-  
-  // Handle pagination changes
-  const handlePaginationChange = (newPagination) => {
-    setPagination(newPagination);
-    console.log(
-      \`Page changed to \${newPagination.pageIndex + 1}, 
-      showing \${newPagination.pageSize} items per page\`
-    );
-  };
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      enablePagination={true}
-      pagination={pagination}
-      onPaginationChange={handlePaginationChange}
-    />
-  );
-};`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <p className="text-gray-700 mb-4">Simple Table's pagination component includes:</p>
 
@@ -135,22 +105,7 @@ const BasicPaginationExample = () => {
             internally:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`// Client-side pagination with all data loaded at once
-<SimpleTable
-  defaultHeaders={headers}
-  rows={allRows}  // All data is provided upfront
-  enablePagination={true}
-  pagination={{
-    pageIndex: 0,
-    pageSize: 10
-  }}
-  paginationMode="client"  // Default is "client"
-  onPaginationChange={handlePaginationChange}
-/>`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
 
           <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
             <h3 className="font-bold text-gray-800 mb-2">When to Use Client-side Pagination</h3>
@@ -185,96 +140,45 @@ const BasicPaginationExample = () => {
             for the current page:
           </p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React, { useState, useEffect } from 'react';
-import { SimpleTable } from 'simple-table';
+          <CodeBlock code={demoCode} />
 
-const ServerPaginationExample = () => {
-  // State to store current page data
-  const [pageData, setPageData] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [totalRows, setTotalRows] = useState(0);
-  
-  // Pagination state
-  const [pagination, setPagination] = useState({
-    pageIndex: 0,
-    pageSize: 10
-  });
+          <p className="text-gray-700 mb-4">With server-side pagination, you'll need to provide:</p>
 
-  // Fetch data when pagination changes
-  useEffect(() => {
-    const fetchPageData = async () => {
-      setLoading(true);
-      try {
-        // Calculate offset based on pagination
-        const offset = pagination.pageIndex * pagination.pageSize;
-        
-        // API call with pagination parameters
-        const response = await fetch(
-          \`https://api.example.com/users?offset=\${offset}&limit=\${pagination.pageSize}\`
-        );
-        const result = await response.json();
-        
-        // Update state with paginated data and total count
-        setPageData(result.data.map(item => ({
-          rowMeta: { rowId: item.id },
-          rowData: item
-        })));
-        setTotalRows(result.totalCount);
-      } catch (error) {
-        console.error('Error fetching page data:', error);
-      } finally {
-        setLoading(false);
-      }
-    };
+          <ul className="list-disc pl-8 space-y-2 text-gray-700 mb-6">
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">paginationMode="server"</code>: Tell
+              Simple Table that you're handling the pagination logic
+            </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalRows</code>: The total number of rows
+              in the dataset (for calculating total pages)
+            </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">loading</code>: A boolean to show a
+              loading state while fetching data
+            </li>
+          </ul>
 
-    fetchPageData();
-  }, [pagination.pageIndex, pagination.pageSize]);
-
-  // Handle pagination changes
-  const handlePaginationChange = (newPagination) => {
-    setPagination(newPagination);
-  };
-
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={pageData}  // Only current page data
-      enablePagination={true}
-      pagination={{
-        ...pagination,
-        pageCount: Math.ceil(totalRows / pagination.pageSize),
-        totalRows: totalRows
-      }}
-      paginationMode="server"
-      onPaginationChange={handlePaginationChange}
-      loading={loading}
-    />
-  );
-};`}</code>
-            </pre>
-          </div>
-
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
-            <h3 className="font-bold text-gray-800 mb-2">Server Pagination Best Practices</h3>
-            <ul className="list-disc pl-5 space-y-1 text-gray-700">
-              <li>Always include a loading indicator to show when data is being fetched</li>
-              <li>Provide the total row count from your API for accurate page count calculation</li>
-              <li>Consider adding debounce to pagination changes to prevent excessive API calls</li>
-              <li>When using server-side pagination, use server-side sorting as well for consistency</li>
+          <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
+            <h3 className="font-bold text-gray-800 mb-2">When to Use Server-side Pagination</h3>
+            <p className="text-gray-700">Server-side pagination is essential for:</p>
+            <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
+              <li>Large datasets (thousands or millions of records)</li>
+              <li>When you need to optimize network traffic and memory usage</li>
+              <li>When the backend requires pagination parameters</li>
+              <li>Real-time data that might change frequently</li>
             </ul>
           </div>
         </motion.div>
 
-        {/* Customization Section */}
+        {/* Custom Pagination UI Section */}
         <motion.h2
           className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.9 }}
         >
-          Customizing Pagination
+          Custom Pagination UI
         </motion.h2>
 
         <motion.div
@@ -283,135 +187,9 @@ const ServerPaginationExample = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 1.0 }}
         >
-          <p className="text-gray-700 mb-4">
-            Simple Table allows you to customize various aspects of the pagination component:
-          </p>
+          <p className="text-gray-700 mb-4">You can customize the pagination UI by providing your own component:</p>
 
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`<SimpleTable
-  // ... other props
-  
-  // Customize available page sizes
-  pageSizeOptions={[10, 25, 50, 100]}
-  
-  // Customize pagination position
-  paginationPosition="bottom"  // Options: "top", "bottom", "both"
-  
-  // Use a custom pagination component
-  paginationComponent={MyCustomPagination}
-  
-  // Customize pagination labels
-  paginationLabels={{
-    showing: "Displaying",
-    of: "of",
-    entries: "records",
-    next: "Next",
-    previous: "Prev",
-    rowsPerPage: "Show",
-    gotoPage: "Go to page"
-  }}
-/>`}</code>
-            </pre>
-          </div>
-
-          <p className="text-gray-700 mb-4">You can also create a completely custom pagination component:</p>
-
-          <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-            <pre className="whitespace-pre-wrap">
-              <code>{`import React from 'react';
-
-// Custom pagination component
-const CustomPagination = ({ 
-  pagination, 
-  onPageChange, 
-  onPageSizeChange, 
-  pageSizeOptions 
-}) => {
-  const { pageIndex, pageSize, pageCount, totalRows } = pagination;
-  
-  return (
-    <div className="flex items-center justify-between p-4 border-t">
-      <div className="flex items-center space-x-2">
-        <span>Show</span>
-        <select
-          value={pageSize}
-          onChange={e => onPageSizeChange(Number(e.target.value))}
-          className="border rounded px-2 py-1"
-        >
-          {pageSizeOptions.map(size => (
-            <option key={size} value={size}>
-              {size}
-            </option>
-          ))}
-        </select>
-        <span>entries</span>
-      </div>
-      
-      <div className="flex items-center space-x-1">
-        <button
-          onClick={() => onPageChange(0)}
-          disabled={pageIndex === 0}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          ⟪
-        </button>
-        <button
-          onClick={() => onPageChange(pageIndex - 1)}
-          disabled={pageIndex === 0}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          ⟨
-        </button>
-        
-        {Array.from({ length: Math.min(5, pageCount) }).map((_, i) => {
-          const pageNum = pageIndex - 2 + i;
-          if (pageNum >= 0 && pageNum < pageCount) {
-            return (
-              <button
-                key={pageNum}
-                onClick={() => onPageChange(pageNum)}
-                className={\`px-3 py-1 border rounded \${
-                  pageNum === pageIndex ? 'bg-blue-500 text-white' : ''
-                }\`}
-              >
-                {pageNum + 1}
-              </button>
-            );
-          }
-          return null;
-        })}
-        
-        <button
-          onClick={() => onPageChange(pageIndex + 1)}
-          disabled={pageIndex >= pageCount - 1}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          ⟩
-        </button>
-        <button
-          onClick={() => onPageChange(pageCount - 1)}
-          disabled={pageIndex >= pageCount - 1}
-          className="px-3 py-1 border rounded disabled:opacity-50"
-        >
-          ⟫
-        </button>
-      </div>
-      
-      <div>
-        Showing {pageIndex * pageSize + 1} to {Math.min((pageIndex + 1) * pageSize, totalRows)} of {totalRows}
-      </div>
-    </div>
-  );
-};
-
-// In your SimpleTable component
-<SimpleTable
-  // ... other props
-  paginationComponent={CustomPagination}
-/>`}</code>
-            </pre>
-          </div>
+          <CodeBlock code={demoCode} />
         </motion.div>
 
         <motion.div
@@ -421,7 +199,7 @@ const CustomPagination = ({
           transition={{ duration: 0.5, delay: 1.1 }}
         >
           <a
-            href="/docs/column-sorting"
+            href="/docs/row-grouping"
             className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
           >
             <svg
@@ -433,7 +211,7 @@ const CustomPagination = ({
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Previous: Sorting & Filtering
+            Previous: Row Grouping
           </a>
 
           <a
