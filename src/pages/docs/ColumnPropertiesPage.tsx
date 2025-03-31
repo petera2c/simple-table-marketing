@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faList } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnPropertiesDemo from "../../components/demos/ColumnPropertiesDemo";
 
 const ColumnPropertiesPage = () => {
   return (
     <>
       <SEO
         title={`Column Properties - ${SEO_STRINGS.docs.title}`}
-        description="Learn about the properties available for columns in Simple Table."
-        keywords={`column properties, headers, configuration, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn about all available column properties in Simple Table."
+        keywords={`column properties, column configuration, headers, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-properties"
       />
 
@@ -27,14 +28,25 @@ const ColumnPropertiesPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Properties</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnPropertiesDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          The HeaderObject is used to define each column in your table. This page covers all the available properties
-          you can configure for your table columns.
+          Column properties define how each column in your table behaves and appears. Simple Table offers a rich set of
+          properties to customize columns according to your needs.
         </motion.p>
 
         <motion.div

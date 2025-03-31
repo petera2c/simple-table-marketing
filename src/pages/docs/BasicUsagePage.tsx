@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import QuickStartDemo from "../../components/demos/QuickStartDemo";
 
 const BasicUsagePage = () => {
   return (
@@ -10,7 +11,7 @@ const BasicUsagePage = () => {
       <SEO
         title={`Basic Usage - ${SEO_STRINGS.docs.title}`}
         description="Learn the fundamentals of using Simple Table in your React application."
-        keywords={`basic usage, react table, ${SEO_STRINGS.docs.keywords}`}
+        keywords={`basic usage, simple table, react table, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/basic-usage"
       />
 
@@ -27,14 +28,25 @@ const BasicUsagePage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Basic Usage</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <QuickStartDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          This guide explains the core concepts of Simple Table and shows you how to build functional tables with
-          various basic features.
+          Simple Table is designed to be intuitive and straightforward to use. This guide covers the fundamental
+          concepts and basic usage patterns to get you started with creating data tables in your React application.
         </motion.p>
 
         <motion.h2

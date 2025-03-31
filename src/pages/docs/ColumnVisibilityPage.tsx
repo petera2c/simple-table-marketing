@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnVisibilityDemo from "../../components/demos/ColumnVisibilityDemo";
 
 const ColumnVisibilityPage = () => {
   return (
     <>
       <SEO
         title={`Column Visibility - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to control column visibility in Simple Table."
-        keywords={`column visibility, hide columns, show columns, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement column visibility controls in Simple Table."
+        keywords={`column visibility, hide columns, show columns, toggle columns, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-visibility"
       />
 
@@ -27,14 +28,25 @@ const ColumnVisibilityPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Visibility</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnVisibilityDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table provides powerful ways to control which columns are visible, allowing users to customize their
-          view of the data.
+          Column visibility controls allow users to show or hide specific columns, providing a customized view of the
+          data that focuses on the information most relevant to their needs.
         </motion.p>
 
         <motion.div

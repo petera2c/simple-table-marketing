@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnPinningDemo from "../../components/demos/ColumnPinningDemo";
 
 const ColumnPinningPage = () => {
   return (
     <>
       <SEO
         title={`Column Pinning - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to pin columns to the left or right in Simple Table."
-        keywords={`column pinning, fixed columns, frozen columns, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement column pinning in Simple Table to keep important columns visible while scrolling."
+        keywords={`column pinning, freeze columns, fixed columns, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-pinning"
       />
 
@@ -27,14 +28,25 @@ const ColumnPinningPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Pinning</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnPinningDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Column pinning allows you to keep important columns visible at all times, even when scrolling horizontally
-          through a wide table. Pinned columns remain fixed in position on the left or right side.
+          Column pinning allows you to keep important columns visible while scrolling horizontally. This is especially
+          useful for tables with many columns or when viewed on smaller screens.
         </motion.p>
 
         <motion.div

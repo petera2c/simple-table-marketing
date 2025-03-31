@@ -5,14 +5,15 @@ import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
+import QuickStartDemo from "../../components/demos/QuickStartDemo";
 
 const QuickStartPage = () => {
   return (
     <>
       <SEO
         title={`Quick Start - ${SEO_STRINGS.docs.title}`}
-        description="Get up and running with Simple Table in just a few minutes."
-        keywords={`quick start, css setup, ${SEO_STRINGS.docs.keywords}`}
+        description="Get up and running with Simple Table quickly."
+        keywords={`quick start, react table, setup, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/quick-start"
       />
 
@@ -29,14 +30,25 @@ const QuickStartPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Quick Start</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <QuickStartDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Get your first Simple Table up and running in just a few minutes. This guide will walk you through the basics
-          of setting up the required CSS and creating a simple table.
+          This guide will help you quickly set up Simple Table in your React project. In just a few minutes, you'll have
+          a fully functional data table.
         </motion.p>
 
         <motion.h2

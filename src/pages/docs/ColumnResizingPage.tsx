@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsAlt } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnResizingDemo from "../../components/demos/ColumnResizingDemo";
 
 const ColumnResizingPage = () => {
   return (
     <>
       <SEO
         title={`Column Resizing - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to enable column resizing in Simple Table."
-        keywords={`column resizing, drag, width, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement column resizing in Simple Table."
+        keywords={`column resizing, resize columns, drag columns, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-resizing"
       />
 
@@ -27,14 +28,25 @@ const ColumnResizingPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Resizing</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnResizingDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table allows users to resize columns by dragging the column dividers, providing a customizable viewing
-          experience.
+          Column resizing allows users to adjust column widths to better fit their data and screen space, providing a
+          more customized and comfortable viewing experience.
         </motion.p>
 
         <motion.div

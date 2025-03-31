@@ -5,14 +5,15 @@ import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
+import InstallationDemo from "../../components/demos/InstallationDemo";
 
 const InstallationPage = () => {
   return (
     <>
       <SEO
         title={`Installation - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to install Simple Table in your React application."
-        keywords={`installation, npm install, ${SEO_STRINGS.docs.keywords}`}
+        description="How to install and set up Simple Table in your React project."
+        keywords={`installation, setup, npm, yarn, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/installation"
       />
 
@@ -29,13 +30,25 @@ const InstallationPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Installation</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <InstallationDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Get started with Simple Table in your React project by installing the package via npm, yarn, or pnpm.
+          Getting started with Simple Table is easy. This guide will walk you through the installation process and help
+          you set up the library in your React project.
         </motion.p>
 
         <motion.div

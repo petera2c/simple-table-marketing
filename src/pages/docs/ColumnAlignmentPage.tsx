@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignLeft } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnAlignmentDemo from "../../components/demos/ColumnAlignmentDemo";
 
 const ColumnAlignmentPage = () => {
   return (
     <>
       <SEO
         title={`Column Alignment - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to control text alignment in columns of Simple Table."
-        keywords={`column alignment, text alignment, left, center, right, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to control text alignment in Simple Table columns."
+        keywords={`column alignment, text alignment, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-alignment"
       />
 
@@ -27,14 +28,25 @@ const ColumnAlignmentPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Alignment</h1>
         </motion.div>
 
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnAlignmentDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Control the text alignment within your table columns to improve readability and visual organization,
-          especially for different types of data.
+          Column alignment allows you to control how content is positioned within cells, improving the readability of
+          your data. Different types of data benefit from different alignments.
         </motion.p>
 
         <motion.div

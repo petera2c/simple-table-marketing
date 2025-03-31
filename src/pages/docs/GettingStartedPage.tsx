@@ -3,15 +3,16 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import QuickStartDemo from "../../components/demos/QuickStartDemo";
 
 const GettingStartedPage = () => {
   return (
     <>
       <SEO
-        title={`Getting Started - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to install and set up Simple Table in your React application."
-        keywords={`installation, setup, quick start, react table, ${SEO_STRINGS.docs.keywords}`}
-        canonicalUrl="/docs/getting-started"
+        title={`Introduction - ${SEO_STRINGS.docs.title}`}
+        description="Get started with Simple Table, a powerful React data table component."
+        keywords={`getting started, introduction, overview, ${SEO_STRINGS.docs.keywords}`}
+        canonicalUrl="/docs"
       />
 
       <div className="max-w-3xl mx-auto">
@@ -24,7 +25,19 @@ const GettingStartedPage = () => {
           <div className="p-2 bg-blue-100 rounded-lg">
             <FontAwesomeIcon icon={faRocket} className="text-blue-600 text-2xl" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800">Getting Started</h1>
+          <h1 className="text-3xl font-bold text-gray-800">Introduction</h1>
+        </motion.div>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <QuickStartDemo />
+          </div>
         </motion.div>
 
         <motion.p
@@ -33,8 +46,8 @@ const GettingStartedPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Welcome to Simple Table! This guide will help you install the package and set up your first table in just a
-          few minutes.
+          Simple Table is a powerful, lightweight React component for building interactive data tables with minimal
+          effort. It's designed to handle large datasets efficiently while providing a rich set of features.
         </motion.p>
 
         {/* Installation Section */}

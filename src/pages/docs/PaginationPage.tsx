@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPager } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import PaginationDemo from "../../components/demos/PaginationDemo";
 
 const PaginationPage = () => {
   return (
     <>
       <SEO
         title={`Pagination - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement pagination in Simple Table for handling large datasets."
-        keywords={`pagination, data tables, react tables, ${SEO_STRINGS.docs.keywords}`}
+        description="Implement pagination in Simple Table to handle large datasets efficiently."
+        keywords={`pagination, page size, large datasets, data navigation, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/pagination"
       />
 
@@ -27,14 +28,27 @@ const PaginationPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Pagination</h1>
         </motion.div>
 
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <PaginationDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Pagination is essential for handling large datasets efficiently. Simple Table provides flexible pagination
-          options to help you manage data presentation in a user-friendly way.
+          Pagination helps manage large datasets by dividing the table data into manageable pages. This improves
+          performance, reduces visual clutter, and provides a better user experience for navigating through extensive
+          data collections.
         </motion.p>
 
         {/* Basic Pagination Section */}

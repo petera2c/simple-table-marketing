@@ -1,16 +1,17 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBolt } from "@fortawesome/free-solid-svg-icons";
+import { faBolt, faChartLine } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import QuickStartDemo from "../../components/demos/QuickStartDemo";
 
 const PerformancePage = () => {
   return (
     <>
       <SEO
         title={`Performance Optimization - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to optimize your Simple Table for maximum performance with large datasets."
-        keywords={`table performance, virtualization, lazy loading, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to optimize Simple Table for handling large datasets efficiently."
+        keywords={`performance, optimization, large datasets, virtual scrolling, memoization, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/performance"
       />
 
@@ -21,10 +22,22 @@ const PerformancePage = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="p-2 bg-yellow-100 rounded-lg">
-            <FontAwesomeIcon icon={faBolt} className="text-yellow-600 text-2xl" />
+          <div className="p-2 bg-blue-100 rounded-lg">
+            <FontAwesomeIcon icon={faChartLine} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Performance Optimization</h1>
+        </motion.div>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <QuickStartDemo />
+          </div>
         </motion.div>
 
         <motion.p
@@ -33,8 +46,8 @@ const PerformancePage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Handling large datasets in tables can be challenging for performance. Simple Table provides several
-          optimization strategies to ensure your tables remain fast and responsive even with thousands of rows.
+          Simple Table is optimized for performance, but when working with very large datasets or complex tables,
+          additional optimization techniques can help maintain a smooth user experience.
         </motion.p>
 
         {/* Virtualization Section */}

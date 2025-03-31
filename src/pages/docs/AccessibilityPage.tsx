@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUniversalAccess } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import QuickStartDemo from "../../components/demos/QuickStartDemo";
 
 const AccessibilityPage = () => {
   return (
     <>
       <SEO
         title={`Accessibility - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to create accessible data tables with SimpleTable that work for all users regardless of abilities."
-        keywords={`accessibility, WCAG, screen readers, keyboard navigation, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn about the accessibility features built into Simple Table."
+        keywords={`accessibility, a11y, WCAG, screen readers, keyboard navigation, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/accessibility"
       />
 
@@ -21,10 +22,22 @@ const AccessibilityPage = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="p-2 bg-green-100 rounded-lg">
-            <FontAwesomeIcon icon={faUniversalAccess} className="text-green-600 text-2xl" />
+          <div className="p-2 bg-blue-100 rounded-lg">
+            <FontAwesomeIcon icon={faUniversalAccess} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Accessibility</h1>
+        </motion.div>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <QuickStartDemo />
+          </div>
         </motion.div>
 
         <motion.p
@@ -33,7 +46,7 @@ const AccessibilityPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table is designed with accessibility as a core principle. This page outlines how to ensure your tables
+          Simple Table is designed with accessibility in mind, following WCAG guidelines to ensure that your data tables
           are usable by everyone, including people with disabilities.
         </motion.p>
 

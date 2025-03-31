@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import CellHighlightingDemo from "../../components/demos/CellHighlightingDemo";
 
 const CellHighlightingPage = () => {
   return (
     <>
       <SEO
         title={`Cell Highlighting - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement cell highlighting and selection in Simple Table."
-        keywords={`cell highlighting, cell selection, copy paste, selectable cells, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement cell selection and highlighting in Simple Table."
+        keywords={`cell highlighting, selection, clipboard, copy-paste, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/cell-highlighting"
       />
 
@@ -27,15 +28,27 @@ const CellHighlightingPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Cell Highlighting</h1>
         </motion.div>
 
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <CellHighlightingDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table provides powerful cell highlighting capabilities that allow users to select and copy data from
-          the table. This page covers how to enable cell selection, column selection, and how to use these features for
-          data export.
+          Cell highlighting allows users to select and visually emphasize specific cells or ranges of cells within your
+          tables. This is especially useful for copy-paste operations, data analysis, and drawing attention to important
+          values.
         </motion.p>
 
         {/* Basic Cell Selection Section */}

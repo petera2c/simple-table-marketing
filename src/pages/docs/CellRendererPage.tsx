@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import CellRendererDemo from "../../components/demos/CellRendererDemo";
 
 const CellRendererPage = () => {
   return (
     <>
       <SEO
         title={`Cell Renderer - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement custom cell renderers in Simple Table."
-        keywords={`cell renderer, custom cells, react component, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to use custom cell renderers in Simple Table to display rich, interactive content."
+        keywords={`cell renderer, custom rendering, cell templates, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/cell-renderer"
       />
 
@@ -27,15 +28,26 @@ const CellRendererPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Cell Renderer</h1>
         </motion.div>
 
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <CellRendererDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table allows you to customize how cells are rendered using the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> property defined on each
-          column. This gives you complete control over the appearance and behavior of individual columns in your table.
+          Cell renderers give you complete control over how data is displayed in your table cells. Using custom
+          renderers, you can create rich, interactive elements like buttons, badges, progress bars, and more.
         </motion.p>
 
         {/* Basic Usage Section */}

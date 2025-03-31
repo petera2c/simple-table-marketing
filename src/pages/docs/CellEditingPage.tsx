@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import CellEditingDemo from "../../components/demos/CellEditingDemo";
 
 const CellEditingPage = () => {
   return (
     <>
       <SEO
         title={`Cell Editing - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement cell editing functionality in Simple Table."
-        keywords={`cell editing, inline editing, form validation, ${SEO_STRINGS.docs.keywords}`}
+        description="Make your tables interactive with cell editing capabilities in Simple Table."
+        keywords={`cell editing, editable cells, data input, form validation, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/cell-editing"
       />
 
@@ -21,10 +22,22 @@ const CellEditingPage = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.5 }}
         >
-          <div className="p-2 bg-blue-100 rounded-lg">
-            <FontAwesomeIcon icon={faEdit} className="text-blue-600 text-2xl" />
+          <div className="p-2 bg-purple-100 rounded-lg">
+            <FontAwesomeIcon icon={faEdit} className="text-purple-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Cell Editing</h1>
+        </motion.div>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <CellEditingDemo />
+          </div>
         </motion.div>
 
         <motion.p
@@ -33,8 +46,8 @@ const CellEditingPage = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table provides powerful cell editing capabilities that allow users to edit data directly within the
-          table. This page covers how to set up inline editing, validation, and custom editors.
+          Simple Table provides powerful cell editing capabilities, allowing users to modify data directly within the
+          table interface. This creates a more interactive and efficient user experience for data entry and management.
         </motion.p>
 
         {/* Basic Editing Setup Section */}

@@ -3,14 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import ColumnSortingDemo from "../../demos/examples/column-sorting/ColumnSortingDemo";
 
 const ColumnSortingPage = () => {
   return (
     <>
       <SEO
         title={`Column Sorting - ${SEO_STRINGS.docs.title}`}
-        description="Learn how to implement sorting in Simple Table."
-        keywords={`sorting, column sorting, data organization, ${SEO_STRINGS.docs.keywords}`}
+        description="Learn how to implement sorting functionality in Simple Table."
+        keywords={`column sorting, sort data, ascending, descending, ${SEO_STRINGS.docs.keywords}`}
         canonicalUrl="/docs/column-sorting"
       />
 
@@ -27,14 +28,26 @@ const ColumnSortingPage = () => {
           <h1 className="text-3xl font-bold text-gray-800">Column Sorting</h1>
         </motion.div>
 
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <ColumnSortingDemo />
+          </div>
+        </motion.div>
+
         <motion.p
           className="text-gray-700 mb-6 text-lg"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          Simple Table provides powerful sorting capabilities to help users organize data efficiently. This page covers
-          how to implement sorting features in your tables.
+          Column sorting allows users to organize data in ascending or descending order based on column values, making
+          it easier to analyze and find information in your tables.
         </motion.p>
 
         {/* Basic Sorting Section */}

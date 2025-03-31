@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
+import RowGroupingDemo from "../../components/demos/RowGroupingDemo";
 
 const RowGroupingPage = () => {
   return (
@@ -25,6 +26,18 @@ const RowGroupingPage = () => {
             <FontAwesomeIcon icon={faLayerGroup} className="text-blue-600 text-2xl" />
           </div>
           <h1 className="text-3xl font-bold text-gray-800">Row Grouping</h1>
+        </motion.div>
+
+        {/* Demo Section */}
+        <motion.div
+          className="mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+        >
+          <div className="border border-gray-200 rounded-lg overflow-hidden shadow-sm">
+            <RowGroupingDemo />
+          </div>
         </motion.div>
 
         <motion.p
