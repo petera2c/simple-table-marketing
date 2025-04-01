@@ -15,7 +15,7 @@
     />
     <meta
       name="keywords"
-      content="react table, react grid, react spreadsheet, simple table, react data table, business table component"
+      content="react table, react grid, react spreadsheet, simple table, react data table, business table component, react table library, react grid component, react data grid, react table component, react data visualization, react business table, react enterprise table"
     />
 
     <!-- Open Graph / Facebook -->
@@ -27,6 +27,7 @@
       content="Simple Table is a powerful, lightweight React grid component that brings beautiful data visualization to your applications. Features include cell editing, column management, pagination, infinite scroll, and more."
     />
     <meta property="og:image" content="https://www.simple-table.com/og-image.jpg" />
+    <meta property="og:site_name" content="Simple Table" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -37,20 +38,96 @@
       content="Simple Table is a powerful, lightweight React grid component that brings beautiful data visualization to your applications. Features include cell editing, column management, pagination, infinite scroll, and more."
     />
     <meta property="twitter:image" content="https://www.simple-table.com/og-image.jpg" />
+    <meta property="twitter:creator" content="@simpletable" />
 
     <!-- Additional SEO Meta Tags -->
     <meta name="robots" content="index, follow" />
     <meta name="language" content="English" />
     <meta name="author" content="Simple Table" />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Simple Table" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="application-name" content="Simple Table" />
+    <meta name="generator" content="React" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
 
     <!-- Canonical URL -->
     <link rel="canonical" href="https://www.simple-table.com/" />
 
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192x192.png" />
+
     <!-- Preconnect to important domains -->
-    <link rel="preconnect" href="https://www.simple-table.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://static.hotjar.com" />
     <link rel="preconnect" href="https://scripts.simpleanalyticscdn.com" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "Simple Table",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Web",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Simple Table is a powerful, lightweight React grid component that brings beautiful data visualization to your applications.",
+        "featureList": [
+          "Cell editing",
+          "Column management",
+          "Pagination",
+          "Infinite scroll",
+          "Row grouping",
+          "Custom themes"
+        ],
+        "screenshot": "https://www.simple-table.com/og-image.jpg",
+        "softwareVersion": "0.7.12",
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "150"
+        }
+      }
+    </script>
+
+    <!-- Additional Schema.org Markup -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Simple Table",
+        "url": "https://www.simple-table.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://www.simple-table.com/search?q={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      }
+    </script>
+
+    <!-- Organization Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Simple Table",
+        "url": "https://www.simple-table.com",
+        "logo": "https://www.simple-table.com/favicon.svg",
+        "sameAs": ["https://github.com/simple-table", "https://twitter.com/simpletable"]
+      }
+    </script>
 
     <link href="/src/output.css" rel="stylesheet" />
 
@@ -69,30 +146,6 @@
         r.src = t + h._hjSettings.hjid + j + h._hjSettings.hjsv;
         a.appendChild(r);
       })(window, document, "https://static.hotjar.com/c/hotjar-", ".js?sv=");
-    </script>
-
-    <!-- Structured Data -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        "name": "Simple Table",
-        "applicationCategory": "DeveloperApplication",
-        "operatingSystem": "Web",
-        "offers": {
-          "@type": "Offer",
-          "price": "0",
-          "priceCurrency": "USD"
-        },
-        "description": "Simple Table is a powerful, lightweight React grid component that brings beautiful data visualization to your applications. Features include cell editing, column management, pagination, infinite scroll, and more.",
-        "url": "https://www.simple-table.com",
-        "softwareVersion": "0.7.7",
-        "aggregateRating": {
-          "@type": "AggregateRating",
-          "ratingValue": "4.8",
-          "ratingCount": "150"
-        }
-      }
     </script>
   </head>
   <body>

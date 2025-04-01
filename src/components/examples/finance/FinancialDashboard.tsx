@@ -12,7 +12,7 @@ const FinancialDashboard = () => {
       columnReordering
       defaultHeaders={HEADERS}
       rows={data}
-      height="70dvh"
+      height="50dvh"
       theme="light"
       selectableCells
       editColumns

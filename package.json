@@ -10,7 +10,8 @@
     "preview": "vite preview",
     "build-css": "npx @tailwindcss/cli -i ./src/input.css -o ./src/output.css --watch",
     "start": "serve -s dist",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "npm run build",
+    "generate-sitemap": "node scripts/generate-sitemap.js"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -27,7 +28,8 @@
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.4.0",
     "serve": "^14.2.4",
-    "simple-table-core": "^0.7.12"
+    "simple-table-core": "^0.7.12",
+    "sitemap": "^7.1.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
