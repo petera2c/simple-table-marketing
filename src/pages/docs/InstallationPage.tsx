@@ -40,12 +40,16 @@ const InstallationPage = () => {
 
       <CodeBlock
         code={`# npm
-${TECHNICAL_STRINGS.installation.npm}
-
-# yarn
-${TECHNICAL_STRINGS.installation.yarn}
-
-# pnpm
+${TECHNICAL_STRINGS.installation.npm}`}
+        language="bash"
+      />
+      <CodeBlock
+        code={`# yarn
+${TECHNICAL_STRINGS.installation.yarn}`}
+        language="bash"
+      />
+      <CodeBlock
+        code={`# pnpm
 ${TECHNICAL_STRINGS.installation.pnpm}`}
         language="bash"
       />
