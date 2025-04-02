@@ -2,7 +2,7 @@ import { SimpleTable } from "simple-table-core";
 
 const headers = [
   { accessor: "id", label: "ID", width: 60 },
-  { accessor: "name", label: "Name", width: 160 },
+  { accessor: "name", label: "Name", width: "1fr", minWidth: 100 },
   { accessor: "email", label: "Email", width: 200 },
   { accessor: "role", label: "Role", width: 140 },
   { accessor: "department", label: "Department", width: 150 },

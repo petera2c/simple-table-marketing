@@ -6,7 +6,7 @@ const headers: HeaderObject[] = [
   { accessor: "firstName", label: "First Name", width: 120 },
   { accessor: "lastName", label: "Last Name", width: 120 },
   { accessor: "age", label: "Age", width: 80, align: "right" },
-  { accessor: "email", label: "Email", width: 220 },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr" },
   { accessor: "location", label: "Location", width: 150 },
 ];
 

@@ -4,7 +4,7 @@ import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 // Define headers
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80 },
-  { accessor: "name", label: "Name", width: 180 },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr" },
   { accessor: "email", label: "Email", width: 220 },
   { accessor: "department", label: "Department", width: 150 },
   { accessor: "status", label: "Status", width: 120 },

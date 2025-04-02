@@ -4,7 +4,7 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 // Define headers with various properties
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, isSortable: true, expandable: true, pinned: "left" },
-  { accessor: "name", label: "Name", width: 180, isSortable: true, isEditable: true },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", isSortable: true, isEditable: true },
   {
     accessor: "email",
     label: "Email Address",

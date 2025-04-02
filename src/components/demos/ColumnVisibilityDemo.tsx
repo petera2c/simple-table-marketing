@@ -3,8 +3,8 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 // Define all possible headers
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60 },
-  { accessor: "name", label: "Name", width: 180 },
-  { accessor: "email", label: "Email", width: 220, hide: true },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr" },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true },
   { accessor: "role", label: "Role", width: 150 },
   { accessor: "department", label: "Department", width: 150 },
   { accessor: "location", label: "Location", width: 150 },

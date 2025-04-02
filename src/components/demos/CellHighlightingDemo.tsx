@@ -3,7 +3,7 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 // Define headers with conditional cell styling
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80 },
-  { accessor: "product", label: "Product", width: 180 },
+  { accessor: "product", label: "Product", minWidth: 100, width: "1fr" },
   {
     accessor: "sales",
     label: "Sales",

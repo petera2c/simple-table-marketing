@@ -3,7 +3,7 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 // Initial headers with different alignments
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, align: "left" },
-  { accessor: "name", label: "Name", width: 180, align: "center" },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", align: "center" },
   { accessor: "score", label: "Score", width: 120, align: "right" },
   { accessor: "rating", label: "Rating", width: 120, align: "right" },
   { accessor: "status", label: "Status", width: 120, align: "left" },

@@ -13,7 +13,7 @@ const QuickStartDemo = () => {
   // Define headers
   const headers: HeaderObject[] = [
     { accessor: "id", label: "ID", width: 80, isSortable: true },
-    { accessor: "name", label: "Name", width: 200, isSortable: true },
+    { accessor: "name", label: "Name", minWidth: 80, width: "1fr", isSortable: true },
     { accessor: "age", label: "Age", width: 100, isSortable: true },
     { accessor: "role", label: "Role", width: 150, isSortable: true },
     { accessor: "department", label: "Department", width: 150, isSortable: true },

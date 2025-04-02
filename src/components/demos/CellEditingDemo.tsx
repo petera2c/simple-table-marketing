@@ -1,6 +1,15 @@
 import { useState } from "react";
 import { SimpleTable, HeaderObject, CellChangeProps } from "simple-table-core";
 
+// Define headers with editable property
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 80, isEditable: false },
+  { accessor: "firstName", label: "First Name", width: 150, isEditable: true },
+  { accessor: "lastName", label: "Last Name", width: 150, isEditable: true },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", isEditable: true },
+  { accessor: "role", label: "Role", width: 150, isEditable: true },
+];
+
 // Sample initial data
 const initialData = [
   {
@@ -23,15 +32,6 @@ const initialData = [
     rowMeta: { rowId: 5 },
     rowData: { id: 5, firstName: "Charlie", lastName: "Brown", email: "charlie@example.com", role: "Marketing" },
   },
-];
-
-// Define headers with editable property
-const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isEditable: false },
-  { accessor: "firstName", label: "First Name", width: 150, isEditable: true },
-  { accessor: "lastName", label: "Last Name", width: 150, isEditable: true },
-  { accessor: "email", label: "Email", width: 220, isEditable: true },
-  { accessor: "role", label: "Role", width: 150, isEditable: true },
 ];
 
 const CellEditingDemo = () => {
