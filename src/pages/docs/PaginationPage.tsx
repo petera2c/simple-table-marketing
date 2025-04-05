@@ -85,7 +85,37 @@ const PaginationPage = () => {
               <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pageSize</code>: Number of rows per page
               (default: 10)
             </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalPages</code>: Total number of pages
+              available -<span className="font-semibold"> required</span> for proper pagination controls
+            </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onNextPage</code>: Callback function
+              triggered when user clicks the next page button
+            </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onPreviousPage</code>: Callback function
+              triggered when user clicks the previous page button
+            </li>
           </ul>
+        </div>
+
+        <div className="bg-amber-50 border-l-4 border-amber-300 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-medium text-gray-700 mb-2">Important Note</h3>
+          <p className="text-gray-600">
+            The <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code> property is crucial
+            for proper pagination functionality. Without it:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-gray-600 mt-2">
+            <li>The table won't know how many page numbers to display</li>
+            <li>Next/Previous buttons won't disable correctly at boundaries</li>
+            <li>Users may attempt to navigate to non-existent pages</li>
+          </ul>
+          <p className="text-gray-600 mt-2">
+            Always calculate and provide{" "}
+            <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code> based on your data size
+            and page size (e.g., <code>Math.ceil(totalItems / pageSize)</code>).
+          </p>
         </div>
       </motion.div>
 

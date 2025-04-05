@@ -8,10 +8,12 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-50: oklch(0.971 0.013 17.38);
+    --color-red-400: oklch(0.704 0.191 22.216);
     --color-red-500: oklch(0.637 0.237 25.331);
     --color-red-600: oklch(0.577 0.245 27.325);
     --color-orange-500: oklch(0.705 0.213 47.604);
     --color-amber-50: oklch(0.987 0.022 95.277);
+    --color-amber-300: oklch(0.879 0.169 91.605);
     --color-amber-400: oklch(0.828 0.189 84.429);
     --color-yellow-50: oklch(0.987 0.026 102.212);
     --color-yellow-400: oklch(0.852 0.199 91.936);
@@ -246,6 +248,17 @@
   .visible {
     visibility: visible;
   }
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
   .absolute {
     position: absolute;
   }
@@ -299,6 +312,24 @@
   }
   .z-50 {
     z-index: 50;
+  }
+  .\!container {
+    width: 100% !important;
+    @media (width >= 40rem) {
+      max-width: 40rem !important;
+    }
+    @media (width >= 48rem) {
+      max-width: 48rem !important;
+    }
+    @media (width >= 64rem) {
+      max-width: 64rem !important;
+    }
+    @media (width >= 80rem) {
+      max-width: 80rem !important;
+    }
+    @media (width >= 96rem) {
+      max-width: 96rem !important;
+    }
   }
   .container {
     width: 100%;
@@ -468,8 +499,35 @@
   .h-screen {
     height: 100vh;
   }
+  .max-h-\[50vh\] {
+    max-height: 50vh;
+  }
+  .max-h-\[56vh\] {
+    max-height: 56vh;
+  }
+  .max-h-\[58vh\] {
+    max-height: 58vh;
+  }
+  .max-h-\[60vh\] {
+    max-height: 60vh;
+  }
+  .max-h-\[64vh\] {
+    max-height: 64vh;
+  }
+  .max-h-\[70vh\] {
+    max-height: 70vh;
+  }
   .max-h-\[500px\] {
     max-height: 500px;
+  }
+  .max-h-\[max\(20vh\,400px\)\] {
+    max-height: max(20vh, 400px);
+  }
+  .max-h-\[max\(70vh\,400px\)\] {
+    max-height: max(70vh, 400px);
+  }
+  .max-h-\[max\(400px\,20vh\)\] {
+    max-height: max(400px, 20vh);
   }
   .min-h-\[60vh\] {
     min-height: 60vh;
@@ -545,6 +603,15 @@
   }
   .border-collapse {
     border-collapse: collapse;
+  }
+  .rotate-90 {
+    rotate: 90deg;
+  }
+  .rotate-180 {
+    rotate: 180deg;
+  }
+  .rotate-270 {
+    rotate: 270deg;
   }
   .transform {
     transform: var(--tw-rotate-x) var(--tw-rotate-y) var(--tw-rotate-z) var(--tw-skew-x) var(--tw-skew-y);
@@ -737,11 +804,17 @@
     --tw-border-style: none;
     border-style: none;
   }
+  .border-amber-300 {
+    border-color: var(--color-amber-300);
+  }
   .border-amber-400 {
     border-color: var(--color-amber-400);
   }
   .border-blue-100 {
     border-color: var(--color-blue-100);
+  }
+  .border-blue-200 {
+    border-color: var(--color-blue-200);
   }
   .border-blue-400 {
     border-color: var(--color-blue-400);
@@ -752,11 +825,17 @@
   .border-gray-200 {
     border-color: var(--color-gray-200);
   }
+  .border-gray-300 {
+    border-color: var(--color-gray-300);
+  }
   .border-gray-700 {
     border-color: var(--color-gray-700);
   }
   .border-green-400 {
     border-color: var(--color-green-400);
+  }
+  .border-red-400 {
+    border-color: var(--color-red-400);
   }
   .border-transparent {
     border-color: transparent;

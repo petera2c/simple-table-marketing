@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-const headers: HeaderObject[] = [
+const ROWS_PER_PAGE = 10;
+const HEADERS: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", minWidth: 100, type: "string" },
   { accessor: "email", label: "Email", width: 200, type: "string" },
@@ -10,7 +12,7 @@ const headers: HeaderObject[] = [
   { accessor: "status", label: "Status", width: 110, type: "string" },
 ];
 
-const rows = [
+const ROWS = [
   {
     rowMeta: { rowId: 1 },
     rowData: {
@@ -564,7 +566,46 @@ const rows = [
 ];
 
 const PaginationDemo = () => {
-  return <SimpleTable defaultHeaders={headers} rows={rows} height="auto" shouldPaginate rowsPerPage={6} />;
+  // Only hold the current page data, not all data
+  const [rows, setRows] = useState(ROWS.slice(0, ROWS_PER_PAGE));
+
+  // Handler for next page data fetch
+  const onNextPage = (pageIndex: number) => {
+    const startIndex = pageIndex * ROWS_PER_PAGE;
+    const endIndex = startIndex + ROWS_PER_PAGE;
+    const newPageData = ROWS.slice(startIndex, endIndex);
+
+    if (newPageData.length === 0 || rows.length > startIndex) {
+      return;
+    }
+
+    setRows((prevRows) => [...prevRows, ...newPageData]);
+  };
+
+  // Handler for previous page data fetch
+  const onPreviousPage = (pageIndex: number) => {
+    const startIndex = pageIndex * ROWS_PER_PAGE;
+    const endIndex = startIndex + ROWS_PER_PAGE;
+    const newPageData = ROWS.slice(startIndex, endIndex);
+
+    if (newPageData.length === 0 || rows.length > startIndex) {
+      return;
+    }
+
+    setRows((prevRows) => [...newPageData, ...prevRows]);
+  };
+  return (
+    <SimpleTable
+      defaultHeaders={HEADERS}
+      height="auto"
+      onNextPage={onNextPage}
+      onPreviousPage={onPreviousPage}
+      rows={rows}
+      rowsPerPage={ROWS_PER_PAGE}
+      shouldPaginate
+      totalPages={Math.ceil(ROWS.length / ROWS_PER_PAGE)}
+    />
+  );
 };
 
 export default PaginationDemo;

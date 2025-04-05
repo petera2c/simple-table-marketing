@@ -107,8 +107,11 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         >
           {({ style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className="p-4 overflow-x-auto text-sm"
-              style={{ ...style, backgroundColor: theme === "dark" ? "#011627" : "#FBFBFB" }}
+              className="p-4 overflow-auto text-sm max-h-[64vh]"
+              style={{
+                ...style,
+                backgroundColor: theme === "dark" ? "#011627" : "#FBFBFB",
+              }}
             >
               {tokens.map((line, i) => {
                 // Check if this line is a special comment like "// ... existing code ..."
