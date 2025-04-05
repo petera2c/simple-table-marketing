@@ -68,7 +68,7 @@ const PaginationPage = () => {
       >
         <p className="text-gray-700 mb-4">
           To enable pagination in Simple Table, you need to add the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pagination</code> prop to your SimpleTable
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code> prop to your SimpleTable
           component. This will automatically handle pagination of your data.
         </p>
 
@@ -78,12 +78,12 @@ const PaginationPage = () => {
           <h3 className="font-bold text-gray-800 mb-2">Pagination Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pagination</code>: Enables pagination
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code>: Enables pagination
               functionality
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pageSize</code>: Number of rows per page
-              (default: 10)
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowsPerPage</code>: Number of rows per
+              page (default: 10)
             </li>
             <li>
               <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalPages</code>: Total number of pages
@@ -96,6 +96,10 @@ const PaginationPage = () => {
             <li>
               <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onPreviousPage</code>: Callback function
               triggered when user clicks the previous page button
+            </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets the height of rows
+              in pixels (number, e.g., 40)
             </li>
           </ul>
         </div>

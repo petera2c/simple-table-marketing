@@ -27,6 +27,7 @@ import MobileUnsupportedPage from "./pages/MobileUnsupportedPage.tsx";
 
 // Import demo pages
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
+import RowHeightPage from "./pages/docs/RowHeightPage.tsx";
 import { ANALYTICS_ENABLED } from "./utils/analyticsConfig.ts";
 import ExamplesRoutes from "./pages/examples/ExamplesRoutes.tsx";
 
@@ -74,6 +75,7 @@ function App() {
                   {/* Other routes */}
                   <Route path="pagination" element={<PaginationPage />} />
                   <Route path="row-grouping" element={<RowGroupingPage />} />
+                  <Route path="row-height" element={<RowHeightPage />} />
                   <Route path="themes" element={<ThemesPage />} />
                   <Route path="custom-theme" element={<CustomThemePage />} />
                   <Route path="*" element={<NotFound />} />

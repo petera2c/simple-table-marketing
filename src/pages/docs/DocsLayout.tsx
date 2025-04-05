@@ -23,6 +23,7 @@ import {
   faArrowRightArrowLeft,
   faLeftRight,
   faDownload,
+  faArrowsUpDown,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -74,6 +75,15 @@ const docSections: DocSection[] = [
     ],
   },
   {
+    id: "rows",
+    label: "Row Features",
+    icon: faList,
+    subsections: [
+      { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping" },
+      { id: "row-height", label: "Row Height", path: "/docs/row-height" },
+    ],
+  },
+  {
     id: "cells",
     label: "Cell Features",
     icon: faTableCells,
@@ -87,10 +97,7 @@ const docSections: DocSection[] = [
     id: "advanced-features",
     label: "Advanced Features",
     icon: faPuzzlePiece,
-    subsections: [
-      { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping" },
-      { id: "pagination", label: "Pagination", path: "/docs/pagination" },
-    ],
+    subsections: [{ id: "pagination", label: "Pagination", path: "/docs/pagination" }],
   },
   {
     id: "customization",
@@ -119,6 +126,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "custom-renderers": faEdit,
   "quick-start": faRocket,
   "row-grouping": faLayerGroup,
+  "row-height": faArrowsUpDown,
   advanced: faTableCells,
   columns: faColumns,
   installation: faDownload,

@@ -123,6 +123,10 @@ const ColumnPropertiesPage = () => {
                 <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code>: Whether to hide the column
                 (boolean)
               </li>
+              <li>
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets the height of
+                rows in pixels (number, e.g., 40)
+              </li>
             </ul>
           </div>
 

@@ -27,7 +27,7 @@ const QuickStartDemo = () => {
     rowData: item,
   }));
 
-  return <SimpleTable defaultHeaders={headers} editColumns rows={rows} selectableCells />;
+  return <SimpleTable defaultHeaders={headers} editColumns rows={rows} rowHeight={48} selectableCells />;
 };
 
 export default QuickStartDemo;
