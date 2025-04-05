@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
+import { NavLink } from "react-router-dom";
 import { trackLinkClick } from "../utils/analytics";
 
 const Footer = () => {
@@ -27,29 +28,40 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-4">Links</h3>
+            <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
-                <a
-                  href="https://docs.simple-table.com/"
-                  onClick={() => handleLinkClick("Footer Documentation", "https://docs.simple-table.com/")}
+                <NavLink
+                  to="/docs"
+                  onClick={() => handleLinkClick("Footer Documentation", "/docs")}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
                   Documentation
-                </a>
+                </NavLink>
               </li>
               <li>
-                <a
-                  href="https://www.simple-table.com/"
-                  onClick={() => handleLinkClick("Footer Website", "https://www.simple-table.com/")}
+                <NavLink
+                  to="/examples"
+                  onClick={() => handleLinkClick("Footer Examples", "/examples")}
                   className="text-gray-400 hover:text-white transition-colors"
                 >
-                  Website
-                </a>
+                  Examples
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to="/theme-builder"
+                  onClick={() => handleLinkClick("Footer Theme Builder", "/theme-builder")}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Theme Builder
+                </NavLink>
               </li>
               <li>
                 <a
                   href="https://www.npmjs.com/package/simple-table-core"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={() =>
                     handleLinkClick("Footer NPM Package", "https://www.npmjs.com/package/simple-table-core")
                   }
@@ -63,30 +75,45 @@ const Footer = () => {
 
           <div>
             <h3 className="text-lg font-semibold mb-4">Community</h3>
-            <div className="flex space-x-4">
-              <motion.a
-                href="https://discord.gg/RvKHCfg3PC"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleLinkClick("Footer Discord", "https://discord.gg/RvKHCfg3PC")}
-                className="text-gray-400 hover:text-white"
-                whileHover={{ scale: 1.2, color: "#7289DA" }}
-                transition={{ duration: 0.2 }}
-              >
-                <FontAwesomeIcon icon={faDiscord} size="2x" />
-              </motion.a>
-              <motion.a
-                href="https://github.com/petera2c/simple-table-marketing"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleLinkClick("Footer GitHub", "https://github.com/petera2c/simple-table-marketing")}
-                className="text-gray-400 hover:text-white"
-                whileHover={{ scale: 1.2, color: "#ffffff" }}
-                transition={{ duration: 0.2 }}
-              >
-                <FontAwesomeIcon icon={faGithub} size="2x" />
-              </motion.a>
-            </div>
+            <ul className="space-y-2 mb-4">
+              <li>
+                <a
+                  href="https://github.com/petera2c/simple-table-marketing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleLinkClick("Footer GitHub", "https://github.com/petera2c/simple-table-marketing")}
+                  className="text-gray-400 hover:text-white transition-colors flex items-center"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                  GitHub Repository
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://discord.gg/RvKHCfg3PC"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleLinkClick("Footer Discord", "https://discord.gg/RvKHCfg3PC")}
+                  className="text-gray-400 hover:text-white transition-colors flex items-center"
+                >
+                  <FontAwesomeIcon icon={faDiscord} className="mr-2" />
+                  Join our Discord
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://github.com/petera2c/simple-table-marketing/issues"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    handleLinkClick("Footer Issues", "https://github.com/petera2c/simple-table-marketing/issues")
+                  }
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
+                  Report an Issue
+                </a>
+              </li>
+            </ul>
           </div>
         </motion.div>
 

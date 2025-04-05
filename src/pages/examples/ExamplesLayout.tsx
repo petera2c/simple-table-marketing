@@ -61,7 +61,7 @@ const ExamplesLayout = () => {
         {/* Navigation Bar */}
         <div className="mb-4 flex justify-between items-center">
           <h1 className="text-xl font-semibold">{exampleTitles[currentExample.id as keyof typeof exampleTitles]}</h1>
-          <Space size="middle">
+          <Space size="middle" wrap>
             {examples.map((example) => (
               <Button
                 key={example.id}

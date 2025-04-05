@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 import { trackLinkClick } from "../utils/analytics";
 import { useIsMobile } from "../hooks/useIsMobile";
 
@@ -80,6 +81,16 @@ const Header = () => {
             >
               Examples
             </NavLink>
+            <a
+              href="https://discord.gg/RvKHCfg3PC"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleNavClick("Support", "https://discord.gg/RvKHCfg3PC")}
+              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <FontAwesomeIcon icon={faDiscord} className="mr-1" />
+              Support
+            </a>
           </div>
         </div>
 
@@ -139,6 +150,16 @@ const Header = () => {
               >
                 Examples
               </NavLink>
+              <a
+                href="https://discord.gg/RvKHCfg3PC"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleNavClick("Support", "https://discord.gg/RvKHCfg3PC")}
+                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
+              >
+                <FontAwesomeIcon icon={faDiscord} className="mr-2" />
+                Support
+              </a>
             </div>
           </div>
         )}
