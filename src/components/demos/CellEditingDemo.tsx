@@ -4,11 +4,11 @@ import "simple-table-core/styles.css";
 
 // Define headers with editable property
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isEditable: false },
-  { accessor: "firstName", label: "First Name", width: 150, isEditable: true },
-  { accessor: "lastName", label: "Last Name", width: 150, isEditable: true },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", isEditable: true },
-  { accessor: "role", label: "Role", width: 150, isEditable: true },
+  { accessor: "id", label: "ID", width: 80, isEditable: false, type: "number" },
+  { accessor: "firstName", label: "First Name", width: 150, isEditable: true, type: "string" },
+  { accessor: "lastName", label: "Last Name", width: 150, isEditable: true, type: "string" },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", isEditable: true, type: "string" },
+  { accessor: "role", label: "Role", width: 150, isEditable: true, type: "string" },
 ];
 
 // Sample initial data

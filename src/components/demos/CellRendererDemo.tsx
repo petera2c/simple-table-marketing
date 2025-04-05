@@ -87,12 +87,13 @@ const data = [
 
 // Define headers with custom cell renderers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60 },
-  { accessor: "name", label: "Name", width: 180 },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Name", width: 180, type: "string" },
   {
     accessor: "email",
     label: "Email",
     width: 200,
+    type: "string",
     cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faEnvelope} className="text-gray-400 mr-2" />
@@ -106,6 +107,7 @@ const headers: HeaderObject[] = [
     accessor: "phone",
     label: "Phone",
     width: 180,
+    type: "string",
     cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faPhone} className="text-gray-400 mr-2" />
@@ -119,6 +121,7 @@ const headers: HeaderObject[] = [
     accessor: "website",
     label: "Website",
     width: 150,
+    type: "string",
     cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <FontAwesomeIcon icon={faGlobe} className="text-gray-400 mr-2" />
@@ -137,6 +140,7 @@ const headers: HeaderObject[] = [
     accessor: "status",
     label: "Status",
     width: 120,
+    type: "string",
     cellRenderer: ({ row }) => {
       const status = row.rowData.status as string;
       let color = "gray";
@@ -165,6 +169,7 @@ const headers: HeaderObject[] = [
     accessor: "progress",
     label: "Progress",
     width: 150,
+    type: "number",
     cellRenderer: ({ row }) => {
       const progress = row.rowData.progress as number;
       let color = "blue";
@@ -187,6 +192,7 @@ const headers: HeaderObject[] = [
     accessor: "rating",
     label: "Rating",
     width: 150,
+    type: "number",
     cellRenderer: ({ row }) => {
       const rating = row.rowData.rating as number;
       const fullStars = Math.floor(rating);
@@ -218,6 +224,7 @@ const headers: HeaderObject[] = [
     accessor: "verified",
     label: "Verified",
     width: 100,
+    type: "boolean",
     cellRenderer: ({ row }) => {
       const verified = row.rowData.verified as boolean;
 

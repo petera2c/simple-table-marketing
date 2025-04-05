@@ -19,6 +19,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
     cellRenderer: ({ row }) => {
       const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
       return isLineRow ? <span className="font-bold">{row.rowData.productLine}</span> : row.rowData.productLine;
@@ -31,6 +32,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
     cellRenderer: ({ row }) => {
       const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
       if (isLineRow) {
@@ -51,6 +53,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
   {
     accessor: "status",
@@ -59,6 +62,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "string",
     cellRenderer: ({ row }) => {
       if (row.rowData.status === "—") return "—";
 
@@ -88,6 +92,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
       return <div className={isLineRow ? "font-bold" : ""}>{(row.rowData.outputRate as number).toLocaleString()}</div>;
@@ -100,6 +105,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
   },
   {
     accessor: "efficiency",
@@ -108,6 +114,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.efficiency === "—") return "—";
 
@@ -133,6 +140,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.defectRate === "—") return "—";
       const rate = parseFloat(row.rowData.defectRate as string);
@@ -148,6 +156,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
   },
   {
     accessor: "downtime",
@@ -156,6 +165,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.downtime === "—") return "—";
 
@@ -172,6 +182,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.utilization === "—") return "—";
       return `${row.rowData.utilization}%`;
@@ -184,6 +195,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       return (row.rowData.energy as number).toLocaleString();
     },
@@ -195,6 +207,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "date",
     cellRenderer: ({ row }) => {
       if (row.rowData.maintenanceDate === "—") return "—";
 

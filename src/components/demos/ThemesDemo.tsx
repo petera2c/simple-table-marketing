@@ -4,11 +4,11 @@ import "simple-table-core/styles.css";
 
 // Define headers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "name", label: "Name", minWidth: 100, width: "1fr" },
-  { accessor: "email", label: "Email", width: 220 },
-  { accessor: "department", label: "Department", width: 150 },
-  { accessor: "status", label: "Status", width: 120 },
+  { accessor: "id", label: "ID", width: 80, type: "number" },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
+  { accessor: "email", label: "Email", width: 220, type: "string" },
+  { accessor: "department", label: "Department", width: 150, type: "string" },
+  { accessor: "status", label: "Status", width: 120, type: "string" },
 ];
 
 // Sample data

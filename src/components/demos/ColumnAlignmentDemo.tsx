@@ -3,11 +3,11 @@ import "simple-table-core/styles.css";
 
 // Initial headers with different alignments
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, align: "left" },
-  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", align: "center" },
-  { accessor: "score", label: "Score", width: 120, align: "right" },
-  { accessor: "rating", label: "Rating", width: 120, align: "right" },
-  { accessor: "status", label: "Status", width: 120, align: "left" },
+  { accessor: "id", label: "ID", width: 80, align: "left", type: "number" },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", align: "center", type: "string" },
+  { accessor: "score", label: "Score", width: 120, align: "right", type: "number" },
+  { accessor: "rating", label: "Rating", width: 120, align: "right", type: "number" },
+  { accessor: "status", label: "Status", width: 120, align: "left", type: "string" },
 ];
 
 // Sample data

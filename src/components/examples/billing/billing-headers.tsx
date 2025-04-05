@@ -22,6 +22,7 @@ const generateMonthHeaders = () => {
       isSortable: true,
       isEditable: false,
       align: "right",
+      type: "number",
       cellRenderer: ({ row }) => {
         const value = row.rowData[`month_${months[monthIndex]}_${year}`];
         if (!value || value === 0) return "—";
@@ -57,6 +58,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
     pinned: "left",
+    type: "string",
     cellRenderer: ({ row }) => {
       const name = row.rowData.name as string;
 
@@ -70,6 +72,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       const amount = row.rowData.amount as number;
       if (!amount) return "—";
@@ -87,6 +90,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       const amount = row.rowData.amount as number;
       const deferred = row.rowData.deferredRevenue as number;

@@ -5,12 +5,12 @@ import "./CustomTheme.css";
 
 // Define headers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "name", label: "Name", width: 180 },
-  { accessor: "email", label: "Email", width: 220 },
-  { accessor: "department", label: "Department", width: 150 },
-  { accessor: "status", label: "Status", width: 120 },
-  { accessor: "number", label: "Number", width: 120 },
+  { accessor: "id", label: "ID", width: 80, type: "number" },
+  { accessor: "name", label: "Name", width: 180, type: "string" },
+  { accessor: "email", label: "Email", width: 220, type: "string" },
+  { accessor: "department", label: "Department", width: 150, type: "string" },
+  { accessor: "status", label: "Status", width: 120, type: "string" },
+  { accessor: "number", label: "Number", width: 120, type: "number" },
 ];
 
 // Sample data

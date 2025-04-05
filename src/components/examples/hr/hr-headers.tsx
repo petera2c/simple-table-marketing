@@ -11,6 +11,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
     pinned: "left",
+    type: "string",
     cellRenderer: ({ row }) => {
       // Employee row, render with avatar and details
       const initials = `${row.rowData.firstName?.toString().charAt(0) || ""}${
@@ -39,6 +40,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "number",
     cellRenderer: ({ row }) => {
       const score = row.rowData.performanceScore as number;
 
@@ -63,6 +65,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
   {
     accessor: "email",
@@ -71,6 +74,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
   {
     accessor: "location",
@@ -79,6 +83,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
   {
     accessor: "hireDate",
@@ -87,6 +92,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "date",
     cellRenderer: ({ row }) => {
       if (!row.rowData.hireDate) return "";
       const date = new Date(row.rowData.hireDate as string);
@@ -104,6 +110,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.yearsOfService === null) return "";
       return `${row.rowData.yearsOfService} yrs`;
@@ -116,6 +123,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       return `$${(row.rowData.salary as number).toLocaleString()}`;
     },
@@ -128,6 +136,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "center",
     pinned: "right",
+    type: "string",
     cellRenderer: ({ row }) => {
       if (!row.rowData.status) return "";
 

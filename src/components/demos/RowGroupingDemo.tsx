@@ -2,14 +2,14 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [
-  { accessor: "organization", label: "Organization", width: 200, expandable: true },
-  { accessor: "employees", label: "Employees", width: 100 },
-  { accessor: "budget", label: "Annual Budget", width: 140 },
-  { accessor: "performance", label: "Performance", width: 120 },
-  { accessor: "location", label: "Location", width: 130 },
-  { accessor: "growthRate", label: "Growth", width: 90 },
-  { accessor: "status", label: "Status", width: 110 },
-  { accessor: "established", label: "Est. Date", width: 110 },
+  { accessor: "organization", label: "Organization", width: 200, expandable: true, type: "string" },
+  { accessor: "employees", label: "Employees", width: 100, type: "number" },
+  { accessor: "budget", label: "Annual Budget", width: 140, type: "string" },
+  { accessor: "performance", label: "Performance", width: 120, type: "string" },
+  { accessor: "location", label: "Location", width: 130, type: "string" },
+  { accessor: "growthRate", label: "Growth", width: 90, type: "string" },
+  { accessor: "status", label: "Status", width: 110, type: "string" },
+  { accessor: "established", label: "Est. Date", width: 110, type: "date" },
 ];
 
 // SOFTWARE INDUSTRY

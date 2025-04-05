@@ -3,29 +3,33 @@ import "simple-table-core/styles.css";
 
 // Define headers with conditional cell styling
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "product", label: "Product", minWidth: 100, width: "1fr" },
+  { accessor: "id", label: "ID", width: 80, type: "number" },
+  { accessor: "product", label: "Product", minWidth: 100, width: "1fr", type: "string" },
   {
     accessor: "sales",
     label: "Sales",
     width: 120,
     align: "right",
+    type: "number",
   },
   {
     accessor: "growth",
     label: "Growth %",
     width: 120,
     align: "right",
+    type: "number",
   },
   {
     accessor: "status",
     label: "Status",
     width: 150,
+    type: "string",
   },
   {
     accessor: "risk",
     label: "Risk",
     width: 120,
+    type: "string",
   },
 ];
 

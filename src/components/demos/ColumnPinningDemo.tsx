@@ -3,17 +3,17 @@ import "simple-table-core/styles.css";
 
 // Define all headers with pinned status
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, pinned: "left" },
-  { accessor: "name", label: "Name", width: 180, pinned: "left" },
-  { accessor: "email", label: "Email", width: 220 },
-  { accessor: "role", label: "Role", width: 150 },
-  { accessor: "department", label: "Department", width: 150 },
-  { accessor: "location", label: "Location", width: 150 },
-  { accessor: "joinDate", label: "Join Date", width: 120 },
-  { accessor: "salary", label: "Salary", width: 120, align: "right" },
-  { accessor: "manager", label: "Manager", width: 180 },
-  { accessor: "status", label: "Status", width: 120 },
-  { accessor: "projects", label: "Projects", width: 120, align: "right", pinned: "right" },
+  { accessor: "id", label: "ID", width: 80, pinned: "left", type: "number" },
+  { accessor: "name", label: "Name", width: 180, pinned: "left", type: "string" },
+  { accessor: "email", label: "Email", width: 220, type: "string" },
+  { accessor: "role", label: "Role", width: 150, type: "string" },
+  { accessor: "department", label: "Department", width: 150, type: "string" },
+  { accessor: "location", label: "Location", width: 150, type: "string" },
+  { accessor: "joinDate", label: "Join Date", width: 120, type: "date" },
+  { accessor: "salary", label: "Salary", width: 120, align: "right", type: "number" },
+  { accessor: "manager", label: "Manager", width: 180, type: "string" },
+  { accessor: "status", label: "Status", width: 120, type: "string" },
+  { accessor: "projects", label: "Projects", width: 120, align: "right", pinned: "right", type: "number" },
 ];
 
 // Sample data with more columns to demonstrate horizontal scrolling

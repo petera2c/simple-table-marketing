@@ -4,13 +4,14 @@ import "simple-table-core/styles.css";
 
 // Define headers with various properties
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isSortable: true, expandable: true, pinned: "left" },
-  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", isSortable: true, isEditable: true },
+  { accessor: "id", label: "ID", width: 80, isSortable: true, expandable: true, pinned: "left", type: "number" },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", isSortable: true, isEditable: true, type: "string" },
   {
     accessor: "email",
     label: "Email Address",
     width: 250,
     isSortable: true,
+    type: "string",
   },
   {
     accessor: "visits",
@@ -18,6 +19,7 @@ const headers: HeaderObject[] = [
     width: 120,
     isSortable: true,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => `${row.rowData.visits} visits`,
   },
   {
@@ -25,6 +27,7 @@ const headers: HeaderObject[] = [
     label: "Status",
     width: 120,
     isSortable: true,
+    type: "string",
     cellRenderer: ({ row }) => {
       const status = row.rowData.status as string;
       let color = "gray";

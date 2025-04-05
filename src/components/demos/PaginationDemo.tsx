@@ -1,13 +1,13 @@
-import { SimpleTable } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-const headers = [
-  { accessor: "id", label: "ID", width: 60 },
-  { accessor: "name", label: "Name", width: "1fr", minWidth: 100 },
-  { accessor: "email", label: "Email", width: 200 },
-  { accessor: "role", label: "Role", width: 140 },
-  { accessor: "department", label: "Department", width: 150 },
-  { accessor: "status", label: "Status", width: 110 },
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Name", width: "1fr", minWidth: 100, type: "string" },
+  { accessor: "email", label: "Email", width: 200, type: "string" },
+  { accessor: "role", label: "Role", width: 140, type: "string" },
+  { accessor: "department", label: "Department", width: 150, type: "string" },
+  { accessor: "status", label: "Status", width: 110, type: "string" },
 ];
 
 const rows = [

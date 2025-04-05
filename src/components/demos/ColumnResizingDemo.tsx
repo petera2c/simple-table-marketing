@@ -3,12 +3,12 @@ import "simple-table-core/styles.css";
 
 // Define headers with minimum and maximum widths
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60 },
-  { accessor: "firstName", label: "First Name", width: 120 },
-  { accessor: "lastName", label: "Last Name", width: 120 },
-  { accessor: "age", label: "Age", width: 80, align: "right" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr" },
-  { accessor: "location", label: "Location", width: 150 },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "firstName", label: "First Name", width: 120, type: "string" },
+  { accessor: "lastName", label: "Last Name", width: 120, type: "string" },
+  { accessor: "age", label: "Age", width: 80, align: "right", type: "number" },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
+  { accessor: "location", label: "Location", width: 150, type: "string" },
 ];
 
 const data = [

@@ -12,6 +12,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
     pinned: "left",
+    type: "string",
   },
   {
     accessor: "sectorName",
@@ -21,6 +22,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
 
   {
@@ -30,6 +32,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "left",
+    type: "string",
   },
   {
     accessor: "price",
@@ -38,6 +41,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.price === "—") return "—";
       return `$${(row.rowData.price as number).toLocaleString("en-US", {
@@ -53,6 +57,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "center",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.analystRating === "—") return "—";
       const value = row.rowData.analystRating as number;
@@ -105,6 +110,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.revenueGrowth === "—") return "—";
       const value = row.rowData.revenueGrowth as number;
@@ -125,6 +131,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.marketCap === "—") return "—";
       return (row.rowData.marketCap as number).toLocaleString("en-US", {
@@ -140,6 +147,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.peRatio === "—") return "—";
       return (row.rowData.peRatio as number).toFixed(1);
@@ -152,6 +160,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.dividendYield === "—") return "—";
       return `${(row.rowData.dividendYield as number).toFixed(2)}%`;
@@ -164,6 +173,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.profitMargin === "—") return "—";
       return `${row.rowData.profitMargin}%`;
@@ -176,6 +186,7 @@ export const HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: false,
     align: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.esgScore === "—") return "—";
       const value = row.rowData.esgScore as number;
@@ -198,6 +209,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "right",
     pinned: "right",
+    type: "number",
     cellRenderer: ({ row }) => {
       if (row.rowData.priceChangePercent === "—") return "—";
       const value = row.rowData.priceChangePercent as number;

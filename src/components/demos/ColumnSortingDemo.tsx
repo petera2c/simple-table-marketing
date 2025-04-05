@@ -1,16 +1,17 @@
-import { SimpleTable } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
-const headers = [
-  { accessor: "id", label: "ID", width: 100, isSortable: true },
-  { accessor: "name", label: "Name", width: 200, isSortable: true },
-  { accessor: "age", label: "Age", width: 100, isSortable: true },
-  { accessor: "email", label: "Email", width: 200, isSortable: true },
-  { accessor: "phone", label: "Phone", width: 200, isSortable: true },
-  { accessor: "address", label: "Address", width: 200, isSortable: true },
-  { accessor: "city", label: "City", width: 200, isSortable: true },
-  { accessor: "state", label: "State", width: 200, isSortable: true },
-  { accessor: "zip", label: "Zip", width: 200, isSortable: true },
-  { accessor: "country", label: "Country", width: 200, isSortable: true },
+
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 100, isSortable: true, type: "number" },
+  { accessor: "name", label: "Name", width: 200, isSortable: true, type: "string" },
+  { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
+  { accessor: "email", label: "Email", width: 200, isSortable: true, type: "string" },
+  { accessor: "phone", label: "Phone", width: 200, isSortable: true, type: "string" },
+  { accessor: "address", label: "Address", width: 200, isSortable: true, type: "string" },
+  { accessor: "city", label: "City", width: 200, isSortable: true, type: "string" },
+  { accessor: "state", label: "State", width: 200, isSortable: true, type: "string" },
+  { accessor: "zip", label: "Zip", width: 200, isSortable: true, type: "string" },
+  { accessor: "country", label: "Country", width: 200, isSortable: true, type: "string" },
 ];
 
 const rows = [

@@ -3,12 +3,12 @@ import "simple-table-core/styles.css";
 
 // Define all possible headers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60 },
-  { accessor: "name", label: "Name", minWidth: 100, width: "1fr" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true },
-  { accessor: "role", label: "Role", width: 150 },
-  { accessor: "department", label: "Department", width: 150 },
-  { accessor: "location", label: "Location", width: 150 },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true, type: "string" },
+  { accessor: "role", label: "Role", width: 150, type: "string" },
+  { accessor: "department", label: "Department", width: 150, type: "string" },
+  { accessor: "location", label: "Location", width: 150, type: "string" },
 ];
 
 const data = [
