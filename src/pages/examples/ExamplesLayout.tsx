@@ -85,9 +85,9 @@ const ExamplesLayout = () => {
             </Dropdown>
           ) : (
             <Space size="middle" wrap className="self-end sm:self-auto">
-              {examples.map((example) => (
+              {examples.map((example, index) => (
                 <Button
-                  key={example.id}
+                  key={index}
                   type={currentExample.id === example.id ? "primary" : "default"}
                   icon={<FontAwesomeIcon icon={example.icon} />}
                   onClick={() => handleLinkClick(example.path, example.label)}

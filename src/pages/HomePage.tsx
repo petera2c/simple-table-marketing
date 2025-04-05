@@ -163,9 +163,9 @@ const Home = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
         >
-          {Object.values(UI_STRINGS.home.features).map((feature) => (
+          {Object.values(UI_STRINGS.home.features).map((feature, index) => (
             <motion.div
-              key={feature.title}
+              key={index}
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100"
               variants={itemVariants}
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}

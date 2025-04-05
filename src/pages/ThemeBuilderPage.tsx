@@ -247,13 +247,13 @@ const ThemeBuilder: React.FC = () => {
         expanded={expandedSections["colors"]}
         onToggle={() => toggleSection("colors")}
       >
-        {Object.entries(colorSubcategories).map(([subcategory, subKeys]) => (
-          <div key={subcategory} className="mb-4">
+        {Object.entries(colorSubcategories).map(([subcategory, subKeys], index) => (
+          <div key={index} className="mb-4">
             <h4 className="text-sm font-semibold text-gray-800 mb-2">{subcategory}</h4>
             <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-              {subKeys.map((key) => (
+              {subKeys.map((key, index) => (
                 <ThemeColorPicker
-                  key={key}
+                  key={index}
                   label={shortenLabel(key.toString())}
                   value={theme[key].toString()}
                   onChange={handleColorChange(key)}
@@ -272,9 +272,9 @@ const ThemeBuilder: React.FC = () => {
         onToggle={() => toggleSection("typography")}
       >
         <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-          {["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"].map((key) => (
+          {["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"].map((key, index) => (
             <ThemeInput
-              key={key}
+              key={index}
               label={shortenLabel(key)}
               value={theme[key as keyof ThemeConfig]}
               onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}

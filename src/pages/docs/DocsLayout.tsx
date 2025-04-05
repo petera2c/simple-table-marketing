@@ -166,17 +166,17 @@ const DocsLayout = () => {
   // Create the sidebar content
   const docsSidebarContent = (
     <div>
-      {docSections.map((section) => (
+      {docSections.map((section, index) => (
         <ExpandableSection
-          key={section.id}
+          key={index}
           title={section.label}
           icon={section.icon}
           expanded={expandedSections[section.id] || false}
           onToggle={() => toggleSection(section.id)}
         >
           <ul className="space-y-1">
-            {section.subsections.map((subsection) => (
-              <li key={subsection.id}>
+            {section.subsections.map((subsection, index) => (
+              <li key={index}>
                 <NavLink
                   to={subsection.path}
                   onClick={() => handleLinkClick(subsection.label, subsection.path)}

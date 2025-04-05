@@ -57,11 +57,11 @@ const ThemesDemo = () => {
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-wrap gap-2">
-        {THEME_OPTIONS.map((theme) => {
+        {THEME_OPTIONS.map((theme, index) => {
           const { backgroundColor, color } = getThemeColor(theme);
           return (
             <button
-              key={theme}
+              key={index}
               onClick={() => setCurrentTheme(theme)}
               className={`cursor-pointer px-4 py-2 rounded-md bg-gray-100 transition-colors`}
               style={{ backgroundColor, color }}
