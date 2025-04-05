@@ -15,6 +15,7 @@ import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+import { useIsMobile } from "../hooks/useIsMobile";
 
 // Import our reusable components
 import PageLayout from "../components/PageLayout";
@@ -23,6 +24,7 @@ import ExpandableSection from "../components/ExpandableSection";
 import ThemeColorPicker from "../components/ThemeColorPicker";
 import ThemeInput from "../components/ThemeInput";
 import BillingDashboard from "../components/examples/billing/BillingDashboard";
+import MobileUnsupportedPage from "./MobileUnsupportedPage";
 
 interface ThemeConfig {
   borderColor: string;
@@ -115,6 +117,7 @@ const defaultTheme: ThemeConfig = {
 };
 
 const ThemeBuilder: React.FC = () => {
+  const isMobile = useIsMobile();
   const [theme, setTheme] = useState<ThemeConfig>(defaultTheme);
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     colors: true,
@@ -336,6 +339,11 @@ const ThemeBuilder: React.FC = () => {
     sidebarContent,
     footerContent,
   };
+
+  // If on mobile, return the unsupported page
+  if (isMobile) {
+    return <MobileUnsupportedPage featureName="Theme Builder" />;
+  }
 
   return (
     <>

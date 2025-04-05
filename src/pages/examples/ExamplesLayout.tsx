@@ -1,9 +1,10 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { trackLinkClick } from "../../utils/analytics";
 import PageLayout from "../../components/PageLayout";
-import { Button, Space } from "antd";
+import { Button, Space, Dropdown } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartLine, faIndustry, faUsers, faFileInvoiceDollar } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine, faIndustry, faUsers, faFileInvoiceDollar, faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import { useIsMobile } from "../../hooks/useIsMobile";
 
 // Import all example components
 import FinancialDashboard from "../../components/examples/finance/FinancialDashboard";
@@ -34,6 +35,7 @@ const examples = [
 const ExamplesLayout = () => {
   const location = useLocation();
   const navigate = useNavigate();
+  const isMobile = useIsMobile();
 
   // Determine current active example
   const currentPath = location.pathname;
@@ -55,24 +57,46 @@ const ExamplesLayout = () => {
   // Create the Example component
   const ExampleComponent = currentExample.component;
 
+  // Mobile dropdown menu items
+  const menuItems = examples.map((example) => ({
+    key: example.id,
+    label: example.label,
+    icon: <FontAwesomeIcon icon={example.icon} />,
+    onClick: () => handleLinkClick(example.path, example.label),
+  }));
+
   return (
     <PageLayout containerWidth="w-full" sidebar={null}>
       <div className="flex flex-col w-full h-full px-4 py-2">
         {/* Navigation Bar */}
-        <div className="mb-4 flex justify-between items-center">
+        <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
           <h1 className="text-xl font-semibold">{exampleTitles[currentExample.id as keyof typeof exampleTitles]}</h1>
-          <Space size="middle" wrap>
-            {examples.map((example) => (
-              <Button
-                key={example.id}
-                type={currentExample.id === example.id ? "primary" : "default"}
-                icon={<FontAwesomeIcon icon={example.icon} />}
-                onClick={() => handleLinkClick(example.path, example.label)}
-              >
-                {example.label}
+
+          {/* Show dropdown on mobile, buttons on desktop */}
+          {isMobile ? (
+            <Dropdown menu={{ items: menuItems, selectedKeys: [currentExample.id] }} trigger={["click"]}>
+              <Button type="primary">
+                <div className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={currentExample.icon} />
+                  {currentExample.label}
+                  <FontAwesomeIcon icon={faCaretDown} />
+                </div>
               </Button>
-            ))}
-          </Space>
+            </Dropdown>
+          ) : (
+            <Space size="middle" wrap className="self-end sm:self-auto">
+              {examples.map((example) => (
+                <Button
+                  key={example.id}
+                  type={currentExample.id === example.id ? "primary" : "default"}
+                  icon={<FontAwesomeIcon icon={example.icon} />}
+                  onClick={() => handleLinkClick(example.path, example.label)}
+                >
+                  {example.label}
+                </Button>
+              ))}
+            </Space>
+          )}
         </div>
 
         {/* Example Content */}

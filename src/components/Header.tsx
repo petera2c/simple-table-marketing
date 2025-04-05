@@ -124,19 +124,7 @@ const Header = () => {
               >
                 Documentation
               </NavLink>
-              <NavLink
-                to="/theme-builder"
-                onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-base ${
-                    isActive
-                      ? "bg-blue-50 text-blue-600 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                  } transition-colors`
-                }
-              >
-                Theme Builder
-              </NavLink>
+              {/* Hide Theme Builder on mobile */}
               <NavLink
                 to="/examples"
                 onClick={() => handleNavClick("Examples", "/examples")}

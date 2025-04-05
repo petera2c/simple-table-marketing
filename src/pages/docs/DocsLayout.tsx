@@ -19,6 +19,8 @@ import {
   faAlignLeft,
   faCopy,
   faPalette,
+  faBars,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -126,6 +128,7 @@ const DocsLayout = () => {
   const location = useLocation();
   const isMobile = useIsMobile();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Initialize expanded sections
   useEffect(() => {
@@ -139,6 +142,13 @@ const DocsLayout = () => {
     setExpandedSections(initialExpandedState);
   }, [location.pathname, isMobile]);
 
+  // Close sidebar when location changes (on mobile)
+  useEffect(() => {
+    if (isMobile) {
+      setSidebarOpen(false);
+    }
+  }, [location.pathname, isMobile]);
+
   const toggleSection = (sectionId: string) => {
     setExpandedSections((prev) => ({
       ...prev,
@@ -148,6 +158,9 @@ const DocsLayout = () => {
 
   const handleLinkClick = (linkName: string, linkUrl: string) => {
     trackLinkClick(linkName, linkUrl);
+    if (isMobile) {
+      setSidebarOpen(false);
+    }
   };
 
   // Create the sidebar content
@@ -191,12 +204,27 @@ const DocsLayout = () => {
     title: "Documentation",
     icon: faCode,
     sidebarContent: docsSidebarContent,
+    isMobileOpen: sidebarOpen,
+    onMobileClose: () => setSidebarOpen(false),
   };
 
   return (
-    <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
-      <Outlet />
-    </PageLayout>
+    <>
+      {/* Mobile sidebar toggle button */}
+      {isMobile && (
+        <button
+          onClick={() => setSidebarOpen(!sidebarOpen)}
+          className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
+          aria-label="Toggle documentation menu"
+        >
+          <FontAwesomeIcon icon={sidebarOpen ? faTimes : faBars} />
+        </button>
+      )}
+
+      <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
+        <Outlet />
+      </PageLayout>
+    </>
   );
 };
 

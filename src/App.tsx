@@ -22,6 +22,7 @@ import ColumnAlignmentPage from "./pages/docs/ColumnAlignmentPage";
 import ColumnSortingPage from "./pages/docs/ColumnSortingPage";
 import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
+import MobileUnsupportedPage from "./pages/MobileUnsupportedPage.tsx";
 
 // Import demo pages
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
@@ -44,6 +45,9 @@ function App() {
               <Route path="/" element={<RouteContainer />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
+
+                {/* Mobile specific routes */}
+                <Route path="/mobile-unsupported" element={<MobileUnsupportedPage featureName="This feature" />} />
 
                 <Route path="/docs" element={<DocsLayout />}>
                   <Route index element={<Navigate to="/docs/installation" replace />} />

@@ -15,6 +15,29 @@ export const HEADERS: HeaderObject[] = [
     type: "string",
   },
   {
+    accessor: "priceChangePercent",
+    label: "Change %",
+    width: 120,
+    isSortable: true,
+    isEditable: false,
+    align: "right",
+    type: "number",
+    cellRenderer: ({ row }) => {
+      if (row.rowData.priceChangePercent === "—") return "—";
+      const value = row.rowData.priceChangePercent as number;
+      const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
+      const prefix = value > 0 ? "+" : "";
+      const bgColor = value < 0 ? "bg-red-50" : value > 0 ? "bg-green-50" : "";
+
+      return (
+        <div className={`px-2 py-1 rounded font-medium ${bgColor} ${color}`}>
+          {prefix}
+          {value.toFixed(2)}%
+        </div>
+      );
+    },
+  },
+  {
     accessor: "sectorName",
     label: "Sector/Company",
     width: 180,
@@ -199,30 +222,6 @@ export const HEADERS: HeaderObject[] = [
       };
 
       return <span className={getColorClass()}>{value}</span>;
-    },
-  },
-  {
-    accessor: "priceChangePercent",
-    label: "Change %",
-    width: 120,
-    isSortable: true,
-    isEditable: false,
-    align: "right",
-    pinned: "right",
-    type: "number",
-    cellRenderer: ({ row }) => {
-      if (row.rowData.priceChangePercent === "—") return "—";
-      const value = row.rowData.priceChangePercent as number;
-      const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
-      const prefix = value > 0 ? "+" : "";
-      const bgColor = value < 0 ? "bg-red-50" : value > 0 ? "bg-green-50" : "";
-
-      return (
-        <div className={`px-2 py-1 rounded font-medium ${bgColor} ${color}`}>
-          {prefix}
-          {value.toFixed(2)}%
-        </div>
-      );
     },
   },
 ];
