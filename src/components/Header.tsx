@@ -2,9 +2,10 @@ import { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
 import { trackLinkClick } from "../utils/analytics";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -63,15 +64,17 @@ const Header = () => {
             >
               Documentation
             </NavLink>
-            <NavLink
-              to="/theme-builder"
-              onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
-              className={({ isActive }) =>
-                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
-              }
-            >
-              Theme Builder
-            </NavLink>
+            {!isMobile && (
+              <NavLink
+                to="/theme-builder"
+                onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
+                className={({ isActive }) =>
+                  `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
+                }
+              >
+                Theme Builder
+              </NavLink>
+            )}
             <NavLink
               to="/examples"
               onClick={() => handleNavClick("Examples", "/examples")}
@@ -81,6 +84,16 @@ const Header = () => {
             >
               Examples
             </NavLink>
+            <a
+              href={TECHNICAL_STRINGS.links.npm}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleNavClick("NPM", TECHNICAL_STRINGS.links.npm)}
+              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <FontAwesomeIcon icon={faNpm} className="mr-1" />
+              NPM
+            </a>
             <a
               href="https://discord.gg/RvKHCfg3PC"
               target="_blank"
@@ -138,6 +151,16 @@ const Header = () => {
               >
                 Examples
               </NavLink>
+              <a
+                href={TECHNICAL_STRINGS.links.npm}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleNavClick("NPM", TECHNICAL_STRINGS.links.npm)}
+                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
+              >
+                <FontAwesomeIcon icon={faNpm} className="mr-2" />
+                NPM Package
+              </a>
               <a
                 href="https://discord.gg/RvKHCfg3PC"
                 target="_blank"

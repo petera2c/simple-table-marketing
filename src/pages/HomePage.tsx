@@ -1,6 +1,5 @@
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faNpm } from "@fortawesome/free-brands-svg-icons";
 import {
   faTable,
   faColumns,
@@ -67,8 +66,9 @@ const Home = () => {
     navigate("/docs");
   };
 
-  const handleGetStartedClick = () => {
-    trackButtonClick(UI_STRINGS.common.getStarted, "Homepage Hero");
+  const handleExamplesClick = () => {
+    trackButtonClick("Examples", "Homepage Hero");
+    navigate("/examples");
   };
 
   const handleFeatureClick = (featureTitle: string) => {
@@ -131,15 +131,9 @@ const Home = () => {
                 Documentation
               </Button>
 
-              <Button
-                size="large"
-                href={TECHNICAL_STRINGS.links.npm}
-                target="_blank"
-                onClick={handleGetStartedClick}
-                className="hover:scale-105 transition-transform"
-              >
-                <FontAwesomeIcon icon={faNpm} className="mr-2" />
-                {UI_STRINGS.common.getStarted}
+              <Button size="large" onClick={handleExamplesClick} className="hover:scale-105 transition-transform">
+                <FontAwesomeIcon icon={faRocket} className="mr-2" />
+                Demos
               </Button>
             </motion.div>
           </motion.div>

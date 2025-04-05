@@ -1,8 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import { trackLinkClick } from "../utils/analytics";
+import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 const Footer = () => {
   const handleLinkClick = (linkName: string, linkUrl: string) => {
@@ -25,6 +26,16 @@ const Footer = () => {
               A powerful yet lightweight React grid component that brings beautiful data visualization to your
               applications
             </p>
+            <a
+              href={TECHNICAL_STRINGS.links.npm}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleLinkClick("Footer NPM Button", TECHNICAL_STRINGS.links.npm)}
+              className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
+            >
+              <FontAwesomeIcon icon={faNpm} className="text-lg" />
+              <span>Get from NPM</span>
+            </a>
           </div>
 
           <div>
@@ -56,19 +67,6 @@ const Footer = () => {
                 >
                   Theme Builder
                 </NavLink>
-              </li>
-              <li>
-                <a
-                  href="https://www.npmjs.com/package/simple-table-core"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    handleLinkClick("Footer NPM Package", "https://www.npmjs.com/package/simple-table-core")
-                  }
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  NPM Package
-                </a>
               </li>
             </ul>
           </div>
