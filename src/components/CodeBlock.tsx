@@ -94,12 +94,12 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
             title="Copy to clipboard"
           >
             <FontAwesomeIcon icon={copied ? faCheck : faCopy} className="text-xs" />
-            <span>{copied ? "Copied!" : "Copy"}</span>
+            <span className="sm:inline hidden">{copied ? "Copied!" : "Copy"}</span>
           </div>
         </div>
       </div>
 
-      <div className="overflow-auto max-h-[500px]">
+      <div className="overflow-x-auto max-w-full">
         <Highlight
           theme={selectedTheme}
           code={filename ? code.replace(/^\/\/.*?\n|^\/\*.*?\n/, "") : code.trim()}
@@ -107,7 +107,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
         >
           {({ style, tokens, getLineProps, getTokenProps }) => (
             <pre
-              className="p-4 overflow-x-auto"
+              className="p-4 overflow-x-auto text-sm"
               style={{ ...style, backgroundColor: theme === "dark" ? "#011627" : "#FBFBFB" }}
             >
               {tokens.map((line, i) => {
@@ -124,7 +124,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                     {showLineNumbers && (
                       <span className="table-cell text-right pr-4 select-none opacity-50 text-xs w-8">{i + 1}</span>
                     )}
-                    <span className="table-cell">
+                    <span className="table-cell whitespace-pre word-break">
                       {line.map((token, key) => (
                         <span
                           key={key}
