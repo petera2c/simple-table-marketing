@@ -30,7 +30,7 @@ const ConfigurableSidebar: React.FC<ConfigurableSidebarProps> = ({ config, class
         initial={{ x: -100, opacity: 0 }}
         animate={{ x: 0, opacity: 1 }}
         transition={{ duration: 0.3 }}
-        className={`md:w-72 w-full sticky top-[84px] mb-6 self-start h-[calc(100vh-84px-4rem)] ${className}`}
+        className={`md:w-72 w-full sticky top-[84px] mb-6 self-start h-[calc(100vh-84px-1.5rem)] ${className}`}
       >
         <div className="bg-white/90 backdrop-blur-sm flex flex-col rounded-xl h-full shadow-[4px_0_16px_rgba(0,0,0,0.08)] p-1 overflow-hidden">
           <h2 className="text-xl font-bold mb-2 text-blue-600 flex items-center gap-2 pt-3 px-3">
