@@ -22,6 +22,7 @@ import {
   faTimes,
   faArrowRightArrowLeft,
   faLeftRight,
+  faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -120,7 +121,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "row-grouping": faLayerGroup,
   advanced: faTableCells,
   columns: faColumns,
-  installation: faCode,
+  installation: faDownload,
   pagination: faPager,
   responsive: faExpand,
   themes: faPalette,

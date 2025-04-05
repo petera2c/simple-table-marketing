@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCode } from "@fortawesome/free-solid-svg-icons";
+import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
@@ -23,7 +23,7 @@ const InstallationPage = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="p-2 bg-blue-100 rounded-lg">
-          <FontAwesomeIcon icon={faCode} className="text-blue-600 text-2xl" />
+          <FontAwesomeIcon icon={faDownload} className="text-blue-600 text-2xl" />
         </div>
         <h1 className="text-3xl font-bold text-gray-800">Installation</h1>
       </motion.div>
