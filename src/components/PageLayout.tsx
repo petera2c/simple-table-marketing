@@ -8,7 +8,11 @@ interface PageLayoutProps {
   children: ReactNode;
 }
 
-const PageLayout: React.FC<PageLayoutProps> = ({ containerWidth = "max-w-4xl", sidebar, children }) => {
+const PageLayout: React.FC<PageLayoutProps> = ({
+  containerWidth = "w-full sm:max-w-xl md:max-w-2xl lg:max-w-4xl",
+  sidebar,
+  children,
+}) => {
   return (
     <>
       <AnimatedBackground />
