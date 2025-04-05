@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SimpleTable } from "simple-table-core";
 import { generateHRData } from "./hr-rows";
 import { HEADERS } from "./hr-headers";
+import "simple-table-core/styles.css";
 
 const HRManagement = () => {
   const [data] = useState(generateHRData());

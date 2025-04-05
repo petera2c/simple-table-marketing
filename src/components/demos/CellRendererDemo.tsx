@@ -9,6 +9,7 @@ import {
   faPhone,
   faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
+import "simple-table-core/styles.css";
 
 // Sample data
 const data = [

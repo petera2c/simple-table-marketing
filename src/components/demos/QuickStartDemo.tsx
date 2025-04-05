@@ -1,4 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 const QuickStartDemo = () => {
   // Sample data for a quick start demo

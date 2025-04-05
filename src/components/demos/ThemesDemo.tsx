@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 // Define headers
 const headers: HeaderObject[] = [

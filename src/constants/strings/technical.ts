@@ -5,8 +5,8 @@ export const TECHNICAL_STRINGS = {
     pnpm: "pnpm add simple-table-core",
   },
   css: {
-    import: `/* In your CSS file */
-@import "../node_modules/simple-table-core/dist/styles.css";`,
+    import: `// In your JavaScript or TypeScript file
+import "simple-table-core/styles.css";`,
     themeVariables: {
       light: `/* light theme */
 .theme-custom {

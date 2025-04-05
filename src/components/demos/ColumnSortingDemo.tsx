@@ -1,5 +1,5 @@
 import { SimpleTable } from "simple-table-core";
-
+import "simple-table-core/styles.css";
 const headers = [
   { accessor: "id", label: "ID", width: 100, isSortable: true },
   { accessor: "name", label: "Name", width: 200, isSortable: true },

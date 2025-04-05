@@ -1,4 +1,3 @@
-import React from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -12,6 +11,7 @@ import {
   faMapMarkerAlt,
   faBuilding,
 } from "@fortawesome/free-solid-svg-icons";
+import "simple-table-core/styles.css";
 
 const CustomRenderersDemo = () => {
   // Sample employee data

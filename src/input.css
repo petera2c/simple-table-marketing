@@ -1,6 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 @import "tailwindcss";
-@import "../node_modules/simple-table-core/dist/styles.css";
 
 .simple-table-root {
   /* Already defined in the package, but reinforcing proper scoping */

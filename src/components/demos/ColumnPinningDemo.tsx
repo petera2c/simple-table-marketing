@@ -1,4 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 // Define all headers with pinned status
 const headers: HeaderObject[] = [

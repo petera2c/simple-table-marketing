@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { SimpleTable, HeaderObject, CellChangeProps } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 // Define headers with editable property
 const headers: HeaderObject[] = [

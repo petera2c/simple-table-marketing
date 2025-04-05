@@ -1,4 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [
   { accessor: "organization", label: "Organization", width: 200, expandable: true },

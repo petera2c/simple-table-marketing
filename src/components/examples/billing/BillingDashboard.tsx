@@ -2,6 +2,7 @@ import { useState } from "react";
 import { SimpleTable } from "simple-table-core";
 import { generateBillingData } from "./billing-rows";
 import { HEADERS } from "./billing-headers";
+import "simple-table-core/styles.css";
 
 const BillingDashboard = ({ theme = "light" }: { theme?: "light" | "custom" }) => {
   const [data] = useState(generateBillingData());

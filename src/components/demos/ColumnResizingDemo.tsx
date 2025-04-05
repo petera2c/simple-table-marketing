@@ -1,4 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 // Define headers with minimum and maximum widths
 const headers: HeaderObject[] = [

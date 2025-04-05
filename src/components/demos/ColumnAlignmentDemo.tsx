@@ -1,4 +1,5 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import "simple-table-core/styles.css";
 
 // Initial headers with different alignments
 const headers: HeaderObject[] = [
