@@ -13,7 +13,6 @@ import {
   faRocket,
   faPuzzlePiece,
   faList,
-  faArrowsAlt,
   faEye,
   faThumbtack,
   faAlignLeft,
@@ -21,6 +20,8 @@ import {
   faPalette,
   faBars,
   faTimes,
+  faArrowRightArrowLeft,
+  faLeftRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -64,6 +65,7 @@ const docSections: DocSection[] = [
     subsections: [
       { id: "column-properties", label: "Column Properties", path: "/docs/column-properties" },
       { id: "column-resizing", label: "Column Resizing", path: "/docs/column-resizing" },
+      { id: "column-reordering", label: "Column Reordering", path: "/docs/column-reordering" },
       { id: "column-visibility", label: "Column Visibility", path: "/docs/column-visibility" },
       { id: "column-pinning", label: "Column Pinning", path: "/docs/column-pinning" },
       { id: "column-alignment", label: "Column Alignment", path: "/docs/column-alignment" },
@@ -109,7 +111,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "column-alignment": faAlignLeft,
   "column-pinning": faThumbtack,
   "column-properties": faList,
-  "column-resizing": faArrowsAlt,
+  "column-resizing": faLeftRight,
   "column-sorting": faSort,
   "column-visibility": faEye,
   "custom-theme": faCode,
@@ -122,6 +124,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   pagination: faPager,
   responsive: faExpand,
   themes: faPalette,
+  "column-reordering": faArrowRightArrowLeft,
 };
 
 const DocsLayout = () => {

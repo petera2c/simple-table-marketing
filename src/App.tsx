@@ -16,6 +16,7 @@ import ThemesPage from "./pages/docs/ThemesPage";
 import CustomThemePage from "./pages/docs/CustomThemePage";
 import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
 import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
+import ColumnReorderingPage from "./pages/docs/ColumnReorderingPage";
 import ColumnVisibilityPage from "./pages/docs/ColumnVisibilityPage";
 import ColumnPinningPage from "./pages/docs/ColumnPinningPage";
 import ColumnAlignmentPage from "./pages/docs/ColumnAlignmentPage";
@@ -59,6 +60,7 @@ function App() {
                   {/* Column feature routes */}
                   <Route path="column-properties" element={<ColumnPropertiesPage />} />
                   <Route path="column-resizing" element={<ColumnResizingPage />} />
+                  <Route path="column-reordering" element={<ColumnReorderingPage />} />
                   <Route path="column-visibility" element={<ColumnVisibilityPage />} />
                   <Route path="column-pinning" element={<ColumnPinningPage />} />
                   <Route path="column-alignment" element={<ColumnAlignmentPage />} />
