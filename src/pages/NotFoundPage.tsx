@@ -7,7 +7,10 @@ import { faTableCells, faArrowLeft, faHome, faBook } from "@fortawesome/free-sol
 import { useMemo } from "react";
 
 const NotFound = () => {
-  const messageIndex = useMemo(() => Math.floor(Math.random() * UI_STRINGS.notFound.messages.length), []);
+  const messageIndex = useMemo(
+    () => Math.floor(Math.random() * UI_STRINGS.notFound.messages.length),
+    []
+  );
   const messages = UI_STRINGS.notFound.messages;
 
   return (
@@ -49,7 +52,7 @@ const NotFound = () => {
         </motion.h2>
 
         {/* Animated message carousel */}
-        <div className="h-24 mb-8">
+        <div className="h-16">
           <AnimatePresence mode="wait">
             <motion.p
               key={messageIndex}

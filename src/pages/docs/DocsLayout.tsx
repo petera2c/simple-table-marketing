@@ -72,6 +72,7 @@ const docSections: DocSection[] = [
       { id: "column-pinning", label: "Column Pinning", path: "/docs/column-pinning" },
       { id: "column-alignment", label: "Column Alignment", path: "/docs/column-alignment" },
       { id: "column-sorting", label: "Column Sorting", path: "/docs/column-sorting" },
+      { id: "nested-headers", label: "Nested Headers", path: "/docs/nested-headers" },
     ],
   },
   {
@@ -124,6 +125,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "column-visibility": faEye,
   "custom-theme": faCode,
   "custom-renderers": faEdit,
+  "nested-headers": faLayerGroup,
   "quick-start": faRocket,
   "row-grouping": faLayerGroup,
   "row-height": faArrowsUpDown,
@@ -147,7 +149,9 @@ const DocsLayout = () => {
     const initialExpandedState: Record<string, boolean> = {};
 
     docSections.forEach((section) => {
-      const isActive = section.subsections.some((subsection) => subsection.path === location.pathname);
+      const isActive = section.subsections.some(
+        (subsection) => subsection.path === location.pathname
+      );
       initialExpandedState[section.id] = isMobile ? isActive : true;
     });
 
@@ -194,12 +198,17 @@ const DocsLayout = () => {
                   onClick={() => handleLinkClick(subsection.label, subsection.path)}
                   className={({ isActive }) =>
                     `flex items-center gap-2 px-3 py-2 text-sm rounded transition-colors ${
-                      isActive ? "bg-blue-100 text-blue-700 font-medium" : "text-gray-600 hover:bg-gray-100"
+                      isActive
+                        ? "bg-blue-100 text-blue-700 font-medium"
+                        : "text-gray-600 hover:bg-gray-100"
                     }`
                   }
                 >
                   {subsectionIcons[subsection.id] && (
-                    <FontAwesomeIcon icon={subsectionIcons[subsection.id]} className="w-3.5 h-3.5" />
+                    <FontAwesomeIcon
+                      icon={subsectionIcons[subsection.id]}
+                      className="w-3.5 h-3.5"
+                    />
                   )}
                   {subsection.label}
                 </NavLink>

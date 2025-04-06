@@ -24,6 +24,7 @@ import ColumnSortingPage from "./pages/docs/ColumnSortingPage";
 import CellHighlightingPage from "./pages/docs/CellHighlightingPage";
 import CellRendererPage from "./pages/docs/CellRendererPage";
 import MobileUnsupportedPage from "./pages/MobileUnsupportedPage.tsx";
+import NestedHeadersPage from "./pages/docs/NestedHeadersPage.tsx";
 
 // Import demo pages
 import RowGroupingPage from "./pages/docs/RowGroupingPage.tsx";
@@ -49,7 +50,10 @@ function App() {
                 <Route path="/theme-builder" element={<ThemeBuilder />} />
 
                 {/* Mobile specific routes */}
-                <Route path="/mobile-unsupported" element={<MobileUnsupportedPage featureName="This feature" />} />
+                <Route
+                  path="/mobile-unsupported"
+                  element={<MobileUnsupportedPage featureName="This feature" />}
+                />
 
                 <Route path="/docs" element={<DocsLayout />}>
                   <Route index element={<Navigate to="/docs/installation" replace />} />
@@ -66,6 +70,7 @@ function App() {
                   <Route path="column-pinning" element={<ColumnPinningPage />} />
                   <Route path="column-alignment" element={<ColumnAlignmentPage />} />
                   <Route path="column-sorting" element={<ColumnSortingPage />} />
+                  <Route path="nested-headers" element={<NestedHeadersPage />} />
 
                   {/* Cell feature routes */}
                   <Route path="cell-editing" element={<CellEditingPage />} />
