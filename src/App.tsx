@@ -14,6 +14,7 @@ import CellEditingPage from "./pages/docs/CellEditingPage";
 import PaginationPage from "./pages/docs/PaginationPage";
 import ThemesPage from "./pages/docs/ThemesPage";
 import CustomThemePage from "./pages/docs/CustomThemePage";
+import CustomIconsPage from "./pages/docs/CustomIconsPage";
 import ColumnPropertiesPage from "./pages/docs/ColumnPropertiesPage";
 import ColumnResizingPage from "./pages/docs/ColumnResizingPage";
 import ColumnReorderingPage from "./pages/docs/ColumnReorderingPage";
@@ -83,6 +84,7 @@ function App() {
                   <Route path="row-height" element={<RowHeightPage />} />
                   <Route path="themes" element={<ThemesPage />} />
                   <Route path="custom-theme" element={<CustomThemePage />} />
+                  <Route path="custom-icons" element={<CustomIconsPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Route>
 

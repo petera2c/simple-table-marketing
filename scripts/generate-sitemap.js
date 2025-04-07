@@ -36,6 +36,7 @@ const routes = [
   { url: "/docs/row-grouping", changefreq: "weekly", priority: 0.7 },
   { url: "/docs/themes", changefreq: "weekly", priority: 0.7 },
   { url: "/docs/custom-theme", changefreq: "weekly", priority: 0.7 },
+  { url: "/docs/custom-icons", changefreq: "weekly", priority: 0.7 },
 ];
 
 async function generateSitemap() {

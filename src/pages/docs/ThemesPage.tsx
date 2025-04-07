@@ -35,8 +35,8 @@ const ThemesPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Simple Table can be fully customized to match your application's visual design. You can control everything from
-        colors and spacing to borders and typography using theme options.
+        Simple Table can be fully customized to match your application's visual design. You can
+        control everything from colors and spacing to borders and typography using theme options.
       </motion.p>
 
       <motion.div
@@ -65,8 +65,8 @@ const ThemesPage = () => {
       >
         <p className="text-gray-700 mb-4">
           To apply a theme to Simple Table, simply pass the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme</code> prop with one of the available
-          theme options:
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme</code> prop with one
+          of the available theme options:
         </p>
 
         <CodeBlock code={demoCode} />
@@ -107,16 +107,21 @@ const ThemesPage = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous: Pagination
         </a>
 
         <a
-          href="/docs/custom-theme"
+          href="/docs/custom-icons"
           className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
         >
-          Next: Custom Theme
+          Next: Custom Icons
           <svg
             xmlns="http://www.w3.org/2000/svg"
             className="h-4 w-4"

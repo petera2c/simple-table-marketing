@@ -24,6 +24,7 @@ import {
   faLeftRight,
   faDownload,
   faArrowsUpDown,
+  faIcons,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -106,6 +107,7 @@ const docSections: DocSection[] = [
     icon: faPaintBrush,
     subsections: [
       { id: "themes", label: "Themes", path: "/docs/themes" },
+      { id: "custom-icons", label: "Custom Icons", path: "/docs/custom-icons" },
       { id: "custom-theme", label: "Custom Theme", path: "/docs/custom-theme" },
     ],
   },
@@ -124,6 +126,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "column-sorting": faSort,
   "column-visibility": faEye,
   "custom-theme": faCode,
+  "custom-icons": faIcons,
   "custom-renderers": faEdit,
   "nested-headers": faLayerGroup,
   "quick-start": faRocket,

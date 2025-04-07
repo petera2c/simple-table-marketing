@@ -1,5 +1,7 @@
 import { useState } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import "simple-table-core/styles.css";
 
 const ROWS_PER_PAGE = 10;
@@ -594,6 +596,7 @@ const PaginationDemo = () => {
 
     setRows((prevRows) => [...newPageData, ...prevRows]);
   };
+
   return (
     <SimpleTable
       defaultHeaders={HEADERS}
@@ -604,6 +607,8 @@ const PaginationDemo = () => {
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate
       totalPages={Math.ceil(ROWS.length / ROWS_PER_PAGE)}
+      nextIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
+      prevIcon={<FontAwesomeIcon icon={faChevronLeft} className="text-blue-600" />}
     />
   );
 };

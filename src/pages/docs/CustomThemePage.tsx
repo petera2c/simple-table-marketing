@@ -36,9 +36,9 @@ const CustomThemePage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Beyond the built-in themes, Simple Table allows you to create completely custom themes using CSS variables. By
-        defining your own theme with custom colors, spacing, and typography, you can perfectly match your application's
-        design system.
+        Beyond the built-in themes, Simple Table allows you to create completely custom themes using
+        CSS variables. By defining your own theme with custom colors, spacing, and typography, you
+        can perfectly match your application's design system.
       </motion.p>
 
       <motion.div
@@ -65,18 +65,21 @@ const CustomThemePage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">To create a custom theme for Simple Table, follow these steps:</p>
+        <p className="text-gray-700 mb-4">
+          To create a custom theme for Simple Table, follow these steps:
+        </p>
 
         <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
           <li>
             Create a CSS file with your theme variables using the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code> class
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code>{" "}
+            class
           </li>
           <li>Import the CSS file into your application</li>
           <li>
             Apply the theme by passing{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme="custom"</code> to the SimpleTable
-            component
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme="custom"</code> to
+            the SimpleTable component
           </li>
         </ol>
 
@@ -84,12 +87,13 @@ const CustomThemePage = () => {
           <h3 className="font-bold text-gray-800 mb-2">Theme Variable Tips</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
-              Use the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code> class to
-              define your custom theme
+              Use the{" "}
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code>{" "}
+              class to define your custom theme
             </li>
             <li>
-              Define CSS variables with the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">--st-</code>{" "}
-              prefix
+              Define CSS variables with the{" "}
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">--st-</code> prefix
             </li>
             <li>Customize colors, spacing, fonts, and transitions</li>
             <li>Use direct hex values or color variables for consistent styling</li>
@@ -134,7 +138,9 @@ const CustomThemePage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <p className="text-gray-700 mb-4">Here's how to apply a custom theme to your SimpleTable component:</p>
+        <p className="text-gray-700 mb-4">
+          Here's how to apply a custom theme to your SimpleTable component:
+        </p>
 
         <CodeBlock code={demoCode} />
       </motion.div>
@@ -146,7 +152,7 @@ const CustomThemePage = () => {
         transition={{ duration: 0.5, delay: 0.9 }}
       >
         <a
-          href="/docs/themes"
+          href="/docs/custom-icons"
           className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
         >
           <svg
@@ -156,9 +162,14 @@ const CustomThemePage = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
-          Previous: Themes
+          Previous: Custom Icons
         </a>
       </motion.div>
     </>
