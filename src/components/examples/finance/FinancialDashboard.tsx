@@ -16,7 +16,7 @@ const FinancialDashboard = () => {
       height="50dvh"
       theme="light"
       selectableCells
-      editColumns
+      selectableColumns
     />
   );
 };
