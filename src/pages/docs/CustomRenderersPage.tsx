@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import CustomRenderersDemo from "../../components/demos/CustomRenderersDemo";
 import CodeBlock from "../../components/CodeBlock";
 import demoCode from "../../components/demos/CustomRenderersDemo.tsx?raw";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const CustomRenderersPage = () => {
   return (
@@ -35,9 +36,9 @@ const CustomRenderersPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Custom renderers allow you to completely control the appearance and behavior of cells, headers, and rows in your
-        table. This powerful feature enables you to create tables with complex visualizations, interactive elements, and
-        unique styling.
+        Custom renderers allow you to completely control the appearance and behavior of cells,
+        headers, and rows in your table. This powerful feature enables you to create tables with
+        complex visualizations, interactive elements, and unique styling.
       </motion.p>
 
       <motion.div
@@ -65,8 +66,8 @@ const CustomRenderersPage = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <p className="text-gray-700 mb-4">
-          Cell renderers allow you to customize how individual cells are displayed in your table. You can use them to
-          add formatting, icons, badges, or any custom React components.
+          Cell renderers allow you to customize how individual cells are displayed in your table.
+          You can use them to add formatting, icons, badges, or any custom React components.
         </p>
 
         <CodeBlock code={demoCode} />
@@ -106,8 +107,8 @@ const CustomRenderersPage = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 mb-4">
-          Header renderers allow you to create custom column headers with additional functionality, such as filters,
-          tooltips, or help text.
+          Header renderers allow you to create custom column headers with additional functionality,
+          such as filters, tooltips, or help text.
         </p>
 
         <CodeBlock code={demoCode} />
@@ -129,8 +130,8 @@ const CustomRenderersPage = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
       >
         <p className="text-gray-700 mb-4">
-          Row renderers give you complete control over how entire rows are displayed, allowing for expandable rows,
-          nested content, or conditional styling.
+          Row renderers give you complete control over how entire rows are displayed, allowing for
+          expandable rows, nested content, or conditional styling.
         </p>
 
         <CodeBlock code={demoCode} />
@@ -171,44 +172,7 @@ const CustomRenderersPage = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.1 }}
-      >
-        <a
-          href="/docs/cell-highlighting"
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Previous: Cell Highlighting
-        </a>
-
-        <a
-          href="/docs/theming"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Theming
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };

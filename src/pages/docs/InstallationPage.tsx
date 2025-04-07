@@ -5,6 +5,7 @@ import SEO from "../../components/SEO";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
 import CodeBlock from "../../components/CodeBlock";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const InstallationPage = () => {
   return (
@@ -34,8 +35,8 @@ const InstallationPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Getting started with Simple Table is easy. This guide will walk you through the installation process and help
-        you set up the library in your React project.
+        Getting started with Simple Table is easy. This guide will walk you through the installation
+        process and help you set up the library in your React project.
       </motion.p>
 
       <CodeBlock
@@ -76,29 +77,7 @@ ${TECHNICAL_STRINGS.installation.pnpm}`}
         </ul>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      >
-        <div></div>
-        <a
-          href="/docs/quick-start"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Quick Start
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };

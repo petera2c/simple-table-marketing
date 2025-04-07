@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import PaginationDemo from "../../components/demos/PaginationDemo";
 import CodeBlock from "../../components/CodeBlock";
 import demoCode from "../../components/demos/PaginationDemo.tsx?raw";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const PaginationPage = () => {
   return (
@@ -35,9 +36,9 @@ const PaginationPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Pagination helps manage large datasets by dividing the table data into manageable pages. This improves
-        performance, reduces visual clutter, and provides a better user experience for navigating through extensive data
-        collections.
+        Pagination helps manage large datasets by dividing the table data into manageable pages.
+        This improves performance, reduces visual clutter, and provides a better user experience for
+        navigating through extensive data collections.
       </motion.p>
 
       {/* Demo Section */}
@@ -68,8 +69,8 @@ const PaginationPage = () => {
       >
         <p className="text-gray-700 mb-4">
           To enable pagination in Simple Table, you need to add the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code> prop to your SimpleTable
-          component. This will automatically handle pagination of your data.
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code> prop
+          to your SimpleTable component. This will automatically handle pagination of your data.
         </p>
 
         <CodeBlock code={demoCode} />
@@ -78,28 +79,29 @@ const PaginationPage = () => {
           <h3 className="font-bold text-gray-800 mb-2">Pagination Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code>: Enables pagination
-              functionality
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code>:
+              Enables pagination functionality
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowsPerPage</code>: Number of rows per
-              page (default: 10)
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowsPerPage</code>:
+              Number of rows per page (default: 10)
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalPages</code>: Total number of pages
-              available -<span className="font-semibold"> required</span> for proper pagination controls
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">totalPages</code>:
+              Total number of pages available -<span className="font-semibold"> required</span> for
+              proper pagination controls
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onNextPage</code>: Callback function
-              triggered when user clicks the next page button
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onNextPage</code>:
+              Callback function triggered when user clicks the next page button
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onPreviousPage</code>: Callback function
-              triggered when user clicks the previous page button
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onPreviousPage</code>:
+              Callback function triggered when user clicks the previous page button
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets the height of rows
-              in pixels (number, e.g., 40)
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets
+              the height of rows in pixels (number, e.g., 40)
             </li>
           </ul>
         </div>
@@ -107,8 +109,8 @@ const PaginationPage = () => {
         <div className="bg-amber-50 border-l-4 border-amber-300 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-medium text-gray-700 mb-2">Important Note</h3>
           <p className="text-gray-600">
-            The <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code> property is crucial
-            for proper pagination functionality. Without it:
+            The <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code>{" "}
+            property is crucial for proper pagination functionality. Without it:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-gray-600 mt-2">
             <li>The table won't know how many page numbers to display</li>
@@ -117,8 +119,8 @@ const PaginationPage = () => {
           </ul>
           <p className="text-gray-600 mt-2">
             Always calculate and provide{" "}
-            <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code> based on your data size
-            and page size (e.g., <code>Math.ceil(totalItems / pageSize)</code>).
+            <code className="bg-gray-100 px-1 py-0.5 rounded text-gray-700">totalPages</code> based
+            on your data size and page size (e.g., <code>Math.ceil(totalItems / pageSize)</code>).
           </p>
         </div>
       </motion.div>
@@ -147,44 +149,7 @@ const PaginationPage = () => {
         </ul>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.1 }}
-      >
-        <a
-          href="/docs/row-grouping"
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Previous: Row Grouping
-        </a>
-
-        <a
-          href="/docs/themes"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Themes
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };

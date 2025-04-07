@@ -35,8 +35,8 @@ const ColumnPropertiesPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Column properties define how each column behaves and appears in your table. This page documents all the
-        available properties for customizing your columns.
+        Column properties define how each column behaves and appears in your table. This page
+        documents all the available properties for customizing your columns.
       </motion.p>
 
       <motion.div
@@ -90,20 +90,20 @@ const ColumnPropertiesPage = () => {
             <h3 className="font-semibold text-gray-800 mb-2">Core Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>: String key that matches
-                the data field in your row objects (required)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>:
+                String key that matches the data field in your row objects (required)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">label</code>: Display text for the
-                column header (required)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">label</code>:
+                Display text for the column header (required)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">width</code>: Column width in pixels
-                (required)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">width</code>: Column
+                width in pixels (required)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">type</code>: Data type of the column
-                ('string', 'number', 'boolean', 'date', 'enum')
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">type</code>: Data
+                type of the column ('string', 'number', 'boolean', 'date', 'enum')
               </li>
             </ul>
           </div>
@@ -112,20 +112,20 @@ const ColumnPropertiesPage = () => {
             <h3 className="font-semibold text-gray-800 mb-2">Display Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align</code>: Cell text alignment
-                ('left', 'center', 'right')
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">align</code>: Cell
+                text alignment ('left', 'center', 'right')
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code>: Custom render
-                function for cells in this column
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code>:
+                Custom render function for cells in this column
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code>: Whether to hide the column
-                (boolean)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">hide</code>: Whether
+                to hide the column (boolean)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets the height of
-                rows in pixels (number, e.g., 40)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>:
+                Sets the height of rows in pixels (number, e.g., 40)
               </li>
             </ul>
           </div>
@@ -134,20 +134,20 @@ const ColumnPropertiesPage = () => {
             <h3 className="font-semibold text-gray-800 mb-2">Interactive Properties</h3>
             <ul className="list-disc pl-5 space-y-1 text-gray-700">
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable</code>: Whether the column is
-                sortable (boolean)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable</code>:
+                Whether the column is sortable (boolean)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable</code>: Whether the column
-                can be edited (boolean)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable</code>:
+                Whether the column can be edited (boolean)
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned</code>: Pin column to 'left' or
-                'right' side
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">pinned</code>: Pin
+                column to 'left' or 'right' side
               </li>
               <li>
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandable</code>: Whether the column
-                can be expanded (boolean)
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandable</code>:
+                Whether the column can be expanded (boolean)
               </li>
             </ul>
           </div>
@@ -171,7 +171,12 @@ const ColumnPropertiesPage = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous: Quick Start
         </a>

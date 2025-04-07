@@ -35,8 +35,9 @@ const CellEditingPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Simple Table provides powerful cell editing capabilities, allowing users to modify data directly within the
-        table interface. This creates a more interactive and efficient user experience for data entry and management.
+        Simple Table provides powerful cell editing capabilities, allowing users to modify data
+        directly within the table interface. This creates a more interactive and efficient user
+        experience for data entry and management.
       </motion.p>
 
       {/* Demo Section */}
@@ -69,12 +70,14 @@ const CellEditingPage = () => {
 
         <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
           <li>
-            Add the <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code> property to
-            the columns you want to make editable
+            Add the{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code>{" "}
+            property to the columns you want to make editable
           </li>
           <li>
-            Provide an <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code> handler to
-            manage the data updates
+            Provide an{" "}
+            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>{" "}
+            handler to manage the data updates
           </li>
         </ol>
 
@@ -84,12 +87,14 @@ const CellEditingPage = () => {
           <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code>: Makes a column
-              editable
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">
+                isEditable: true
+              </code>
+              : Makes a column editable
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>: Callback function to
-              handle cell edits
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>:
+              Callback function to handle cell edits
             </li>
           </ul>
         </div>
@@ -112,7 +117,12 @@ const CellEditingPage = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous: Column Sorting
         </a>

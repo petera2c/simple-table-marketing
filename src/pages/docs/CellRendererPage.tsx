@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import CellRendererDemo from "../../components/demos/CellRendererDemo";
 import CodeBlock from "../../components/CodeBlock";
 import demoCode from "../../components/demos/CellRendererDemo.tsx?raw";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const CellRendererPage = () => {
   return (
@@ -45,8 +46,9 @@ const CellRendererPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Cell renderers give you complete control over how data is displayed in your table cells. Using custom renderers,
-        you can create rich, interactive elements like buttons, badges, progress bars, and more.
+        Cell renderers give you complete control over how data is displayed in your table cells.
+        Using custom renderers, you can create rich, interactive elements like buttons, badges,
+        progress bars, and more.
       </motion.p>
 
       {/* Basic Usage Section */}
@@ -67,26 +69,30 @@ const CellRendererPage = () => {
       >
         <p className="text-gray-700 mb-4">
           Each column in your table can have its own{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> function. This function
-          receives information about the cell and returns either a ReactNode or a string to be rendered in the cell.
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code>{" "}
+          function. This function receives information about the cell and returns either a ReactNode
+          or a string to be rendered in the cell.
         </p>
 
         <CodeBlock code={demoCode} />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">cellRenderer Parameters</h3>
-          <p className="text-gray-700 mb-2">Each cellRenderer function receives an object with these properties:</p>
+          <p className="text-gray-700 mb-2">
+            Each cellRenderer function receives an object with these properties:
+          </p>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>: The column accessor
-              string
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">accessor</code>: The
+              column accessor string
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">colIndex</code>: The column index
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">colIndex</code>: The
+              column index
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">row</code>: The row object containing the
-              data
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">row</code>: The row
+              object containing the data
             </li>
           </ul>
         </div>
@@ -109,8 +115,8 @@ const CellRendererPage = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 mb-4">
-          The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">row</code> parameter passed to your cell
-          renderer has the following structure:
+          The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">row</code> parameter
+          passed to your cell renderer has the following structure:
         </p>
 
         <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
@@ -131,7 +137,10 @@ const CellRendererPage = () => {
 
         <p className="text-gray-700 mb-4">
           To access a specific cell value, use{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">row.rowData[accessor]</code>.
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">
+            row.rowData[accessor]
+          </code>
+          .
         </p>
       </motion.div>
 
@@ -152,8 +161,8 @@ const CellRendererPage = () => {
         transition={{ duration: 0.5, delay: 0.8 }}
       >
         <p className="text-gray-700 mb-4">
-          Your <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code> function should
-          return one of the following:
+          Your <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellRenderer</code>{" "}
+          function should return one of the following:
         </p>
 
         <ul className="list-disc pl-5 mt-2 space-y-3 text-gray-700 mb-6">
@@ -167,8 +176,8 @@ const CellRendererPage = () => {
             <strong>ReactNode</strong>: A React component for custom rendering
             <div className="bg-gray-100 p-2 rounded mt-1">
               <code className="text-gray-800">
-                return &lt;div className="flex items-center"&gt;&lt;span className="mr-2"&gt;⭐&lt;/span&gt; Custom
-                Content&lt;/div&gt;;
+                return &lt;div className="flex items-center"&gt;&lt;span
+                className="mr-2"&gt;⭐&lt;/span&gt; Custom Content&lt;/div&gt;;
               </code>
             </div>
           </li>
@@ -185,44 +194,7 @@ const CellRendererPage = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.1 }}
-      >
-        <a
-          href="/docs/cell-highlighting"
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Previous: Cell Highlighting
-        </a>
-
-        <a
-          href="/docs/row-grouping"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Row Grouping
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };

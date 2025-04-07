@@ -8,6 +8,7 @@ import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
 import QuickStartDemo from "../../components/demos/QuickStartDemo";
 import CodeBlock from "../../components/CodeBlock";
 import demoCode from "../../components/demos/QuickStartDemo.tsx?raw";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const QuickStartPage = () => {
   return (
@@ -37,8 +38,8 @@ const QuickStartPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        This guide will help you quickly set up Simple Table in your React project. In just a few minutes, you'll have a
-        fully functional data table.
+        This guide will help you quickly set up Simple Table in your React project. In just a few
+        minutes, you'll have a fully functional data table.
       </motion.p>
 
       <motion.div
@@ -87,7 +88,9 @@ const QuickStartPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <p className="text-gray-700 mb-4">Here's a minimal example to get you started with Simple Table:</p>
+        <p className="text-gray-700 mb-4">
+          Here's a minimal example to get you started with Simple Table:
+        </p>
 
         <CodeBlock code={demoCode} />
       </motion.div>
@@ -100,49 +103,13 @@ const QuickStartPage = () => {
       >
         <h3 className="font-bold text-gray-800 mb-2">Pro Tip</h3>
         <p className="text-gray-700">
-          Simple Table automatically handles the styling of alternating rows, borders, and hover states. You can
-          customize these later with themes, but the defaults look great out of the box!
+          Simple Table automatically handles the styling of alternating rows, borders, and hover
+          states. You can customize these later with themes, but the defaults look great out of the
+          box!
         </p>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1 }}
-      >
-        <a
-          href="/docs/installation"
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Previous: Installation
-        </a>
-
-        <a
-          href="/docs/column-properties"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Column Properties
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };

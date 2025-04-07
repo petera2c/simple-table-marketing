@@ -35,9 +35,9 @@ const CellHighlightingPage = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Cell highlighting allows users to select and visually emphasize specific cells or ranges of cells within your
-        tables. This is especially useful for copy-paste operations, data analysis, and drawing attention to important
-        values.
+        Cell highlighting allows users to select and visually emphasize specific cells or ranges of
+        cells within your tables. This is especially useful for copy-paste operations, data
+        analysis, and drawing attention to important values.
       </motion.p>
 
       {/* Demo Section */}
@@ -69,8 +69,9 @@ const CellHighlightingPage = () => {
         <p className="text-gray-700 mb-4">
           Enable cell selection by adding the{" "}
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code> and{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code> props to your
-          SimpleTable component. This enables users to select individual cells and entire columns.
+          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code>{" "}
+          props to your SimpleTable component. This enables users to select individual cells and
+          entire columns.
         </p>
 
         <CodeBlock code={demoCode} />
@@ -79,12 +80,14 @@ const CellHighlightingPage = () => {
           <h3 className="font-bold text-gray-800 mb-2">Selection Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code>: Enables selection
-              of individual cells
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableCells</code>
+              : Enables selection of individual cells
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">selectableColumns</code>: Enables
-              selection of entire columns
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">
+                selectableColumns
+              </code>
+              : Enables selection of entire columns
             </li>
           </ul>
         </div>
@@ -132,7 +135,12 @@ const CellHighlightingPage = () => {
             viewBox="0 0 24 24"
             stroke="currentColor"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M15 19l-7-7 7-7"
+            />
           </svg>
           Previous: Cell Editing
         </a>

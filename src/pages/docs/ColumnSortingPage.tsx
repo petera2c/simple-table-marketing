@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import ColumnSortingDemo from "../../components/demos/ColumnSortingDemo";
 import CodeBlock from "../../components/CodeBlock";
 import demoCode from "../../components/demos/ColumnSortingDemo.tsx?raw";
+import DocNavigationButtons from "../../components/DocNavigationButtons";
 
 const ColumnSortingPage = () => {
   return (
@@ -84,49 +85,7 @@ const ColumnSortingPage = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="flex justify-between mt-12 pt-4 border-t border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        <a
-          href="/docs/column-alignment"
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
-          Previous: Column Alignment
-        </a>
-
-        <a
-          href="/docs/nested-headers"
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
-          Next: Nested Headers
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
-      </motion.div>
+      <DocNavigationButtons />
     </>
   );
 };
