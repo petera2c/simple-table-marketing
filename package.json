@@ -28,7 +28,7 @@
     "react-helmet-async": "^2.0.5",
     "react-router-dom": "^7.4.0",
     "serve": "^14.2.4",
-    "simple-table-core": "^0.7.44",
+    "simple-table-core": "^0.7.45",
     "sitemap": "^7.1.2"
   },
   "devDependencies": {
