@@ -91,21 +91,6 @@ const ThemesPage = () => {
         </div>
       </motion.div>
 
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.0 }}
-      >
-        <p className="text-gray-700">
-          Download this CSS file and include it in your project, then apply the theme by setting:
-          <br />
-          <code className="bg-gray-200 px-2 py-1 rounded text-red-600 text-sm font-medium">
-            theme="arctic"
-          </code>
-        </p>
-      </motion.div>
-
       <DocNavigationButtons />
     </>
   );

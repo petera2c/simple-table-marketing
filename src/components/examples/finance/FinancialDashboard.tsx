@@ -4,7 +4,7 @@ import { generateFinanceData } from "./finance-rows";
 import { HEADERS } from "./finance-headers";
 import "simple-table-core/styles.css";
 
-const FinancialDashboard = () => {
+const FinancialDashboard = ({ height = "70dvh" }: { height?: string }) => {
   const [data] = useState(generateFinanceData());
 
   return (
@@ -13,7 +13,7 @@ const FinancialDashboard = () => {
       columnReordering
       defaultHeaders={HEADERS}
       rows={data}
-      height="50dvh"
+      height={height}
       theme="light"
       selectableCells
       selectableColumns

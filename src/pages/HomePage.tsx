@@ -131,7 +131,11 @@ const Home = () => {
                 Documentation
               </Button>
 
-              <Button size="large" onClick={handleExamplesClick} className="hover:scale-105 transition-transform">
+              <Button
+                size="large"
+                onClick={handleExamplesClick}
+                className="hover:scale-105 transition-transform"
+              >
                 <FontAwesomeIcon icon={faRocket} className="mr-2" />
                 Demos
               </Button>
@@ -146,7 +150,7 @@ const Home = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <FinancialDashboard />
+          <FinancialDashboard height="50dvh" />
         </motion.section>
 
         {/* Features section with staggered animation */}
