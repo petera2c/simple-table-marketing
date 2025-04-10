@@ -7,9 +7,11 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnPropertiesDemo from "@/components/demos/ColumnPropertiesDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnPropertiesDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 const ColumnPropertiesPage = () => {
+  const demoCode = useDemoCode("ColumnPropertiesDemo.txt");
+
   return (
     <>
       <SEO

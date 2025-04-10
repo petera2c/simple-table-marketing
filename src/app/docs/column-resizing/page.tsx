@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnResizingDemo from "@/components/demos/ColumnResizingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnResizingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const ColumnResizingPage = () => {
+  const demoCode = useDemoCode("ColumnResizingDemo.txt");
+
   return (
     <>
       <SEO

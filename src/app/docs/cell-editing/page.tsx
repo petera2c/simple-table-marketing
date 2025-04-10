@@ -7,9 +7,11 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import CellEditingDemo from "@/components/demos/CellEditingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/CellEditingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 const CellEditingPage = () => {
+  const demoCode = useDemoCode("CellEditingDemo.txt");
+
   return (
     <>
       <SEO

@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnVisibilityDemo from "@/components/demos/ColumnVisibilityDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnVisibilityDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const ColumnVisibilityPage = () => {
+  const demoCode = useDemoCode("ColumnVisibilityDemo.txt");
+
   return (
     <>
       <SEO

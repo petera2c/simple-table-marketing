@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import CustomRenderersDemo from "@/components/demos/CustomRenderersDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/CustomRenderersDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function CustomRenderersPage() {
+  const demoCode = useDemoCode("CustomRenderersDemo.txt");
+
   return (
     <>
       <SEO

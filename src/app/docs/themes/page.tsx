@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ThemesDemo from "@/components/demos/ThemesDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ThemesDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function ThemesPage() {
+  const demoCode = useDemoCode("ThemesDemo.txt");
+
   return (
     <>
       <SEO

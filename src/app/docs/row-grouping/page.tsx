@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import RowGroupingDemo from "@/components/demos/RowGroupingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/RowGroupingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function RowGroupingPage() {
+  const demoCode = useDemoCode("RowGroupingDemo.txt");
+
   return (
     <>
       <SEO

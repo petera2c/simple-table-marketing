@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnReorderingDemo from "@/components/demos/ColumnReorderingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnReorderingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const ColumnReorderingPage = () => {
+  const demoCode = useDemoCode("ColumnReorderingDemo.txt");
+
   return (
     <>
       <SEO

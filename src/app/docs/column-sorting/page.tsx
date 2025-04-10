@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnSortingDemo from "@/components/demos/ColumnSortingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnSortingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function ColumnSortingPage() {
+  const demoCode = useDemoCode("ColumnSortingDemo.txt");
+
   return (
     <>
       <SEO

@@ -7,12 +7,13 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import CustomCSSDemo from "@/components/demos/custom-theme/CustomThemeDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/custom-theme/CustomThemeDemo.tsx?raw";
-import cssCode from "@/components/demos/custom-theme/CustomTheme.css?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
-console.log(cssCode);
 const CustomThemePage = () => {
+  const demoCode = useDemoCode("CustomThemeDemo.txt");
+  const cssCode = useDemoCode("CustomTheme.css");
+
   return (
     <>
       <SEO

@@ -7,9 +7,11 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import CellHighlightingDemo from "@/components/demos/CellHighlightingDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/CellHighlightingDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 const CellHighlightingPage = () => {
+  const demoCode = useDemoCode("CellHighlightingDemo.txt");
+
   return (
     <>
       <SEO

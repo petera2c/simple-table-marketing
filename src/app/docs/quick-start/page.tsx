@@ -9,10 +9,12 @@ import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 import QuickStartDemo from "@/components/demos/QuickStartDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/QuickStartDemo.tsx?raw";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 export default function QuickStartPage() {
+  const demoCode = useDemoCode("QuickStartDemo.txt");
+
   return (
     <>
       <SEO

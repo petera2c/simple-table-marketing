@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import PaginationDemo from "@/components/demos/PaginationDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/PaginationDemo.tsx?raw";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 export default function PaginationPage() {
+  const demoCode = useDemoCode("PaginationDemo.txt");
+
   return (
     <>
       <SEO

@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import NestedHeadersDemo from "@/components/demos/NestedHeadersDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/NestedHeadersDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function NestedHeadersPage() {
+  const demoCode = useDemoCode("NestedHeadersDemo.txt");
+
   return (
     <>
       <SEO

@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnPinningDemo from "@/components/demos/ColumnPinningDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnPinningDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const ColumnPinningPage = () => {
+  const demoCode = useDemoCode("ColumnPinningDemo.txt");
+
   return (
     <>
       <SEO

@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import RowHeightDemo from "@/components/demos/RowHeightDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/RowHeightDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 export default function RowHeightPage() {
+  const demoCode = useDemoCode("RowHeightDemo.txt");
+
   return (
     <>
       <SEO

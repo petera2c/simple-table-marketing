@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import CustomIconsDemo from "@/components/demos/CustomIconsDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/CustomIconsDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const CustomIconsPage = () => {
+  const demoCode = useDemoCode("CustomIconsDemo.txt");
+
   return (
     <>
       <SEO

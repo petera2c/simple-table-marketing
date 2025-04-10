@@ -7,10 +7,12 @@ import SEO from "@/components/SEO";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import ColumnAlignmentDemo from "@/components/demos/ColumnAlignmentDemo";
 import CodeBlock from "@/components/CodeBlock";
-import demoCode from "@/components/demos/ColumnAlignmentDemo.tsx?raw";
+import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const ColumnAlignmentPage = () => {
+  const demoCode = useDemoCode("ColumnAlignmentDemo.txt");
+
   return (
     <>
       <SEO
