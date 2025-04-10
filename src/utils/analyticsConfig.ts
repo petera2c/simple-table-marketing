@@ -15,6 +15,9 @@ declare global {
 
 // Check if we're in development mode
 const isDevelopment = () => {
+  if (typeof window === "undefined") {
+    return process.env.NODE_ENV === "development";
+  }
   return (
     window.location.hostname === "localhost" ||
     window.location.hostname === "127.0.0.1" ||
@@ -27,6 +30,8 @@ export const ANALYTICS_ENABLED = !isDevelopment();
 
 // Function to disable Hotjar in development
 export const disableHotjarInDevelopment = () => {
+  if (typeof window === "undefined") return;
+
   if (isDevelopment() && window.hj) {
     // Overwrite the hj function to do nothing
     window.hj = function () {
@@ -42,6 +47,8 @@ export const disableHotjarInDevelopment = () => {
 
 // Function to disable Simple Analytics in development
 export const disableSimpleAnalyticsInDevelopment = () => {
+  if (typeof window === "undefined") return;
+
   if (isDevelopment()) {
     // Remove Simple Analytics script
     const saScripts = document.querySelectorAll('script[src*="simpleanalyticscdn"]');

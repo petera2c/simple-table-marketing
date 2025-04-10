@@ -1,89 +1,135 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord, faGithub, faNpm } from "@fortawesome/free-brands-svg-icons";
-import { motion } from "framer-motion";
-import { NavLink } from "react-router-dom";
-import { trackLinkClick } from "../utils/analytics";
-import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+"use client";
 
-const Footer = () => {
-  const handleLinkClick = (linkName: string, linkUrl: string) => {
-    trackLinkClick(linkName, linkUrl);
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGithub, faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { trackLinkClick } from "@/utils/analytics";
+import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
+
+export default function Footer() {
+  const pathname = usePathname();
+
+  const handleLinkClick = (linkName: string, linkPath: string) => {
+    trackLinkClick(linkName, linkPath);
+  };
+
+  const isActive = (path: string) => {
+    return pathname === path;
   };
 
   return (
-    <footer className="bg-gradient-to-r from-gray-800 to-gray-900 text-white py-12 relative z-10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          className="grid md:grid-cols-3 gap-8"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          viewport={{ once: true }}
-        >
+    <footer className="bg-gray-900 text-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Documentation */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Simple Table</h3>
-            <p className="text-gray-400">
-              A powerful yet lightweight React grid component that brings beautiful data visualization to your
-              applications
-            </p>
-            <a
-              href={TECHNICAL_STRINGS.links.npm}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleLinkClick("Footer NPM Button", TECHNICAL_STRINGS.links.npm)}
-              className="inline-flex items-center gap-2 mt-4 px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md transition-colors"
-            >
-              <FontAwesomeIcon icon={faNpm} className="text-lg" />
-              <span>Get from NPM</span>
-            </a>
-          </div>
-
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <h3 className="text-lg font-semibold mb-4">Documentation</h3>
             <ul className="space-y-2">
               <li>
-                <NavLink
-                  to="/docs"
+                <Link
+                  href="/docs"
                   onClick={() => handleLinkClick("Footer Documentation", "/docs")}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs") ? "text-white font-medium" : ""
+                  }`}
                 >
-                  Documentation
-                </NavLink>
+                  Getting Started
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/examples"
-                  onClick={() => handleLinkClick("Footer Examples", "/examples")}
-                  className="text-gray-400 hover:text-white transition-colors"
+                <Link
+                  href="/docs/installation"
+                  onClick={() => handleLinkClick("Footer Installation", "/docs/installation")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs/installation") ? "text-white font-medium" : ""
+                  }`}
                 >
-                  Examples
-                </NavLink>
+                  Installation
+                </Link>
               </li>
               <li>
-                <NavLink
-                  to="/theme-builder"
-                  onClick={() => handleLinkClick("Footer Theme Builder", "/theme-builder")}
-                  className="text-gray-400 hover:text-white transition-colors"
+                <Link
+                  href="/docs/quick-start"
+                  onClick={() => handleLinkClick("Footer Quick Start", "/docs/quick-start")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs/quick-start") ? "text-white font-medium" : ""
+                  }`}
                 >
-                  Theme Builder
-                </NavLink>
+                  Quick Start
+                </Link>
               </li>
             </ul>
           </div>
 
+          {/* Examples */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Community</h3>
-            <ul className="space-y-2 mb-4">
+            <h3 className="text-lg font-semibold mb-4">Examples</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/examples/finance"
+                  onClick={() => handleLinkClick("Footer Finance Example", "/examples/finance")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/finance") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Finance Dashboard
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/examples/hr"
+                  onClick={() => handleLinkClick("Footer HR Example", "/examples/hr")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/hr") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  HR Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/examples/manufacturing"
+                  onClick={() =>
+                    handleLinkClick("Footer Manufacturing Example", "/examples/manufacturing")
+                  }
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/manufacturing") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Manufacturing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Resources</h3>
+            <ul className="space-y-2">
               <li>
                 <a
-                  href="https://github.com/petera2c/simple-table-marketing"
+                  href={TECHNICAL_STRINGS.links.github}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleLinkClick("Footer GitHub", "https://github.com/petera2c/simple-table-marketing")}
+                  onClick={() => handleLinkClick("Footer GitHub", TECHNICAL_STRINGS.links.github)}
                   className="text-gray-400 hover:text-white transition-colors flex items-center"
                 >
                   <FontAwesomeIcon icon={faGithub} className="mr-2" />
-                  GitHub Repository
+                  GitHub
+                </a>
+              </li>
+              <li>
+                <a
+                  href={TECHNICAL_STRINGS.links.npm}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => handleLinkClick("Footer NPM", TECHNICAL_STRINGS.links.npm)}
+                  className="text-gray-400 hover:text-white transition-colors flex items-center"
+                >
+                  <FontAwesomeIcon icon={faNpm} className="mr-2" />
+                  NPM Package
                 </a>
               </li>
               <li>
@@ -95,38 +141,46 @@ const Footer = () => {
                   className="text-gray-400 hover:text-white transition-colors flex items-center"
                 >
                   <FontAwesomeIcon icon={faDiscord} className="mr-2" />
-                  Join our Discord
-                </a>
-              </li>
-              <li>
-                <a
-                  href="https://github.com/petera2c/simple-table-marketing/issues"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() =>
-                    handleLinkClick("Footer Issues", "https://github.com/petera2c/simple-table-marketing/issues")
-                  }
-                  className="text-gray-400 hover:text-white transition-colors"
-                >
-                  Report an Issue
+                  Discord Support
                 </a>
               </li>
             </ul>
           </div>
-        </motion.div>
 
-        <motion.div
-          className="mt-10 pt-8 border-t border-gray-700 text-center text-gray-400"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.3 }}
-          viewport={{ once: true }}
-        >
-          <p>&copy; {new Date().getFullYear()} Simple Table. Licensed under MIT.</p>
-        </motion.div>
+          {/* Theme Builder */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Customization</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/theme-builder"
+                  onClick={() => handleLinkClick("Footer Theme Builder", "/theme-builder")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/theme-builder") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Theme Builder
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/docs/themes"
+                  onClick={() => handleLinkClick("Footer Themes", "/docs/themes")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs/themes") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Theme Documentation
+                </Link>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+          <p>© {new Date().getFullYear()} Simple Table. All rights reserved.</p>
+        </div>
       </div>
     </footer>
   );
-};
-
-export default Footer;
+}

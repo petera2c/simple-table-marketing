@@ -1,6 +1,8 @@
+"use client";
+
 import { useMemo } from "react";
-import { useLocation } from "react-router-dom";
 import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 // This should match the structure in DocsLayout.tsx
 const docNavigation = [
@@ -63,10 +65,10 @@ const pathToLabel: Record<string, string> = {
  * Component for rendering dynamic next/previous navigation buttons based on the docs structure
  */
 const DocNavigationButtons = () => {
-  const location = useLocation();
+  const pathname = usePathname();
 
   const { prevPage, nextPage } = useMemo(() => {
-    const currentIndex = docNavigation.findIndex((item) => item.path === location.pathname);
+    const currentIndex = docNavigation.findIndex((item) => item.path === pathname);
 
     // If page not found in navigation, return empty
     if (currentIndex === -1) {
@@ -78,7 +80,7 @@ const DocNavigationButtons = () => {
       currentIndex < docNavigation.length - 1 ? docNavigation[currentIndex + 1] : null;
 
     return { prevPage, nextPage };
-  }, [location.pathname]);
+  }, [pathname]);
 
   if (!prevPage && !nextPage) {
     return null;

@@ -1,4 +1,4 @@
-import { Helmet } from "react-helmet-async";
+import Head from "next/head";
 import { SEO_STRINGS } from "../constants/strings/seo";
 
 interface SEOProps {
@@ -19,7 +19,7 @@ const SEO = ({
   const fullUrl = canonicalUrl ? `${SEO_STRINGS.site.url}${canonicalUrl}` : SEO_STRINGS.site.url;
 
   return (
-    <Helmet>
+    <Head>
       {/* Basic Meta Tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
@@ -59,7 +59,7 @@ const SEO = ({
           url: SEO_STRINGS.site.url,
         })}
       </script>
-    </Helmet>
+    </Head>
   );
 };
 

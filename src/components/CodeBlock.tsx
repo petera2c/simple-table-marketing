@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faCheck, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
@@ -14,14 +16,15 @@ interface CodeBlockProps {
   showThemeToggle?: boolean;
 }
 
-const CodeBlock: React.FC<CodeBlockProps> = ({
+const CodeBlock = ({
   className = "",
-  code,
+  code = "",
   initialTheme = "dark",
   language = "tsx",
   showLineNumbers = true,
   showThemeToggle = true,
-}) => {
+}: CodeBlockProps) => {
+  code = code.toString();
   const [copied, setCopied] = useState(false);
   const [theme, setTheme] = useState<ThemeType>(initialTheme);
 
@@ -75,7 +78,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
       <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-gray-400 text-xs font-mono">
         <div className="flex items-center gap-2">
           <span>{getLanguageDisplayName()}</span>
-          {filename && <span className="text-gray-500 ml-2 border-l border-gray-700 pl-2">{filename}</span>}
+          {filename && (
+            <span className="text-gray-500 ml-2 border-l border-gray-700 pl-2">{filename}</span>
+          )}
         </div>
         <div className="flex items-center gap-2">
           {showThemeToggle && (
@@ -123,9 +128,15 @@ const CodeBlock: React.FC<CodeBlockProps> = ({
                 const lineProps = getLineProps({ line });
 
                 return (
-                  <div key={i} {...lineProps} className={`table-row ${isSpecialComment ? "opacity-60 italic" : ""}`}>
+                  <div
+                    key={i}
+                    {...lineProps}
+                    className={`table-row ${isSpecialComment ? "opacity-60 italic" : ""}`}
+                  >
                     {showLineNumbers && (
-                      <span className="table-cell text-right pr-4 select-none opacity-50 text-xs w-8">{i + 1}</span>
+                      <span className="table-cell text-right pr-4 select-none opacity-50 text-xs w-8">
+                        {i + 1}
+                      </span>
                     )}
                     <span className="table-cell whitespace-pre word-break">
                       {line.map((token, key) => (

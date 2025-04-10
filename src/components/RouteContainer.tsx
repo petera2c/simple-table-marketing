@@ -1,12 +1,16 @@
+"use client";
+
 import { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import { trackPageView } from "../utils/analytics";
+import { usePathname } from "next/navigation";
 
 const RouteContainer = () => {
-  const location = useLocation();
+  const pathname = usePathname();
+
   useEffect(() => {
-    trackPageView(location.pathname);
-  }, [location]);
+    trackPageView(pathname);
+  }, [pathname]);
 
   return <Outlet />;
 };

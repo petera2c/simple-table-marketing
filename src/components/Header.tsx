@@ -1,5 +1,8 @@
+"use client";
+
 import { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
@@ -10,6 +13,7 @@ import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const pathname = usePathname();
 
   const handleNavClick = (linkName: string, linkUrl: string) => {
     trackLinkClick(linkName, linkUrl);
@@ -18,13 +22,15 @@ const Header = () => {
     }
   };
 
+  const isActive = (path: string) => pathname === path;
+
   return (
     <header className="backdrop-blur-md bg-white/80 shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link
-              to="/"
+              href="/"
               onClick={() => handleNavClick("Logo", "/")}
               className="flex items-center text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
             >
@@ -46,44 +52,44 @@ const Header = () => {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex space-x-8">
-            <NavLink
-              to="/"
+            <Link
+              href="/"
               onClick={() => handleNavClick("Home", "/")}
-              className={({ isActive }) =>
-                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
-              }
+              className={`text-gray-600 hover:text-blue-600 transition-colors ${
+                isActive("/") ? "text-blue-600 font-semibold" : ""
+              }`}
             >
               Home
-            </NavLink>
-            <NavLink
-              to="/docs"
+            </Link>
+            <Link
+              href="/docs/quick-start"
               onClick={() => handleNavClick("Documentation", "/docs")}
-              className={({ isActive }) =>
-                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
-              }
+              className={`text-gray-600 hover:text-blue-600 transition-colors ${
+                isActive("/docs") ? "text-blue-600 font-semibold" : ""
+              }`}
             >
               Documentation
-            </NavLink>
+            </Link>
             {!isMobile && (
-              <NavLink
-                to="/theme-builder"
+              <Link
+                href="/theme-builder"
                 onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
-                className={({ isActive }) =>
-                  `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
-                }
+                className={`text-gray-600 hover:text-blue-600 transition-colors ${
+                  isActive("/theme-builder") ? "text-blue-600 font-semibold" : ""
+                }`}
               >
                 Theme Builder
-              </NavLink>
+              </Link>
             )}
-            <NavLink
-              to="/examples"
+            <Link
+              href="/examples/finance"
               onClick={() => handleNavClick("Examples", "/examples")}
-              className={({ isActive }) =>
-                `text-gray-600 hover:text-blue-600 transition-colors ${isActive ? "text-blue-600 font-semibold" : ""}`
-              }
+              className={`text-gray-600 hover:text-blue-600 transition-colors ${
+                isActive("/examples") ? "text-blue-600 font-semibold" : ""
+              }`}
             >
               Examples
-            </NavLink>
+            </Link>
             <a
               href={TECHNICAL_STRINGS.links.npm}
               target="_blank"
@@ -111,46 +117,39 @@ const Header = () => {
         {isMobile && isMenuOpen && (
           <div className="mt-4 pt-2 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-3">
-              <NavLink
-                to="/"
+              <Link
+                href="/"
                 onClick={() => handleNavClick("Home", "/")}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-base ${
-                    isActive
-                      ? "bg-blue-50 text-blue-600 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                  } transition-colors`
-                }
+                className={`px-3 py-2 rounded-md text-base ${
+                  isActive("/")
+                    ? "bg-blue-50 text-blue-600 font-medium"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                } transition-colors`}
               >
                 Home
-              </NavLink>
-              <NavLink
-                to="/docs"
+              </Link>
+              <Link
+                href="/docs"
                 onClick={() => handleNavClick("Documentation", "/docs")}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-base ${
-                    isActive
-                      ? "bg-blue-50 text-blue-600 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                  } transition-colors`
-                }
+                className={`px-3 py-2 rounded-md text-base ${
+                  isActive("/docs")
+                    ? "bg-blue-50 text-blue-600 font-medium"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                } transition-colors`}
               >
                 Documentation
-              </NavLink>
-              {/* Hide Theme Builder on mobile */}
-              <NavLink
-                to="/examples"
+              </Link>
+              <Link
+                href="/examples"
                 onClick={() => handleNavClick("Examples", "/examples")}
-                className={({ isActive }) =>
-                  `px-3 py-2 rounded-md text-base ${
-                    isActive
-                      ? "bg-blue-50 text-blue-600 font-medium"
-                      : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                  } transition-colors`
-                }
+                className={`px-3 py-2 rounded-md text-base ${
+                  isActive("/examples")
+                    ? "bg-blue-50 text-blue-600 font-medium"
+                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+                } transition-colors`}
               >
                 Examples
-              </NavLink>
+              </Link>
               <a
                 href={TECHNICAL_STRINGS.links.npm}
                 target="_blank"
