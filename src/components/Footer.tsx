@@ -28,35 +28,13 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/docs"
-                  onClick={() => handleLinkClick("Footer Documentation", "/docs")}
-                  className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/docs") ? "text-white font-medium" : ""
-                  }`}
-                >
-                  Getting Started
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/docs/installation"
-                  onClick={() => handleLinkClick("Footer Installation", "/docs/installation")}
+                  onClick={() => handleLinkClick("Footer Documentation", "/docs/installation")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/docs/installation") ? "text-white font-medium" : ""
                   }`}
                 >
-                  Installation
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/docs/quick-start"
-                  onClick={() => handleLinkClick("Footer Quick Start", "/docs/quick-start")}
-                  className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/docs/quick-start") ? "text-white font-medium" : ""
-                  }`}
-                >
-                  Quick Start
+                  Getting Started
                 </Link>
               </li>
             </ul>

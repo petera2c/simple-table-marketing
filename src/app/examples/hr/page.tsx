@@ -1,12 +1,13 @@
-import { useState } from "react";
+"use client";
+
 import { SimpleTable } from "simple-table-core";
 import { generateHRData } from "@/components/examples/hr/hr-rows";
 import { HEADERS } from "@/components/examples/hr/hr-headers";
 import "simple-table-core/styles.css";
 
-export default function HRExample() {
-  const [data] = useState(generateHRData());
+const data = generateHRData();
 
+export default function HRExample() {
   return (
     <SimpleTable
       columnReordering

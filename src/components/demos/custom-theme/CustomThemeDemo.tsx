@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";

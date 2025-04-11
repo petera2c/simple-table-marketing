@@ -62,10 +62,10 @@ const Header = () => {
               Home
             </Link>
             <Link
-              href="/docs/quick-start"
-              onClick={() => handleNavClick("Documentation", "/docs")}
+              href="/docs/installation"
+              onClick={() => handleNavClick("Documentation", "/docs/installation")}
               className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                isActive("/docs") ? "text-blue-600 font-semibold" : ""
+                isActive("/docs/installation") ? "text-blue-600 font-semibold" : ""
               }`}
             >
               Documentation

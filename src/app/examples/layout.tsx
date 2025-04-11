@@ -1,3 +1,5 @@
+"use client";
+
 import { usePathname, useRouter } from "next/navigation";
 import { trackLinkClick } from "@/utils/analytics";
 import PageLayout from "@/components/PageLayout";

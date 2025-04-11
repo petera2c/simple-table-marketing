@@ -41,21 +41,9 @@ export default function InstallationPage() {
         process and help you set up the library in your React project.
       </motion.p>
 
-      <CodeBlock
-        code={`# npm
-${TECHNICAL_STRINGS.installation.npm}`}
-        language="bash"
-      />
-      <CodeBlock
-        code={`# yarn
-${TECHNICAL_STRINGS.installation.yarn}`}
-        language="bash"
-      />
-      <CodeBlock
-        code={`# pnpm
-${TECHNICAL_STRINGS.installation.pnpm}`}
-        language="bash"
-      />
+      <CodeBlock code={`${TECHNICAL_STRINGS.installation.npm}`} language="bash" />
+      <CodeBlock code={`${TECHNICAL_STRINGS.installation.yarn}`} language="bash" />
+      <CodeBlock code={`${TECHNICAL_STRINGS.installation.pnpm}`} language="bash" />
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
