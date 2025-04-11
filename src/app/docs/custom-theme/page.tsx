@@ -11,8 +11,8 @@ import { useDemoCode } from "@/hooks/useDemoCode";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
 const CustomThemePage = () => {
-  const demoCode = useDemoCode("CustomThemeDemo.txt");
-  const cssCode = useDemoCode("CustomTheme.css");
+  const demoCode = useDemoCode("custom-theme/CustomThemeDemo.txt");
+  const cssCode = useDemoCode("custom-theme/CustomTheme.txt");
 
   return (
     <>
