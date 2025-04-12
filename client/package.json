@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "start": "next dev --turbopack",
-    "dev": "concurrently \"npm run start\" \"cd backend && npm run dev\"",
+    "dev": "concurrently \"npm run start\" \"cd ../api && npm run dev\"",
     "build": "next build",
     "lint": "next lint",
     "heroku-postbuild": "npm run build",
