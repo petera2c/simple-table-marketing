@@ -2,7 +2,6 @@
 
 import BlogLayout from "../../../components/blog/BlogLayout";
 import { format } from "date-fns";
-import { MDXRemote } from "next-mdx-remote/rsc";
 import { BlogPost } from "../../../types/blog";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -52,9 +51,7 @@ const BlogPostPage = ({ params }: BlogPostPageProps) => {
           ))}
         </div>
 
-        <div className="prose prose-lg max-w-none">
-          <MDXRemote source={post.content} />
-        </div>
+        <div className="prose prose-lg max-w-none"></div>
       </article>
     </BlogLayout>
   );
