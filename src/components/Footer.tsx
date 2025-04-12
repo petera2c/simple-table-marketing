@@ -87,6 +87,17 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
               <li>
+                <Link
+                  href="/blog"
+                  onClick={() => handleLinkClick("Footer Blog", "/blog")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/blog") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Blog
+                </Link>
+              </li>
+              <li>
                 <a
                   href={TECHNICAL_STRINGS.links.github}
                   target="_blank"

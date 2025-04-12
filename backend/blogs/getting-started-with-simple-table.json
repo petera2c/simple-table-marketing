@@ -1,0 +1,9 @@
+{
+  "title": "Getting Started with Simple Table",
+  "description": "A comprehensive guide to setting up and using Simple Table for your data management needs",
+  "content": "# Getting Started with Simple Table\n\nSimple Table is a powerful tool for managing and visualizing your data. In this guide, we'll walk you through the basics of setting up and using Simple Table.\n\n## Installation\n\nTo get started with Simple Table, you'll need to install it using npm:\n\n```bash\nnpm install simple-table\n```\n\n## Basic Usage\n\nOnce installed, you can start using Simple Table in your project:\n\n```javascript\nimport { SimpleTable } from 'simple-table';\n\nconst table = new SimpleTable({\n  data: [\n    { id: 1, name: 'John', age: 30 },\n    { id: 2, name: 'Jane', age: 25 }\n  ],\n  columns: ['id', 'name', 'age']\n});\n```\n\n## Features\n\nSimple Table comes with a variety of features:\n\n- **Sorting**: Easily sort your data by any column\n- **Filtering**: Filter data based on specific criteria\n- **Pagination**: Handle large datasets with ease\n- **Custom Styling**: Style your tables to match your application's design\n\n## Next Steps\n\nNow that you've got the basics down, you can explore more advanced features like:\n\n- Custom column renderers\n- Row selection\n- Data export\n- Real-time updates\n\nStay tuned for more tutorials on these advanced features!",
+  "slug": "getting-started-with-simple-table",
+  "tags": ["tutorial", "getting-started", "basics", "installation"],
+  "createdAt": "2024-03-14T12:00:00.000Z",
+  "updatedAt": "2024-03-14T12:00:00.000Z"
+}
