@@ -1,3 +1,6 @@
+import React from "react";
+import { MDXRemoteSerializeResult } from "next-mdx-remote";
+
 export interface BlushImageConfig {
   style: string;
   seed: string;
@@ -31,6 +34,8 @@ export interface BlogPost {
   content: string;
   slug: string;
   tags: string[];
+  author?: string;
+  image?: string;
   createdAt: string;
   updatedAt: string;
 }

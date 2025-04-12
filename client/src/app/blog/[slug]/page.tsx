@@ -1,59 +1,126 @@
 "use client";
 
-import BlogLayout from "../../../components/blog/BlogLayout";
-import { format } from "date-fns";
-import { BlogPost } from "../../../types/blog";
-import { useEffect } from "react";
-import { useState } from "react";
+import { useQuery } from "@tanstack/react-query";
+import { BlogPost } from "@/types/blog";
+import { API_URL } from "@/constants/global";
+import { use } from "react";
+import { Typography, Card, Row, Col, List, Space } from "antd";
+
+const { Title, Paragraph, Text } = Typography;
 
 interface BlogPostPageProps {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 }
 
+const renderContent = (content: any) => {
+  if (!content) return null;
+
+  return content.map((item: any, index: number) => {
+    switch (item.type) {
+      case "title":
+        return (
+          <Title key={index} level={item.level}>
+            {item.text}
+          </Title>
+        );
+      case "text":
+        return (
+          <Text key={index} type={item.textType}>
+            {item.text}
+          </Text>
+        );
+      case "paragraph":
+        return <Paragraph key={index}>{item.text}</Paragraph>;
+      case "section":
+        return (
+          <div key={index} className="mb-8">
+            <Title level={2}>{item.title}</Title>
+            {item.children && renderContent(item.children)}
+          </div>
+        );
+      case "row":
+        return (
+          <Row key={index} gutter={item.gutter}>
+            {item.children && renderContent(item.children)}
+          </Row>
+        );
+      case "col":
+        return (
+          <Col key={index} span={item.span}>
+            {item.children && renderContent(item.children)}
+          </Col>
+        );
+      case "card":
+        return (
+          <Card key={index} title={item.title} className="h-full">
+            {item.children && renderContent(item.children)}
+          </Card>
+        );
+      case "list":
+        return (
+          <List
+            key={index}
+            dataSource={item.items}
+            renderItem={(listItem: string) => (
+              <List.Item>
+                <Text>{listItem}</Text>
+              </List.Item>
+            )}
+          />
+        );
+      case "space":
+        return (
+          <Space key={index} direction={item.direction} size={item.size}>
+            {item.children && renderContent(item.children)}
+          </Space>
+        );
+      default:
+        return null;
+    }
+  });
+};
+
 const BlogPostPage = ({ params }: BlogPostPageProps) => {
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
-  const [post, setPost] = useState<BlogPost | null>(null);
+  const { slug } = use(params);
 
-  useEffect(() => {
-    console.log(params);
-    const fetchPost = async () => {
-      const res = await fetch(`${API_URL}/api/blog/${params.slug}`);
-      const post = await res.json();
-      setPost(post);
-    };
-    fetchPost();
-  }, [params.slug]);
+  const {
+    data: post,
+    isLoading: isLoadingPost,
+    error: postError,
+  } = useQuery<BlogPost>({
+    queryKey: ["blog", slug],
+    queryFn: async () => {
+      const res = await fetch(`${API_URL}/api/blog/${slug}`);
+      if (!res.ok) throw new Error("Failed to fetch blog post");
+      return res.json();
+    },
+  });
 
-  if (!post) {
-    return null;
+  if (isLoadingPost) {
+    return (
+      <div className="flex justify-center items-center min-h-[50vh]">
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
+
+  if (postError || !post) {
+    return (
+      <div className="text-center py-12">
+        <Title level={2}>Blog post not found</Title>
+        <Text type="secondary">
+          The blog post you're looking for doesn't exist or has been removed.
+        </Text>
+      </div>
+    );
   }
 
   return (
-    <BlogLayout>
-      <article className="prose prose-lg max-w-none">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">{post.title}</h1>
-          <div className="flex items-center text-gray-500 text-sm">
-            <span>{format(new Date(post.createdAt), "MMMM d, yyyy")}</span>
-          </div>
-        </div>
-
-        <div className="flex flex-wrap gap-2 mb-8">
-          {post.tags.map((tag) => (
-            <span
-              key={tag}
-              className="px-3 py-1 bg-blue-100 text-blue-800 text-sm font-medium rounded-full"
-            >
-              {tag}
-            </span>
-          ))}
-        </div>
-
-        <div className="prose prose-lg max-w-none"></div>
-      </article>
-    </BlogLayout>
+    <>
+      <div className="max-w-4xl mx-auto px-4 py-8">{renderContent(post.content)}</div>
+    </>
   );
 };
 

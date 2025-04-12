@@ -19,6 +19,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.7.2",
     "@fortawesome/free-solid-svg-icons": "^6.7.2",
     "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tanstack/react-query": "^5.72.2",
     "@types/node": "^20.11.19",
     "antd": "^5.24.4",
     "date-fns": "^4.1.0",
@@ -26,14 +27,12 @@
     "framer-motion": "^12.6.2",
     "fuse.js": "^7.1.0",
     "next": "15.3.0",
-    "prism-react-renderer": "^2.4.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-ga4": "^2.1.0",
+    "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "serve": "^14.2.4",
-    "simple-table-core": "^0.7.54",
-    "sitemap": "^7.1.2"
+    "simple-table-core": "^0.7.54"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",

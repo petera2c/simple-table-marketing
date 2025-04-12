@@ -7,7 +7,6 @@ interface BlogCardProps {
 }
 
 const BlogCard = ({ post }: BlogCardProps) => {
-  console.log(post);
   return (
     <Link
       href={`/blog/${post.slug}`}

@@ -111,15 +111,6 @@ const Header = () => {
               <FontAwesomeIcon icon={faDiscord} className="mr-1" />
               Support
             </a>
-            <Link
-              href="/blog"
-              onClick={() => handleNavClick("Blog", "/blog")}
-              className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                isActive("/blog") ? "text-blue-600 font-semibold" : ""
-              }`}
-            >
-              Blog
-            </Link>
           </div>
         </div>
 
@@ -192,17 +183,6 @@ const Header = () => {
                 <FontAwesomeIcon icon={faDiscord} className="mr-2" />
                 Support
               </a>
-              <Link
-                href="/blog"
-                onClick={() => handleNavClick("Blog", "/blog")}
-                className={`px-3 py-2 rounded-md text-base ${
-                  isActive("/blog")
-                    ? "bg-blue-50 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                } transition-colors`}
-              >
-                Blog
-              </Link>
             </div>
           </div>
         )}

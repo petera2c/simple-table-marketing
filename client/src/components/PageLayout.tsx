@@ -4,7 +4,7 @@ import AnimatedBackground from "./AnimatedBackground";
 
 interface PageLayoutProps {
   containerWidth?: string;
-  sidebar: ReactNode;
+  sidebar?: ReactNode;
   children: ReactNode;
 }
 

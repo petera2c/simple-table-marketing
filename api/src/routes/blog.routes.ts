@@ -3,17 +3,7 @@ import path from "path";
 import fs from "fs/promises";
 
 const router = express.Router();
-const blogsDir = path.join(__dirname, "..", "..", "blogs");
-
-interface BlogPost {
-  title: string;
-  description: string;
-  content: string;
-  slug: string;
-  tags: string[];
-  createdAt: string;
-  updatedAt: string;
-}
+const blogsDir = path.join(__dirname, "..", "blogs");
 
 // Get all blog posts
 router.get("/", async (req: Request, res: Response) => {
@@ -27,6 +17,7 @@ router.get("/", async (req: Request, res: Response) => {
           return JSON.parse(content);
         })
     );
+
     res.json(
       posts.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime())
     );

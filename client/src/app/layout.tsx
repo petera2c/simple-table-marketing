@@ -10,6 +10,7 @@ import {
 } from "../utils/analyticsConfig";
 import ReactGA from "react-ga4";
 import "./global.css";
+import { QueryProvider } from "../providers/QueryProvider";
 
 // Disable analytics services in development
 disableHotjarInDevelopment();
@@ -26,11 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <div className="h-screen flex flex-col overflow-auto">
-          <Header />
-          <main className="flex-grow">{children}</main>
-          <Footer />
-        </div>
+        <QueryProvider>
+          <div className="h-screen flex flex-col overflow-auto">
+            <Header />
+            <main className="flex-grow">{children}</main>
+            <Footer />
+          </div>
+        </QueryProvider>
       </body>
     </html>
   );

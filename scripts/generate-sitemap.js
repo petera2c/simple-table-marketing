@@ -1,43 +1,49 @@
 import { SitemapStream, streamToPromise } from "sitemap";
-import { createWriteStream } from "fs";
+import { createWriteStream, readdirSync, readFileSync } from "fs";
 import { fileURLToPath } from "url";
-import { dirname, resolve } from "path";
+import { dirname, resolve, join } from "path";
+import { glob } from "glob";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const baseUrl = "https://www.simple-table.com";
 
-// Define all routes in your application
-const routes = [
-  // Main routes
-  { url: "/", changefreq: "daily", priority: 1.0 },
-  { url: "/theme-builder", changefreq: "weekly", priority: 0.8 },
+// Function to get all Next.js routes from the app directory
+async function getNextJsRoutes() {
+  const appDir = resolve(__dirname, "../client/src/app");
+  const routes = await glob("**/page.{tsx,jsx,js,ts}", { cwd: appDir });
 
-  // Examples routes
-  { url: "/examples/finance", changefreq: "weekly", priority: 0.7 },
-  { url: "/examples/manufacturing", changefreq: "weekly", priority: 0.7 },
-  { url: "/examples/hr", changefreq: "weekly", priority: 0.7 },
-  { url: "/examples/billing", changefreq: "weekly", priority: 0.7 },
+  return routes
+    .map((route) => {
+      // Convert file path to URL path
+      const path = route
+        .replace(/\/page\.[jt]sx?$/, "") // Remove page.tsx
+        .replace(/\/\([^)]+\)/g, "") // Remove route groups
+        .replace(/\[([^\]]+)\]/g, ":$1") // Convert [param] to :param
+        .replace(/index$/, ""); // Remove index from path
 
-  // Docs routes
-  { url: "/docs/installation", changefreq: "weekly", priority: 0.8 },
-  { url: "/docs/quick-start", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-properties", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-resizing", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-visibility", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-pinning", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-alignment", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/column-sorting", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/cell-editing", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/cell-highlighting", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/cell-renderer", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/pagination", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/row-grouping", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/themes", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/custom-theme", changefreq: "weekly", priority: 0.7 },
-  { url: "/docs/custom-icons", changefreq: "weekly", priority: 0.7 },
-];
+      return path || "/";
+    })
+    .filter((route) => !route.startsWith("_") && !route.includes("api")); // Filter out special Next.js routes
+}
+
+// Function to get all blog posts from JSON files
+function getBlogPosts() {
+  const blogsDir = resolve(__dirname, "../api/src/blogs");
+  const blogFiles = readdirSync(blogsDir).filter((file) => file.endsWith(".json"));
+
+  return blogFiles.map((file) => {
+    const content = readFileSync(join(blogsDir, file), "utf-8");
+    const post = JSON.parse(content);
+    return {
+      url: `/blog/${post.slug}`,
+      changefreq: "weekly",
+      priority: 0.8,
+      lastmod: post.updatedAt || post.createdAt,
+    };
+  });
+}
 
 async function generateSitemap() {
   try {
@@ -45,9 +51,31 @@ async function generateSitemap() {
       hostname: baseUrl,
     });
 
-    // Add all routes to the sitemap
-    routes.forEach((route) => {
-      sitemap.write(route);
+    // Get all routes
+    const nextJsRoutes = await getNextJsRoutes();
+    const blogPosts = getBlogPosts();
+
+    // Add Next.js routes with default priorities
+    nextJsRoutes.forEach((route) => {
+      const priority =
+        route === "/"
+          ? 1.0
+          : route.startsWith("/docs")
+          ? 0.8
+          : route.startsWith("/examples")
+          ? 0.7
+          : 0.6;
+
+      sitemap.write({
+        url: route,
+        changefreq: route === "/" ? "daily" : "weekly",
+        priority,
+      });
+    });
+
+    // Add blog posts
+    blogPosts.forEach((post) => {
+      sitemap.write(post);
     });
 
     sitemap.end();
@@ -56,10 +84,11 @@ async function generateSitemap() {
     const xml = await streamToPromise(sitemap);
 
     // Write the sitemap to the public directory
-    const outputPath = resolve(__dirname, "../public/sitemap.xml");
+    const outputPath = resolve(__dirname, "../client/public/sitemap.xml");
     createWriteStream(outputPath).write(xml.toString());
 
     console.log("Sitemap generated successfully!");
+    console.log(`Found ${nextJsRoutes.length} Next.js routes and ${blogPosts.length} blog posts`);
   } catch (error) {
     console.error("Error generating sitemap:", error);
   }
