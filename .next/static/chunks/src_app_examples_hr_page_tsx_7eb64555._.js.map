@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/peter/Documents/dev_projects/simple-table-marketing/src/app/examples/hr/page.tsx"],"sourcesContent":["\"use client\";\n\nimport { SimpleTable } from \"simple-table-core\";\nimport { generateHRData } from \"@/components/examples/hr/hr-rows\";\nimport { HEADERS } from \"@/components/examples/hr/hr-headers\";\nimport \"simple-table-core/styles.css\";\n\nconst data = generateHRData();\n\nexport default function HRExample() {\n  return (\n    <SimpleTable\n      columnReordering\n      columnResizing\n      defaultHeaders={HEADERS}\n      rows={data}\n      rowsPerPage={10}\n      selectableCells\n      shouldPaginate\n      theme=\"light\"\n    />\n  );\n}\n"],"names":[],"mappings":";;;;AAEA;AACA;AACA;AAJA;;;;;;AAOA,MAAM,OAAO,CAAA,GAAA,oJAAA,CAAA,iBAAc,AAAD;AAEX,SAAS;IACtB,qBACE,6LAAC,iKAAA,CAAA,cAAW;QACV,gBAAgB;QAChB,cAAc;QACd,gBAAgB,wJAAA,CAAA,UAAO;QACvB,MAAM;QACN,aAAa;QACb,eAAe;QACf,cAAc;QACd,OAAM;;;;;;AAGZ;KAbwB","debugId":null}}]
+}

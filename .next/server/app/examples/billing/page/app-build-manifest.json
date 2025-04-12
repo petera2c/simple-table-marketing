@@ -1,0 +1,32 @@
+{
+  "pages": {
+    "/examples/billing/page": [
+      "static/chunks/node_modules_next_0f30110f._.js",
+      "static/chunks/node_modules_@fortawesome_free-solid-svg-icons_index_mjs_6d4e8d45._.js",
+      "static/chunks/node_modules_@fortawesome_free-brands-svg-icons_index_mjs_660f2e06._.js",
+      "static/chunks/node_modules_19f40c4b._.js",
+      "static/chunks/[root-of-the-server]__f63cb6c9._.js",
+      "static/chunks/[root-of-the-server]__9f6cbf8c._.css",
+      "static/chunks/src_app_layout_tsx_c0237562._.js",
+      "static/chunks/src_e033fbd2._.js",
+      "static/chunks/node_modules_framer-motion_dist_es_2e6f230b._.js",
+      "static/chunks/node_modules_motion-dom_dist_es_1b484ffc._.js",
+      "static/chunks/node_modules_antd_es_d88a9fb9._.js",
+      "static/chunks/node_modules_@ant-design_cssinjs_es_b92d7f78._.js",
+      "static/chunks/node_modules_rc-menu_es_d0fe5480._.js",
+      "static/chunks/node_modules_rc-field-form_es_4fb5d7cb._.js",
+      "static/chunks/node_modules_72adc473._.js",
+      "static/chunks/node_modules_simple-table-core_dist_styles_2f1cfcb1.css",
+      "static/chunks/src_app_examples_layout_tsx_c4098de2._.js",
+      "static/chunks/src_app_examples_billing_page_tsx_6ae2e325._.js",
+      "static/chunks/src_app_examples_billing_page_tsx_d5d77a62._.js",
+      "static/chunks/[turbopack]_browser_dev_hmr-client_hmr-client_ts_fd44f5a4._.js",
+      "static/chunks/node_modules_next_dist_compiled_2ce9398a._.js",
+      "static/chunks/node_modules_next_dist_client_8f19e6fb._.js",
+      "static/chunks/node_modules_next_dist_2ecbf5fa._.js",
+      "static/chunks/node_modules_@swc_helpers_cjs_00636ac3._.js",
+      "static/chunks/_e69f0d32._.js",
+      "static/chunks/_93808211._.js"
+    ]
+  }
+}

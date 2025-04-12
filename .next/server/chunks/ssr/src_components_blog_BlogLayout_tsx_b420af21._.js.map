@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/peter/Documents/dev_projects/simple-table-marketing/src/components/blog/BlogLayout.tsx"],"sourcesContent":["\"use client\";\n\nimport { ReactNode } from \"react\";\nimport { motion } from \"framer-motion\";\n\ninterface BlogLayoutProps {\n  children: ReactNode;\n}\n\nconst BlogLayout = ({ children }: BlogLayoutProps) => {\n  return (\n    <motion.div\n      initial={{ opacity: 0, y: 20 }}\n      animate={{ opacity: 1, y: 0 }}\n      transition={{ duration: 0.5 }}\n      className=\"min-h-screen bg-gray-50\"\n    >\n      <main className=\"container mx-auto px-4 py-8\">\n        <div className=\"max-w-4xl mx-auto\">{children}</div>\n      </main>\n    </motion.div>\n  );\n};\n\nexport default BlogLayout;\n"],"names":[],"mappings":";;;;AAGA;AAHA;;;AASA,MAAM,aAAa,CAAC,EAAE,QAAQ,EAAmB;IAC/C,qBACE,8OAAC,0LAAA,CAAA,SAAM,CAAC,GAAG;QACT,SAAS;YAAE,SAAS;YAAG,GAAG;QAAG;QAC7B,SAAS;YAAE,SAAS;YAAG,GAAG;QAAE;QAC5B,YAAY;YAAE,UAAU;QAAI;QAC5B,WAAU;kBAEV,cAAA,8OAAC;YAAK,WAAU;sBACd,cAAA,8OAAC;gBAAI,WAAU;0BAAqB;;;;;;;;;;;;;;;;AAI5C;uCAEe","debugId":null}}]
+}
