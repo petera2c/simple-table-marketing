@@ -2073,6 +2073,10 @@ body {
     max-width: 36rem;
   }
 
+  .sm\:max-w-2xl {
+    max-width: 42rem;
+  }
+
   .sm\:flex-row {
     flex-direction: row;
   }
@@ -2110,6 +2114,10 @@ body {
 
   .md\:max-w-2xl {
     max-width: 42rem;
+  }
+
+  .md\:max-w-3xl {
+    max-width: 48rem;
   }
 
   .md\:grid-cols-2 {
@@ -2151,6 +2159,10 @@ body {
 @media (min-width: 1024px) {
   .lg\:max-w-4xl {
     max-width: 56rem;
+  }
+
+  .lg\:max-w-5xl {
+    max-width: 64rem;
   }
 
   .lg\:grid-cols-3 {

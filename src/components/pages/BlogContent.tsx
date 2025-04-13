@@ -12,24 +12,36 @@ const renderContent = (content: BlogContentItem[]) => {
   if (!content) return null;
 
   return content.map((item: BlogContentItem, index: number) => {
+    const className = `${
+      item.align ? `flex w-full justify-${item.align} text-${item.align}` : ``
+    } ${item.className ?? ""}`;
+
     if (item.type === "title" && item.level) {
       return (
-        <Title key={index} level={item.level}>
+        <Title className={className} key={index} level={item.level}>
           {item.text}
         </Title>
       );
     } else if (item.type === "text") {
       return (
-        <Text key={index} type={item.textType}>
+        <Text className={className} key={index} type={item.textType}>
           {item.text}
         </Text>
       );
     } else if (item.type === "paragraph") {
-      return <Paragraph key={index}>{item.text}</Paragraph>;
+      return (
+        <Paragraph className={className} key={index}>
+          {item.text}
+        </Paragraph>
+      );
     } else if (item.type === "section") {
       return (
         <div key={index} className="mb-8">
-          <Title level={2}>{item.title}</Title>
+          {item.title && (
+            <Title className={className} level={2}>
+              {item.title}
+            </Title>
+          )}
           {item.children && renderContent(item.children)}
         </div>
       );

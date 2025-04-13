@@ -6,8 +6,11 @@ import Footer from "../components/Footer";
 import "./global.css";
 import { QueryProvider } from "../providers/QueryProvider";
 import { ClientApp } from "../components/ClientApp";
-
+import useScrollRestoration from "../hooks/useScrollRestoration";
+import { useRef } from "react";
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const scrollRef = useRef<HTMLDivElement>(null);
+  useScrollRestoration(scrollRef);
   return (
     <html lang="en">
       <head>
@@ -16,7 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <QueryProvider>
           <ClientApp>
-            <div className="h-screen flex flex-col overflow-auto">
+            <div className="h-screen flex flex-col overflow-auto" ref={scrollRef}>
               <Header />
               <main className="flex-grow">{children}</main>
               <Footer />

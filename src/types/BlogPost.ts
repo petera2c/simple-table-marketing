@@ -11,20 +11,21 @@ type BlogContentType =
   | "text";
 
 export type BlogContentItem = {
-  type: BlogContentType;
-  className?: string;
+  align?: "left" | "center" | "right";
   children?: BlogContentItem[];
-  text?: string;
-  level?: 1 | 2 | 3 | 4 | 5;
-  items?: string[];
-  title?: string;
-  gutter?: [number, number];
-  span?: number;
+  className?: string;
   code?: string;
-  language?: string;
   direction?: "vertical" | "horizontal";
+  gutter?: [number, number];
+  items?: string[];
+  language?: string;
+  level?: 1 | 2 | 3 | 4 | 5;
   size?: "small" | "middle" | "large";
+  span?: number;
+  text?: string;
   textType?: "secondary" | "success" | "warning" | "danger";
+  title?: string;
+  type: BlogContentType;
   sections?: {
     title: string;
     items: string[];

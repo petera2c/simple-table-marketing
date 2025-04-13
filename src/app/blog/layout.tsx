@@ -1,8 +1,9 @@
 "use client";
-import PageLayout from "@/components/PageLayout";
 
-const BlogLayout = ({ children }: { children: React.ReactNode }) => {
-  return <PageLayout>{children}</PageLayout>;
+import BlogLayout from "@/components/BlogLayout";
+
+const BlogLayoutWrapper = ({ children }: { children: React.ReactNode }) => {
+  return <BlogLayout>{children}</BlogLayout>;
 };
 
-export default BlogLayout;
+export default BlogLayoutWrapper;
