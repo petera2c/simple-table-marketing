@@ -7,6 +7,7 @@ export const generateMetadata = async ({ params }: BlogPostPageProps): Promise<M
   const { slug } = await params;
   const res = await fetch(`${API_URL}/api/blog/${slug}`);
   const post = await res.json();
+
   return {
     title: post.title,
     description: post.description,
