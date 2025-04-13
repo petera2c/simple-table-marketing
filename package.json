@@ -10,6 +10,7 @@
     "build": "NODE_ENV=development concurrently \"npm run build:api\" \"npm run build:client\"",
     "build:api": "cd api && npm install && npm run build",
     "build:client": "cd client && npm install && npm run build",
+    "build-css": "npx tailwindcss -i ./input.css -o ./client/src/app/global.css --watch",
     "start": "cd api && npm start",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "copy-to-txt": "node scripts/copy-to-txt.js",
@@ -17,5 +18,8 @@
   },
   "dependencies": {
     "concurrently": "^8.2.2"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.17"
   }
 }
