@@ -1,7 +1,7 @@
 "use client";
 
 import { useQuery } from "@tanstack/react-query";
-import { BlogPost } from "@/types/blog";
+import { BlogContentItem, BlogPost } from "@/types/BlogPost";
 import { API_URL } from "@/constants/global";
 import { use } from "react";
 import { Typography, Card, Row, Col, List, Space } from "antd";
@@ -14,70 +14,69 @@ interface BlogPostPageProps {
   }>;
 }
 
-const renderContent = (content: any) => {
+const renderContent = (content: BlogContentItem[]) => {
   if (!content) return null;
 
-  return content.map((item: any, index: number) => {
-    switch (item.type) {
-      case "title":
-        return (
-          <Title key={index} level={item.level}>
-            {item.text}
-          </Title>
-        );
-      case "text":
-        return (
-          <Text key={index} type={item.textType}>
-            {item.text}
-          </Text>
-        );
-      case "paragraph":
-        return <Paragraph key={index}>{item.text}</Paragraph>;
-      case "section":
-        return (
-          <div key={index} className="mb-8">
-            <Title level={2}>{item.title}</Title>
-            {item.children && renderContent(item.children)}
-          </div>
-        );
-      case "row":
-        return (
-          <Row key={index} gutter={item.gutter}>
-            {item.children && renderContent(item.children)}
-          </Row>
-        );
-      case "col":
-        return (
-          <Col key={index} span={item.span}>
-            {item.children && renderContent(item.children)}
-          </Col>
-        );
-      case "card":
-        return (
-          <Card key={index} title={item.title} className="h-full">
-            {item.children && renderContent(item.children)}
-          </Card>
-        );
-      case "list":
-        return (
-          <List
-            key={index}
-            dataSource={item.items}
-            renderItem={(listItem: string) => (
-              <List.Item>
-                <Text>{listItem}</Text>
-              </List.Item>
-            )}
-          />
-        );
-      case "space":
-        return (
-          <Space key={index} direction={item.direction} size={item.size}>
-            {item.children && renderContent(item.children)}
-          </Space>
-        );
-      default:
-        return null;
+  return content.map((item: BlogContentItem, index: number) => {
+    if (item.type === "title" && item.level) {
+      return (
+        <Title key={index} level={item.level}>
+          {item.text}
+        </Title>
+      );
+    } else if (item.type === "text") {
+      return (
+        <Text key={index} type={item.textType}>
+          {item.text}
+        </Text>
+      );
+    } else if (item.type === "paragraph") {
+      return <Paragraph key={index}>{item.text}</Paragraph>;
+    } else if (item.type === "section") {
+      return (
+        <div key={index} className="mb-8">
+          <Title level={2}>{item.title}</Title>
+          {item.children && renderContent(item.children)}
+        </div>
+      );
+    } else if (item.type === "row") {
+      return (
+        <Row key={index} gutter={item.gutter}>
+          {item.children && renderContent(item.children)}
+        </Row>
+      );
+    } else if (item.type === "col") {
+      return (
+        <Col key={index} span={item.span}>
+          {item.children && renderContent(item.children)}
+        </Col>
+      );
+    } else if (item.type === "card") {
+      return (
+        <Card key={index} title={item.title} className="h-full">
+          {item.children && renderContent(item.children)}
+        </Card>
+      );
+    } else if (item.type === "list") {
+      return (
+        <List
+          key={index}
+          dataSource={item.items}
+          renderItem={(listItem: string) => (
+            <List.Item>
+              <Text>{listItem}</Text>
+            </List.Item>
+          )}
+        />
+      );
+    } else if (item.type === "space") {
+      return (
+        <Space key={index} direction={item.direction} size={item.size}>
+          {item.children && renderContent(item.children)}
+        </Space>
+      );
+    } else {
+      return null;
     }
   });
 };

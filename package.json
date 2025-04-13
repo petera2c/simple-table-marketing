@@ -11,7 +11,6 @@
     "build:api": "cd api && npm install && npm run build",
     "build:client": "cd client && npm install && npm run build",
     "start": "cd api && npm start",
-    "heroku-postbuild": "npm run build",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "copy-to-txt": "node scripts/copy-to-txt.js",
     "publish": "npm run copy-to-txt && npm run generate-sitemap && git add . && git commit -m \"$npm_config_message\" && git push"

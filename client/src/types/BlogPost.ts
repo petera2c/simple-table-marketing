@@ -1,4 +1,4 @@
-export type BlogContentType =
+type BlogContentType =
   | "title"
   | "paragraph"
   | "list"

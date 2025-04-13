@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Row } from "simple-table-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faUser,
@@ -79,11 +79,17 @@ const CustomRenderersDemo = () => {
   ];
 
   // Custom cell renderers
-  const employeeNameRenderer = (row: any) => {
-    const { firstName, lastName, avatar, role } = row.rowData;
+  const employeeNameRenderer = (row: { accessor: string; colIndex: number; row: Row }) => {
+    const { firstName, lastName, avatar, role } = row.row.rowData;
     return (
       <div className="flex items-center">
-        <img src={avatar} alt={`${firstName} ${lastName}`} className="w-10 h-10 rounded-full mr-3" />
+        {typeof avatar === "string" && (
+          <img
+            src={avatar}
+            alt={`${firstName} ${lastName}`}
+            className="w-10 h-10 rounded-full mr-3"
+          />
+        )}
         <div>
           <div className="font-medium">
             {firstName} {lastName}
@@ -172,7 +178,10 @@ const CustomRenderersDemo = () => {
         <FontAwesomeIcon icon={faBarChart} className="text-gray-500 mr-2" />
         <div className="flex items-center space-x-2 w-full">
           <div className="w-24 bg-gray-200 rounded-full h-2.5">
-            <div className={`${color} h-2.5 rounded-full`} style={{ width: `${performance}%` }}></div>
+            <div
+              className={`${color} h-2.5 rounded-full`}
+              style={{ width: `${performance}%` }}
+            ></div>
           </div>
           <span className="text-sm">{performance}%</span>
         </div>
@@ -240,8 +249,8 @@ const CustomRenderersDemo = () => {
       <div className="bg-white shadow-sm rounded-lg p-6">
         <h2 className="text-xl font-bold text-gray-800 mb-4">Custom Renderers Demo</h2>
         <p className="text-gray-700 mb-6">
-          This demo showcases various custom cell renderers to create a rich, interactive employee directory with
-          avatars, icons, and visualizations.
+          This demo showcases various custom cell renderers to create a rich, interactive employee
+          directory with avatars, icons, and visualizations.
         </p>
 
         <div className="border border-gray-200 rounded-lg overflow-hidden">
