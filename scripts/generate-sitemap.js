@@ -11,7 +11,7 @@ const baseUrl = "https://www.simple-table.com";
 
 // Function to get all Next.js routes from the app directory
 async function getNextJsRoutes() {
-  const appDir = resolve(__dirname, "../client/src/app");
+  const appDir = resolve(__dirname, "../src/app");
   const routes = await glob("**/page.{tsx,jsx,js,ts}", { cwd: appDir });
 
   const processedRoutes = routes
@@ -44,7 +44,7 @@ async function getNextJsRoutes() {
 
 // Function to get all blog posts from JSON files
 function getBlogPosts() {
-  const blogsDir = resolve(__dirname, "../api/src/blogs");
+  const blogsDir = resolve(__dirname, "../../simple-table-marketing-api/src/blogs");
   try {
     const blogFiles = readdirSync(blogsDir).filter((file) => file.endsWith(".json"));
 
@@ -131,7 +131,7 @@ async function generateSitemap() {
     const formattedXML = formatXML(xml.toString());
 
     // Write the sitemap to the public directory
-    const outputPath = resolve(__dirname, "../client/public/sitemap.xml");
+    const outputPath = resolve(__dirname, "../public/sitemap.xml");
     createWriteStream(outputPath).write(formattedXML);
 
     console.log("✅ Sitemap generated successfully!");
