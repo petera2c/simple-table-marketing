@@ -8,11 +8,18 @@ import { QueryProvider } from "../providers/QueryProvider";
 import { ClientApp } from "../components/ClientApp";
 import useScrollRestoration from "../hooks/useScrollRestoration";
 import { useRef } from "react";
+import { Nunito } from "next/font/google";
+
+const nunito = Nunito({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+});
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const scrollRef = useRef<HTMLDivElement>(null);
   useScrollRestoration(scrollRef);
   return (
-    <html lang="en">
+    <html lang="en" className={nunito.className}>
       <head>
         <Analytics />
       </head>
