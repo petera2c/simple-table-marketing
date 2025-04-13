@@ -18,6 +18,8 @@
     "@fortawesome/react-fontawesome": "^0.2.2",
     "@tanstack/react-query": "^5.72.2",
     "@types/node": "^20.11.19",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
     "antd": "^5.24.4",
     "date-fns": "^4.1.0",
     "eslint-config-next": "^15.3.0",
@@ -30,16 +32,14 @@
     "react-ga4": "^2.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^0.7.54"
+    "simple-table-core": "^0.7.54",
+    "typescript": "^5.3.3"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
-    "@types/react": "^18.2.55",
-    "@types/react-dom": "^18.2.19",
     "eslint": "^9",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
-    "typescript": "^5.3.3",
     "typescript-eslint": "^8.24.1"
   },
   "engines": {

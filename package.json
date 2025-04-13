@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "dev:api": "cd api && npm run dev",
     "dev:client": "cd client && npm run dev",
-    "build": "NODE_ENV=development concurrently \"npm run build:api\" \"npm run build:client\"",
+    "build": "concurrently \"npm run build:api\" \"npm run build:client\"",
     "build:api": "cd api && npm install && npm run build",
     "build:client": "cd client && npm install && npm run build",
     "build-css": "npx tailwindcss -i ./input.css -o ./client/src/app/global.css --watch",
@@ -21,5 +21,9 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.4.17"
+  },
+  "engines": {
+    "node": "18.x",
+    "npm": "10.x"
   }
 }
