@@ -4,8 +4,24 @@ import "simple-table-core/styles.css";
 
 // Define headers with various properties
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isSortable: true, expandable: true, pinned: "left", type: "number" },
-  { accessor: "name", label: "Name", minWidth: 100, width: "1fr", isSortable: true, isEditable: true, type: "string" },
+  {
+    accessor: "id",
+    label: "ID",
+    width: 80,
+    isSortable: true,
+    expandable: true,
+    pinned: "left",
+    type: "number",
+  },
+  {
+    accessor: "name",
+    label: "Name",
+    minWidth: 100,
+    width: "1fr",
+    isSortable: true,
+    isEditable: true,
+    type: "string",
+  },
   {
     accessor: "email",
     label: "Email Address",
@@ -52,19 +68,43 @@ const data = [
   },
   {
     rowMeta: { rowId: 3, isExpanded: false },
-    rowData: { id: 3, name: "Bob Johnson", email: "bob@example.com", visits: 12, status: "Inactive" },
+    rowData: {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      visits: 12,
+      status: "Inactive",
+    },
   },
   {
     rowMeta: { rowId: 4, isExpanded: false },
-    rowData: { id: 4, name: "Alice Williams", email: "alice@example.com", visits: 34, status: "Active" },
+    rowData: {
+      id: 4,
+      name: "Alice Williams",
+      email: "alice@example.com",
+      visits: 34,
+      status: "Active",
+    },
   },
   {
     rowMeta: { rowId: 5, isExpanded: false },
-    rowData: { id: 5, name: "Charlie Brown", email: "charlie@example.com", visits: 5, status: "Pending" },
+    rowData: {
+      id: 5,
+      name: "Charlie Brown",
+      email: "charlie@example.com",
+      visits: 5,
+      status: "Pending",
+    },
   },
   {
     rowMeta: { rowId: 6, isExpanded: false },
-    rowData: { id: 6, name: "David Davis", email: "david@example.com", visits: 67, status: "Inactive" },
+    rowData: {
+      id: 6,
+      name: "David Davis",
+      email: "david@example.com",
+      visits: 67,
+      status: "Inactive",
+    },
   },
 ];
 

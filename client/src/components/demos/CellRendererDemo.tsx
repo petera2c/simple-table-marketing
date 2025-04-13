@@ -182,7 +182,10 @@ const headers: HeaderObject[] = [
         <div className="w-full">
           <div className="text-xs mb-1">{progress}%</div>
           <div className="w-full bg-gray-200 rounded-full h-2.5">
-            <div className={`bg-${color}-500 h-2.5 rounded-full`} style={{ width: `${progress}%` }} />
+            <div
+              className={`bg-${color}-500 h-2.5 rounded-full`}
+              style={{ width: `${progress}%` }}
+            />
           </div>
         </div>
       );

@@ -13,7 +13,14 @@ const headers: HeaderObject[] = [
   { accessor: "salary", label: "Salary", width: 120, align: "right", type: "number" },
   { accessor: "manager", label: "Manager", width: 180, type: "string" },
   { accessor: "status", label: "Status", width: 120, type: "string" },
-  { accessor: "projects", label: "Projects", width: 120, align: "right", pinned: "right", type: "number" },
+  {
+    accessor: "projects",
+    label: "Projects",
+    width: 120,
+    align: "right",
+    pinned: "right",
+    type: "number",
+  },
 ];
 
 // Sample data with more columns to demonstrate horizontal scrolling

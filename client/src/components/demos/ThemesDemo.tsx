@@ -1,3 +1,4 @@
+"use client";
 import { useState } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
@@ -15,23 +16,53 @@ const headers: HeaderObject[] = [
 const data = [
   {
     rowMeta: { rowId: 1, isExpanded: false },
-    rowData: { id: 1, name: "John Doe", email: "john@example.com", department: "Engineering", status: "Active" },
+    rowData: {
+      id: 1,
+      name: "John Doe",
+      email: "john@example.com",
+      department: "Engineering",
+      status: "Active",
+    },
   },
   {
     rowMeta: { rowId: 2, isExpanded: false },
-    rowData: { id: 2, name: "Jane Smith", email: "jane@example.com", department: "Design", status: "Active" },
+    rowData: {
+      id: 2,
+      name: "Jane Smith",
+      email: "jane@example.com",
+      department: "Design",
+      status: "Active",
+    },
   },
   {
     rowMeta: { rowId: 3, isExpanded: false },
-    rowData: { id: 3, name: "Bob Johnson", email: "bob@example.com", department: "Marketing", status: "Inactive" },
+    rowData: {
+      id: 3,
+      name: "Bob Johnson",
+      email: "bob@example.com",
+      department: "Marketing",
+      status: "Inactive",
+    },
   },
   {
     rowMeta: { rowId: 4, isExpanded: false },
-    rowData: { id: 4, name: "Alice Williams", email: "alice@example.com", department: "Engineering", status: "Active" },
+    rowData: {
+      id: 4,
+      name: "Alice Williams",
+      email: "alice@example.com",
+      department: "Engineering",
+      status: "Active",
+    },
   },
   {
     rowMeta: { rowId: 5, isExpanded: false },
-    rowData: { id: 5, name: "Charlie Brown", email: "charlie@example.com", department: "Sales", status: "Active" },
+    rowData: {
+      id: 5,
+      name: "Charlie Brown",
+      email: "charlie@example.com",
+      department: "Sales",
+      status: "Active",
+    },
   },
 ];
 

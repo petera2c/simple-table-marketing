@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
@@ -83,14 +85,18 @@ const ColumnReorderingDemo = () => {
 
   return (
     <div className="space-y-4">
-      <div className="p-2 bg-blue-100 text-blue-800 rounded-md text-sm">Current column order: {currentColumnOrder}</div>
+      <div className="p-2 bg-blue-100 text-blue-800 rounded-md text-sm">
+        Current column order: {currentColumnOrder}
+      </div>
       <SimpleTable
         columnReordering
         defaultHeaders={headers}
         rows={data}
         onColumnOrderChange={handleColumnOrderChange}
       />
-      <div className="text-sm text-gray-600 italic mt-2">Try dragging column headers to reorder them.</div>
+      <div className="text-sm text-gray-600 italic mt-2">
+        Try dragging column headers to reorder them.
+      </div>
     </div>
   );
 };

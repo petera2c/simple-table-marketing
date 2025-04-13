@@ -1,3 +1,5 @@
+"use client";
+
 import { useState } from "react";
 import { SimpleTable, HeaderObject, Row } from "simple-table-core";
 import "simple-table-core/styles.css";
@@ -29,7 +31,8 @@ const initialData: Row[] = [
       id: 2,
       name: "Alice Johnson",
       email: "alice.johnson@example.com",
-      description: "This is a medium length description that spans a few lines when displayed in the table cell.",
+      description:
+        "This is a medium length description that spans a few lines when displayed in the table cell.",
       status: "Inactive",
     },
   },
@@ -60,7 +63,8 @@ const initialData: Row[] = [
       id: 5,
       name: "Michael Brown",
       email: "michael.brown@example.com",
-      description: "This row has a medium length description that takes up a moderate amount of space in the table.",
+      description:
+        "This row has a medium length description that takes up a moderate amount of space in the table.",
       status: "Active",
     },
   },

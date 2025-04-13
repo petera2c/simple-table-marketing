@@ -41,7 +41,14 @@ const data = [
   },
   {
     rowMeta: { rowId: 2 },
-    rowData: { id: 2, product: "Smartphone", sales: 2430, growth: -5, status: "Low Stock", risk: "Medium" },
+    rowData: {
+      id: 2,
+      product: "Smartphone",
+      sales: 2430,
+      growth: -5,
+      status: "Low Stock",
+      risk: "Medium",
+    },
   },
   {
     rowMeta: { rowId: 3 },
@@ -49,7 +56,14 @@ const data = [
   },
   {
     rowMeta: { rowId: 4 },
-    rowData: { id: 4, product: "Headphones", sales: 560, growth: -12, status: "Out of Stock", risk: "High" },
+    rowData: {
+      id: 4,
+      product: "Headphones",
+      sales: 560,
+      growth: -12,
+      status: "Out of Stock",
+      risk: "High",
+    },
   },
   {
     rowMeta: { rowId: 5 },
@@ -57,7 +71,14 @@ const data = [
   },
   {
     rowMeta: { rowId: 6 },
-    rowData: { id: 6, product: "Keyboard", sales: 350, growth: -2, status: "Low Stock", risk: "Medium" },
+    rowData: {
+      id: 6,
+      product: "Keyboard",
+      sales: 350,
+      growth: -2,
+      status: "Low Stock",
+      risk: "Medium",
+    },
   },
   {
     rowMeta: { rowId: 7 },
@@ -65,7 +86,14 @@ const data = [
   },
   {
     rowMeta: { rowId: 8 },
-    rowData: { id: 8, product: "Speaker", sales: 680, growth: -8, status: "Out of Stock", risk: "High" },
+    rowData: {
+      id: 8,
+      product: "Speaker",
+      sales: 680,
+      growth: -8,
+      status: "Out of Stock",
+      risk: "High",
+    },
   },
 ];
 

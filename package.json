@@ -7,7 +7,7 @@
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "dev:api": "cd api && npm run dev",
     "dev:client": "cd client && npm run dev",
-    "build": "concurrently \"npm run build:api\" \"npm run build:client\"",
+    "build": "NODE_ENV=development concurrently \"npm run build:api\" \"npm run build:client\"",
     "build:api": "cd api && npm install && npm run build",
     "build:client": "cd client && npm install && npm run build",
     "start": "cd api && npm start",

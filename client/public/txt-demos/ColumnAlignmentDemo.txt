@@ -12,11 +12,26 @@ const headers: HeaderObject[] = [
 
 // Sample data
 const data = [
-  { rowMeta: { rowId: 1 }, rowData: { id: 1, name: "John Doe", score: 85, rating: 4.2, status: "Active" } },
-  { rowMeta: { rowId: 2 }, rowData: { id: 2, name: "Jane Smith", score: 92, rating: 4.8, status: "Active" } },
-  { rowMeta: { rowId: 3 }, rowData: { id: 3, name: "Bob Johnson", score: 78, rating: 3.9, status: "Inactive" } },
-  { rowMeta: { rowId: 4 }, rowData: { id: 4, name: "Alice Williams", score: 95, rating: 4.9, status: "Active" } },
-  { rowMeta: { rowId: 5 }, rowData: { id: 5, name: "Charlie Brown", score: 82, rating: 4.1, status: "Active" } },
+  {
+    rowMeta: { rowId: 1 },
+    rowData: { id: 1, name: "John Doe", score: 85, rating: 4.2, status: "Active" },
+  },
+  {
+    rowMeta: { rowId: 2 },
+    rowData: { id: 2, name: "Jane Smith", score: 92, rating: 4.8, status: "Active" },
+  },
+  {
+    rowMeta: { rowId: 3 },
+    rowData: { id: 3, name: "Bob Johnson", score: 78, rating: 3.9, status: "Inactive" },
+  },
+  {
+    rowMeta: { rowId: 4 },
+    rowData: { id: 4, name: "Alice Williams", score: 95, rating: 4.9, status: "Active" },
+  },
+  {
+    rowMeta: { rowId: 5 },
+    rowData: { id: 5, name: "Charlie Brown", score: 82, rating: 4.1, status: "Active" },
+  },
 ];
 
 const ColumnAlignmentDemo = () => {
