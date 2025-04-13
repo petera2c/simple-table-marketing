@@ -4,14 +4,9 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "start": "next dev --turbopack",
-    "dev": "concurrently \"npm run start\" \"cd ../api && npm run dev\"",
+    "dev": "next dev --turbopack",
     "build": "next build",
-    "lint": "next lint",
-    "heroku-postbuild": "npm run build",
-    "generate-sitemap": "node ../scripts/generate-sitemap.js",
-    "copy-to-txt": "node ../scripts/copy-to-txt.js",
-    "publish": "npm run ../scripts/copy-to-txt && npm run ../scripts/generate-sitemap && git add . && git commit -m \"$npm_config_m\" && git push"
+    "lint": "next lint"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^6.7.2",
@@ -41,7 +36,6 @@
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
     "autoprefixer": "^10.4.17",
-    "concurrently": "^8.2.2",
     "eslint": "^9",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",

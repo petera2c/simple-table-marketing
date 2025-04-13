@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { trackLinkClick } from "../utils/analytics";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
@@ -111,6 +111,16 @@ const Header = () => {
               <FontAwesomeIcon icon={faDiscord} className="mr-1" />
               Support
             </a>
+            <a
+              href={TECHNICAL_STRINGS.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.github)}
+              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+            >
+              <FontAwesomeIcon icon={faGithub} className="mr-1" />
+              Report Issue
+            </a>
           </div>
         </div>
 
@@ -182,6 +192,16 @@ const Header = () => {
               >
                 <FontAwesomeIcon icon={faDiscord} className="mr-2" />
                 Support
+              </a>
+              <a
+                href={TECHNICAL_STRINGS.links.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.github)}
+                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
+              >
+                <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                Report Issue
               </a>
             </div>
           </div>

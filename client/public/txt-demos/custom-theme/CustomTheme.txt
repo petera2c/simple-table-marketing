@@ -1,5 +1,3 @@
-/* Only applied when the "custom" theme is selected */
-:root.custom-theme-enabled .theme-custom,
 .custom-theme-container .theme-custom {
   --st-border-radius: 8px;
   --st-border-width: 1px;
@@ -31,7 +29,8 @@
   /* Text colors */
   --st-cell-color: #44403c;
   --st-cell-odd-row-color: #44403c;
-  --st-edit-cell-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1), 0 2px 4px -1px rgba(124, 58, 237, 0.06);
+  --st-edit-cell-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1),
+    0 2px 4px -1px rgba(124, 58, 237, 0.06);
   --st-selected-cell-color: #5b21b6;
   --st-selected-first-cell-color: #5b21b6;
 

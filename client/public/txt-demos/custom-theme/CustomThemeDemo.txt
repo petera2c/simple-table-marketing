@@ -75,17 +75,6 @@ const data = [
 ];
 
 const CustomThemeDemo = () => {
-  // Add effect to apply/remove the custom CSS class when component mounts/unmounts
-  useEffect(() => {
-    // Add the custom-theme-enabled class to root when component mounts
-    document.documentElement.classList.add("custom-theme-enabled");
-
-    // Clean up function to remove the class when component unmounts
-    return () => {
-      document.documentElement.classList.remove("custom-theme-enabled");
-    };
-  }, []);
-
   return (
     <div className="custom-theme-container">
       <SimpleTable
