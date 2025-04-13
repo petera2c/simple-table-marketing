@@ -19,7 +19,6 @@ import { trackButtonClick } from "../utils/analytics";
 import SEO from "../components/SEO";
 import { UI_STRINGS } from "../constants/strings/ui";
 import { SEO_STRINGS } from "../constants/strings/seo";
-import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useIsMobile } from "../hooks/useIsMobile";
 import FinancialDashboard from "../components/examples/finance/FinancialDashboard";
 

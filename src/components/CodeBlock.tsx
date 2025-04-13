@@ -4,12 +4,14 @@ import React, { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faCheck, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { Highlight, themes } from "prism-react-renderer";
+import { useDemoCode } from "@/hooks/useDemoCode";
 
 type ThemeType = "dark" | "light";
 
 interface CodeBlockProps {
   className?: string;
-  code: string;
+  code?: string;
+  demoCodeFilename?: string;
   initialTheme?: ThemeType;
   language?: string;
   showLineNumbers?: boolean;
@@ -19,12 +21,14 @@ interface CodeBlockProps {
 const CodeBlock = ({
   className = "",
   code = "",
+  demoCodeFilename = "",
   initialTheme = "dark",
   language = "tsx",
   showLineNumbers = true,
   showThemeToggle = true,
 }: CodeBlockProps) => {
-  code = code.toString();
+  const demoCode = useDemoCode(demoCodeFilename);
+  code = demoCode ? demoCode.toString() : code.toString();
   const [copied, setCopied] = useState(false);
   const [theme, setTheme] = useState<ThemeType>(initialTheme);
 
