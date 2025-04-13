@@ -18,6 +18,24 @@ export const SEO_STRINGS = {
       "Comprehensive documentation for Simple Table - A lightweight, customizable React table component.",
     keywords: "React table, data grid, documentation, React components, table library",
   },
+  blog: {
+    title: "Simple Table Blog",
+    description:
+      "Read our latest blog posts about Simple Table and the latest news in the React table ecosystem.",
+    keywords: "React table, data grid, blog, news, React components, table library",
+    openGraph: {
+      title: "Simple Table Blog",
+      description:
+        "Read our latest blog posts about Simple Table and the latest news in the React table ecosystem.",
+      type: "article",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Simple Table Blog",
+      description:
+        "Read our latest blog posts about Simple Table and the latest news in the React table ecosystem.",
+    },
+  },
   themeBuilder: {
     title: "Simple Table Theme Builder - Design Your Perfect Table ✨",
     description:
@@ -386,6 +404,24 @@ export const SEO_STRINGS = {
       title: "Column Reordering - Simple Table",
       description:
         "Drag and drop columns to easily reorganize your table with Simple Table's column reordering feature.",
+    },
+  },
+  examples: {
+    manufacturing: {
+      title: "Manufacturing Example - Simple Table",
+      description: "A manufacturing example using Simple Table",
+    },
+    hr: {
+      title: "HR Example - Simple Table",
+      description: "A HR example using Simple Table",
+    },
+    finance: {
+      title: "Finance Example - Simple Table",
+      description: "A finance example using Simple Table",
+    },
+    billing: {
+      title: "Billing Example - Simple Table",
+      description: "A billing example using Simple Table",
     },
   },
 };

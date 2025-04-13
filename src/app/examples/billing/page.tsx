@@ -1,23 +1,12 @@
-"use client";
+import BillingExampleContent from "@/components/pages/BillingExampleContent";
+import { Metadata } from "next";
+import { SEO_STRINGS } from "@/constants/strings/seo";
 
-import { SimpleTable } from "simple-table-core";
-import { generateBillingData } from "../../../components/examples/billing/billing-rows";
-import { HEADERS } from "../../../components/examples/billing/billing-headers";
-import "simple-table-core/styles.css";
-
-const data = generateBillingData();
+export const metadata: Metadata = {
+  title: SEO_STRINGS.examples.billing.title,
+  description: SEO_STRINGS.examples.billing.description,
+};
 
 export default function BillingExample() {
-  return (
-    <SimpleTable
-      columnResizing
-      columnReordering
-      defaultHeaders={HEADERS}
-      rows={data}
-      height="70dvh"
-      theme="light"
-      selectableCells
-      editColumns
-    />
-  );
+  return <BillingExampleContent />;
 }

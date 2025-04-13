@@ -1,22 +1,22 @@
-"use client";
+import ManufacturingExampleContent from "@/components/pages/ManufacturingExampleContent";
+import { SEO_STRINGS } from "@/constants/strings/seo";
+import { Metadata } from "next";
 
-import { SimpleTable } from "simple-table-core";
-import { generateManufacturingData } from "../../../components/examples/manufacturing/manufacturing-rows";
-import { HEADERS } from "../../../components/examples/manufacturing/manufacturing-headers";
-import "simple-table-core/styles.css";
-
-const data = generateManufacturingData();
+export const metadata: Metadata = {
+  title: SEO_STRINGS.examples.manufacturing.title,
+  description: SEO_STRINGS.examples.manufacturing.description,
+  openGraph: {
+    title: SEO_STRINGS.examples.manufacturing.title,
+    description: SEO_STRINGS.examples.manufacturing.description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO_STRINGS.examples.manufacturing.title,
+    description: SEO_STRINGS.examples.manufacturing.description,
+  },
+};
 
 export default function ManufacturingExample() {
-  return (
-    <SimpleTable
-      columnResizing
-      columnReordering
-      defaultHeaders={HEADERS}
-      rows={data}
-      height="60dvh"
-      theme="light"
-      selectableCells
-    />
-  );
+  return <ManufacturingExampleContent />;
 }

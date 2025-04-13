@@ -7,7 +7,7 @@ import "simple-table-core/styles.css";
 
 const data = generateFinanceData();
 
-export const FinancialDashboard = ({ height = "70dvh" }: { height?: string }) => {
+export const FinancialDashboardContent = ({ height = "70dvh" }: { height?: string }) => {
   return (
     <SimpleTable
       columnResizing
