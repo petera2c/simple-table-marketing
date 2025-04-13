@@ -3,21 +3,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDesktop, faMobileAlt } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
 import Link from "next/link";
-import SEO from "../../components/SEO";
 
-interface MobileUnsupportedPageProps {
-  featureName: string;
-}
-
-export default function MobileUnsupportedPage({ featureName }: MobileUnsupportedPageProps) {
+export default function MobileUnsupportedPage() {
   return (
     <>
-      <SEO
-        title={`${featureName} - Desktop Only`}
-        description={`The ${featureName} is available only on desktop devices due to its advanced interface requirements.`}
-        canonicalUrl="/mobile-unsupported"
-      />
-
       <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col items-center justify-center p-8 min-h-[60vh] text-center">
           <div className="flex items-center justify-center mb-6 text-4xl text-gray-400">
@@ -27,12 +16,12 @@ export default function MobileUnsupportedPage({ featureName }: MobileUnsupported
           </div>
 
           <h1 className="text-2xl font-bold text-gray-800 mb-4">
-            {featureName} is only available on desktop
+            This page is only available on desktop
           </h1>
 
           <p className="text-gray-600 mb-8 max-w-md">
-            The {featureName} requires a larger screen for the best experience. Please visit this
-            page on a desktop device to access all features.
+            This page requires a larger screen for the best experience. Please visit this page on a
+            desktop device to access all features.
           </p>
 
           <div className="space-y-4">

@@ -46,27 +46,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/quick-start</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/docs/nested-headers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/docs/custom-theme</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/docs/row-grouping</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/docs/custom-renderers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -76,7 +56,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-visibility</loc>
+    <loc>https://www.simple-table.com/docs/installation</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/custom-renderers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -86,12 +71,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/docs/column-visibility</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/quick-start</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/docs/column-sorting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-resizing</loc>
+    <loc>https://www.simple-table.com/docs/nested-headers</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -106,7 +101,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-pinning</loc>
+    <loc>https://www.simple-table.com/docs/column-resizing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -116,17 +111,22 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/docs/column-pinning</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/docs/cell-renderer</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/cell-highlighting</loc>
+    <loc>https://www.simple-table.com/docs/custom-theme</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/installation</loc>
+    <loc>https://www.simple-table.com/docs/cell-highlighting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>

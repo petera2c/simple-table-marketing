@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { BlogPost } from "../../types/blog";
+import { BlogPost } from "@/types/BlogPost";
 import { format } from "date-fns";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendarAlt } from "@fortawesome/free-regular-svg-icons";

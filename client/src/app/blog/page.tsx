@@ -2,7 +2,7 @@
 
 import BlogCard from "@/components/blog/BlogCard";
 import { useState, useEffect } from "react";
-import { BlogPost } from "@/types/blog";
+import { BlogPost } from "@/types/BlogPost";
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000";
 
