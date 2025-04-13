@@ -61,6 +61,7 @@ import "simple-table-core/styles.css";`,
     github: "https://github.com/petera2c/simple-table-marketing",
     discord: "https://discord.gg/RvKHCfg3PC",
     demo: "https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d",
+    githubIssues: "https://github.com/petera2c/simple-table-marketing/issues",
   },
   files: {
     theme: "simple-table-theme.css",

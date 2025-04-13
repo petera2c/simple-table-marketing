@@ -64,12 +64,12 @@ export default function HomeContent() {
 
   const handleDocumentationClick = () => {
     trackButtonClick("Documentation", "Homepage Hero");
-    router.push("/docs");
+    router.push("/docs/installation");
   };
 
   const handleExamplesClick = () => {
     trackButtonClick("Examples", "Homepage Hero");
-    router.push("/examples");
+    router.push("/examples/finance");
   };
 
   const handleFeatureClick = (featureTitle: string) => {

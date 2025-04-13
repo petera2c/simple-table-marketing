@@ -34,7 +34,18 @@ export default function Footer() {
                     isActive("/docs/installation") ? "text-white font-medium" : ""
                   }`}
                 >
-                  Getting Started
+                  Installation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/docs/quick-start"
+                  onClick={() => handleLinkClick("Footer Documentation", "/docs/quick-start")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs/quick-start") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Quick Start
                 </Link>
               </li>
             </ul>
@@ -57,17 +68,6 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/examples/hr"
-                  onClick={() => handleLinkClick("Footer HR Example", "/examples/hr")}
-                  className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/examples/hr") ? "text-white font-medium" : ""
-                  }`}
-                >
-                  HR Management
-                </Link>
-              </li>
-              <li>
-                <Link
                   href="/examples/manufacturing"
                   onClick={() =>
                     handleLinkClick("Footer Manufacturing Example", "/examples/manufacturing")
@@ -79,6 +79,28 @@ export default function Footer() {
                   Manufacturing
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/examples/hr"
+                  onClick={() => handleLinkClick("Footer HR Example", "/examples/hr")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/hr") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  HR Management
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/examples/billing"
+                  onClick={() => handleLinkClick("Footer Billing Example", "/examples/billing")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/billing") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Billing
+                </Link>
+              </li>
             </ul>
           </div>
 
@@ -86,29 +108,6 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Resources</h3>
             <ul className="space-y-2">
-              <li>
-                <Link
-                  href="/blog"
-                  onClick={() => handleLinkClick("Footer Blog", "/blog")}
-                  className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/blog") ? "text-white font-medium" : ""
-                  }`}
-                >
-                  Blog
-                </Link>
-              </li>
-              <li>
-                <a
-                  href={TECHNICAL_STRINGS.links.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  onClick={() => handleLinkClick("Footer GitHub", TECHNICAL_STRINGS.links.github)}
-                  className="text-gray-400 hover:text-white transition-colors flex items-center"
-                >
-                  <FontAwesomeIcon icon={faGithub} className="mr-2" />
-                  GitHub
-                </a>
-              </li>
               <li>
                 <a
                   href={TECHNICAL_STRINGS.links.npm}
@@ -132,6 +131,31 @@ export default function Footer() {
                   <FontAwesomeIcon icon={faDiscord} className="mr-2" />
                   Discord Support
                 </a>
+              </li>
+              <li>
+                <a
+                  href={TECHNICAL_STRINGS.links.githubIssues}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() =>
+                    handleLinkClick("Footer GitHub", TECHNICAL_STRINGS.links.githubIssues)
+                  }
+                  className="text-gray-400 hover:text-white transition-colors flex items-center"
+                >
+                  <FontAwesomeIcon icon={faGithub} className="mr-2" />
+                  GitHub Issues
+                </a>
+              </li>
+              <li>
+                <Link
+                  href="/blog"
+                  onClick={() => handleLinkClick("Footer Blog", "/blog")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/blog") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Blog
+                </Link>
               </li>
             </ul>
           </div>
@@ -160,6 +184,17 @@ export default function Footer() {
                   }`}
                 >
                   Theme Documentation
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/docs/custom-theme"
+                  onClick={() => handleLinkClick("Footer Custom Theme", "/docs/custom-theme")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/docs/custom-theme") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Custom Theme
                 </Link>
               </li>
             </ul>

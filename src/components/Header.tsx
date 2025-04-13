@@ -112,10 +112,10 @@ const Header = () => {
               Support
             </a>
             <a
-              href={TECHNICAL_STRINGS.links.github}
+              href={TECHNICAL_STRINGS.links.githubIssues}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.github)}
+              onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.githubIssues)}
               className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
             >
               <FontAwesomeIcon icon={faGithub} className="mr-1" />
