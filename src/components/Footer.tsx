@@ -157,6 +157,17 @@ export default function Footer() {
                   Blog
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/sitemap.xml"
+                  onClick={() => handleLinkClick("Footer Sitemap", "/sitemap.xml")}
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/sitemap.xml") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Sitemap
+                </Link>
+              </li>
             </ul>
           </div>
 

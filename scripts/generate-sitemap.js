@@ -66,7 +66,10 @@ function getBlogPosts() {
 
 // Function to format XML with proper indentation
 function formatXML(xml) {
-  const formatted = xml
+  // Remove any existing XML declaration
+  const xmlWithoutDeclaration = xml.replace(/<\?xml[^>]*\?>\s*/, "");
+
+  const formatted = xmlWithoutDeclaration
     .replace(/<url>/g, "\n  <url>")
     .replace(/<\/url>/g, "\n  </url>")
     .replace(/<loc>/g, "\n    <loc>")
@@ -77,10 +80,11 @@ function formatXML(xml) {
     .replace(/<\/priority>/g, "</priority>")
     .replace(/<lastmod>/g, "\n    <lastmod>")
     .replace(/<\/lastmod>/g, "</lastmod>")
-    .replace(/<urlset/g, '<?xml version="1.0" encoding="UTF-8"?>\n<urlset')
+    .replace(/<urlset/g, "<urlset")
     .replace(/<\/urlset>/g, "\n</urlset>");
 
-  return formatted;
+  // Add XML declaration at the start
+  return '<?xml version="1.0" encoding="UTF-8"?>\n' + formatted;
 }
 
 async function generateSitemap() {
