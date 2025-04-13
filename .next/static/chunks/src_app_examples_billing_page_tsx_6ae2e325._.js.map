@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 7, "column": 0}, "map": {"version":3,"sources":["file:///Users/peter/Documents/dev_projects/simple-table-marketing/src/app/examples/billing/page.tsx"],"sourcesContent":["\"use client\";\n\nimport { SimpleTable } from \"simple-table-core\";\nimport { generateBillingData } from \"@/components/examples/billing/billing-rows\";\nimport { HEADERS } from \"@/components/examples/billing/billing-headers\";\nimport \"simple-table-core/styles.css\";\n\nconst data = generateBillingData();\n\nexport default function BillingExample() {\n  return (\n    <SimpleTable\n      columnResizing\n      columnReordering\n      defaultHeaders={HEADERS}\n      rows={data}\n      height=\"70dvh\"\n      theme=\"light\"\n      selectableCells\n      editColumns\n    />\n  );\n}\n"],"names":[],"mappings":";;;;AAEA;AACA;AACA;AAJA;;;;;;AAOA,MAAM,OAAO,CAAA,GAAA,8JAAA,CAAA,sBAAmB,AAAD;AAEhB,SAAS;IACtB,qBACE,6LAAC,iKAAA,CAAA,cAAW;QACV,cAAc;QACd,gBAAgB;QAChB,gBAAgB,kKAAA,CAAA,UAAO;QACvB,MAAM;QACN,QAAO;QACP,OAAM;QACN,eAAe;QACf,WAAW;;;;;;AAGjB;KAbwB","debugId":null}}]
-}
