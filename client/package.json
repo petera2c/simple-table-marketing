@@ -1,0 +1,50 @@
+{
+  "name": "simple-table-marketing",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-brands-svg-icons": "^6.7.2",
+    "@fortawesome/free-regular-svg-icons": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/react-fontawesome": "^0.2.2",
+    "@tanstack/react-query": "^5.72.2",
+    "@types/node": "^20.11.19",
+    "antd": "^5.24.4",
+    "date-fns": "^4.1.0",
+    "eslint-config-next": "^15.3.0",
+    "framer-motion": "^12.6.2",
+    "fuse.js": "^7.1.0",
+    "next": "15.3.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-ga4": "^2.1.0",
+    "react-markdown": "^10.1.0",
+    "react-router-dom": "^7.4.0",
+    "simple-table-core": "^0.7.54"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.21.0",
+    "@tailwindcss/cli": "^4.0.15",
+    "@tailwindcss/postcss": "^4.1.3",
+    "@types/react": "^18.2.55",
+    "@types/react-dom": "^18.2.19",
+    "autoprefixer": "^10.4.17",
+    "eslint": "^9",
+    "eslint-plugin-react-hooks": "^5.1.0",
+    "eslint-plugin-react-refresh": "^0.4.19",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^4",
+    "typescript": "^5.3.3",
+    "typescript-eslint": "^8.24.1"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
