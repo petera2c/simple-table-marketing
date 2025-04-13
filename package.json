@@ -2,6 +2,7 @@
   "name": "simple-table-marketing",
   "version": "1.0.0",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:client\"",
     "dev:api": "cd api && npm run dev",
@@ -13,7 +14,7 @@
     "heroku-postbuild": "npm run build",
     "generate-sitemap": "node scripts/generate-sitemap.js",
     "copy-to-txt": "node scripts/copy-to-txt.js",
-    "publish": "npm run copy-to-txt && npm run generate-sitemap && git add . && git commit -m \"$npm_config_m\" && git push"
+    "publish": "npm run copy-to-txt && npm run generate-sitemap && git add . && git commit -m \"$npm_config_message\" && git push"
   },
   "dependencies": {
     "concurrently": "^8.2.2"
