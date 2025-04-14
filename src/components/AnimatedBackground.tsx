@@ -1,6 +1,85 @@
 "use client";
 import { motion } from "framer-motion";
 
+// Available gradient colors for randomization
+const colors = [
+  "bg-gradient-to-br from-blue-300 to-indigo-400",
+  "bg-gradient-to-br from-purple-300 to-pink-400",
+  "bg-gradient-to-br from-cyan-300 to-blue-400",
+  "bg-gradient-to-br from-indigo-300 to-purple-400",
+  "bg-gradient-to-br from-blue-400 to-teal-300",
+  "bg-gradient-to-br from-pink-300 to-purple-400",
+  "bg-gradient-to-br from-teal-300 to-cyan-400",
+];
+
+// Fixed positions with randomized size and color
+const bubbles = [
+  {
+    size: 200 + Math.random() * 250, // Random size between 200 and 450
+    x: 5,
+    y: 10,
+    delay: 0,
+    opacity: 0.3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 80,
+    y: 15,
+    delay: 0.3,
+    opacity: 0.25,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 20,
+    y: 60,
+    delay: 0.5,
+    opacity: 0.3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 70,
+    y: 70,
+    delay: 0.7,
+    opacity: 0.25,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 40,
+    y: 30,
+    delay: 1.0,
+    opacity: 0.2,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 10,
+    y: 95,
+    delay: 1.5,
+    opacity: 0.25,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 60,
+    y: 40,
+    delay: 1.8,
+    opacity: 0.2,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+  {
+    size: 200 + Math.random() * 250,
+    x: 30,
+    y: 20,
+    delay: 2.0,
+    opacity: 0.3,
+    color: colors[Math.floor(Math.random() * colors.length)],
+  },
+];
+
 // Background bubble component
 const BackgroundBubble = ({
   size,
@@ -44,85 +123,6 @@ const BackgroundBubble = ({
 );
 
 const AnimatedBackground = () => {
-  // Available gradient colors for randomization
-  const colors = [
-    "bg-gradient-to-br from-blue-300 to-indigo-400",
-    "bg-gradient-to-br from-purple-300 to-pink-400",
-    "bg-gradient-to-br from-cyan-300 to-blue-400",
-    "bg-gradient-to-br from-indigo-300 to-purple-400",
-    "bg-gradient-to-br from-blue-400 to-teal-300",
-    "bg-gradient-to-br from-pink-300 to-purple-400",
-    "bg-gradient-to-br from-teal-300 to-cyan-400",
-  ];
-
-  // Fixed positions with randomized size and color
-  const bubbles = [
-    {
-      size: 200 + Math.random() * 250, // Random size between 200 and 450
-      x: 5,
-      y: 10,
-      delay: 0,
-      opacity: 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 80,
-      y: 15,
-      delay: 0.3,
-      opacity: 0.25,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 20,
-      y: 60,
-      delay: 0.5,
-      opacity: 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 70,
-      y: 70,
-      delay: 0.7,
-      opacity: 0.25,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 40,
-      y: 30,
-      delay: 1.0,
-      opacity: 0.2,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 10,
-      y: 95,
-      delay: 1.5,
-      opacity: 0.25,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 60,
-      y: 40,
-      delay: 1.8,
-      opacity: 0.2,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-    {
-      size: 200 + Math.random() * 250,
-      x: 30,
-      y: 20,
-      delay: 2.0,
-      opacity: 0.3,
-      color: colors[Math.floor(Math.random() * colors.length)],
-    },
-  ];
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none min-h-[200vh]">
       {bubbles.map((bubble, index) => (
