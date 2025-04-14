@@ -20,7 +20,7 @@ import SEO from "../../components/SEO";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { useIsMobile } from "../../hooks/useIsMobile";
-import FinancialDashboard from "../../components/examples/finance/FinancialDashboard";
+import { FinancialDashboardContent } from "./FinancialDashboardContent";
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -151,7 +151,7 @@ export default function HomeContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <FinancialDashboard height="50dvh" />
+          <FinancialDashboardContent height="50dvh" />
         </motion.section>
 
         {/* Features section with staggered animation */}

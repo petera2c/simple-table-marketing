@@ -8,9 +8,15 @@ import "simple-table-core/styles.css";
 
 const data = generateFinanceData();
 
-export const FinancialDashboardContent = ({ height = "70dvh" }: { height?: string }) => {
+export const FinancialDashboardContent = ({
+  height = "70dvh",
+  themeOverride = "light",
+}: {
+  height?: string;
+  themeOverride?: Theme;
+}) => {
   const searchParams = useSearchParams();
-  const theme = (searchParams.get("theme") as Theme) || "funky";
+  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
   return (
     <SimpleTable
