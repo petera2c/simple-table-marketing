@@ -8,9 +8,9 @@ import "simple-table-core/styles.css";
 
 const data = generateBillingData();
 
-export default function BillingExample() {
+export default function BillingExample({ themeOverride }: { themeOverride?: Theme }) {
   const searchParams = useSearchParams();
-  const theme = (searchParams.get("theme") as Theme) || "dark";
+  const theme = themeOverride || (searchParams.get("theme") as Theme) || "dark";
 
   return (
     <SimpleTable

@@ -10,7 +10,7 @@ const data = generateFinanceData();
 
 export const FinancialDashboardContent = ({
   height = "70dvh",
-  themeOverride = "light",
+  themeOverride,
 }: {
   height?: string;
   themeOverride?: Theme;

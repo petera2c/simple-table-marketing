@@ -25,8 +25,8 @@ import ConfigurableSidebar, { SidebarConfig } from "../../components/Configurabl
 import ExpandableSection from "../../components/ExpandableSection";
 import ThemeColorPicker from "../../components/ThemeColorPicker";
 import ThemeInput from "../../components/ThemeInput";
-import BillingDashboard from "../../components/examples/billing/BillingDashboard";
 import MobileUnsupportedPage from "../../components/MobileUnsupported";
+import BillingExample from "./BillingExampleContent";
 
 interface ThemeConfig {
   borderColor: string;
@@ -381,7 +381,7 @@ export default function ThemeBuilderContent() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           {UI_STRINGS.themeBuilder.sections.livePreview}
         </h1>
-        <BillingDashboard theme="custom" />
+        <BillingExample themeOverride="custom" />
       </PageLayout>
     </>
   );

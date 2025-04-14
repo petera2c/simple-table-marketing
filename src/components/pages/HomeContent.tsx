@@ -151,7 +151,7 @@ export default function HomeContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <FinancialDashboardContent height="50dvh" />
+          <FinancialDashboardContent themeOverride="light" height="50dvh" />
         </motion.section>
 
         {/* Features section with staggered animation */}

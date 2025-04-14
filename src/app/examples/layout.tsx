@@ -22,28 +22,28 @@ const examples = [
     label: "Financial",
     path: "/examples/finance",
     icon: faChartLine,
-    defaultTheme: "funky" as Theme,
+    defaultTheme: "light" as Theme,
   },
   {
     id: "manufacturing",
     label: "Manufacturing",
     path: "/examples/manufacturing",
     icon: faIndustry,
-    defaultTheme: "sky" as Theme,
+    defaultTheme: "dark" as Theme,
   },
   {
     id: "hr",
     label: "HR",
     path: "/examples/hr",
     icon: faUsers,
-    defaultTheme: "light" as Theme,
+    defaultTheme: "dark" as Theme,
   },
   {
     id: "billing",
     label: "Billing",
     path: "/examples/billing",
     icon: faFileInvoiceDollar,
-    defaultTheme: "dark" as Theme,
+    defaultTheme: "light" as Theme,
   },
 ];
 
