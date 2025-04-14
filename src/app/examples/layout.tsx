@@ -1,24 +1,19 @@
 "use client";
 
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { trackLinkClick } from "../../utils/analytics";
 import PageLayout from "../../components/PageLayout";
-import { Button, Space, Dropdown } from "antd";
+import { Select } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChartLine,
   faIndustry,
   faUsers,
   faFileInvoiceDollar,
-  faCaretDown,
 } from "@fortawesome/free-solid-svg-icons";
-import { useIsMobile } from "../../hooks/useIsMobile";
-
-// Import all example components
-import FinancialDashboard from "../../components/examples/finance/FinancialDashboard";
-import ManufacturingMetrics from "../../components/examples/manufacturing/ManufacturingMetrics";
-import HRManagement from "../../components/examples/hr/HRManagement";
-import BillingDashboard from "../../components/examples/billing/BillingDashboard";
+import { Theme } from "simple-table-core";
+import ThemeSelector from "@/components/ThemeSelector";
+import { useEffect } from "react";
 
 // Define example navigation items
 const examples = [
@@ -27,34 +22,50 @@ const examples = [
     label: "Financial",
     path: "/examples/finance",
     icon: faChartLine,
-    component: FinancialDashboard,
+    defaultTheme: "funky" as Theme,
   },
   {
     id: "manufacturing",
     label: "Manufacturing",
     path: "/examples/manufacturing",
     icon: faIndustry,
-    component: ManufacturingMetrics,
+    defaultTheme: "sky" as Theme,
   },
-  { id: "hr", label: "HR", path: "/examples/hr", icon: faUsers, component: HRManagement },
+  {
+    id: "hr",
+    label: "HR",
+    path: "/examples/hr",
+    icon: faUsers,
+    defaultTheme: "light" as Theme,
+  },
   {
     id: "billing",
     label: "Billing",
     path: "/examples/billing",
     icon: faFileInvoiceDollar,
-    component: BillingDashboard,
+    defaultTheme: "dark" as Theme,
   },
 ];
 
 export default function ExamplesLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const router = useRouter();
-  const isMobile = useIsMobile();
+  const searchParams = useSearchParams();
+  const currentTheme = searchParams.get("theme") as Theme;
 
   // Determine current active example
   const currentPath = pathname;
   const currentExample =
     examples.find((example) => currentPath.includes(example.id)) || examples[0];
+
+  // Initialize default theme if none is set
+  useEffect(() => {
+    if (!currentTheme && currentExample) {
+      const params = new URLSearchParams(searchParams.toString());
+      params.set("theme", currentExample.defaultTheme);
+      router.replace(`${pathname}?${params.toString()}`);
+    }
+  }, [currentTheme, currentExample, pathname, router, searchParams]);
 
   // Title mapping for each example
   const exampleTitles = {
@@ -66,16 +77,22 @@ export default function ExamplesLayout({ children }: { children: React.ReactNode
 
   const handleLinkClick = (linkPath: string, linkName: string) => {
     trackLinkClick(linkName, linkPath);
-    router.push(linkPath);
+    const example = examples.find((e) => e.path === linkPath);
+    const params = new URLSearchParams(searchParams.toString());
+
+    // Only set default theme if no theme is currently set
+    if (!params.has("theme") && example) {
+      params.set("theme", example.defaultTheme);
+    }
+
+    router.push(`${linkPath}?${params.toString()}`);
   };
 
-  // Mobile dropdown menu items
-  const menuItems = examples.map((example) => ({
-    key: example.id,
-    label: example.label,
-    icon: <FontAwesomeIcon icon={example.icon} />,
-    onClick: () => handleLinkClick(example.path, example.label),
-  }));
+  const handleThemeChange = (theme: Theme) => {
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("theme", theme);
+    router.push(`${pathname}?${params.toString()}`);
+  };
 
   return (
     <PageLayout containerWidth="w-full" sidebar={null}>
@@ -85,35 +102,29 @@ export default function ExamplesLayout({ children }: { children: React.ReactNode
           <h1 className="text-xl font-semibold">
             {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
           </h1>
-
-          {/* Show dropdown on mobile, buttons on desktop */}
-          {isMobile ? (
-            <Dropdown
-              menu={{ items: menuItems, selectedKeys: [currentExample.id] }}
-              trigger={["click"]}
-            >
-              <Button type="primary">
-                <div className="flex items-center gap-2">
-                  <FontAwesomeIcon icon={currentExample.icon} />
-                  {currentExample.label}
-                  <FontAwesomeIcon icon={faCaretDown} />
-                </div>
-              </Button>
-            </Dropdown>
-          ) : (
-            <Space size="middle" wrap className="self-end sm:self-auto">
-              {examples.map((example, index) => (
-                <Button
-                  key={index}
-                  type={currentExample.id === example.id ? "primary" : "default"}
-                  icon={<FontAwesomeIcon icon={example.icon} />}
-                  onClick={() => handleLinkClick(example.path, example.label)}
-                >
-                  {example.label}
-                </Button>
-              ))}
-            </Space>
-          )}
+          <div className="flex items-center gap-2">
+            <Select
+              placeholder="Select an example"
+              style={{ width: 200 }}
+              onChange={(value) => {
+                const example = examples.find((e) => e.id === value);
+                if (example) {
+                  handleLinkClick(example.path, example.label);
+                }
+              }}
+              value={currentExample.id}
+              options={examples.map((example) => ({
+                value: example.id,
+                label: (
+                  <div className="flex items-center gap-2">
+                    <FontAwesomeIcon icon={example.icon} />
+                    {example.label}
+                  </div>
+                ),
+              }))}
+            />
+            <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
+          </div>
         </div>
 
         {/* Example Content */}

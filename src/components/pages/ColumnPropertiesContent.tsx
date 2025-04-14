@@ -79,6 +79,10 @@ const ColumnPropertiesContent = () => {
               <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">width</code>: Column
               width (number or string)
             </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">disableReorder</code>:
+              Prevents the column from being reordered when column reordering is enabled
+            </li>
           </ul>
         </div>
       </motion.div>

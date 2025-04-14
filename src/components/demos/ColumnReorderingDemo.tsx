@@ -11,7 +11,7 @@ const initialHeaders: HeaderObject[] = [
   { accessor: "lastName", label: "Last Name", width: 120, type: "string" },
   { accessor: "age", label: "Age", width: 80, align: "right", type: "number" },
   { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "location", label: "Location", width: 150, type: "string" },
+  { accessor: "location", disableReorder: true, label: "Location", width: 150, type: "string" },
 ];
 
 const data = [

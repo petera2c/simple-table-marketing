@@ -80,6 +80,11 @@ export default function ColumnReorderingContent() {
               : Optional callback that fires when column order changes, receiving the new header
               configuration as a parameter
             </li>
+            <li>
+              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">disableReorder</code>:
+              Set this property on individual headers to prevent specific columns from being
+              reordered
+            </li>
           </ul>
         </div>
 

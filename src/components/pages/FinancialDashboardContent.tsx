@@ -1,13 +1,17 @@
 "use client";
 
-import { SimpleTable } from "simple-table-core";
+import { SimpleTable, Theme } from "simple-table-core";
 import { generateFinanceData } from "@/app/examples/finance/finance-rows";
 import { HEADERS } from "@/app/examples/finance/finance-headers";
+import { useSearchParams } from "next/navigation";
 import "simple-table-core/styles.css";
 
 const data = generateFinanceData();
 
 export const FinancialDashboardContent = ({ height = "70dvh" }: { height?: string }) => {
+  const searchParams = useSearchParams();
+  const theme = (searchParams.get("theme") as Theme) || "funky";
+
   return (
     <SimpleTable
       columnResizing
@@ -15,7 +19,7 @@ export const FinancialDashboardContent = ({ height = "70dvh" }: { height?: strin
       defaultHeaders={HEADERS}
       rows={data}
       height={height}
-      theme="light"
+      theme={theme}
       selectableCells
       selectableColumns
     />

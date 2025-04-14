@@ -63,22 +63,16 @@ export default function ThemesContent() {
         </p>
 
         <CodeBlock demoCodeFilename="ThemesDemo.txt" />
+        <CodeBlock demoCodeFilename="ThemesDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Available Themes</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>light - Default light theme</li>
             <li>dark - Dark mode theme</li>
-            <li>90s - Retro 90s style</li>
-            <li>bubblegum - Pink bubblegum theme</li>
-            <li>desert - Warm desert colors</li>
-            <li>forest - Green forest theme</li>
-            <li>high-contrast - High contrast theme</li>
-            <li>ocean - Blue ocean theme</li>
-            <li>pastel - Soft pastel colors</li>
-            <li>solarized-dark - Dark solarized theme</li>
-            <li>solarized-light - Light solarized theme</li>
-            <li>vibrant - Bright vibrant colors</li>
+            <li>sky - Calm sky blue theme</li>
+            <li>funky - Bold and colorful theme</li>
+            <li>neutral - Subtle and balanced theme</li>
           </ul>
         </div>
       </motion.div>

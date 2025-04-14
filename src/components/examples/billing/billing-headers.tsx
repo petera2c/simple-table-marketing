@@ -27,6 +27,7 @@ const generateMonthHeaders = () => {
       type: "number",
       children: [
         {
+          disableReorder: true,
           label: "Balance",
           accessor: `balance_${months[monthIndex]}_${year}`,
           width: 200,
@@ -45,6 +46,7 @@ const generateMonthHeaders = () => {
           },
         },
         {
+          disableReorder: true,
           label: "Revenue",
           accessor: `revenue_${months[monthIndex]}_${year}`,
           width: 200,
