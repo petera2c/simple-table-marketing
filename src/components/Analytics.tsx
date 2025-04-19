@@ -1,13 +1,40 @@
 "use client";
 
 import Script from "next/script";
-import { ANALYTICS_ENABLED } from "../utils/analyticsConfig";
+import {
+  ANALYTICS_ENABLED,
+  disableGoogleAnalyticsInDevelopment,
+  disableHotjarInDevelopment,
+  disableSimpleAnalyticsInDevelopment,
+} from "../utils/analyticsConfig";
+import { useEffect } from "react";
 
 export function Analytics() {
+  useEffect(() => {
+    // Disable analytics in development
+    disableGoogleAnalyticsInDevelopment();
+    disableHotjarInDevelopment();
+    disableSimpleAnalyticsInDevelopment();
+  }, []);
+
   if (!ANALYTICS_ENABLED) return null;
 
   return (
     <>
+      {/* Google Analytics */}
+      <Script
+        src={`https://www.googletagmanager.com/gtag/js?id=G-HS01JZP3DM`}
+        strategy="afterInteractive"
+      />
+      <Script id="google-analytics" strategy="afterInteractive">
+        {`
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-HS01JZP3DM');
+        `}
+      </Script>
+
       {/* Hotjar */}
       <Script id="hotjar">
         {`

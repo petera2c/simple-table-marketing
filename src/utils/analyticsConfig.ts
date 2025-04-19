@@ -10,6 +10,8 @@ declare global {
       hjid: number;
       hjsv: number;
     };
+    dataLayer?: any[];
+    gtag?: (...args: any[]) => void;
   }
 }
 
@@ -27,6 +29,26 @@ const isDevelopment = () => {
 
 // Export a flag to control analytics
 export const ANALYTICS_ENABLED = !isDevelopment();
+
+// Function to disable Google Analytics in development
+export const disableGoogleAnalyticsInDevelopment = () => {
+  if (typeof window === "undefined") return;
+
+  if (isDevelopment()) {
+    // Overwrite the gtag function to do nothing
+    window.gtag = function () {
+      // No-op function
+      return;
+    };
+
+    // Reset dataLayer
+    window.dataLayer = [];
+
+    // Clean up any Google Analytics scripts that might have been added
+    const gaScripts = document.querySelectorAll('script[src*="googletagmanager"]');
+    gaScripts.forEach((script) => script.remove());
+  }
+};
 
 // Function to disable Hotjar in development
 export const disableHotjarInDevelopment = () => {
