@@ -27,7 +27,6 @@ export const FinancialDashboardContent = ({
       height={height}
       theme={theme}
       selectableCells
-      selectableColumns
     />
   );
 };
