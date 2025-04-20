@@ -1,5 +1,5 @@
 import { SimpleTable, TableRefType, HeaderObject } from "simple-table-core";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import "simple-table-core/styles.css";
 
 // Sample data
@@ -77,13 +77,6 @@ const headers: HeaderObject[] = [
   { accessor: "sales", label: "Sales", width: 120, type: "number" },
 ];
 
-// Cell click interface
-interface CellClickInfo {
-  accessor: string;
-  rowIndex: number;
-  value: any;
-}
-
 const LiveUpdateDemo = () => {
   // Keep a local copy of the data to update
   const [tableData, setTableData] = useState(initialData);
@@ -150,6 +143,78 @@ const LiveUpdateDemo = () => {
       newValue: newSales,
     });
   };
+
+  // Set up intervals for automatic updates
+  useEffect(() => {
+    // Keep a copy of the current data in memory for calculations
+    const currentData = JSON.parse(JSON.stringify(tableData));
+
+    // Update price at regular intervals
+    const priceInterval = setInterval(() => {
+      if (tableRef.current) {
+        // Pick a random row to update
+        const rowIndex = Math.floor(Math.random() * currentData.length);
+
+        // Generate a new price (±5% from current)
+        const currentPrice = currentData[rowIndex].rowData.price;
+        const randomFactor = 0.95 + Math.random() * 0.1; // between -5% and +5%
+        const newPrice = parseFloat((currentPrice * randomFactor).toFixed(2));
+
+        // Update our local copy
+        currentData[rowIndex].rowData.price = newPrice;
+
+        // Update the table with flash animation
+        tableRef.current.updateData({
+          accessor: "price",
+          rowIndex,
+          newValue: newPrice,
+        });
+      }
+    }, 500); // Update every 2 seconds
+
+    // Simulate sales activity (stock/sales updates)
+    const salesInterval = setInterval(() => {
+      if (tableRef.current) {
+        // Pick a random row that has stock
+        const availableRows = currentData
+          .map((row: (typeof tableData)[0], index: number) => ({ index, stock: row.rowData.stock }))
+          .filter((item: { index: number; stock: number }) => item.stock > 0);
+
+        if (availableRows.length > 0) {
+          const randomItem = availableRows[Math.floor(Math.random() * availableRows.length)];
+          const rowIndex = randomItem.index;
+
+          // Decrease stock by 1
+          const newStock = currentData[rowIndex].rowData.stock - 1;
+          currentData[rowIndex].rowData.stock = newStock;
+
+          // Update stock in the table
+          tableRef.current.updateData({
+            accessor: "stock",
+            rowIndex,
+            newValue: newStock,
+          });
+
+          // Increase sales
+          const newSales = currentData[rowIndex].rowData.sales + 1;
+          currentData[rowIndex].rowData.sales = newSales;
+
+          // Update sales in the table
+          tableRef.current.updateData({
+            accessor: "sales",
+            rowIndex,
+            newValue: newSales,
+          });
+        }
+      }
+    }, 5000); // Update every 5 seconds
+
+    // Clean up intervals on unmount
+    return () => {
+      clearInterval(priceInterval);
+      clearInterval(salesInterval);
+    };
+  }, []);
 
   return (
     <SimpleTable
