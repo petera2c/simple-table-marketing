@@ -26,7 +26,7 @@ import ExpandableSection from "../../components/ExpandableSection";
 import ThemeColorPicker from "../../components/ThemeColorPicker";
 import ThemeInput from "../../components/ThemeInput";
 import MobileUnsupportedPage from "../../components/MobileUnsupported";
-import BillingExample from "./BillingExampleContent";
+import BillingExample from "../examples/billing/BillingExample";
 
 interface ThemeConfig {
   borderColor: string;

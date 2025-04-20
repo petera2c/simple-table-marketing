@@ -1,4 +1,4 @@
-import BillingExampleContent from "@/components/pages/BillingExampleContent";
+import BillingExampleContent from "@/components/examples/billing/BillingExample";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

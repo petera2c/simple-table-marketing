@@ -1759,6 +1759,10 @@ video {
   color: rgb(234 179 8 / var(--tw-text-opacity, 1));
 }
 
+.text-current {
+  color: currentColor;
+}
+
 .opacity-50 {
   opacity: 0.5;
 }

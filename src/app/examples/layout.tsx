@@ -45,6 +45,13 @@ const examples = [
     icon: faFileInvoiceDollar,
     defaultTheme: "light" as Theme,
   },
+  {
+    id: "sales",
+    label: "Sales",
+    path: "/examples/sales",
+    icon: faChartLine,
+    defaultTheme: "light" as Theme,
+  },
 ];
 
 export default function ExamplesLayout({ children }: { children: React.ReactNode }) {
