@@ -94,6 +94,7 @@ export const FinancialExample = ({
       theme={theme}
       selectableCells
       tableRef={tableRef}
+      cellUpdateFlash={true}
     />
   );
 };

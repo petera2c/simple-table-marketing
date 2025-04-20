@@ -447,4 +447,21 @@ export const SEO_STRINGS = {
         "Billing doesn't have to be boring! See how Simple Table turns transaction management into a delightful experience with colorful invoice tracking, smooth payment processing, and subscription dashboards that make financial data actually fun to work with.",
     },
   },
+  liveUpdates: {
+    title: "Live Updates | SimpleTable Documentation",
+    description:
+      "Learn how to create dynamic, real-time tables with SimpleTable's tableRef and updateData APIs. Add visual feedback with cell update flash animations for a polished user experience.",
+    keywords:
+      "live updates, real-time data, dynamic tables, tableRef, updateData API, cell flash animation, React table, data visualization, SimpleTable",
+    openGraph: {
+      title: "Create Dynamic, Real-time Tables with SimpleTable",
+      description:
+        "Learn how to build real-time dashboards with SimpleTable's live update features. Create tables with smooth visual transitions for changing data.",
+    },
+    twitter: {
+      title: "Create Dynamic, Real-time Tables with SimpleTable",
+      description:
+        "Implement live data updates in your tables with SimpleTable's tableRef API. Perfect for dashboards, financial data, and real-time monitoring.",
+    },
+  },
 };

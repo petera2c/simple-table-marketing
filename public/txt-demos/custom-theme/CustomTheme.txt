@@ -27,6 +27,7 @@
   --st-footer-background-color: #f5f5f4;
 
   /* Text colors */
+  --st-header-label-color: #ffffff;
   --st-cell-color: #44403c;
   --st-cell-odd-row-color: #44403c;
   --st-edit-cell-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1),
@@ -60,7 +61,6 @@
 
 /* Custom styles for table headers */
 .custom-theme-container .theme-custom .st-header-label {
-  color: white !important;
   font-weight: 600 !important;
   letter-spacing: 0.025em !important;
 }

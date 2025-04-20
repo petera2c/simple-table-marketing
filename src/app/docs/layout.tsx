@@ -26,6 +26,7 @@ import {
   faDownload,
   faArrowsUpDown,
   faIcons,
+  faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { trackLinkClick } from "../../utils/analytics";
@@ -101,7 +102,10 @@ const docSections: DocSection[] = [
     id: "advanced-features",
     label: "Advanced Features",
     icon: faPuzzlePiece,
-    subsections: [{ id: "pagination", label: "Pagination", path: "/docs/pagination" }],
+    subsections: [
+      { id: "pagination", label: "Pagination", path: "/docs/pagination" },
+      { id: "live-updates", label: "Live Updates", path: "/docs/live-updates" },
+    ],
   },
   {
     id: "customization",
@@ -130,6 +134,7 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "custom-theme": faCode,
   "custom-icons": faIcons,
   "custom-renderers": faEdit,
+  "live-updates": faBolt,
   "nested-headers": faLayerGroup,
   "quick-start": faRocket,
   "row-grouping": faLayerGroup,

@@ -7,8 +7,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 // Source and destination directories
-const sourceDir = join(__dirname, "../client/src/components/demos");
-const outputDir = join(__dirname, "../client/public/txt-demos");
+const sourceDir = join(__dirname, "../src/components/demos");
+const outputDir = join(__dirname, "../public/txt-demos");
 
 // Recursively get all .tsx and .css files in a directory
 async function getAllDemoFiles(dir) {
