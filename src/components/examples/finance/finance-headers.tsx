@@ -85,13 +85,6 @@ export const HEADERS: HeaderObject[] = [
         isEditable: false,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
-          if (row.rowData.marketCap === "—") return "—";
-          return (row.rowData.marketCap as number).toLocaleString("en-US", {
-            minimumFractionDigits: 1,
-            maximumFractionDigits: 1,
-          });
-        },
       },
       {
         accessor: "peRatio",

@@ -16,7 +16,7 @@ const headers: HeaderObject[] = [
 
 const rows = [
   {
-    rowMeta: { rowId: 1, isExpanded: false },
+    rowMeta: { rowId: 1 },
     rowData: {
       id: 1,
       name: "Alex Johnson",
@@ -31,7 +31,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 2, isExpanded: false },
+    rowMeta: { rowId: 2 },
     rowData: {
       id: 2,
       name: "Sophia Martinez",
@@ -46,7 +46,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 3, isExpanded: false },
+    rowMeta: { rowId: 3 },
     rowData: {
       id: 3,
       name: "Raj Patel",
@@ -61,7 +61,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 4, isExpanded: false },
+    rowMeta: { rowId: 4 },
     rowData: {
       id: 4,
       name: "Emma Wilson",
@@ -76,7 +76,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 5, isExpanded: false },
+    rowMeta: { rowId: 5 },
     rowData: {
       id: 5,
       name: "Marcus Chen",
@@ -91,7 +91,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 6, isExpanded: false },
+    rowMeta: { rowId: 6 },
     rowData: {
       id: 6,
       name: "Isabella Kim",
@@ -106,7 +106,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 7, isExpanded: false },
+    rowMeta: { rowId: 7 },
     rowData: {
       id: 7,
       name: "Diego Rodriguez",
@@ -121,7 +121,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 8, isExpanded: false },
+    rowMeta: { rowId: 8 },
     rowData: {
       id: 8,
       name: "Aisha Johnson",
@@ -136,7 +136,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 9, isExpanded: false },
+    rowMeta: { rowId: 9 },
     rowData: {
       id: 9,
       name: "Liam O'Connor",

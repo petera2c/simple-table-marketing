@@ -130,10 +130,9 @@ const RowGroupingContent = () => {
             {`{
   rowMeta: { 
     rowId: 1,
-    isExpanded: false,
     children: [
       {
-        rowMeta: { rowId: 2, isExpanded: false },
+        rowMeta: { rowId: 2 },
         rowData: { /* child row data */ }
       }
     ]

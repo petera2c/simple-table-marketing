@@ -5,7 +5,7 @@ import "simple-table-core/styles.css";
 // Sample data
 const initialData = [
   {
-    rowMeta: { rowId: 1, isExpanded: false },
+    rowMeta: { rowId: 1 },
     rowData: {
       id: 1,
       product: "Widget A",
@@ -15,7 +15,7 @@ const initialData = [
     },
   },
   {
-    rowMeta: { rowId: 2, isExpanded: false },
+    rowMeta: { rowId: 2 },
     rowData: {
       id: 2,
       product: "Widget B",
@@ -25,7 +25,7 @@ const initialData = [
     },
   },
   {
-    rowMeta: { rowId: 3, isExpanded: false },
+    rowMeta: { rowId: 3 },
     rowData: {
       id: 3,
       product: "Widget C",
@@ -35,7 +35,7 @@ const initialData = [
     },
   },
   {
-    rowMeta: { rowId: 4, isExpanded: false },
+    rowMeta: { rowId: 4 },
     rowData: {
       id: 4,
       product: "Widget D",
@@ -45,7 +45,7 @@ const initialData = [
     },
   },
   {
-    rowMeta: { rowId: 5, isExpanded: false },
+    rowMeta: { rowId: 5 },
     rowData: {
       id: 5,
       product: "Widget E",

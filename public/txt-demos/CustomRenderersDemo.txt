@@ -237,7 +237,7 @@ const CustomRenderersDemo = () => {
 
   // Map data to rows
   const rows = data.map((item) => ({
-    rowMeta: { rowId: item.id, isExpanded: false },
+    rowMeta: { rowId: item.id },
     rowData: {
       ...item,
       name: `${item.firstName} ${item.lastName}`, // Add a name field for the accessor

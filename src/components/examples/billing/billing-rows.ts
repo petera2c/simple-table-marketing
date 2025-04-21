@@ -377,7 +377,7 @@ export const generateBillingData = (): Row[] => {
 
       // Create invoice row
       invoiceChildren.push({
-        rowMeta: { rowId: rowId++, children: chargeChildren, isExpanded: false },
+        rowMeta: { rowId: rowId++, children: chargeChildren },
         rowData: {
           type: "invoice",
           name: invoiceName,

@@ -19,7 +19,7 @@ const headers: HeaderObject[] = [
 // SOFTWARE INDUSTRY
 const softwareEngTeams = [
   {
-    rowMeta: { rowId: 1001, isExpanded: false },
+    rowMeta: { rowId: 1001 },
     rowData: {
       organization: "Frontend",
       employees: 28,
@@ -32,7 +32,7 @@ const softwareEngTeams = [
     },
   },
   {
-    rowMeta: { rowId: 1002, isExpanded: false },
+    rowMeta: { rowId: 1002 },
     rowData: {
       organization: "Backend",
       employees: 32,
@@ -45,7 +45,7 @@ const softwareEngTeams = [
     },
   },
   {
-    rowMeta: { rowId: 1003, isExpanded: false },
+    rowMeta: { rowId: 1003 },
     rowData: {
       organization: "DevOps",
       employees: 15,
@@ -58,7 +58,7 @@ const softwareEngTeams = [
     },
   },
   {
-    rowMeta: { rowId: 1004, isExpanded: false },
+    rowMeta: { rowId: 1004 },
     rowData: {
       organization: "Mobile",
       employees: 22,
@@ -74,7 +74,7 @@ const softwareEngTeams = [
 
 const softwareProductTeams = [
   {
-    rowMeta: { rowId: 1101, isExpanded: false },
+    rowMeta: { rowId: 1101 },
     rowData: {
       organization: "Design",
       employees: 17,
@@ -87,7 +87,7 @@ const softwareProductTeams = [
     },
   },
   {
-    rowMeta: { rowId: 1102, isExpanded: false },
+    rowMeta: { rowId: 1102 },
     rowData: {
       organization: "Research",
       employees: 9,
@@ -100,7 +100,7 @@ const softwareProductTeams = [
     },
   },
   {
-    rowMeta: { rowId: 1103, isExpanded: false },
+    rowMeta: { rowId: 1103 },
     rowData: {
       organization: "QA Testing",
       employees: 14,
@@ -117,7 +117,7 @@ const softwareProductTeams = [
 // HEALTHCARE INDUSTRY
 const hospitalTeams = [
   {
-    rowMeta: { rowId: 2001, isExpanded: false },
+    rowMeta: { rowId: 2001 },
     rowData: {
       organization: "Emergency",
       employees: 48,
@@ -130,7 +130,7 @@ const hospitalTeams = [
     },
   },
   {
-    rowMeta: { rowId: 2002, isExpanded: false },
+    rowMeta: { rowId: 2002 },
     rowData: {
       organization: "Cardiology",
       employees: 32,
@@ -143,7 +143,7 @@ const hospitalTeams = [
     },
   },
   {
-    rowMeta: { rowId: 2003, isExpanded: false },
+    rowMeta: { rowId: 2003 },
     rowData: {
       organization: "Pediatrics",
       employees: 26,
@@ -159,7 +159,7 @@ const hospitalTeams = [
 
 const researchTeams = [
   {
-    rowMeta: { rowId: 2101, isExpanded: false },
+    rowMeta: { rowId: 2101 },
     rowData: {
       organization: "Clinical Trials",
       employees: 18,
@@ -172,7 +172,7 @@ const researchTeams = [
     },
   },
   {
-    rowMeta: { rowId: 2102, isExpanded: false },
+    rowMeta: { rowId: 2102 },
     rowData: {
       organization: "Genomics",
       employees: 14,
@@ -189,7 +189,7 @@ const researchTeams = [
 // FINANCE INDUSTRY
 const bankingTeams = [
   {
-    rowMeta: { rowId: 3001, isExpanded: false },
+    rowMeta: { rowId: 3001 },
     rowData: {
       organization: "Retail Banking",
       employees: 56,
@@ -202,7 +202,7 @@ const bankingTeams = [
     },
   },
   {
-    rowMeta: { rowId: 3002, isExpanded: false },
+    rowMeta: { rowId: 3002 },
     rowData: {
       organization: "Investment",
       employees: 38,
@@ -215,7 +215,7 @@ const bankingTeams = [
     },
   },
   {
-    rowMeta: { rowId: 3003, isExpanded: false },
+    rowMeta: { rowId: 3003 },
     rowData: {
       organization: "Loans",
       employees: 27,
@@ -232,7 +232,7 @@ const bankingTeams = [
 // EDUCATION INDUSTRY
 const universityDepts = [
   {
-    rowMeta: { rowId: 4001, isExpanded: false },
+    rowMeta: { rowId: 4001 },
     rowData: {
       organization: "Computer Science",
       employees: 35,
@@ -245,7 +245,7 @@ const universityDepts = [
     },
   },
   {
-    rowMeta: { rowId: 4002, isExpanded: false },
+    rowMeta: { rowId: 4002 },
     rowData: {
       organization: "Business",
       employees: 42,
@@ -258,7 +258,7 @@ const universityDepts = [
     },
   },
   {
-    rowMeta: { rowId: 4003, isExpanded: false },
+    rowMeta: { rowId: 4003 },
     rowData: {
       organization: "Engineering",
       employees: 38,
@@ -275,7 +275,7 @@ const universityDepts = [
 // MANUFACTURING INDUSTRY
 const productionTeams = [
   {
-    rowMeta: { rowId: 5001, isExpanded: false },
+    rowMeta: { rowId: 5001 },
     rowData: {
       organization: "Assembly",
       employees: 78,
@@ -288,7 +288,7 @@ const productionTeams = [
     },
   },
   {
-    rowMeta: { rowId: 5002, isExpanded: false },
+    rowMeta: { rowId: 5002 },
     rowData: {
       organization: "Quality Control",
       employees: 32,
@@ -301,7 +301,7 @@ const productionTeams = [
     },
   },
   {
-    rowMeta: { rowId: 5003, isExpanded: false },
+    rowMeta: { rowId: 5003 },
     rowData: {
       organization: "Logistics",
       employees: 42,
@@ -318,7 +318,7 @@ const productionTeams = [
 // ENTERTAINMENT INDUSTRY
 const studioTeams = [
   {
-    rowMeta: { rowId: 6001, isExpanded: false },
+    rowMeta: { rowId: 6001 },
     rowData: {
       organization: "Production",
       employees: 64,
@@ -331,7 +331,7 @@ const studioTeams = [
     },
   },
   {
-    rowMeta: { rowId: 6002, isExpanded: false },
+    rowMeta: { rowId: 6002 },
     rowData: {
       organization: "Post-Production",
       employees: 38,
@@ -344,7 +344,7 @@ const studioTeams = [
     },
   },
   {
-    rowMeta: { rowId: 6003, isExpanded: false },
+    rowMeta: { rowId: 6003 },
     rowData: {
       organization: "Animation",
       employees: 52,
@@ -361,7 +361,7 @@ const studioTeams = [
 // RETAIL INDUSTRY
 const storeTeams = [
   {
-    rowMeta: { rowId: 7001, isExpanded: false },
+    rowMeta: { rowId: 7001 },
     rowData: {
       organization: "Sales",
       employees: 85,
@@ -374,7 +374,7 @@ const storeTeams = [
     },
   },
   {
-    rowMeta: { rowId: 7002, isExpanded: false },
+    rowMeta: { rowId: 7002 },
     rowData: {
       organization: "Customer Support",
       employees: 42,
@@ -387,7 +387,7 @@ const storeTeams = [
     },
   },
   {
-    rowMeta: { rowId: 7003, isExpanded: false },
+    rowMeta: { rowId: 7003 },
     rowData: {
       organization: "Online Store",
       employees: 28,
@@ -404,7 +404,7 @@ const storeTeams = [
 // AGRICULTURE INDUSTRY
 const farmingTeams = [
   {
-    rowMeta: { rowId: 8001, isExpanded: false },
+    rowMeta: { rowId: 8001 },
     rowData: {
       organization: "Crop Division",
       employees: 56,
@@ -417,7 +417,7 @@ const farmingTeams = [
     },
   },
   {
-    rowMeta: { rowId: 8002, isExpanded: false },
+    rowMeta: { rowId: 8002 },
     rowData: {
       organization: "Livestock",
       employees: 42,
@@ -430,7 +430,7 @@ const farmingTeams = [
     },
   },
   {
-    rowMeta: { rowId: 8003, isExpanded: false },
+    rowMeta: { rowId: 8003 },
     rowData: {
       organization: "Research",
       employees: 18,
@@ -460,7 +460,7 @@ const softwareDivisions = [
     },
   },
   {
-    rowMeta: { rowId: 102, isExpanded: false, children: softwareProductTeams },
+    rowMeta: { rowId: 102, children: softwareProductTeams },
     rowData: {
       organization: "Product",
       employees: 40,
@@ -476,7 +476,7 @@ const softwareDivisions = [
 
 const healthcareDivisions = [
   {
-    rowMeta: { rowId: 201, isExpanded: false, children: hospitalTeams },
+    rowMeta: { rowId: 201, children: hospitalTeams },
     rowData: {
       organization: "Hospital Operations",
       employees: 106,
@@ -489,7 +489,7 @@ const healthcareDivisions = [
     },
   },
   {
-    rowMeta: { rowId: 202, isExpanded: false, children: researchTeams },
+    rowMeta: { rowId: 202, children: researchTeams },
     rowData: {
       organization: "Research & Development",
       employees: 32,
@@ -505,7 +505,7 @@ const healthcareDivisions = [
 
 const educationDivisions = [
   {
-    rowMeta: { rowId: 401, isExpanded: false, children: universityDepts },
+    rowMeta: { rowId: 401, children: universityDepts },
     rowData: {
       organization: "Academic Departments",
       employees: 115,
@@ -521,7 +521,7 @@ const educationDivisions = [
 
 const manufacturingDivisions = [
   {
-    rowMeta: { rowId: 501, isExpanded: false, children: productionTeams },
+    rowMeta: { rowId: 501, children: productionTeams },
     rowData: {
       organization: "Production",
       employees: 152,
@@ -537,7 +537,7 @@ const manufacturingDivisions = [
 
 const entertainmentDivisions = [
   {
-    rowMeta: { rowId: 601, isExpanded: false, children: studioTeams },
+    rowMeta: { rowId: 601, children: studioTeams },
     rowData: {
       organization: "Studio Operations",
       employees: 154,
@@ -553,7 +553,7 @@ const entertainmentDivisions = [
 
 const retailDivisions = [
   {
-    rowMeta: { rowId: 701, isExpanded: false, children: storeTeams },
+    rowMeta: { rowId: 701, children: storeTeams },
     rowData: {
       organization: "Store Operations",
       employees: 155,
@@ -569,7 +569,7 @@ const retailDivisions = [
 
 const agricultureDivisions = [
   {
-    rowMeta: { rowId: 801, isExpanded: false, children: farmingTeams },
+    rowMeta: { rowId: 801, children: farmingTeams },
     rowData: {
       organization: "Farming Operations",
       employees: 116,
@@ -585,7 +585,7 @@ const agricultureDivisions = [
 
 const financeDivisions = [
   {
-    rowMeta: { rowId: 301, isExpanded: false, children: bankingTeams },
+    rowMeta: { rowId: 301, children: bankingTeams },
     rowData: {
       organization: "Banking Operations",
       employees: 121,
@@ -615,7 +615,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 2, isExpanded: false, children: healthcareDivisions },
+    rowMeta: { rowId: 2, children: healthcareDivisions },
     rowData: {
       organization: "HealthFirst Group",
       employees: 138,
@@ -628,7 +628,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 3, isExpanded: false, children: financeDivisions },
+    rowMeta: { rowId: 3, children: financeDivisions },
     rowData: {
       organization: "Global Finance",
       employees: 121,
@@ -641,7 +641,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 4, isExpanded: false, children: educationDivisions },
+    rowMeta: { rowId: 4, children: educationDivisions },
     rowData: {
       organization: "Apex University",
       employees: 115,
@@ -654,7 +654,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 5, isExpanded: false, children: manufacturingDivisions },
+    rowMeta: { rowId: 5, children: manufacturingDivisions },
     rowData: {
       organization: "Industrial Systems",
       employees: 152,
@@ -667,7 +667,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 6, isExpanded: false, children: entertainmentDivisions },
+    rowMeta: { rowId: 6, children: entertainmentDivisions },
     rowData: {
       organization: "Creative Media",
       employees: 154,
@@ -680,7 +680,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 7, isExpanded: false, children: retailDivisions },
+    rowMeta: { rowId: 7, children: retailDivisions },
     rowData: {
       organization: "ShopSmart",
       employees: 155,
@@ -693,7 +693,7 @@ const rows = [
     },
   },
   {
-    rowMeta: { rowId: 8, isExpanded: false, children: agricultureDivisions },
+    rowMeta: { rowId: 8, children: agricultureDivisions },
     rowData: {
       organization: "Green Harvest",
       employees: 116,

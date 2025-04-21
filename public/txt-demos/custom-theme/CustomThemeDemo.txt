@@ -18,7 +18,7 @@ const headers: HeaderObject[] = [
 // Sample data
 const data = [
   {
-    rowMeta: { rowId: 1, isExpanded: false },
+    rowMeta: { rowId: 1 },
     rowData: {
       id: 1,
       name: "John Doe",
@@ -29,7 +29,7 @@ const data = [
     },
   },
   {
-    rowMeta: { rowId: 2, isExpanded: false },
+    rowMeta: { rowId: 2 },
     rowData: {
       id: 2,
       name: "Jane Smith",
@@ -40,7 +40,7 @@ const data = [
     },
   },
   {
-    rowMeta: { rowId: 3, isExpanded: false },
+    rowMeta: { rowId: 3 },
     rowData: {
       id: 3,
       name: "Bob Johnson",
@@ -51,7 +51,7 @@ const data = [
     },
   },
   {
-    rowMeta: { rowId: 4, isExpanded: false },
+    rowMeta: { rowId: 4 },
     rowData: {
       id: 4,
       name: "Alice Williams",
@@ -62,7 +62,7 @@ const data = [
     },
   },
   {
-    rowMeta: { rowId: 5, isExpanded: false },
+    rowMeta: { rowId: 5 },
     rowData: {
       id: 5,
       name: "Charlie Brown",

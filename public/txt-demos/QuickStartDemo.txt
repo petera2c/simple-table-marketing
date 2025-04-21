@@ -67,7 +67,7 @@ const QuickStartDemo = () => {
 
   // Map data to rows format expected by SimpleTable
   const rows = data.map((item) => ({
-    rowMeta: { rowId: item.id, isExpanded: false },
+    rowMeta: { rowId: item.id },
     rowData: item,
   }));
 

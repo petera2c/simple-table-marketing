@@ -611,7 +611,7 @@ export const generateFinanceData = (): Row[] => {
     }
 
     return {
-      rowMeta: { rowId: rowId++, isExpanded: false },
+      rowMeta: { rowId: rowId++ },
       rowData: {
         ticker: company.ticker,
         companyName: company.name,
