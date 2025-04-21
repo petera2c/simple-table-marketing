@@ -79,7 +79,7 @@ export const FinancialExample = ({
         rowIndex: indexToUpdate,
         newValue: newChangePercent,
       });
-    }, 25);
+    }, 50);
 
     return () => clearInterval(interval);
   }, []);

@@ -9,20 +9,120 @@ import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { trackLinkClick } from "../utils/analytics";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+
+// Internal link component for navigation
+interface NavLinkProps {
+  href: string;
+  label: string;
+  icon?: IconDefinition;
+  isMobile?: boolean;
+  useActivePath?: boolean;
+}
+
+const NavLink = ({ href, label, icon, isMobile = false, useActivePath = false }: NavLinkProps) => {
+  const pathname = usePathname();
+  const isActive = pathname === href;
+
+  // Get the base path (e.g., "/docs" from "/docs/installation")
+  const basePath = "/" + href.split("/").filter(Boolean)[0];
+  const isActivePath = pathname.startsWith(basePath);
+
+  const shouldHighlight = useActivePath ? isActivePath : isActive;
+
+  const handleNavClick = () => {
+    trackLinkClick(label, href);
+  };
+
+  if (isMobile) {
+    return (
+      <Link
+        href={href}
+        onClick={handleNavClick}
+        className={`px-3 py-2 rounded-md text-base ${
+          shouldHighlight
+            ? "bg-blue-50 text-blue-600 font-medium"
+            : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+        } transition-colors flex items-center`}
+      >
+        {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
+        {label}
+      </Link>
+    );
+  }
+
+  return (
+    <Link
+      href={href}
+      onClick={handleNavClick}
+      className={`hover:text-blue-600 transition-colors flex items-center ${
+        shouldHighlight ? "text-blue-600 font-semibold" : "text-gray-600"
+      }`}
+    >
+      {icon && <FontAwesomeIcon icon={icon} className="mr-1" />}
+      {label}
+    </Link>
+  );
+};
+
+// External link component
+interface ExternalLinkProps {
+  href: string;
+  label: string;
+  icon: IconDefinition;
+  isMobile?: boolean;
+}
+
+const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps) => {
+  const handleNavClick = () => {
+    trackLinkClick(label, href);
+  };
+
+  if (isMobile) {
+    return (
+      <a
+        href={href}
+        target="_blank"
+        rel="noopener noreferrer"
+        onClick={handleNavClick}
+        className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
+      >
+        <FontAwesomeIcon icon={icon} className="mr-2" />
+        {label}
+      </a>
+    );
+  }
+
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      onClick={handleNavClick}
+      className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+    >
+      <FontAwesomeIcon icon={icon} className="mr-1" />
+      {label}
+    </a>
+  );
+};
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-  const pathname = usePathname();
 
-  const handleNavClick = (linkName: string, linkUrl: string) => {
-    trackLinkClick(linkName, linkUrl);
-    if (isMobile) {
-      setIsMenuOpen(false);
-    }
-  };
+  const navLinks = [
+    { href: "/", label: "Home" },
+    { href: "/docs/installation", label: "Documentation", useActivePath: true },
+    { href: "/theme-builder", label: "Theme Builder" },
+    { href: "/examples/finance", label: "Examples", useActivePath: true },
+  ];
 
-  const isActive = (path: string) => pathname === path;
+  const externalLinks = [
+    { href: TECHNICAL_STRINGS.links.npm, label: "NPM", icon: faNpm },
+    { href: "https://discord.gg/RvKHCfg3PC", label: "Support", icon: faDiscord },
+    { href: TECHNICAL_STRINGS.links.githubIssues, label: "Report Issue", icon: faGithub },
+  ];
 
   return (
     <header className="backdrop-blur-md bg-white/80 shadow-sm sticky top-0 z-50">
@@ -31,7 +131,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link
               href="/"
-              onClick={() => handleNavClick("Logo", "/")}
+              onClick={() => trackLinkClick("Logo", "/")}
               className="flex items-center text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
             >
               <FontAwesomeIcon icon={faTable} className="text-blue-600 text-2xl mr-2" />
@@ -52,75 +152,15 @@ const Header = () => {
 
           {/* Desktop navigation */}
           <div className="hidden md:flex space-x-8">
-            <Link
-              href="/"
-              onClick={() => handleNavClick("Home", "/")}
-              className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                isActive("/") ? "text-blue-600 font-semibold" : ""
-              }`}
-            >
-              Home
-            </Link>
-            <Link
-              href="/docs/installation"
-              onClick={() => handleNavClick("Documentation", "/docs/installation")}
-              className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                isActive("/docs/installation") ? "text-blue-600 font-semibold" : ""
-              }`}
-            >
-              Documentation
-            </Link>
-
-            {!isMobile && (
-              <Link
-                href="/theme-builder"
-                onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
-                className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                  isActive("/theme-builder") ? "text-blue-600 font-semibold" : ""
-                }`}
-              >
-                Theme Builder
-              </Link>
+            {navLinks.map((link) =>
+              link.href !== "/theme-builder" || !isMobile ? (
+                <NavLink key={link.href} {...link} />
+              ) : null
             )}
-            <Link
-              href="/examples/finance"
-              onClick={() => handleNavClick("Examples", "/examples")}
-              className={`text-gray-600 hover:text-blue-600 transition-colors ${
-                isActive("/examples") ? "text-blue-600 font-semibold" : ""
-              }`}
-            >
-              Examples
-            </Link>
-            <a
-              href={TECHNICAL_STRINGS.links.npm}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleNavClick("NPM", TECHNICAL_STRINGS.links.npm)}
-              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              <FontAwesomeIcon icon={faNpm} className="mr-1" />
-              NPM
-            </a>
-            <a
-              href="https://discord.gg/RvKHCfg3PC"
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleNavClick("Support", "https://discord.gg/RvKHCfg3PC")}
-              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              <FontAwesomeIcon icon={faDiscord} className="mr-1" />
-              Support
-            </a>
-            <a
-              href={TECHNICAL_STRINGS.links.githubIssues}
-              target="_blank"
-              rel="noopener noreferrer"
-              onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.githubIssues)}
-              className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
-            >
-              <FontAwesomeIcon icon={faGithub} className="mr-1" />
-              Report Issue
-            </a>
+
+            {externalLinks.map((link) => (
+              <ExternalLink key={link.href} {...link} />
+            ))}
           </div>
         </div>
 
@@ -128,81 +168,18 @@ const Header = () => {
         {isMobile && isMenuOpen && (
           <div className="mt-4 pt-2 pb-4 border-t border-gray-200">
             <div className="flex flex-col space-y-3">
-              <Link
-                href="/"
-                onClick={() => handleNavClick("Home", "/")}
-                className={`px-3 py-2 rounded-md text-base ${
-                  isActive("/")
-                    ? "bg-blue-50 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                } transition-colors`}
-              >
-                Home
-              </Link>
-              <Link
-                href="/docs"
-                onClick={() => handleNavClick("Documentation", "/docs")}
-                className={`px-3 py-2 rounded-md text-base ${
-                  isActive("/docs")
-                    ? "bg-blue-50 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                } transition-colors`}
-              >
-                Documentation
-              </Link>
-              <Link
-                href="/examples"
-                onClick={() => handleNavClick("Examples", "/examples")}
-                className={`px-3 py-2 rounded-md text-base ${
-                  isActive("/examples")
-                    ? "bg-blue-50 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                } transition-colors`}
-              >
-                Examples
-              </Link>
+              {navLinks.map((link) => (
+                <NavLink key={link.href} {...link} isMobile={true} />
+              ))}
 
-              <Link
-                href="/theme-builder"
-                onClick={() => handleNavClick("Theme Builder", "/theme-builder")}
-                className={`px-3 py-2 rounded-md text-base ${
-                  isActive("/theme-builder")
-                    ? "bg-blue-50 text-blue-600 font-medium"
-                    : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
-                } transition-colors`}
-              >
-                Theme Builder
-              </Link>
-              <a
-                href={TECHNICAL_STRINGS.links.npm}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleNavClick("NPM", TECHNICAL_STRINGS.links.npm)}
-                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
-              >
-                <FontAwesomeIcon icon={faNpm} className="mr-2" />
-                NPM Package
-              </a>
-              <a
-                href="https://discord.gg/RvKHCfg3PC"
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleNavClick("Support", "https://discord.gg/RvKHCfg3PC")}
-                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
-              >
-                <FontAwesomeIcon icon={faDiscord} className="mr-2" />
-                Support
-              </a>
-              <a
-                href={TECHNICAL_STRINGS.links.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => handleNavClick("Report Issue", TECHNICAL_STRINGS.links.github)}
-                className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
-              >
-                <FontAwesomeIcon icon={faGithub} className="mr-2" />
-                Report Issue
-              </a>
+              {externalLinks.map((link) => (
+                <ExternalLink
+                  key={link.href}
+                  {...link}
+                  isMobile={true}
+                  label={link.label === "NPM" ? "NPM Package" : link.label}
+                />
+              ))}
             </div>
           </div>
         )}
