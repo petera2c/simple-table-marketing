@@ -103,6 +103,9 @@ async function generateSitemap() {
     const nextJsRoutes = await getNextJsRoutes();
     const blogPosts = getBlogPosts();
 
+    const examplesRoutes = nextJsRoutes.filter((route) => route.startsWith("examples/"));
+    const docsRoutes = nextJsRoutes.filter((route) => route.startsWith("docs/"));
+
     // Add Next.js routes with default priorities
     nextJsRoutes.forEach((route) => {
       const routeConfig = {
@@ -140,6 +143,9 @@ async function generateSitemap() {
 
     console.log("✅ Sitemap generated successfully!");
     console.log(`📊 Found ${nextJsRoutes.length} static routes and ${blogPosts.length} blog posts`);
+    console.log(
+      `📊 Found ${examplesRoutes.length} examples routes and ${docsRoutes.length} docs routes`
+    );
   } catch (error) {
     console.error("❌ Error generating sitemap:", error);
     process.exit(1);
