@@ -32,7 +32,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "price",
         label: "Price (USD)",
-        width: "1fr",
+        width: 140,
         isSortable: true,
         isEditable: false,
         align: "right",
@@ -48,7 +48,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "priceChangePercent",
         label: "Change %",
-        width: "1fr",
+        width: 140,
         isSortable: true,
         isEditable: false,
         align: "right",
@@ -80,7 +80,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "marketCap",
         label: "Mkt Cap ($B)",
-        width: "1fr",
+        width: 140,
         isSortable: true,
         isEditable: false,
         align: "right",
@@ -96,7 +96,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "peRatio",
         label: "P/E Ratio",
-        width: "1fr",
+        width: 140,
         isSortable: true,
         isEditable: false,
         align: "right",
@@ -109,7 +109,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "dividendYield",
         label: "Div Yield",
-        width: "1fr",
+        width: 140,
         isSortable: true,
         isEditable: false,
         align: "right",
