@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description: SEO_STRINGS.installation.description,
   keywords: SEO_STRINGS.installation.keywords,
   openGraph: {
-    title: SEO_STRINGS.installation.openGraph.title,
-    description: SEO_STRINGS.installation.openGraph.description,
+    title: SEO_STRINGS.installation.title,
+    description: SEO_STRINGS.installation.description,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.installation.twitter.title,
-    description: SEO_STRINGS.installation.twitter.description,
+    title: SEO_STRINGS.installation.title,
+    description: SEO_STRINGS.installation.description,
   },
 };
 

@@ -7,14 +7,14 @@ export const metadata: Metadata = {
   description: SEO_STRINGS.customIcons.description,
   keywords: SEO_STRINGS.customIcons.keywords,
   openGraph: {
-    title: SEO_STRINGS.customIcons.openGraph.title,
-    description: SEO_STRINGS.customIcons.openGraph.description,
+    title: SEO_STRINGS.customIcons.title,
+    description: SEO_STRINGS.customIcons.description,
     type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.customIcons.twitter.title,
-    description: SEO_STRINGS.customIcons.twitter.description,
+    title: SEO_STRINGS.customIcons.title,
+    description: SEO_STRINGS.customIcons.description,
   },
 };
 const CustomIconsPage = () => {

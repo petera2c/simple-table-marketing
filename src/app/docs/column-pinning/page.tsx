@@ -7,13 +7,14 @@ export const metadata: Metadata = {
   description: SEO_STRINGS.columnPinning.description,
   keywords: SEO_STRINGS.columnPinning.keywords,
   openGraph: {
-    title: SEO_STRINGS.columnPinning.openGraph.title,
-    description: SEO_STRINGS.columnPinning.openGraph.description,
+    title: SEO_STRINGS.columnPinning.title,
+    description: SEO_STRINGS.columnPinning.description,
+    type: "article",
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.columnPinning.twitter.title,
-    description: SEO_STRINGS.columnPinning.twitter.description,
+    title: SEO_STRINGS.columnPinning.title,
+    description: SEO_STRINGS.columnPinning.description,
   },
 };
 
