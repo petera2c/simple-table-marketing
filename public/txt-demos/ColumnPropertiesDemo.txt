@@ -9,7 +9,6 @@ const headers: HeaderObject[] = [
     label: "ID",
     width: 80,
     isSortable: true,
-    expandable: true,
     pinned: "left",
     type: "number",
   },
