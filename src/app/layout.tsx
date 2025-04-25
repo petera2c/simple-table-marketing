@@ -1,39 +1,63 @@
-"use client";
-
 import { Analytics } from "../components/Analytics";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import "./global.css";
-import { QueryProvider } from "../providers/QueryProvider";
-import { ClientApp } from "../components/ClientApp";
-import useScrollRestoration from "../hooks/useScrollRestoration";
-import { useRef } from "react";
 import { Nunito } from "next/font/google";
+import ClientLayout from "../components/ClientLayout";
+import { Metadata } from "next";
+import { SEO_STRINGS } from "@/constants/strings/seo";
+import { Html } from "next/document";
 
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
 });
 
+export const metadata: Metadata = {
+  metadataBase: new URL(SEO_STRINGS.site.url),
+  title: {
+    template: "%s | " + SEO_STRINGS.site.name,
+    default: SEO_STRINGS.site.title,
+  },
+  description: SEO_STRINGS.site.description,
+  keywords: SEO_STRINGS.site.defaultKeywords,
+  openGraph: {
+    type: "website",
+    siteName: SEO_STRINGS.site.name,
+    title: SEO_STRINGS.site.title,
+    description: SEO_STRINGS.site.description,
+    images: [SEO_STRINGS.site.ogImage],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO_STRINGS.site.title,
+    description: SEO_STRINGS.site.description,
+    creator: SEO_STRINGS.site.creator,
+    images: [SEO_STRINGS.site.ogImage.url],
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+    },
+  },
+  verification: {
+    google: "wDfI5gToAzND3igdc2ZEkhBLERNGjlfMJ_p8a0sXbXU",
+  },
+  alternates: {
+    canonical: "/",
+  },
+};
+
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const scrollRef = useRef<HTMLDivElement>(null);
-  useScrollRestoration(scrollRef);
   return (
-    <html lang="en" className={nunito.className}>
-      <head>
-        <Analytics />
-      </head>
-      <body>
-        <QueryProvider>
-          <ClientApp>
-            <div className="h-screen flex flex-col overflow-auto" ref={scrollRef}>
-              <Header />
-              <main className="flex-grow">{children}</main>
-              <Footer />
-            </div>
-          </ClientApp>
-        </QueryProvider>
+    <html lang="en">
+      <body className={nunito.className}>
+        <ClientLayout>{children}</ClientLayout>
       </body>
+      <Analytics />
     </html>
   );
 }

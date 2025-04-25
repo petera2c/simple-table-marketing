@@ -1,5 +1,3 @@
-"use client";
-
 import BlogLayout from "@/components/BlogLayout";
 
 const BlogLayoutWrapper = ({ children }: { children: React.ReactNode }) => {

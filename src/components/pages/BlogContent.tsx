@@ -3,7 +3,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { BlogContentItem, BlogPost } from "@/types/BlogPost";
 import { API_URL } from "@/constants/global";
-import { use } from "react";
 import { Typography, Card, Row, Col, List, Space } from "antd";
 
 const { Title, Paragraph, Text } = Typography;
@@ -99,6 +98,7 @@ export default function BlogPostContent({ slug }: { slug: string }) {
       if (!res.ok) throw new Error("Failed to fetch blog post");
       return res.json();
     },
+    enabled: !!slug,
   });
 
   if (isLoadingPost) {

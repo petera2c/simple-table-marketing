@@ -16,31 +16,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/sales</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/examples/manufacturing</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/examples/hr</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/examples/finance</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/examples/billing</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/docs/themes</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -51,12 +26,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/pagination</loc>
+    <loc>https://www.simple-table.com/docs/row-grouping</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/live-updates</loc>
+    <loc>https://www.simple-table.com/docs/quick-start</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/nested-headers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/pagination</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -67,16 +52,6 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/docs/custom-theme</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/docs/nested-headers</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/docs/quick-start</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -96,12 +71,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-sorting</loc>
+    <loc>https://www.simple-table.com/docs/live-updates</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-resizing</loc>
+    <loc>https://www.simple-table.com/docs/column-sorting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -111,22 +86,22 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-pinning</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/docs/column-reordering</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-alignment</loc>
+    <loc>https://www.simple-table.com/docs/column-resizing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/cell-highlighting</loc>
+    <loc>https://www.simple-table.com/docs/column-pinning</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/column-alignment</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -141,9 +116,34 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/row-grouping</loc>
+    <loc>https://www.simple-table.com/examples/manufacturing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/examples/hr</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/cell-highlighting</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/examples/finance</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/examples/billing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/examples/sales</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/simple-table-vs-handsontable</loc>

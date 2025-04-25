@@ -1,12 +1,22 @@
 export const SEO_STRINGS = {
   site: {
     url: "https://www.simple-table.com",
-    ogImage: "https://www.simple-table.com/og-image.jpg",
+    name: "Simple Table",
+    title: "The React Table That Actually Makes Sense 🚀",
+    description:
+      "Say goodbye to boring tables! Simple Table is a delightfully powerful React grid that makes your data dance. With lightning-fast editing, smooth scrolling, and pixel-perfect design, it's the table your data deserves! ✨",
     defaultKeywords:
       "react table, react grid, react spreadsheet, simple table, react data table, business table component, best react table, enterprise data grid, typescript table component, fun data visualization",
+    creator: "@simpletable",
+    ogImage: {
+      url: "https://www.simple-table.com/og-image.png",
+      width: 1200,
+      height: 630,
+      alt: "Simple Table - The React Table That Actually Makes Sense",
+    },
   },
   home: {
-    title: "Simple Table | The React Table That Actually Makes Sense 🚀",
+    title: "The React Table That Actually Makes Sense 🚀",
     description:
       "Say goodbye to boring tables! Simple Table is a delightfully powerful React grid that makes your data dance. With lightning-fast editing, smooth scrolling, and pixel-perfect design, it's the table your data deserves! ✨",
     keywords:

@@ -1,24 +1,6 @@
-"use client";
-
 import Script from "next/script";
-import {
-  ANALYTICS_ENABLED,
-  disableGoogleAnalyticsInDevelopment,
-  disableHotjarInDevelopment,
-  disableSimpleAnalyticsInDevelopment,
-} from "../utils/analyticsConfig";
-import { useEffect } from "react";
 
 export function Analytics() {
-  useEffect(() => {
-    // Disable analytics in development
-    disableGoogleAnalyticsInDevelopment();
-    disableHotjarInDevelopment();
-    disableSimpleAnalyticsInDevelopment();
-  }, []);
-
-  if (!ANALYTICS_ENABLED) return null;
-
   return (
     <>
       {/* Google Analytics */}

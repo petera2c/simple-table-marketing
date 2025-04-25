@@ -16,11 +16,27 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import AnimatedBackground from "../../components/AnimatedBackground";
 import { trackButtonClick } from "../../utils/analytics";
-import SEO from "../../components/SEO";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { FinancialExample } from "../examples/finance/FinancialExample";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: SEO_STRINGS.home.title,
+  description: SEO_STRINGS.home.description,
+  keywords: SEO_STRINGS.home.keywords,
+  openGraph: {
+    title: SEO_STRINGS.home.title,
+    description: SEO_STRINGS.home.description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO_STRINGS.home.title,
+    description: SEO_STRINGS.home.description,
+  },
+};
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -78,13 +94,6 @@ export default function HomeContent() {
 
   return (
     <>
-      <SEO
-        title={SEO_STRINGS.home.title}
-        description={SEO_STRINGS.home.description}
-        keywords={SEO_STRINGS.home.keywords}
-        canonicalUrl="/"
-      />
-
       {/* Page-wide animated background */}
       <AnimatedBackground />
 

@@ -13,9 +13,7 @@ import {
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
 import { trackThemeChange, trackDownload } from "../../utils/analytics";
-import SEO from "../../components/SEO";
 import { UI_STRINGS } from "../../constants/strings/ui";
-import { SEO_STRINGS } from "../../constants/strings/seo";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
 import { useIsMobile } from "../../hooks/useIsMobile";
 
@@ -27,6 +25,25 @@ import ThemeColorPicker from "../../components/ThemeColorPicker";
 import ThemeInput from "../../components/ThemeInput";
 import MobileUnsupportedPage from "../../components/MobileUnsupported";
 import BillingExample from "../examples/billing/BillingExample";
+
+import { Metadata } from "next";
+import { SEO_STRINGS } from "@/constants/strings/seo";
+
+export const metadata: Metadata = {
+  title: SEO_STRINGS.themeBuilder.title,
+  description: SEO_STRINGS.themeBuilder.description,
+  keywords: SEO_STRINGS.themeBuilder.keywords,
+  openGraph: {
+    title: SEO_STRINGS.themeBuilder.title,
+    description: SEO_STRINGS.themeBuilder.description,
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SEO_STRINGS.themeBuilder.title,
+    description: SEO_STRINGS.themeBuilder.description,
+  },
+};
 
 interface ThemeConfig {
   borderColor: string;
@@ -369,20 +386,11 @@ export default function ThemeBuilderContent() {
   }
 
   return (
-    <>
-      <SEO
-        title={SEO_STRINGS.themeBuilder.title}
-        description={SEO_STRINGS.themeBuilder.description}
-        keywords={SEO_STRINGS.themeBuilder.keywords}
-        canonicalUrl="/theme-builder"
-      />
-
-      <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
-        <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          {UI_STRINGS.themeBuilder.sections.livePreview}
-        </h1>
-        <BillingExample themeOverride="custom" />
-      </PageLayout>
-    </>
+    <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
+      <h1 className="text-3xl font-bold text-gray-900 mb-4">
+        {UI_STRINGS.themeBuilder.sections.livePreview}
+      </h1>
+      <BillingExample themeOverride="custom" />
+    </PageLayout>
   );
 }
