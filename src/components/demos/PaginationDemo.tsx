@@ -572,43 +572,32 @@ const PaginationDemo = () => {
   const [rows, setRows] = useState(ROWS.slice(0, ROWS_PER_PAGE));
 
   // Handler for next page data fetch
-  const onNextPage = (pageIndex: number) => {
+  const onNextPage = async (pageIndex: number) => {
     const startIndex = pageIndex * ROWS_PER_PAGE;
     const endIndex = startIndex + ROWS_PER_PAGE;
+
+    await new Promise((resolve) => setTimeout(resolve, 100));
     const newPageData = ROWS.slice(startIndex, endIndex);
 
     if (newPageData.length === 0 || rows.length > startIndex) {
-      return;
+      return false;
     }
 
     setRows((prevRows) => [...prevRows, ...newPageData]);
-  };
-
-  // Handler for previous page data fetch
-  const onPreviousPage = (pageIndex: number) => {
-    const startIndex = pageIndex * ROWS_PER_PAGE;
-    const endIndex = startIndex + ROWS_PER_PAGE;
-    const newPageData = ROWS.slice(startIndex, endIndex);
-
-    if (newPageData.length === 0 || rows.length > startIndex) {
-      return;
-    }
-
-    setRows((prevRows) => [...newPageData, ...prevRows]);
+    return true;
   };
 
   return (
     <SimpleTable
       defaultHeaders={HEADERS}
       height="auto"
+      nextIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
       onNextPage={onNextPage}
-      onPreviousPage={onPreviousPage}
+      prevIcon={<FontAwesomeIcon icon={faChevronLeft} className="text-blue-600" />}
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate
       totalPages={Math.ceil(rows.length / ROWS_PER_PAGE)}
-      nextIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-      prevIcon={<FontAwesomeIcon icon={faChevronLeft} className="text-blue-600" />}
     />
   );
 };
