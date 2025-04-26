@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 
-// Available gradient colors for randomization
+// Available gradient colors
 const colors = [
   "bg-gradient-to-br from-blue-300 to-indigo-400",
   "bg-gradient-to-br from-purple-300 to-pink-400",
@@ -12,71 +12,56 @@ const colors = [
   "bg-gradient-to-br from-teal-300 to-cyan-400",
 ];
 
-// Fixed positions with randomized size and color
+// Fixed positions with fixed size and color
 const bubbles = [
   {
-    size: 200 + Math.random() * 250, // Random size between 200 and 450
-    x: 5,
-    y: 10,
+    size: 300,
+    x: 85,
+    y: 5,
     delay: 0,
     opacity: 0.3,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[0],
   },
   {
-    size: 200 + Math.random() * 250,
-    x: 80,
-    y: 15,
+    size: 350,
+    x: 10,
+    y: 25,
     delay: 0.3,
     opacity: 0.25,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[1],
   },
   {
-    size: 200 + Math.random() * 250,
-    x: 20,
-    y: 60,
+    size: 400,
+    x: 75,
+    y: 35,
     delay: 0.5,
     opacity: 0.3,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[2],
   },
   {
-    size: 200 + Math.random() * 250,
-    x: 70,
-    y: 70,
+    size: 350,
+    x: 35,
+    y: 38,
     delay: 0.7,
     opacity: 0.25,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[3],
   },
   {
-    size: 200 + Math.random() * 250,
-    x: 40,
-    y: 30,
+    size: 300,
+    x: 35,
+    y: 20,
     delay: 1.0,
     opacity: 0.2,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[4],
   },
+
   {
-    size: 200 + Math.random() * 250,
-    x: 10,
-    y: 95,
-    delay: 1.5,
-    opacity: 0.25,
-    color: colors[Math.floor(Math.random() * colors.length)],
-  },
-  {
-    size: 200 + Math.random() * 250,
-    x: 60,
-    y: 40,
-    delay: 1.8,
-    opacity: 0.2,
-    color: colors[Math.floor(Math.random() * colors.length)],
-  },
-  {
-    size: 200 + Math.random() * 250,
-    x: 30,
-    y: 20,
+    size: 300,
+    x: 5,
+    y: 5,
     delay: 2.0,
     opacity: 0.3,
-    color: colors[Math.floor(Math.random() * colors.length)],
+    color: colors[0],
   },
 ];
 
@@ -109,11 +94,11 @@ const BackgroundBubble = ({
     animate={{
       scale: [0.75, 1.03, 0.75],
       opacity: [opacity * 0.8, opacity, opacity * 0.8],
-      x: Math.random() * 30 - 15,
-      y: Math.random() * 30 - 15,
+      x: 0,
+      y: 0,
     }}
     transition={{
-      duration: 12 + Math.random() * 8,
+      duration: 15,
       delay,
       repeat: Infinity,
       repeatType: "reverse",
