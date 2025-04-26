@@ -16,10 +16,6 @@ export const trackButtonClick = (buttonName: string, buttonLocation: string) => 
   trackEvent("Button Click", buttonName, buttonLocation);
 };
 
-export const trackThemeChange = (themeName: string) => {
-  trackEvent("Theme", "Change", themeName);
-};
-
 export const trackDownload = (fileName: string) => {
   trackEvent("Download", "File", fileName);
 };

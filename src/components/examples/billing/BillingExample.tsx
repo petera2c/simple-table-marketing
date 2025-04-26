@@ -9,28 +9,41 @@ import "simple-table-core/styles.css";
 
 const data = generateBillingData();
 
-function BillingExampleContent({ themeOverride }: { themeOverride?: Theme }) {
+function BillingExampleContent({
+  onGridReady,
+  themeOverride,
+}: {
+  onGridReady?: () => void;
+  themeOverride?: Theme;
+}) {
   const searchParams = useSearchParams();
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "dark";
 
   return (
     <SimpleTable
-      columnResizing
       columnReordering
+      columnResizing
       defaultHeaders={HEADERS}
-      rows={data}
-      height="70dvh"
-      theme={theme}
-      selectableCells
       editColumns
+      height="70dvh"
+      onGridReady={onGridReady}
+      rows={data}
+      selectableCells
+      theme={theme}
     />
   );
 }
 
-export default function BillingExample({ themeOverride }: { themeOverride?: Theme }) {
+export default function BillingExample({
+  onGridReady,
+  themeOverride,
+}: {
+  onGridReady?: () => void;
+  themeOverride?: Theme;
+}) {
   return (
     <Suspense fallback={<div />}>
-      <BillingExampleContent themeOverride={themeOverride} />
+      <BillingExampleContent onGridReady={onGridReady} themeOverride={themeOverride} />
     </Suspense>
   );
 }

@@ -96,7 +96,6 @@ export default function HomeContent() {
   return (
     <>
       {/* Page-wide animated background */}
-      {!isMobile && <AnimatedBackground />}
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero section */}

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
-import CustomCSSDemo from "@/components/demos/custom-theme/CustomThemeDemo";
+import CustomThemeDemo from "@/components/demos/custom-theme/CustomThemeDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 
@@ -39,7 +39,7 @@ export default function CustomThemeContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CustomCSSDemo />
+        <CustomThemeDemo />
       </motion.div>
 
       <motion.h2

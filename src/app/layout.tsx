@@ -57,7 +57,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={nunito.className}>
+      <body className={`st-marketing-root ${nunito.className}`}>
         <ClientLayout>{children}</ClientLayout>
       </body>
       <Analytics />

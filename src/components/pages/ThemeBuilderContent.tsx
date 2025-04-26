@@ -12,7 +12,7 @@ import {
   faColumns,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
-import { trackThemeChange, trackDownload } from "../../utils/analytics";
+import { trackDownload } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { TECHNICAL_STRINGS } from "../../constants/strings/technical";
 import { useIsMobile } from "../../hooks/useIsMobile";
@@ -54,6 +54,7 @@ interface ThemeConfig {
   cellColor: string;
   cellOddRowColor: string;
   cellPadding: string;
+  cellFlashColor: string;
   checkboxCheckedBackgroundColor: string;
   checkboxCheckedBorderColor: string;
   columnEditorBackgroundColor: string;
@@ -68,6 +69,7 @@ interface ThemeConfig {
   fontWeightNormal: number;
   footerBackgroundColor: string;
   headerBackgroundColor: string;
+  headerLabelColor: string;
   lastGroupRowSeparatorBorderColor: string;
   oddRowBackgroundColor: string;
   opacityDisabled: number;
@@ -91,48 +93,61 @@ interface ThemeConfig {
 }
 
 const defaultTheme: ThemeConfig = {
-  borderColor: "#d1d5db",
+  borderColor: "#cbd5e1", // slate-300
   borderRadius: "4px",
   borderWidth: "1px",
-  buttonActiveBackgroundColor: "#1e3a8a",
-  buttonHoverBackgroundColor: "#e5e7eb",
-  cellColor: "#1f2937",
-  cellOddRowColor: "#374151",
+  buttonActiveBackgroundColor: "#2563eb", // blue-600
+  buttonHoverBackgroundColor: "#f1f5f9", // slate-100
+  cellColor: "#0f172a", // slate-900
+  cellOddRowColor: "#1e293b", // slate-800
   cellPadding: "8px",
-  checkboxCheckedBackgroundColor: "#2563eb",
-  checkboxCheckedBorderColor: "#2563eb",
-  columnEditorBackgroundColor: "#ffffff",
-  columnEditorPopoutBackgroundColor: "#ffffff",
-  draggingBackgroundColor: "#e5e7eb",
-  editCellShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05), 0 1px 1px -1px rgba(0, 0, 0, 0.05)",
-  editableCellFocusBorderColor: "#2563eb",
-  evenRowBackgroundColor: "#ffffff",
-  fontFamily: '"Roboto", sans-serif',
+  cellFlashColor: "#e2e8f0", // slate-200
+  checkboxCheckedBackgroundColor: "#2563eb", // blue-600
+  checkboxCheckedBorderColor: "#2563eb", // blue-600
+  columnEditorBackgroundColor: "#ffffff", // white
+  columnEditorPopoutBackgroundColor: "#ffffff", // white
+  draggingBackgroundColor: "#e2e8f0", // slate-200
+  editCellShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+  editableCellFocusBorderColor: "#3b82f6", // blue-500
+  evenRowBackgroundColor: "#f8fafc", // slate-50
+  fontFamily: '"Inter", sans-serif',
   fontSize: "0.875rem",
   fontWeightBold: 600,
   fontWeightNormal: 400,
-  footerBackgroundColor: "#ffffff",
-  headerBackgroundColor: "#ffffff",
-  lastGroupRowSeparatorBorderColor: "#d1d5db",
-  oddRowBackgroundColor: "#ffffff",
+  footerBackgroundColor: "#f8fafc", // slate-50
+  headerBackgroundColor: "#f1f5f9", // slate-100
+  headerLabelColor: "#0f172a", // slate-900
+  lastGroupRowSeparatorBorderColor: "#94a3b8", // slate-400
+  oddRowBackgroundColor: "#ffffff", // white
   opacityDisabled: 0.5,
-  resizeHandleColor: "#93c5fd",
-  scrollbarBgColor: "#f8fafc",
-  scrollbarThumbColor: "#cbd5e1",
-  selectedBorderBottomColor: "#2563eb",
-  selectedBorderLeftColor: "#2563eb",
-  selectedBorderRightColor: "#2563eb",
-  selectedBorderTopColor: "#2563eb",
-  selectedCellBackgroundColor: "#bfdbfe",
-  selectedCellColor: "#111827",
-  selectedFirstCellBackgroundColor: "#bfdbfe",
-  selectedFirstCellColor: "#111827",
-  separatorBorderColor: "#f1f5f9",
+  resizeHandleColor: "#60a5fa", // blue-400
+  scrollbarBgColor: "#f8fafc", // slate-50
+  scrollbarThumbColor: "#cbd5e1", // slate-300
+  selectedBorderBottomColor: "#3b82f6", // blue-500
+  selectedBorderLeftColor: "#3b82f6", // blue-500
+  selectedBorderRightColor: "#3b82f6", // blue-500
+  selectedBorderTopColor: "#3b82f6", // blue-500
+  selectedCellBackgroundColor: "#dbeafe", // blue-100
+  selectedCellColor: "#0f172a", // slate-900
+  selectedFirstCellBackgroundColor: "#eff6ff", // blue-50
+  selectedFirstCellColor: "#0f172a", // slate-900
+  separatorBorderColor: "#e2e8f0", // slate-200
   spacingLarge: "16px",
   spacingMedium: "8px",
   spacingSmall: "4px",
   transitionDuration: "0.2s",
   transitionEase: "ease",
+};
+
+const setThemeToDocument = (theme: ThemeConfig) => {
+  const container = document.querySelector(".simple-table-root");
+  if (container) {
+    // Set each CSS variable
+    Object.entries(theme).forEach(([key, value]) => {
+      const cssVarName = `--st-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
+      (container as HTMLElement).style.setProperty(cssVarName, value);
+    });
+  }
 };
 
 export default function ThemeBuilderContent() {
@@ -146,17 +161,7 @@ export default function ThemeBuilderContent() {
   });
 
   useEffect(() => {
-    // Target the container of your table
-    const container = document.querySelector(".simple-table-root");
-    if (container) {
-      // Set each CSS variable
-      Object.entries(theme).forEach(([key, value]) => {
-        const cssVarName = `--st-${key.replace(/([A-Z])/g, "-$1").toLowerCase()}`;
-        document.documentElement.style.setProperty(cssVarName, value);
-      });
-      // Track theme change
-      trackThemeChange("Custom Theme");
-    }
+    setThemeToDocument(theme);
   }, [theme]);
 
   const handleColorChange = (key: keyof ThemeConfig) => (color: Color) => {
@@ -390,7 +395,12 @@ export default function ThemeBuilderContent() {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
         {UI_STRINGS.themeBuilder.sections.livePreview}
       </h1>
-      <BillingExample themeOverride="custom" />
+      <BillingExample
+        onGridReady={() => {
+          setThemeToDocument(theme);
+        }}
+        themeOverride="custom"
+      />
     </PageLayout>
   );
 }

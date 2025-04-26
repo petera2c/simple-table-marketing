@@ -17,8 +17,6 @@ const PageLayout: React.FC<PageLayoutProps> = ({
 }) => {
   return (
     <>
-      <AnimatedBackground />
-
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="flex flex-col md:flex-row justify-center gap-4 md:gap-6 px-4 sm:px-6 md:px-8">
           {sidebar}

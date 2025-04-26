@@ -10,8 +10,6 @@ interface BlogLayoutProps {
 const BlogLayout: React.FC<BlogLayoutProps> = ({ children }) => {
   return (
     <>
-      <AnimatedBackground />
-
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="flex flex-col justify-center px-4 sm:px-6 md:px-8">
           <div className="flex flex-col flex-1 mx-auto mt-6 w-full sm:max-w-2xl md:max-w-3xl lg:max-w-5xl">
