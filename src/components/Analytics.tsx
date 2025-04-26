@@ -36,7 +36,7 @@ export function Analytics() {
       <Script
         src="https://scripts.simpleanalyticscdn.com/latest.js"
         data-collect-dnt="true"
-        async
+        strategy="afterInteractive"
       />
       <noscript>
         <img

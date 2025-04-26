@@ -3,7 +3,10 @@ import { Nunito } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import { Html } from "next/document";
+
+import { config } from "@fortawesome/fontawesome-svg-core";
+import "@fortawesome/fontawesome-svg-core/styles.css";
+config.autoAddCss = false;
 
 const nunito = Nunito({
   subsets: ["latin"],
