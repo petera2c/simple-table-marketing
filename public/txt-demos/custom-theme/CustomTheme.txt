@@ -1,62 +1,51 @@
 .custom-theme-container .theme-custom {
-  --st-border-radius: 8px;
+  --st-border-radius: 4px;
   --st-border-width: 1px;
-  --st-cell-padding: 12px;
-  --st-font-size: 0.95rem;
+  --st-cell-padding: 8px;
+  --st-font-size: 0.875rem;
   --st-font-weight-normal: 400;
   --st-font-weight-bold: 600;
-  --st-transition-duration: 0.25s;
-  --st-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --st-opacity-disabled: 0.6;
-  --st-spacing-small: 6px;
-  --st-spacing-medium: 10px;
-  --st-spacing-large: 20px;
+  --st-transition-duration: 0.2s;
+  --st-transition-ease: ease;
+  --st-opacity-disabled: 0.5;
+  --st-spacing-small: 4px;
+  --st-spacing-medium: 8px;
+  --st-spacing-large: 16px;
+  --st-scrollbar-bg-color: var(--st-slate-50);
+  --st-scrollbar-thumb-color: var(--st-slate-300);
 
-  /* Scrollbar */
-  --st-scrollbar-bg-color: #f5f5f4;
-  --st-scrollbar-thumb-color: #8b5cf6;
-
-  /* Colors - Warm purple & cream theme */
-  --st-border-color: #e7e5e4;
-  --st-odd-row-background-color: #fffbf5;
-  --st-even-row-background-color: #faf6f0;
-  --st-header-background-color: #7c3aed;
-  --st-dragging-background-color: #f5f3ff;
-  --st-selected-cell-background-color: #f5f3ff;
-  --st-selected-first-cell-background-color: #ede9fe;
-  --st-footer-background-color: #f5f5f4;
-
-  /* Text colors */
-  --st-header-label-color: #ffffff;
-  --st-cell-color: #44403c;
-  --st-cell-odd-row-color: #44403c;
-  --st-edit-cell-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1),
-    0 2px 4px -1px rgba(124, 58, 237, 0.06);
-  --st-selected-cell-color: #5b21b6;
-  --st-selected-first-cell-color: #5b21b6;
-
-  /* Interactive elements */
-  --st-resize-handle-color: #a78bfa;
-  --st-separator-border-color: #e7e5e4;
-  --st-last-group-row-separator-border-color: #d6d3d1;
-
-  /* Selection borders */
-  --st-selected-border-top-color: #8b5cf6;
-  --st-selected-border-bottom-color: #8b5cf6;
-  --st-selected-border-left-color: #8b5cf6;
-  --st-selected-border-right-color: #8b5cf6;
-
-  /* Controls */
-  --st-checkbox-checked-background-color: #8b5cf6;
-  --st-checkbox-checked-border-color: #7c3aed;
-  --st-column-editor-background-color: #ffffff;
-  --st-column-editor-popout-background-color: #ffffff;
-  --st-button-hover-background-color: #f5f3ff;
-  --st-button-active-background-color: #7c3aed;
-
-  /* Typography */
-  --st-font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --st-editable-cell-focus-border-color: #8b5cf6;
+  --st-border-color: red;
+  --st-odd-row-background-color: var(--st-white);
+  --st-even-row-background-color: var(--st-slate-50);
+  --st-header-background-color: var(--st-slate-100);
+  --st-header-label-color: var(
+    --st-slate-900
+  ); /* Added: Dark slate for contrast on light background */
+  --st-dragging-background-color: var(--st-slate-200);
+  --st-selected-cell-background-color: var(--st-blue-100);
+  --st-selected-first-cell-background-color: var(--st-blue-50);
+  --st-footer-background-color: var(--st-slate-50);
+  --st-cell-color: var(--st-slate-900);
+  --st-cell-odd-row-color: var(--st-slate-800);
+  --st-edit-cell-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --st-selected-cell-color: var(--st-slate-900);
+  --st-selected-first-cell-color: var(--st-slate-900);
+  --st-resize-handle-color: var(--st-blue-400);
+  --st-separator-border-color: var(--st-slate-200);
+  --st-last-group-row-separator-border-color: var(--st-slate-400);
+  --st-selected-border-top-color: var(--st-blue-500);
+  --st-selected-border-bottom-color: var(--st-blue-500);
+  --st-selected-border-left-color: var(--st-blue-500);
+  --st-selected-border-right-color: var(--st-blue-500);
+  --st-checkbox-checked-background-color: var(--st-blue-600);
+  --st-checkbox-checked-border-color: var(--st-blue-600);
+  --st-column-editor-background-color: var(--st-white);
+  --st-column-editor-popout-background-color: var(--st-white);
+  --st-button-hover-background-color: var(--st-slate-100);
+  --st-button-active-background-color: var(--st-blue-600);
+  --st-font-family: "Inter", sans-serif;
+  --st-editable-cell-focus-border-color: var(--st-blue-500);
+  --st-cell-flash-color: var(--st-slate-200);
 }
 
 /* Custom styles for table headers */

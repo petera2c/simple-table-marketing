@@ -79,8 +79,16 @@ const CustomRenderersDemo = () => {
   ];
 
   // Custom cell renderers
-  const employeeNameRenderer = (row: { accessor: string; colIndex: number; row: Row }) => {
-    const { firstName, lastName, avatar, role } = row.row.rowData;
+  const employeeNameRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => {
+    const { firstName, lastName, avatar, role } = row.rowData;
     return (
       <div className="flex items-center">
         {typeof avatar === "string" && (
@@ -100,7 +108,15 @@ const CustomRenderersDemo = () => {
     );
   };
 
-  const levelRenderer = (row: any) => {
+  const levelRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => {
     const level = row.rowData.level;
     let icon, color;
 
@@ -134,22 +150,46 @@ const CustomRenderersDemo = () => {
     );
   };
 
-  const locationRenderer = (row: any) => (
+  const locationRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => (
     <div className="flex items-center">
       <FontAwesomeIcon icon={faMapMarkerAlt} className="text-red-500 mr-2" />
       <span>{row.rowData.location}</span>
     </div>
   );
 
-  const companyRenderer = (row: any) => (
+  const companyRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => (
     <div className="flex items-center">
       <FontAwesomeIcon icon={faBuilding} className="text-gray-500 mr-2" />
       <span>{row.rowData.company}</span>
     </div>
   );
 
-  const hireDateRenderer = (row: any) => {
-    const hireDate = new Date(row.rowData.hireDate);
+  const hireDateRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => {
+    const hireDate = new Date(row.rowData.hireDate as string);
     const formattedDate = hireDate.toLocaleDateString("en-US", {
       year: "numeric",
       month: "short",
@@ -164,8 +204,16 @@ const CustomRenderersDemo = () => {
     );
   };
 
-  const performanceRenderer = (row: any) => {
-    const performance = row.rowData.performance;
+  const performanceRenderer = ({
+    accessor,
+    colIndex,
+    row,
+  }: {
+    accessor: string;
+    colIndex: number;
+    row: Row;
+  }) => {
+    const performance = row.rowData.performance as number;
     let color;
 
     if (performance >= 90) color = "bg-green-500";
