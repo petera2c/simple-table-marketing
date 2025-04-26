@@ -4,11 +4,12 @@ import { SimpleTable, Theme } from "simple-table-core";
 import { generateManufacturingData } from "@/components/examples/manufacturing/manufacturing-rows";
 import { HEADERS } from "@/components/examples/manufacturing/manufacturing-headers";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import "simple-table-core/styles.css";
 
 const data = generateManufacturingData();
 
-export default function ManufacturingExampleContent() {
+function ManufacturingExampleContent() {
   const searchParams = useSearchParams();
   const theme = (searchParams.get("theme") as Theme) || "sky";
 
@@ -22,5 +23,13 @@ export default function ManufacturingExampleContent() {
       theme={theme}
       selectableCells
     />
+  );
+}
+
+export default function ManufacturingExample() {
+  return (
+    <Suspense fallback={<div />}>
+      <ManufacturingExampleContent />
+    </Suspense>
   );
 }

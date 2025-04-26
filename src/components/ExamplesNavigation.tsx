@@ -12,7 +12,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
-import { useEffect } from "react";
+import { useEffect, Suspense } from "react";
 
 // Define example navigation items
 const examples = [
@@ -61,7 +61,7 @@ const exampleTitles = {
   billing: "Revenue Recognition",
 };
 
-export default function ExamplesNavigation() {
+function ExamplesNavigationContent() {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -129,5 +129,13 @@ export default function ExamplesNavigation() {
         <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
       </div>
     </div>
+  );
+}
+
+export default function ExamplesNavigation() {
+  return (
+    <Suspense fallback={<div />}>
+      <ExamplesNavigationContent />
+    </Suspense>
   );
 }

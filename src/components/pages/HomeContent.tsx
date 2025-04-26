@@ -21,6 +21,7 @@ import { SEO_STRINGS } from "../../constants/strings/seo";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { FinancialExample } from "../examples/finance/FinancialExample";
 import { Metadata } from "next";
+import { Suspense } from "react";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.home.title,
@@ -160,7 +161,9 @@ export default function HomeContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <FinancialExample themeOverride="light" height="50dvh" />
+          <Suspense fallback={<div />}>
+            <FinancialExample themeOverride="light" height="50dvh" />
+          </Suspense>
         </motion.section>
 
         {/* Features section with staggered animation */}

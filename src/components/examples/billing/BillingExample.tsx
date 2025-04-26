@@ -4,11 +4,12 @@ import { SimpleTable, Theme } from "simple-table-core";
 import { generateBillingData } from "@/components/examples/billing/billing-rows";
 import { HEADERS } from "@/components/examples/billing/billing-headers";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 import "simple-table-core/styles.css";
 
 const data = generateBillingData();
 
-export default function BillingExample({ themeOverride }: { themeOverride?: Theme }) {
+function BillingExampleContent({ themeOverride }: { themeOverride?: Theme }) {
   const searchParams = useSearchParams();
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "dark";
 
@@ -23,5 +24,13 @@ export default function BillingExample({ themeOverride }: { themeOverride?: Them
       selectableCells
       editColumns
     />
+  );
+}
+
+export default function BillingExample({ themeOverride }: { themeOverride?: Theme }) {
+  return (
+    <Suspense fallback={<div />}>
+      <BillingExampleContent themeOverride={themeOverride} />
+    </Suspense>
   );
 }

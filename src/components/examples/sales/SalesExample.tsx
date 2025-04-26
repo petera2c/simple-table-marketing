@@ -1,20 +1,20 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useRef } from "react";
-import { SimpleTable, TableRefType, Row } from "simple-table-core";
+import { SimpleTable, Row } from "simple-table-core";
 import { Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
 import data from "./sales-data.json";
+import { Suspense } from "react";
 import "simple-table-core/styles.css";
 
-export const SalesExample = ({
+function SalesExampleContent({
   height = "70dvh",
   themeOverride,
 }: {
   height?: string;
   themeOverride?: Theme;
-}) => {
+}) {
   const searchParams = useSearchParams();
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
@@ -28,5 +28,19 @@ export const SalesExample = ({
       theme={theme}
       selectableCells
     />
+  );
+}
+
+export const SalesExample = ({
+  height = "70dvh",
+  themeOverride,
+}: {
+  height?: string;
+  themeOverride?: Theme;
+}) => {
+  return (
+    <Suspense fallback={<div />}>
+      <SalesExampleContent height={height} themeOverride={themeOverride} />
+    </Suspense>
   );
 };

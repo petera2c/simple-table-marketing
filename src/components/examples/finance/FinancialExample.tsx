@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, Suspense } from "react";
 import { SimpleTable, TableRefType } from "simple-table-core";
 import { Theme } from "simple-table-core";
 
@@ -9,13 +9,13 @@ import "simple-table-core/styles.css";
 import { HEADERS } from "./finance-headers";
 import data from "./finance-data.json";
 
-export const FinancialExample = ({
+function FinancialExampleContent({
   height = "70dvh",
   themeOverride,
 }: {
   height?: string;
   themeOverride?: Theme;
-}) => {
+}) {
   const searchParams = useSearchParams();
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
@@ -96,5 +96,19 @@ export const FinancialExample = ({
       tableRef={tableRef}
       cellUpdateFlash={true}
     />
+  );
+}
+
+export const FinancialExample = ({
+  height = "70dvh",
+  themeOverride,
+}: {
+  height?: string;
+  themeOverride?: Theme;
+}) => {
+  return (
+    <Suspense fallback={<div />}>
+      <FinancialExampleContent height={height} themeOverride={themeOverride} />
+    </Suspense>
   );
 };
