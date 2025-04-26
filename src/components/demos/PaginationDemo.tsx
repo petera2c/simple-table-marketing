@@ -606,7 +606,7 @@ const PaginationDemo = () => {
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate
-      totalPages={Math.ceil(ROWS.length / ROWS_PER_PAGE)}
+      totalPages={Math.ceil(rows.length / ROWS_PER_PAGE)}
       nextIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
       prevIcon={<FontAwesomeIcon icon={faChevronLeft} className="text-blue-600" />}
     />
