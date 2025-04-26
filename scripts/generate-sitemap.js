@@ -32,11 +32,12 @@ async function getNextJsRoutes() {
         !route.includes("not-found") && // Filter out error pages
         !route.includes("mobile-unsupported") // Filter out mobile unsupported page
       );
-    });
+    })
+    .sort(); // Sort routes alphabetically
 
   // Always include the root route
   if (!processedRoutes.includes("")) {
-    processedRoutes.push("");
+    processedRoutes.unshift(""); // Add root route at the beginning
   }
 
   return processedRoutes;
@@ -48,16 +49,18 @@ function getBlogPosts() {
   try {
     const blogFiles = readdirSync(blogsDir).filter((file) => file.endsWith(".json"));
 
-    return blogFiles.map((file) => {
-      const content = readFileSync(join(blogsDir, file), "utf-8");
-      const post = JSON.parse(content);
-      return {
-        url: `/blog/${post.slug}`,
-        changefreq: "monthly",
-        priority: 0.7,
-        lastmod: post.updatedAt || post.createdAt,
-      };
-    });
+    return blogFiles
+      .map((file) => {
+        const content = readFileSync(join(blogsDir, file), "utf-8");
+        const post = JSON.parse(content);
+        return {
+          url: `/blog/${post.slug}`,
+          changefreq: "monthly",
+          priority: 0.7,
+          lastmod: post.updatedAt || post.createdAt,
+        };
+      })
+      .sort((a, b) => a.url.localeCompare(b.url)); // Sort blog posts by URL
   } catch (err) {
     console.warn("No blog posts found or error reading blog directory:", err);
     return [];
@@ -103,8 +106,12 @@ async function generateSitemap() {
     const nextJsRoutes = await getNextJsRoutes();
     const blogPosts = getBlogPosts();
 
-    const examplesRoutes = nextJsRoutes.filter((route) => route.startsWith("examples/"));
-    const docsRoutes = nextJsRoutes.filter((route) => route.startsWith("docs/"));
+    // Extract route categories
+    const examplesRoutes = nextJsRoutes.filter((route) => route.startsWith("examples/")).sort();
+    const docsRoutes = nextJsRoutes.filter((route) => route.startsWith("docs/")).sort();
+
+    // Create and sort all sitemap entries to ensure consistent order
+    const sitemapEntries = [];
 
     // Add Next.js routes with default priorities
     nextJsRoutes.forEach((route) => {
@@ -123,12 +130,26 @@ async function generateSitemap() {
         routeConfig.priority = 0.7;
       }
 
-      sitemap.write(routeConfig);
+      sitemapEntries.push(routeConfig);
     });
 
     // Add blog posts
     blogPosts.forEach((post) => {
-      sitemap.write(post);
+      sitemapEntries.push(post);
+    });
+
+    // Sort all entries by URL for consistent ordering
+    sitemapEntries.sort((a, b) => {
+      // Always put homepage first
+      if (a.url === "/" || a.url === "") return -1;
+      if (b.url === "/" || b.url === "") return 1;
+
+      return a.url.localeCompare(b.url);
+    });
+
+    // Write sorted entries to sitemap
+    sitemapEntries.forEach((entry) => {
+      sitemap.write(entry);
     });
 
     sitemap.end();
