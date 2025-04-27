@@ -42,11 +42,6 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/docs/column-properties</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/docs/column-reordering</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

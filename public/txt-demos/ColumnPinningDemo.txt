@@ -108,7 +108,7 @@ const data = [
 ];
 
 const ColumnPinningDemo = () => {
-  return <SimpleTable defaultHeaders={headers} rows={data} />;
+  return <SimpleTable columnResizing defaultHeaders={headers} rows={data} />;
 };
 
 export default ColumnPinningDemo;

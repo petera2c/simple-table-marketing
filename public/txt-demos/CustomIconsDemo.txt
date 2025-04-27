@@ -172,7 +172,6 @@ const CustomIconsDemo = () => {
       rows={data}
       shouldPaginate
       rowsPerPage={5}
-      totalPages={2}
       height="auto"
       // Custom icons props
       sortUpIcon={customIcons.sortUpIcon}
