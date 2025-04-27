@@ -68,7 +68,6 @@ const docSections: DocSection[] = [
     label: "Column Features",
     icon: faColumns,
     subsections: [
-      { id: "column-properties", label: "Column Properties", path: "/docs/column-properties" },
       { id: "column-resizing", label: "Column Resizing", path: "/docs/column-resizing" },
       { id: "column-reordering", label: "Column Reordering", path: "/docs/column-reordering" },
       { id: "column-visibility", label: "Column Visibility", path: "/docs/column-visibility" },

@@ -42,7 +42,6 @@ const docNavigation = [
 const pathToLabel: Record<string, string> = {
   "/docs/installation": "Installation",
   "/docs/quick-start": "Quick Start",
-  "/docs/column-properties": "Column Properties",
   "/docs/column-resizing": "Column Resizing",
   "/docs/column-reordering": "Column Reordering",
   "/docs/column-visibility": "Column Visibility",

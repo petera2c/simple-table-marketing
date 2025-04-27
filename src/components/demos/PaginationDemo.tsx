@@ -597,7 +597,6 @@ const PaginationDemo = () => {
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate
-      totalPages={Math.ceil(rows.length / ROWS_PER_PAGE)}
     />
   );
 };

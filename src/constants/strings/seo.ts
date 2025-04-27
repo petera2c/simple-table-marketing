@@ -75,13 +75,7 @@ export const SEO_STRINGS = {
     keywords:
       "column pinning, fixed columns, sticky columns, table navigation, React table, TypeScript data grid, data exploration",
   },
-  columnProperties: {
-    title: "Column Properties | Your Table's Secret Control Panel 🧵",
-    description:
-      "Craft the perfect table experience with Simple Table's extensive column properties. Fine-tune width, visibility, sorting, filtering, and custom behaviors with TypeScript type safety to make your data shine exactly how you want it!",
-    keywords:
-      "column properties, table configuration, React table, data grid, table customization, TypeScript table configuration, advanced data display",
-  },
+
   columnResizing: {
     title: "Column Resizing | Because Size Actually Does Matter 🔄",
     description:
