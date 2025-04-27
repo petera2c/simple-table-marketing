@@ -19,7 +19,7 @@ import { trackButtonClick } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { SEO_STRINGS } from "../../constants/strings/seo";
 import { useIsMobile } from "../../hooks/useIsMobile";
-import { FinancialExample } from "../examples/finance/FinancialExample";
+import { FinancialExample } from "../../examples/finance/FinancialExample";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

@@ -24,7 +24,7 @@ import ExpandableSection from "../../components/ExpandableSection";
 import ThemeColorPicker from "../../components/ThemeColorPicker";
 import ThemeInput from "../../components/ThemeInput";
 import MobileUnsupportedPage from "../../components/MobileUnsupported";
-import BillingExample from "../examples/billing/BillingExample";
+import BillingExample from "../../examples/billing/BillingExample";
 
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";

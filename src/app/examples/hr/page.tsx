@@ -1,4 +1,4 @@
-import HRExampleContent from "@/components/examples/hr/HRExample";
+import HRExampleContent from "@/examples/hr/HRExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

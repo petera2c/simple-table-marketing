@@ -1,4 +1,4 @@
-import { SalesExample } from "@/components/examples/sales/SalesExample";
+import { SalesExample } from "@/examples/sales/SalesExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

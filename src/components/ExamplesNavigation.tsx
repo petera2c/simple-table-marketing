@@ -105,7 +105,7 @@ function ExamplesNavigationContent() {
       <h1 className="text-xl font-semibold">
         {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
       </h1>
-      <div className="flex items-center gap-2">
+      <div className="flex items-center gap-2 flex-wrap">
         <Select
           placeholder="Select an example"
           style={{ width: 200 }}

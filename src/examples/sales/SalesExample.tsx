@@ -7,40 +7,34 @@ import { SALES_HEADERS } from "./sales-headers";
 import data from "./sales-data.json";
 import { Suspense } from "react";
 import "simple-table-core/styles.css";
+import { useExampleHeight } from "@/hooks/useExampleHeight";
 
-function SalesExampleContent({
-  height = "70dvh",
-  themeOverride,
-}: {
-  height?: string;
-  themeOverride?: Theme;
-}) {
+const ROW_HEIGHT = 40;
+
+function SalesExampleContent() {
   const searchParams = useSearchParams();
-  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
-
+  const theme = (searchParams.get("theme") as Theme) || "light";
+  const containerHeight = useExampleHeight({
+    isUsingPagination: false,
+    rowHeight: ROW_HEIGHT,
+  });
   return (
     <SimpleTable
       columnResizing
       columnReordering
       defaultHeaders={SALES_HEADERS}
       rows={data as Row[]}
-      height={height}
+      height={containerHeight ? `${containerHeight}px` : "70dvh"}
       theme={theme}
       selectableCells
     />
   );
 }
 
-export const SalesExample = ({
-  height = "70dvh",
-  themeOverride,
-}: {
-  height?: string;
-  themeOverride?: Theme;
-}) => {
+export const SalesExample = () => {
   return (
     <Suspense fallback={<div />}>
-      <SalesExampleContent height={height} themeOverride={themeOverride} />
+      <SalesExampleContent />
     </Suspense>
   );
 };

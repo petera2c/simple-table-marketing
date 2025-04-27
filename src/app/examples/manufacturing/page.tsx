@@ -1,4 +1,4 @@
-import ManufacturingExampleContent from "@/components/examples/manufacturing/ManufacturingExample";
+import ManufacturingExampleContent from "@/examples/manufacturing/ManufacturingExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

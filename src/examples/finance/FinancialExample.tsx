@@ -8,15 +8,22 @@ import { Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 import { HEADERS } from "./finance-headers";
 import data from "./finance-data.json";
+import { useExampleHeight } from "@/hooks/useExampleHeight";
+
+const ROW_HEIGHT = 40;
 
 function FinancialExampleContent({
-  height = "70dvh",
+  height,
   themeOverride,
 }: {
   height?: string;
   themeOverride?: Theme;
 }) {
   const searchParams = useSearchParams();
+  const containerHeight = useExampleHeight({
+    isUsingPagination: false,
+    rowHeight: ROW_HEIGHT,
+  });
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
   const tableRef = useRef<TableRefType | null>(null);
@@ -86,21 +93,21 @@ function FinancialExampleContent({
 
   return (
     <SimpleTable
-      columnResizing
+      cellUpdateFlash={true}
       columnReordering
+      columnResizing
       defaultHeaders={HEADERS}
+      height={height ? height : containerHeight ? `${containerHeight}px` : "70dvh"}
       rows={data}
-      height={height}
-      theme={theme}
       selectableCells
       tableRef={tableRef}
-      cellUpdateFlash={true}
+      theme={theme}
     />
   );
 }
 
 export const FinancialExample = ({
-  height = "70dvh",
+  height,
   themeOverride,
 }: {
   height?: string;
