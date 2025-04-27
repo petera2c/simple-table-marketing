@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import { ConfigProvider } from "antd";
 config.autoAddCss = false;
 
 const nunito = Nunito({
@@ -58,7 +59,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={nunito.className}>
-        <ClientLayout>{children}</ClientLayout>
+        <ConfigProvider
+          theme={{
+            token: {
+              fontFamily: "nunito",
+            },
+          }}
+        >
+          <ClientLayout>{children}</ClientLayout>
+        </ConfigProvider>
       </body>
       <Analytics />
     </html>

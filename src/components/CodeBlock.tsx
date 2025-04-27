@@ -79,7 +79,7 @@ const CodeBlock = ({
 
   return (
     <div className={`rounded-md mb-6 overflow-hidden shadow-lg relative ${className}`}>
-      <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-gray-400 text-xs font-mono">
+      <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-gray-400 text-xs">
         <div className="flex items-center gap-2">
           <span>{getLanguageDisplayName()}</span>
           {filename && (

@@ -21,7 +21,6 @@ import "simple-table-core/styles.css";`,
   --st-opacity-disabled: 0.5;
   --st-spacing-small: 4px;
   --st-spacing-medium: 8px;
-  --st-spacing-large: 16px;
   --st-scrollbar-bg-color: transparent;
   --st-scrollbar-thumb-color: var(--slate-200);
 

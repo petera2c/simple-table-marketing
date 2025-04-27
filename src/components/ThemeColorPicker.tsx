@@ -15,7 +15,7 @@ const ThemeColorPicker: React.FC<ThemeColorPickerProps> = ({ label, value, onCha
         <label className="text-sm font-medium text-gray-700" title={label}>
           {label}
         </label>
-        <div className="text-xs text-gray-500 font-mono">{value}</div>
+        <div className="text-xs text-gray-500">{value}</div>
       </div>
       <div className="flex items-center gap-2">
         <ColorPicker size="small" value={value} onChange={onChange} />

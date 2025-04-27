@@ -22,7 +22,11 @@ export const HEADERS: HeaderObject[] = [
     type: "string",
     cellRenderer: ({ row }) => {
       const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
-      return isLineRow ? <span className="font-bold">{row.rowData.productLine}</span> : row.rowData.productLine;
+      return isLineRow ? (
+        <span className="font-bold">{row.rowData.productLine}</span>
+      ) : (
+        row.rowData.productLine
+      );
     },
   },
   {
@@ -40,7 +44,9 @@ export const HEADERS: HeaderObject[] = [
       }
       return (
         <div className="flex items-center gap-1">
-          <span className="bg-blue-100 text-blue-700 text-xs font-medium px-1.5 py-0.5 rounded">{row.rowData.id}</span>
+          <span className="bg-blue-100 text-blue-700 text-xs font-medium px-1.5 py-0.5 rounded">
+            {row.rowData.id}
+          </span>
           <span>{row.rowData.station}</span>
         </div>
       );
@@ -75,7 +81,10 @@ export const HEADERS: HeaderObject[] = [
         Setup: { color: "purple", icon: faTools },
       };
 
-      const statusInfo = colorMap[status as keyof typeof colorMap] || { color: "default", icon: faInfoCircle };
+      const statusInfo = colorMap[status as keyof typeof colorMap] || {
+        color: "default",
+        icon: faInfoCircle,
+      };
 
       return (
         <Tag color={statusInfo.color} className="px-2 py-1">
@@ -88,14 +97,18 @@ export const HEADERS: HeaderObject[] = [
   {
     accessor: "outputRate",
     label: "Output (units/shift)",
-    width: 160,
+    width: 200,
     isSortable: true,
     isEditable: false,
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
       const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
-      return <div className={isLineRow ? "font-bold" : ""}>{(row.rowData.outputRate as number).toLocaleString()}</div>;
+      return (
+        <div className={isLineRow ? "font-bold" : ""}>
+          {(row.rowData.outputRate as number).toLocaleString()}
+        </div>
+      );
     },
   },
   {
@@ -127,7 +140,12 @@ export const HEADERS: HeaderObject[] = [
 
       return (
         <div className="w-full flex flex-col">
-          <Progress percent={efficiency} size="small" showInfo={false} status={getColorByEfficiency(efficiency)} />
+          <Progress
+            percent={efficiency}
+            size="small"
+            showInfo={false}
+            status={getColorByEfficiency(efficiency)}
+          />
           <div className="text-xs text-center mt-1">{efficiency}%</div>
         </div>
       );

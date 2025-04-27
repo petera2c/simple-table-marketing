@@ -21,7 +21,7 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   children,
 }) => {
   return (
-    <div className="py-1 mb-5">
+    <div className="py-1">
       <button
         onClick={onToggle}
         className="w-full flex items-center justify-between p-2.5 text-left text-gray-800 font-medium rounded hover:bg-gray-100 transition-colors"

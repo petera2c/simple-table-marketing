@@ -15,12 +15,7 @@ const ThemeInput: React.FC<ThemeInputProps> = ({ label, value, onChange }) => {
           {label}
         </label>
       </div>
-      <Input
-        size="small"
-        value={value}
-        onChange={(e) => onChange(e.target.value)}
-        className="font-mono text-sm"
-      />
+      <Input size="small" value={value} onChange={(e) => onChange(e.target.value)} />
     </div>
   );
 };

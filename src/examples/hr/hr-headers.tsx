@@ -70,7 +70,7 @@ export const HEADERS: HeaderObject[] = [
   {
     accessor: "email",
     label: "Email",
-    width: 220,
+    width: 280,
     isSortable: true,
     isEditable: false,
     align: "left",
