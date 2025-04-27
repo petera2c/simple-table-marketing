@@ -40,7 +40,7 @@
     "react-ga4": "^2.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^0.7.78",
+    "simple-table-core": "^0.7.79",
     "typescript": "^5.3.3"
   },
   "devDependencies": {
