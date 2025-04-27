@@ -76,10 +76,7 @@ interface ThemeConfig {
   resizeHandleColor: string;
   scrollbarBgColor: string;
   scrollbarThumbColor: string;
-  selectedBorderBottomColor: string;
-  selectedBorderLeftColor: string;
-  selectedBorderRightColor: string;
-  selectedBorderTopColor: string;
+  selectedBorderColor: string;
   selectedCellBackgroundColor: string;
   selectedCellColor: string;
   selectedFirstCellBackgroundColor: string;
@@ -137,10 +134,7 @@ const defaultTheme: ThemeConfig = {
   cellFlashColor: "#e2e8f0", // slate-200
 
   // Border colors
-  selectedBorderTopColor: "#3b82f6", // blue-500
-  selectedBorderBottomColor: "#3b82f6", // blue-500
-  selectedBorderLeftColor: "#3b82f6", // blue-500
-  selectedBorderRightColor: "#3b82f6", // blue-500
+  selectedBorderColor: "#3b82f6", // blue-500
   editableCellFocusBorderColor: "#3b82f6", // blue-500
 
   // Component-specific colors
@@ -238,10 +232,7 @@ export default function ThemeBuilderContent() {
       "oddRowBackgroundColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.selection]: [
-      "selectedBorderBottomColor",
-      "selectedBorderLeftColor",
-      "selectedBorderRightColor",
-      "selectedBorderTopColor",
+      "selectedBorderColor",
       "selectedCellBackgroundColor",
       "selectedCellColor",
       "selectedFirstCellBackgroundColor",
@@ -285,7 +276,7 @@ export default function ThemeBuilderContent() {
 
   // Create sidebar content
   const sidebarContent = (
-    <div>
+    <div className="px-1">
       {/* Color Settings */}
       <ExpandableSection
         title={UI_STRINGS.themeBuilder.categories.colors}
@@ -294,9 +285,9 @@ export default function ThemeBuilderContent() {
         onToggle={() => toggleSection("colors")}
       >
         {Object.entries(colorSubcategories).map(([subcategory, subKeys], index) => (
-          <div key={index} className="mb-4">
-            <h4 className="text-sm font-semibold text-gray-800 mb-2">{subcategory}</h4>
-            <div className="grid grid-cols-2 gap-x-2 gap-y-3">
+          <div key={index} className="mb-6">
+            <h4 className="text-sm font-semibold text-gray-800 mb-3">{subcategory}</h4>
+            <div className="grid grid-cols-1 gap-y-4">
               {subKeys.map((key, index) => (
                 <ThemeColorPicker
                   key={index}
@@ -317,7 +308,7 @@ export default function ThemeBuilderContent() {
         expanded={expandedSections["typography"]}
         onToggle={() => toggleSection("typography")}
       >
-        <div className="grid grid-cols-2 gap-x-2 gap-y-3">
+        <div className="grid grid-cols-1 gap-y-4 mb-2">
           {["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"].map((key, index) => (
             <ThemeInput
               key={index}
@@ -336,7 +327,7 @@ export default function ThemeBuilderContent() {
         expanded={expandedSections["layout"]}
         onToggle={() => toggleSection("layout")}
       >
-        <div className="grid grid-cols-2 gap-x-2 gap-y-3">
+        <div className="grid grid-cols-1 gap-y-4 mb-2">
           {["borderRadius", "borderWidth", "cellPadding", "spacingMedium", "spacingSmall"].map(
             (key) => (
               <ThemeInput
@@ -357,7 +348,7 @@ export default function ThemeBuilderContent() {
         expanded={expandedSections["effects"]}
         onToggle={() => toggleSection("effects")}
       >
-        <div className="grid grid-cols-2 gap-x-2 gap-y-3">
+        <div className="grid grid-cols-1 gap-y-4 mb-2">
           {["editCellShadow", "opacityDisabled", "transitionDuration", "transitionEase"].map(
             (key) => (
               <ThemeInput
@@ -391,7 +382,7 @@ export default function ThemeBuilderContent() {
     icon: faPaintBrush,
     sidebarContent,
     footerContent,
-    width: "420px", // Wider sidebar for the theme builder with more space for color pickers
+    width: "380px", // Slightly smaller width that works better with single column layout
   };
 
   // If on mobile, return the unsupported page

@@ -17,23 +17,30 @@ const ExpandableSection: React.FC<ExpandableSectionProps> = ({
   icon,
   expanded,
   onToggle,
-  iconClassName = "text-blue-500",
+  iconClassName = "text-blue-600",
   children,
 }) => {
   return (
-    <div className="py-1 mb-4">
+    <div className="py-1 mb-5">
       <button
         onClick={onToggle}
-        className="w-full flex items-center justify-between p-2 text-left text-gray-700 font-medium rounded hover:bg-gray-100"
+        className="w-full flex items-center justify-between p-2.5 text-left text-gray-800 font-medium rounded hover:bg-gray-100 transition-colors"
       >
-        <span className="flex items-center gap-2">
-          {icon && <FontAwesomeIcon icon={icon} className={iconClassName} />}
-          {title}
+        <span className="flex items-center gap-2.5">
+          {icon && <FontAwesomeIcon icon={icon} className={`${iconClassName} w-4 h-4`} />}
+          <span className="text-base">{title}</span>
         </span>
-        <FontAwesomeIcon icon={expanded ? faChevronDown : faChevronRight} className="text-gray-400" />
+        <FontAwesomeIcon
+          icon={expanded ? faChevronDown : faChevronRight}
+          className={`text-gray-400 transition-transform duration-200 ${
+            expanded ? "transform rotate-180" : ""
+          }`}
+        />
       </button>
 
-      {expanded && <div className="mt-1 ml-3 border-l-2 border-gray-100 pl-4 pr-2">{children}</div>}
+      {expanded && (
+        <div className="mt-3 pt-1 ml-2 pl-4 pr-1 border-l-2 border-blue-100">{children}</div>
+      )}
     </div>
   );
 };

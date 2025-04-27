@@ -41,10 +41,7 @@ import "simple-table-core/styles.css";`,
   --st-resize-handle-color: var(--blue-300);
   --st-separator-border-color: var(--slate-100);
   --st-last-group-row-separator-border-color: var(--slate-300);
-  --st-selected-border-top-color: var(--blue-600);
-  --st-selected-border-bottom-color: var(--blue-600);
-  --st-selected-border-left-color: var(--blue-600);
-  --st-selected-border-right-color: var(--blue-600);
+  --st-selected-border-color: var(--blue-600);
   --st-checkbox-checked-background-color: var(--blue-600);
   --st-checkbox-checked-border-color: var(--blue-600);
   --st-column-editor-background-color: var(--white);

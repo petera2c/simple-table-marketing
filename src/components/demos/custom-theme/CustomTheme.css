@@ -45,10 +45,7 @@
   --st-last-group-row-separator-border-color: var(--st-stone-300);
 
   /* Border colors */
-  --st-selected-border-top-color: var(--st-violet-500);
-  --st-selected-border-bottom-color: var(--st-violet-500);
-  --st-selected-border-left-color: var(--st-violet-500);
-  --st-selected-border-right-color: var(--st-violet-500);
+  --st-selected-border-color: var(--st-violet-500);
   --st-editable-cell-focus-border-color: var(--st-violet-500);
 
   /* Component-specific colors */

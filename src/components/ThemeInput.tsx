@@ -10,10 +10,17 @@ interface ThemeInputProps {
 const ThemeInput: React.FC<ThemeInputProps> = ({ label, value, onChange }) => {
   return (
     <div className="mb-2">
-      <label className="block text-xs font-medium text-gray-700 mb-1 truncate" title={label}>
-        {label}
-      </label>
-      <Input size="small" value={value} onChange={(e) => onChange(e.target.value)} />
+      <div className="flex items-center justify-between mb-1.5">
+        <label className="text-sm font-medium text-gray-700" title={label}>
+          {label}
+        </label>
+      </div>
+      <Input
+        size="small"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="font-mono text-sm"
+      />
     </div>
   );
 };
