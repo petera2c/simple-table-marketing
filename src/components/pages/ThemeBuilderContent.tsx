@@ -391,6 +391,7 @@ export default function ThemeBuilderContent() {
     icon: faPaintBrush,
     sidebarContent,
     footerContent,
+    width: "420px", // Wider sidebar for the theme builder with more space for color pickers
   };
 
   // If on mobile, return the unsupported page
