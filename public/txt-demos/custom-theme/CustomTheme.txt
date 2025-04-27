@@ -18,7 +18,6 @@
   /* Spacing variables */
   --st-spacing-small: 6px;
   --st-spacing-medium: 10px;
-  --st-spacing-large: 16px;
 
   /* Scrollbar variables */
   --st-scrollbar-bg-color: var(--st-stone-100);

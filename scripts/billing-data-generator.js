@@ -1,12 +1,17 @@
-import { Row } from "simple-table-core";
+// ES Module version of the billing data generator
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Utility functions
-const randomBetween = (min: number, max: number) =>
-  Math.floor(Math.random() * (max - min + 1) + min);
-const randomChoice = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
+const randomBetween = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+const randomChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
 
 // Generate a random date between two dates
-const randomDate = (start: Date, end: Date) => {
+const randomDate = (start, end) => {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 };
 
@@ -72,13 +77,8 @@ const generateChargeDescription = () => {
   return `${randomChoice(tiers)} - ${randomChoice(types)}`;
 };
 
-// Generate monthly data for a row
-const generateMonthlyData = (
-  startMonth: number,
-  startYear: number,
-  amount: number,
-  monthsToDistribute: number = 12
-) => {
+// Generate monthly data for a row - only 2024 data
+const generateMonthlyData = (startMonth, amount) => {
   const months = [
     "Jan",
     "Feb",
@@ -93,49 +93,38 @@ const generateMonthlyData = (
     "Nov",
     "Dec",
   ];
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
+
+  const year = 2024;
 
   // For charges, distribute the amount over the months
   let remainingAmount = amount;
-  const monthlyValues: Record<string, number> = {};
+  const monthlyValues = {};
+  const monthlyRevenue = {};
+  const monthlyBalance = {};
 
-  // New revenue and balance records
-  const monthlyRevenue: Record<string, number> = {};
-  const monthlyBalance: Record<string, number> = {};
-
-  for (let i = 0; i < 12; i++) {
-    const monthIndex = (currentMonth - i + 12) % 12;
-    const year = currentMonth - i < 0 ? currentYear - 1 : currentYear;
+  // Ensure all 2024 months have data
+  for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
     const key = `month_${months[monthIndex]}_${year}`;
     const revenueKey = `revenue_${months[monthIndex]}_${year}`;
     const balanceKey = `balance_${months[monthIndex]}_${year}`;
 
-    // If this month is before the start date or we've already distributed all months
-    const isBeforeStart = year < startYear || (year === startYear && monthIndex < startMonth);
+    // Calculate monthly amount based on remaining budget
+    // Use a balanced distribution with less variance
+    const baseMonthlyAmount = remainingAmount / (12 - monthIndex);
+    const variability = 0.3; // 30% variability
+    const variance = baseMonthlyAmount * variability * (Math.random() * 2 - 1);
+    let monthlyAmount = Math.min(remainingAmount, baseMonthlyAmount + variance);
 
-    if (isBeforeStart || i >= monthsToDistribute) {
-      monthlyValues[key] = 0;
-      monthlyRevenue[revenueKey] = 0;
-      monthlyBalance[balanceKey] = 0;
-      continue;
+    // Ensure we don't exceed the remaining amount and round to 2 decimals
+    monthlyAmount = parseFloat(Math.min(remainingAmount, monthlyAmount).toFixed(2));
+
+    // Ensure non-zero values for all 2024 months
+    if (monthlyAmount < 1 && remainingAmount > 0) {
+      monthlyAmount = parseFloat((1 + Math.random() * 10).toFixed(2));
     }
 
-    // For the last month, use all remaining amount
-    if (i === monthsToDistribute - 1) {
-      monthlyValues[key] = parseFloat(remainingAmount.toFixed(2));
-    } else {
-      // Distribute with some randomness
-      const variability = 0.2; // 20% variability
-      const baseMonthlyAmount = remainingAmount / (monthsToDistribute - i);
-      const variance = baseMonthlyAmount * variability * (Math.random() * 2 - 1);
-      let monthlyAmount = Math.min(remainingAmount, baseMonthlyAmount + variance);
-
-      // Ensure we don't exceed the remaining amount and round to 2 decimals
-      monthlyAmount = parseFloat(Math.min(remainingAmount, monthlyAmount).toFixed(2));
-      remainingAmount -= monthlyAmount;
-      monthlyValues[key] = monthlyAmount;
-    }
+    remainingAmount -= monthlyAmount;
+    monthlyValues[key] = monthlyAmount;
 
     // Split the monthly amount between revenue and balance
     // Revenue is typically 70-95% of the amount
@@ -146,6 +135,26 @@ const generateMonthlyData = (
     );
   }
 
+  // If we still have remaining amount, distribute it
+  if (remainingAmount > 0.01) {
+    // Add it to a random month
+    const randomMonthIndex = randomBetween(0, 11);
+    const randomMonthKey = `month_${months[randomMonthIndex]}_${year}`;
+    const randomRevenueKey = `revenue_${months[randomMonthIndex]}_${year}`;
+    const randomBalanceKey = `balance_${months[randomMonthIndex]}_${year}`;
+
+    monthlyValues[randomMonthKey] += parseFloat(remainingAmount.toFixed(2));
+
+    // Recalculate revenue and balance
+    const revenuePercentage = 0.7 + Math.random() * 0.25;
+    monthlyRevenue[randomRevenueKey] = parseFloat(
+      (monthlyValues[randomMonthKey] * revenuePercentage).toFixed(2)
+    );
+    monthlyBalance[randomBalanceKey] = parseFloat(
+      (monthlyValues[randomMonthKey] - monthlyRevenue[randomRevenueKey]).toFixed(2)
+    );
+  }
+
   return {
     ...monthlyValues,
     ...monthlyRevenue,
@@ -153,8 +162,8 @@ const generateMonthlyData = (
   };
 };
 
-// Generate revenue recognition data
-const calculateRevenueRecognition = (amount: number, createdDate: Date) => {
+// Calculate revenue recognition
+const calculateRevenueRecognition = (amount, createdDate) => {
   const diffMonths =
     currentDate.getMonth() -
     createdDate.getMonth() +
@@ -173,7 +182,7 @@ const calculateRevenueRecognition = (amount: number, createdDate: Date) => {
 };
 
 // Generate billing data with accounts -> invoices -> charges
-export const generateBillingData = (): Row[] => {
+const generateBillingData = () => {
   const months = [
     "Jan",
     "Feb",
@@ -189,7 +198,7 @@ export const generateBillingData = (): Row[] => {
     "Dec",
   ];
   let rowId = 0;
-  const accountRows: Row[] = [];
+  const accountRows = [];
 
   // Invoice statuses and probabilities
   const invoiceStatuses = ["paid", "overdue", "pending", "partial", "cancelled"];
@@ -206,7 +215,9 @@ export const generateBillingData = (): Row[] => {
     // Generate account data
     const accountName = generateAccountName();
     const accountId = `ACC-${100000 + randomBetween(1, 99999)}`;
-    const accountCreatedDate = randomDate(oneYearAgo, currentDate);
+
+    // Create a date in 2024
+    const accountCreatedDate = new Date(2024, randomBetween(0, 3), randomBetween(1, 28));
 
     // Determine account status based on probability
     let accountStatus = "active";
@@ -223,18 +234,16 @@ export const generateBillingData = (): Row[] => {
 
     // Generate invoices for this account
     const invoiceCount = randomBetween(3, 8);
-    const invoiceChildren: Row[] = [];
+    const invoiceChildren = [];
     let accountTotal = 0;
     let accountRemaining = 0;
     let accountRecognizedRevenue = 0;
     let accountDeferredRevenue = 0;
 
     for (let i = 0; i < invoiceCount; i++) {
-      // Create invoice with date after account creation but within the last year
-      const earliestDate = new Date(Math.max(oneYearAgo.getTime(), accountCreatedDate.getTime()));
-      const invoiceCreatedDate = randomDate(earliestDate, currentDate);
-      const invoiceMonth = invoiceCreatedDate.getMonth();
-      const invoiceYear = invoiceCreatedDate.getFullYear();
+      // Create invoice date in 2024
+      const invoiceMonth = randomBetween(0, 11);
+      const invoiceCreatedDate = new Date(2024, invoiceMonth, randomBetween(1, 28));
 
       // Generate random due date (10-30 days after invoice date)
       const dueDate = new Date(invoiceCreatedDate);
@@ -245,7 +254,7 @@ export const generateBillingData = (): Row[] => {
       // Use I-XXX format for invoice name
       const invoiceName = `I-${invoiceNumber}`;
 
-      const invoiceAmount = randomBetween(500, 10000) + Math.random();
+      const invoiceAmount = randomBetween(1000, 20000) + Math.random();
       const invoiceAmountRounded = parseFloat(invoiceAmount.toFixed(2));
 
       // Determine invoice status based on probability
@@ -281,7 +290,7 @@ export const generateBillingData = (): Row[] => {
 
       // Generate charges for this invoice
       const chargeCount = randomBetween(2, 5);
-      const chargeChildren: Row[] = [];
+      const chargeChildren = [];
       let invoiceRecognizedRevenue = 0;
       let invoiceDeferredRevenue = 0;
       const chargeTotalAmount = invoiceAmountRounded;
@@ -289,7 +298,7 @@ export const generateBillingData = (): Row[] => {
 
       for (let c = 0; c < chargeCount; c++) {
         // Calculate charge amount (divide invoice amount among charges)
-        let chargeAmount: number;
+        let chargeAmount;
 
         if (c === chargeCount - 1) {
           // Last charge gets the remainder to ensure sum equals invoice amount
@@ -313,13 +322,8 @@ export const generateBillingData = (): Row[] => {
         invoiceRecognizedRevenue += recognizedRevenue;
         invoiceDeferredRevenue += deferredRevenue;
 
-        // Generate monthly distribution for this charge
-        const monthlyData = generateMonthlyData(
-          invoiceMonth,
-          invoiceYear,
-          chargeAmount,
-          randomBetween(1, 6) // Distribute over 1-6 months
-        );
+        // Generate monthly distribution for this charge - only 2024 data
+        const monthlyData = generateMonthlyData(invoiceMonth, chargeAmount);
 
         // Create charge row
         chargeChildren.push({
@@ -338,34 +342,30 @@ export const generateBillingData = (): Row[] => {
       }
 
       // Calculate monthly data for the invoice by summing its charges
-      const invoiceMonthlyData: Record<string, number> = {};
-      const invoiceMonthlyRevenue: Record<string, number> = {};
-      const invoiceMonthlyBalance: Record<string, number> = {};
+      const invoiceMonthlyData = {};
+      const invoiceMonthlyRevenue = {};
+      const invoiceMonthlyBalance = {};
 
-      // For each month
-      for (let i = 0; i < 12; i++) {
-        const monthIndex = (currentDate.getMonth() - i + 12) % 12;
-        const year =
-          currentDate.getMonth() - i < 0
-            ? currentDate.getFullYear() - 1
-            : currentDate.getFullYear();
+      // Only process 2024 months
+      for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
+        const year = 2024;
         const key = `month_${months[monthIndex]}_${year}`;
         const revenueKey = `revenue_${months[monthIndex]}_${year}`;
         const balanceKey = `balance_${months[monthIndex]}_${year}`;
 
         // Sum this month's value from all charges
         invoiceMonthlyData[key] = chargeChildren.reduce((sum, charge) => {
-          return sum + ((charge.rowData[key] as number) || 0);
+          return sum + (charge.rowData[key] || 0);
         }, 0);
 
         // Sum this month's revenue from all charges
         invoiceMonthlyRevenue[revenueKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + ((charge.rowData[revenueKey] as number) || 0);
+          return sum + (charge.rowData[revenueKey] || 0);
         }, 0);
 
         // Sum this month's balance from all charges
         invoiceMonthlyBalance[balanceKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + ((charge.rowData[balanceKey] as number) || 0);
+          return sum + (charge.rowData[balanceKey] || 0);
         }, 0);
       }
 
@@ -397,32 +397,30 @@ export const generateBillingData = (): Row[] => {
     }
 
     // Calculate monthly data for the account by summing its invoices
-    const accountMonthlyData: Record<string, number> = {};
-    const accountMonthlyRevenue: Record<string, number> = {};
-    const accountMonthlyBalance: Record<string, number> = {};
+    const accountMonthlyData = {};
+    const accountMonthlyRevenue = {};
+    const accountMonthlyBalance = {};
 
-    // For each month
-    for (let i = 0; i < 12; i++) {
-      const monthIndex = (currentDate.getMonth() - i + 12) % 12;
-      const year =
-        currentDate.getMonth() - i < 0 ? currentDate.getFullYear() - 1 : currentDate.getFullYear();
+    // Only process 2024 months
+    for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
+      const year = 2024;
       const key = `month_${months[monthIndex]}_${year}`;
       const revenueKey = `revenue_${months[monthIndex]}_${year}`;
       const balanceKey = `balance_${months[monthIndex]}_${year}`;
 
       // Sum this month's value from all invoices
       accountMonthlyData[key] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + ((invoice.rowData[key] as number) || 0);
+        return sum + (invoice.rowData[key] || 0);
       }, 0);
 
       // Sum this month's revenue from all invoices
       accountMonthlyRevenue[revenueKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + ((invoice.rowData[revenueKey] as number) || 0);
+        return sum + (invoice.rowData[revenueKey] || 0);
       }, 0);
 
       // Sum this month's balance from all invoices
       accountMonthlyBalance[balanceKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + ((invoice.rowData[balanceKey] as number) || 0);
+        return sum + (invoice.rowData[balanceKey] || 0);
       }, 0);
     }
 
@@ -448,3 +446,17 @@ export const generateBillingData = (): Row[] => {
 
   return accountRows;
 };
+
+// Run the generation and save to a file
+async function saveDataToFile() {
+  console.log("Generating realistic billing dataset...");
+  const data = generateBillingData();
+  console.log(`Generated data with ${data.length} accounts`);
+
+  const filePath = path.join(__dirname, "../src/examples/billing/billing-data.json");
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  console.log(`Data saved to ${filePath}`);
+}
+
+// Execute the function
+saveDataToFile();

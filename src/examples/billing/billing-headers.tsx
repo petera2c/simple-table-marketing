@@ -2,19 +2,13 @@ import { HeaderObject } from "simple-table-core";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
-// Get current month and generate 12 months (current month + 11 previous)
+// Generate header configs for 2024 months
 const generateMonthHeaders = () => {
-  const currentDate = new Date();
-  const currentMonth = currentDate.getMonth();
-  const currentYear = currentDate.getFullYear();
-
   const headers: HeaderObject[] = [];
+  const year = 2024;
 
-  // Generate 12 months of headers (current month and 11 previous)
-  for (let monthIndex = 0; monthIndex < months.length; monthIndex++) {
-    const year = currentMonth - monthIndex < 0 ? currentYear - 1 : currentYear;
-
-    // Get full month name
+  // Add all months for 2024 in reverse chronological order (Dec to Jan)
+  for (let monthIndex = 11; monthIndex >= 0; monthIndex--) {
     const fullMonthName = new Date(year, monthIndex).toLocaleString("default", { month: "long" });
 
     headers.push({

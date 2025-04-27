@@ -1,14 +1,16 @@
 "use client";
 
 import { SimpleTable, Theme } from "simple-table-core";
-import { generateBillingData } from "@/examples/billing/billing-rows";
+// import { generateBillingData } from "@/examples/billing/billing-rows";
 import { HEADERS } from "@/examples/billing/billing-headers";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import "simple-table-core/styles.css";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
+import billingData from "./billing-data.json";
 
-const data = generateBillingData();
+// Use pre-generated data instead of generating it at runtime
+const data = billingData;
 const ROW_HEIGHT = 40;
 
 function BillingExampleContent({
