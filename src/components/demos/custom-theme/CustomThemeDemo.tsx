@@ -1,5 +1,3 @@
-"use client";
-
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";

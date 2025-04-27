@@ -1,5 +1,3 @@
-"use client";
-
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";

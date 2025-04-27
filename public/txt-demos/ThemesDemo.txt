@@ -1,7 +1,5 @@
-"use client";
 import { useState } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import { Select } from "antd";
 import "simple-table-core/styles.css";
 import ThemeSelector from "../ThemeSelector";
 

@@ -6,14 +6,6 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Base sales regions and teams structure
-const REGIONS = [
-  { id: "NA", name: "North America", target: 5000000 },
-  { id: "EMEA", name: "Europe & Middle East", target: 4200000 },
-  { id: "APAC", name: "Asia Pacific", target: 3800000 },
-  { id: "LATAM", name: "Latin America", target: 2500000 },
-];
-
 // Products data
 const PRODUCTS = [
   { id: "SAAS-BASIC", name: "Basic SaaS Plan", basePrice: 99, category: "Software" },
@@ -35,481 +27,293 @@ const SALES_REPS = [
   {
     id: "REP001",
     name: "James Wilson",
-    region: "NA",
-    team: "Enterprise",
     experience: 8,
-    baseQuota: 180000,
+    performanceRating: 0.85,
   },
   {
     id: "REP002",
     name: "Emily Davis",
-    region: "NA",
-    team: "Enterprise",
     experience: 6,
-    baseQuota: 170000,
+    performanceRating: 0.78,
   },
   {
     id: "REP003",
     name: "Michael Johnson",
-    region: "NA",
-    team: "Mid-Market",
     experience: 5,
-    baseQuota: 150000,
+    performanceRating: 0.72,
   },
   {
     id: "REP004",
     name: "Sarah Martinez",
-    region: "NA",
-    team: "Mid-Market",
     experience: 4,
-    baseQuota: 145000,
+    performanceRating: 0.65,
   },
   {
     id: "REP005",
     name: "David Thompson",
-    region: "NA",
-    team: "SMB",
     experience: 3,
-    baseQuota: 125000,
+    performanceRating: 0.62,
   },
   {
     id: "REP006",
     name: "Jessica Lee",
-    region: "NA",
-    team: "SMB",
     experience: 2,
-    baseQuota: 120000,
+    performanceRating: 0.58,
   },
   {
     id: "REP007",
     name: "Robert Garcia",
-    region: "NA",
-    team: "SMB",
     experience: 1,
-    baseQuota: 110000,
+    performanceRating: 0.55,
   },
-
-  // EMEA Team
   {
     id: "REP008",
     name: "Thomas Müller",
-    region: "EMEA",
-    team: "Enterprise",
     experience: 7,
-    baseQuota: 165000,
+    performanceRating: 0.8,
   },
   {
     id: "REP009",
     name: "Sophie Dubois",
-    region: "EMEA",
-    team: "Enterprise",
     experience: 5,
-    baseQuota: 155000,
+    performanceRating: 0.75,
   },
   {
     id: "REP010",
     name: "Andreas Schmitt",
-    region: "EMEA",
-    team: "Mid-Market",
     experience: 4,
-    baseQuota: 140000,
+    performanceRating: 0.68,
   },
   {
     id: "REP011",
     name: "Olivia Bennett",
-    region: "EMEA",
-    team: "Mid-Market",
     experience: 3,
-    baseQuota: 135000,
+    performanceRating: 0.63,
   },
   {
     id: "REP012",
     name: "Pierre Laurent",
-    region: "EMEA",
-    team: "SMB",
     experience: 2,
-    baseQuota: 115000,
+    performanceRating: 0.6,
   },
   {
     id: "REP013",
     name: "Emma Fischer",
-    region: "EMEA",
-    team: "SMB",
     experience: 1,
-    baseQuota: 105000,
+    performanceRating: 0.52,
   },
-
-  // APAC Team
   {
     id: "REP014",
     name: "Liu Wei",
-    region: "APAC",
-    team: "Enterprise",
     experience: 6,
-    baseQuota: 160000,
+    performanceRating: 0.77,
   },
   {
     id: "REP015",
     name: "Akira Tanaka",
-    region: "APAC",
-    team: "Enterprise",
     experience: 5,
-    baseQuota: 150000,
+    performanceRating: 0.76,
   },
   {
     id: "REP016",
     name: "Ravi Patel",
-    region: "APAC",
-    team: "Mid-Market",
     experience: 4,
-    baseQuota: 135000,
+    performanceRating: 0.7,
   },
   {
     id: "REP017",
     name: "Mei Chen",
-    region: "APAC",
-    team: "Mid-Market",
     experience: 2,
-    baseQuota: 125000,
+    performanceRating: 0.59,
   },
   {
     id: "REP018",
     name: "Kim Seung-Min",
-    region: "APAC",
-    team: "SMB",
     experience: 1,
-    baseQuota: 100000,
+    performanceRating: 0.51,
   },
-
-  // LATAM Team
   {
     id: "REP019",
     name: "Carlos Rodriguez",
-    region: "LATAM",
-    team: "Enterprise",
     experience: 5,
-    baseQuota: 145000,
+    performanceRating: 0.73,
   },
   {
     id: "REP020",
     name: "Isabella Fernandez",
-    region: "LATAM",
-    team: "Mid-Market",
     experience: 3,
-    baseQuota: 130000,
+    performanceRating: 0.64,
   },
   {
     id: "REP021",
     name: "Mateo Lopez",
-    region: "LATAM",
-    team: "SMB",
     experience: 2,
-    baseQuota: 110000,
+    performanceRating: 0.57,
   },
   {
     id: "REP022",
     name: "Valentina Diaz",
-    region: "LATAM",
-    team: "SMB",
     experience: 1,
-    baseQuota: 100000,
+    performanceRating: 0.53,
   },
 ];
 
-// Generate a single sale record
-function generateSaleRecord(repData, rowId, monthOffset, weekInMonth) {
-  // Create date based on offsets
-  const date = new Date();
-  date.setMonth(date.getMonth() - monthOffset);
-  date.setDate(1 + weekInMonth * 7);
-  const formattedDate = date.toISOString().split("T")[0];
+// Generate realistic sales record
+function generateRealisticSaleRecord(repData, rowId) {
+  // Product tier selection - more experienced reps sell more enterprise products
+  const repExperienceWeight = repData.experience / 10;
+  const tierWeights = [
+    0.7 - repExperienceWeight * 0.4, // Lower tier products
+    0.2, // Mid tier products
+    0.1 + repExperienceWeight * 0.4, // Higher tier products
+  ];
 
-  // Use month offset to create realistic sales patterns
-  const seasonality = Math.sin(monthOffset * 0.5) * 0.15; // Seasonal factor
-  const trend = Math.min(0.1, Math.max(-0.1, (monthOffset / 24) * 0.2)); // Long-term trend
-  const experience = Math.min(1, Math.max(0.5, repData.experience / 10)); // Experience factor
+  let productTier;
+  const tierRoll = Math.random();
+  if (tierRoll < tierWeights[0]) {
+    productTier = 0; // Lower tier
+  } else if (tierRoll < tierWeights[0] + tierWeights[1]) {
+    productTier = 1; // Mid tier
+  } else {
+    productTier = 2; // Higher tier
+  }
 
-  // Select a random product
-  const product = PRODUCTS[Math.floor(Math.random() * PRODUCTS.length)];
+  // Select product based on tier
+  let product;
+  if (productTier === 0) {
+    // Lower price products (SAAS-BASIC, SUPPORT-STD)
+    const lowerTierProducts = PRODUCTS.filter((p) => p.basePrice < 500);
+    product = lowerTierProducts[Math.floor(Math.random() * lowerTierProducts.length)];
+  } else if (productTier === 1) {
+    // Mid price products (SAAS-PRO, TRAIN-BASIC)
+    const midTierProducts = PRODUCTS.filter((p) => p.basePrice >= 500 && p.basePrice < 4000);
+    product = midTierProducts[Math.floor(Math.random() * midTierProducts.length)];
+  } else {
+    // Higher price products (SAAS-ENT, CONSULT-PREM, HW-SERVER)
+    const highTierProducts = PRODUCTS.filter((p) => p.basePrice >= 4000);
+    product = highTierProducts[Math.floor(Math.random() * highTierProducts.length)];
+  }
+
+  // Calculate deal size with reasonable multiplier
+  const baseMultiplier = 1 + Math.random() * 0.4; // Base 1-1.4x multiplier
+  const tierMultiplier = 1 + productTier * 0.3; // Higher tier means potentially larger deals
+  const finalMultiplier = baseMultiplier * tierMultiplier;
+  const dealSize = parseFloat((product.basePrice * finalMultiplier).toFixed(2));
+
+  // Win probability influenced by rep performance and experience
+  const baseWinRate = 0.35 + repData.performanceRating * 0.3;
+  const experienceBonus = repData.experience * 0.02;
+  const finalWinRate = Math.min(0.85, baseWinRate + experienceBonus);
 
   // Determine if this was a won deal
-  const baseWinProbability = 0.5 + seasonality + trend + experience * 0.2;
-  const isWon = Math.random() < baseWinProbability;
+  const isWon = Math.random() < finalWinRate;
 
-  // Calculate deal size with some randomness
-  const multiplier = 1 + Math.random() * 2; // Deal size multiplier
-  const dealSize = parseFloat((product.basePrice * multiplier).toFixed(2));
-
-  // Number of units sold (more for cheaper products)
-  const units = Math.max(1, Math.floor(50000 / product.basePrice) * Math.random() * 2);
+  // Number of units sold - varies by product type and price point
+  let units;
+  if (product.basePrice < 500) {
+    // Cheaper products sell in larger quantities
+    units = Math.floor(Math.random() * 200) + 1;
+  } else if (product.basePrice < 5000) {
+    // Mid-tier products
+    units = Math.floor(Math.random() * 20) + 1;
+  } else {
+    // Expensive products
+    units = Math.floor(Math.random() * 3) + 1;
+  }
 
   // Calculate deal value
   const dealValue = parseFloat((dealSize * units).toFixed(2));
 
-  // Calculate quota for this period (month)
-  const monthlyQuota = parseFloat((repData.baseQuota / 12).toFixed(2));
+  // Profit margin varies by product category
+  let baseProfitMargin;
+  switch (product.category) {
+    case "Software":
+      baseProfitMargin = 0.7; // Software has high margins
+      break;
+    case "Hardware":
+      baseProfitMargin = 0.25; // Hardware has lower margins
+      break;
+    case "Services":
+    case "Training":
+      baseProfitMargin = 0.4; // Services have medium margins
+      break;
+    case "Support":
+      baseProfitMargin = 0.55; // Support has good margins
+      break;
+    default:
+      baseProfitMargin = 0.45;
+  }
 
-  // Determine sales cycle length (days)
-  const baseSalesCycle = 15 + product.basePrice / 100;
-  const salesCycleLength = Math.floor(baseSalesCycle * (1 + Math.random() * 0.5));
+  // Add some variability to profit margin
+  const profitMargin = parseFloat((baseProfitMargin + (Math.random() * 0.2 - 0.1)).toFixed(2));
 
-  // Commission percentage based on product type and rep performance
-  const baseCommission = product.category === "Software" ? 0.1 : 0.07;
-  const commissionRate = parseFloat((baseCommission * (1 + experience * 0.3)).toFixed(3));
-
-  // Calculate commission amount if won
-  const commission = isWon ? parseFloat((dealValue * commissionRate).toFixed(2)) : 0;
-
-  // Calculate quota attainment for this deal
-  const quotaAttainment = isWon ? parseFloat(((dealValue / monthlyQuota) * 100).toFixed(1)) : 0;
-
-  // Deal profitability
-  const profitMargin = parseFloat((0.3 + Math.random() * 0.3).toFixed(2));
+  // Calculate profit only for won deals
   const dealProfit = isWon ? parseFloat((dealValue * profitMargin).toFixed(2)) : 0;
 
-  // Customer metrics
-  const isNewCustomer = Math.random() < 0.4;
-  const customerSatisfaction = Math.floor(Math.random() * 5) + 1; // 1-5 stars
+  // Commission rates vary by product and rep experience
+  const baseCommissionRate = product.category === "Software" ? 0.1 : 0.08;
+  const experienceCommissionBonus = (repData.experience / 10) * 0.03;
+  const commissionRate = parseFloat((baseCommissionRate + experienceCommissionBonus).toFixed(3));
+
+  // Calculate commission only for won deals
+  const commission = isWon ? parseFloat((dealValue * commissionRate).toFixed(2)) : 0;
 
   return {
-    rowMeta: { rowId, isExpanded: true },
+    rowMeta: {
+      rowId: rowId,
+      isExpanded: true,
+    },
     rowData: {
-      repId: repData.id,
       repName: repData.name,
-      region: repData.region,
-      regionName: REGIONS.find((r) => r.id === repData.region)?.name,
-      team: repData.team,
-      date: formattedDate,
-      month: date.toLocaleString("default", { month: "long" }),
-      year: date.getFullYear(),
-      quarter: `Q${Math.floor(date.getMonth() / 3) + 1}`,
-      productId: product.id,
-      productName: product.name,
-      productCategory: product.category,
       dealSize: dealSize,
-      units: units,
-      dealValue: dealValue,
       isWon: isWon,
-      winRatio: parseFloat(baseWinProbability.toFixed(2)),
-      monthlyQuota: monthlyQuota,
-      quotaAttainment: quotaAttainment,
-      salesCycleLength: salesCycleLength,
-      commissionRate: commissionRate,
       commission: commission,
-      profitMargin: profitMargin,
       dealProfit: dealProfit,
-      isNewCustomer: isNewCustomer,
-      customerSatisfaction: customerSatisfaction,
-      experience: repData.experience,
+      dealValue: dealValue,
+      profitMargin: profitMargin,
     },
   };
 }
 
-// Generate large dataset of sales data
-function generateLargeSalesDataset(numMonths = 24, weeksPerMonth = 4) {
+// Generate realistic dataset
+function generateRealisticSalesDataset(numRecords = 200) {
   const data = [];
-  let rowId = 0;
 
-  // For each month in history
-  for (let month = 0; month < numMonths; month++) {
-    // For each week in month
-    for (let week = 0; week < weeksPerMonth; week++) {
-      // For each sales rep
-      for (const rep of SALES_REPS) {
-        // Each rep has 1-3 deals per week
-        const numDeals = Math.floor(Math.random() * 3) + 1;
+  for (let i = 0; i < numRecords; i++) {
+    // Pick a random sales rep, but weight by experience for more realistic distribution
+    // More experienced reps will have more deals
+    const repIndex = weightedRandomIndex(SALES_REPS.map((rep) => rep.experience));
+    const rep = SALES_REPS[repIndex];
 
-        for (let deal = 0; deal < numDeals; deal++) {
-          const saleData = generateSaleRecord(rep, rowId++, month, week);
-          data.push(saleData);
-        }
-      }
-    }
+    const saleData = generateRealisticSaleRecord(rep, i);
+    data.push(saleData);
   }
 
   return data;
 }
 
-// Generate summarized data by region with children
-function generateHierarchicalSalesData() {
-  // First generate the raw data
-  const rawData = generateLargeSalesDataset();
-  console.log(`Generated ${rawData.length} individual sales records`);
+// Helper function for weighted random selection
+function weightedRandomIndex(weights) {
+  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+  let random = Math.random() * totalWeight;
 
-  // Group data by region
-  const regionData = {};
-  const teamData = {};
-
-  // Initialize region and team containers
-  REGIONS.forEach((region) => {
-    regionData[region.id] = [];
-  });
-
-  // Organize raw data into hierarchies
-  rawData.forEach((record) => {
-    const region = record.rowData.region;
-    regionData[region].push(record);
-
-    // Create team key
-    const teamKey = `${region}-${record.rowData.team}`;
-    if (!teamData[teamKey]) {
-      teamData[teamKey] = [];
+  for (let i = 0; i < weights.length; i++) {
+    random -= weights[i];
+    if (random <= 0) {
+      return i;
     }
-    teamData[teamKey].push(record);
-  });
+  }
 
-  // Build hierarchical structure
-  const hierarchicalData = [];
-  let rowId = rawData.length; // Continue rowId sequence
-
-  // For each region, create a parent row
-  REGIONS.forEach((region) => {
-    const regionRecords = regionData[region.id];
-    if (regionRecords.length === 0) return;
-
-    // Calculate region metrics
-    const totalDealValue = regionRecords.reduce(
-      (sum, record) => sum + (record.rowData.isWon ? record.rowData.dealValue : 0),
-      0
-    );
-    const totalDeals = regionRecords.length;
-    const wonDeals = regionRecords.filter((record) => record.rowData.isWon).length;
-    const winRate = parseFloat(((wonDeals / totalDeals) * 100).toFixed(1));
-    const avgDealSize = parseFloat((totalDealValue / wonDeals).toFixed(2));
-    const avgCycleLength = parseFloat(
-      (
-        regionRecords.reduce((sum, record) => sum + record.rowData.salesCycleLength, 0) / totalDeals
-      ).toFixed(1)
-    );
-    const totalCommission = parseFloat(
-      regionRecords.reduce((sum, record) => sum + record.rowData.commission, 0).toFixed(2)
-    );
-    const avgQuotaAttainment = parseFloat(
-      (
-        regionRecords.reduce((sum, record) => sum + record.rowData.quotaAttainment, 0) / totalDeals
-      ).toFixed(1)
-    );
-
-    // Get the teams in this region
-    const teams = Array.from(new Set(regionRecords.map((record) => record.rowData.team)));
-    const teamRows = [];
-
-    // For each team, create a sub-level
-    teams.forEach((team) => {
-      const teamKey = `${region.id}-${team}`;
-      const teamRecords = teamData[teamKey];
-
-      // Calculate team metrics
-      const teamDealValue = teamRecords.reduce(
-        (sum, record) => sum + (record.rowData.isWon ? record.rowData.dealValue : 0),
-        0
-      );
-      const teamDeals = teamRecords.length;
-      const teamWonDeals = teamRecords.filter((record) => record.rowData.isWon).length;
-      const teamWinRate = parseFloat(((teamWonDeals / teamDeals) * 100).toFixed(1));
-      const teamAvgDealSize = parseFloat((teamDealValue / teamWonDeals).toFixed(2));
-      const teamAvgCycleLength = parseFloat(
-        (
-          teamRecords.reduce((sum, record) => sum + record.rowData.salesCycleLength, 0) / teamDeals
-        ).toFixed(1)
-      );
-      const teamTotalCommission = parseFloat(
-        teamRecords.reduce((sum, record) => sum + record.rowData.commission, 0).toFixed(2)
-      );
-      const teamAvgQuotaAttainment = parseFloat(
-        (
-          teamRecords.reduce((sum, record) => sum + record.rowData.quotaAttainment, 0) / teamDeals
-        ).toFixed(1)
-      );
-
-      // Add team row
-      teamRows.push({
-        rowMeta: {
-          rowId: rowId++,
-          isExpanded: true,
-          children: teamRecords,
-        },
-        rowData: {
-          repId: "—",
-          repName: `${team} Team`,
-          region: region.id,
-          regionName: region.name,
-          team: team,
-          date: "—",
-          month: "—",
-          year: "—",
-          quarter: "—",
-          productId: "—",
-          productName: "—",
-          productCategory: "—",
-          dealSize: teamAvgDealSize,
-          units: "—",
-          dealValue: teamDealValue,
-          isWon: "—",
-          winRatio: teamWinRate,
-          monthlyQuota: "—",
-          quotaAttainment: teamAvgQuotaAttainment,
-          salesCycleLength: teamAvgCycleLength,
-          commissionRate: "—",
-          commission: teamTotalCommission,
-          profitMargin: "—",
-          dealProfit: "—",
-          isNewCustomer: "—",
-          customerSatisfaction: "—",
-          experience: "—",
-        },
-      });
-    });
-
-    // Add region row with teams as children
-    hierarchicalData.push({
-      rowMeta: {
-        rowId: rowId++,
-        isExpanded: true,
-        children: teamRows,
-      },
-      rowData: {
-        repId: "—",
-        repName: "—",
-        region: region.id,
-        regionName: region.name,
-        team: "—",
-        date: "—",
-        month: "—",
-        year: "—",
-        quarter: "—",
-        productId: "—",
-        productName: "—",
-        productCategory: "—",
-        dealSize: avgDealSize,
-        units: "—",
-        dealValue: totalDealValue,
-        isWon: "—",
-        winRatio: winRate,
-        monthlyQuota: "—",
-        quotaAttainment: avgQuotaAttainment,
-        salesCycleLength: avgCycleLength,
-        commissionRate: "—",
-        commission: totalCommission,
-        profitMargin: "—",
-        dealProfit: "—",
-        isNewCustomer: "—",
-        customerSatisfaction: "—",
-        experience: "—",
-      },
-    });
-  });
-
-  return hierarchicalData;
+  return weights.length - 1; // Fallback
 }
 
 // Run the generation and save to a file
 async function saveDataToFile() {
-  console.log("Generating sales performance dataset...");
-  const data = generateHierarchicalSalesData();
-  console.log(`Generated hierarchical data with ${data.length} top-level regions`);
+  console.log("Generating realistic sales dataset...");
+  const data = generateRealisticSalesDataset();
+  console.log(`Generated ${data.length} sales records`);
 
-  const filePath = path.join(__dirname, "sales-data.json");
+  const filePath = path.join(__dirname, "../src/components/examples/sales/sales-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }

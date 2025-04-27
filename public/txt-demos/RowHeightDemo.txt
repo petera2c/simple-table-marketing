@@ -1,5 +1,3 @@
-"use client";
-
 import { useState } from "react";
 import { SimpleTable, HeaderObject, Row } from "simple-table-core";
 import "simple-table-core/styles.css";
