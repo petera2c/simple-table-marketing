@@ -40,7 +40,7 @@ const ConfigurableSidebar: React.FC<ConfigurableSidebarProps> = ({ config, class
             {title}
           </h2>
 
-          <div className="overflow-y-auto flex-grow px-3 pb-2">{sidebarContent}</div>
+          <div className="overflow-y-auto flex-grow px-2 pb-2">{sidebarContent}</div>
 
           {footerContent && (
             <div className="px-3 py-3 border-t border-gray-100 mt-auto">{footerContent}</div>

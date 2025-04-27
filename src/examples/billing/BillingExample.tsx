@@ -11,9 +11,15 @@ import { useExampleHeight } from "@/hooks/useExampleHeight";
 const data = generateBillingData();
 const ROW_HEIGHT = 40;
 
-function BillingExampleContent() {
+function BillingExampleContent({
+  onGridReady,
+  themeOverride,
+}: {
+  onGridReady?: () => void;
+  themeOverride?: Theme;
+}) {
   const searchParams = useSearchParams();
-  const theme = (searchParams.get("theme") as Theme) || "dark";
+  const theme = themeOverride || (searchParams.get("theme") as Theme) || "dark";
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -26,6 +32,7 @@ function BillingExampleContent() {
       defaultHeaders={HEADERS}
       editColumns
       height={containerHeight ? `${containerHeight}px` : "70dvh"}
+      onGridReady={onGridReady}
       rows={data}
       selectableCells
       theme={theme}
@@ -33,10 +40,16 @@ function BillingExampleContent() {
   );
 }
 
-export default function BillingExample() {
+export default function BillingExample({
+  onGridReady,
+  themeOverride,
+}: {
+  onGridReady?: () => void;
+  themeOverride?: Theme;
+}) {
   return (
     <Suspense fallback={<div />}>
-      <BillingExampleContent />
+      <BillingExampleContent onGridReady={onGridReady} themeOverride={themeOverride} />
     </Suspense>
   );
 }

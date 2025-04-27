@@ -85,7 +85,6 @@ interface ThemeConfig {
   selectedFirstCellBackgroundColor: string;
   selectedFirstCellColor: string;
   separatorBorderColor: string;
-  spacingLarge: string;
   spacingMedium: string;
   spacingSmall: string;
   transitionDuration: string;
@@ -93,50 +92,64 @@ interface ThemeConfig {
 }
 
 const defaultTheme: ThemeConfig = {
-  borderColor: "#cbd5e1", // slate-300
+  // Layout/Structure variables
   borderRadius: "4px",
   borderWidth: "1px",
-  buttonActiveBackgroundColor: "#2563eb", // blue-600
-  buttonHoverBackgroundColor: "#f1f5f9", // slate-100
+  cellPadding: "8px",
+
+  // Typography variables
+  fontFamily: '"Inter", sans-serif',
+  fontSize: "0.875rem",
+  fontWeightNormal: 400,
+  fontWeightBold: 600,
+
+  // Animation variables
+  transitionDuration: "0.2s",
+  transitionEase: "ease",
+  opacityDisabled: 0.5,
+
+  // Spacing variables
+  spacingSmall: "4px",
+  spacingMedium: "8px",
+
+  // Scrollbar variables
+  scrollbarBgColor: "#f8fafc", // slate-50
+  scrollbarThumbColor: "#cbd5e1", // slate-300
+
+  // Color variables
+  borderColor: "#cbd5e1", // slate-300
+  oddRowBackgroundColor: "#ffffff", // white
+  evenRowBackgroundColor: "#f8fafc", // slate-50
+  headerBackgroundColor: "#f1f5f9", // slate-100
+  headerLabelColor: "#0f172a", // slate-900
+  draggingBackgroundColor: "#e2e8f0", // slate-200
+  selectedCellBackgroundColor: "#dbeafe", // blue-100
+  selectedFirstCellBackgroundColor: "#eff6ff", // blue-50
+  footerBackgroundColor: "#f8fafc", // slate-50
   cellColor: "#0f172a", // slate-900
   cellOddRowColor: "#1e293b", // slate-800
-  cellPadding: "8px",
+  editCellShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+  selectedCellColor: "#0f172a", // slate-900
+  selectedFirstCellColor: "#0f172a", // slate-900
+  resizeHandleColor: "#94a3b8", // slate-400
+  separatorBorderColor: "#e2e8f0", // slate-200
+  lastGroupRowSeparatorBorderColor: "#94a3b8", // slate-400
   cellFlashColor: "#e2e8f0", // slate-200
+
+  // Border colors
+  selectedBorderTopColor: "#3b82f6", // blue-500
+  selectedBorderBottomColor: "#3b82f6", // blue-500
+  selectedBorderLeftColor: "#3b82f6", // blue-500
+  selectedBorderRightColor: "#3b82f6", // blue-500
+  editableCellFocusBorderColor: "#3b82f6", // blue-500
+
+  // Component-specific colors
   checkboxCheckedBackgroundColor: "#2563eb", // blue-600
   checkboxCheckedBorderColor: "#2563eb", // blue-600
   columnEditorBackgroundColor: "#ffffff", // white
   columnEditorPopoutBackgroundColor: "#ffffff", // white
-  draggingBackgroundColor: "#e2e8f0", // slate-200
-  editCellShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
-  editableCellFocusBorderColor: "#3b82f6", // blue-500
-  evenRowBackgroundColor: "#f8fafc", // slate-50
-  fontFamily: '"Inter", sans-serif',
-  fontSize: "0.875rem",
-  fontWeightBold: 600,
-  fontWeightNormal: 400,
-  footerBackgroundColor: "#f8fafc", // slate-50
-  headerBackgroundColor: "#f1f5f9", // slate-100
-  headerLabelColor: "#0f172a", // slate-900
-  lastGroupRowSeparatorBorderColor: "#94a3b8", // slate-400
-  oddRowBackgroundColor: "#ffffff", // white
-  opacityDisabled: 0.5,
-  resizeHandleColor: "#60a5fa", // blue-400
-  scrollbarBgColor: "#f8fafc", // slate-50
-  scrollbarThumbColor: "#cbd5e1", // slate-300
-  selectedBorderBottomColor: "#3b82f6", // blue-500
-  selectedBorderLeftColor: "#3b82f6", // blue-500
-  selectedBorderRightColor: "#3b82f6", // blue-500
-  selectedBorderTopColor: "#3b82f6", // blue-500
-  selectedCellBackgroundColor: "#dbeafe", // blue-100
-  selectedCellColor: "#0f172a", // slate-900
-  selectedFirstCellBackgroundColor: "#eff6ff", // blue-50
-  selectedFirstCellColor: "#0f172a", // slate-900
-  separatorBorderColor: "#e2e8f0", // slate-200
-  spacingLarge: "16px",
-  spacingMedium: "8px",
-  spacingSmall: "4px",
-  transitionDuration: "0.2s",
-  transitionEase: "ease",
+  buttonHoverBackgroundColor: "#f1f5f9", // slate-100
+  buttonActiveBackgroundColor: "#2563eb", // blue-600
 };
 
 const setThemeToDocument = (theme: ThemeConfig) => {
@@ -324,21 +337,16 @@ export default function ThemeBuilderContent() {
         onToggle={() => toggleSection("layout")}
       >
         <div className="grid grid-cols-2 gap-x-2 gap-y-3">
-          {[
-            "borderRadius",
-            "borderWidth",
-            "cellPadding",
-            "spacingLarge",
-            "spacingMedium",
-            "spacingSmall",
-          ].map((key) => (
-            <ThemeInput
-              key={key}
-              label={shortenLabel(key)}
-              value={theme[key as keyof ThemeConfig]}
-              onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
-            />
-          ))}
+          {["borderRadius", "borderWidth", "cellPadding", "spacingMedium", "spacingSmall"].map(
+            (key) => (
+              <ThemeInput
+                key={key}
+                label={shortenLabel(key)}
+                value={theme[key as keyof ThemeConfig]}
+                onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
+              />
+            )
+          )}
         </div>
       </ExpandableSection>
 

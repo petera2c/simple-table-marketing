@@ -1,51 +1,64 @@
 .custom-theme-container .theme-custom {
-  --st-border-radius: 4px;
+  /* Layout/Structure variables */
+  --st-border-radius: 8px;
   --st-border-width: 1px;
-  --st-cell-padding: 8px;
-  --st-font-size: 0.875rem;
+  --st-cell-padding: 12px;
+
+  /* Typography variables */
+  --st-font-family: "Inter", sans-serif;
+  --st-font-size: 0.95rem;
   --st-font-weight-normal: 400;
   --st-font-weight-bold: 600;
-  --st-transition-duration: 0.2s;
-  --st-transition-ease: ease;
-  --st-opacity-disabled: 0.5;
-  --st-spacing-small: 4px;
-  --st-spacing-medium: 8px;
-  --st-spacing-large: 16px;
-  --st-scrollbar-bg-color: var(--st-slate-50);
-  --st-scrollbar-thumb-color: var(--st-slate-300);
 
-  --st-border-color: red;
-  --st-odd-row-background-color: var(--st-white);
-  --st-even-row-background-color: var(--st-slate-50);
-  --st-header-background-color: var(--st-slate-100);
-  --st-header-label-color: var(
-    --st-slate-900
-  ); /* Added: Dark slate for contrast on light background */
-  --st-dragging-background-color: var(--st-slate-200);
-  --st-selected-cell-background-color: var(--st-blue-100);
-  --st-selected-first-cell-background-color: var(--st-blue-50);
-  --st-footer-background-color: var(--st-slate-50);
-  --st-cell-color: var(--st-slate-900);
-  --st-cell-odd-row-color: var(--st-slate-800);
-  --st-edit-cell-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --st-selected-cell-color: var(--st-slate-900);
-  --st-selected-first-cell-color: var(--st-slate-900);
-  --st-resize-handle-color: var(--st-blue-400);
-  --st-separator-border-color: var(--st-slate-200);
-  --st-last-group-row-separator-border-color: var(--st-slate-400);
-  --st-selected-border-top-color: var(--st-blue-500);
-  --st-selected-border-bottom-color: var(--st-blue-500);
-  --st-selected-border-left-color: var(--st-blue-500);
-  --st-selected-border-right-color: var(--st-blue-500);
-  --st-checkbox-checked-background-color: var(--st-blue-600);
-  --st-checkbox-checked-border-color: var(--st-blue-600);
+  /* Animation variables */
+  --st-transition-duration: 0.25s;
+  --st-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --st-opacity-disabled: 0.6;
+
+  /* Spacing variables */
+  --st-spacing-small: 6px;
+  --st-spacing-medium: 10px;
+  --st-spacing-large: 16px;
+
+  /* Scrollbar variables */
+  --st-scrollbar-bg-color: var(--st-stone-100);
+  --st-scrollbar-thumb-color: var(--st-violet-500);
+
+  /* Color variables */
+  --st-border-color: var(--st-stone-200);
+  --st-odd-row-background-color: var(--st-amber-50);
+  --st-even-row-background-color: var(--st-amber-100);
+  --st-header-background-color: var(--st-violet-600);
+  --st-header-label-color: var(--st-white);
+  --st-dragging-background-color: var(--st-violet-50);
+  --st-selected-cell-background-color: var(--st-violet-50);
+  --st-selected-first-cell-background-color: var(--st-violet-100);
+  --st-footer-background-color: var(--st-stone-100);
+  --st-cell-color: var(--st-stone-700);
+  --st-cell-odd-row-color: var(--st-stone-700);
+  --st-edit-cell-shadow: 0 4px 6px -1px rgba(124, 58, 237, 0.1),
+    0 2px 4px -1px rgba(124, 58, 237, 0.06);
+  --st-selected-cell-color: var(--st-violet-800);
+  --st-selected-first-cell-color: var(--st-violet-800);
+  --st-resize-handle-color: var(--st-violet-400);
+  --st-separator-border-color: var(--st-stone-200);
+  --st-last-group-row-separator-border-color: var(--st-stone-300);
+
+  /* Border colors */
+  --st-selected-border-top-color: var(--st-violet-500);
+  --st-selected-border-bottom-color: var(--st-violet-500);
+  --st-selected-border-left-color: var(--st-violet-500);
+  --st-selected-border-right-color: var(--st-violet-500);
+  --st-editable-cell-focus-border-color: var(--st-violet-500);
+
+  /* Component-specific colors */
+  --st-checkbox-checked-background-color: var(--st-violet-500);
+  --st-checkbox-checked-border-color: var(--st-violet-600);
   --st-column-editor-background-color: var(--st-white);
   --st-column-editor-popout-background-color: var(--st-white);
-  --st-button-hover-background-color: var(--st-slate-100);
-  --st-button-active-background-color: var(--st-blue-600);
-  --st-font-family: "Inter", sans-serif;
-  --st-editable-cell-focus-border-color: var(--st-blue-500);
-  --st-cell-flash-color: var(--st-slate-200);
+  --st-button-hover-background-color: var(--st-violet-50);
+  --st-button-active-background-color: var(--st-violet-600);
+  --st-cell-flash-color: var(--st-violet-200);
 }
 
 /* Custom styles for table headers */
