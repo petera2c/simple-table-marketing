@@ -75,7 +75,6 @@ const QuickStartContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -88,7 +87,7 @@ const QuickStartContent = () => {
       </motion.div>
 
       <motion.div
-        className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-8"
+        className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.9 }}

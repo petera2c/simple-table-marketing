@@ -88,7 +88,6 @@ export default function NestedHeadersContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}

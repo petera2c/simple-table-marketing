@@ -147,7 +147,6 @@ const CellRendererContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
@@ -175,7 +174,7 @@ const CellRendererContent = () => {
           </li>
         </ul>
 
-        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
+        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm">
           <h3 className="font-bold text-gray-800 mb-2">Important Notes</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>Each column can have its own unique renderer</li>

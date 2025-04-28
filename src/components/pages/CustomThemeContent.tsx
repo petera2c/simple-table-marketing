@@ -104,7 +104,6 @@ export default function CustomThemeContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
@@ -113,29 +112,8 @@ export default function CustomThemeContent() {
           Here are the CSS variables used to create the custom theme in the demo above:
         </p>
 
-        <CodeBlock demoCodeFilename="custom-theme/CustomTheme.txt" />
+        <CodeBlock className="mb-0" demoCodeFilename="custom-theme/CustomTheme.txt" />
       </motion.div>
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Component Implementation
-      </motion.h2>
-
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 mb-4">
-          Here's how to apply a custom theme to your SimpleTable component:
-        </p>
-        <CodeBlock demoCodeFilename="custom-theme/CustomTheme.txt" />
-      </motion.div>
-
       <DocNavigationButtons />
     </>
   );

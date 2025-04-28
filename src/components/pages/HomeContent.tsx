@@ -99,7 +99,7 @@ export default function HomeContent() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero section */}
-        <section className="relative py-12">
+        <section className="relative pb-12">
           {/* Hero content with animations */}
           <motion.div
             className="relative z-10 text-center px-4"
@@ -161,7 +161,7 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Suspense fallback={<div />}>
-            <FinancialExample themeOverride="light" height="50dvh" />
+            <FinancialExample themeOverride="light" height="70dvh" />
           </Suspense>
         </motion.section>
 

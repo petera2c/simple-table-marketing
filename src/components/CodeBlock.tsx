@@ -19,7 +19,7 @@ interface CodeBlockProps {
 }
 
 const CodeBlock = ({
-  className = "",
+  className = "mb-6",
   code = "",
   demoCodeFilename = "",
   initialTheme = "dark",
@@ -78,7 +78,7 @@ const CodeBlock = ({
   const filename = extractFilename();
 
   return (
-    <div className={`rounded-md mb-6 overflow-hidden shadow-lg relative ${className}`}>
+    <div className={`rounded-md overflow-hidden shadow-lg relative ${className}`}>
       <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-gray-400 text-xs">
         <div className="flex items-center gap-2">
           <span>{getLanguageDisplayName()}</span>

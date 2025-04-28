@@ -113,7 +113,6 @@ const RowGroupingContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -125,7 +124,7 @@ const RowGroupingContent = () => {
           an example:
         </p>
 
-        <div className="bg-gray-50 p-4 rounded-lg mb-4">
+        <div className="bg-gray-50 p-4 rounded-lg">
           <pre className="text-sm text-gray-700">
             {`{
   rowMeta: { 

@@ -92,7 +92,6 @@ const ColumnAlignmentContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -101,7 +100,7 @@ const ColumnAlignmentContent = () => {
           Consider these guidelines for optimal column alignment:
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-white p-4 border border-gray-200 rounded-lg shadow-sm">
             <h3 className="font-semibold text-gray-800 mb-2">Text Content</h3>
             <p className="text-gray-700">

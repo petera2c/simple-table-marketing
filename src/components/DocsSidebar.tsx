@@ -125,7 +125,6 @@ const subsectionIcons: Record<string, IconDefinition> = {
   "cell-renderer": faCode,
   "column-alignment": faAlignLeft,
   "column-pinning": faThumbtack,
-  "column-properties": faList,
   "column-resizing": faLeftRight,
   "column-sorting": faSort,
   "column-visibility": faEye,

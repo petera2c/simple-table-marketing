@@ -53,7 +53,6 @@ export default function CellEditingContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -75,7 +74,7 @@ export default function CellEditingContent() {
 
         <CodeBlock demoCodeFilename="CellEditingDemo.txt" />
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
+        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
           <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>

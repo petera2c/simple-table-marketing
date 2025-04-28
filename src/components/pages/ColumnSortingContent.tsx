@@ -93,12 +93,11 @@ const ColumnSortingContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700">
           You can provide a custom sort function using the{" "}
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortFn</code> property.
           This allows you to implement complex sorting logic for your data.

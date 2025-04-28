@@ -3,6 +3,9 @@
 import { useMemo } from "react";
 import { motion } from "framer-motion";
 import { usePathname } from "next/navigation";
+import { Button } from "antd";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 // This should match the structure in DocsLayout.tsx
 const docNavigation = [
@@ -11,7 +14,6 @@ const docNavigation = [
   { id: "quick-start", path: "/docs/quick-start" },
 
   // Column Features
-  { id: "column-properties", path: "/docs/column-properties" },
   { id: "column-resizing", path: "/docs/column-resizing" },
   { id: "column-reordering", path: "/docs/column-reordering" },
   { id: "column-visibility", path: "/docs/column-visibility" },
@@ -87,52 +89,29 @@ const DocNavigationButtons = () => {
 
   return (
     <motion.div
-      className="flex justify-between mt-12 pt-4 border-t border-gray-200"
+      className="flex justify-between mt-4 pt-4 border-t border-gray-200"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.9 }}
     >
       {prevPage ? (
-        <a
+        <Button
+          type="default"
           href={prevPage.path}
-          className="flex items-center gap-2 px-4 py-2 text-blue-600 hover:text-blue-800 transition-colors rounded-lg border border-transparent hover:border-blue-200 hover:bg-blue-50"
+          icon={<FontAwesomeIcon icon={faChevronLeft} />}
+          className="flex items-center"
         >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M15 19l-7-7 7-7"
-            />
-          </svg>
           Previous: {pathToLabel[prevPage.path]}
-        </a>
+        </Button>
       ) : (
         <span></span>
       )}
 
       {nextPage && (
-        <a
-          href={nextPage.path}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors shadow-sm"
-        >
+        <Button type="primary" href={nextPage.path} className="flex items-center">
           Next: {pathToLabel[nextPage.path]}
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-4 w-4"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-          </svg>
-        </a>
+          <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
+        </Button>
       )}
     </motion.div>
   );

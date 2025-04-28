@@ -766,6 +766,14 @@ video {
   margin-top: 0.75rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.mb-0 {
+  margin-bottom: 0px;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -1625,6 +1633,10 @@ video {
 
 .pt-1 {
   padding-top: 0.25rem;
+}
+
+.pb-12 {
+  padding-bottom: 3rem;
 }
 
 .text-left {

@@ -125,13 +125,12 @@ const PaginationContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 mb-4">When pagination is enabled, Simple Table provides:</p>
-        <ul className="list-disc pl-8 space-y-2 text-gray-700 mb-6">
+        <ul className="list-disc pl-8 space-y-2 text-gray-700">
           <li>Automatic page navigation controls</li>
           <li>Page size selection</li>
           <li>Current page indicator</li>

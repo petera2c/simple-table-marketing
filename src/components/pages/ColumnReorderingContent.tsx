@@ -111,7 +111,6 @@ export default function ColumnReorderingContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -122,7 +121,7 @@ export default function ColumnReorderingContent() {
           customizable table experience.
         </p>
 
-        <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg shadow-sm mb-6">
+        <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg shadow-sm">
           <h3 className="font-bold text-gray-800 mb-2">Best Practice</h3>
           <p className="text-gray-700">
             When using column reordering with pinned columns, pinned columns will remain in their
