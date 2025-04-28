@@ -1639,6 +1639,14 @@ video {
   padding-bottom: 3rem;
 }
 
+.pt-\[12vh\] {
+  padding-top: 12vh;
+}
+
+.pt-\[12dvh\] {
+  padding-top: 12dvh;
+}
+
 .text-left {
   text-align: left;
 }

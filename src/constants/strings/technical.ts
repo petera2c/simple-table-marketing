@@ -11,14 +11,7 @@ import "simple-table-core/styles.css";`,
       light: `/* light theme */
 .theme-custom {
   --st-border-radius: 4px;
-  --st-border-width: 1px;
   --st-cell-padding: 8px;
-  --st-font-size: 0.875rem;
-  --st-font-weight-normal: 400;
-  --st-font-weight-bold: 600;
-  --st-transition-duration: 0.2s;
-  --st-transition-ease: ease;
-  --st-opacity-disabled: 0.5;
   --st-spacing-small: 4px;
   --st-spacing-medium: 8px;
   --st-scrollbar-bg-color: transparent;
@@ -47,7 +40,6 @@ import "simple-table-core/styles.css";`,
   --st-column-editor-popout-background-color: var(--white);
   --st-button-hover-background-color: var(--gray-200);
   --st-button-active-background-color: var(--blue-800);
-  --st-font-family: "Roboto", sans-serif;
   --st-editable-cell-focus-border-color: var(--blue-600);
 }`,
     },

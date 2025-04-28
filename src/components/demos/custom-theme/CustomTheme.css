@@ -1,19 +1,7 @@
 .custom-theme-container .theme-custom {
   /* Layout/Structure variables */
   --st-border-radius: 8px;
-  --st-border-width: 1px;
   --st-cell-padding: 12px;
-
-  /* Typography variables */
-  --st-font-family: "Inter", sans-serif;
-  --st-font-size: 0.95rem;
-  --st-font-weight-normal: 400;
-  --st-font-weight-bold: 600;
-
-  /* Animation variables */
-  --st-transition-duration: 0.25s;
-  --st-transition-ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --st-opacity-disabled: 0.6;
 
   /* Spacing variables */
   --st-spacing-small: 6px;

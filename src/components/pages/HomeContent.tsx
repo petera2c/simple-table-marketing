@@ -97,7 +97,7 @@ export default function HomeContent() {
     <>
       {/* Page-wide animated background */}
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[12dvh]">
         {/* Hero section */}
         <section className="relative pb-12">
           {/* Hero content with animations */}

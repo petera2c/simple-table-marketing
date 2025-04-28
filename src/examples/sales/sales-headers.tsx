@@ -20,19 +20,21 @@ export const SALES_HEADERS: HeaderObject[] = [
     width: "2fr",
     minWidth: 200,
     isSortable: true,
+    isEditable: true,
   },
   {
     accessor: "salesMetrics",
     label: "Sales Metrics",
     width: 460,
     isSortable: false,
+    isEditable: true,
     children: [
       {
         accessor: "dealSize",
         label: "Deal Size",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -49,7 +51,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         label: "Deal Value",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -78,7 +80,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         label: "Status",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "center",
         type: "boolean",
         cellRenderer: ({ row }) => {
@@ -106,7 +108,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         label: "Commission",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -125,7 +127,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         label: "Profit Margin",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -160,7 +162,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         label: "Deal Profit",
         width: "1fr",
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {

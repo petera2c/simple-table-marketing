@@ -11,30 +11,58 @@ import { useExampleHeight } from "@/hooks/useExampleHeight";
 
 const ROW_HEIGHT = 40;
 
-function SalesExampleContent() {
+function SalesExampleContent({
+  shouldPaginate,
+  themeOverride,
+  onGridReady,
+}: {
+  shouldPaginate: boolean;
+  themeOverride?: Theme;
+  onGridReady?: () => void;
+}) {
   const searchParams = useSearchParams();
-  const theme = (searchParams.get("theme") as Theme) || "light";
+  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
   const containerHeight = useExampleHeight({
-    isUsingPagination: false,
+    isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
   });
+  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
+
   return (
     <SimpleTable
       columnResizing
       columnReordering
       defaultHeaders={SALES_HEADERS}
+      editColumns
+      onGridReady={onGridReady}
       rows={data as Row[]}
-      height={containerHeight ? `${containerHeight}px` : "70dvh"}
       theme={theme}
       selectableCells
+      {...(shouldPaginate
+        ? { rowsPerPage: howManyRowsCanFit, shouldPaginate }
+        : {
+            height: containerHeight ? `${containerHeight}px` : "70dvh",
+          })}
     />
   );
 }
 
-export const SalesExample = () => {
+export const SalesExample = ({
+  shouldPaginate = true,
+  themeOverride,
+  onGridReady,
+}: {
+  shouldPaginate?: boolean;
+  themeOverride?: Theme;
+  onGridReady?: () => void;
+}) => {
   return (
     <Suspense fallback={<div />}>
-      <SalesExampleContent />
+      <SalesExampleContent
+        shouldPaginate={shouldPaginate}
+        themeOverride={themeOverride}
+        onGridReady={onGridReady}
+      />
     </Suspense>
   );
 };

@@ -28,6 +28,7 @@ import BillingExample from "../../examples/billing/BillingExample";
 
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import { SalesExample } from "@/examples/sales/SalesExample";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.themeBuilder.title,
@@ -48,7 +49,6 @@ export const metadata: Metadata = {
 interface ThemeConfig {
   borderColor: string;
   borderRadius: string;
-  borderWidth: string;
   buttonActiveBackgroundColor: string;
   buttonHoverBackgroundColor: string;
   cellColor: string;
@@ -63,16 +63,11 @@ interface ThemeConfig {
   editCellShadow: string;
   editableCellFocusBorderColor: string;
   evenRowBackgroundColor: string;
-  fontFamily: string;
-  fontSize: string;
-  fontWeightBold: number;
-  fontWeightNormal: number;
   footerBackgroundColor: string;
   headerBackgroundColor: string;
   headerLabelColor: string;
   lastGroupRowSeparatorBorderColor: string;
   oddRowBackgroundColor: string;
-  opacityDisabled: number;
   resizeHandleColor: string;
   scrollbarBgColor: string;
   scrollbarThumbColor: string;
@@ -84,26 +79,12 @@ interface ThemeConfig {
   separatorBorderColor: string;
   spacingMedium: string;
   spacingSmall: string;
-  transitionDuration: string;
-  transitionEase: string;
 }
 
 const defaultTheme: ThemeConfig = {
   // Layout/Structure variables
   borderRadius: "4px",
-  borderWidth: "1px",
   cellPadding: "8px",
-
-  // Typography variables
-  fontFamily: '"Inter", sans-serif',
-  fontSize: "0.875rem",
-  fontWeightNormal: 400,
-  fontWeightBold: 600,
-
-  // Animation variables
-  transitionDuration: "0.2s",
-  transitionEase: "ease",
-  opacityDisabled: 0.5,
 
   // Spacing variables
   spacingSmall: "4px",
@@ -230,6 +211,7 @@ export default function ThemeBuilderContent() {
       "cellOddRowColor",
       "evenRowBackgroundColor",
       "oddRowBackgroundColor",
+      "cellFlashColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.selection]: [
       "selectedBorderColor",
@@ -301,25 +283,6 @@ export default function ThemeBuilderContent() {
         ))}
       </ExpandableSection>
 
-      {/* Typography Settings */}
-      <ExpandableSection
-        title={UI_STRINGS.themeBuilder.categories.typography}
-        icon={faCode}
-        expanded={expandedSections["typography"]}
-        onToggle={() => toggleSection("typography")}
-      >
-        <div className="grid grid-cols-1 gap-y-4 mb-2">
-          {["fontFamily", "fontSize", "fontWeightBold", "fontWeightNormal"].map((key, index) => (
-            <ThemeInput
-              key={index}
-              label={shortenLabel(key)}
-              value={theme[key as keyof ThemeConfig]}
-              onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
-            />
-          ))}
-        </div>
-      </ExpandableSection>
-
       {/* Layout Settings */}
       <ExpandableSection
         title={UI_STRINGS.themeBuilder.categories.spacing}
@@ -328,16 +291,14 @@ export default function ThemeBuilderContent() {
         onToggle={() => toggleSection("layout")}
       >
         <div className="grid grid-cols-1 gap-y-4 mb-2">
-          {["borderRadius", "borderWidth", "cellPadding", "spacingMedium", "spacingSmall"].map(
-            (key) => (
-              <ThemeInput
-                key={key}
-                label={shortenLabel(key)}
-                value={theme[key as keyof ThemeConfig]}
-                onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
-              />
-            )
-          )}
+          {["borderRadius", "cellPadding", "spacingMedium", "spacingSmall"].map((key) => (
+            <ThemeInput
+              key={key}
+              label={shortenLabel(key)}
+              value={theme[key as keyof ThemeConfig]}
+              onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
+            />
+          ))}
         </div>
       </ExpandableSection>
 
@@ -349,16 +310,14 @@ export default function ThemeBuilderContent() {
         onToggle={() => toggleSection("effects")}
       >
         <div className="grid grid-cols-1 gap-y-4 mb-2">
-          {["editCellShadow", "opacityDisabled", "transitionDuration", "transitionEase"].map(
-            (key) => (
-              <ThemeInput
-                key={key}
-                label={shortenLabel(key)}
-                value={theme[key as keyof ThemeConfig]}
-                onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
-              />
-            )
-          )}
+          {["editCellShadow"].map((key) => (
+            <ThemeInput
+              key={key}
+              label={shortenLabel(key)}
+              value={theme[key as keyof ThemeConfig]}
+              onChange={(value) => handleValueChange(key as keyof ThemeConfig)(value)}
+            />
+          ))}
         </div>
       </ExpandableSection>
     </div>
@@ -395,10 +354,11 @@ export default function ThemeBuilderContent() {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
         {UI_STRINGS.themeBuilder.sections.livePreview}
       </h1>
-      <BillingExample
+      <SalesExample
         onGridReady={() => {
           setThemeToDocument(theme);
         }}
+        shouldPaginate
         themeOverride="custom"
       />
     </PageLayout>
