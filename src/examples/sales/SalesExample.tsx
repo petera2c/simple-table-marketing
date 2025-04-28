@@ -12,13 +12,13 @@ import { useExampleHeight } from "@/hooks/useExampleHeight";
 const ROW_HEIGHT = 40;
 
 function SalesExampleContent({
+  onGridReady,
   shouldPaginate,
   themeOverride,
-  onGridReady,
 }: {
+  onGridReady?: () => void;
   shouldPaginate: boolean;
   themeOverride?: Theme;
-  onGridReady?: () => void;
 }) {
   const searchParams = useSearchParams();
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
@@ -48,13 +48,13 @@ function SalesExampleContent({
 }
 
 export const SalesExample = ({
+  onGridReady,
   shouldPaginate = true,
   themeOverride,
-  onGridReady,
 }: {
+  onGridReady?: () => void;
   shouldPaginate?: boolean;
   themeOverride?: Theme;
-  onGridReady?: () => void;
 }) => {
   return (
     <Suspense fallback={<div />}>

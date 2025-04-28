@@ -18,5 +18,5 @@ export const metadata: Metadata = {
 };
 
 export default function SalesPage() {
-  return <SalesExample />;
+  return <SalesExample shouldPaginate={false} />;
 }
