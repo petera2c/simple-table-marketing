@@ -68,8 +68,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <ClientLayout>{children}</ClientLayout>
         </ConfigProvider>
+        <Analytics />
       </body>
-      <Analytics />
     </html>
   );
 }

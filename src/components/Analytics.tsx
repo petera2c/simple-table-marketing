@@ -1,9 +1,8 @@
-import Head from "next/head";
 import Script from "next/script";
 
 export function Analytics() {
   return (
-    <Head>
+    <>
       {/* Google Analytics */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-HS01JZP3DM`}
@@ -19,7 +18,7 @@ export function Analytics() {
       </Script>
 
       {/* Hotjar */}
-      <Script id="hotjar">
+      <Script id="hotjar" strategy="afterInteractive">
         {`
           (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -45,6 +44,6 @@ export function Analytics() {
           referrerPolicy="no-referrer-when-downgrade"
         />
       </noscript>
-    </Head>
+    </>
   );
 }
