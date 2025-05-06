@@ -34,7 +34,7 @@ export const HEADERS: HeaderObject[] = [
         label: "Price (USD)",
         width: 140,
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -82,7 +82,7 @@ export const HEADERS: HeaderObject[] = [
         label: "Mkt Cap ($B)",
         width: 140,
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
       },
@@ -91,7 +91,7 @@ export const HEADERS: HeaderObject[] = [
         label: "P/E Ratio",
         width: 140,
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
@@ -104,13 +104,65 @@ export const HEADERS: HeaderObject[] = [
         label: "Div Yield",
         width: 140,
         isSortable: true,
-        isEditable: false,
+        isEditable: true,
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
           if (row.rowData.dividendYield === "—" || row.rowData.dividendYield === null) return "—";
           return `${(row.rowData.dividendYield as number).toFixed(2)}%`;
         },
+      },
+    ],
+  },
+  {
+    accessor: "analystInfo",
+    label: "Analyst Information",
+    width: 380,
+    isSortable: false,
+    children: [
+      {
+        accessor: "analystRating",
+        label: "Rating",
+        width: 140,
+        isSortable: true,
+        isEditable: true,
+        align: "center",
+        type: "enum",
+        enumOptions: ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"],
+        cellRenderer: ({ row }) => {
+          if (!row.rowData.analystRating) return "—";
+          const rating = row.rowData.analystRating as string;
+          const colorMap: Record<string, string> = {
+            "Strong Buy": "text-green-600 bg-green-50",
+            Buy: "text-green-500 bg-green-50",
+            Hold: "text-amber-600 bg-amber-50",
+            Sell: "text-red-500 bg-red-50",
+            "Strong Sell": "text-red-600 bg-red-50",
+          };
+          return (
+            <div className={`px-2 py-1 rounded font-medium ${colorMap[rating] || ""}`}>
+              {rating}
+            </div>
+          );
+        },
+      },
+      {
+        accessor: "date",
+        label: "Date",
+        width: 140,
+        isSortable: true,
+        isEditable: true,
+        align: "center",
+        type: "date",
+      },
+      {
+        accessor: "isFollowed",
+        label: "Following",
+        width: 140,
+        isSortable: true,
+        isEditable: true,
+        align: "center",
+        type: "boolean",
       },
     ],
   },

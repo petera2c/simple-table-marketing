@@ -1,16 +1,42 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-import { useEffect, useRef, Suspense } from "react";
-import { SimpleTable, TableRefType } from "simple-table-core";
+import { useEffect, useRef, Suspense, useState } from "react";
+import { SimpleTable, TableRefType, CellChangeProps } from "simple-table-core";
 import { Theme } from "simple-table-core";
 
 import "simple-table-core/styles.css";
 import { HEADERS } from "./finance-headers";
-import data from "./finance-data.json";
+import rawData from "./finance-data.json";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 
 const ROW_HEIGHT = 40;
+
+// Process data to add analyst ratings and dates
+const processedData = rawData.map((item: any) => {
+  // Randomly assign one of the analyst ratings
+  const ratings = ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"];
+  const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
+
+  // Generate a random date from the past 30 days
+  const today = new Date();
+  const pastDate = new Date(today);
+  pastDate.setDate(today.getDate() - Math.floor(Math.random() * 30));
+  const dateString = pastDate.toISOString().split("T")[0];
+
+  // 70% chance of following a stock
+  const isFollowed = Math.random() < 0.7;
+
+  return {
+    ...item,
+    rowData: {
+      ...item.rowData,
+      analystRating: randomRating,
+      date: dateString,
+      isFollowed: isFollowed,
+    },
+  };
+});
 
 function FinancialExampleContent({
   height,
@@ -26,6 +52,7 @@ function FinancialExampleContent({
   });
   const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
+  const [data, setData] = useState(processedData);
   const tableRef = useRef<TableRefType | null>(null);
 
   useEffect(() => {
@@ -89,7 +116,25 @@ function FinancialExampleContent({
     }, 50);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [data]);
+
+  // Handle cell edit
+  const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
+    setData((prevData) =>
+      prevData.map((item: any) => {
+        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+          return {
+            ...item,
+            rowData: {
+              ...item.rowData,
+              [accessor]: newValue,
+            },
+          };
+        }
+        return item;
+      })
+    );
+  };
 
   return (
     <SimpleTable
@@ -102,6 +147,7 @@ function FinancialExampleContent({
       selectableCells
       tableRef={tableRef}
       theme={theme}
+      onCellEdit={handleCellEdit}
     />
   );
 }

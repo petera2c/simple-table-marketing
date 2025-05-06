@@ -21,13 +21,13 @@ export const SALES_HEADERS: HeaderObject[] = [
     minWidth: 200,
     isSortable: true,
     isEditable: true,
+    type: "string",
   },
   {
     accessor: "salesMetrics",
     label: "Sales Metrics",
-    width: 460,
+    width: 600,
     isSortable: false,
-    isEditable: true,
     children: [
       {
         accessor: "dealSize",
@@ -46,7 +46,6 @@ export const SALES_HEADERS: HeaderObject[] = [
           })}`;
         },
       },
-
       {
         accessor: "dealValue",
         label: "Deal Value",
@@ -97,9 +96,32 @@ export const SALES_HEADERS: HeaderObject[] = [
           );
         },
       },
+      {
+        accessor: "closeDate",
+        label: "Close Date",
+        width: "1fr",
+        minWidth: 140,
+        isSortable: true,
+        isEditable: true,
+        align: "center",
+        type: "date",
+        cellRenderer: ({ row }) => {
+          if (!row.rowData.closeDate) return "—";
+          const date = new Date(row.rowData.closeDate as string);
+          return (
+            <div className="flex items-center justify-center">
+              <FontAwesomeIcon icon={faCalendarAlt} className="mr-2 text-gray-500" />
+              {date.toLocaleDateString("en-US", {
+                month: "short",
+                day: "numeric",
+                year: "numeric",
+              })}
+            </div>
+          );
+        },
+      },
     ],
   },
-
   {
     accessor: "financialMetrics",
     label: "Financial Metrics",
@@ -193,6 +215,17 @@ export const SALES_HEADERS: HeaderObject[] = [
             </span>
           );
         },
+      },
+      {
+        accessor: "category",
+        label: "Category",
+        width: "1fr",
+        minWidth: 140,
+        isSortable: true,
+        isEditable: true,
+        align: "center",
+        type: "enum",
+        enumOptions: ["Software", "Hardware", "Services", "Consulting", "Training", "Support"],
       },
     ],
   },

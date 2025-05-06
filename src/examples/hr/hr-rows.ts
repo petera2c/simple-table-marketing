@@ -2,7 +2,15 @@ import { Row } from "simple-table-core";
 
 // Generate HR employee data
 export const generateHRData = (): Row[] => {
-  const departments = ["Engineering", "Marketing", "Sales", "Finance", "HR", "Operations", "Customer Support"];
+  const departments = [
+    "Engineering",
+    "Marketing",
+    "Sales",
+    "Finance",
+    "HR",
+    "Operations",
+    "Customer Support",
+  ];
   const positions = [
     "Manager",
     "Senior",
@@ -118,7 +126,16 @@ export const generateHRData = (): Row[] => {
     "Parker",
     "Evans",
   ];
-  const locations = ["New York", "Los Angeles", "Chicago", "San Francisco", "Austin", "Boston", "Seattle", "Remote"];
+  const locations = [
+    "New York",
+    "Los Angeles",
+    "Chicago",
+    "San Francisco",
+    "Austin",
+    "Boston",
+    "Seattle",
+    "Remote",
+  ];
   const statuses = ["Active", "On Leave", "Probation", "Contract", "Terminated"];
 
   let rowId = 0;
@@ -154,7 +171,9 @@ export const generateHRData = (): Row[] => {
     const hireYear = currentYear - Math.floor(Math.random() * 10);
     const hireMonth = Math.floor(Math.random() * 12) + 1;
     const hireDay = Math.floor(Math.random() * 28) + 1;
-    const hireDate = `${hireYear}-${hireMonth.toString().padStart(2, "0")}-${hireDay.toString().padStart(2, "0")}`;
+    const hireDate = `${hireYear}-${hireMonth.toString().padStart(2, "0")}-${hireDay
+      .toString()
+      .padStart(2, "0")}`;
 
     // Calculate years of service based on hire date
     const yearsOfService = (
@@ -167,6 +186,10 @@ export const generateHRData = (): Row[] => {
 
     // Random location
     const location = locations[Math.floor(Math.random() * locations.length)];
+
+    // Determine if remote eligible (more likely if in engineering or marketing)
+    const isRemoteEligible =
+      Math.random() < (department === "Engineering" || department === "Marketing" ? 0.8 : 0.4);
 
     rows.push({
       rowMeta: { rowId: rowId++ },
@@ -198,6 +221,7 @@ export const generateHRData = (): Row[] => {
         performanceScore,
         location,
         status,
+        isRemoteEligible,
       },
     });
   }
