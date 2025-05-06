@@ -5,13 +5,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 579.73,
-      "isWon": true,
-      "commission": 548.42,
-      "dealProfit": 3889.99,
-      "dealValue": 6377.03,
-      "profitMargin": 0.61
+      "repName": "Sarah Martinez",
+      "dealSize": 360.55,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 54443.05,
+      "profitMargin": 0.76,
+      "closeDate": "2025-04-07",
+      "category": "Services"
     }
   },
   {
@@ -20,13 +22,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 342.04,
-      "isWon": true,
-      "commission": 260.98,
-      "dealProfit": 1843.6,
-      "dealValue": 2394.28,
-      "profitMargin": 0.77
+      "repName": "Sophie Dubois",
+      "dealSize": 3349.47,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 23446.29,
+      "profitMargin": 0.37,
+      "closeDate": "2025-04-22",
+      "category": "Training"
     }
   },
   {
@@ -35,13 +39,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 323.51,
+      "repName": "Thomas Müller",
+      "dealSize": 27335.14,
       "isWon": true,
-      "commission": 120.35,
-      "dealProfit": 592.02,
-      "dealValue": 970.53,
-      "profitMargin": 0.61
+      "commission": 5521.7,
+      "dealProfit": 26788.44,
+      "dealValue": 54670.28,
+      "profitMargin": 0.49,
+      "closeDate": "2025-03-25",
+      "category": "Consulting"
     }
   },
   {
@@ -50,13 +56,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 24850.37,
-      "isWon": true,
-      "commission": 6858.7,
-      "dealProfit": 30565.96,
-      "dealValue": 74551.11,
-      "profitMargin": 0.41
+      "repName": "Mateo Lopez",
+      "dealSize": 8949.39,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 178987.8,
+      "profitMargin": 0.25,
+      "closeDate": "2025-04-15",
+      "category": "Software"
     }
   },
   {
@@ -65,13 +73,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 7461.35,
-      "isWon": true,
-      "commission": 6864.44,
-      "dealProfit": 17161.1,
-      "dealValue": 74613.5,
-      "profitMargin": 0.23
+      "repName": "James Wilson",
+      "dealSize": 8280.97,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 124214.55,
+      "profitMargin": 0.34,
+      "closeDate": "2025-04-21",
+      "category": "Hardware"
     }
   },
   {
@@ -80,13 +90,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 395.17,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 14226.12,
-      "profitMargin": 0.63
+      "repName": "Sarah Martinez",
+      "dealSize": 303.62,
+      "isWon": true,
+      "commission": 5678.91,
+      "dealProfit": 32957.95,
+      "dealValue": 50704.54,
+      "profitMargin": 0.65,
+      "closeDate": "2025-04-08",
+      "category": "Consulting"
     }
   },
   {
@@ -95,13 +107,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 9940.11,
+      "repName": "Thomas Müller",
+      "dealSize": 6113.46,
       "isWon": true,
-      "commission": 9443.1,
-      "dealProfit": 17892.2,
-      "dealValue": 99401.1,
-      "profitMargin": 0.18
+      "commission": 9261.89,
+      "dealProfit": 42182.87,
+      "dealValue": 91701.9,
+      "profitMargin": 0.46,
+      "closeDate": "2025-02-25",
+      "category": "Services"
     }
   },
   {
@@ -110,13 +124,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 9305.58,
+      "repName": "Liu Wei",
+      "dealSize": 317.82,
       "isWon": true,
-      "commission": 2735.84,
-      "dealProfit": 13679.2,
-      "dealValue": 27916.74,
-      "profitMargin": 0.49
+      "commission": 1200.09,
+      "dealProfit": 8034.49,
+      "dealValue": 10170.24,
+      "profitMargin": 0.79,
+      "closeDate": "2025-02-24",
+      "category": "Services"
     }
   },
   {
@@ -125,13 +141,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 9271.56,
-      "isWon": true,
-      "commission": 5618.57,
-      "dealProfit": 14463.63,
-      "dealValue": 55629.36,
-      "profitMargin": 0.26
+      "repName": "Jessica Lee",
+      "dealSize": 8666.34,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 60664.38,
+      "profitMargin": 0.26,
+      "closeDate": "2025-02-12",
+      "category": "Training"
     }
   },
   {
@@ -140,13 +158,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 7465.56,
-      "isWon": true,
-      "commission": 7764.18,
-      "dealProfit": 17170.79,
-      "dealValue": 74655.6,
-      "profitMargin": 0.23
+      "repName": "Thomas Müller",
+      "dealSize": 376.35,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 58334.25,
+      "profitMargin": 0.75,
+      "closeDate": "2025-04-25",
+      "category": "Training"
     }
   },
   {
@@ -155,13 +175,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 2688.76,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 11062.23,
       "isWon": true,
-      "commission": 3215.76,
-      "dealProfit": 22370.48,
-      "dealValue": 34953.88,
-      "profitMargin": 0.64
+      "commission": 1050.91,
+      "dealProfit": 3650.54,
+      "dealValue": 11062.23,
+      "profitMargin": 0.33,
+      "closeDate": "2025-04-30",
+      "category": "Hardware"
     }
   },
   {
@@ -170,13 +192,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 2332.47,
-      "isWon": true,
-      "commission": 1772.68,
-      "dealProfit": 10636.06,
-      "dealValue": 18659.76,
-      "profitMargin": 0.57
+      "repName": "Thomas Müller",
+      "dealSize": 25353.14,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 50706.28,
+      "profitMargin": 0.33,
+      "closeDate": "2025-04-08",
+      "category": "Hardware"
     }
   },
   {
@@ -185,13 +209,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 1815.68,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 100.93,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 25419.52,
-      "profitMargin": 0.74
+      "dealValue": 13625.55,
+      "profitMargin": 0.71,
+      "closeDate": "2025-05-03",
+      "category": "Software"
     }
   },
   {
@@ -200,13 +226,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 527.45,
+      "repName": "Sophie Dubois",
+      "dealSize": 338.76,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 37448.95,
-      "profitMargin": 0.64
+      "dealValue": 5758.92,
+      "profitMargin": 0.73,
+      "closeDate": "2025-04-15",
+      "category": "Services"
     }
   },
   {
@@ -215,13 +243,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 127.98,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 14589.72,
-      "profitMargin": 0.73
+      "repName": "David Thompson",
+      "dealSize": 8429.43,
+      "isWon": true,
+      "commission": 10503.07,
+      "dealProfit": 25962.64,
+      "dealValue": 118012.02,
+      "profitMargin": 0.22,
+      "closeDate": "2025-05-02",
+      "category": "Consulting"
     }
   },
   {
@@ -230,13 +260,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 3588.41,
-      "isWon": true,
-      "commission": 4790.53,
-      "dealProfit": 16686.11,
-      "dealValue": 53826.15,
-      "profitMargin": 0.31
+      "repName": "Akira Tanaka",
+      "dealSize": 2458.22,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 22123.98,
+      "profitMargin": 0.54,
+      "closeDate": "2025-03-26",
+      "category": "Software"
     }
   },
   {
@@ -245,13 +277,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 352.5,
-      "isWon": true,
-      "commission": 3668.11,
-      "dealProfit": 23039.4,
-      "dealValue": 30315,
-      "profitMargin": 0.76
+      "repName": "Carlos Rodriguez",
+      "dealSize": 138.06,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 14082.12,
+      "profitMargin": 0.7,
+      "closeDate": "2025-02-28",
+      "category": "Hardware"
     }
   },
   {
@@ -260,13 +294,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 618.9,
-      "isWon": true,
-      "commission": 10355.43,
-      "dealProfit": 65157.79,
-      "dealValue": 116353.2,
-      "profitMargin": 0.56
+      "repName": "Carlos Rodriguez",
+      "dealSize": 9580.25,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 19160.5,
+      "profitMargin": 0.4,
+      "closeDate": "2025-03-13",
+      "category": "Software"
     }
   },
   {
@@ -275,13 +311,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 134.76,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 4447.08,
-      "profitMargin": 0.74
+      "repName": "James Wilson",
+      "dealSize": 372.16,
+      "isWon": true,
+      "commission": 8306.61,
+      "dealProfit": 45552.38,
+      "dealValue": 66988.8,
+      "profitMargin": 0.68,
+      "closeDate": "2025-03-09",
+      "category": "Hardware"
     }
   },
   {
@@ -290,13 +328,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 10235.43,
+      "repName": "James Wilson",
+      "dealSize": 16258.96,
       "isWon": true,
-      "commission": 972.37,
-      "dealProfit": 5015.36,
-      "dealValue": 10235.43,
-      "profitMargin": 0.49
+      "commission": 3381.86,
+      "dealProfit": 10080.56,
+      "dealValue": 32517.92,
+      "profitMargin": 0.31,
+      "closeDate": "2025-03-21",
+      "category": "Software"
     }
   },
   {
@@ -305,13 +345,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 619.42,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 52650.7,
-      "profitMargin": 0.5
+      "repName": "Mei Chen",
+      "dealSize": 2287.09,
+      "isWon": true,
+      "commission": 196.69,
+      "dealProfit": 1395.12,
+      "dealValue": 2287.09,
+      "profitMargin": 0.61,
+      "closeDate": "2025-05-03",
+      "category": "Services"
     }
   },
   {
@@ -320,13 +362,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 9748.84,
+      "repName": "James Wilson",
+      "dealSize": 639.71,
       "isWon": true,
-      "commission": 1852.28,
-      "dealProfit": 8578.98,
-      "dealValue": 19497.68,
-      "profitMargin": 0.44
+      "commission": 3725.67,
+      "dealProfit": 18986.59,
+      "dealValue": 35823.76,
+      "profitMargin": 0.53,
+      "closeDate": "2025-02-06",
+      "category": "Software"
     }
   },
   {
@@ -335,13 +379,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 10467.97,
+      "repName": "Ravi Patel",
+      "dealSize": 410.79,
       "isWon": true,
-      "commission": 2889.16,
-      "dealProfit": 11619.45,
-      "dealValue": 31403.91,
-      "profitMargin": 0.37
+      "commission": 6717.24,
+      "dealProfit": 41382.98,
+      "dealValue": 59975.34,
+      "profitMargin": 0.69,
+      "closeDate": "2025-04-06",
+      "category": "Software"
     }
   },
   {
@@ -351,12 +397,14 @@
     },
     "rowData": {
       "repName": "James Wilson",
-      "dealSize": 6687.55,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 100313.25,
-      "profitMargin": 0.49
+      "dealSize": 10176.22,
+      "isWon": true,
+      "commission": 6349.96,
+      "dealProfit": 18317.2,
+      "dealValue": 61057.32,
+      "profitMargin": 0.3,
+      "closeDate": "2025-04-26",
+      "category": "Support"
     }
   },
   {
@@ -366,12 +414,14 @@
     },
     "rowData": {
       "repName": "Andreas Schmitt",
-      "dealSize": 1587.65,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 19051.8,
-      "profitMargin": 0.71
+      "dealSize": 3521.76,
+      "isWon": true,
+      "commission": 648,
+      "dealProfit": 3028.71,
+      "dealValue": 7043.52,
+      "profitMargin": 0.43,
+      "closeDate": "2025-04-30",
+      "category": "Consulting"
     }
   },
   {
@@ -380,13 +430,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 30576.07,
+      "repName": "Ravi Patel",
+      "dealSize": 407.8,
       "isWon": true,
-      "commission": 8989.36,
-      "dealProfit": 39443.13,
-      "dealValue": 91728.21,
-      "profitMargin": 0.43
+      "commission": 7810.19,
+      "dealProfit": 55787.04,
+      "dealValue": 69733.8,
+      "profitMargin": 0.8,
+      "closeDate": "2025-03-27",
+      "category": "Consulting"
     }
   },
   {
@@ -395,13 +447,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 134.32,
+      "repName": "Jessica Lee",
+      "dealSize": 1487.46,
       "isWon": true,
-      "commission": 1755.29,
-      "dealProfit": 11315.12,
-      "dealValue": 14506.56,
-      "profitMargin": 0.78
+      "commission": 3153.42,
+      "dealProfit": 19634.47,
+      "dealValue": 29749.2,
+      "profitMargin": 0.66,
+      "closeDate": "2025-03-08",
+      "category": "Support"
     }
   },
   {
@@ -410,13 +464,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 2108.08,
+      "repName": "Liu Wei",
+      "dealSize": 374.41,
       "isWon": true,
-      "commission": 2685.69,
-      "dealProfit": 12332.27,
-      "dealValue": 27405.04,
-      "profitMargin": 0.45
+      "commission": 3843.69,
+      "dealProfit": 22150.1,
+      "dealValue": 32573.67,
+      "profitMargin": 0.68,
+      "closeDate": "2025-03-08",
+      "category": "Support"
     }
   },
   {
@@ -425,13 +481,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 9372.26,
-      "isWon": true,
-      "commission": 18369.63,
-      "dealProfit": 56233.56,
-      "dealValue": 187445.2,
-      "profitMargin": 0.3
+      "repName": "Liu Wei",
+      "dealSize": 8517.45,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 25552.35,
+      "profitMargin": 0.46,
+      "closeDate": "2025-02-18",
+      "category": "Consulting"
     }
   },
   {
@@ -440,13 +498,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 26146.16,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 52292.32,
-      "profitMargin": 0.36
+      "repName": "Andreas Schmitt",
+      "dealSize": 107.71,
+      "isWon": true,
+      "commission": 1013.34,
+      "dealProfit": 5790.49,
+      "dealValue": 9047.64,
+      "profitMargin": 0.64,
+      "closeDate": "2025-04-07",
+      "category": "Hardware"
     }
   },
   {
@@ -455,13 +515,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 8400.81,
+      "repName": "Andreas Schmitt",
+      "dealSize": 18456.74,
       "isWon": true,
-      "commission": 1747.37,
-      "dealProfit": 5544.53,
-      "dealValue": 16801.62,
-      "profitMargin": 0.33
+      "commission": 5094.06,
+      "dealProfit": 16611.07,
+      "dealValue": 55370.22,
+      "profitMargin": 0.3,
+      "closeDate": "2025-02-08",
+      "category": "Hardware"
     }
   },
   {
@@ -470,13 +532,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 307.81,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 30165.38,
-      "profitMargin": 0.69
+      "repName": "Akira Tanaka",
+      "dealSize": 9315.41,
+      "isWon": true,
+      "commission": 10619.57,
+      "dealProfit": 33535.48,
+      "dealValue": 111784.92,
+      "profitMargin": 0.3,
+      "closeDate": "2025-03-17",
+      "category": "Consulting"
     }
   },
   {
@@ -485,13 +549,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 6909.86,
+      "repName": "Emily Davis",
+      "dealSize": 2621.2,
       "isWon": true,
-      "commission": 9072.65,
-      "dealProfit": 44015.81,
-      "dealValue": 89828.18,
-      "profitMargin": 0.49
+      "commission": 2055.02,
+      "dealProfit": 13001.15,
+      "dealValue": 20969.6,
+      "profitMargin": 0.62,
+      "closeDate": "2025-04-02",
+      "category": "Hardware"
     }
   },
   {
@@ -500,13 +566,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 119.07,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 11668.86,
-      "profitMargin": 0.6
+      "repName": "Emily Davis",
+      "dealSize": 410.97,
+      "isWon": true,
+      "commission": 5285.9,
+      "dealProfit": 30013.14,
+      "dealValue": 44795.73,
+      "profitMargin": 0.67,
+      "closeDate": "2025-02-09",
+      "category": "Consulting"
     }
   },
   {
@@ -515,13 +583,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 414.93,
+      "repName": "Sarah Martinez",
+      "dealSize": 373.22,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 70538.1,
-      "profitMargin": 0.63
+      "dealValue": 66806.38,
+      "profitMargin": 0.71,
+      "closeDate": "2025-02-11",
+      "category": "Software"
     }
   },
   {
@@ -530,13 +600,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 583.89,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 35617.29,
-      "profitMargin": 0.57
+      "repName": "Mateo Lopez",
+      "dealSize": 602.36,
+      "isWon": true,
+      "commission": 3367.19,
+      "dealProfit": 25058.18,
+      "dealValue": 39153.4,
+      "profitMargin": 0.64,
+      "closeDate": "2025-03-03",
+      "category": "Training"
     }
   },
   {
@@ -545,13 +617,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 2014.01,
+      "repName": "Akira Tanaka",
+      "dealSize": 318.93,
       "isWon": true,
-      "commission": 537.74,
-      "dealProfit": 3806.48,
-      "dealValue": 6042.03,
-      "profitMargin": 0.63
+      "commission": 4474.59,
+      "dealProfit": 28403.91,
+      "dealValue": 38909.46,
+      "profitMargin": 0.73,
+      "closeDate": "2025-04-23",
+      "category": "Consulting"
     }
   },
   {
@@ -560,13 +634,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 10049.58,
+      "repName": "Liu Wei",
+      "dealSize": 344.73,
       "isWon": true,
-      "commission": 8592.39,
-      "dealProfit": 29847.25,
-      "dealValue": 90446.22,
-      "profitMargin": 0.33
+      "commission": 5044.09,
+      "dealProfit": 27785.24,
+      "dealValue": 42746.52,
+      "profitMargin": 0.65,
+      "closeDate": "2025-03-26",
+      "category": "Hardware"
     }
   },
   {
@@ -575,13 +651,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 108.71,
-      "isWon": true,
-      "commission": 820.98,
-      "dealProfit": 4870.21,
-      "dealValue": 6957.44,
-      "profitMargin": 0.7
+      "repName": "Michael Johnson",
+      "dealSize": 9651.48,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 106166.28,
+      "profitMargin": 0.24,
+      "closeDate": "2025-05-01",
+      "category": "Consulting"
     }
   },
   {
@@ -590,13 +668,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 1629.91,
+      "repName": "Ravi Patel",
+      "dealSize": 103.27,
       "isWon": true,
-      "commission": 2249.28,
-      "dealProfit": 15060.37,
-      "dealValue": 19558.92,
-      "profitMargin": 0.77
+      "commission": 300.72,
+      "dealProfit": 2094.32,
+      "dealValue": 2685.02,
+      "profitMargin": 0.78,
+      "closeDate": "2025-02-11",
+      "category": "Support"
     }
   },
   {
@@ -605,13 +685,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 136.9,
+      "repName": "Liu Wei",
+      "dealSize": 3329.29,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 24094.4,
-      "profitMargin": 0.71
+      "dealValue": 49939.35,
+      "profitMargin": 0.42,
+      "closeDate": "2025-02-16",
+      "category": "Training"
     }
   },
   {
@@ -620,13 +702,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 8066.04,
+      "repName": "Emma Fischer",
+      "dealSize": 108.83,
       "isWon": true,
-      "commission": 6323.78,
-      "dealProfit": 14841.51,
-      "dealValue": 64528.32,
-      "profitMargin": 0.23
+      "commission": 638.94,
+      "dealProfit": 3908.09,
+      "dealValue": 6203.31,
+      "profitMargin": 0.63,
+      "closeDate": "2025-02-20",
+      "category": "Services"
     }
   },
   {
@@ -635,13 +719,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 615.62,
-      "isWon": true,
-      "commission": 11588.43,
-      "dealProfit": 64627.79,
-      "dealValue": 111427.22,
-      "profitMargin": 0.58
+      "repName": "Pierre Laurent",
+      "dealSize": 690.31,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 88359.68,
+      "profitMargin": 0.48,
+      "closeDate": "2025-02-16",
+      "category": "Training"
     }
   },
   {
@@ -650,13 +736,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 2526.97,
+      "repName": "James Wilson",
+      "dealSize": 539.21,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 45485.46,
-      "profitMargin": 0.47
+      "dealValue": 105145.95,
+      "profitMargin": 0.64,
+      "closeDate": "2025-03-13",
+      "category": "Support"
     }
   },
   {
@@ -665,13 +753,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 7731.24,
+      "repName": "Emma Fischer",
+      "dealSize": 610.02,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 139162.32,
-      "profitMargin": 0.19
+      "dealValue": 56121.84,
+      "profitMargin": 0.46,
+      "closeDate": "2025-03-26",
+      "category": "Consulting"
     }
   },
   {
@@ -680,13 +770,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 683.83,
+      "repName": "Olivia Bennett",
+      "dealSize": 1613.04,
       "isWon": true,
-      "commission": 6755.56,
-      "dealProfit": 48579.28,
-      "dealValue": 75905.13,
-      "profitMargin": 0.64
+      "commission": 2285.68,
+      "dealProfit": 13630.19,
+      "dealValue": 20969.52,
+      "profitMargin": 0.65,
+      "closeDate": "2025-02-22",
+      "category": "Training"
     }
   },
   {
@@ -695,13 +787,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 7072.02,
+      "repName": "Sophie Dubois",
+      "dealSize": 29692.52,
       "isWon": true,
-      "commission": 7390.26,
-      "dealProfit": 28783.12,
-      "dealValue": 77792.22,
-      "profitMargin": 0.37
+      "commission": 8462.37,
+      "dealProfit": 29395.59,
+      "dealValue": 89077.56,
+      "profitMargin": 0.33,
+      "closeDate": "2025-03-09",
+      "category": "Training"
     }
   },
   {
@@ -710,13 +804,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 100.21,
+      "repName": "Michael Johnson",
+      "dealSize": 129.19,
       "isWon": true,
-      "commission": 1863.91,
-      "dealProfit": 10972.99,
-      "dealValue": 15031.5,
-      "profitMargin": 0.73
+      "commission": 2481.09,
+      "dealProfit": 15749.55,
+      "dealValue": 21574.73,
+      "profitMargin": 0.73,
+      "closeDate": "2025-03-09",
+      "category": "Hardware"
     }
   },
   {
@@ -726,12 +822,14 @@
     },
     "rowData": {
       "repName": "Sophie Dubois",
-      "dealSize": 404.22,
-      "isWon": true,
-      "commission": 6647.4,
-      "dealProfit": 37572.25,
-      "dealValue": 57803.46,
-      "profitMargin": 0.65
+      "dealSize": 29850.97,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 89552.91,
+      "profitMargin": 0.47,
+      "closeDate": "2025-03-18",
+      "category": "Consulting"
     }
   },
   {
@@ -740,13 +838,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 129.55,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 1943.25,
-      "profitMargin": 0.79
+      "repName": "Thomas Müller",
+      "dealSize": 364.8,
+      "isWon": true,
+      "commission": 3928.53,
+      "dealProfit": 21428.35,
+      "dealValue": 32467.2,
+      "profitMargin": 0.66,
+      "closeDate": "2025-04-29",
+      "category": "Services"
     }
   },
   {
@@ -755,13 +855,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 309.03,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 51608.01,
-      "profitMargin": 0.68
+      "repName": "Thomas Müller",
+      "dealSize": 2449.57,
+      "isWon": true,
+      "commission": 494.81,
+      "dealProfit": 2351.59,
+      "dealValue": 4899.14,
+      "profitMargin": 0.48,
+      "closeDate": "2025-04-23",
+      "category": "Support"
     }
   },
   {
@@ -770,13 +872,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 417.6,
-      "isWon": true,
-      "commission": 9559.7,
-      "dealProfit": 48608.64,
-      "dealValue": 81014.4,
-      "profitMargin": 0.6
+      "repName": "Ravi Patel",
+      "dealSize": 17186.64,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 17186.64,
+      "profitMargin": 0.32,
+      "closeDate": "2025-02-24",
+      "category": "Support"
     }
   },
   {
@@ -785,13 +889,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 1491.35,
+      "repName": "Sophie Dubois",
+      "dealSize": 9541.48,
       "isWon": true,
-      "commission": 501.09,
-      "dealProfit": 2952.87,
-      "dealValue": 4474.05,
-      "profitMargin": 0.66
+      "commission": 906.44,
+      "dealProfit": 4007.42,
+      "dealValue": 9541.48,
+      "profitMargin": 0.42,
+      "closeDate": "2025-04-12",
+      "category": "Support"
     }
   },
   {
@@ -800,13 +906,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 8525.84,
-      "isWon": true,
-      "commission": 809.95,
-      "dealProfit": 2898.79,
-      "dealValue": 8525.84,
-      "profitMargin": 0.34
+      "repName": "Jessica Lee",
+      "dealSize": 1670.97,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 28406.49,
+      "profitMargin": 0.67,
+      "closeDate": "2025-02-27",
+      "category": "Software"
     }
   },
   {
@@ -815,13 +923,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 8708.81,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 130632.15,
-      "profitMargin": 0.3
+      "repName": "James Wilson",
+      "dealSize": 16945.04,
+      "isWon": true,
+      "commission": 3524.57,
+      "dealProfit": 11183.73,
+      "dealValue": 33890.08,
+      "profitMargin": 0.33,
+      "closeDate": "2025-04-21",
+      "category": "Training"
     }
   },
   {
@@ -830,13 +940,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 101.54,
+      "repName": "Thomas Müller",
+      "dealSize": 100.8,
       "isWon": true,
-      "commission": 398.24,
-      "dealProfit": 2404.47,
-      "dealValue": 3756.98,
-      "profitMargin": 0.64
+      "commission": 304.92,
+      "dealProfit": 1764,
+      "dealValue": 2520,
+      "profitMargin": 0.7,
+      "closeDate": "2025-05-03",
+      "category": "Consulting"
     }
   },
   {
@@ -845,13 +957,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 302.49,
+      "repName": "Ravi Patel",
+      "dealSize": 7403.29,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 6654.78,
-      "profitMargin": 0.76
+      "dealValue": 74032.9,
+      "profitMargin": 0.23,
+      "closeDate": "2025-03-03",
+      "category": "Services"
     }
   },
   {
@@ -860,13 +974,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 18382.23,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 36764.46,
-      "profitMargin": 0.17
+      "repName": "Carlos Rodriguez",
+      "dealSize": 397.85,
+      "isWon": true,
+      "commission": 686.29,
+      "dealProfit": 4714.52,
+      "dealValue": 5967.75,
+      "profitMargin": 0.79,
+      "closeDate": "2025-04-06",
+      "category": "Hardware"
     }
   },
   {
@@ -875,13 +991,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 24584.37,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 605.23,
       "isWon": true,
-      "commission": 7227.8,
-      "dealProfit": 25813.59,
-      "dealValue": 73753.11,
-      "profitMargin": 0.35
+      "commission": 4657.24,
+      "dealProfit": 27453.23,
+      "dealValue": 49023.63,
+      "profitMargin": 0.56,
+      "closeDate": "2025-03-03",
+      "category": "Hardware"
     }
   },
   {
@@ -890,13 +1008,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 28688.37,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 28688.37,
-      "profitMargin": 0.32
+      "repName": "Akira Tanaka",
+      "dealSize": 8527.48,
+      "isWon": true,
+      "commission": 810.11,
+      "dealProfit": 3666.82,
+      "dealValue": 8527.48,
+      "profitMargin": 0.43,
+      "closeDate": "2025-02-17",
+      "category": "Services"
     }
   },
   {
@@ -905,13 +1025,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 7260.91,
+      "repName": "Isabella Fernandez",
+      "dealSize": 31397.6,
       "isWon": true,
-      "commission": 15102.69,
-      "dealProfit": 69704.74,
-      "dealValue": 145218.2,
-      "profitMargin": 0.48
+      "commission": 8383.16,
+      "dealProfit": 34851.34,
+      "dealValue": 94192.8,
+      "profitMargin": 0.37,
+      "closeDate": "2025-03-12",
+      "category": "Services"
     }
   },
   {
@@ -920,13 +1042,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 119.23,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 20865.25,
-      "profitMargin": 0.64
+      "repName": "Michael Johnson",
+      "dealSize": 1495.03,
+      "isWon": true,
+      "commission": 1203.5,
+      "dealProfit": 6907.04,
+      "dealValue": 10465.21,
+      "profitMargin": 0.66,
+      "closeDate": "2025-04-27",
+      "category": "Consulting"
     }
   },
   {
@@ -936,12 +1060,14 @@
     },
     "rowData": {
       "repName": "Sarah Martinez",
-      "dealSize": 8420.23,
+      "dealSize": 127.04,
       "isWon": true,
-      "commission": 6197.29,
-      "dealProfit": 12798.75,
-      "dealValue": 67361.84,
-      "profitMargin": 0.19
+      "commission": 71.14,
+      "dealProfit": 470.05,
+      "dealValue": 635.2,
+      "profitMargin": 0.74,
+      "closeDate": "2025-04-20",
+      "category": "Training"
     }
   },
   {
@@ -950,13 +1076,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 351.66,
+      "repName": "James Wilson",
+      "dealSize": 7085.6,
       "isWon": true,
-      "commission": 1938.35,
-      "dealProfit": 11154.66,
-      "dealValue": 18286.32,
-      "profitMargin": 0.61
+      "commission": 3684.51,
+      "dealProfit": 13462.64,
+      "dealValue": 35428,
+      "profitMargin": 0.38,
+      "closeDate": "2025-03-13",
+      "category": "Software"
     }
   },
   {
@@ -965,13 +1093,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 330.58,
+      "repName": "James Wilson",
+      "dealSize": 3047.83,
       "isWon": true,
-      "commission": 4329.94,
-      "dealProfit": 25686.07,
-      "dealValue": 36694.38,
-      "profitMargin": 0.7
+      "commission": 4437.64,
+      "dealProfit": 13654.28,
+      "dealValue": 42669.62,
+      "profitMargin": 0.32,
+      "closeDate": "2025-04-02",
+      "category": "Support"
     }
   },
   {
@@ -980,13 +1110,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 8664.51,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 2195.53,
       "isWon": true,
-      "commission": 7642.1,
-      "dealProfit": 17155.73,
-      "dealValue": 77980.59,
-      "profitMargin": 0.22
+      "commission": 3545.78,
+      "dealProfit": 19781.73,
+      "dealValue": 37324.01,
+      "profitMargin": 0.53,
+      "closeDate": "2025-04-27",
+      "category": "Software"
     }
   },
   {
@@ -995,13 +1127,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 30814.87,
+      "repName": "Michael Johnson",
+      "dealSize": 1987.16,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 92444.61,
-      "profitMargin": 0.32
+      "dealValue": 25833.08,
+      "profitMargin": 0.64,
+      "closeDate": "2025-04-01",
+      "category": "Software"
     }
   },
   {
@@ -1010,13 +1144,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 8271.81,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 8271.81,
-      "profitMargin": 0.42
+      "repName": "Sarah Martinez",
+      "dealSize": 101.93,
+      "isWon": true,
+      "commission": 1723.84,
+      "dealProfit": 9850.52,
+      "dealValue": 15391.43,
+      "profitMargin": 0.64,
+      "closeDate": "2025-04-12",
+      "category": "Consulting"
     }
   },
   {
@@ -1025,13 +1161,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 2564.1,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 12820.5,
-      "profitMargin": 0.62
+      "repName": "Mateo Lopez",
+      "dealSize": 598.08,
+      "isWon": true,
+      "commission": 5040.62,
+      "dealProfit": 36925.46,
+      "dealValue": 58611.84,
+      "profitMargin": 0.63,
+      "closeDate": "2025-05-04",
+      "category": "Consulting"
     }
   },
   {
@@ -1040,13 +1178,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 27488.19,
-      "isWon": true,
-      "commission": 4892.9,
-      "dealProfit": 24739.37,
-      "dealValue": 54976.38,
-      "profitMargin": 0.45
+      "repName": "Thomas Müller",
+      "dealSize": 403.09,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 8867.98,
+      "profitMargin": 0.66,
+      "closeDate": "2025-04-13",
+      "category": "Training"
     }
   },
   {
@@ -1055,13 +1195,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Robert Garcia",
-      "dealSize": 565.38,
+      "repName": "Sarah Martinez",
+      "dealSize": 404.64,
       "isWon": true,
-      "commission": 2674.81,
-      "dealProfit": 15468.8,
-      "dealValue": 32226.66,
-      "profitMargin": 0.48
+      "commission": 362.56,
+      "dealProfit": 2039.39,
+      "dealValue": 3237.12,
+      "profitMargin": 0.63,
+      "closeDate": "2025-04-19",
+      "category": "Training"
     }
   },
   {
@@ -1070,13 +1212,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 334.79,
+      "repName": "James Wilson",
+      "dealSize": 568.12,
       "isWon": true,
-      "commission": 5287,
-      "dealProfit": 32099.67,
-      "dealValue": 47205.39,
-      "profitMargin": 0.68
+      "commission": 4313.17,
+      "dealProfit": 24883.66,
+      "dealValue": 41472.76,
+      "profitMargin": 0.6,
+      "closeDate": "2025-02-11",
+      "category": "Hardware"
     }
   },
   {
@@ -1085,13 +1229,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 31689.4,
+      "repName": "Isabella Fernandez",
+      "dealSize": 122.42,
       "isWon": true,
-      "commission": 3200.63,
-      "dealProfit": 12358.87,
-      "dealValue": 31689.4,
-      "profitMargin": 0.39
+      "commission": 1574.57,
+      "dealProfit": 10256.35,
+      "dealValue": 14445.56,
+      "profitMargin": 0.71,
+      "closeDate": "2025-04-16",
+      "category": "Support"
     }
   },
   {
@@ -1100,13 +1246,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 519.02,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 80448.1,
-      "profitMargin": 0.6
+      "repName": "Jessica Lee",
+      "dealSize": 129.43,
+      "isWon": true,
+      "commission": 1454.28,
+      "dealProfit": 8917.73,
+      "dealValue": 13719.58,
+      "profitMargin": 0.65,
+      "closeDate": "2025-04-11",
+      "category": "Consulting"
     }
   },
   {
@@ -1115,13 +1263,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 321.83,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 6114.77,
-      "profitMargin": 0.8
+      "repName": "Isabella Fernandez",
+      "dealSize": 30289.87,
+      "isWon": true,
+      "commission": 5391.6,
+      "dealProfit": 22414.5,
+      "dealValue": 60579.74,
+      "profitMargin": 0.37,
+      "closeDate": "2025-03-24",
+      "category": "Hardware"
     }
   },
   {
@@ -1130,13 +1280,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 99.44,
+      "repName": "James Wilson",
+      "dealSize": 305.99,
       "isWon": true,
-      "commission": 754.75,
-      "dealProfit": 4594.13,
-      "dealValue": 6563.04,
-      "profitMargin": 0.7
+      "commission": 3870.16,
+      "dealProfit": 22784.02,
+      "dealValue": 31210.98,
+      "profitMargin": 0.73,
+      "closeDate": "2025-04-11",
+      "category": "Training"
     }
   },
   {
@@ -1145,13 +1297,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 340.67,
+      "repName": "Akira Tanaka",
+      "dealSize": 9653.7,
       "isWon": true,
-      "commission": 1984.06,
-      "dealProfit": 12754.68,
-      "dealValue": 17714.84,
-      "profitMargin": 0.72
+      "commission": 17424.93,
+      "dealProfit": 56860.29,
+      "dealValue": 183420.3,
+      "profitMargin": 0.31,
+      "closeDate": "2025-04-14",
+      "category": "Services"
     }
   },
   {
@@ -1160,13 +1314,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 5594.76,
+      "repName": "Olivia Bennett",
+      "dealSize": 653.02,
       "isWon": true,
-      "commission": 5572.38,
-      "dealProfit": 27526.22,
-      "dealValue": 67137.12,
-      "profitMargin": 0.41
+      "commission": 6683.66,
+      "dealProfit": 41303.52,
+      "dealValue": 75097.3,
+      "profitMargin": 0.55,
+      "closeDate": "2025-04-17",
+      "category": "Software"
     }
   },
   {
@@ -1175,13 +1331,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 99.45,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 18199.35,
-      "profitMargin": 0.64
+      "repName": "Akira Tanaka",
+      "dealSize": 7674.86,
+      "isWon": true,
+      "commission": 2187.34,
+      "dealProfit": 6677.13,
+      "dealValue": 23024.58,
+      "profitMargin": 0.29,
+      "closeDate": "2025-03-01",
+      "category": "Consulting"
     }
   },
   {
@@ -1190,13 +1348,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 513.38,
+      "repName": "Kim Seung-Min",
+      "dealSize": 1311.23,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 4107.04,
-      "profitMargin": 0.56
+      "dealValue": 18357.22,
+      "profitMargin": 0.69,
+      "closeDate": "2025-02-10",
+      "category": "Training"
     }
   },
   {
@@ -1205,13 +1365,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 517.26,
+      "repName": "Sarah Martinez",
+      "dealSize": 122.13,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 4138.08,
-      "profitMargin": 0.65
+      "dealValue": 4763.07,
+      "profitMargin": 0.79,
+      "closeDate": "2025-04-15",
+      "category": "Support"
     }
   },
   {
@@ -1220,13 +1382,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Robert Garcia",
-      "dealSize": 5535.23,
+      "repName": "James Wilson",
+      "dealSize": 360.68,
       "isWon": true,
-      "commission": 9188.48,
-      "dealProfit": 50924.12,
-      "dealValue": 110704.6,
-      "profitMargin": 0.46
+      "commission": 4204.09,
+      "dealProfit": 26445.06,
+      "dealValue": 33903.92,
+      "profitMargin": 0.78,
+      "closeDate": "2025-04-26",
+      "category": "Training"
     }
   },
   {
@@ -1235,13 +1399,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 122.85,
+      "repName": "Thomas Müller",
+      "dealSize": 412.65,
       "isWon": true,
-      "commission": 1257.37,
-      "dealProfit": 7981.56,
-      "dealValue": 10933.65,
-      "profitMargin": 0.73
+      "commission": 9486.82,
+      "dealProfit": 55666.49,
+      "dealValue": 78403.5,
+      "profitMargin": 0.71,
+      "closeDate": "2025-05-02",
+      "category": "Support"
     }
   },
   {
@@ -1250,13 +1416,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 539.94,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 59933.34,
-      "profitMargin": 0.55
+      "repName": "Olivia Bennett",
+      "dealSize": 668.92,
+      "isWon": true,
+      "commission": 3333.9,
+      "dealProfit": 20602.74,
+      "dealValue": 37459.52,
+      "profitMargin": 0.55,
+      "closeDate": "2025-03-17",
+      "category": "Training"
     }
   },
   {
@@ -1265,13 +1433,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 105.05,
+      "repName": "David Thompson",
+      "dealSize": 5516.66,
       "isWon": true,
-      "commission": 1848.35,
-      "dealProfit": 11250.85,
-      "dealValue": 16072.65,
-      "profitMargin": 0.7
+      "commission": 7364.74,
+      "dealProfit": 28134.97,
+      "dealValue": 82749.9,
+      "profitMargin": 0.34,
+      "closeDate": "2025-03-13",
+      "category": "Services"
     }
   },
   {
@@ -1280,13 +1450,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 666.87,
+      "repName": "Andreas Schmitt",
+      "dealSize": 103.2,
       "isWon": true,
-      "commission": 2982.24,
-      "dealProfit": 14337.7,
-      "dealValue": 28675.41,
-      "profitMargin": 0.5
+      "commission": 462.34,
+      "dealProfit": 2930.88,
+      "dealValue": 4128,
+      "profitMargin": 0.71,
+      "closeDate": "2025-03-16",
+      "category": "Support"
     }
   },
   {
@@ -1295,13 +1467,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 637.91,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 83566.21,
-      "profitMargin": 0.6
+      "repName": "Carlos Rodriguez",
+      "dealSize": 10353.54,
+      "isWon": true,
+      "commission": 1967.17,
+      "dealProfit": 7454.55,
+      "dealValue": 20707.08,
+      "profitMargin": 0.36,
+      "closeDate": "2025-02-07",
+      "category": "Software"
     }
   },
   {
@@ -1310,13 +1484,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 14503.79,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 43511.37,
-      "profitMargin": 0.24
+      "repName": "Akira Tanaka",
+      "dealSize": 10769.56,
+      "isWon": true,
+      "commission": 2046.22,
+      "dealProfit": 6461.74,
+      "dealValue": 21539.12,
+      "profitMargin": 0.3,
+      "closeDate": "2025-05-06",
+      "category": "Consulting"
     }
   },
   {
@@ -1325,13 +1501,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 9931.99,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 19863.98,
-      "profitMargin": 0.33
+      "repName": "James Wilson",
+      "dealSize": 7607.8,
+      "isWon": true,
+      "commission": 11076.96,
+      "dealProfit": 24497.12,
+      "dealValue": 106509.2,
+      "profitMargin": 0.23,
+      "closeDate": "2025-02-13",
+      "category": "Services"
     }
   },
   {
@@ -1340,13 +1518,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 2104.36,
+      "repName": "Akira Tanaka",
+      "dealSize": 125.03,
       "isWon": true,
-      "commission": 412.45,
-      "dealProfit": 2693.58,
-      "dealValue": 4208.72,
-      "profitMargin": 0.64
+      "commission": 431.35,
+      "dealProfit": 2813.18,
+      "dealValue": 3750.9,
+      "profitMargin": 0.75,
+      "closeDate": "2025-03-07",
+      "category": "Hardware"
     }
   },
   {
@@ -1355,13 +1535,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 691.29,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 77424.48,
-      "profitMargin": 0.57
+      "repName": "Valentina Diaz",
+      "dealSize": 109.47,
+      "isWon": true,
+      "commission": 902.03,
+      "dealProfit": 6480.62,
+      "dealValue": 8757.6,
+      "profitMargin": 0.74,
+      "closeDate": "2025-04-20",
+      "category": "Software"
     }
   },
   {
@@ -1371,12 +1553,14 @@
     },
     "rowData": {
       "repName": "Sarah Martinez",
-      "dealSize": 538.96,
+      "dealSize": 586.08,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 7545.44,
-      "profitMargin": 0.47
+      "dealValue": 103150.08,
+      "profitMargin": 0.62,
+      "closeDate": "2025-04-20",
+      "category": "Training"
     }
   },
   {
@@ -1385,13 +1569,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 8690.34,
-      "isWon": true,
-      "commission": 1494.74,
-      "dealProfit": 6778.47,
-      "dealValue": 17380.68,
-      "profitMargin": 0.39
+      "repName": "Akira Tanaka",
+      "dealSize": 110.95,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 665.7,
+      "profitMargin": 0.66,
+      "closeDate": "2025-04-07",
+      "category": "Services"
     }
   },
   {
@@ -1400,13 +1586,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 389.94,
-      "isWon": true,
-      "commission": 5373.37,
-      "dealProfit": 35484.54,
-      "dealValue": 50692.2,
-      "profitMargin": 0.7
+      "repName": "Sarah Martinez",
+      "dealSize": 117.21,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 12307.05,
+      "profitMargin": 0.62,
+      "closeDate": "2025-03-24",
+      "category": "Consulting"
     }
   },
   {
@@ -1415,13 +1603,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 122.21,
+      "repName": "Michael Johnson",
+      "dealSize": 9363.82,
       "isWon": true,
-      "commission": 533.81,
-      "dealProfit": 3669.97,
-      "dealValue": 4766.19,
-      "profitMargin": 0.77
+      "commission": 2668.69,
+      "dealProfit": 8989.27,
+      "dealValue": 28091.46,
+      "profitMargin": 0.32,
+      "closeDate": "2025-04-12",
+      "category": "Services"
     }
   },
   {
@@ -1430,13 +1620,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 10589.76,
-      "isWon": true,
-      "commission": 2012.05,
-      "dealProfit": 10166.17,
-      "dealValue": 21179.52,
-      "profitMargin": 0.48
+      "repName": "Michael Johnson",
+      "dealSize": 684.16,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 84151.68,
+      "profitMargin": 0.54,
+      "closeDate": "2025-04-08",
+      "category": "Consulting"
     }
   },
   {
@@ -1445,13 +1637,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 532.03,
+      "repName": "Jessica Lee",
+      "dealSize": 3627.71,
       "isWon": true,
-      "commission": 7733.59,
-      "dealProfit": 39508.55,
-      "dealValue": 84060.74,
-      "profitMargin": 0.47
+      "commission": 623.97,
+      "dealProfit": 2539.4,
+      "dealValue": 7255.42,
+      "profitMargin": 0.35,
+      "closeDate": "2025-03-31",
+      "category": "Software"
     }
   },
   {
@@ -1460,13 +1654,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 1534.47,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 16879.17,
-      "profitMargin": 0.61
+      "repName": "Isabella Fernandez",
+      "dealSize": 14606.77,
+      "isWon": true,
+      "commission": 3900.01,
+      "dealProfit": 9202.27,
+      "dealValue": 43820.31,
+      "profitMargin": 0.21,
+      "closeDate": "2025-04-13",
+      "category": "Consulting"
     }
   },
   {
@@ -1475,13 +1671,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 558.49,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 60316.92,
-      "profitMargin": 0.58
+      "repName": "Thomas Müller",
+      "dealSize": 500.01,
+      "isWon": true,
+      "commission": 1111.02,
+      "dealProfit": 5720.11,
+      "dealValue": 11000.22,
+      "profitMargin": 0.52,
+      "closeDate": "2025-04-20",
+      "category": "Support"
     }
   },
   {
@@ -1490,13 +1688,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 106.25,
+      "repName": "Kim Seung-Min",
+      "dealSize": 1653.17,
       "isWon": true,
-      "commission": 118.58,
-      "dealProfit": 631.13,
-      "dealValue": 956.25,
-      "profitMargin": 0.66
+      "commission": 2554.15,
+      "dealProfit": 16862.33,
+      "dealValue": 24797.55,
+      "profitMargin": 0.68,
+      "closeDate": "2025-03-16",
+      "category": "Services"
     }
   },
   {
@@ -1505,13 +1705,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 600.41,
-      "isWon": true,
-      "commission": 6331.32,
-      "dealProfit": 41986.67,
-      "dealValue": 66645.51,
-      "profitMargin": 0.63
+      "repName": "Sarah Martinez",
+      "dealSize": 1352.93,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 13529.3,
+      "profitMargin": 0.63,
+      "closeDate": "2025-04-28",
+      "category": "Software"
     }
   },
   {
@@ -1520,13 +1722,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 583.13,
+      "repName": "Sophie Dubois",
+      "dealSize": 101.71,
       "isWon": true,
-      "commission": 1200.08,
-      "dealProfit": 6490.24,
-      "dealValue": 12245.73,
-      "profitMargin": 0.53
+      "commission": 245.63,
+      "dealProfit": 1687.37,
+      "dealValue": 2135.91,
+      "profitMargin": 0.79,
+      "closeDate": "2025-02-14",
+      "category": "Support"
     }
   },
   {
@@ -1535,13 +1739,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 646.4,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 53651.2,
-      "profitMargin": 0.61
+      "repName": "Thomas Müller",
+      "dealSize": 3254.28,
+      "isWon": true,
+      "commission": 1972.09,
+      "dealProfit": 8005.53,
+      "dealValue": 19525.68,
+      "profitMargin": 0.41,
+      "closeDate": "2025-02-23",
+      "category": "Software"
     }
   },
   {
@@ -1550,13 +1756,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 16766.82,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 50300.46,
-      "profitMargin": 0.3
+      "repName": "Carlos Rodriguez",
+      "dealSize": 315.2,
+      "isWon": true,
+      "commission": 7213.35,
+      "dealProfit": 46416.35,
+      "dealValue": 62724.8,
+      "profitMargin": 0.74,
+      "closeDate": "2025-04-29",
+      "category": "Support"
     }
   },
   {
@@ -1565,13 +1773,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 674.33,
+      "repName": "Mei Chen",
+      "dealSize": 1530.02,
       "isWon": true,
-      "commission": 1255.6,
-      "dealProfit": 7302.99,
-      "dealValue": 12812.27,
-      "profitMargin": 0.57
+      "commission": 2594.91,
+      "dealProfit": 14933,
+      "dealValue": 24480.32,
+      "profitMargin": 0.61,
+      "closeDate": "2025-02-21",
+      "category": "Services"
     }
   },
   {
@@ -1581,12 +1791,14 @@
     },
     "rowData": {
       "repName": "Sarah Martinez",
-      "dealSize": 381.93,
+      "dealSize": 399.15,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 66455.82,
-      "profitMargin": 0.77
+      "dealValue": 47498.85,
+      "profitMargin": 0.67,
+      "closeDate": "2025-04-24",
+      "category": "Training"
     }
   },
   {
@@ -1595,13 +1807,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 27139.3,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 81417.9,
-      "profitMargin": 0.43
+      "repName": "James Wilson",
+      "dealSize": 504.04,
+      "isWon": true,
+      "commission": 157.26,
+      "dealProfit": 892.15,
+      "dealValue": 1512.12,
+      "profitMargin": 0.59,
+      "closeDate": "2025-04-08",
+      "category": "Software"
     }
   },
   {
@@ -1610,13 +1824,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 19839.7,
-      "isWon": true,
-      "commission": 1884.77,
-      "dealProfit": 4959.93,
-      "dealValue": 19839.7,
-      "profitMargin": 0.25
+      "repName": "David Thompson",
+      "dealSize": 2707.12,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 18949.84,
+      "profitMargin": 0.52,
+      "closeDate": "2025-03-24",
+      "category": "Hardware"
     }
   },
   {
@@ -1625,13 +1841,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 350.45,
+      "repName": "Pierre Laurent",
+      "dealSize": 687.8,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 21027,
-      "profitMargin": 0.73
+      "dealValue": 15819.4,
+      "profitMargin": 0.56,
+      "closeDate": "2025-04-16",
+      "category": "Services"
     }
   },
   {
@@ -1640,13 +1858,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 9278.73,
-      "isWon": true,
-      "commission": 13639.73,
-      "dealProfit": 34795.24,
-      "dealValue": 139180.95,
-      "profitMargin": 0.25
+      "repName": "James Wilson",
+      "dealSize": 2327.39,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 2327.39,
+      "profitMargin": 0.54,
+      "closeDate": "2025-04-25",
+      "category": "Training"
     }
   },
   {
@@ -1655,13 +1875,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 386.59,
+      "repName": "Michael Johnson",
+      "dealSize": 7378.89,
       "isWon": true,
-      "commission": 1438.11,
-      "dealProfit": 7306.55,
-      "dealValue": 11597.7,
-      "profitMargin": 0.63
+      "commission": 3504.97,
+      "dealProfit": 10330.45,
+      "dealValue": 36894.45,
+      "profitMargin": 0.28,
+      "closeDate": "2025-04-21",
+      "category": "Consulting"
     }
   },
   {
@@ -1670,13 +1892,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 103.32,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 1963.08,
-      "profitMargin": 0.63
+      "repName": "Emily Davis",
+      "dealSize": 9989.77,
+      "isWon": true,
+      "commission": 9789.97,
+      "dealProfit": 21977.49,
+      "dealValue": 99897.7,
+      "profitMargin": 0.22,
+      "closeDate": "2025-02-22",
+      "category": "Services"
     }
   },
   {
@@ -1685,13 +1909,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 16594.17,
+      "repName": "Andreas Schmitt",
+      "dealSize": 361.62,
       "isWon": true,
-      "commission": 4579.99,
-      "dealProfit": 16428.23,
-      "dealValue": 49782.51,
-      "profitMargin": 0.33
+      "commission": 7290.26,
+      "dealProfit": 50771.45,
+      "dealValue": 65091.6,
+      "profitMargin": 0.78,
+      "closeDate": "2025-03-13",
+      "category": "Services"
     }
   },
   {
@@ -1700,13 +1926,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 579.76,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 53337.92,
-      "profitMargin": 0.55
+      "repName": "Carlos Rodriguez",
+      "dealSize": 17092.05,
+      "isWon": true,
+      "commission": 3247.49,
+      "dealProfit": 9913.39,
+      "dealValue": 34184.1,
+      "profitMargin": 0.29,
+      "closeDate": "2025-03-02",
+      "category": "Support"
     }
   },
   {
@@ -1715,13 +1943,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 106.41,
+      "repName": "Liu Wei",
+      "dealSize": 127.53,
       "isWon": true,
-      "commission": 795.41,
-      "dealProfit": 4910.82,
-      "dealValue": 6916.65,
-      "profitMargin": 0.71
+      "commission": 1790.78,
+      "dealProfit": 11078.53,
+      "dealValue": 15176.07,
+      "profitMargin": 0.73,
+      "closeDate": "2025-03-25",
+      "category": "Consulting"
     }
   },
   {
@@ -1730,13 +1960,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 1962.24,
+      "repName": "Ravi Patel",
+      "dealSize": 342.77,
       "isWon": true,
-      "commission": 4081.46,
-      "dealProfit": 25509.12,
-      "dealValue": 39244.8,
-      "profitMargin": 0.65
+      "commission": 4952.34,
+      "dealProfit": 33163,
+      "dealValue": 44217.33,
+      "profitMargin": 0.75,
+      "closeDate": "2025-04-25",
+      "category": "Support"
     }
   },
   {
@@ -1745,13 +1977,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 649.66,
+      "repName": "Isabella Fernandez",
+      "dealSize": 119.87,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 74061.24,
-      "profitMargin": 0.52
+      "dealValue": 12706.22,
+      "profitMargin": 0.74,
+      "closeDate": "2025-04-26",
+      "category": "Software"
     }
   },
   {
@@ -1760,13 +1994,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 1415.28,
-      "isWon": true,
-      "commission": 668.01,
-      "dealProfit": 4359.06,
-      "dealValue": 5661.12,
-      "profitMargin": 0.77
+      "repName": "Andreas Schmitt",
+      "dealSize": 118.12,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 2834.88,
+      "profitMargin": 0.61,
+      "closeDate": "2025-02-13",
+      "category": "Support"
     }
   },
   {
@@ -1775,13 +2011,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 564.95,
-      "isWon": true,
-      "commission": 4081.2,
-      "dealProfit": 24677.02,
-      "dealValue": 47455.8,
-      "profitMargin": 0.52
+      "repName": "Mei Chen",
+      "dealSize": 2927.96,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 49775.32,
+      "profitMargin": 0.49,
+      "closeDate": "2025-04-11",
+      "category": "Support"
     }
   },
   {
@@ -1790,13 +2028,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Robert Garcia",
-      "dealSize": 100.76,
-      "isWon": true,
-      "commission": 280.21,
-      "dealProfit": 1632.31,
-      "dealValue": 2720.52,
-      "profitMargin": 0.6
+      "repName": "Sophie Dubois",
+      "dealSize": 28655.29,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 85965.87,
+      "profitMargin": 0.45,
+      "closeDate": "2025-02-25",
+      "category": "Services"
     }
   },
   {
@@ -1806,12 +2046,14 @@
     },
     "rowData": {
       "repName": "Ravi Patel",
-      "dealSize": 17105.83,
+      "dealSize": 10268.78,
       "isWon": true,
-      "commission": 4721.21,
-      "dealProfit": 9750.32,
-      "dealValue": 51317.49,
-      "profitMargin": 0.19
+      "commission": 17949.83,
+      "dealProfit": 54629.91,
+      "dealValue": 195106.82,
+      "profitMargin": 0.28,
+      "closeDate": "2025-04-20",
+      "category": "Training"
     }
   },
   {
@@ -1820,13 +2062,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 529.68,
-      "isWon": true,
-      "commission": 1266.99,
-      "dealProfit": 8538.44,
-      "dealValue": 13771.68,
-      "profitMargin": 0.62
+      "repName": "Liu Wei",
+      "dealSize": 3325.41,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 3325.41,
+      "profitMargin": 0.46,
+      "closeDate": "2025-03-14",
+      "category": "Software"
     }
   },
   {
@@ -1835,13 +2079,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 17096.36,
-      "isWon": true,
-      "commission": 1572.87,
-      "dealProfit": 3077.34,
-      "dealValue": 17096.36,
-      "profitMargin": 0.18
+      "repName": "Thomas Müller",
+      "dealSize": 29590.88,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 59181.76,
+      "profitMargin": 0.43,
+      "closeDate": "2025-02-11",
+      "category": "Hardware"
     }
   },
   {
@@ -1850,13 +2096,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 7067.96,
+      "repName": "Akira Tanaka",
+      "dealSize": 677.75,
       "isWon": true,
-      "commission": 9400.39,
-      "dealProfit": 35622.52,
-      "dealValue": 98951.44,
-      "profitMargin": 0.36
+      "commission": 6567.4,
+      "dealProfit": 35256.56,
+      "dealValue": 69130.5,
+      "profitMargin": 0.51,
+      "closeDate": "2025-03-14",
+      "category": "Services"
     }
   },
   {
@@ -1865,13 +2113,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 27238.75,
+      "repName": "James Wilson",
+      "dealSize": 1498,
       "isWon": true,
-      "commission": 5175.36,
-      "dealProfit": 17977.58,
-      "dealValue": 54477.5,
-      "profitMargin": 0.33
+      "commission": 557.26,
+      "dealProfit": 3055.92,
+      "dealValue": 4494,
+      "profitMargin": 0.68,
+      "closeDate": "2025-04-23",
+      "category": "Software"
     }
   },
   {
@@ -1880,13 +2130,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 28563.47,
+      "repName": "Sarah Martinez",
+      "dealSize": 8775.39,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 57126.94,
-      "profitMargin": 0.42
+      "dealValue": 43876.95,
+      "profitMargin": 0.18,
+      "closeDate": "2025-02-09",
+      "category": "Consulting"
     }
   },
   {
@@ -1895,13 +2147,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 691.34,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 102318.32,
-      "profitMargin": 0.65
+      "repName": "Thomas Müller",
+      "dealSize": 8478.53,
+      "isWon": true,
+      "commission": 1712.66,
+      "dealProfit": 7291.54,
+      "dealValue": 16957.06,
+      "profitMargin": 0.43,
+      "closeDate": "2025-04-02",
+      "category": "Consulting"
     }
   },
   {
@@ -1910,13 +2164,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 1967.41,
-      "isWon": true,
-      "commission": 2368.76,
-      "dealProfit": 14322.74,
-      "dealValue": 27543.74,
-      "profitMargin": 0.52
+      "repName": "Olivia Bennett",
+      "dealSize": 378.01,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 17766.47,
+      "profitMargin": 0.73,
+      "closeDate": "2025-03-19",
+      "category": "Software"
     }
   },
   {
@@ -1925,13 +2181,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 653.91,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 130782,
-      "profitMargin": 0.48
+      "repName": "Thomas Müller",
+      "dealSize": 30012.09,
+      "isWon": true,
+      "commission": 9093.66,
+      "dealProfit": 38715.6,
+      "dealValue": 90036.27,
+      "profitMargin": 0.43,
+      "closeDate": "2025-05-04",
+      "category": "Hardware"
     }
   },
   {
@@ -1940,13 +2198,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 8727.31,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 96000.41,
-      "profitMargin": 0.29
+      "repName": "Olivia Bennett",
+      "dealSize": 115.69,
+      "isWon": true,
+      "commission": 1147.53,
+      "dealProfit": 6737.79,
+      "dealValue": 10527.79,
+      "profitMargin": 0.64,
+      "closeDate": "2025-04-28",
+      "category": "Consulting"
     }
   },
   {
@@ -1956,12 +2216,14 @@
     },
     "rowData": {
       "repName": "Carlos Rodriguez",
-      "dealSize": 2010.37,
+      "dealSize": 104.51,
       "isWon": true,
-      "commission": 381.97,
-      "dealProfit": 2130.99,
-      "dealValue": 4020.74,
-      "profitMargin": 0.53
+      "commission": 2379.69,
+      "dealProfit": 16347.45,
+      "dealValue": 20692.98,
+      "profitMargin": 0.79,
+      "closeDate": "2025-04-02",
+      "category": "Hardware"
     }
   },
   {
@@ -1970,13 +2232,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 3044.54,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 45668.1,
-      "profitMargin": 0.39
+      "repName": "Akira Tanaka",
+      "dealSize": 26148.84,
+      "isWon": true,
+      "commission": 7452.42,
+      "dealProfit": 33732,
+      "dealValue": 78446.52,
+      "profitMargin": 0.43,
+      "closeDate": "2025-02-06",
+      "category": "Training"
     }
   },
   {
@@ -1985,13 +2249,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 398.41,
-      "isWon": true,
-      "commission": 1551.41,
-      "dealProfit": 10123.6,
-      "dealValue": 13147.53,
-      "profitMargin": 0.77
+      "repName": "David Thompson",
+      "dealSize": 519.1,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 69040.3,
+      "profitMargin": 0.61,
+      "closeDate": "2025-02-27",
+      "category": "Software"
     }
   },
   {
@@ -2000,13 +2266,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 8730.84,
-      "isWon": true,
-      "commission": 11978.71,
-      "dealProfit": 40336.48,
-      "dealValue": 122231.76,
-      "profitMargin": 0.33
+      "repName": "Isabella Fernandez",
+      "dealSize": 381.66,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 4198.26,
+      "profitMargin": 0.75,
+      "closeDate": "2025-02-12",
+      "category": "Software"
     }
   },
   {
@@ -2015,13 +2283,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 3352.34,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 3329.76,
       "isWon": true,
-      "commission": 636.94,
-      "dealProfit": 2681.87,
-      "dealValue": 6704.68,
-      "profitMargin": 0.4
+      "commission": 2530.62,
+      "dealProfit": 13052.66,
+      "dealValue": 26638.08,
+      "profitMargin": 0.49,
+      "closeDate": "2025-02-25",
+      "category": "Support"
     }
   },
   {
@@ -2031,12 +2301,14 @@
     },
     "rowData": {
       "repName": "Emily Davis",
-      "dealSize": 31469.67,
+      "dealSize": 2100.88,
       "isWon": true,
-      "commission": 6168.06,
-      "dealProfit": 19511.2,
-      "dealValue": 62939.34,
-      "profitMargin": 0.31
+      "commission": 3705.95,
+      "dealProfit": 20798.71,
+      "dealValue": 37815.84,
+      "profitMargin": 0.55,
+      "closeDate": "2025-04-18",
+      "category": "Training"
     }
   },
   {
@@ -2046,12 +2318,14 @@
     },
     "rowData": {
       "repName": "Michael Johnson",
-      "dealSize": 2963.87,
+      "dealSize": 397.93,
       "isWon": true,
-      "commission": 5068.22,
-      "dealProfit": 16538.39,
-      "dealValue": 53349.66,
-      "profitMargin": 0.31
+      "commission": 3615.19,
+      "dealProfit": 23262.99,
+      "dealValue": 31436.47,
+      "profitMargin": 0.74,
+      "closeDate": "2025-03-24",
+      "category": "Training"
     }
   },
   {
@@ -2060,13 +2334,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 112.87,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 1500.06,
       "isWon": true,
-      "commission": 1687.41,
-      "dealProfit": 9097.32,
-      "dealValue": 14673.1,
-      "profitMargin": 0.62
+      "commission": 2760.11,
+      "dealProfit": 16800.67,
+      "dealValue": 24000.96,
+      "profitMargin": 0.7,
+      "closeDate": "2025-03-26",
+      "category": "Consulting"
     }
   },
   {
@@ -2075,13 +2351,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 28554.59,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 57109.18,
-      "profitMargin": 0.48
+      "repName": "Thomas Müller",
+      "dealSize": 692.4,
+      "isWon": true,
+      "commission": 8042.23,
+      "dealProfit": 39016.74,
+      "dealValue": 79626,
+      "profitMargin": 0.49,
+      "closeDate": "2025-02-16",
+      "category": "Services"
     }
   },
   {
@@ -2090,13 +2368,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 396.16,
-      "isWon": true,
-      "commission": 5272.89,
-      "dealProfit": 31811.65,
-      "dealValue": 43577.6,
-      "profitMargin": 0.73
+      "repName": "Sarah Martinez",
+      "dealSize": 15260.43,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 30520.86,
+      "profitMargin": 0.19,
+      "closeDate": "2025-03-10",
+      "category": "Consulting"
     }
   },
   {
@@ -2105,13 +2385,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 3550.69,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 21304.14,
-      "profitMargin": 0.45
+      "repName": "Akira Tanaka",
+      "dealSize": 391.34,
+      "isWon": true,
+      "commission": 900.08,
+      "dealProfit": 5165.69,
+      "dealValue": 7826.8,
+      "profitMargin": 0.66,
+      "closeDate": "2025-02-26",
+      "category": "Training"
     }
   },
   {
@@ -2120,13 +2402,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 128.1,
+      "repName": "Emily Davis",
+      "dealSize": 17202.69,
       "isWon": true,
-      "commission": 1619.7,
-      "dealProfit": 9212.95,
-      "dealValue": 14859.6,
-      "profitMargin": 0.62
+      "commission": 1685.86,
+      "dealProfit": 2752.43,
+      "dealValue": 17202.69,
+      "profitMargin": 0.16,
+      "closeDate": "2025-03-24",
+      "category": "Training"
     }
   },
   {
@@ -2135,13 +2419,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 556.13,
-      "isWon": true,
-      "commission": 6921.59,
-      "dealProfit": 41670.82,
-      "dealValue": 70628.51,
-      "profitMargin": 0.59
+      "repName": "James Wilson",
+      "dealSize": 114.35,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 15894.65,
+      "profitMargin": 0.78,
+      "closeDate": "2025-05-05",
+      "category": "Training"
     }
   },
   {
@@ -2150,13 +2436,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 358.14,
+      "repName": "Ravi Patel",
+      "dealSize": 353.51,
       "isWon": true,
-      "commission": 5240.3,
-      "dealProfit": 29754.27,
-      "dealValue": 44409.36,
-      "profitMargin": 0.67
+      "commission": 3167.45,
+      "dealProfit": 19513.75,
+      "dealValue": 28280.8,
+      "profitMargin": 0.69,
+      "closeDate": "2025-03-02",
+      "category": "Training"
     }
   },
   {
@@ -2165,13 +2453,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 305.05,
+      "repName": "Isabella Fernandez",
+      "dealSize": 19513.95,
       "isWon": true,
-      "commission": 6981.07,
-      "dealProfit": 38851.17,
-      "dealValue": 60704.95,
-      "profitMargin": 0.64
+      "commission": 1736.74,
+      "dealProfit": 3707.65,
+      "dealValue": 19513.95,
+      "profitMargin": 0.19,
+      "closeDate": "2025-02-22",
+      "category": "Hardware"
     }
   },
   {
@@ -2180,13 +2470,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 119.5,
+      "repName": "Akira Tanaka",
+      "dealSize": 31600.34,
       "isWon": true,
-      "commission": 2193.06,
-      "dealProfit": 11849.62,
-      "dealValue": 17686,
-      "profitMargin": 0.67
+      "commission": 3002.03,
+      "dealProfit": 9796.11,
+      "dealValue": 31600.34,
+      "profitMargin": 0.31,
+      "closeDate": "2025-02-25",
+      "category": "Hardware"
     }
   },
   {
@@ -2195,13 +2487,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 2385.09,
+      "repName": "James Wilson",
+      "dealSize": 10188.86,
       "isWon": true,
-      "commission": 3730.28,
-      "dealProfit": 18651.4,
-      "dealValue": 40546.53,
-      "profitMargin": 0.46
+      "commission": 1059.64,
+      "dealProfit": 4686.88,
+      "dealValue": 10188.86,
+      "profitMargin": 0.46,
+      "closeDate": "2025-04-08",
+      "category": "Hardware"
     }
   },
   {
@@ -2210,13 +2504,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 8716.4,
+      "repName": "Isabella Fernandez",
+      "dealSize": 580.47,
       "isWon": true,
-      "commission": 1708.41,
-      "dealProfit": 5578.5,
-      "dealValue": 17432.8,
-      "profitMargin": 0.32
+      "commission": 8420.88,
+      "dealProfit": 46362.14,
+      "dealValue": 94616.61,
+      "profitMargin": 0.49,
+      "closeDate": "2025-04-11",
+      "category": "Services"
     }
   },
   {
@@ -2225,13 +2521,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 636.98,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 9554.7,
-      "profitMargin": 0.58
+      "repName": "Valentina Diaz",
+      "dealSize": 376.28,
+      "isWon": true,
+      "commission": 348.81,
+      "dealProfit": 2607.62,
+      "dealValue": 3386.52,
+      "profitMargin": 0.77,
+      "closeDate": "2025-04-12",
+      "category": "Support"
     }
   },
   {
@@ -2240,13 +2538,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 310.05,
+      "repName": "James Wilson",
+      "dealSize": 107.34,
       "isWon": true,
-      "commission": 3280.33,
-      "dealProfit": 17970.5,
-      "dealValue": 28524.6,
-      "profitMargin": 0.63
+      "commission": 851.85,
+      "dealProfit": 5083.62,
+      "dealValue": 6869.76,
+      "profitMargin": 0.74,
+      "closeDate": "2025-05-03",
+      "category": "Support"
     }
   },
   {
@@ -2255,13 +2555,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 126.33,
+      "repName": "Isabella Fernandez",
+      "dealSize": 520.85,
       "isWon": true,
-      "commission": 804.97,
-      "dealProfit": 4365.96,
-      "dealValue": 6821.82,
-      "profitMargin": 0.64
+      "commission": 2503.21,
+      "dealProfit": 18281.84,
+      "dealValue": 28125.9,
+      "profitMargin": 0.65,
+      "closeDate": "2025-03-16",
+      "category": "Services"
     }
   },
   {
@@ -2270,13 +2572,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 370.67,
+      "repName": "James Wilson",
+      "dealSize": 6663.95,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 6672.06,
-      "profitMargin": 0.71
+      "dealValue": 79967.4,
+      "profitMargin": 0.49,
+      "closeDate": "2025-02-19",
+      "category": "Consulting"
     }
   },
   {
@@ -2285,13 +2589,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 313.85,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 22283.35,
-      "profitMargin": 0.61
+      "repName": "Sarah Martinez",
+      "dealSize": 331.45,
+      "isWon": true,
+      "commission": 7313.11,
+      "dealProfit": 45706.96,
+      "dealValue": 65295.65,
+      "profitMargin": 0.7,
+      "closeDate": "2025-04-12",
+      "category": "Consulting"
     }
   },
   {
@@ -2300,13 +2606,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 651.9,
+      "repName": "Sarah Martinez",
+      "dealSize": 1713.3,
       "isWon": true,
-      "commission": 4919.24,
-      "dealProfit": 30117.78,
-      "dealValue": 50196.3,
-      "profitMargin": 0.6
+      "commission": 1535.12,
+      "dealProfit": 9731.54,
+      "dealValue": 13706.4,
+      "profitMargin": 0.71,
+      "closeDate": "2025-03-11",
+      "category": "Training"
     }
   },
   {
@@ -2315,13 +2623,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 8426.87,
-      "isWon": true,
-      "commission": 800.55,
-      "dealProfit": 1938.18,
-      "dealValue": 8426.87,
-      "profitMargin": 0.23
+      "repName": "Ravi Patel",
+      "dealSize": 331.12,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 49668,
+      "profitMargin": 0.7,
+      "closeDate": "2025-04-29",
+      "category": "Consulting"
     }
   },
   {
@@ -2330,13 +2640,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 3439.44,
+      "repName": "Emily Davis",
+      "dealSize": 16715.88,
       "isWon": true,
-      "commission": 3707.72,
-      "dealProfit": 16646.89,
-      "dealValue": 37833.84,
-      "profitMargin": 0.44
+      "commission": 4914.47,
+      "dealProfit": 8023.62,
+      "dealValue": 50147.64,
+      "profitMargin": 0.16,
+      "closeDate": "2025-02-22",
+      "category": "Training"
     }
   },
   {
@@ -2345,13 +2657,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 612.63,
+      "repName": "Ravi Patel",
+      "dealSize": 100.67,
       "isWon": true,
-      "commission": 7890.67,
-      "dealProfit": 44599.46,
-      "dealValue": 85768.2,
-      "profitMargin": 0.52
+      "commission": 608.85,
+      "dealProfit": 4240.22,
+      "dealValue": 5436.18,
+      "profitMargin": 0.78,
+      "closeDate": "2025-02-26",
+      "category": "Software"
     }
   },
   {
@@ -2360,13 +2674,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emma Fischer",
-      "dealSize": 2568.43,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 2568.43,
-      "profitMargin": 0.48
+      "repName": "Andreas Schmitt",
+      "dealSize": 26197.83,
+      "isWon": true,
+      "commission": 2410.2,
+      "dealProfit": 8907.26,
+      "dealValue": 26197.83,
+      "profitMargin": 0.34,
+      "closeDate": "2025-04-04",
+      "category": "Hardware"
     }
   },
   {
@@ -2375,13 +2691,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 1360.2,
+      "repName": "Andreas Schmitt",
+      "dealSize": 1738.48,
       "isWon": true,
-      "commission": 2189.92,
-      "dealProfit": 15043.81,
-      "dealValue": 19042.8,
-      "profitMargin": 0.79
+      "commission": 1168.26,
+      "dealProfit": 7614.54,
+      "dealValue": 10430.88,
+      "profitMargin": 0.73,
+      "closeDate": "2025-03-03",
+      "category": "Software"
     }
   },
   {
@@ -2391,12 +2709,14 @@
     },
     "rowData": {
       "repName": "Carlos Rodriguez",
-      "dealSize": 669.68,
-      "isWon": true,
-      "commission": 2290.31,
-      "dealProfit": 13741.83,
-      "dealValue": 24108.48,
-      "profitMargin": 0.57
+      "dealSize": 6019.93,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 66219.23,
+      "profitMargin": 0.41,
+      "closeDate": "2025-04-24",
+      "category": "Hardware"
     }
   },
   {
@@ -2405,13 +2725,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 500.67,
-      "isWon": true,
-      "commission": 7461.99,
-      "dealProfit": 52720.55,
-      "dealValue": 81108.54,
-      "profitMargin": 0.65
+      "repName": "Thomas Müller",
+      "dealSize": 7117.39,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 92526.07,
+      "profitMargin": 0.41,
+      "closeDate": "2025-05-04",
+      "category": "Hardware"
     }
   },
   {
@@ -2421,12 +2743,14 @@
     },
     "rowData": {
       "repName": "Thomas Müller",
-      "dealSize": 687.12,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 93448.32,
-      "profitMargin": 0.54
+      "dealSize": 2013.97,
+      "isWon": true,
+      "commission": 3864.81,
+      "dealProfit": 19515.37,
+      "dealValue": 38265.43,
+      "profitMargin": 0.51,
+      "closeDate": "2025-03-26",
+      "category": "Hardware"
     }
   },
   {
@@ -2435,13 +2759,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 415.39,
-      "isWon": true,
-      "commission": 6780.83,
-      "dealProfit": 42220.24,
-      "dealValue": 63970.06,
-      "profitMargin": 0.66
+      "repName": "James Wilson",
+      "dealSize": 111,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 13764,
+      "profitMargin": 0.79,
+      "closeDate": "2025-05-05",
+      "category": "Consulting"
     }
   },
   {
@@ -2450,13 +2776,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 557.76,
+      "repName": "James Wilson",
+      "dealSize": 10271.64,
       "isWon": true,
-      "commission": 7748.4,
-      "dealProfit": 40426.44,
-      "dealValue": 84221.76,
-      "profitMargin": 0.48
+      "commission": 1068.25,
+      "dealProfit": 4930.39,
+      "dealValue": 10271.64,
+      "profitMargin": 0.48,
+      "closeDate": "2025-04-05",
+      "category": "Hardware"
     }
   },
   {
@@ -2465,13 +2793,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 10142.86,
+      "repName": "Sarah Martinez",
+      "dealSize": 123.98,
       "isWon": true,
-      "commission": 963.57,
-      "dealProfit": 3448.57,
-      "dealValue": 10142.86,
-      "profitMargin": 0.34
+      "commission": 1888.46,
+      "dealProfit": 13489.02,
+      "dealValue": 16861.28,
+      "profitMargin": 0.8,
+      "closeDate": "2025-03-07",
+      "category": "Support"
     }
   },
   {
@@ -2480,13 +2810,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 19307.77,
-      "isWon": true,
-      "commission": 5850.25,
-      "dealProfit": 17956.23,
-      "dealValue": 57923.31,
-      "profitMargin": 0.31
+      "repName": "Akira Tanaka",
+      "dealSize": 28862.84,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 57725.68,
+      "profitMargin": 0.36,
+      "closeDate": "2025-04-25",
+      "category": "Software"
     }
   },
   {
@@ -2495,13 +2827,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 561.39,
+      "repName": "Andreas Schmitt",
+      "dealSize": 3298.55,
       "isWon": true,
-      "commission": 5113.14,
-      "dealProfit": 33902.34,
-      "dealValue": 55577.61,
-      "profitMargin": 0.61
+      "commission": 4552,
+      "dealProfit": 16822.6,
+      "dealValue": 49478.25,
+      "profitMargin": 0.34,
+      "closeDate": "2025-02-07",
+      "category": "Services"
     }
   },
   {
@@ -2510,13 +2844,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 107.98,
-      "isWon": true,
-      "commission": 1088.44,
-      "dealProfit": 6511.19,
-      "dealValue": 9718.2,
-      "profitMargin": 0.67
+      "repName": "Sarah Martinez",
+      "dealSize": 633.5,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 6335,
+      "profitMargin": 0.64,
+      "closeDate": "2025-03-08",
+      "category": "Services"
     }
   },
   {
@@ -2525,13 +2861,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 107.4,
+      "repName": "Sophie Dubois",
+      "dealSize": 6644.8,
       "isWon": true,
-      "commission": 360.86,
-      "dealProfit": 2223.18,
-      "dealValue": 3222,
-      "profitMargin": 0.69
+      "commission": 1262.51,
+      "dealProfit": 4917.15,
+      "dealValue": 13289.6,
+      "profitMargin": 0.37,
+      "closeDate": "2025-02-15",
+      "category": "Support"
     }
   },
   {
@@ -2540,13 +2878,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 7436.35,
+      "repName": "Ravi Patel",
+      "dealSize": 3315.58,
       "isWon": true,
-      "commission": 3197.63,
-      "dealProfit": 11154.52,
-      "dealValue": 37181.75,
-      "profitMargin": 0.3
+      "commission": 915.1,
+      "dealProfit": 3481.36,
+      "dealValue": 9946.74,
+      "profitMargin": 0.35,
+      "closeDate": "2025-03-07",
+      "category": "Hardware"
     }
   },
   {
@@ -2555,13 +2895,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 8732.23,
+      "repName": "Sophie Dubois",
+      "dealSize": 27745.88,
       "isWon": true,
-      "commission": 15438.58,
-      "dealProfit": 25236.14,
-      "dealValue": 148447.91,
-      "profitMargin": 0.17
+      "commission": 2635.86,
+      "dealProfit": 13040.56,
+      "dealValue": 27745.88,
+      "profitMargin": 0.47,
+      "closeDate": "2025-03-21",
+      "category": "Support"
     }
   },
   {
@@ -2570,13 +2912,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 117.73,
+      "repName": "Carlos Rodriguez",
+      "dealSize": 2662.68,
       "isWon": true,
-      "commission": 540.62,
-      "dealProfit": 3668.47,
-      "dealValue": 4826.93,
-      "profitMargin": 0.76
+      "commission": 3794.32,
+      "dealProfit": 18771.89,
+      "dealValue": 39940.2,
+      "profitMargin": 0.47,
+      "closeDate": "2025-02-21",
+      "category": "Training"
     }
   },
   {
@@ -2585,13 +2929,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 342.46,
+      "repName": "James Wilson",
+      "dealSize": 2133.91,
       "isWon": true,
-      "commission": 748.28,
-      "dealProfit": 4554.72,
-      "dealValue": 6506.74,
-      "profitMargin": 0.7
+      "commission": 665.78,
+      "dealProfit": 3905.06,
+      "dealValue": 6401.73,
+      "profitMargin": 0.61,
+      "closeDate": "2025-03-27",
+      "category": "Support"
     }
   },
   {
@@ -2600,13 +2946,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 33505.73,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 100517.19,
-      "profitMargin": 0.41
+      "repName": "Michael Johnson",
+      "dealSize": 401.12,
+      "isWon": true,
+      "commission": 5304.81,
+      "dealProfit": 35057.89,
+      "dealValue": 46128.8,
+      "profitMargin": 0.76,
+      "closeDate": "2025-04-18",
+      "category": "Consulting"
     }
   },
   {
@@ -2615,13 +2963,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 26189.22,
-      "isWon": true,
-      "commission": 2723.68,
-      "dealProfit": 11261.36,
-      "dealValue": 26189.22,
-      "profitMargin": 0.43
+      "repName": "Carlos Rodriguez",
+      "dealSize": 28381.4,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 85144.2,
+      "profitMargin": 0.32,
+      "closeDate": "2025-04-03",
+      "category": "Services"
     }
   },
   {
@@ -2630,13 +2980,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 6459.98,
+      "repName": "Emily Davis",
+      "dealSize": 627.58,
       "isWon": true,
-      "commission": 9205.47,
-      "dealProfit": 47480.85,
-      "dealValue": 96899.7,
-      "profitMargin": 0.49
+      "commission": 3075.14,
+      "dealProfit": 17572.24,
+      "dealValue": 31379,
+      "profitMargin": 0.56,
+      "closeDate": "2025-04-17",
+      "category": "Consulting"
     }
   },
   {
@@ -2645,13 +2997,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 5603.16,
-      "isWon": true,
-      "commission": 9794.32,
-      "dealProfit": 33002.61,
-      "dealValue": 106460.04,
-      "profitMargin": 0.31
+      "repName": "Akira Tanaka",
+      "dealSize": 9284.95,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 74279.6,
+      "profitMargin": 0.24,
+      "closeDate": "2025-02-17",
+      "category": "Services"
     }
   },
   {
@@ -2660,13 +3014,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 28184.34,
-      "isWon": true,
-      "commission": 5693.24,
-      "dealProfit": 25929.59,
-      "dealValue": 56368.68,
-      "profitMargin": 0.46
+      "repName": "Michael Johnson",
+      "dealSize": 26601.26,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 26601.26,
+      "profitMargin": 0.35,
+      "closeDate": "2025-02-15",
+      "category": "Services"
     }
   },
   {
@@ -2675,13 +3031,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 128.63,
+      "repName": "David Thompson",
+      "dealSize": 6793.96,
       "isWon": true,
-      "commission": 1047.31,
-      "dealProfit": 6035.32,
-      "dealValue": 8875.47,
-      "profitMargin": 0.68
+      "commission": 1813.99,
+      "dealProfit": 9171.85,
+      "dealValue": 20381.88,
+      "profitMargin": 0.45,
+      "closeDate": "2025-04-11",
+      "category": "Services"
     }
   },
   {
@@ -2690,13 +3048,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 118.18,
+      "repName": "Emily Davis",
+      "dealSize": 100.91,
       "isWon": true,
-      "commission": 2236.91,
-      "dealProfit": 14180.42,
-      "dealValue": 19972.42,
-      "profitMargin": 0.71
+      "commission": 2369.57,
+      "dealProfit": 14659.2,
+      "dealValue": 20081.09,
+      "profitMargin": 0.73,
+      "closeDate": "2025-04-17",
+      "category": "Services"
     }
   },
   {
@@ -2705,13 +3065,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 30574.35,
-      "isWon": true,
-      "commission": 8988.86,
-      "dealProfit": 32103.07,
-      "dealValue": 91723.05,
-      "profitMargin": 0.35
+      "repName": "Sarah Martinez",
+      "dealSize": 115.76,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 4051.6,
+      "profitMargin": 0.71,
+      "closeDate": "2025-04-01",
+      "category": "Consulting"
     }
   },
   {
@@ -2720,13 +3082,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 332,
+      "repName": "Akira Tanaka",
+      "dealSize": 2042.2,
       "isWon": true,
-      "commission": 5053.7,
-      "dealProfit": 32121,
-      "dealValue": 42828,
-      "profitMargin": 0.75
+      "commission": 970.04,
+      "dealProfit": 5718.16,
+      "dealValue": 10211,
+      "profitMargin": 0.56,
+      "closeDate": "2025-03-29",
+      "category": "Support"
     }
   },
   {
@@ -2735,13 +3099,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 344.14,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 23745.66,
-      "profitMargin": 0.79
+      "repName": "Robert Garcia",
+      "dealSize": 2289.93,
+      "isWon": true,
+      "commission": 2090.71,
+      "dealProfit": 12090.83,
+      "dealValue": 25189.23,
+      "profitMargin": 0.48,
+      "closeDate": "2025-02-27",
+      "category": "Consulting"
     }
   },
   {
@@ -2750,13 +3116,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 629.57,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 6295.7,
-      "profitMargin": 0.61
+      "repName": "Michael Johnson",
+      "dealSize": 11060.19,
+      "isWon": true,
+      "commission": 2101.44,
+      "dealProfit": 8184.54,
+      "dealValue": 22120.38,
+      "profitMargin": 0.37,
+      "closeDate": "2025-03-29",
+      "category": "Services"
     }
   },
   {
@@ -2765,13 +3133,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 594.06,
+      "repName": "Jessica Lee",
+      "dealSize": 348.67,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 92079.3,
-      "profitMargin": 0.47
+      "dealValue": 2092.02,
+      "profitMargin": 0.71,
+      "closeDate": "2025-03-09",
+      "category": "Services"
     }
   },
   {
@@ -2780,13 +3150,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 112.78,
+      "repName": "Isabella Fernandez",
+      "dealSize": 7921.4,
       "isWon": true,
-      "commission": 1482.38,
-      "dealProfit": 9229.92,
-      "dealValue": 13984.72,
-      "profitMargin": 0.66
+      "commission": 2115.01,
+      "dealProfit": 4990.48,
+      "dealValue": 23764.2,
+      "profitMargin": 0.21,
+      "closeDate": "2025-03-06",
+      "category": "Consulting"
     }
   },
   {
@@ -2795,13 +3167,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 108.3,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 15595.2,
-      "profitMargin": 0.6
+      "repName": "Robert Garcia",
+      "dealSize": 528.56,
+      "isWon": true,
+      "commission": 2719.97,
+      "dealProfit": 18679.31,
+      "dealValue": 32770.72,
+      "profitMargin": 0.57,
+      "closeDate": "2025-03-09",
+      "category": "Training"
     }
   },
   {
@@ -2810,13 +3184,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 374.61,
+      "repName": "Thomas Müller",
+      "dealSize": 9238.49,
       "isWon": true,
-      "commission": 3593.26,
-      "dealProfit": 22416.66,
-      "dealValue": 32965.68,
-      "profitMargin": 0.68
+      "commission": 6531.61,
+      "dealProfit": 13580.58,
+      "dealValue": 64669.43,
+      "profitMargin": 0.21,
+      "closeDate": "2025-03-11",
+      "category": "Software"
     }
   },
   {
@@ -2826,12 +3202,14 @@
     },
     "rowData": {
       "repName": "James Wilson",
-      "dealSize": 27510.12,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 55020.24,
-      "profitMargin": 0.32
+      "dealSize": 5933.48,
+      "isWon": true,
+      "commission": 11724.56,
+      "dealProfit": 41712.36,
+      "dealValue": 112736.12,
+      "profitMargin": 0.37,
+      "closeDate": "2025-02-14",
+      "category": "Training"
     }
   },
   {
@@ -2840,13 +3218,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 6056.89,
+      "repName": "Valentina Diaz",
+      "dealSize": 8619.79,
       "isWon": true,
-      "commission": 9164.07,
-      "dealProfit": 46335.21,
-      "dealValue": 102967.13,
-      "profitMargin": 0.45
+      "commission": 7869.87,
+      "dealProfit": 31289.84,
+      "dealValue": 94817.69,
+      "profitMargin": 0.33,
+      "closeDate": "2025-03-28",
+      "category": "Hardware"
     }
   },
   {
@@ -2855,13 +3235,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 18499.37,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 18499.37,
-      "profitMargin": 0.35
+      "repName": "Carlos Rodriguez",
+      "dealSize": 3282.9,
+      "isWon": true,
+      "commission": 4990.01,
+      "dealProfit": 25737.94,
+      "dealValue": 52526.4,
+      "profitMargin": 0.49,
+      "closeDate": "2025-05-04",
+      "category": "Training"
     }
   },
   {
@@ -2870,13 +3252,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 5792.57,
+      "repName": "James Wilson",
+      "dealSize": 331.98,
       "isWon": true,
-      "commission": 1650.88,
-      "dealProfit": 5908.42,
-      "dealValue": 17377.71,
-      "profitMargin": 0.34
+      "commission": 3416.74,
+      "dealProfit": 20114.67,
+      "dealValue": 27554.34,
+      "profitMargin": 0.73,
+      "closeDate": "2025-04-22",
+      "category": "Consulting"
     }
   },
   {
@@ -2885,13 +3269,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 311.42,
-      "isWon": true,
-      "commission": 2647.69,
-      "dealProfit": 15788.99,
-      "dealValue": 24290.76,
-      "profitMargin": 0.65
+      "repName": "Ravi Patel",
+      "dealSize": 7764.52,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 15529.04,
+      "profitMargin": 0.2,
+      "closeDate": "2025-04-28",
+      "category": "Consulting"
     }
   },
   {
@@ -2900,13 +3286,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 8215.45,
+      "repName": "Pierre Laurent",
+      "dealSize": 372.75,
       "isWon": true,
-      "commission": 2267.46,
-      "dealProfit": 8379.76,
-      "dealValue": 24646.35,
-      "profitMargin": 0.34
+      "commission": 2370.69,
+      "dealProfit": 16997.4,
+      "dealValue": 22365,
+      "profitMargin": 0.76,
+      "closeDate": "2025-03-29",
+      "category": "Services"
     }
   },
   {
@@ -2916,12 +3304,14 @@
     },
     "rowData": {
       "repName": "Olivia Bennett",
-      "dealSize": 104.79,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 314.37,
-      "profitMargin": 0.76
+      "dealSize": 361.35,
+      "isWon": true,
+      "commission": 1496.71,
+      "dealProfit": 9062.66,
+      "dealValue": 13731.3,
+      "profitMargin": 0.66,
+      "closeDate": "2025-04-07",
+      "category": "Software"
     }
   },
   {
@@ -2930,13 +3320,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 312.75,
-      "isWon": true,
-      "commission": 5359.28,
-      "dealProfit": 35888.06,
-      "dealValue": 47850.75,
-      "profitMargin": 0.75
+      "repName": "David Thompson",
+      "dealSize": 116.58,
+      "isWon": false,
+      "commission": 0,
+      "dealProfit": 0,
+      "dealValue": 7927.44,
+      "profitMargin": 0.61,
+      "closeDate": "2025-03-13",
+      "category": "Training"
     }
   },
   {
@@ -2945,13 +3337,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 384.34,
+      "repName": "Jessica Lee",
+      "dealSize": 678.43,
       "isWon": true,
-      "commission": 6143.67,
-      "dealProfit": 42204.38,
-      "dealValue": 53423.26,
-      "profitMargin": 0.79
+      "commission": 6709.67,
+      "dealProfit": 39009.72,
+      "dealValue": 78019.45,
+      "profitMargin": 0.5,
+      "closeDate": "2025-02-18",
+      "category": "Hardware"
     }
   },
   {
@@ -2960,13 +3354,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 19714.67,
+      "repName": "Sarah Martinez",
+      "dealSize": 574.43,
       "isWon": false,
       "commission": 0,
       "dealProfit": 0,
-      "dealValue": 59144.01,
-      "profitMargin": 0.2
+      "dealValue": 41358.96,
+      "profitMargin": 0.48,
+      "closeDate": "2025-02-21",
+      "category": "Hardware"
     }
   },
   {
@@ -2975,13 +3371,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 9753.11,
+      "repName": "Emily Davis",
+      "dealSize": 689.21,
       "isWon": true,
-      "commission": 2516.3,
-      "dealProfit": 9948.17,
-      "dealValue": 29259.33,
-      "profitMargin": 0.34
+      "commission": 1418.39,
+      "dealProfit": 7526.17,
+      "dealValue": 14473.41,
+      "profitMargin": 0.52,
+      "closeDate": "2025-02-22",
+      "category": "Hardware"
     }
   },
   {
@@ -2990,13 +3388,15 @@
       "isExpanded": true
     },
     "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 20070.9,
+      "repName": "Valentina Diaz",
+      "dealSize": 619.23,
       "isWon": true,
-      "commission": 5539.57,
-      "dealProfit": 15655.3,
-      "dealValue": 60212.7,
-      "profitMargin": 0.26
+      "commission": 2261.43,
+      "dealProfit": 12533.22,
+      "dealValue": 27246.12,
+      "profitMargin": 0.46,
+      "closeDate": "2025-03-28",
+      "category": "Software"
     }
   }
 ]

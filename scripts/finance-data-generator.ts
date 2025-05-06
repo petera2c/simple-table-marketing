@@ -1,4 +1,11 @@
-import { Row } from "simple-table-core";
+import type { Row } from "simple-table-core";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
+
+// Get the directory name equivalent in ESM
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Define companies data with realistic dividend yields
 const COMPANIES = [
@@ -610,6 +617,19 @@ export const generateFinanceData = (): Row[] => {
       priceChangePercent = parseFloat((Math.random() * 15 + 10).toFixed(2));
     }
 
+    // Generate analyst rating data
+    const ratings = ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"];
+    const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
+
+    // Generate a random date from the past 30 days in YYYY-MM-DD format
+    const today = new Date();
+    const pastDate = new Date(today);
+    pastDate.setDate(today.getDate() - Math.floor(Math.random() * 30));
+    const date = pastDate.toISOString().split("T")[0];
+
+    // 70% chance of following a stock
+    const isFollowed = Math.random() < 0.7;
+
     return {
       rowMeta: { rowId: rowId++ },
       rowData: {
@@ -620,7 +640,24 @@ export const generateFinanceData = (): Row[] => {
         marketCap,
         peRatio,
         dividendYield,
+        analystRating: randomRating,
+        date,
+        isFollowed,
       },
     };
   });
 };
+
+// Run the generation and save to a file
+function saveDataToFile() {
+  console.log("Generating finance dataset...");
+  const data = generateFinanceData();
+  console.log(`Generated ${data.length} finance records`);
+
+  const filePath = path.join(__dirname, "../src/examples/finance/finance-data.json");
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  console.log(`Data saved to ${filePath}`);
+}
+
+// Execute the function
+saveDataToFile();

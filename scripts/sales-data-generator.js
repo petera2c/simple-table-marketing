@@ -258,6 +258,16 @@ function generateRealisticSaleRecord(repData, rowId) {
   // Calculate commission only for won deals
   const commission = isWon ? parseFloat((dealValue * commissionRate).toFixed(2)) : 0;
 
+  // Generate a random close date in the past 90 days (YYYY-MM-DD format)
+  const today = new Date();
+  const pastDate = new Date(today);
+  pastDate.setDate(today.getDate() - Math.floor(Math.random() * 90));
+  const closeDate = pastDate.toISOString().split("T")[0];
+
+  // Assign a random category
+  const categories = ["Software", "Hardware", "Services", "Consulting", "Training", "Support"];
+  const category = categories[Math.floor(Math.random() * categories.length)];
+
   return {
     rowMeta: {
       rowId: rowId,
@@ -271,6 +281,8 @@ function generateRealisticSaleRecord(repData, rowId) {
       dealProfit: dealProfit,
       dealValue: dealValue,
       profitMargin: profitMargin,
+      closeDate: closeDate,
+      category: category,
     },
   };
 }

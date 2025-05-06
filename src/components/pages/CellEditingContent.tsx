@@ -141,7 +141,10 @@ export default function CellEditingContent() {
 
             <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
               <h3 className="font-bold text-gray-800 mb-2">Date Editor</h3>
-              <p className="text-gray-700">Date picker interface for selecting dates.</p>
+              <p className="text-gray-700">
+                Date picker interface for selecting dates. Date values must be in the format{" "}
+                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">YYYY-MM-DD</code>.
+              </p>
               <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
                 {`type: "date"`}
               </code>
