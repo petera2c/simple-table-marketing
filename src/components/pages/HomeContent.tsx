@@ -7,7 +7,6 @@ import {
   faColumns,
   faEdit,
   faList,
-  faScroll,
   faRocket,
   faLightbulb,
   faCode,
@@ -19,15 +18,12 @@ import {
   faThumbtack,
   faAlignCenter,
   faClock,
-  faPuzzlePiece,
-  faHeart,
   faBolt,
   faFileCode,
   faCheck,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import AnimatedBackground from "../../components/AnimatedBackground";
 import { trackButtonClick } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { SEO_STRINGS } from "../../constants/strings/seo";

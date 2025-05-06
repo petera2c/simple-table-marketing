@@ -33,7 +33,7 @@ const ConfigurableSidebar: React.FC<ConfigurableSidebarProps> = ({ config, class
       initial={{ x: -100, opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       transition={{ duration: 0.3 }}
-      className={`shrink-0 w-full sticky top-[84px] my-6 self-start h-[calc(100dvh-84px-1.5rem)] bg-white/90 backdrop-blur-sm flex flex-col rounded-xl shadow-[4px_0_16px_rgba(0,0,0,0.08)] p-1 overflow-hidden ${
+      className={`shrink-0 sticky top-[84px] my-6 self-start h-[calc(100dvh-84px-1.5rem)] bg-white/90 backdrop-blur-sm flex flex-col rounded-xl shadow-[4px_0_16px_rgba(0,0,0,0.08)] p-1 overflow-hidden ${
         width ? "" : "w-64"
       } ${className}`}
       style={width ? { width } : undefined}

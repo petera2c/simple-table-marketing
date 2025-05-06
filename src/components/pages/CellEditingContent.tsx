@@ -29,7 +29,9 @@ export default function CellEditingContent() {
       >
         Simple Table provides powerful cell editing capabilities, allowing users to modify data
         directly within the table interface. This creates a more interactive and efficient user
-        experience for data entry and management.
+        experience for data entry and management. Unlike competitors, Simple Table provides
+        specialized editors for different data types including strings, numbers, dates, booleans,
+        and enumerated values.
       </motion.p>
 
       {/* Demo Section */}
@@ -74,7 +76,7 @@ export default function CellEditingContent() {
 
         <CodeBlock demoCodeFilename="CellEditingDemo.txt" />
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
+        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700">
             <li>
@@ -89,6 +91,74 @@ export default function CellEditingContent() {
             </li>
           </ul>
         </div>
+
+        {/* Specialized Editors Section */}
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.5 }}
+        >
+          Specialized Editors
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+        >
+          <p className="text-gray-700 mb-4">
+            Simple Table provides specialized editors for different data types, making it more
+            user-friendly than competitors:
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <h3 className="font-bold text-gray-800 mb-2">String Editor</h3>
+              <p className="text-gray-700">
+                Default text input for string values like names, descriptions, and emails.
+              </p>
+              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+                {`type: "string"`}
+              </code>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <h3 className="font-bold text-gray-800 mb-2">Number Editor</h3>
+              <p className="text-gray-700">Specialized input for numeric values with validation.</p>
+              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+                {`type: "number"`}
+              </code>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <h3 className="font-bold text-gray-800 mb-2">Boolean Editor</h3>
+              <p className="text-gray-700">Checkbox interface for true/false values.</p>
+              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+                {`type: "boolean"`}
+              </code>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
+              <h3 className="font-bold text-gray-800 mb-2">Date Editor</h3>
+              <p className="text-gray-700">Date picker interface for selecting dates.</p>
+              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+                {`type: "date"`}
+              </code>
+            </div>
+
+            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
+              <h3 className="font-bold text-gray-800 mb-2">Enum Editor</h3>
+              <p className="text-gray-700">
+                Dropdown selector for choosing from predefined options.
+              </p>
+              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+                {`type: "enum",
+enumOptions: ["Option1", "Option2", "Option3"]`}
+              </code>
+            </div>
+          </div>
+        </motion.div>
       </motion.div>
 
       <DocNavigationButtons />

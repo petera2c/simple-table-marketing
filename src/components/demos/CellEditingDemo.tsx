@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SimpleTable, HeaderObject, CellChangeProps } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define headers with editable property
+// Define headers with editable property and various types
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, isEditable: false, type: "number" },
   { accessor: "firstName", label: "First Name", width: 150, isEditable: true, type: "string" },
@@ -15,7 +15,35 @@ const headers: HeaderObject[] = [
     isEditable: true,
     type: "string",
   },
-  { accessor: "role", label: "Role", width: 150, isEditable: true, type: "string" },
+  {
+    accessor: "role",
+    label: "Role",
+    width: 150,
+    isEditable: true,
+    type: "enum",
+    enumOptions: ["Developer", "Designer", "Manager", "Marketing", "QA"],
+  },
+  {
+    accessor: "hireDate",
+    label: "Hire Date",
+    width: 150,
+    isEditable: true,
+    type: "date",
+  },
+  {
+    accessor: "isActive",
+    label: "Active",
+    width: 100,
+    isEditable: true,
+    type: "boolean",
+  },
+  {
+    accessor: "salary",
+    label: "Salary",
+    width: 120,
+    isEditable: true,
+    type: "number",
+  },
 ];
 
 // Sample initial data
@@ -28,6 +56,9 @@ const initialData = [
       lastName: "Doe",
       email: "john@example.com",
       role: "Developer",
+      hireDate: "2020-01-15",
+      isActive: true,
+      salary: 85000,
     },
   },
   {
@@ -38,6 +69,9 @@ const initialData = [
       lastName: "Smith",
       email: "jane@example.com",
       role: "Designer",
+      hireDate: "2021-03-22",
+      isActive: true,
+      salary: 78000,
     },
   },
   {
@@ -48,6 +82,9 @@ const initialData = [
       lastName: "Johnson",
       email: "bob@example.com",
       role: "Manager",
+      hireDate: "2019-11-05",
+      isActive: true,
+      salary: 92000,
     },
   },
   {
@@ -58,6 +95,9 @@ const initialData = [
       lastName: "Williams",
       email: "alice@example.com",
       role: "Developer",
+      hireDate: "2022-01-10",
+      isActive: false,
+      salary: 83000,
     },
   },
   {
@@ -68,6 +108,9 @@ const initialData = [
       lastName: "Brown",
       email: "charlie@example.com",
       role: "Marketing",
+      hireDate: "2021-08-17",
+      isActive: true,
+      salary: 76000,
     },
   },
 ];
@@ -79,9 +122,18 @@ const CellEditingDemo = () => {
   // Handle cell edit
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
-      prevData.map((item) =>
-        item.rowMeta.rowId === row.rowMeta.rowId ? { ...item, [accessor]: newValue } : item
-      )
+      prevData.map((item) => {
+        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+          return {
+            ...item,
+            rowData: {
+              ...item.rowData,
+              [accessor]: newValue,
+            },
+          };
+        }
+        return item;
+      })
     );
   };
 
