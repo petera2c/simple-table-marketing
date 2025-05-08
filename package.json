@@ -4,7 +4,8 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "npm run open-browser && next dev",
+    "open-browser": "open http://localhost:3000",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -42,7 +43,7 @@
     "react-ga4": "^2.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^0.7.96",
+    "simple-table-core": "^0.8.13",
     "typescript": "^5.3.3"
   },
   "devDependencies": {

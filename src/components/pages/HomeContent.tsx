@@ -209,7 +209,8 @@ export default function HomeContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              A powerful React data table with all the features you need for complex applications
+              Build dynamic React tables in minutes with a lightweight, free, and customizable
+              library
             </motion.p>
 
             <motion.div
