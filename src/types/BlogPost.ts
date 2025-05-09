@@ -19,7 +19,8 @@ type BlogContentType =
   | "heroSection"
   | "callToAction"
   | "featureItem"
-  | "container";
+  | "container"
+  | "performanceDemo";
 
 export type BlogContentItem = {
   align?: "left" | "center" | "right";
@@ -41,7 +42,7 @@ export type BlogContentItem = {
   gutter?: [number, number] | number;
   headStyle?: React.CSSProperties;
   href?: string;
-  icon?: BlogContentItem | string;
+  icon?: BlogContentItem;
   iconClassName?: string;
   iconType?: "antd" | "fontAwesome";
   id?: string;
@@ -69,7 +70,7 @@ export type BlogContentItem = {
   target?: string;
   text?: string;
   textType?: "secondary" | "success" | "warning" | "danger";
-  title?: string | null;
+  title?: string;
   titleContent?: BlogContentItem;
   titleLevel?: 1 | 2 | 3 | 4 | 5;
   type: BlogContentType;
@@ -80,6 +81,32 @@ export type BlogContentItem = {
   md?: number;
   lg?: number;
   xl?: number;
+
+  // Performance Demo specific properties
+  headers?: any[];
+  height?: string;
+  theme?: "light" | "dark";
+  initialRowCount?: number;
+  dataCategories?: string[];
+  maxDealValue?: number;
+  minDealValue?: number;
+  maxProfit?: number;
+  minProfit?: number;
+  buttonVariants?: {
+    small?: boolean;
+    medium?: boolean;
+    large?: boolean;
+    extraLarge?: boolean;
+  };
+  buttonColors?: {
+    small?: string;
+    medium?: string;
+    large?: string;
+    extraLarge?: string;
+  };
+  showGenerationTime?: boolean;
+  demoClassName?: string;
+  hideTable?: boolean;
 };
 
 export type BlogPost = {

@@ -19,6 +19,7 @@ import CodeBlock from "../CodeBlock";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import PerformanceDemo from "../PerformanceDemo";
 
 library.add(far, fas);
 
@@ -93,9 +94,35 @@ export const renderContent = (content: BlogContentItem[]) => {
       style: item.style,
     };
 
+    // Handle component type
+    if (item.type === "performanceDemo") {
+      return (
+        <PerformanceDemo
+          title={item.title}
+          description={item.description}
+          headers={item.headers}
+          height={item.height}
+          theme={item.theme}
+          initialRowCount={item.initialRowCount}
+          dataCategories={item.dataCategories}
+          maxDealValue={item.maxDealValue}
+          minDealValue={item.minDealValue}
+          maxProfit={item.maxProfit}
+          minProfit={item.minProfit}
+          buttonVariants={item.buttonVariants}
+          buttonColors={item.buttonColors}
+          showGenerationTime={item.showGenerationTime}
+          className={item.demoClassName}
+          hideTable={item.hideTable}
+          key={index}
+        />
+      );
+    }
+
     if (item.type === "title" && item.level) {
       return (
         <Title {...commonProps} key={index} level={item.level}>
+          {item.icon && renderContent([item.icon])}
           {item.text}
         </Title>
       );
@@ -233,13 +260,10 @@ export const renderContent = (content: BlogContentItem[]) => {
     } else if (item.type === "tag") {
       return (
         <Tag key={index} color={item.colorClassName} {...commonProps}>
-          {item.icon && (
-            <>
-              {item.icon === "check" && <CheckOutlined />}
-              {item.icon === "close" && <CloseOutlined />}
-            </>
-          )}
-          {item.text}
+          <div className="flex items-center gap-2">
+            {item.icon && renderContent([item.icon])}
+            {item.text}
+          </div>
         </Tag>
       );
     } else if (item.type === "button") {
