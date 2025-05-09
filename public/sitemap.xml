@@ -35,11 +35,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/handling-million-rows</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/docs/cell-editing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
