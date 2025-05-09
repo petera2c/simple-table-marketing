@@ -14,14 +14,13 @@ import {
 } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import {
-  faBalanceScale,
-  faRocket,
-  faLightbulb,
-  faCube,
-  faCode,
-} from "@fortawesome/free-solid-svg-icons";
+import { IconName } from "@fortawesome/free-solid-svg-icons";
 import CodeBlock from "../CodeBlock";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+
+library.add(far, fas);
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -284,30 +283,13 @@ export const renderContent = (content: BlogContentItem[]) => {
           </span>
         );
       } else if (item.iconType === "fontAwesome") {
-        let icon;
         if (item.name) {
-          switch (item.name) {
-            case "balance-scale":
-              icon = faBalanceScale;
-              break;
-            case "rocket":
-              icon = faRocket;
-              break;
-            case "lightbulb":
-              icon = faLightbulb;
-              break;
-            case "cube":
-              icon = faCube;
-              break;
-            case "code":
-              icon = faCode;
-              break;
-            default:
-              icon = faCode;
-          }
           return (
             <span key={index} {...commonProps}>
-              <FontAwesomeIcon icon={icon} className={item.iconClassName || ""} />
+              <FontAwesomeIcon
+                icon={["fas", item.name as IconName]}
+                className={item.iconClassName || ""}
+              />
             </span>
           );
         }
