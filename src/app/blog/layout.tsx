@@ -1,7 +1,5 @@
-import BlogLayout from "@/components/BlogLayout";
+import PageLayout from "../../components/PageLayout";
 
-const BlogLayoutWrapper = ({ children }: { children: React.ReactNode }) => {
-  return <BlogLayout>{children}</BlogLayout>;
-};
-
-export default BlogLayoutWrapper;
+export default function BlogLayout({ children }: { children: React.ReactNode }) {
+  return <PageLayout sidebar={null}>{children}</PageLayout>;
+}

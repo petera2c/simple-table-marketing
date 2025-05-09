@@ -13,7 +13,6 @@ import {
   FileTextOutlined,
 } from "@ant-design/icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import Link from "next/link";
 import {
   faBalanceScale,
@@ -22,9 +21,63 @@ import {
   faCube,
   faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { ReactNode } from "react";
+import CodeBlock from "../CodeBlock";
 
 const { Title, Paragraph, Text } = Typography;
+
+// Add this helper function after imports but before renderContent
+export function getTableWinnerRenderer() {
+  return (winner: string) => {
+    if (winner === "simple-table") {
+      return {
+        type: "tag",
+        colorClassName: "green",
+        text: "Simple Table",
+        className: "flex items-center justify-center",
+      };
+    } else if (winner === "ag-grid") {
+      return {
+        type: "tag",
+        colorClassName: "blue",
+        text: "AG Grid",
+        className: "flex items-center justify-center",
+      };
+    }
+    return {
+      type: "tag",
+      colorClassName: "orange",
+      text: "Tie",
+      className: "flex items-center justify-center",
+    };
+  };
+}
+
+/**
+ * Pre-processes blog content to handle special cases like table renderers
+ */
+export function processBlogContent(content: BlogContentItem[]): BlogContentItem[] {
+  // Create a deep copy to avoid modifying the original
+  const processedContent = JSON.parse(JSON.stringify(content));
+
+  // Process the content
+  processedContent.forEach((section: BlogContentItem) => {
+    if (section.type === "section" && section.children) {
+      section.children.forEach((child: BlogContentItem) => {
+        if (child.type === "table" && child.columns) {
+          // Find the winner column if it exists
+          const winnerColumn = child.columns.find((col: any) => col.dataIndex === "winner");
+          if (winnerColumn) {
+            winnerColumn.render = getTableWinnerRenderer();
+          }
+
+          // Process any other special column renderers here
+        }
+      });
+    }
+  });
+
+  return processedContent;
+}
 
 // Export the renderContent function so it can be used by other components
 export const renderContent = (content: BlogContentItem[]) => {
@@ -35,15 +88,21 @@ export const renderContent = (content: BlogContentItem[]) => {
       item.align ? `flex w-full justify-${item.align} text-${item.align}` : ``
     } ${item.className ?? ""}`;
 
+    const commonProps = {
+      className,
+      id: item.id,
+      style: item.style,
+    };
+
     if (item.type === "title" && item.level) {
       return (
-        <Title className={className} key={index} level={item.level}>
+        <Title {...commonProps} key={index} level={item.level}>
           {item.text}
         </Title>
       );
     } else if (item.type === "text") {
       return (
-        <Text className={className} key={index} type={item.textType} strong={item.strong}>
+        <Text {...commonProps} key={index} type={item.textType} strong={item.strong}>
           {item.text}
         </Text>
       );
@@ -55,7 +114,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       );
     } else if (item.type === "section") {
       return (
-        <div key={index} className={`mb-8 ${item.className || ""}`}>
+        <div key={index} id={item.id} className={`mb-8 ${item.className || ""}`}>
           {item.title && (
             <Title className={className} level={item.titleLevel || 2}>
               {item.title}
@@ -66,7 +125,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       );
     } else if (item.type === "row") {
       return (
-        <Row key={index} gutter={item.gutter} className={item.className || ""}>
+        <Row key={index} gutter={item.gutter} {...commonProps}>
           {item.children && renderContent(item.children)}
         </Row>
       );
@@ -79,7 +138,7 @@ export const renderContent = (content: BlogContentItem[]) => {
           md={item.md}
           lg={item.lg}
           xl={item.xl}
-          className={item.className || ""}
+          {...commonProps}
         >
           {item.children && renderContent(item.children)}
         </Col>
@@ -98,7 +157,6 @@ export const renderContent = (content: BlogContentItem[]) => {
           className={item.className || "h-full"}
           styles={{
             header: item.headStyle,
-            body: { border: item.bordered === false ? "none" : "1px solid #f0f0f0" },
           }}
         >
           {item.children && renderContent(item.children)}
@@ -109,27 +167,25 @@ export const renderContent = (content: BlogContentItem[]) => {
         <List
           key={index}
           dataSource={item.items}
-          className={item.className || ""}
+          {...commonProps}
           renderItem={(listItem: string) => (
             <List.Item>
               <Text>{listItem}</Text>
             </List.Item>
           )}
+          style={{
+            border: "none",
+          }}
         />
       );
     } else if (item.type === "space") {
       return (
-        <Space
-          key={index}
-          direction={item.direction}
-          size={item.size}
-          className={item.className || ""}
-        >
+        <Space key={index} direction={item.direction} size={item.size} {...commonProps}>
           {item.children && renderContent(item.children)}
         </Space>
       );
     } else if (item.type === "divider") {
-      return <Divider key={index} className={item.className || ""} />;
+      return <Divider key={index} {...commonProps} />;
     } else if (item.type === "alert") {
       return (
         <Alert
@@ -138,7 +194,7 @@ export const renderContent = (content: BlogContentItem[]) => {
           description={item.description}
           type={item.alertType}
           showIcon={item.showIcon}
-          className={item.className || ""}
+          {...commonProps}
         />
       );
     } else if (item.type === "table") {
@@ -169,8 +225,7 @@ export const renderContent = (content: BlogContentItem[]) => {
             pagination={
               item.pagination === true ? {} : item.pagination === false ? false : item.pagination
             }
-            bordered={item.bordered}
-            className={item.className || ""}
+            {...commonProps}
             rowClassName={item.rowClassName || ""}
             scroll={item.scroll}
           />
@@ -178,7 +233,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       );
     } else if (item.type === "tag") {
       return (
-        <Tag key={index} color={item.colorClassName} className={item.className || ""}>
+        <Tag key={index} color={item.colorClassName} {...commonProps}>
           {item.icon && (
             <>
               {item.icon === "check" && <CheckOutlined />}
@@ -194,37 +249,30 @@ export const renderContent = (content: BlogContentItem[]) => {
           key={index}
           type={item.buttonType}
           size={item.size}
-          href={item.href}
           target={item.target}
-          className={item.className || ""}
+          {...commonProps}
           onClick={item.onClick}
           block={item.block}
           ghost={item.ghost}
+          href={item.isNextLink ? undefined : item.href}
         >
           {item.href && item.isNextLink ? <Link href={item.href}>{item.text}</Link> : item.text}
         </Button>
       );
     } else if (item.type === "codeBlock") {
       return (
-        <div
+        <CodeBlock
           key={index}
           className={`bg-gray-800 text-white p-3 md:p-4 rounded-md overflow-auto ${
             item.className || ""
           }`}
-        >
-          <pre
-            className={`${
-              item.preClassName || "whitespace-pre-wrap md:whitespace-pre"
-            } text-xs md:text-sm`}
-          >
-            {item.code}
-          </pre>
-        </div>
+          code={item.code}
+        />
       );
     } else if (item.type === "icon") {
       if (item.iconType === "antd") {
         return (
-          <span key={index} className={item.className || ""}>
+          <span key={index} {...commonProps}>
             {item.name === "thunderbolt" && (
               <ThunderboltOutlined className={item.iconClassName || ""} />
             )}
@@ -258,7 +306,7 @@ export const renderContent = (content: BlogContentItem[]) => {
               icon = faCode;
           }
           return (
-            <span key={index} className={item.className || ""}>
+            <span key={index} {...commonProps}>
               <FontAwesomeIcon icon={icon} className={item.iconClassName || ""} />
             </span>
           );
@@ -272,7 +320,7 @@ export const renderContent = (content: BlogContentItem[]) => {
             <div
               className={`${item.colorClassName || "bg-blue-500"} h-3 md:h-4 rounded-full`}
               style={{ width: item.percentage }}
-            ></div>
+            />
           </div>
         </div>
       );
@@ -318,7 +366,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       );
     } else if (item.type === "container") {
       return (
-        <div key={index} className={item.className || ""} style={item.style || {}}>
+        <div key={index} {...commonProps}>
           {item.title && <Text strong>{item.title}</Text>}
           {item.children && renderContent(item.children)}
         </div>
@@ -354,7 +402,7 @@ export default function BlogPostContent({ slug }: { slug: string }) {
 
   if (postError || !post) {
     return (
-      <div className="text-center py-12">
+      <div className="text-center py-12 scroll-mt-10">
         <Title level={2}>Blog post not found</Title>
         <Text type="secondary">
           The blog post you're looking for doesn't exist or has been removed.
@@ -363,11 +411,8 @@ export default function BlogPostContent({ slug }: { slug: string }) {
     );
   }
 
-  return (
-    <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 md:py-12 bg-white">
-        {renderContent(post.content)}
-      </div>
-    </>
-  );
+  // Process the blog content to handle special rendering cases
+  const processedContent = processBlogContent(post.content);
+
+  return <>{renderContent(processedContent)}</>;
 }

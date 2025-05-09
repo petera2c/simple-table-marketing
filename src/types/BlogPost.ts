@@ -44,6 +44,7 @@ export type BlogContentItem = {
   icon?: BlogContentItem | string;
   iconClassName?: string;
   iconType?: "antd" | "fontAwesome";
+  id?: string;
   isNextLink?: boolean;
   items?: string[];
   language?: string;
