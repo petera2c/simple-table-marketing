@@ -6,14 +6,8 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/building-financial-dashboard-with-simple-table</loc>
-    <lastmod>2024-05-15T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/blog/handling-million-rows</loc>
-    <lastmod>2024-05-15T00:00:00.000Z</lastmod>
+    <loc>https://www.simple-table.com/blog/handling-one-million-rows</loc>
+    <lastmod>2025-05-08T00:00:00.000Z</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

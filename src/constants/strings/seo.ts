@@ -2,211 +2,216 @@ export const SEO_STRINGS = {
   site: {
     url: "https://www.simple-table.com",
     name: "Simple Table",
-    title: "The React Table That Actually Makes Sense 🚀",
+    title: "Simple Table: Lightweight React Data Grid",
     description:
-      "Say goodbye to boring tables! Simple Table is a delightfully powerful React grid that makes your data dance. With lightning-fast editing, smooth scrolling, and pixel-perfect design, it's the table your data deserves! ✨",
+      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free!",
     defaultKeywords:
-      "react table, react grid, react spreadsheet, simple table, react data table, business table component, best react table, enterprise data grid, typescript table component, fun data visualization",
+      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table",
     creator: "@simpletable",
     ogImage: {
       url: "https://www.simple-table.com/og-image.png",
       width: 1200,
       height: 630,
-      alt: "Simple Table - The React Table That Actually Makes Sense",
+      alt: "Simple Table - Lightweight React Data Grid and Table",
     },
   },
   home: {
-    title: "The React Table That Actually Makes Sense 🚀",
+    title: "Simple Table: Lightweight React Data Grid",
     description:
-      "Say goodbye to boring tables! Simple Table is a delightfully powerful React grid that makes your data dance. With lightning-fast editing, smooth scrolling, and pixel-perfect design, it's the table your data deserves! ✨",
+      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free!",
     keywords:
-      "react table component, react grid, react spreadsheet, business table, data visualization, react data table, simple table, best react table, enterprise react table, typescript table, fun data grid",
+      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table",
     openGraph: {
       type: "website",
     },
   },
-
   blog: {
-    title: "Simple Table Blog | Where Data Nerds Become Table Whisperers ✨",
+    title: "Simple Table Blog: React Grid Tips",
     description:
-      "Dive into the world of exciting data grids! Our blog explores Simple Table tricks, data visualization wonders, and how to make your React tables sparkle with performance and style.",
+      "Explore Simple Table tutorials for react-grid and data-grid. Learn to build responsive tables with datagrid features and TypeScript support.",
     keywords:
-      "React table, data grid, blog, react performance, data visualization, typescript table, react components, fun data tables",
+      "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   themeBuilder: {
-    title: "Simple Table Theme Builder | Where Tables Get Their Glow-Up 🎨",
+    title: "Simple Table Theme Builder for React Grids",
     description:
-      "Unleash your creativity with our amazing theme builder! Create gorgeous, custom table designs that match your brand and delight your users. Our intuitive theme builder makes it fun to craft the perfect table that fits your application's personality.",
+      "Customize react-table with Simple Table’s theme builder. Style your datagrid or data table with TypeScript support and responsive design.",
     keywords:
-      "simple table theme builder, react table customization, table styling, react grid theme, table appearance customization, table design, professional table themes, TypeScript theming, fun table design",
+      "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, table, theme builder, table customization, typescript table",
   },
   cellEditing: {
-    title: "Cell Editing | Your Data's Red Pen Moment in React Tables ✏️",
+    title: "Cell Editing with Simple Table React Grid",
     description:
-      "Transform static data into an interactive playground! Simple Table's powerful cell editing lets users modify data directly with real-time validation, custom formatters, and seamless data binding that feels magical.",
+      "Enable cell editing in your react-table with Simple Table. Add inline editing to your datagrid or data table with TypeScript support.",
     keywords:
-      "cell editing, editable cells, data input, form validation, inline editing, table editing, React table, data grid, TypeScript table editing, interactive tables",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell editing, editable table, typescript table, interactive table",
   },
   cellHighlighting: {
-    title: "Cell Highlighting | Spotlight Your Most Valuable Data Points ✨",
+    title: "Cell Highlighting in Simple Table React Grid",
     description:
-      "Make your data pop with Simple Table's intuitive cell selection and highlighting! Perfect for copy-paste wizardry, data analysis magic, and creating delightful interactions with even the most complex datasets.",
+      "Highlight cells in your react-table with Simple Table. Add selection to your datagrid or data table for better data analysis.",
     keywords:
-      "cell highlighting, selection, clipboard, copy-paste, data analysis, React table, TypeScript table selection, fun data interactions",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell highlighting, table selection, typescript table, data analysis",
   },
   cellRenderer: {
-    title: "Cell Renderers | From Plain Cells to Data Masterpieces 🎭",
+    title: "Custom Cell Renderers with Simple Table",
     description:
-      "Why settle for plain text when your data can dazzle? Build amazing custom cell renderers in Simple Table to display complex data types, interactive components, and rich visual content with full TypeScript support.",
+      "Create custom cell renderers for your react-table with Simple Table. Display rich content in your datagrid or data table with TypeScript support.",
     keywords:
-      "cell renderer, custom cells, React components, data display, table customization, TypeScript table components, creative data visualization",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell renderer, custom table cells, typescript table, data visualization",
   },
   columnAlignment: {
-    title: "Column Alignment | Because Even Tables Have OCD 📏",
+    title: "Column Alignment in Simple Table React Grid",
     description:
-      "Alignment matters! Create visually satisfying tables with Simple Table's pixel-perfect column alignment. Make text, numbers, and custom content look gorgeously organized for maximum readability and professional presentation.",
+      "Align columns in your react-table with Simple Table. Ensure perfect layouts for your datagrid or data table with TypeScript support.",
     keywords:
-      "column alignment, text alignment, table layout, React table, data presentation, TypeScript table layout, beautiful tables",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column alignment, table layout, typescript table, responsive table",
   },
   columnPinning: {
-    title: "Column Pinning | Your Data's VIP Section That Never Scrolls Away 📌",
+    title: "Column Pinning with Simple Table React Grid",
     description:
-      "Keep your most important data front and center! Simple Table's column pinning helps users navigate massive datasets without getting lost, keeping key identifiers and metrics visible while scrolling through the data universe.",
+      "Pin columns in your react-table with Simple Table. Keep key data visible in your datagrid or data table while scrolling.",
     keywords:
-      "column pinning, fixed columns, sticky columns, table navigation, React table, TypeScript data grid, data exploration",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column pinning, sticky columns, typescript table, table navigation",
   },
-
   columnResizing: {
-    title: "Column Resizing | Because Size Actually Does Matter 🔄",
+    title: "Column Resizing in Simple Table React Grid",
     description:
-      "Give your data room to breathe! Simple Table's intuitive column resizing lets users adjust column widths with buttery-smooth drag operations, making tables fit perfectly to their content and delighting users with responsive design.",
+      "Resize columns in your react-table with Simple Table. Enable smooth drag-to-resize in your datagrid or data table with TypeScript support.",
     keywords:
-      "column resizing, table layout, user interaction, React table, data presentation, TypeScript table resizing, responsive data",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column resizing, table layout, typescript table, responsive table",
   },
   columnSorting: {
-    title: "Column Sorting | Where Chaos Meets Its Match in Your React Tables 🔍",
+    title: "Column Sorting with Simple Table React Grid",
     description:
-      "Bring order to data chaos with Simple Table's powerful sorting! Sort by any column with custom logic, arrange data in multiple dimensions, and save user preferences for a personalized experience that makes finding information a breeze.",
+      "Sort columns in your react-table with Simple Table. Add powerful sorting to your datagrid or data table with TypeScript support.",
     keywords:
-      "column sorting, data sorting, table organization, React table, data management, TypeScript table sorting, data exploration",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column sorting, table sorting, typescript table, data management",
   },
   columnVisibility: {
-    title: "Column Visibility | Your Table's Selective Attention Disorder 👁️",
+    title: "Column Visibility in Simple Table React Grid",
     description:
-      "Less is more! Simple Table's column visibility controls let users focus on exactly what they need. Show, hide, and rearrange columns on the fly based on preferences, roles, or context for a decluttered, personalized data experience.",
+      "Control column visibility in your react-table with Simple Table. Show or hide columns in your datagrid or data table with TypeScript support.",
     keywords:
-      "column visibility, table customization, React table, data presentation, user preferences, TypeScript table columns, data focus",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column visibility, table customization, typescript table, data focus",
   },
   pagination: {
-    title: "Pagination | Big Data, Small Bites, Zero Indigestion 🧭",
+    title: "Pagination with Simple Table React Data Grid",
     description:
-      "Sail through massive datasets without sinking! Simple Table's sophisticated pagination handles enormous data volumes with customizable page sizes, lightning-fast server-side options, and optimized rendering that keeps your app running smooth as silk.",
+      "Add pagination to your react-table with Simple Table. Manage large datasets in your datagrid or data table with TypeScript support.",
     keywords:
-      "pagination, page size, data navigation, React table, large datasets, TypeScript pagination, big data handling",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, pagination, large datasets, typescript table, data navigation",
   },
   installation: {
-    title: "Installation | Faster Than Instant Ramen, More Satisfying Too ⚡",
+    title: "Install Simple Table: React Data Grid Setup",
     description:
-      "Blink and you'll miss it! Get Simple Table up and running in your project faster than brewing coffee. Our TypeScript-ready table library installs with minimal fuss and zero configuration headaches—just pure data goodness in record time.",
+      "Install Simple Table in your React app in minutes. A 16 kB react-table for datagrids and data tables with TypeScript support and npm setup.",
     keywords:
-      "installation, setup, npm, yarn, pnpm, React table, getting started, TypeScript table setup, quick start",
+      "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, installation, npm setup, typescript table",
   },
   customIcons: {
-    title: "Custom Icons | Your Table's Fashion Statement 💅",
+    title: "Custom Icons in Simple Table React Grid",
     description:
-      "Why wear someone else's style? Dress up your Simple Table with custom icons that perfectly match your brand identity. Replace default icons with your design system's look for a coherent, polished user experience that feels like home.",
+      "Add custom icons to your react-table with Simple Table. Personalize your datagrid or data table with TypeScript support and responsive design.",
     keywords:
-      "custom icons, table customization, React table, UI customization, icon replacement, TypeScript icon components, branded experience",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, custom icons, table customization, typescript table, ui design",
   },
   customTheme: {
-    title: "Custom Themes | Haute Couture for Your Data Grid 👔",
+    title: "Custom Themes for Simple Table React Grid",
     description:
-      "Make your tables runway-ready! Create gorgeous custom themes for Simple Table with complete TypeScript support. Style every pixel to match your application's design system, from subtle shadows to eye-catching animations—data never looked so good!",
+      "Create custom themes for your react-table with Simple Table. Style your datagrid or data table with TypeScript support and responsive design.",
     keywords:
-      "custom theme, table styling, React table, UI customization, design system, TypeScript theming, CSS-in-JS, beautiful tables",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, custom theme, table styling, typescript table, responsive design",
   },
   customRenderers: {
-    title: "Custom Renderers | When Plain Text Just Won't Cut It",
+    title: "Custom Renderers with Simple Table React Grid",
     description:
-      "Unleash your creativity with Simple Table's custom renderers! Display stunning visualizations, interactive controls, and rich media that turn ordinary data cells into extraordinary experiences—all with TypeScript's safety net to catch you.",
+      "Build custom renderers for your react-table with Simple Table. Display rich content in your datagrid or data table with TypeScript support.",
     keywords:
-      "custom renderers, React components, data display, table customization, complex data, TypeScript components, creative visualizations",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, custom renderers, table customization, typescript table, data visualization",
   },
   nestedHeaders: {
-    title: "Nested Headers | Data Hierarchy Without the Family Drama 🏙️",
+    title: "Nested Headers in Simple Table React Grid",
     description:
-      "Add another dimension to your data! Simple Table's nested headers let you organize complex information into logical categories with multi-level column headers that guide users through data relationships for intuitive exploration.",
+      "Add nested headers to your react-table with Simple Table. Organize complex data in your datagrid or data table with TypeScript support.",
     keywords:
-      "nested headers, complex tables, data organization, React table, table structure, TypeScript nested headers, data hierarchy",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, nested headers, table structure, typescript table, data hierarchy",
   },
   quickStart: {
-    title: "Quick Start | Zero to Table Hero in Five Minutes Flat ✨",
+    title: "Quick Start with Simple Table React Grid",
     description:
-      "Why wait to wow your users? Get your first Simple Table up and running faster than ordering takeout! Our step-by-step guide makes implementation a breeze, even with complex data and TypeScript projects—instant data delight guaranteed!",
+      "Get started with Simple Table in React in 5 minutes. A 16 kB react-table for datagrids and data tables with TypeScript support.",
     keywords:
-      "quick start, installation, getting started, React table, data grid, TypeScript table tutorial, rapid development",
+      "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, quick start, typescript table, setup guide",
   },
   rowGrouping: {
-    title: "Row Grouping | Where Flat Data Gets Dimension 📂",
+    title: "Row Grouping in Simple Table React Grid",
     description:
-      "Turn flat data into a beautifully structured experience! Simple Table's powerful row grouping organizes hierarchical information with expandable sections, insightful aggregations, and custom group headers that make complex data a joy to explore.",
+      "Group rows in your react-table with Simple Table. Organize hierarchical data in your datagrid or data table with TypeScript support.",
     keywords:
-      "row grouping, hierarchical data, data organization, React table, expandable rows, TypeScript grouping, data structure",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, row grouping, hierarchical data, typescript table, data organization",
   },
   rowHeight: {
-    title: "Row Height | The Goldilocks Zone for Your Data Display 📏",
+    title: "Row Height in Simple Table React Grid",
     description:
-      "One size doesn't fit all! Simple Table's flexible row height controls let you create tables that breathe with your content. Support tall rows for rich content, compact rows for dense data, and everything in between—like Goldilocks, but for tables!",
+      "Adjust row height in your react-table with Simple Table. Customize your datagrid or data table with TypeScript support and responsive design.",
     keywords:
-      "row height, table layout, content display, React table, table customization, TypeScript row configuration, responsive tables",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, row height, table layout, typescript table, responsive table",
   },
   themes: {
-    title: "Themes | From Business Casual to Black Tie for Your Tables 🎭",
+    title: "Themes for Simple Table React Data Grid",
     description:
-      "Why settle for basic when you can be fabulous? Simple Table's gorgeous ready-to-use themes instantly transform your tables from bland to grand! Choose light themes for clarity, dark themes for drama, or specialized themes for different moods and uses.",
+      "Explore themes for your react-table with Simple Table. Style your datagrid or data table with light, dark, or custom themes using TypeScript.",
     keywords:
-      "themes, table styling, UI customization, React table, design system, TypeScript theming, dark mode, visual design",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, table themes, table styling, typescript table, responsive design",
   },
   columnReordering: {
-    title: "Column Reordering | Like Furniture Rearranging for Data Nerds 🃏",
+    title: "Column Reordering in Simple Table React Grid",
     description:
-      "Let users play with their data! Simple Table's smooth drag-and-drop column reordering feels like magic, allowing everyone to arrange their table exactly how they like it. Create personalized views with a natural, responsive interface that just works.",
+      "Reorder columns in your react-table with Simple Table. Enable drag-and-drop in your datagrid or data table with TypeScript support.",
     keywords:
-      "column reordering, drag and drop columns, reorder columns, React table, table customization, TypeScript drag and drop, user personalization",
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column reordering, table customization, typescript table, user personalization",
   },
   examples: {
     manufacturing: {
-      title: "Manufacturing Dashboard | Where Factory Data Gets the VIP Treatment 🏭",
+      title: "Manufacturing Dashboard with Simple Table",
       description:
-        "Watch your factory floor come alive with Simple Table! See how our interactive tables transform manufacturing data into actionable insights with real-time production metrics, quality indicators, and inventory management that makes decision-making a breeze.",
+        "Build a manufacturing dashboard with Simple Table. A react-table for production metrics and inventory using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, manufacturing dashboard, production metrics, responsive table",
     },
     hr: {
-      title: "HR Management | People Data That's Actually Pleasant to Work With 👥",
+      title: "HR Management Table with Simple Table",
       description:
-        "Make HR data delightful with Simple Table! Our interactive demo shows how to streamline people management with beautiful employee tables, colorful attendance tracking, and performance visualizations that turn boring personnel data into engaging experiences.",
+        "Create an HR management table with Simple Table. A react-table for employee data and performance using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, hr management, employee table, responsive table",
     },
     finance: {
-      title: "Financial Analytics | Spreadsheets That Won't Make Your Eyes Glaze Over 💰",
+      title: "Financial Analytics with Simple Table",
       description:
-        "Numbers should tell stories! Discover how Simple Table transforms financial reporting with eye-catching budgeting tools, intuitive expense tracking, and dynamic financial analytics that make even the most complex spreadsheets a joy to work with.",
+        "Use Simple Table for financial analytics in React. A react-table for budgeting and expense tracking with a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, financial analytics, finance table, responsive table",
     },
     billing: {
-      title: "Billing & Invoicing | Transaction Tables That Actually Balance 💸",
+      title: "Billing & Invoicing Table with Simple Table",
       description:
-        "Billing doesn't have to be boring! See how Simple Table turns transaction management into a delightful experience with colorful invoice tracking, smooth payment processing, and subscription dashboards that make financial data actually fun to work with.",
+        "Build a billing table with Simple Table in React. A react-table for invoices and payments using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, billing table, invoice table, responsive table",
     },
   },
   liveUpdates: {
-    title: "Live Updates | Real-Time Tables That Won't Make Your Server Sweat",
+    title: "Live Updates in Simple Table React Grid",
     description:
-      "Learn how to create dynamic, real-time tables with SimpleTable's tableRef and updateData APIs. Add visual feedback with cell update flash animations for a polished user experience.",
+      "Add live updates to your react-table with Simple Table. Use tableRef for real-time datagrids and data tables with responsive design.",
     keywords:
-      "live updates, real-time data, dynamic tables, tableRef, updateData API, cell flash animation, React table, data visualization, SimpleTable",
-
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, live updates, real-time table, typescript table, responsive table",
     twitter: {
-      title: "Live Updates | Real-Time Tables That Won't Make Your Server Sweat",
+      title: "Live Updates in Simple Table React Grid",
       description:
-        "Implement live data updates in your tables with SimpleTable's tableRef API. Perfect for dashboards, financial data, and real-time monitoring.",
+        "Add live updates to your react-table with Simple Table. Use tableRef for real-time dashboards and monitoring with a datagrid.",
     },
   },
 };
