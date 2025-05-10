@@ -243,7 +243,7 @@ export default function HomeContent() {
 
         {/* Demo section with animated entrance */}
         <motion.section
-          className="mb-16 shadow-xl overflow-hidden"
+          className="mb-16 shadow-xl overflow-hidden min-h-[70dvh]"
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
