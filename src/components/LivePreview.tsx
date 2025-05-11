@@ -2,27 +2,36 @@ import { faBox, faCode } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Tooltip } from "antd";
 import { useState } from "react";
+import CodeBlock from "./CodeBlock";
 
 const LivePreview = ({
-  code,
+  demoCodeFilename,
+  height = "400px",
   link,
-  preview,
+  Preview,
 }: {
-  code: React.ReactNode;
+  demoCodeFilename?: string;
+  height?: string;
   link: string;
-  preview: React.ReactNode;
+  Preview: ({ height }: { height?: string }) => JSX.Element;
 }) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+
   return (
-    <div className="flex flex-col gap-4 w-full">
-      {isCodeVisible ? code : preview}
-      <div className="flex justify-end gap-2 w-full">
-        <Tooltip title="Live code">
+    <div className="flex flex-col gap-4 w-full flex-grow">
+      <div className={`h-[${height}]`}>
+        {isCodeVisible ? (
+          <CodeBlock className={`h-full`} demoCodeFilename={demoCodeFilename} />
+        ) : (
+          <Preview height={height} />
+        )}
+      </div>
+      <div className="flex justify-end gap-2 w-full shrink-0">
+        <Tooltip title={isCodeVisible ? "Show preview" : "Show code"}>
           <Button
             className="text-slate-700"
-            icon={
-              <FontAwesomeIcon icon={faCode} onClick={() => setIsCodeVisible(!isCodeVisible)} />
-            }
+            icon={<FontAwesomeIcon icon={faCode} />}
+            onClick={() => setIsCodeVisible(!isCodeVisible)}
           />
         </Tooltip>
         <Tooltip title="Sandbox">

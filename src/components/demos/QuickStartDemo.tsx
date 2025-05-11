@@ -1,7 +1,7 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-const QuickStartDemo = () => {
+const QuickStartDemo = ({ height = "300px" }: { height?: string }) => {
   // Sample data for a quick start demo
   const data = [
     {
@@ -44,6 +44,38 @@ const QuickStartDemo = () => {
       department: "Engineering",
       startDate: "2020-01-01",
     },
+    {
+      id: 6,
+      name: "David Lee",
+      age: 31,
+      role: "QA Engineer",
+      department: "Quality Assurance",
+      startDate: "2020-01-01",
+    },
+    {
+      id: 7,
+      name: "Eve Green",
+      age: 29,
+      role: "Product Manager",
+      department: "Product Management",
+      startDate: "2020-01-01",
+    },
+    {
+      id: 8,
+      name: "Frank White",
+      age: 33,
+      role: "Sales Manager",
+      department: "Sales",
+      startDate: "2020-01-01",
+    },
+    {
+      id: 9,
+      name: "Grace Black",
+      age: 27,
+      role: "HR Manager",
+      department: "Human Resources",
+      startDate: "2020-01-01",
+    },
   ];
 
   // Define headers
@@ -70,7 +102,14 @@ const QuickStartDemo = () => {
   }));
 
   return (
-    <SimpleTable defaultHeaders={headers} editColumns rows={rows} rowHeight={48} selectableCells />
+    <SimpleTable
+      defaultHeaders={headers}
+      editColumns
+      height={height}
+      rows={rows}
+      rowHeight={48}
+      selectableCells
+    />
   );
 };
 

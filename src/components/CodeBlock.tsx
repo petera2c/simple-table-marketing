@@ -19,6 +19,7 @@ interface CodeBlockProps {
 }
 
 const CodeBlock = ({
+  className = "",
   code = "",
   demoCodeFilename = "",
   initialTheme = "dark",
@@ -77,7 +78,7 @@ const CodeBlock = ({
   const filename = extractFilename();
 
   return (
-    <div className="rounded-md overflow-hidden shadow-lg relative">
+    <div className={`flex flex-col rounded-md overflow-hidden shadow-lg relative ${className}`}>
       <div className="flex items-center justify-between px-4 py-2 bg-gray-900 text-gray-400 text-xs">
         <div className="flex items-center gap-2">
           <span>{getLanguageDisplayName()}</span>
@@ -107,56 +108,54 @@ const CodeBlock = ({
         </div>
       </div>
 
-      <div className="overflow-x-auto max-w-full">
-        <Highlight
-          theme={selectedTheme}
-          code={filename ? code.replace(/^\/\/.*?\n|^\/\*.*?\n/, "") : code.trim()}
-          language={language as any}
-        >
-          {({ style, tokens, getLineProps, getTokenProps }) => (
-            <pre
-              className="p-4 overflow-auto text-sm max-h-[64vh]"
-              style={{
-                ...style,
-                backgroundColor: theme === "dark" ? "#011627" : "#FBFBFB",
-              }}
-            >
-              {tokens.map((line, i) => {
-                // Check if this line is a special comment like "// ... existing code ..."
-                const isSpecialComment =
-                  line.length > 1 &&
-                  line[0].content.match(/\/\/|\/\*|#/) &&
-                  line.some((token) => token.content.includes("existing code"));
+      <Highlight
+        theme={selectedTheme}
+        code={filename ? code.replace(/^\/\/.*?\n|^\/\*.*?\n/, "") : code.trim()}
+        language={language as any}
+      >
+        {({ style, tokens, getLineProps, getTokenProps }) => (
+          <pre
+            className="p-4 text-sm max-h-[64vh] w-full overflow-auto"
+            style={{
+              ...style,
+              backgroundColor: theme === "dark" ? "#011627" : "#FBFBFB",
+            }}
+          >
+            {tokens.map((line, i) => {
+              // Check if this line is a special comment like "// ... existing code ..."
+              const isSpecialComment =
+                line.length > 1 &&
+                line[0].content.match(/\/\/|\/\*|#/) &&
+                line.some((token) => token.content.includes("existing code"));
 
-                const lineProps = getLineProps({ line });
+              const lineProps = getLineProps({ line });
 
-                return (
-                  <div
-                    key={i}
-                    {...lineProps}
-                    className={`table-row ${isSpecialComment ? "opacity-60 italic" : ""}`}
-                  >
-                    {showLineNumbers && (
-                      <span className="table-cell text-right pr-4 select-none opacity-50 text-xs w-8">
-                        {i + 1}
-                      </span>
-                    )}
-                    <span className="table-cell whitespace-pre word-break">
-                      {line.map((token, key) => (
-                        <span
-                          key={key}
-                          {...getTokenProps({ token })}
-                          className={token.types.includes("comment") ? "italic opacity-75" : ""}
-                        />
-                      ))}
+              return (
+                <div
+                  key={i}
+                  {...lineProps}
+                  className={`table-row ${isSpecialComment ? "opacity-60 italic" : ""}`}
+                >
+                  {showLineNumbers && (
+                    <span className="table-cell text-right pr-4 select-none opacity-50 text-xs w-8">
+                      {i + 1}
                     </span>
-                  </div>
-                );
-              })}
-            </pre>
-          )}
-        </Highlight>
-      </div>
+                  )}
+                  <span className="table-cell whitespace-pre word-break">
+                    {line.map((token, key) => (
+                      <span
+                        key={key}
+                        {...getTokenProps({ token })}
+                        className={token.types.includes("comment") ? "italic opacity-75" : ""}
+                      />
+                    ))}
+                  </span>
+                </div>
+              );
+            })}
+          </pre>
+        )}
+      </Highlight>
     </div>
   );
 };

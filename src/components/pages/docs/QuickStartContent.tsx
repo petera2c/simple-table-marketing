@@ -43,9 +43,10 @@ const QuickStartContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          code={<CodeBlock demoCodeFilename="QuickStartDemo.txt" />}
+          demoCodeFilename="QuickStartDemo.txt"
+          height="400px"
           link={SANDBOX_LIST["QuickStartDemo.tsx"].url}
-          preview={<QuickStartDemo />}
+          Preview={QuickStartDemo}
         />
       </motion.div>
 

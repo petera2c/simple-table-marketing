@@ -5,6 +5,8 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import LivePreview from "@/components/LivePreview";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 export default function CellEditingContent() {
   return (
@@ -41,7 +43,11 @@ export default function CellEditingContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CellEditingDemo />
+        <LivePreview
+          code={<CodeBlock demoCodeFilename="CellEditingDemo.txt" />}
+          link={SANDBOX_LIST["CellEditingDemo.tsx"].url}
+          preview={<CellEditingDemo />}
+        />
       </motion.div>
 
       {/* Basic Editing Setup Section */}
