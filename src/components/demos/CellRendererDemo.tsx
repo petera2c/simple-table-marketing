@@ -272,8 +272,8 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const CellRendererDemo = () => {
-  return <SimpleTable defaultHeaders={headers} rows={rows} />;
+const CellRendererDemo = ({ height = "400px" }: { height?: string }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} />;
 };
 
 export default CellRendererDemo;

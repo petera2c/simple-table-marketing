@@ -3,8 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
-import ThemesDemo from "@/components/demos/ThemesDemo";
-import CodeBlock from "@/components/CodeBlock";
+import ThemesDemo from "@/components/demos/themes-demo/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import LivePreview from "@/components/LivePreview";
 

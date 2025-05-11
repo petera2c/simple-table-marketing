@@ -148,18 +148,20 @@ const customIcons = {
 
 const CustomIconsDemo = () => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={rows}
-      shouldPaginate
-      rowsPerPage={7}
-      height={"auto"}
-      // Custom icons props
-      sortUpIcon={customIcons.sortUpIcon}
-      sortDownIcon={customIcons.sortDownIcon}
-      nextIcon={customIcons.nextIcon}
-      prevIcon={customIcons.prevIcon}
-    />
+    <div style={{ display: "flex" }}>
+      <SimpleTable
+        defaultHeaders={headers}
+        rows={rows}
+        shouldPaginate
+        rowsPerPage={7}
+        height={"auto"}
+        // Custom icons props
+        sortUpIcon={customIcons.sortUpIcon}
+        sortDownIcon={customIcons.sortDownIcon}
+        nextIcon={customIcons.nextIcon}
+        prevIcon={customIcons.prevIcon}
+      />
+    </div>
   );
 };
 

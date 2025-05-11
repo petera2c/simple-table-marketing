@@ -92,6 +92,8 @@ root.render(
     }
   }
 
+  console.log("\n");
+  console.log("publishing", sandboxName);
   const response = await fetch("https://codesandbox.io/api/v1/sandboxes/define?json=1", {
     method: "POST",
     headers: {
@@ -103,6 +105,7 @@ root.render(
 
   if (!response.ok) throw new Error(`Failed to publish: ${response.status}`);
   const { sandbox_id } = await response.json();
+  console.log("published", sandboxName, sandbox_id);
   return `https://codesandbox.io/s/${sandbox_id}`;
 };
 

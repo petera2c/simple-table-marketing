@@ -1,5 +1,4 @@
 import { Select } from "antd";
-import { useState } from "react";
 import { Theme } from "simple-table-core";
 
 const THEME_OPTIONS: Theme[] = ["light", "dark", "sky", "funky", "neutral"];

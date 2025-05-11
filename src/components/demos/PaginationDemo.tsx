@@ -586,14 +586,16 @@ const PaginationDemo = () => {
   };
 
   return (
-    <SimpleTable
-      defaultHeaders={HEADERS}
-      height="auto"
-      onNextPage={onNextPage}
-      rows={rows}
-      rowsPerPage={ROWS_PER_PAGE}
-      shouldPaginate
-    />
+    <div style={{ display: "flex" }}>
+      <SimpleTable
+        defaultHeaders={HEADERS}
+        height="auto"
+        onNextPage={onNextPage}
+        rows={rows}
+        rowsPerPage={ROWS_PER_PAGE}
+        shouldPaginate
+      />
+    </div>
   );
 };
 
