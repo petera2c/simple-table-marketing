@@ -8,6 +8,8 @@ import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
+import LivePreview from "@/components/LivePreview";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const QuickStartContent = () => {
   return (
@@ -40,7 +42,11 @@ const QuickStartContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <QuickStartDemo />
+        <LivePreview
+          code={<CodeBlock demoCodeFilename="QuickStartDemo.txt" />}
+          link={SANDBOX_LIST["QuickStartDemo.tsx"].url}
+          preview={<QuickStartDemo />}
+        />
       </motion.div>
 
       <motion.h2
@@ -82,8 +88,6 @@ const QuickStartContent = () => {
         <p className="text-gray-700 mb-4">
           Here's a minimal example to get you started with Simple Table:
         </p>
-
-        <CodeBlock demoCodeFilename="QuickStartDemo.txt" />
       </motion.div>
 
       <motion.div

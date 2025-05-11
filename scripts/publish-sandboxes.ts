@@ -110,7 +110,7 @@ const publishAllSandboxes = async () => {
   const demosDir = path.join(__dirname, "../src/components/demos");
   const entries = await fs.readdir(demosDir, { withFileTypes: true });
 
-  const codesandboxListPath = path.join(__dirname, "../public/codesandbox-list.json");
+  const codesandboxListPath = path.join(__dirname, "../src/constants/codesandbox-list.json");
 
   // Read existing codesandbox list
   let codesandboxList: Record<string, { id: string; url: string }> = {};
