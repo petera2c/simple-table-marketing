@@ -1,6 +1,4 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [
@@ -705,16 +703,8 @@ const rows = [
   },
 ];
 
-const RowGroupingDemo = () => {
-  return (
-    <SimpleTable
-      collapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
-      defaultHeaders={headers}
-      expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-      height="400px"
-      rows={rows}
-    />
-  );
+const RowGroupingDemo = ({ height = "400px" }: { height?: string }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} />;
 };
 
 export default RowGroupingDemo;

@@ -1,11 +1,4 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCaretUp,
-  faCaretDown,
-  faAngleRight,
-  faAngleLeft,
-} from "@fortawesome/free-solid-svg-icons";
 import "simple-table-core/styles.css";
 
 // Define headers with various properties
@@ -61,116 +54,106 @@ const headers: HeaderObject[] = [
 ];
 
 // Sample data
-const data = [
+const PRODUCT_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      product: "Laptop Pro",
-      category: "Electronics",
-      price: 1299.99,
-      stock: 45,
-      rating: 4.5,
-    },
+    id: 1,
+    product: "Laptop Pro",
+    category: "Electronics",
+    price: 1299.99,
+    stock: 45,
+    rating: 4.5,
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      product: "Smartphone X",
-      category: "Electronics",
-      price: 799.99,
-      stock: 68,
-      rating: 4.7,
-    },
+    id: 2,
+    product: "Wireless Mouse",
+    category: "Accessories",
+    price: 49.99,
+    stock: 120,
+    rating: 4.2,
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      product: "Wireless Headphones",
-      category: "Audio",
-      price: 199.99,
-      stock: 32,
-      rating: 4.3,
-    },
+    id: 3,
+    product: "Mechanical Keyboard",
+    category: "Accessories",
+    price: 129.99,
+    stock: 75,
+    rating: 4.8,
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      product: "Office Chair",
-      category: "Furniture",
-      price: 249.99,
-      stock: 12,
-      rating: 3.9,
-    },
+    id: 4,
+    product: "4K Monitor",
+    category: "Electronics",
+    price: 399.99,
+    stock: 30,
+    rating: 4.6,
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      product: "Coffee Maker",
-      category: "Appliances",
-      price: 89.99,
-      stock: 24,
-      rating: 4.1,
-    },
+    id: 5,
+    product: "Gaming Headset",
+    category: "Audio",
+    price: 89.99,
+    stock: 60,
+    rating: 4.3,
   },
   {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      product: "Fitness Tracker",
-      category: "Wearables",
-      price: 129.99,
-      stock: 37,
-      rating: 4.2,
-    },
+    id: 6,
+    product: "USB-C Hub",
+    category: "Accessories",
+    price: 39.99,
+    stock: 200,
+    rating: 4.0,
   },
   {
-    rowMeta: { rowId: 7 },
-    rowData: {
-      id: 7,
-      product: "Smart Watch",
-      category: "Wearables",
-      price: 249.99,
-      stock: 22,
-      rating: 4.4,
-    },
+    id: 7,
+    product: "External SSD",
+    category: "Storage",
+    price: 149.99,
+    stock: 85,
+    rating: 4.7,
   },
   {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      product: "Bluetooth Speaker",
-      category: "Audio",
-      price: 79.99,
-      stock: 41,
-      rating: 4.0,
-    },
+    id: 8,
+    product: "Webcam",
+    category: "Electronics",
+    price: 79.99,
+    stock: 50,
+    rating: 4.4,
+  },
+  {
+    id: 9,
+    product: "Wireless Earbuds",
+    category: "Audio",
+    price: 159.99,
+    stock: 90,
+    rating: 4.5,
   },
 ];
 
-// Custom icons using FontAwesome
+// Map data to rows format expected by SimpleTable
+const rows = PRODUCT_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
+
+// Custom icons using simple HTML/CSS
 const customIcons = {
   // For sorting columns
-  sortUpIcon: <FontAwesomeIcon icon={faCaretUp} className="text-blue-500" />,
-  sortDownIcon: <FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />,
+  sortUpIcon: <span className="text-blue-500 text-lg">▲</span>,
+  sortDownIcon: <span className="text-blue-500 text-lg">▼</span>,
 
   // For pagination navigation
-  nextIcon: <FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />,
-  prevIcon: <FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />,
+  nextIcon: <span className="text-blue-600 text-lg inline-block rotate-90">▲</span>,
+  prevIcon: <span className="text-blue-600 text-lg inline-block -rotate-90">▲</span>,
 };
 
 const CustomIconsDemo = () => {
   return (
     <SimpleTable
       defaultHeaders={headers}
-      rows={data}
+      rows={rows}
       shouldPaginate
-      rowsPerPage={5}
-      height="auto"
+      rowsPerPage={7}
+      height={"auto"}
       // Custom icons props
       sortUpIcon={customIcons.sortUpIcon}
       sortDownIcon={customIcons.sortDownIcon}

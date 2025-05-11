@@ -1,6 +1,27 @@
 import { SimpleTable, TableRefType, HeaderObject } from "simple-table-core";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useEffect } from "react";
 import "simple-table-core/styles.css";
+
+// Define headers
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "product", label: "Product", width: 180, type: "string" },
+  {
+    accessor: "price",
+    label: "Price",
+    width: "1fr",
+    type: "number",
+    cellRenderer: ({ row }) => {
+      const price = row.rowData.price;
+      if (typeof price === "number") {
+        return `$${price.toFixed(2)}`;
+      }
+      return `$0.00`;
+    },
+  },
+  { accessor: "stock", label: "In Stock", width: 120, type: "number" },
+  { accessor: "sales", label: "Sales", width: 120, type: "number" },
+];
 
 // Sample data
 const initialData = [
@@ -54,100 +75,56 @@ const initialData = [
       sales: 180,
     },
   },
-];
-
-// Define headers
-const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60, type: "number" },
-  { accessor: "product", label: "Product", width: 180, type: "string" },
   {
-    accessor: "price",
-    label: "Price",
-    width: "1fr",
-    type: "number",
-    cellRenderer: ({ row }) => {
-      const price = row.rowData.price;
-      if (typeof price === "number") {
-        return `$${price.toFixed(2)}`;
-      }
-      return `$0.00`;
+    rowMeta: { rowId: 6 },
+    rowData: {
+      id: 6,
+      product: "Widget F",
+      price: 14.99,
+      stock: 32,
+      sales: 105,
     },
   },
-  { accessor: "stock", label: "In Stock", width: 120, type: "number" },
-  { accessor: "sales", label: "Sales", width: 120, type: "number" },
+  {
+    rowMeta: { rowId: 7 },
+    rowData: {
+      id: 7,
+      product: "Widget G",
+      price: 16.99,
+      stock: 45,
+      sales: 150,
+    },
+  },
+  {
+    rowMeta: { rowId: 8 },
+    rowData: {
+      id: 8,
+      product: "Widget H",
+      price: 18.99,
+      stock: 22,
+      sales: 90,
+    },
+  },
+  {
+    rowMeta: { rowId: 9 },
+    rowData: {
+      id: 9,
+      product: "Widget I",
+      price: 13.99,
+      stock: 50,
+      sales: 120,
+    },
+  },
 ];
 
-const LiveUpdateDemo = () => {
+const LiveUpdateDemo = ({ height = "400px" }: { height?: string }) => {
   // Keep a local copy of the data to update
-  const [tableData, setTableData] = useState(initialData);
   const tableRef = useRef<TableRefType | null>(null);
-
-  // Function to update a random product price
-  const updateRandomPrice = () => {
-    if (!tableRef.current) return;
-
-    // Select a random row
-    const rowIndex = Math.floor(Math.random() * tableData.length);
-
-    // Generate a new price (±15% from current)
-    const currentPrice = tableData[rowIndex].rowData.price;
-    const priceChange = currentPrice * (0.85 + Math.random() * 0.3); // between -15% and +15%
-    const newPrice = parseFloat(priceChange.toFixed(2));
-
-    // Update the local state
-    const newData = [...tableData];
-    newData[rowIndex].rowData.price = newPrice;
-    setTableData(newData);
-
-    // Update the table with flash animation
-    tableRef.current.updateData({
-      accessor: "price",
-      rowIndex,
-      newValue: newPrice,
-    });
-  };
-
-  // Function to decrease stock (simulate purchase)
-  const decreaseStock = (rowIndex: number) => {
-    if (!tableRef.current) return;
-
-    // Decrease stock by 1
-    const currentStock = tableData[rowIndex].rowData.stock;
-    if (currentStock <= 0) return;
-
-    const newStock = currentStock - 1;
-
-    // Update the local state
-    const newData = [...tableData];
-    newData[rowIndex].rowData.stock = newStock;
-    setTableData(newData);
-
-    // Update stock in the table
-    tableRef.current.updateData({
-      accessor: "stock",
-      rowIndex,
-      newValue: newStock,
-    });
-
-    // Increase sales count
-    const currentSales = tableData[rowIndex].rowData.sales;
-    const newSales = currentSales + 1;
-
-    // Update the local state
-    newData[rowIndex].rowData.sales = newSales;
-
-    // Update sales in the table
-    tableRef.current.updateData({
-      accessor: "sales",
-      rowIndex,
-      newValue: newSales,
-    });
-  };
 
   // Set up intervals for automatic updates
   useEffect(() => {
     // Keep a copy of the current data in memory for calculations
-    const currentData = JSON.parse(JSON.stringify(tableData));
+    const currentData = JSON.parse(JSON.stringify(initialData));
 
     // Update price at regular intervals
     const priceInterval = setInterval(() => {
@@ -177,7 +154,10 @@ const LiveUpdateDemo = () => {
       if (tableRef.current) {
         // Pick a random row that has stock
         const availableRows = currentData
-          .map((row: (typeof tableData)[0], index: number) => ({ index, stock: row.rowData.stock }))
+          .map((row: (typeof initialData)[0], index: number) => ({
+            index,
+            stock: row.rowData.stock,
+          }))
           .filter((item: { index: number; stock: number }) => item.stock > 0);
 
         if (availableRows.length > 0) {
@@ -219,9 +199,10 @@ const LiveUpdateDemo = () => {
   return (
     <SimpleTable
       defaultHeaders={headers}
-      rows={tableData}
+      rows={initialData}
       tableRef={tableRef}
       cellUpdateFlash={true}
+      height={height}
     />
   );
 };

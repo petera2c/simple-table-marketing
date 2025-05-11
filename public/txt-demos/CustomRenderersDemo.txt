@@ -1,83 +1,89 @@
 import { SimpleTable, HeaderObject, Row } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faUser,
-  faUserTie,
-  faUserGraduate,
-  faUserNinja,
-  faUserAstronaut,
-  faBarChart,
-  faCalendarAlt,
-  faMapMarkerAlt,
-  faBuilding,
-} from "@fortawesome/free-solid-svg-icons";
 import "simple-table-core/styles.css";
 
-const CustomRenderersDemo = () => {
-  // Sample employee data
-  const data = [
-    {
-      id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      role: "Developer",
-      level: "Senior",
-      location: "San Francisco",
-      company: "TechCorp",
-      avatar: "https://randomuser.me/api/portraits/men/32.jpg",
-      hireDate: "2020-03-15",
-      performance: 87,
-    },
-    {
-      id: 2,
-      firstName: "Jane",
-      lastName: "Smith",
-      role: "Designer",
-      level: "Mid",
-      location: "New York",
-      company: "DesignHub",
-      avatar: "https://randomuser.me/api/portraits/women/44.jpg",
-      hireDate: "2021-07-22",
-      performance: 92,
-    },
-    {
-      id: 3,
-      firstName: "Robert",
-      lastName: "Johnson",
-      role: "Manager",
-      level: "Senior",
-      location: "Chicago",
-      company: "DataSystems",
-      avatar: "https://randomuser.me/api/portraits/men/67.jpg",
-      hireDate: "2018-11-05",
-      performance: 78,
-    },
-    {
-      id: 4,
-      firstName: "Emily",
-      lastName: "Brown",
-      role: "Engineer",
-      level: "Junior",
-      location: "Seattle",
-      company: "CloudTech",
-      avatar: "https://randomuser.me/api/portraits/women/33.jpg",
-      hireDate: "2022-01-10",
-      performance: 81,
-    },
-    {
-      id: 5,
-      firstName: "Michael",
-      lastName: "Davis",
-      role: "Architect",
-      level: "Principal",
-      location: "Austin",
-      company: "BuilderSoft",
-      avatar: "https://randomuser.me/api/portraits/men/41.jpg",
-      hireDate: "2017-04-28",
-      performance: 95,
-    },
-  ];
+// Sample data
+const EMPLOYEE_DATA = [
+  {
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2018-06-15",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2019-02-20",
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2017-05-10",
+  },
+  {
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2018-09-01",
+  },
+  {
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2018-03-15",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2018-07-22",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2018-04-18",
+  },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 33,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2018-01-01",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Manager",
+    department: "Human Resources",
+    startDate: "2018-01-01",
+  },
+];
 
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
+
+const CustomRenderersDemo = () => {
   // Custom cell renderers
   const employeeNameRenderer = ({
     accessor,
@@ -282,15 +288,6 @@ const CustomRenderersDemo = () => {
       cellRenderer: performanceRenderer,
     },
   ];
-
-  // Map data to rows
-  const rows = data.map((item) => ({
-    rowMeta: { rowId: item.id },
-    rowData: {
-      ...item,
-      name: `${item.firstName} ${item.lastName}`, // Add a name field for the accessor
-    },
-  }));
 
   return (
     <div className="flex flex-col gap-4">

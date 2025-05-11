@@ -13,66 +13,94 @@ const headers: HeaderObject[] = [
 ];
 
 // Sample data
-const data = [
+const EMPLOYEE_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      department: "Engineering",
-      status: "Active",
-    },
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      department: "Design",
-      status: "Active",
-    },
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      department: "Marketing",
-      status: "Inactive",
-    },
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      name: "Alice Williams",
-      email: "alice@example.com",
-      department: "Engineering",
-      status: "Active",
-    },
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      name: "Charlie Brown",
-      email: "charlie@example.com",
-      department: "Sales",
-      status: "Active",
-    },
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 33,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Manager",
+    department: "Human Resources",
+    startDate: "2020-01-01",
   },
 ];
 
-const ThemesDemo = () => {
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
+
+const ThemesDemo = ({ height = "400px" }: { height?: string }) => {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light");
 
   return (
     <div className="flex flex-col gap-4">
       <ThemeSelector currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
-      <SimpleTable defaultHeaders={headers} rows={data} theme={currentTheme} />
+      <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={currentTheme} />
     </div>
   );
 };

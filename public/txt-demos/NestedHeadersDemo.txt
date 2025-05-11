@@ -149,10 +149,21 @@ const rows = [
       grade: "A",
     },
   },
+  {
+    rowMeta: { rowId: 8 },
+    rowData: {
+      id: 8,
+      name: "Isabella White",
+      mathScore: 82,
+      scienceScore: 78,
+      historyScore: 87,
+      grade: "B",
+    },
+  },
 ];
 
-const NestedHeadersDemo = () => {
-  return <SimpleTable defaultHeaders={headers} height="400px" rows={rows} columnResizing />;
+const NestedHeadersDemo = ({ height = "400px" }: { height?: string }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} columnResizing />;
 };
 
 export default NestedHeadersDemo;
