@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faAlignLeft, faAlignCenter, faAlignRight } from "@fortawesome/free-solid-svg-icons";
-import ColumnAlignmentDemo from "../../components/demos/ColumnAlignmentDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../../components/DocNavigationButtons";
+import ColumnAlignmentDemo from "../../demos/ColumnAlignmentDemo";
+import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 const ColumnAlignmentContent = () => {
   return (

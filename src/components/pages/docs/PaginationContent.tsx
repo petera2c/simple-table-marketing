@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPager } from "@fortawesome/free-solid-svg-icons";
-import PaginationDemo from "../../components/demos/PaginationDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../../components/DocNavigationButtons";
+import PaginationDemo from "../../demos/PaginationDemo";
+import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 const PaginationContent = () => {
   return (

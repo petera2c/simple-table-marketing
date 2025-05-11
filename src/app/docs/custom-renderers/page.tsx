@@ -1,4 +1,4 @@
-import CustomRenderersContent from "@/components/pages/CustomRenderersContent";
+import CustomRenderersContent from "@/components/pages/docs/CustomRenderersContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

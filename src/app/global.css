@@ -876,16 +876,16 @@ video {
   min-height: 60vh;
 }
 
+.min-h-\[70dvh\] {
+  min-height: 70dvh;
+}
+
 .min-h-\[calc\(100dvh-84px-1\.5rem\)\] {
   min-height: calc(100dvh - 84px - 1.5rem);
 }
 
 .min-h-screen {
   min-height: 100vh;
-}
-
-.min-h-\[70dvh\] {
-  min-height: 70dvh;
 }
 
 .w-10 {

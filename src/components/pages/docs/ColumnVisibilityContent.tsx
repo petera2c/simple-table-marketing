@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import ColumnVisibilityDemo from "../../components/demos/ColumnVisibilityDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../../components/DocNavigationButtons";
+import ColumnVisibilityDemo from "../../demos/ColumnVisibilityDemo";
+import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 const ColumnVisibilityContent = () => {
   return (

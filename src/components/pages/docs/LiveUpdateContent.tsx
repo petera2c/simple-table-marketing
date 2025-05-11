@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
-import LiveUpdateDemo from "../../components/demos/LiveUpdateDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../../components/DocNavigationButtons";
+import LiveUpdateDemo from "../../demos/LiveUpdateDemo";
+import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 const LiveUpdateContent = () => {
   return (

@@ -1,4 +1,4 @@
-import CustomIconsContent from "@/components/pages/CustomIconsContent";
+import CustomIconsContent from "@/components/pages/docs/CustomIconsContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

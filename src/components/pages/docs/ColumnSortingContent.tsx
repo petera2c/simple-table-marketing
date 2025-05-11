@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
-import ColumnSortingDemo from "../../components/demos/ColumnSortingDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../../components/DocNavigationButtons";
+import ColumnSortingDemo from "../../demos/ColumnSortingDemo";
+import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 const ColumnSortingContent = () => {
   return (

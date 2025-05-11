@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CellEditingContent from "@/components/pages/CellEditingContent";
+import CellEditingContent from "@/components/pages/docs/CellEditingContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

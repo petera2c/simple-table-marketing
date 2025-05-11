@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import RowGroupingContent from "@/components/pages/RowGroupingContent";
+import RowGroupingContent from "@/components/pages/docs/RowGroupingContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

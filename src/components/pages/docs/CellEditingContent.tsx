@@ -4,7 +4,7 @@ import CellEditingDemo from "@/components/demos/CellEditingDemo";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import DocNavigationButtons from "../DocNavigationButtons";
+import DocNavigationButtons from "../../DocNavigationButtons";
 
 export default function CellEditingContent() {
   return (
