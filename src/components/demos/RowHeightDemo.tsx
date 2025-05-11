@@ -5,73 +5,120 @@ import "simple-table-core/styles.css";
 // Define headers
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, type: "number" },
-  { accessor: "name", label: "Name", width: 150, type: "string" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "description", label: "Description", width: 250, type: "string" },
-  { accessor: "status", label: "Status", width: 120, type: "string" },
+  { accessor: "name", label: "Name", minWidth: 150, width: "1fr", type: "string" },
+  { accessor: "age", label: "Age", width: 100, type: "string" },
+  { accessor: "role", label: "Role", minWidth: 180, width: "1fr", type: "string" },
+  { accessor: "department", label: "Department", minWidth: 180, width: "1fr", type: "string" },
 ];
 
-// Sample initial data
-const initialData: Row[] = [
+// Sample data
+const EMPLOYEE_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      name: "John Smith",
-      email: "john.smith@example.com",
-      description: "A short description.",
-      status: "Active",
-    },
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      name: "Alice Johnson",
-      email: "alice.johnson@example.com",
-      description:
-        "This is a medium length description that spans a few lines when displayed in the table cell.",
-      status: "Inactive",
-    },
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      name: "Robert Williams",
-      email: "robert.williams@example.com",
-      description:
-        "A very long description that will require more vertical space to display properly. This text should cause the row to expand significantly when variable row heights are enabled.",
-      status: "Active",
-    },
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      name: "Emily Davis",
-      email: "emily.davis@example.com",
-      description: "Another short description.",
-      status: "Pending",
-    },
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2020-01-01",
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      name: "Michael Brown",
-      email: "michael.brown@example.com",
-      description:
-        "This row has a medium length description that takes up a moderate amount of space in the table.",
-      status: "Active",
-    },
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 33,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Manager",
+    department: "Human Resources",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 10,
+    name: "Henry Davis",
+    age: 35,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 11,
+    name: "Ivy Evans",
+    age: 30,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2020-01-01",
+  },
+  {
+    id: 12,
+    name: "Jack White",
+    age: 32,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2020-01-01",
   },
 ];
 
-const RowHeightDemo = () => {
-  const [data] = useState(initialData);
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
 
-  return <SimpleTable defaultHeaders={headers} rows={data} rowHeight={32} />;
+const RowHeightDemo = ({ height = "400px" }: { height?: string }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} rowHeight={32} />;
 };
 
 export default RowHeightDemo;

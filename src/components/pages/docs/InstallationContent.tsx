@@ -6,6 +6,7 @@ import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const InstallationContent = () => {
   return (

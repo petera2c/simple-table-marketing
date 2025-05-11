@@ -6,6 +6,8 @@ import { faIcons } from "@fortawesome/free-solid-svg-icons";
 import CustomIconsDemo from "@/components/demos/CustomIconsDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 export default function CustomIconsContent() {
   return (
@@ -35,12 +37,17 @@ export default function CustomIconsContent() {
 
       {/* Demo Section */}
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CustomIconsDemo />
+        <LivePreview
+          demoCodeFilename="CustomIconsDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["CustomIconsDemo.tsx"].url}
+          Preview={CustomIconsDemo}
+        />
       </motion.div>
 
       {/* Basic Implementation Section */}
@@ -54,7 +61,7 @@ export default function CustomIconsContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -64,8 +71,6 @@ export default function CustomIconsContent() {
           props. You can use any icon library like Font Awesome, Material Icons, or your own custom
           SVG icons.
         </p>
-
-        <CodeBlock demoCodeFilename="CustomIconsDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Available Icon Props</h3>
@@ -130,7 +135,7 @@ export default function CustomIconsContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -144,8 +149,8 @@ export default function CustomIconsContent() {
           {/* Font Awesome Example */}
           <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <h3 className="font-bold text-gray-800 mb-2">Font Awesome</h3>
-            <pre className="bg-gray-800 text-gray-100 p-3 rounded-md text-sm overflow-x-auto">
-              {`import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+            <CodeBlock
+              code={`import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
 faCaretUp, 
 faCaretDown, 
@@ -164,14 +169,14 @@ prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
 expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
 collapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
 />`}
-            </pre>
+            />
           </div>
 
           {/* Material UI Icons Example */}
           <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <h3 className="font-bold text-gray-800 mb-2">Material UI Icons</h3>
-            <pre className="bg-gray-800 text-gray-100 p-3 rounded-md text-sm overflow-x-auto">
-              {`import ArrowUpward from "@mui/icons-material/ArrowUpward";
+            <CodeBlock
+              code={`import ArrowUpward from "@mui/icons-material/ArrowUpward";
 import ArrowDownward from "@mui/icons-material/ArrowDownward";
 import NavigateNext from "@mui/icons-material/NavigateNext";
 import NavigateBefore from "@mui/icons-material/NavigateBefore";
@@ -187,14 +192,14 @@ prevIcon={<NavigateBefore className="text-blue-600" />}
 expandIcon={<ChevronRight className="text-blue-600" />}
 collapseIcon={<ExpandMore className="text-blue-600" />}
 />`}
-            </pre>
+            />
           </div>
 
           {/* Custom SVG Example */}
           <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
             <h3 className="font-bold text-gray-800 mb-2">Custom SVG Icons</h3>
-            <pre className="bg-gray-800 text-gray-100 p-3 rounded-md text-sm overflow-x-auto">
-              {`<SimpleTable
+            <CodeBlock
+              code={`<SimpleTable
 // other props...
 sortUpIcon={
 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-500">
@@ -217,7 +222,7 @@ collapseIcon={
 </svg>
 }
 />`}
-            </pre>
+            />
           </div>
         </div>
       </motion.div>

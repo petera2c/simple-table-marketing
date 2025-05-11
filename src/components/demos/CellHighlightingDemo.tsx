@@ -1,104 +1,115 @@
 import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define headers with conditional cell styling
+// Define headers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, type: "number" },
-  { accessor: "product", label: "Product", minWidth: 100, width: "1fr", type: "string" },
+  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
   {
-    accessor: "sales",
-    label: "Sales",
-    width: 120,
-    align: "right",
-    type: "number",
-  },
-  {
-    accessor: "growth",
-    label: "Growth %",
-    width: 120,
-    align: "right",
-    type: "number",
-  },
-  {
-    accessor: "status",
-    label: "Status",
-    width: 150,
+    accessor: "name",
+    label: "Name",
+    minWidth: 80,
+    width: "1fr",
+    isSortable: true,
     type: "string",
   },
+  { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
+  { accessor: "role", label: "Role", width: 150, isSortable: true, type: "string" },
+  { accessor: "department", label: "Department", width: 150, isSortable: true, type: "string" },
+  { accessor: "startDate", label: "Start Date", width: 150, isSortable: true, type: "date" },
+];
+
+// Sample data
+const EMPLOYEE_DATA = [
   {
-    accessor: "risk",
-    label: "Risk",
-    width: 120,
-    type: "string",
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2018-06-15",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2019-02-20",
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2017-05-10",
+  },
+  {
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2018-09-01",
+  },
+  {
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2018-03-15",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2018-07-22",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2018-04-18",
+  },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 33,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2018-01-01",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Manager",
+    department: "Human Resources",
+    startDate: "2018-01-01",
   },
 ];
 
-// Sample data with values to highlight
-const data = [
-  {
-    rowMeta: { rowId: 1 },
-    rowData: { id: 1, product: "Laptop", sales: 1250, growth: 15, status: "In Stock", risk: "Low" },
-  },
-  {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      product: "Smartphone",
-      sales: 2430,
-      growth: -5,
-      status: "Low Stock",
-      risk: "Medium",
-    },
-  },
-  {
-    rowMeta: { rowId: 3 },
-    rowData: { id: 3, product: "Tablet", sales: 890, growth: 23, status: "In Stock", risk: "Low" },
-  },
-  {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      product: "Headphones",
-      sales: 560,
-      growth: -12,
-      status: "Out of Stock",
-      risk: "High",
-    },
-  },
-  {
-    rowMeta: { rowId: 5 },
-    rowData: { id: 5, product: "Monitor", sales: 1180, growth: 8, status: "In Stock", risk: "Low" },
-  },
-  {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      product: "Keyboard",
-      sales: 350,
-      growth: -2,
-      status: "Low Stock",
-      risk: "Medium",
-    },
-  },
-  {
-    rowMeta: { rowId: 7 },
-    rowData: { id: 7, product: "Mouse", sales: 410, growth: 5, status: "In Stock", risk: "Low" },
-  },
-  {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      product: "Speaker",
-      sales: 680,
-      growth: -8,
-      status: "Out of Stock",
-      risk: "High",
-    },
-  },
-];
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
 
-const CellHighlightingDemo = () => {
-  return <SimpleTable defaultHeaders={headers} selectableCells selectableColumns rows={data} />;
+const CellHighlightingDemo = ({ height = "400px" }: { height?: string }) => {
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      selectableCells
+      selectableColumns
+      rows={rows}
+      height={height}
+    />
+  );
 };
 
 export default CellHighlightingDemo;

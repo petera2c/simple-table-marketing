@@ -6,6 +6,8 @@ import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
 import RowHeightDemo from "@/components/demos/RowHeightDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 export default function RowHeightContent() {
   return (
@@ -34,12 +36,17 @@ export default function RowHeightContent() {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <RowHeightDemo />
+        <LivePreview
+          demoCodeFilename="RowHeightDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["RowHeightDemo.tsx"].url}
+          Preview={RowHeightDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -52,7 +59,7 @@ export default function RowHeightContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -62,8 +69,6 @@ export default function RowHeightContent() {
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code> property.
           This property accepts a numeric value representing the height in pixels.
         </p>
-
-        <CodeBlock demoCodeFilename="RowHeightDemo.txt" />
       </motion.div>
 
       <motion.h2

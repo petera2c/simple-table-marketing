@@ -1,10 +1,8 @@
 import { useState } from "react";
 import { SimpleTable, HeaderObject } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight, faChevronLeft } from "@fortawesome/free-solid-svg-icons";
 import "simple-table-core/styles.css";
 
-const ROWS_PER_PAGE = 10;
+const ROWS_PER_PAGE = 7;
 const HEADERS: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", minWidth: 100, type: "string" },
@@ -591,9 +589,7 @@ const PaginationDemo = () => {
     <SimpleTable
       defaultHeaders={HEADERS}
       height="auto"
-      nextIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
       onNextPage={onNextPage}
-      prevIcon={<FontAwesomeIcon icon={faChevronLeft} className="text-blue-600" />}
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate

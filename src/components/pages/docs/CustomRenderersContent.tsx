@@ -6,6 +6,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CustomRenderersDemo from "@/components/demos/CustomRenderersDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 export default function CustomRenderersContent() {
   return (
@@ -39,7 +41,12 @@ export default function CustomRenderersContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CustomRenderersDemo />
+        <LivePreview
+          demoCodeFilename="CustomRenderersDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["CustomRenderersDemo.tsx"].url}
+          Preview={CustomRenderersDemo}
+        />
       </motion.div>
 
       <motion.h2

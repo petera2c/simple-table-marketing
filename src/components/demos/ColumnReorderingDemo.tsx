@@ -5,70 +5,77 @@ import "simple-table-core/styles.css";
 // Define headers for the demo
 const initialHeaders: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
-  { accessor: "firstName", label: "First Name", width: 120, type: "string" },
-  { accessor: "lastName", label: "Last Name", width: 120, type: "string" },
+  { accessor: "name", label: "Name", width: 120, type: "string" },
   { accessor: "age", label: "Age", width: 80, align: "right", type: "number" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "location", disableReorder: true, label: "Location", width: 150, type: "string" },
+  { accessor: "role", label: "Role", minWidth: 100, width: "1fr", type: "string" },
+  { accessor: "department", disableReorder: true, label: "Department", width: 150, type: "string" },
 ];
 
-const data = [
+// Sample data
+const EMPLOYEE_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      age: 28,
-      email: "john.doe@example.com",
-      location: "New York",
-    },
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2018-06-15",
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      firstName: "Jane",
-      lastName: "Smith",
-      age: 32,
-      email: "jane.smith@example.com",
-      location: "Los Angeles",
-    },
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2019-02-20",
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      firstName: "Robert",
-      lastName: "Johnson",
-      age: 45,
-      email: "robert.j@example.com",
-      location: "Chicago",
-    },
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2017-05-10",
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      firstName: "Emily",
-      lastName: "Brown",
-      age: 24,
-      email: "emily.brown@example.com",
-      location: "Houston",
-    },
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2018-09-01",
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      firstName: "Michael",
-      lastName: "Davis",
-      age: 36,
-      email: "michael.davis@example.com",
-      location: "Phoenix",
-    },
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2018-03-15",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2018-07-22",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2018-04-18",
   },
 ];
+
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
 
 const ColumnReorderingDemo = () => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
@@ -89,7 +96,7 @@ const ColumnReorderingDemo = () => {
       <SimpleTable
         columnReordering
         defaultHeaders={headers}
-        rows={data}
+        rows={rows}
         onColumnOrderChange={handleColumnOrderChange}
       />
       <div className="text-sm text-gray-600 italic mt-2">

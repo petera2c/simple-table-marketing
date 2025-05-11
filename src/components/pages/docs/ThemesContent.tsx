@@ -6,6 +6,9 @@ import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import ThemesDemo from "@/components/demos/ThemesDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import LivePreview from "@/components/LivePreview";
+
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 export default function ThemesContent() {
   return (
@@ -33,12 +36,17 @@ export default function ThemesContent() {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <ThemesDemo />
+        <LivePreview
+          demoCodeFilename="ThemesDemo.txt"
+          height="352px"
+          link={SANDBOX_LIST["ThemesDemo.tsx"].url}
+          Preview={ThemesDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -60,9 +68,6 @@ export default function ThemesContent() {
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme</code> prop with one
           of the available theme options:
         </p>
-
-        <CodeBlock demoCodeFilename="ThemesDemo.txt" />
-        <CodeBlock demoCodeFilename="ThemesDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
           <h3 className="font-bold text-gray-800 mb-2">Available Themes</h3>

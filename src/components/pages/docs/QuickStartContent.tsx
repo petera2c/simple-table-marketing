@@ -37,7 +37,7 @@ const QuickStartContent = () => {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
@@ -56,11 +56,103 @@ const QuickStartContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
+        Key Props and Features
+      </motion.h2>
+
+      <motion.div
+        className="mb-8 space-y-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Table Headers</h3>
+          <p className="text-gray-700 mb-2">
+            Headers define the structure of your table columns. Each header can have:
+          </p>
+          <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+            <li>
+              <code className="bg-gray-100 px-1 rounded">accessor</code> - The key to access data in
+              your rows
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">label</code> - The display name for the
+              column
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">width</code> - Column width (fixed or
+              flexible with "1fr")
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">isSortable</code> - Enable/disable column
+              sorting
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">type</code> - Data type for proper
+              formatting (string, number, date)
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Table Props</h3>
+          <p className="text-gray-700 mb-2">
+            The SimpleTable component accepts several useful props:
+          </p>
+          <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+            <li>
+              <code className="bg-gray-100 px-1 rounded">defaultHeaders</code> - Array of column
+              definitions
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">rows</code> - Your data array with rowMeta
+              and rowData
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">height</code> - Table container height
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">rowHeight</code> - Height of each row
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">editColumns</code> - Enable column
+              reordering
+            </li>
+            <li>
+              <code className="bg-gray-100 px-1 rounded">selectableCells</code> - Enable cell
+              selection
+            </li>
+          </ul>
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 mb-2">Data Structure</h3>
+          <p className="text-gray-700 mb-2">Each row in your data should follow this structure:</p>
+          <CodeBlock
+            code={`{
+  rowMeta: { rowId: number },
+  rowData: {
+    // Your actual data fields here
+    id: number,
+    name: string,
+    // ... other fields
+  }
+}`}
+          />
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+      >
         {UI_STRINGS.docs.cssSetup.title}
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -70,25 +162,6 @@ const QuickStartContent = () => {
         <CodeBlock code={TECHNICAL_STRINGS.css.import} language="js" />
 
         <p className="text-gray-700">{UI_STRINGS.docs.cssSetup.note}</p>
-      </motion.div>
-
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Creating a Simple Table
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 mb-4">
-          Here's a minimal example to get you started with Simple Table:
-        </p>
       </motion.div>
 
       <motion.div

@@ -2,10 +2,11 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAlignLeft, faAlignCenter, faAlignRight } from "@fortawesome/free-solid-svg-icons";
+import { faAlignCenter } from "@fortawesome/free-solid-svg-icons";
 import ColumnAlignmentDemo from "../../demos/ColumnAlignmentDemo";
-import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const ColumnAlignmentContent = () => {
   return (
@@ -38,7 +39,12 @@ const ColumnAlignmentContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <ColumnAlignmentDemo />
+        <LivePreview
+          demoCodeFilename="ColumnAlignmentDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["ColumnAlignmentDemo.tsx"].url}
+          Preview={ColumnAlignmentDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -60,8 +66,6 @@ const ColumnAlignmentContent = () => {
           Control column alignment by setting the <code>align</code> property in your header
           definitions:
         </p>
-
-        <CodeBlock demoCodeFilename="ColumnAlignmentDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Alignment Options</h3>

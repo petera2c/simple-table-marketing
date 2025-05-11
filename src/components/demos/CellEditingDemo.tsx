@@ -4,21 +4,20 @@ import "simple-table-core/styles.css";
 
 // Define headers with editable property and various types
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isEditable: false, type: "number" },
-  { accessor: "firstName", label: "First Name", width: 150, isEditable: true, type: "string" },
-  { accessor: "lastName", label: "Last Name", width: 150, isEditable: true, type: "string" },
   {
-    accessor: "email",
-    label: "Email",
-    minWidth: 100,
+    accessor: "firstName",
+    label: "First Name",
     width: "1fr",
+    minWidth: 100,
     isEditable: true,
     type: "string",
   },
+  { accessor: "lastName", label: "Last Name", width: 120, isEditable: true, type: "string" },
+
   {
     accessor: "role",
     label: "Role",
-    width: 150,
+    width: 120,
     isEditable: true,
     type: "enum",
     enumOptions: ["Developer", "Designer", "Manager", "Marketing", "QA"],
@@ -26,7 +25,7 @@ const headers: HeaderObject[] = [
   {
     accessor: "hireDate",
     label: "Hire Date",
-    width: 150,
+    width: 120,
     isEditable: true,
     type: "date",
   },
@@ -46,78 +45,100 @@ const headers: HeaderObject[] = [
   },
 ];
 
-// Sample initial data
-const initialData = [
+// Sample data
+const EMPLOYEE_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      firstName: "John",
-      lastName: "Doe",
-      email: "john@example.com",
-      role: "Developer",
-      hireDate: "2020-01-15",
-      isActive: true,
-      salary: 85000,
-    },
+    id: 1,
+    firstName: "John",
+    lastName: "Doe",
+    role: "Developer",
+    hireDate: "2020-01-15",
+    isActive: true,
+    salary: 85000,
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      firstName: "Jane",
-      lastName: "Smith",
-      email: "jane@example.com",
-      role: "Designer",
-      hireDate: "2021-03-22",
-      isActive: true,
-      salary: 78000,
-    },
+    id: 2,
+    firstName: "Jane",
+    lastName: "Smith",
+    role: "Designer",
+    hireDate: "2021-03-22",
+    isActive: true,
+    salary: 78000,
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      firstName: "Bob",
-      lastName: "Johnson",
-      email: "bob@example.com",
-      role: "Manager",
-      hireDate: "2019-11-05",
-      isActive: true,
-      salary: 92000,
-    },
+    id: 3,
+    firstName: "Bob",
+    lastName: "Johnson",
+    role: "Manager",
+    hireDate: "2019-11-05",
+    isActive: true,
+    salary: 92000,
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      firstName: "Alice",
-      lastName: "Williams",
-      email: "alice@example.com",
-      role: "Developer",
-      hireDate: "2022-01-10",
-      isActive: false,
-      salary: 83000,
-    },
+    id: 4,
+    firstName: "Alice",
+    lastName: "Williams",
+    role: "Developer",
+    hireDate: "2022-01-10",
+    isActive: false,
+    salary: 83000,
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      firstName: "Charlie",
-      lastName: "Brown",
-      email: "charlie@example.com",
-      role: "Marketing",
-      hireDate: "2021-08-17",
-      isActive: true,
-      salary: 76000,
-    },
+    id: 5,
+    firstName: "Charlie",
+    lastName: "Brown",
+    role: "Marketing",
+    hireDate: "2021-08-17",
+    isActive: true,
+    salary: 76000,
+  },
+  {
+    id: 6,
+    firstName: "David",
+    lastName: "Lee",
+    role: "QA",
+    hireDate: "2020-07-22",
+    isActive: true,
+    salary: 82000,
+  },
+  {
+    id: 7,
+    firstName: "Eve",
+    lastName: "Green",
+    role: "Manager",
+    hireDate: "2019-04-18",
+    isActive: true,
+    salary: 95000,
+  },
+  {
+    id: 8,
+    firstName: "Frank",
+    lastName: "White",
+    role: "Developer",
+    hireDate: "2022-03-01",
+    isActive: false,
+    salary: 88000,
+  },
+  {
+    id: 9,
+    firstName: "Grace",
+    lastName: "Black",
+    role: "Designer",
+    hireDate: "2021-11-15",
+    isActive: true,
+    salary: 81000,
   },
 ];
 
-const CellEditingDemo = () => {
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
+
+const CellEditingDemo = ({ height = "400px" }: { height?: string }) => {
   // State to track the data
-  const [data, setData] = useState(initialData);
+  const [data, setData] = useState(rows);
 
   // Handle cell edit
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
@@ -137,7 +158,9 @@ const CellEditingDemo = () => {
     );
   };
 
-  return <SimpleTable defaultHeaders={headers} rows={data} onCellEdit={handleCellEdit} />;
+  return (
+    <SimpleTable defaultHeaders={headers} rows={data} onCellEdit={handleCellEdit} height={height} />
+  );
 };
 
 export default CellEditingDemo;

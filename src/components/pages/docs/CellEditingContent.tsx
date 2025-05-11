@@ -1,5 +1,4 @@
 "use client";
-import CodeBlock from "@/components/CodeBlock";
 import CellEditingDemo from "@/components/demos/CellEditingDemo";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,9 +43,10 @@ export default function CellEditingContent() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          code={<CodeBlock demoCodeFilename="CellEditingDemo.txt" />}
+          demoCodeFilename="CellEditingDemo.txt"
+          height="400px"
           link={SANDBOX_LIST["CellEditingDemo.tsx"].url}
-          preview={<CellEditingDemo />}
+          Preview={CellEditingDemo}
         />
       </motion.div>
 
@@ -79,8 +79,6 @@ export default function CellEditingContent() {
             handler to manage the data updates
           </li>
         </ol>
-
-        <CodeBlock demoCodeFilename="CellEditingDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>

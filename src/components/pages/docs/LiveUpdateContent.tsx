@@ -6,6 +6,8 @@ import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import LiveUpdateDemo from "../../demos/LiveUpdateDemo";
 import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const LiveUpdateContent = () => {
   return (
@@ -24,12 +26,17 @@ const LiveUpdateContent = () => {
 
       {/* Demo Section */}
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <LiveUpdateDemo />
+        <LivePreview
+          demoCodeFilename="LiveUpdateDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["LiveUpdateDemo.tsx"].url}
+          Preview={LiveUpdateDemo}
+        />
       </motion.div>
 
       <motion.p
@@ -58,7 +65,7 @@ const LiveUpdateContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -88,8 +95,6 @@ const LiveUpdateContent = () => {
             with the appropriate parameters to update specific cells
           </li>
         </ol>
-
-        <CodeBlock demoCodeFilename="LiveUpdateDemo.txt" />
       </motion.div>
 
       {/* TableRef Section */}
@@ -103,7 +108,7 @@ const LiveUpdateContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -115,6 +120,7 @@ const LiveUpdateContent = () => {
         </p>
 
         <CodeBlock
+          className="mb-4"
           code={`type TableRefType = {
   updateData: (params: {
     accessor: string;   // The column accessor to target
@@ -130,6 +136,7 @@ const LiveUpdateContent = () => {
           method updates a single cell in the table:
         </p>
         <CodeBlock
+          className="mb-4"
           code={`// Create a ref
 const tableRef = useRef<TableRefType | null>(null);
 
@@ -153,7 +160,7 @@ tableRef.current?.updateData({
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
@@ -166,6 +173,7 @@ tableRef.current?.updateData({
         </p>
 
         <CodeBlock
+          className="mb-4"
           code={`<SimpleTable
   cellUpdateFlash={true} // Enable the flash animation
   defaultHeaders={headers}

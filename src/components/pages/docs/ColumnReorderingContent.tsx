@@ -5,6 +5,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
 import DocNavigationButtons from "../../DocNavigationButtons";
 import ColumnReorderingDemo from "../../demos/ColumnReorderingDemo";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 export default function ColumnReorderingContent() {
   return (
@@ -37,7 +39,12 @@ export default function ColumnReorderingContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <ColumnReorderingDemo />
+        <LivePreview
+          demoCodeFilename="ColumnReorderingDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["ColumnReorderingDemo.tsx"].url}
+          Preview={ColumnReorderingDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -61,8 +68,6 @@ export default function ColumnReorderingContent() {
           prop to the SimpleTable component. Users can drag and drop column headers to rearrange
           them.
         </p>
-
-        <CodeBlock demoCodeFilename="ColumnReorderingDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Reordering Configuration</h3>

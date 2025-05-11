@@ -6,6 +6,8 @@ import { faPager } from "@fortawesome/free-solid-svg-icons";
 import PaginationDemo from "../../demos/PaginationDemo";
 import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const PaginationContent = () => {
   return (
@@ -34,12 +36,17 @@ const PaginationContent = () => {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <PaginationDemo />
+        <LivePreview
+          demoCodeFilename="PaginationDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["PaginationDemo.tsx"].url}
+          Preview={PaginationDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -52,7 +59,7 @@ const PaginationContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -62,8 +69,6 @@ const PaginationContent = () => {
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">shouldPaginate</code> prop
           to your SimpleTable component. This will automatically handle pagination of your data.
         </p>
-
-        <CodeBlock demoCodeFilename="PaginationDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Pagination Properties</h3>

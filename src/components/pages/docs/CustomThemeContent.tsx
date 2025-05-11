@@ -6,6 +6,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CustomThemeDemo from "@/components/demos/custom-theme/CustomThemeDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 export default function CustomThemeContent() {
   return (
@@ -34,12 +36,17 @@ export default function CustomThemeContent() {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CustomThemeDemo />
+        <LivePreview
+          demoCodeFilename="custom-theme/CustomThemeDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["CustomThemeDemo.tsx"].url}
+          Preview={CustomThemeDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -52,7 +59,7 @@ export default function CustomThemeContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}

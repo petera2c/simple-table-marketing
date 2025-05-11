@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CellRendererContent from "@/components/pages/CellRendererContent";
+import CellRendererContent from "@/components/pages/docs/CellRendererContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

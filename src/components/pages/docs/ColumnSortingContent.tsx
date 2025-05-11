@@ -4,8 +4,9 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSort } from "@fortawesome/free-solid-svg-icons";
 import ColumnSortingDemo from "../../demos/ColumnSortingDemo";
-import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const ColumnSortingContent = () => {
   return (
@@ -38,7 +39,12 @@ const ColumnSortingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <ColumnSortingDemo />
+        <LivePreview
+          demoCodeFilename="ColumnSortingDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["ColumnSortingDemo.tsx"].url}
+          Preview={ColumnSortingDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -61,8 +67,6 @@ const ColumnSortingContent = () => {
           <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isSortable: true</code>{" "}
           property to your column definition.
         </p>
-
-        <CodeBlock demoCodeFilename="ColumnSortingDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Sorting Properties</h3>

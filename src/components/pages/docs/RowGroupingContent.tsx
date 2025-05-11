@@ -4,8 +4,10 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import RowGroupingDemo from "../../demos/RowGroupingDemo";
-import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
+import CodeBlock from "@/components/CodeBlock";
 
 const RowGroupingContent = () => {
   return (
@@ -38,7 +40,12 @@ const RowGroupingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <RowGroupingDemo />
+        <LivePreview
+          demoCodeFilename="RowGroupingDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["RowGroupingDemo.tsx"].url}
+          Preview={RowGroupingDemo}
+        />
       </motion.div>
 
       <motion.h2
@@ -75,8 +82,6 @@ const RowGroupingContent = () => {
             control the initial expansion state
           </li>
         </ol>
-
-        <CodeBlock demoCodeFilename="RowGroupingDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Key Properties</h3>
@@ -124,9 +129,8 @@ const RowGroupingContent = () => {
           an example:
         </p>
 
-        <div className="bg-gray-50 p-4 rounded-lg">
-          <pre className="text-sm text-gray-700">
-            {`{
+        <CodeBlock
+          code={`{
   rowMeta: { 
     rowId: 1,
     children: [
@@ -138,8 +142,7 @@ const RowGroupingContent = () => {
   },
   rowData: { /* parent row data */ }
 }`}
-          </pre>
-        </div>
+        />
       </motion.div>
 
       <DocNavigationButtons />

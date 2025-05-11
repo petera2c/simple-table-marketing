@@ -5,26 +5,24 @@ import { Button } from "antd";
 import type { Color } from "antd/es/color-picker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
-  faCode,
   faPaintBrush,
   faPalette,
   faSwatchbook,
   faColumns,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
-import { trackDownload } from "../../../utils/analytics";
-import { UI_STRINGS } from "../../../constants/strings/ui";
-import { TECHNICAL_STRINGS } from "../../../constants/strings/technical";
-import { useIsMobile } from "../../../hooks/useIsMobile";
+import { trackDownload } from "@/utils/analytics";
+import { UI_STRINGS } from "@/constants/strings/ui";
+import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
+import { useIsMobile } from "@/hooks/useIsMobile";
 
 // Import our reusable components
-import PageLayout from "../../PageLayout";
-import ConfigurableSidebar, { SidebarConfig } from "../../ConfigurableSidebar";
-import ExpandableSection from "../../ExpandableSection";
-import ThemeColorPicker from "../../ThemeColorPicker";
-import ThemeInput from "../../ThemeInput";
-import MobileUnsupportedPage from "../../MobileUnsupported";
-import BillingExample from "../../../examples/billing/BillingExample";
+import PageLayout from "@/components/PageLayout";
+import ConfigurableSidebar, { SidebarConfig } from "@/components/ConfigurableSidebar";
+import ExpandableSection from "@/components/ExpandableSection";
+import ThemeColorPicker from "@/components/ThemeColorPicker";
+import ThemeInput from "@/components/ThemeInput";
+import MobileUnsupportedPage from "@/components/MobileUnsupported";
 
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";

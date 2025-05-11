@@ -3,9 +3,10 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import CellHighlightingDemo from "../../components/demos/CellHighlightingDemo";
-import CodeBlock from "../../components/CodeBlock";
-import DocNavigationButtons from "../DocNavigationButtons";
+import CellHighlightingDemo from "../../demos/CellHighlightingDemo";
+import DocNavigationButtons from "../../DocNavigationButtons";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const CellHighlightingContent = () => {
   return (
@@ -35,12 +36,17 @@ const CellHighlightingContent = () => {
 
       {/* Demo Section */}
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <CellHighlightingDemo />
+        <LivePreview
+          demoCodeFilename="CellHighlightingDemo.txt"
+          height="400px"
+          link={SANDBOX_LIST["CellHighlightingDemo.tsx"].url}
+          Preview={CellHighlightingDemo}
+        />
       </motion.div>
 
       {/* Basic Cell Selection Section */}
@@ -54,7 +60,7 @@ const CellHighlightingContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -66,8 +72,6 @@ const CellHighlightingContent = () => {
           props to your SimpleTable component. This enables users to select individual cells and
           entire columns.
         </p>
-
-        <CodeBlock demoCodeFilename="CellHighlightingDemo.txt" />
 
         <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 mb-2">Selection Properties</h3>

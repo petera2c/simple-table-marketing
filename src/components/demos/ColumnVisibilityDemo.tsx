@@ -8,69 +8,100 @@ const headers: HeaderObject[] = [
   { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true, type: "string" },
   { accessor: "role", label: "Role", width: 150, type: "string" },
   { accessor: "department", label: "Department", width: 150, type: "string" },
-  { accessor: "location", label: "Location", width: 150, type: "string" },
 ];
 
-const data = [
+// Sample data
+const EMPLOYEE_DATA = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      role: "Developer",
-      department: "Engineering",
-      location: "Remote",
-    },
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    startDate: "2018-06-15",
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      role: "Designer",
-      department: "Product",
-      location: "New York",
-    },
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    startDate: "2019-02-20",
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      role: "Manager",
-      department: "Operations",
-      location: "San Francisco",
-    },
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    startDate: "2017-05-10",
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      name: "Alice Williams",
-      email: "alice@example.com",
-      role: "Developer",
-      department: "Engineering",
-      location: "Remote",
-    },
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    startDate: "2018-09-01",
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      name: "Charlie Brown",
-      email: "charlie@example.com",
-      role: "Marketing",
-      department: "Sales",
-      location: "Chicago",
-    },
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    startDate: "2018-03-15",
+  },
+  {
+    id: 6,
+    name: "David Lee",
+    age: 31,
+    role: "QA Engineer",
+    department: "Quality Assurance",
+    startDate: "2018-07-22",
+  },
+  {
+    id: 7,
+    name: "Eve Green",
+    age: 29,
+    role: "Product Manager",
+    department: "Product Management",
+    startDate: "2018-04-18",
+  },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 33,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2018-01-01",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Manager",
+    department: "Human Resources",
+    startDate: "2018-01-01",
   },
 ];
 
-const ColumnVisibilityDemo = () => {
-  return <SimpleTable defaultHeaders={headers} editColumns editColumnsInitOpen rows={data} />;
+// Map data to rows format expected by SimpleTable
+const rows = EMPLOYEE_DATA.map((item) => ({
+  rowMeta: { rowId: item.id },
+  rowData: item,
+}));
+
+const ColumnVisibilityDemo = ({ height = "400px" }: { height?: string }) => {
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      editColumns
+      editColumnsInitOpen
+      rows={rows}
+      height={height}
+    />
+  );
 };
 
 export default ColumnVisibilityDemo;
