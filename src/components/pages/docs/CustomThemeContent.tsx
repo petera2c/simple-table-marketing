@@ -44,7 +44,7 @@ export default function CustomThemeContent() {
         <LivePreview
           demoCodeFilename="custom-theme/CustomThemeDemo.txt"
           height="400px"
-          link={SANDBOX_LIST["CustomThemeDemo.tsx"].url}
+          link={SANDBOX_LIST["src/CustomThemeDemo.tsx"].url}
           Preview={CustomThemeDemo}
         />
       </motion.div>
