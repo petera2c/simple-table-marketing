@@ -3,13 +3,17 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
-import ThemesDemo from "@/components/demos/themes-demo/ThemesDemo";
+import ThemesDemo from "@/components/demos/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import LivePreview from "@/components/LivePreview";
 
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import ThemeSelector from "@/components/ThemeSelector";
+import { useState } from "react";
+import { Theme } from "simple-table-core";
 
 export default function ThemesContent() {
+  const [currentTheme, setCurrentTheme] = useState<Theme>("light");
   return (
     <>
       <motion.div
@@ -40,12 +44,15 @@ export default function ThemesContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <LivePreview
-          demoCodeFilename="ThemesDemo.txt"
-          height="352px"
-          link={SANDBOX_LIST["ThemesDemo.tsx"].url}
-          Preview={ThemesDemo}
-        />
+        <div className="flex flex-col gap-4 h-full">
+          <ThemeSelector currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
+          <LivePreview
+            demoCodeFilename="ThemesDemo.txt"
+            height="400px"
+            link={SANDBOX_LIST["ThemesDemo.tsx"].url}
+            Preview={({ height }) => <ThemesDemo height={height} theme={currentTheme} />}
+          />
+        </div>
       </motion.div>
 
       <motion.h2

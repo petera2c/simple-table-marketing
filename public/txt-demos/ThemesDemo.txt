@@ -1,7 +1,5 @@
-import { useState } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import ThemeSelector from "../ThemeSelector";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -94,15 +92,8 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const ThemesDemo = ({ height = "400px" }: { height?: string }) => {
-  const [currentTheme, setCurrentTheme] = useState<Theme>("light");
-
-  return (
-    <div className="flex flex-col gap-4">
-      <ThemeSelector currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
-      <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={currentTheme} />
-    </div>
-  );
+const ThemesDemo = ({ height = "400px", theme }: { height?: string; theme: Theme }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={theme} />;
 };
 
 export default ThemesDemo;

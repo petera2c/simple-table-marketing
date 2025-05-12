@@ -11,7 +11,7 @@ import {
   faFileInvoiceDollar,
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
-import ThemeSelector from "@/components/demos/themes-demo/ThemeSelector";
+import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, Suspense } from "react";
 
 // Define example navigation items

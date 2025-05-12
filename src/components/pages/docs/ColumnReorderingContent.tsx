@@ -34,11 +34,14 @@ export default function ColumnReorderingContent() {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="flex flex-col gap-2 mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
+        <div className="text-sm text-gray-600 italic">
+          Try dragging column headers to reorder them.
+        </div>
         <LivePreview
           demoCodeFilename="ColumnReorderingDemo.txt"
           height="400px"
@@ -57,7 +60,7 @@ export default function ColumnReorderingContent() {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}

@@ -69,6 +69,22 @@ const EMPLOYEE_DATA = [
     department: "Product Management",
     startDate: "2018-04-18",
   },
+  {
+    id: 8,
+    name: "Frank White",
+    age: 34,
+    role: "Sales Manager",
+    department: "Sales",
+    startDate: "2017-11-05",
+  },
+  {
+    id: 9,
+    name: "Grace Black",
+    age: 27,
+    role: "HR Coordinator",
+    department: "Human Resources",
+    startDate: "2019-03-25",
+  },
 ];
 
 // Map data to rows format expected by SimpleTable
@@ -77,9 +93,9 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const ColumnReorderingDemo = () => {
+const ColumnReorderingDemo = ({ height = "400px" }: { height?: string }) => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
-  const [currentColumnOrder, setCurrentColumnOrder] = useState<string>(
+  const [, setCurrentColumnOrder] = useState<string>(
     initialHeaders.map((header) => header.accessor).join(", ")
   );
 
@@ -89,20 +105,13 @@ const ColumnReorderingDemo = () => {
   };
 
   return (
-    <div className="space-y-4">
-      <div className="p-2 bg-blue-100 text-blue-800 rounded-md text-sm">
-        Current column order: {currentColumnOrder}
-      </div>
-      <SimpleTable
-        columnReordering
-        defaultHeaders={headers}
-        rows={rows}
-        onColumnOrderChange={handleColumnOrderChange}
-      />
-      <div className="text-sm text-gray-600 italic mt-2">
-        Try dragging column headers to reorder them.
-      </div>
-    </div>
+    <SimpleTable
+      columnReordering
+      defaultHeaders={headers}
+      height={height}
+      rows={rows}
+      onColumnOrderChange={handleColumnOrderChange}
+    />
   );
 };
 

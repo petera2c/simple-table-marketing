@@ -56,10 +56,14 @@ root.render(
         isBinary: false,
       },
       "package.json": {
-        content: JSON.stringify({
-          name: sandboxName,
-          ...dependencies,
-        }),
+        content: JSON.stringify(
+          {
+            name: sandboxName,
+            ...dependencies,
+          },
+          null,
+          2
+        ),
         isBinary: false,
       },
     },
