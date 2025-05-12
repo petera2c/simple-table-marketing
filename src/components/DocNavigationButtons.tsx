@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 
 // This should match the structure in DocsLayout.tsx
 const docNavigation = [
@@ -95,23 +96,26 @@ const DocNavigationButtons = () => {
       transition={{ duration: 0.5, delay: 0.9 }}
     >
       {prevPage ? (
-        <Button
-          type="default"
-          href={prevPage.path}
-          icon={<FontAwesomeIcon icon={faChevronLeft} />}
-          className="flex items-center"
-        >
-          Previous: {pathToLabel[prevPage.path]}
-        </Button>
+        <Link href={prevPage.path}>
+          <Button
+            type="default"
+            icon={<FontAwesomeIcon icon={faChevronLeft} />}
+            className="flex items-center"
+          >
+            Previous: {pathToLabel[prevPage.path]}
+          </Button>
+        </Link>
       ) : (
         <span></span>
       )}
 
       {nextPage && (
-        <Button type="primary" href={nextPage.path} className="flex items-center">
-          Next: {pathToLabel[nextPage.path]}
-          <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
-        </Button>
+        <Link href={nextPage.path}>
+          <Button type="primary" className="flex items-center">
+            Next: {pathToLabel[nextPage.path]}
+            <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
+          </Button>
+        </Link>
       )}
     </motion.div>
   );
