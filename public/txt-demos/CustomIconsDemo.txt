@@ -138,12 +138,34 @@ const rows = PRODUCT_DATA.map((item) => ({
 // Custom icons using simple HTML/CSS
 const customIcons = {
   // For sorting columns
-  sortUpIcon: <span className="text-blue-500 text-lg">▲</span>,
-  sortDownIcon: <span className="text-blue-500 text-lg">▼</span>,
+  sortUpIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
+  sortDownIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
 
   // For pagination navigation
-  nextIcon: <span className="text-blue-600 text-lg inline-block rotate-90">▲</span>,
-  prevIcon: <span className="text-blue-600 text-lg inline-block -rotate-90">▲</span>,
+  nextIcon: (
+    <span
+      style={{
+        color: "#2563eb",
+        fontSize: "1.125rem",
+        display: "inline-block",
+        transform: "rotate(90deg)",
+      }}
+    >
+      ▲
+    </span>
+  ),
+  prevIcon: (
+    <span
+      style={{
+        color: "#2563eb",
+        fontSize: "1.125rem",
+        display: "inline-block",
+        transform: "rotate(-90deg)",
+      }}
+    >
+      ▲
+    </span>
+  ),
 };
 
 const CustomIconsDemo = () => {
