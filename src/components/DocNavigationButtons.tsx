@@ -90,19 +90,22 @@ const DocNavigationButtons = () => {
 
   return (
     <motion.div
-      className="flex justify-between mt-4 pt-4 border-t border-gray-200"
+      className="flex flex-col sm:flex-row justify-between mt-4 pt-4 border-t border-gray-200 gap-4"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5, delay: 0.9 }}
     >
       {prevPage ? (
-        <Link href={prevPage.path}>
+        <Link href={prevPage.path} className="w-full sm:w-auto">
           <Button
             type="default"
             icon={<FontAwesomeIcon icon={faChevronLeft} />}
-            className="flex items-center"
+            className="flex items-center w-full sm:w-auto justify-center sm:justify-start"
           >
-            Previous: {pathToLabel[prevPage.path]}
+            <span className="hidden sm:inline">Previous: </span>
+            <span className="truncate max-w-[200px] sm:max-w-none">
+              {pathToLabel[prevPage.path]}
+            </span>
           </Button>
         </Link>
       ) : (
@@ -110,9 +113,15 @@ const DocNavigationButtons = () => {
       )}
 
       {nextPage && (
-        <Link href={nextPage.path}>
-          <Button type="primary" className="flex items-center">
-            Next: {pathToLabel[nextPage.path]}
+        <Link href={nextPage.path} className="w-full sm:w-auto">
+          <Button
+            type="primary"
+            className="flex items-center w-full sm:w-auto justify-center sm:justify-start"
+          >
+            <span className="hidden sm:inline">Next: </span>
+            <span className="truncate max-w-[200px] sm:max-w-none">
+              {pathToLabel[nextPage.path]}
+            </span>
             <FontAwesomeIcon icon={faChevronRight} className="ml-2" />
           </Button>
         </Link>
