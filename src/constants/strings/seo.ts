@@ -21,9 +21,6 @@ export const SEO_STRINGS = {
       "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free!",
     keywords:
       "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table",
-    openGraph: {
-      type: "website",
-    },
   },
   blog: {
     title: "Simple Table Blog: React Grid Tips",
@@ -35,7 +32,7 @@ export const SEO_STRINGS = {
   themeBuilder: {
     title: "Simple Table Theme Builder for React Grids",
     description:
-      "Customize react-table with Simple Table’s theme builder. Style your datagrid or data table with TypeScript support and responsive design.",
+      "Customize react-table with Simple Table's theme builder. Style your datagrid or data table with TypeScript support and responsive design.",
     keywords:
       "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, table, theme builder, table customization, typescript table",
   },
@@ -208,10 +205,14 @@ export const SEO_STRINGS = {
       "Add live updates to your react-table with Simple Table. Use tableRef for real-time datagrids and data tables with responsive design.",
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, live updates, real-time table, typescript table, responsive table",
-    twitter: {
-      title: "Live Updates in Simple Table React Grid",
+  },
+  comparisons: {
+    agGrid: {
+      title: "Simple Table vs AG Grid: React Data Grid Comparison",
       description:
-        "Add live updates to your react-table with Simple Table. Use tableRef for real-time dashboards and monitoring with a datagrid.",
+        "Compare Simple Table (16 kB) with AG Grid. See feature differences, performance metrics, and pricing. Free vs Enterprise React data grid comparison.",
+      keywords:
+        "simple-table, ag-grid, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, enterprise grid, typescript table, performance comparison",
     },
   },
 };

@@ -4,15 +4,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { trackLinkClick } from "../utils/analytics";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 
 export default function Footer() {
   const pathname = usePathname();
-
-  const handleLinkClick = (linkName: string, linkPath: string) => {
-    trackLinkClick(linkName, linkPath);
-  };
 
   const isActive = (path: string) => {
     return pathname === path;
@@ -21,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
           {/* Documentation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Documentation</h3>
@@ -29,7 +24,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/docs/installation"
-                  onClick={() => handleLinkClick("Footer Documentation", "/docs/installation")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/docs/installation") ? "text-white font-medium" : ""
                   }`}
@@ -40,7 +34,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/docs/quick-start"
-                  onClick={() => handleLinkClick("Footer Documentation", "/docs/quick-start")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/docs/quick-start") ? "text-white font-medium" : ""
                   }`}
@@ -58,7 +51,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/examples/finance"
-                  onClick={() => handleLinkClick("Footer Finance Example", "/examples/finance")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/examples/finance") ? "text-white font-medium" : ""
                   }`}
@@ -69,9 +61,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/examples/manufacturing"
-                  onClick={() =>
-                    handleLinkClick("Footer Manufacturing Example", "/examples/manufacturing")
-                  }
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/examples/manufacturing") ? "text-white font-medium" : ""
                   }`}
@@ -82,7 +71,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/examples/hr"
-                  onClick={() => handleLinkClick("Footer HR Example", "/examples/hr")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/examples/hr") ? "text-white font-medium" : ""
                   }`}
@@ -93,12 +81,28 @@ export default function Footer() {
               <li>
                 <Link
                   href="/examples/billing"
-                  onClick={() => handleLinkClick("Footer Billing Example", "/examples/billing")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/examples/billing") ? "text-white font-medium" : ""
                   }`}
                 >
                   Billing
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Comparisons */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Comparisons</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-ag-grid"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsAgGrid") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Simple Table vs AG Grid
                 </Link>
               </li>
             </ul>
@@ -113,7 +117,6 @@ export default function Footer() {
                   href={TECHNICAL_STRINGS.links.npm}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleLinkClick("Footer NPM", TECHNICAL_STRINGS.links.npm)}
                   className="text-gray-400 hover:text-white transition-colors flex items-center"
                 >
                   <FontAwesomeIcon icon={faNpm} className="mr-2" />
@@ -125,7 +128,6 @@ export default function Footer() {
                   href="https://discord.gg/RvKHCfg3PC"
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() => handleLinkClick("Footer Discord", "https://discord.gg/RvKHCfg3PC")}
                   className="text-gray-400 hover:text-white transition-colors flex items-center"
                 >
                   <FontAwesomeIcon icon={faDiscord} className="mr-2" />
@@ -137,9 +139,6 @@ export default function Footer() {
                   href={TECHNICAL_STRINGS.links.githubIssues}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={() =>
-                    handleLinkClick("Footer GitHub", TECHNICAL_STRINGS.links.githubIssues)
-                  }
                   className="text-gray-400 hover:text-white transition-colors flex items-center"
                 >
                   <FontAwesomeIcon icon={faGithub} className="mr-2" />
@@ -149,7 +148,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/blog"
-                  onClick={() => handleLinkClick("Footer Blog", "/blog")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/blog") ? "text-white font-medium" : ""
                   }`}
@@ -160,7 +158,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/sitemap.xml"
-                  onClick={() => handleLinkClick("Footer Sitemap", "/sitemap.xml")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/sitemap.xml") ? "text-white font-medium" : ""
                   }`}
@@ -178,7 +175,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/theme-builder"
-                  onClick={() => handleLinkClick("Footer Theme Builder", "/theme-builder")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/theme-builder") ? "text-white font-medium" : ""
                   }`}
@@ -189,7 +185,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/docs/themes"
-                  onClick={() => handleLinkClick("Footer Themes", "/docs/themes")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/docs/themes") ? "text-white font-medium" : ""
                   }`}
@@ -200,7 +195,6 @@ export default function Footer() {
               <li>
                 <Link
                   href="/docs/custom-theme"
-                  onClick={() => handleLinkClick("Footer Custom Theme", "/docs/custom-theme")}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/docs/custom-theme") ? "text-white font-medium" : ""
                   }`}
