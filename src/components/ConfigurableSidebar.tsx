@@ -1,10 +1,9 @@
 "use client";
 
 import React from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { useIsMobile } from "../hooks/useIsMobile";
 
 export interface SidebarConfig {
@@ -12,8 +11,6 @@ export interface SidebarConfig {
   icon?: IconDefinition;
   sidebarContent: React.ReactNode;
   footerContent?: React.ReactNode;
-  isMobileOpen?: boolean;
-  onMobileClose?: () => void;
   width?: string; // Optional width for the sidebar
 }
 
@@ -24,7 +21,7 @@ interface ConfigurableSidebarProps {
 
 const ConfigurableSidebar: React.FC<ConfigurableSidebarProps> = ({ config, className = "" }) => {
   const isMobile = useIsMobile();
-  const { title, icon, sidebarContent, footerContent, isMobileOpen, onMobileClose, width } = config;
+  const { title, icon, sidebarContent, footerContent, width } = config;
 
   if (isMobile) return null;
 

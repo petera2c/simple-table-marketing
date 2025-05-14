@@ -19,8 +19,6 @@ import {
   faAlignLeft,
   faCopy,
   faPalette,
-  faBars,
-  faTimes,
   faArrowRightArrowLeft,
   faLeftRight,
   faDownload,
@@ -29,10 +27,8 @@ import {
   faBolt,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
-import { trackLinkClick } from "../utils/analytics";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { useIsMobile } from "../hooks/useIsMobile";
 import ExpandableSection from "./ExpandableSection";
 import ConfigurableSidebar from "./ConfigurableSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -147,41 +143,24 @@ const subsectionIcons: Record<string, IconDefinition> = {
 
 export default function DocsSidebar() {
   const pathname = usePathname();
-  const isMobile = useIsMobile();
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({});
-  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   // Initialize expanded sections
   useEffect(() => {
     const initialExpandedState: Record<string, boolean> = {};
 
     docSections.forEach((section) => {
-      const isActive = section.subsections.some((subsection) => subsection.path === pathname);
-      initialExpandedState[section.id] = isMobile ? isActive : true;
+      initialExpandedState[section.id] = true;
     });
 
     setExpandedSections(initialExpandedState);
-  }, [pathname, isMobile]);
-
-  // Close sidebar when location changes (on mobile)
-  useEffect(() => {
-    if (isMobile) {
-      setSidebarOpen(false);
-    }
-  }, [pathname, isMobile]);
+  }, [pathname]);
 
   const toggleSection = (sectionId: string) => {
     setExpandedSections((prev) => ({
       ...prev,
       [sectionId]: !prev[sectionId],
     }));
-  };
-
-  const handleLinkClick = (linkName: string, linkUrl: string) => {
-    trackLinkClick(linkName, linkUrl);
-    if (isMobile) {
-      setSidebarOpen(false);
-    }
   };
 
   // Create the sidebar content
@@ -200,7 +179,6 @@ export default function DocsSidebar() {
               <li key={index}>
                 <Link
                   href={subsection.path}
-                  onClick={() => handleLinkClick(subsection.label, subsection.path)}
                   className={`flex items-center gap-2 px-3 py-2 text-sm rounded transition-colors ${
                     pathname === subsection.path
                       ? "bg-blue-100 text-blue-700 font-medium"
@@ -224,27 +202,12 @@ export default function DocsSidebar() {
   );
 
   return (
-    <>
-      {/* Mobile sidebar toggle button */}
-      {isMobile && (
-        <button
-          onClick={() => setSidebarOpen(!sidebarOpen)}
-          className="fixed bottom-4 right-4 z-50 bg-blue-600 text-white p-3 rounded-full shadow-lg hover:bg-blue-700 transition-colors"
-          aria-label="Toggle documentation menu"
-        >
-          <FontAwesomeIcon icon={sidebarOpen ? faTimes : faBars} />
-        </button>
-      )}
-
-      <ConfigurableSidebar
-        config={{
-          title: "Documentation",
-          icon: faCode,
-          sidebarContent: docsSidebarContent,
-          isMobileOpen: sidebarOpen,
-          onMobileClose: () => setSidebarOpen(false),
-        }}
-      />
-    </>
+    <ConfigurableSidebar
+      config={{
+        title: "Documentation",
+        icon: faCode,
+        sidebarContent: docsSidebarContent,
+      }}
+    />
   );
 }

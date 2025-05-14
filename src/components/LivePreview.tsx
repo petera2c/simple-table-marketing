@@ -29,10 +29,12 @@ const LivePreview = ({
       <div className="flex justify-end gap-2 w-full shrink-0">
         <Tooltip title={isCodeVisible ? "Show preview" : "Show code"}>
           <Button
-            className="text-slate-700"
+            className="text-slate-700 min-w-[120px]"
             icon={<FontAwesomeIcon icon={faCode} />}
             onClick={() => setIsCodeVisible(!isCodeVisible)}
-          />
+          >
+            {isCodeVisible ? "Preview" : "Code"}
+          </Button>
         </Tooltip>
         <Tooltip title="Sandbox">
           <Button
@@ -40,7 +42,9 @@ const LivePreview = ({
             href={link}
             icon={<FontAwesomeIcon icon={faBox} />}
             target="_blank"
-          />
+          >
+            CodeSandbox
+          </Button>
         </Tooltip>
       </div>
     </div>
