@@ -331,10 +331,7 @@ const SimpleTableVsAntDesignContent = () => {
       antDesign: (
         <Space direction="vertical">
           {FeatureTags.Success("MIT License", "Free to use with MIT license")}
-          {FeatureTags.Warning(
-            "~100 kB (minified + gzipped)",
-            "Larger bundle size due to Ant Design dependencies"
-          )}
+          {FeatureTags.Error("48.3 MB (unpacked)", "Entire Ant Design component library required")}
         </Space>
       ),
     },
@@ -395,7 +392,7 @@ const SimpleTableVsAntDesignContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Ant Design Table",
-        competitorSize: "~100 kB (minified + gzipped)",
+        competitorSize: "48.3 MB (unpacked)",
       }}
       summaryContent={summaryContent}
     />

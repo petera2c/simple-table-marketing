@@ -345,10 +345,7 @@ const SimpleTableVsHandsontableContent = () => {
             "Starts at $590/year for a single developer"
           )}
           {FeatureTags.Warning("Free for Non-Commercial", "Free for non-commercial use only")}
-          {FeatureTags.Error(
-            "~200 kB (minified + gzipped)",
-            "Larger bundle size due to extensive features"
-          )}
+          {FeatureTags.Error("21.3 MB (unpacked)", "20.8 MB main package + 505 kB React add-on")}
         </Space>
       ),
     },
@@ -408,7 +405,7 @@ const SimpleTableVsHandsontableContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Handsontable",
-        competitorSize: "~200 kB (minified + gzipped)",
+        competitorSize: "21.3 MB (unpacked)",
       }}
       summaryContent={summaryContent}
     />

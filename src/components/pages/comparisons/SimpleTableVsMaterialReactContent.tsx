@@ -338,7 +338,7 @@ const SimpleTableVsMaterialReactContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("MIT License", "Free to use with MIT license")}
           {FeatureTags.Warning(
-            "~100 kB (minified + gzipped)",
+            "5.56 MB (unpacked)",
             "Larger bundle size due to Material-UI dependencies"
           )}
         </Space>
@@ -401,7 +401,7 @@ const SimpleTableVsMaterialReactContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Material-UI Table",
-        competitorSize: "~100 kB (minified + gzipped)",
+        competitorSize: "5.56 MB (unpacked)",
       }}
       summaryContent={summaryContent}
     />

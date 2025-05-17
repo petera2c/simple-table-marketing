@@ -142,9 +142,6 @@ export const commonColumnFeatures = {
 export const simplePricing = (
   <Space direction="vertical">
     {FeatureTags.Success("100% Free", "Completely free to use in any project")}
-    {FeatureTags.Success(
-      "16 kB (minified + gzipped)",
-      "Minimal bundle size for optimal performance"
-    )}
+    {FeatureTags.Success("197 kB (unpacked)", "Minimal bundle size for optimal performance")}
   </Space>
 );

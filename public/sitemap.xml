@@ -12,19 +12,32 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/simple-table-vs-ag-grid</loc>
-    <lastmod>2025-05-08T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/blog/simple-table-vs-handsontable</loc>
-    <lastmod>2024-04-12T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/blog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/comparisons/simple-table-vs-ag-grid</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/comparisons/simple-table-vs-ant-design</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/comparisons/simple-table-vs-handsontable</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/comparisons/simple-table-vs-material-react</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/comparisons/simple-table-vs-tanstack</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>

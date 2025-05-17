@@ -298,7 +298,7 @@ const SimpleTableVsTanstackContent = () => {
       tanstack: (
         <Space direction="vertical">
           {FeatureTags.Success("Free (MIT License)", "Open-source with MIT license")}
-          {FeatureTags.Success("~12 kB (core)", "Core package is lightweight")}
+          {FeatureTags.Success("762 kB (unpacked)", "Core package is lightweight")}
           {FeatureTags.Warning("Additional Size for UI", "Your custom UI adds to bundle size")}
         </Space>
       ),
@@ -380,7 +380,7 @@ const SimpleTableVsTanstackContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "TanStack Table",
-        competitorSize: "~12 kB + custom UI",
+        competitorSize: "762 kB (unpacked) + custom UI",
       }}
       summaryContent={summaryContent}
     />

@@ -3,8 +3,7 @@ import "simple-table-core/styles.css";
 
 // Define all headers with pinned status
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, pinned: "left", type: "number" },
-  { accessor: "name", label: "Name", width: 180, pinned: "left", type: "string" },
+  { accessor: "name", label: "Name", width: 132, pinned: "left", type: "string" },
   { accessor: "email", label: "Email", width: 220, type: "string" },
   { accessor: "role", label: "Role", width: 150, type: "string" },
   { accessor: "department", label: "Department", width: 150, type: "string" },
@@ -16,7 +15,7 @@ const headers: HeaderObject[] = [
   {
     accessor: "projects",
     label: "Projects",
-    width: 120,
+    width: 60,
     align: "right",
     pinned: "right",
     type: "number",
