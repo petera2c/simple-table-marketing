@@ -214,5 +214,33 @@ export const SEO_STRINGS = {
       keywords:
         "simple-table, ag-grid, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, enterprise grid, typescript table, performance comparison",
     },
+    tanstack: {
+      title: "Simple Table vs TanStack Table: React Data Grid Comparison",
+      description:
+        "Compare Simple Table (16 kB) with TanStack Table. See feature differences, performance metrics, and implementation complexity. Headless vs Ready-to-use React data grid comparison.",
+      keywords:
+        "simple-table, tanstack-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, headless table, ready-to-use table, typescript table, performance comparison",
+    },
+    handsontable: {
+      title: "Simple Table vs Handsontable: React Data Grid Comparison",
+      description:
+        "Compare Simple Table (16 kB) with Handsontable. See feature differences, performance metrics, and pricing. Free vs Commercial React data grid comparison.",
+      keywords:
+        "simple-table, handsontable, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, commercial grid, typescript table, performance comparison",
+    },
+    materialReact: {
+      title: "Simple Table vs Material-UI Table: React Data Grid Comparison",
+      description:
+        "Compare Simple Table (16 kB) with Material-UI Table. See feature differences, performance metrics, and bundle size. Lightweight vs Full-featured React data grid comparison.",
+      keywords:
+        "simple-table, material-ui, mui-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, lightweight grid, full-featured grid, typescript table, performance comparison",
+    },
+    antDesign: {
+      title: "Simple Table vs Ant Design Table: React Data Grid Comparison",
+      description:
+        "Compare Simple Table (16 kB) with Ant Design Table. See feature differences, performance metrics, and bundle size. Lightweight vs Component Library React data grid comparison.",
+      keywords:
+        "simple-table, ant-design, antd-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, lightweight grid, component library, typescript table, performance comparison",
+    },
   },
 };

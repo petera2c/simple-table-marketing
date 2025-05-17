@@ -16,7 +16,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr_1fr_1fr] gap-8">
           {/* Documentation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Documentation</h3>
@@ -103,6 +103,51 @@ export default function Footer() {
                   }`}
                 >
                   Simple Table vs AG Grid
+                </Link>
+              </li>
+
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-tanstack"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsTanstack") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Simple Table vs Tanstack
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-handsontable"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsHandsontable")
+                      ? "text-white font-medium"
+                      : ""
+                  }`}
+                >
+                  Simple Table vs Handsontable
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-material-react"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsMaterialReact")
+                      ? "text-white font-medium"
+                      : ""
+                  }`}
+                >
+                  Simple Table vs Material React
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-ant-design"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsAntDesign") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Simple Table vs Ant Design
                 </Link>
               </li>
             </ul>

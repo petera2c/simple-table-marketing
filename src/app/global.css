@@ -620,14 +620,6 @@ video {
   inset: 0px;
 }
 
-.bottom-4 {
-  bottom: 1rem;
-}
-
-.right-4 {
-  right: 1rem;
-}
-
 .top-0 {
   top: 0px;
 }
@@ -928,20 +920,12 @@ video {
   width: 100%;
 }
 
-.min-w-\[650px\] {
-  min-width: 650px;
-}
-
 .min-w-\[120px\] {
   min-width: 120px;
 }
 
-.min-w-20 {
-  min-width: 5rem;
-}
-
-.min-w-\[100px\] {
-  min-width: 100px;
+.min-w-\[650px\] {
+  min-width: 650px;
 }
 
 .max-w-2xl {
@@ -960,6 +944,10 @@ video {
   max-width: 80rem;
 }
 
+.max-w-\[200px\] {
+  max-width: 200px;
+}
+
 .max-w-md {
   max-width: 28rem;
 }
@@ -968,24 +956,12 @@ video {
   max-width: none;
 }
 
-.max-w-\[200px\] {
-  max-width: 200px;
-}
-
-.flex-1 {
-  flex: 1 1 0%;
-}
-
 .shrink-0 {
   flex-shrink: 0;
 }
 
 .flex-grow {
   flex-grow: 1;
-}
-
-.border-collapse {
-  border-collapse: collapse;
 }
 
 .rotate-180 {
@@ -1308,6 +1284,10 @@ video {
   border-color: rgb(254 202 202 / var(--tw-border-opacity, 1));
 }
 
+.border-transparent {
+  border-color: transparent;
+}
+
 .border-white {
   --tw-border-opacity: 1;
   border-color: rgb(255 255 255 / var(--tw-border-opacity, 1));
@@ -1316,10 +1296,6 @@ video {
 .border-yellow-400 {
   --tw-border-opacity: 1;
   border-color: rgb(250 204 21 / var(--tw-border-opacity, 1));
-}
-
-.border-transparent {
-  border-color: transparent;
 }
 
 .bg-amber-50 {
@@ -1652,14 +1628,14 @@ video {
   padding-bottom: 1rem;
 }
 
-.py-8 {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-}
-
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
+}
+
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .pb-12 {
@@ -1684,6 +1660,10 @@ video {
 
 .pl-5 {
   padding-left: 1.25rem;
+}
+
+.pl-6 {
+  padding-left: 1.5rem;
 }
 
 .pl-8 {
@@ -1720,10 +1700,6 @@ video {
 
 .pt-\[12dvh\] {
   padding-top: 12dvh;
-}
-
-.pl-6 {
-  padding-left: 1.5rem;
 }
 
 .text-left {
@@ -2334,12 +2310,16 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .md\:grid-cols-4 {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
   .md\:grid-cols-5 {
     grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-6 {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+
+  .md\:grid-cols-\[1fr_1fr_1\.5fr_1fr_1fr\] {
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
   }
 
   .md\:flex-row {
