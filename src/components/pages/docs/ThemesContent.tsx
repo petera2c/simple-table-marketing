@@ -9,11 +9,18 @@ import LivePreview from "@/components/LivePreview";
 
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ThemeSelector from "@/components/ThemeSelector";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Theme } from "simple-table-core";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 export default function ThemesContent() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light");
+  const { theme } = useThemeContext();
+
+  useEffect(() => {
+    setCurrentTheme(theme);
+  }, [theme]);
+
   return (
     <>
       <motion.div
@@ -25,11 +32,11 @@ export default function ThemesContent() {
         <div className="p-2 bg-purple-100 rounded-lg">
           <FontAwesomeIcon icon={faPalette} className="text-purple-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Themes</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Themes</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -56,7 +63,7 @@ export default function ThemesContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -69,15 +76,17 @@ export default function ThemesContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           To apply a theme to Simple Table, simply pass the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme</code> prop with one
-          of the available theme options:
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            theme
+          </code>{" "}
+          prop with one of the available theme options:
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 mb-2">Available Themes</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Available Themes</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>light - Default light theme</li>
             <li>dark - Dark mode theme</li>
             <li>sky - Calm sky blue theme</li>

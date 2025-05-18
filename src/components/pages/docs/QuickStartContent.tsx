@@ -23,11 +23,11 @@ const QuickStartContent = () => {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faRocket} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Quick Start</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Quick Start</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -51,7 +51,7 @@ const QuickStartContent = () => {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -66,68 +66,76 @@ const QuickStartContent = () => {
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Table Headers</h3>
-          <p className="text-gray-700 mb-2">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+            Table Headers
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
             Headers define the structure of your table columns. Each header can have:
           </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 ml-4">
             <li>
-              <code className="bg-gray-100 px-1 rounded">accessor</code> - The key to access data in
-              your rows
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">accessor</code> - The key
+              to access data in your rows
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">label</code> - The display name for the
-              column
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">label</code> - The display
+              name for the column
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">width</code> - Column width (fixed or
-              flexible with "1fr")
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">width</code> - Column
+              width (fixed or flexible with "1fr")
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">isSortable</code> - Enable/disable column
-              sorting
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">isSortable</code> -
+              Enable/disable column sorting
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">type</code> - Data type for proper
-              formatting (string, number, date)
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">type</code> - Data type
+              for proper formatting (string, number, date)
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Table Props</h3>
-          <p className="text-gray-700 mb-2">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">Table Props</h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
             The SimpleTable component accepts several useful props:
           </p>
-          <ul className="list-disc list-inside text-gray-700 space-y-1 ml-4">
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 ml-4">
             <li>
-              <code className="bg-gray-100 px-1 rounded">defaultHeaders</code> - Array of column
-              definitions
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">defaultHeaders</code> -
+              Array of column definitions
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">rows</code> - Your data array with rowMeta
-              and rowData
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rows</code> - Your data
+              array with rowMeta and rowData
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">height</code> - Table container height
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">height</code> - Table
+              container height
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">rowHeight</code> - Height of each row
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rowHeight</code> - Height
+              of each row
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">editColumns</code> - Enable column
-              reordering
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">editColumns</code> -
+              Enable column reordering
             </li>
             <li>
-              <code className="bg-gray-100 px-1 rounded">selectableCells</code> - Enable cell
-              selection
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">selectableCells</code> -
+              Enable cell selection
             </li>
           </ul>
         </div>
 
         <div>
-          <h3 className="text-xl font-semibold text-gray-800 mb-2">Data Structure</h3>
-          <p className="text-gray-700 mb-2">Each row in your data should follow this structure:</p>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+            Data Structure
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Each row in your data should follow this structure:
+          </p>
           <CodeBlock
             code={`{
   rowMeta: { rowId: number },
@@ -143,7 +151,7 @@ const QuickStartContent = () => {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -157,21 +165,23 @@ const QuickStartContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">{UI_STRINGS.docs.cssSetup.description}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          {UI_STRINGS.docs.cssSetup.description}
+        </p>
 
         <CodeBlock code={TECHNICAL_STRINGS.css.import} language="js" />
 
-        <p className="text-gray-700">{UI_STRINGS.docs.cssSetup.note}</p>
+        <p className="text-gray-700 dark:text-gray-300">{UI_STRINGS.docs.cssSetup.note}</p>
       </motion.div>
 
       <motion.div
-        className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm"
+        className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.9 }}
       >
-        <h3 className="font-bold text-gray-800 mb-2">Pro Tip</h3>
-        <p className="text-gray-700">
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pro Tip</h3>
+        <p className="text-gray-700 dark:text-gray-300">
           Simple Table automatically handles the styling of alternating rows, borders, and hover
           states. You can customize these later with themes, but the defaults look great out of the
           box!

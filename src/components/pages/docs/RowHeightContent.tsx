@@ -21,11 +21,11 @@ export default function RowHeightContent() {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faArrowsUpDown} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Row Height</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Row Height</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -50,7 +50,7 @@ export default function RowHeightContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -64,15 +64,17 @@ export default function RowHeightContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           You can specify the height of rows in a Simple Table using the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code> property.
-          This property accepts a numeric value representing the height in pixels.
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowHeight
+          </code>{" "}
+          property. This property accepts a numeric value representing the height in pixels.
         </p>
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -85,12 +87,14 @@ export default function RowHeightContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 mb-2">Row Height Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Row Height Properties</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">rowHeight</code>: Sets
-              the height of all rows in pixels (numeric value)
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                rowHeight
+              </code>
+              : Sets the height of all rows in pixels (numeric value)
             </li>
           </ul>
         </div>

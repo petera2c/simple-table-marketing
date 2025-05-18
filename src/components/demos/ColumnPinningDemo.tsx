@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define all headers with pinned status
@@ -149,8 +149,16 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const ColumnPinningDemo = ({ height = "400px" }: { height?: string }) => {
-  return <SimpleTable columnResizing defaultHeaders={headers} height={height} rows={rows} />;
+const ColumnPinningDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+  return (
+    <SimpleTable
+      columnResizing
+      defaultHeaders={headers}
+      height={height}
+      rows={rows}
+      theme={theme}
+    />
+  );
 };
 
 export default ColumnPinningDemo;

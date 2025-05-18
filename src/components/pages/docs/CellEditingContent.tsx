@@ -19,11 +19,11 @@ export default function CellEditingContent() {
         <div className="p-2 bg-purple-100 rounded-lg">
           <FontAwesomeIcon icon={faEdit} className="text-purple-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Cell Editing</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Cell Editing</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -52,7 +52,7 @@ export default function CellEditingContent() {
 
       {/* Basic Editing Setup Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -65,40 +65,48 @@ export default function CellEditingContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">To enable cell editing in Simple Table, you need to:</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          To enable cell editing in Simple Table, you need to:
+        </p>
 
-        <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
+        <ol className="list-decimal pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
           <li>
             Add the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">isEditable: true</code>{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              isEditable: true
+            </code>{" "}
             property to the columns you want to make editable
           </li>
           <li>
             Provide an{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              onCellEdit
+            </code>{" "}
             handler to manage the data updates
           </li>
         </ol>
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 mb-2">Cell Editing Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Cell Editing Properties</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
                 isEditable: true
               </code>
               : Makes a column editable
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">onCellEdit</code>:
-              Callback function to handle cell edits
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                onCellEdit
+              </code>
+              : Callback function to handle cell edits
             </li>
           </ul>
         </div>
 
         {/* Specialized Editors Section */}
         <motion.h2
-          className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+          className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.5 }}
@@ -111,55 +119,62 @@ export default function CellEditingContent() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.5, delay: 0.6 }}
         >
-          <p className="text-gray-700 mb-4">
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
             Simple Table provides specialized editors for different data types, making it more
             user-friendly than competitors:
           </p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-bold text-gray-800 mb-2">String Editor</h3>
-              <p className="text-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="font-bold text-gray-800 dark:text-white mb-2">String Editor</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Default text input for string values like names, descriptions, and emails.
               </p>
-              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "string"`}
               </code>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-bold text-gray-800 mb-2">Number Editor</h3>
-              <p className="text-gray-700">Specialized input for numeric values with validation.</p>
-              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Number Editor</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Specialized input for numeric values with validation.
+              </p>
+              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "number"`}
               </code>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-bold text-gray-800 mb-2">Boolean Editor</h3>
-              <p className="text-gray-700">Checkbox interface for true/false values.</p>
-              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Boolean Editor</h3>
+              <p className="text-gray-700 dark:text-gray-300">
+                Checkbox interface for true/false values.
+              </p>
+              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "boolean"`}
               </code>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-              <h3 className="font-bold text-gray-800 mb-2">Date Editor</h3>
-              <p className="text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Date Editor</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Date picker interface for selecting dates. Date values must be in the format{" "}
-                <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">YYYY-MM-DD</code>.
+                <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                  YYYY-MM-DD
+                </code>
+                .
               </p>
-              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "date"`}
               </code>
             </div>
 
-            <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 md:col-span-2">
-              <h3 className="font-bold text-gray-800 mb-2">Enum Editor</h3>
-              <p className="text-gray-700">
+            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 md:col-span-2">
+              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Enum Editor</h3>
+              <p className="text-gray-700 dark:text-gray-300">
                 Dropdown selector for choosing from predefined options.
               </p>
-              <code className="block bg-gray-200 p-2 mt-2 rounded text-gray-800 text-sm">
+              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "enum",
 enumOptions: ["Option1", "Option2", "Option3"]`}
               </code>

@@ -21,11 +21,11 @@ export default function CustomThemeContent() {
         <div className="p-2 bg-green-100 rounded-lg">
           <FontAwesomeIcon icon={faCode} className="text-green-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Custom Theme</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Custom Theme</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -50,7 +50,7 @@ export default function CustomThemeContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -64,35 +64,44 @@ export default function CustomThemeContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           To create a custom theme for Simple Table, follow these steps:
         </p>
 
-        <ol className="list-decimal pl-8 space-y-2 text-gray-700 mb-4">
+        <ol className="list-decimal pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
           <li>
             Create a CSS file with your theme variables using the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code>{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              .theme-custom
+            </code>{" "}
             class
           </li>
           <li>Import the CSS file into your application</li>
           <li>
             Apply the theme by passing{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">theme="custom"</code> to
-            the SimpleTable component
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              theme="custom"
+            </code>{" "}
+            to the SimpleTable component
           </li>
         </ol>
 
-        <div className="bg-green-50 border-l-4 border-green-400 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 mb-2">Theme Variable Tips</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Theme Variable Tips</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
               Use the{" "}
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">.theme-custom</code>{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                .theme-custom
+              </code>{" "}
               class to define your custom theme
             </li>
             <li>
               Define CSS variables with the{" "}
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">--st-</code> prefix
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-
+              </code>{" "}
+              prefix
             </li>
             <li>Customize colors, spacing, fonts, and transitions</li>
             <li>Use direct hex values or color variables for consistent styling</li>
@@ -102,7 +111,7 @@ export default function CustomThemeContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
@@ -115,7 +124,7 @@ export default function CustomThemeContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           Here are the CSS variables used to create the custom theme in the demo above:
         </p>
 

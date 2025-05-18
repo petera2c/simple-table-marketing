@@ -3,6 +3,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button, Tooltip } from "antd";
 import { useState } from "react";
 import CodeBlock from "./CodeBlock";
+import { useThemeContext } from "@/providers/ThemeProvider";
+import { Theme } from "simple-table-core";
 
 const LivePreview = ({
   demoCodeFilename,
@@ -13,9 +15,10 @@ const LivePreview = ({
   demoCodeFilename?: string;
   height?: string;
   link: string;
-  Preview: ({ height }: { height?: string }) => JSX.Element;
+  Preview: ({ height, theme }: { height?: string; theme?: Theme }) => JSX.Element;
 }) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const { theme } = useThemeContext();
 
   return (
     <div className="flex flex-col gap-4 w-full flex-grow">
@@ -23,7 +26,7 @@ const LivePreview = ({
         {isCodeVisible ? (
           <CodeBlock className={`h-full`} demoCodeFilename={demoCodeFilename} />
         ) : (
-          <Preview height={height} />
+          <Preview height={height} theme={theme} />
         )}
       </div>
       <div className="flex justify-end gap-2 w-full shrink-0">

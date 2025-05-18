@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define all possible headers
@@ -92,7 +92,7 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const ColumnVisibilityDemo = ({ height = "400px" }: { height?: string }) => {
+const ColumnVisibilityDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
@@ -100,6 +100,7 @@ const ColumnVisibilityDemo = ({ height = "400px" }: { height?: string }) => {
       editColumnsInitOpen
       rows={rows}
       height={height}
+      theme={theme}
     />
   );
 };

@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define headers
@@ -100,7 +100,7 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const CellHighlightingDemo = ({ height = "400px" }: { height?: string }) => {
+const CellHighlightingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
@@ -108,6 +108,7 @@ const CellHighlightingDemo = ({ height = "400px" }: { height?: string }) => {
       selectableColumns
       rows={rows}
       height={height}
+      theme={theme}
     />
   );
 };

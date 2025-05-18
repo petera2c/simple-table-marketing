@@ -21,11 +21,11 @@ export default function CustomIconsContent() {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faIcons} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Custom Icons</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Custom Icons</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -52,7 +52,7 @@ export default function CustomIconsContent() {
 
       {/* Basic Implementation Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -66,59 +66,83 @@ export default function CustomIconsContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           To customize the icons in Simple Table, pass your custom icon components to the respective
           props. You can use any icon library like Font Awesome, Material Icons, or your own custom
           SVG icons.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 mb-2">Available Icon Props</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Available Icon Props</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortUpIcon</code>:
-              Icon for ascending sort
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                sortUpIcon
+              </code>
+              : Icon for ascending sort
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">sortDownIcon</code>:
-              Icon for descending sort
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                sortDownIcon
+              </code>
+              : Icon for descending sort
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">nextIcon</code>: Icon
-              for pagination next button
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                nextIcon
+              </code>
+              : Icon for pagination next button
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">prevIcon</code>: Icon
-              for pagination previous button
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                prevIcon
+              </code>
+              : Icon for pagination previous button
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">expandIcon</code>:
-              Icon for collapsed row groups
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                expandIcon
+              </code>
+              : Icon for collapsed row groups
             </li>
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">collapseIcon</code>:
-              Icon for expanded row groups
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                collapseIcon
+              </code>
+              : Icon for expanded row groups
             </li>
           </ul>
         </div>
 
-        <div className="bg-amber-50 border-l-4 border-amber-300 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-medium text-gray-700 mb-2">Implementation Examples</h3>
-          <p className="text-gray-600 mb-2">
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-300 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">
+            Implementation Examples
+          </h3>
+          <p className="text-gray-600 dark:text-gray-400 mb-2">
             You can find working examples of custom icons in the following components:
           </p>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600">
+          <ul className="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
             <li>
               <strong>PaginationDemo</strong>: Uses FontAwesome chevron icons (
-              <code className="bg-gray-100 px-1 py-0.5 rounded">faChevronRight</code> and{" "}
-              <code className="bg-gray-100 px-1 py-0.5 rounded">faChevronLeft</code>) to customize
-              the pagination navigation buttons.
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
+                faChevronRight
+              </code>{" "}
+              and{" "}
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
+                faChevronLeft
+              </code>
+              ) to customize the pagination navigation buttons.
             </li>
             <li>
               <strong>RowGroupingDemo</strong>: Uses FontAwesome chevron icons (
-              <code className="bg-gray-100 px-1 py-0.5 rounded">faChevronRight</code> and{" "}
-              <code className="bg-gray-100 px-1 py-0.5 rounded">faChevronDown</code>) to enhance the
-              visualization of expandable row groups.
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
+                faChevronRight
+              </code>{" "}
+              and{" "}
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
+                faChevronDown
+              </code>
+              ) to enhance the visualization of expandable row groups.
             </li>
           </ul>
         </div>
@@ -126,7 +150,7 @@ export default function CustomIconsContent() {
 
       {/* Usage with Different Icon Libraries */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -140,15 +164,15 @@ export default function CustomIconsContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           Simple Table's icon customization is library-agnostic. Here are examples of how to use
           different icon libraries:
         </p>
 
         <div className="space-y-6">
           {/* Font Awesome Example */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <h3 className="font-bold text-gray-800 mb-2">Font Awesome</h3>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Font Awesome</h3>
             <CodeBlock
               code={`import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
@@ -173,8 +197,8 @@ collapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />
           </div>
 
           {/* Material UI Icons Example */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <h3 className="font-bold text-gray-800 mb-2">Material UI Icons</h3>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Material UI Icons</h3>
             <CodeBlock
               code={`import ArrowUpward from "@mui/icons-material/ArrowUpward";
 import ArrowDownward from "@mui/icons-material/ArrowDownward";
@@ -196,8 +220,8 @@ collapseIcon={<ExpandMore className="text-blue-600" />}
           </div>
 
           {/* Custom SVG Example */}
-          <div className="bg-gray-50 p-4 rounded-lg border border-gray-200">
-            <h3 className="font-bold text-gray-800 mb-2">Custom SVG Icons</h3>
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
+            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Custom SVG Icons</h3>
             <CodeBlock
               code={`<SimpleTable
 // other props...
@@ -229,7 +253,7 @@ collapseIcon={
 
       {/* Best Practices Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
@@ -242,7 +266,7 @@ collapseIcon={
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <ul className="list-disc pl-5 space-y-2 text-gray-700">
+        <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
           <li>Keep icon sizes consistent for a polished look</li>
           <li>Use colors that match your application's theme</li>
           <li>Ensure icons are clear and intuitive for their purpose</li>

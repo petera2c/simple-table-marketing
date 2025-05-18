@@ -20,11 +20,11 @@ const InstallationContent = () => {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faDownload} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Installation</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Installation</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -38,7 +38,7 @@ const InstallationContent = () => {
       <CodeBlock className="mb-4" code={`${TECHNICAL_STRINGS.installation.pnpm}`} language="bash" />
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -51,9 +51,11 @@ const InstallationContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        <p className="text-gray-700 mb-4">Simple Table requires the following peer dependencies:</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Simple Table requires the following peer dependencies:
+        </p>
 
-        <ul className="list-disc pl-8 space-y-2 text-gray-700 bg-gray-50 p-4 rounded-lg border border-gray-100">
+        <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
           <li>React 16.8+ (Hooks support)</li>
         </ul>
       </motion.div>

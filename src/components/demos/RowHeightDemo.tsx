@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Row } from "simple-table-core";
+import { SimpleTable, HeaderObject, Row, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define headers
@@ -117,8 +117,16 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const RowHeightDemo = ({ height = "400px" }: { height?: string }) => {
-  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} rowHeight={32} />;
+const RowHeightDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      height={height}
+      rows={rows}
+      rowHeight={32}
+      theme={theme}
+    />
+  );
 };
 
 export default RowHeightDemo;

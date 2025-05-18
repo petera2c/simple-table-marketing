@@ -20,11 +20,11 @@ const ColumnResizingContent = () => {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faLeftRight} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Column Resizing</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Resizing</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -48,7 +48,7 @@ const ColumnResizingContent = () => {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -61,19 +61,23 @@ const ColumnResizingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           Column resizing is enabled by adding the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">columnResizing</code> prop
-          to the SimpleTable component. Users can resize columns by dragging the column dividers in
-          the header row.
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            columnResizing
+          </code>{" "}
+          prop to the SimpleTable component. Users can resize columns by dragging the column
+          dividers in the header row.
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 mb-2">Resizing Configuration</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Resizing Configuration</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
-              <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">columnResizing</code>:
-              Enable column resizing functionality
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                columnResizing
+              </code>
+              : Enable column resizing functionality
             </li>
           </ul>
         </div>

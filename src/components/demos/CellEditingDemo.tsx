@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, CellChangeProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, CellChangeProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define headers with editable property and various types
@@ -136,7 +136,7 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const CellEditingDemo = ({ height = "400px" }: { height?: string }) => {
+const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   // State to track the data
   const [data, setData] = useState(rows);
 
@@ -159,7 +159,13 @@ const CellEditingDemo = ({ height = "400px" }: { height?: string }) => {
   };
 
   return (
-    <SimpleTable defaultHeaders={headers} rows={data} onCellEdit={handleCellEdit} height={height} />
+    <SimpleTable
+      defaultHeaders={headers}
+      rows={data}
+      onCellEdit={handleCellEdit}
+      height={height}
+      theme={theme}
+    />
   );
 };
 
