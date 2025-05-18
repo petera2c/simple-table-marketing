@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define headers with custom cell renderers
@@ -272,8 +272,8 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const CellRendererDemo = ({ height = "400px" }: { height?: string }) => {
-  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} />;
+const CellRendererDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={theme} />;
 };
 
 export default CellRendererDemo;

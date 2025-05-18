@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Initial headers with different alignments
@@ -83,7 +83,7 @@ const rows = EMPLOYEE_DATA.map((item) => ({
   rowData: item,
 }));
 
-const ColumnAlignmentDemo = ({ height = "400px" }: { height?: string }) => {
+const ColumnAlignmentDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   // Change column alignment
   const onColumnOrderChange = (newHeaders: HeaderObject[]) => {
     // Call api to change alignment in the database
@@ -95,6 +95,7 @@ const ColumnAlignmentDemo = ({ height = "400px" }: { height?: string }) => {
       onColumnOrderChange={onColumnOrderChange}
       rows={rows}
       height={height}
+      theme={theme}
     />
   );
 };

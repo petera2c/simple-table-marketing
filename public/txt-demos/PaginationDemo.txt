@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 const ROWS_PER_PAGE = 7;
@@ -565,7 +565,7 @@ const ROWS = [
   },
 ];
 
-const PaginationDemo = () => {
+const PaginationDemo = ({ theme }: { theme?: Theme }) => {
   // Only hold the current page data, not all data
   const [rows, setRows] = useState(ROWS.slice(0, ROWS_PER_PAGE));
 
@@ -594,6 +594,7 @@ const PaginationDemo = () => {
         rows={rows}
         rowsPerPage={ROWS_PER_PAGE}
         shouldPaginate
+        theme={theme}
       />
     </div>
   );

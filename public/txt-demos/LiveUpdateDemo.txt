@@ -1,4 +1,4 @@
-import { SimpleTable, TableRefType, HeaderObject } from "simple-table-core";
+import { SimpleTable, TableRefType, HeaderObject, Theme } from "simple-table-core";
 import { useRef, useEffect } from "react";
 import "simple-table-core/styles.css";
 
@@ -117,7 +117,7 @@ const initialData = [
   },
 ];
 
-const LiveUpdateDemo = ({ height = "400px" }: { height?: string }) => {
+const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   // Keep a local copy of the data to update
   const tableRef = useRef<TableRefType | null>(null);
 
@@ -203,6 +203,7 @@ const LiveUpdateDemo = ({ height = "400px" }: { height?: string }) => {
       tableRef={tableRef}
       cellUpdateFlash={true}
       height={height}
+      theme={theme}
     />
   );
 };

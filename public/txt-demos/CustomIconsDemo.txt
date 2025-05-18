@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Define headers with various properties
@@ -168,7 +168,7 @@ const customIcons = {
   ),
 };
 
-const CustomIconsDemo = () => {
+const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
   return (
     <div style={{ display: "flex" }}>
       <SimpleTable
@@ -182,6 +182,7 @@ const CustomIconsDemo = () => {
         sortDownIcon={customIcons.sortDownIcon}
         nextIcon={customIcons.nextIcon}
         prevIcon={customIcons.prevIcon}
+        theme={theme}
       />
     </div>
   );
