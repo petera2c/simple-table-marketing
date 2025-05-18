@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import BillingExample from "./BillingExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import LivePreview from "@/components/LivePreview";
 
 const ROW_HEIGHT = 40;
 
@@ -24,7 +26,14 @@ export const BillingExampleWrapper = ({
 
   return (
     <Suspense fallback={<div />}>
-      <BillingExample height={containerHeight} onGridReady={onGridReady} theme={theme} />
+      <LivePreview
+        demoCodeFilename="BillingExample.txt"
+        height={`${containerHeight}px`}
+        link={SANDBOX_LIST["examples/billing/BillingExample.tsx"].url}
+        Preview={() => (
+          <BillingExample height={containerHeight} onGridReady={onGridReady} theme={theme} />
+        )}
+      />
     </Suspense>
   );
 };

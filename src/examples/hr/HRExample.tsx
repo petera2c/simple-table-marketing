@@ -37,16 +37,18 @@ export default function HRExample({
   };
 
   return (
-    <SimpleTable
-      columnReordering
-      columnResizing
-      defaultHeaders={HEADERS}
-      rows={data}
-      rowsPerPage={howManyRowsCanFit}
-      selectableCells
-      shouldPaginate
-      theme={theme}
-      onCellEdit={handleCellEdit}
-    />
+    <div style={{ display: "flex" }}>
+      <SimpleTable
+        columnReordering
+        columnResizing
+        defaultHeaders={HEADERS}
+        rows={data}
+        rowsPerPage={howManyRowsCanFit}
+        selectableCells
+        shouldPaginate
+        theme={theme}
+        onCellEdit={handleCellEdit}
+      />
+    </div>
   );
 }

@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import ManufacturingExample from "./ManufacturingExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
+import LivePreview from "@/components/LivePreview";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const ROW_HEIGHT = 40;
 
@@ -17,7 +19,12 @@ export const ManufacturingExampleWrapper = ({ themeOverride }: { themeOverride?:
   });
   return (
     <Suspense fallback={<div />}>
-      <ManufacturingExample height={containerHeight} theme={theme} />
+      <LivePreview
+        demoCodeFilename="ManufacturingExample.txt"
+        height={`${containerHeight}px`}
+        link={SANDBOX_LIST["examples/manufacturing/ManufacturingExample.tsx"].url}
+        Preview={() => <ManufacturingExample height={containerHeight} theme={theme} />}
+      />
     </Suspense>
   );
 };

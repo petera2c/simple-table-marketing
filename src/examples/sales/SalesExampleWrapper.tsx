@@ -5,6 +5,8 @@ import { Suspense } from "react";
 import SalesExample from "./SalesExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
+import LivePreview from "@/components/LivePreview";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const ROW_HEIGHT = 40;
 
@@ -24,11 +26,17 @@ export const SalesExampleWrapper = ({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
   });
-  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
 
   return (
     <Suspense fallback={<div />}>
-      <SalesExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+      <LivePreview
+        demoCodeFilename="SalesExample.txt"
+        height={`${containerHeight}px`}
+        link={SANDBOX_LIST["examples/sales/SalesExample.tsx"].url}
+        Preview={() => (
+          <SalesExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+        )}
+      />
     </Suspense>
   );
 };
