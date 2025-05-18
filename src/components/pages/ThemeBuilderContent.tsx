@@ -11,7 +11,6 @@ import {
   faColumns,
   faDownload,
 } from "@fortawesome/free-solid-svg-icons";
-import { trackDownload } from "@/utils/analytics";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 import { useIsMobile } from "@/hooks/useIsMobile";
@@ -170,7 +169,6 @@ export default function ThemeBuilderContent() {
     a.click();
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
-    trackDownload(TECHNICAL_STRINGS.files.theme);
   };
 
   // Toggle expanded sections

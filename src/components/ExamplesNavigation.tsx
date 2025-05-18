@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { trackLinkClick } from "../utils/analytics";
 import { Select } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -82,7 +81,6 @@ function ExamplesNavigationContent() {
   }, [currentTheme, currentExample, pathname, router, searchParams]);
 
   const handleLinkClick = (linkPath: string, linkName: string) => {
-    trackLinkClick(linkName, linkPath);
     const example = examples.find((e) => e.path === linkPath);
     const params = new URLSearchParams(searchParams.toString());
 

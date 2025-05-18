@@ -24,7 +24,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { trackButtonClick } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { Suspense } from "react";
@@ -146,17 +145,20 @@ export default function HomeContent() {
   };
 
   const handleDocumentationClick = () => {
-    trackButtonClick("Documentation", "Homepage Hero");
     router.push("/docs/installation");
   };
 
   const handleExamplesClick = () => {
-    trackButtonClick("Examples", "Homepage Hero");
     router.push("/examples/finance");
   };
 
-  const handleFeatureClick = (featureTitle: string, link: string) => {
-    trackButtonClick("Feature Click", featureTitle);
+  const handleFeatureClick = (link: string) => {
+    if (link) {
+      router.push(link);
+    }
+  };
+
+  const handleComparisonClick = (link: string) => {
     if (link) {
       router.push(link);
     }
@@ -164,8 +166,6 @@ export default function HomeContent() {
 
   return (
     <>
-      {/* Page-wide animated background */}
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[12dvh]">
         {/* Hero section */}
         <section className="relative pb-12">
@@ -339,7 +339,7 @@ export default function HomeContent() {
               className="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow border border-gray-100 cursor-pointer"
               variants={itemVariants}
               whileHover={{ scale: 1.03, transition: { duration: 0.2 } }}
-              onClick={() => handleFeatureClick(feature.title, feature.link)}
+              onClick={() => handleFeatureClick(feature.link)}
             >
               <div className="flex items-center mb-4">
                 <div className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center mr-3">
@@ -350,6 +350,80 @@ export default function HomeContent() {
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}
+        </motion.section>
+
+        {/* Comparisons section */}
+        <motion.section
+          className="my-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-10 text-gray-800">How We Compare</h2>
+
+          <p className="text-lg text-center text-gray-600 mb-8 max-w-3xl mx-auto">
+            See how Simple Table stacks up against other popular data grid solutions
+          </p>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              {
+                title: "vs AG Grid",
+                description:
+                  "Compare our lightweight solution against AG Grid's enterprise features and pricing",
+                link: "/comparisons/simple-table-vs-ag-grid",
+                color: "from-blue-500 to-blue-600",
+              },
+              {
+                title: "vs Handsontable",
+                description: "See how we match up to Handsontable's spreadsheet-like functionality",
+                link: "/comparisons/simple-table-vs-handsontable",
+                color: "from-purple-500 to-purple-600",
+              },
+              {
+                title: "vs Material-UI Table",
+                description: "Discover the benefits over Material-UI's basic table component",
+                link: "/comparisons/simple-table-vs-material-react",
+                color: "from-pink-500 to-pink-600",
+              },
+              {
+                title: "vs Ant Design Table",
+                description:
+                  "Compare with Ant Design's table component for feature-rich applications",
+                link: "/comparisons/simple-table-vs-ant-design",
+                color: "from-orange-500 to-orange-600",
+              },
+              {
+                title: "vs TanStack Table",
+                description:
+                  "See how our ready-to-use solution compares to TanStack's headless approach",
+                link: "/comparisons/simple-table-vs-tanstack",
+                color: "from-green-500 to-green-600",
+              },
+            ].map((comparison, index) => (
+              <motion.div
+                key={index}
+                className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-200 hover:shadow-lg transition-shadow"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+                onClick={() => handleComparisonClick(comparison.link)}
+              >
+                <div className={`h-2 bg-gradient-to-r ${comparison.color}`}></div>
+                <div className="p-6 cursor-pointer">
+                  <h3 className="text-xl font-bold mb-2 text-gray-800">{comparison.title}</h3>
+                  <p className="text-gray-600">{comparison.description}</p>
+                  <div className="mt-4 flex justify-end">
+                    <span className="text-blue-600 hover:underline font-medium text-sm">
+                      Read comparison →
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </motion.section>
 
         {/* Installation Section */}

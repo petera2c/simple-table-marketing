@@ -1,5 +1,6 @@
-import React, { ReactNode } from "react";
+import React, { ReactNode, useState, useEffect } from "react";
 import { Typography, Table, Space, Card } from "antd";
+import PageLayout from "@/components/PageLayout";
 
 const { Title, Paragraph, Text } = Typography;
 
@@ -30,41 +31,62 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
   performanceMetrics,
   summaryContent,
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  // Handle responsive layout
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Check initially
+    checkIfMobile();
+
+    // Add resize listener
+    window.addEventListener("resize", checkIfMobile);
+
+    // Clean up
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Main Content */}
-      <main className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-        {/* Title Card */}
-        <Card className="mb-8">
-          <Title level={1} className="text-4xl font-bold text-gray-900 mb-4 text-center">
-            {title}
-          </Title>
-          <Paragraph className="text-xl text-gray-600 text-center">{subtitle}</Paragraph>
-        </Card>
+    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[12dvh]">
+      {/* Title Card */}
+      <div className="flex flex-col items-center justify-center mb-8">
+        <Title level={1} className="text-4xl font-bold text-gray-900 mb-4 text-center">
+          {title}
+        </Title>
+        <Paragraph className="text-xl text-gray-600 text-center">{subtitle}</Paragraph>
+      </div>
 
-        {/* Introduction */}
-        <Card className="mb-8">
-          <Paragraph className="text-lg text-gray-700 mb-4">{introText}</Paragraph>
-        </Card>
+      {/* Introduction */}
+      <div className="mb-8 text-center">
+        <Paragraph className="text-lg text-gray-700 mb-4">{introText}</Paragraph>
+      </div>
 
-        {/* Comparison Table */}
-        <Card className="mb-8">
-          <Title level={2} className="text-2xl font-semibold text-gray-900 mb-6">
-            Feature Comparison
-          </Title>
+      {/* Comparison Table */}
+      <Card className="mb-8 shadow-sm">
+        <Title level={2} className="text-2xl font-semibold text-gray-900 mb-6">
+          Feature Comparison
+        </Title>
+        <div className="overflow-x-auto">
           <Table
             columns={featureTable.columns}
             dataSource={featureTable.data}
             pagination={false}
             className="comparison-table"
+            scroll={{ x: isMobile ? "max-content" : undefined }}
+            size={isMobile ? "small" : "middle"}
           />
-        </Card>
+        </div>
+      </Card>
 
-        {/* Performance Metrics */}
-        <Card className="mb-8">
-          <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
-            Performance Comparison
-          </Title>
+      {/* Performance Metrics */}
+      <Card className="mb-8 shadow-sm">
+        <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
+          Performance Comparison
+        </Title>
+        <div className="overflow-x-auto">
           <Table
             columns={[
               { title: "Metric", dataIndex: "metric", key: "metric" },
@@ -80,42 +102,44 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
               },
             ]}
             pagination={false}
+            scroll={{ x: isMobile ? "max-content" : undefined }}
+            size={isMobile ? "small" : "middle"}
           />
-        </Card>
+        </div>
+      </Card>
 
-        {/* Summary */}
-        <Card className="mb-8">
-          <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
-            Summary
-          </Title>
-          {summaryContent}
-        </Card>
+      {/* Summary */}
+      <Card className="mb-8 shadow-sm">
+        <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
+          Summary
+        </Title>
+        {summaryContent}
+      </Card>
 
-        {/* Feature Requests */}
-        <Card className="mb-8">
-          <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
-            Missing a Feature?
-          </Title>
-          <Paragraph className="text-lg text-gray-700 mb-4">
-            We're constantly working to improve Simple Table. If you need a feature that's not yet
-            available, let us know! We prioritize features based on community demand.
-          </Paragraph>
-          <Space>
-            <a
-              href="https://discord.gg/RvKHCfg3PC"
-              className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
-            >
-              Join Discord Community
-            </a>
-            <a
-              href="https://github.com/petera2c/simple-table-marketing"
-              className="inline-flex items-center px-4 py-2 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
-            >
-              Star on GitHub
-            </a>
-          </Space>
-        </Card>
-      </main>
+      {/* Feature Requests */}
+      <Card className="mb-8 shadow-sm">
+        <Title level={2} className="text-2xl font-semibold text-gray-900 mb-4">
+          Missing a Feature?
+        </Title>
+        <Paragraph className="text-lg text-gray-700 mb-4">
+          We're constantly working to improve Simple Table. If you need a feature that's not yet
+          available, let us know! We prioritize features based on community demand.
+        </Paragraph>
+        <Space direction={isMobile ? "vertical" : "horizontal"} className="w-full">
+          <a
+            href="https://discord.gg/RvKHCfg3PC"
+            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+          >
+            Join Discord Community
+          </a>
+          <a
+            href="https://github.com/petera2c/simple-table-marketing"
+            className="inline-flex items-center px-4 py-2 border border-gray-300 text-base font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50"
+          >
+            Star on GitHub
+          </a>
+        </Space>
+      </Card>
     </div>
   );
 };

@@ -1,12 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { trackLinkClick } from "../utils/analytics";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
@@ -30,15 +29,10 @@ const NavLink = ({ href, label, icon, isMobile = false, useActivePath = false }:
 
   const shouldHighlight = useActivePath ? isActivePath : isActive;
 
-  const handleNavClick = () => {
-    trackLinkClick(label, href);
-  };
-
   if (isMobile) {
     return (
       <Link
         href={href}
-        onClick={handleNavClick}
         className={`px-3 py-2 rounded-md text-base ${
           shouldHighlight
             ? "bg-blue-50 text-blue-600 font-medium"
@@ -54,7 +48,6 @@ const NavLink = ({ href, label, icon, isMobile = false, useActivePath = false }:
   return (
     <Link
       href={href}
-      onClick={handleNavClick}
       className={`hover:text-blue-600 transition-colors flex items-center ${
         shouldHighlight ? "text-blue-600 font-semibold" : "text-gray-600"
       }`}
@@ -74,17 +67,12 @@ interface ExternalLinkProps {
 }
 
 const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps) => {
-  const handleNavClick = () => {
-    trackLinkClick(label, href);
-  };
-
   if (isMobile) {
     return (
       <a
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        onClick={handleNavClick}
         className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
       >
         <FontAwesomeIcon icon={icon} className="mr-2" />
@@ -98,7 +86,6 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      onClick={handleNavClick}
       className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
     >
       <FontAwesomeIcon icon={icon} className="mr-1" />
@@ -110,6 +97,26 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const headerRef = useRef<HTMLElement>(null);
+
+  // Handle click outside header to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent | TouchEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node) && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    if (isMenuOpen) {
+      document.addEventListener("mousedown", handleClickOutside as EventListener);
+      document.addEventListener("touchstart", handleClickOutside as EventListener);
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside as EventListener);
+      document.removeEventListener("touchstart", handleClickOutside as EventListener);
+    };
+  }, [isMenuOpen]);
 
   const navLinks = [
     { href: "/", label: "Home" },
@@ -125,13 +132,12 @@ const Header = () => {
   ];
 
   return (
-    <header className="backdrop-blur-md bg-white/80 shadow-sm sticky top-0 z-50">
+    <header ref={headerRef} className="backdrop-blur-md bg-white/80 shadow-sm sticky top-0 z-50">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link
               href="/"
-              onClick={() => trackLinkClick("Logo", "/")}
               className="flex items-center text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
             >
               <FontAwesomeIcon icon={faTable} className="text-blue-600 text-2xl mr-2" />
