@@ -1,5 +1,3 @@
-"use client";
-
 import { SimpleTable, Theme } from "simple-table-core";
 import { HEADERS } from "./billing-headers";
 import "simple-table-core/styles.css";

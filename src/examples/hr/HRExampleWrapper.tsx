@@ -23,7 +23,6 @@ export const HRExampleWrapper = ({ themeOverride }: { themeOverride?: Theme }) =
     <Suspense fallback={<div />}>
       <LivePreview
         demoCodeFilename="HRExample.txt"
-        height={`${containerHeight}px`}
         link={SANDBOX_LIST["examples/hr/HRExample.tsx"].url}
         Preview={() => <HRExample height={containerHeight} rowHeight={ROW_HEIGHT} theme={theme} />}
       />

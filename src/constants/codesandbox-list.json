@@ -76,23 +76,23 @@
     "url": "https://codesandbox.io/s/4xhv8c"
   },
   "examples/billing/BillingExample.tsx": {
-    "id": "6k5fgj",
-    "url": "https://codesandbox.io/s/6k5fgj"
-  },
-  "examples/finance/FinancialExample.tsx": {
-    "id": "4sdxdw",
-    "url": "https://codesandbox.io/s/4sdxdw"
+    "id": "v3y53g",
+    "url": "https://codesandbox.io/s/v3y53g"
   },
   "examples/hr/HRExample.tsx": {
-    "id": "n864sr",
-    "url": "https://codesandbox.io/s/n864sr"
+    "id": "77sxwz",
+    "url": "https://codesandbox.io/s/77sxwz"
   },
   "examples/manufacturing/ManufacturingExample.tsx": {
-    "id": "tsr3sl",
-    "url": "https://codesandbox.io/s/tsr3sl"
+    "id": "yg83q8",
+    "url": "https://codesandbox.io/s/yg83q8"
   },
   "examples/sales/SalesExample.tsx": {
     "id": "xz2mrs",
     "url": "https://codesandbox.io/s/xz2mrs"
+  },
+  "examples/finance/FinanceExample.tsx": {
+    "id": "m2dmk8",
+    "url": "https://codesandbox.io/s/m2dmk8"
   }
 }

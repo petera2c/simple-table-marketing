@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useRef, useState } from "react";
 import { SimpleTable, TableRefType, CellChangeProps, Theme } from "simple-table-core";
 

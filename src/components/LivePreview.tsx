@@ -6,7 +6,7 @@ import CodeBlock from "./CodeBlock";
 
 const LivePreview = ({
   demoCodeFilename,
-  height = "400px",
+  height = "auto",
   link,
   Preview,
 }: {

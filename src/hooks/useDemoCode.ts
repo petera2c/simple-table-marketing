@@ -9,10 +9,7 @@ export const useDemoCode = (demoPath?: string) => {
     if (!demoPath) return;
     const fetchDemoCode = async () => {
       const response = await fetch(`/txt-demos/${demoPath}`);
-      console.log(`/txt-demos/${demoPath}`);
-      console.log(response);
       const text = await response.text();
-      console.log(text);
       setDemoCode(text);
     };
 
