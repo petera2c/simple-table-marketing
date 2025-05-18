@@ -1,13 +1,13 @@
 "use client";
 
 import { SimpleTable, Theme, CellChangeProps } from "simple-table-core";
-import { HEADERS } from "@/examples/hr/hr-headers";
+import { HEADERS } from "./hr-headers";
 import { useState } from "react";
 import "simple-table-core/styles.css";
 import HR_DATA from "./hr-data.json";
 
 export default function HRExample({
-  height,
+  height = 500,
   rowHeight = 40,
   theme,
 }: {

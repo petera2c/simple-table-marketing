@@ -26,7 +26,7 @@ const processedData = (rawData as Row[]).map((row: Row) => {
   };
 });
 
-export function SalesExample({
+export default function SalesExample({
   height,
   onGridReady,
   theme,

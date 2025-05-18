@@ -1,17 +1,121 @@
 import { HeaderObject } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faTimesCircle,
-  faUsers,
-  faChartLine,
-  faStar,
-  faCalendarAlt,
-  faDollarSign,
-  faPercentage,
-  faMoneyBillWave,
-} from "@fortawesome/free-solid-svg-icons";
-import { Tag, Tooltip, Progress } from "antd";
+
+// Custom Tag component
+const Tag = ({
+  children,
+  color,
+  className,
+}: {
+  children: React.ReactNode;
+  color?: string;
+  className?: string;
+}) => {
+  const getColorStyles = (color?: string) => {
+    const colors: Record<string, { bg: string; text: string }> = {
+      success: { bg: "#f6ffed", text: "#2a6a0d" },
+      error: { bg: "#fff1f0", text: "#a8071a" },
+      green: { bg: "#f6ffed", text: "#2a6a0d" },
+      blue: { bg: "#e6f7ff", text: "#0050b3" },
+      red: { bg: "#fff1f0", text: "#a8071a" },
+      orange: { bg: "#fff7e6", text: "#ad4e00" },
+      purple: { bg: "#f9f0ff", text: "#391085" },
+      default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+    };
+
+    return colors[color || "default"];
+  };
+
+  const { bg, text } = getColorStyles(color);
+
+  return (
+    <span
+      style={{
+        backgroundColor: bg,
+        color: text,
+        padding: "0 7px",
+        fontSize: "12px",
+        lineHeight: "20px",
+        borderRadius: "2px",
+        display: "inline-block",
+      }}
+      className={className}
+    >
+      {children}
+    </span>
+  );
+};
+
+// Custom Progress component
+const Progress = ({
+  percent,
+  size,
+  showInfo = true,
+  strokeColor,
+  status,
+}: {
+  percent: number;
+  size?: string;
+  showInfo?: boolean;
+  strokeColor?: string;
+  status?: "success" | "normal" | "exception";
+}) => {
+  const getColorByStatus = (status?: string) => {
+    switch (status) {
+      case "success":
+        return "#52c41a";
+      case "exception":
+        return "#ff4d4f";
+      case "normal":
+      default:
+        return "#1890ff";
+    }
+  };
+
+  const height = size === "small" ? 6 : 8;
+  const color = strokeColor || getColorByStatus(status);
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        position: "relative",
+        marginRight: showInfo ? "50px" : "0",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#f5f5f5",
+          height: `${height}px`,
+          width: "100%",
+          borderRadius: "100px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${percent}%`,
+            backgroundColor: color,
+            borderRadius: "100px",
+          }}
+        />
+      </div>
+      {showInfo && (
+        <span
+          style={{
+            marginLeft: "8px",
+            fontSize: "14px",
+            color: "rgba(0, 0, 0, 0.65)",
+          }}
+        >
+          {`${percent}%`}
+        </span>
+      )}
+    </div>
+  );
+};
 
 export const SALES_HEADERS: HeaderObject[] = [
   {
@@ -90,7 +194,6 @@ export const SALES_HEADERS: HeaderObject[] = [
           const isWon = row.rowData.isWon as boolean;
           return (
             <Tag color={isWon ? "success" : "error"} className="py-1 px-2">
-              <FontAwesomeIcon icon={isWon ? faCheckCircle : faTimesCircle} className="mr-1" />
               {isWon ? "Won" : "Lost"}
             </Tag>
           );
@@ -110,7 +213,6 @@ export const SALES_HEADERS: HeaderObject[] = [
           const date = new Date(row.rowData.closeDate as string);
           return (
             <div className="flex items-center justify-center">
-              <FontAwesomeIcon icon={faCalendarAlt} className="mr-2 text-gray-500" />
               {date.toLocaleDateString("en-US", {
                 month: "short",
                 day: "numeric",

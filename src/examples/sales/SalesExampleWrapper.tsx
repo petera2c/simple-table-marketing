@@ -2,7 +2,7 @@
 
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
-import { SalesExample } from "./SalesExample";
+import SalesExample from "./SalesExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 
@@ -28,12 +28,7 @@ export const SalesExampleWrapper = ({
 
   return (
     <Suspense fallback={<div />}>
-      <SalesExample
-        height={containerHeight}
-        shouldPaginate={shouldPaginate}
-        theme={theme}
-        onGridReady={onGridReady}
-      />
+      <SalesExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
     </Suspense>
   );
 };

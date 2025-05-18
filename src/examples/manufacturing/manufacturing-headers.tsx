@@ -1,14 +1,116 @@
 import { HeaderObject } from "simple-table-core";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faCheckCircle,
-  faCog,
-  faExclamationTriangle,
-  faClock,
-  faTools,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
-import { Tag, Progress } from "antd";
+
+// Custom Tag component
+const Tag = ({
+  children,
+  color,
+  className,
+}: {
+  children: React.ReactNode;
+  color?: string;
+  className?: string;
+}) => {
+  const getColorStyles = (color?: string) => {
+    const colors: Record<string, { bg: string; text: string }> = {
+      green: { bg: "#f6ffed", text: "#2a6a0d" },
+      blue: { bg: "#e6f7ff", text: "#0050b3" },
+      red: { bg: "#fff1f0", text: "#a8071a" },
+      orange: { bg: "#fff7e6", text: "#ad4e00" },
+      purple: { bg: "#f9f0ff", text: "#391085" },
+      default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+    };
+
+    return colors[color || "default"];
+  };
+
+  const { bg, text } = getColorStyles(color);
+
+  return (
+    <span
+      style={{
+        backgroundColor: bg,
+        color: text,
+        padding: "0 7px",
+        fontSize: "12px",
+        lineHeight: "20px",
+        borderRadius: "2px",
+        display: "inline-block",
+      }}
+      className={className}
+    >
+      {children}
+    </span>
+  );
+};
+
+// Custom Progress component
+const Progress = ({
+  percent,
+  size,
+  showInfo = true,
+  status,
+}: {
+  percent: number;
+  size?: string;
+  showInfo?: boolean;
+  status?: "success" | "normal" | "exception";
+}) => {
+  const getColorByStatus = (status?: string) => {
+    switch (status) {
+      case "success":
+        return "#52c41a";
+      case "exception":
+        return "#ff4d4f";
+      case "normal":
+      default:
+        return "#1890ff";
+    }
+  };
+
+  const height = size === "small" ? 6 : 8;
+
+  return (
+    <div
+      style={{
+        width: "100%",
+        position: "relative",
+        marginRight: showInfo ? "50px" : "0",
+        display: "flex",
+        alignItems: "center",
+      }}
+    >
+      <div
+        style={{
+          backgroundColor: "#f5f5f5",
+          height: `${height}px`,
+          width: "100%",
+          borderRadius: "100px",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            height: "100%",
+            width: `${percent}%`,
+            backgroundColor: getColorByStatus(status),
+            borderRadius: "100px",
+          }}
+        />
+      </div>
+      {showInfo && (
+        <span
+          style={{
+            marginLeft: "8px",
+            fontSize: "14px",
+            color: "rgba(0, 0, 0, 0.65)",
+          }}
+        >
+          {`${percent}%`}
+        </span>
+      )}
+    </div>
+  );
+};
 
 export const HEADERS: HeaderObject[] = [
   {
@@ -73,22 +175,18 @@ export const HEADERS: HeaderObject[] = [
       if (row.rowData.status === "—") return "—";
 
       const status = row.rowData.status as string;
-      const colorMap = {
-        Running: { color: "green", icon: faCheckCircle },
-        "Scheduled Maintenance": { color: "blue", icon: faCog },
-        "Unplanned Downtime": { color: "red", icon: faExclamationTriangle },
-        Idle: { color: "orange", icon: faClock },
-        Setup: { color: "purple", icon: faTools },
+      const colorMap: Record<string, string> = {
+        Running: "green",
+        "Scheduled Maintenance": "blue",
+        "Unplanned Downtime": "red",
+        Idle: "orange",
+        Setup: "purple",
       };
 
-      const statusInfo = colorMap[status as keyof typeof colorMap] || {
-        color: "default",
-        icon: faInfoCircle,
-      };
+      const statusColor = colorMap[status] || "default";
 
       return (
-        <Tag color={statusInfo.color} className="px-2 py-1">
-          <FontAwesomeIcon icon={statusInfo.icon} className="mr-1" />
+        <Tag color={statusColor} className="px-2 py-1">
           {status}
         </Tag>
       );

@@ -1,7 +1,7 @@
 "use client";
 
 import { SimpleTable, Theme } from "simple-table-core";
-import { HEADERS } from "@/examples/billing/billing-headers";
+import { HEADERS } from "./billing-headers";
 import "simple-table-core/styles.css";
 import BILLING_DATA from "./billing-data.json";
 

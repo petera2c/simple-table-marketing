@@ -112,20 +112,12 @@ root.render(
   return `https://codesandbox.io/s/${sandbox_id}`;
 };
 
-const publishAllSandboxes = async () => {
+const publishAllDemos = async (
+  codesandboxList: Record<string, { id: string; url: string }>,
+  codesandboxListPath: string
+) => {
   const demosDir = path.join(__dirname, "../src/components/demos");
   const entries = await fs.readdir(demosDir, { withFileTypes: true });
-
-  const codesandboxListPath = path.join(__dirname, "../src/constants/codesandbox-list.json");
-
-  // Read existing codesandbox list
-  let codesandboxList: Record<string, { id: string; url: string }> = {};
-  try {
-    const content = await fs.readFile(codesandboxListPath, "utf-8");
-    codesandboxList = JSON.parse(content);
-  } catch (error) {
-    codesandboxList = {};
-  }
 
   for (const entry of entries) {
     if (entry.isFile() && entry.name.endsWith("Demo.tsx")) {
@@ -159,6 +151,68 @@ const publishAllSandboxes = async () => {
       await fs.writeFile(codesandboxListPath, JSON.stringify(codesandboxList, null, 2), "utf-8");
     }
   }
+};
+
+const publishAllExamples = async (
+  codesandboxList: Record<string, { id: string; url: string }>,
+  codesandboxListPath: string
+) => {
+  const examplesDir = path.join(__dirname, "../src/examples");
+  const exampleFolders = await fs.readdir(examplesDir, { withFileTypes: true });
+
+  for (const folder of exampleFolders) {
+    if (folder.isDirectory()) {
+      const folderName = folder.name;
+      const folderPath = path.join(examplesDir, folderName);
+      const folderFiles = await fs.readdir(folderPath);
+
+      // Find the main file ending with Example.tsx
+      const mainFileName = folderFiles.find(
+        (file) => file.endsWith("Example.tsx") && !file.endsWith("ExampleWrapper.tsx")
+      );
+      if (!mainFileName) continue;
+
+      const mainFilePath = path.join(folderPath, mainFileName);
+
+      // Include all supporting files except Wrapper.tsx files
+      const filesToInclude = folderFiles
+        .filter((file) => !file.endsWith("Wrapper.tsx"))
+        .map((file) => ({
+          localPath: path.join(folderPath, file),
+          sandboxPath: `src/${file}`,
+        }));
+
+      const sandboxUrl = await publishSandbox(filesToInclude, mainFilePath, mainFileName);
+
+      const sandboxId = sandboxUrl.split("/").pop();
+      if (!sandboxId) throw new Error(`Failed to extract sandbox ID from URL: ${sandboxUrl}`);
+
+      codesandboxList[`examples/${folderName}/${mainFileName}`] = {
+        id: sandboxId,
+        url: sandboxUrl,
+      };
+      await fs.writeFile(codesandboxListPath, JSON.stringify(codesandboxList, null, 2), "utf-8");
+    }
+  }
+};
+
+const publishAllSandboxes = async () => {
+  const codesandboxListPath = path.join(__dirname, "../src/constants/codesandbox-list.json");
+
+  // Read existing codesandbox list
+  let codesandboxList: Record<string, { id: string; url: string }> = {};
+  try {
+    const content = await fs.readFile(codesandboxListPath, "utf-8");
+    codesandboxList = JSON.parse(content);
+  } catch (error) {
+    codesandboxList = {};
+  }
+
+  // Publish demos
+  await publishAllDemos(codesandboxList, codesandboxListPath);
+
+  // Publish examples
+  await publishAllExamples(codesandboxList, codesandboxListPath);
 };
 
 publishAllSandboxes();

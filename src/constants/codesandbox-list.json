@@ -74,5 +74,25 @@
   "src/CustomThemeDemo.tsx": {
     "id": "4xhv8c",
     "url": "https://codesandbox.io/s/4xhv8c"
+  },
+  "examples/billing/BillingExample.tsx": {
+    "id": "6k5fgj",
+    "url": "https://codesandbox.io/s/6k5fgj"
+  },
+  "examples/finance/FinancialExample.tsx": {
+    "id": "4sdxdw",
+    "url": "https://codesandbox.io/s/4sdxdw"
+  },
+  "examples/hr/HRExample.tsx": {
+    "id": "vz4lth",
+    "url": "https://codesandbox.io/s/vz4lth"
+  },
+  "examples/manufacturing/ManufacturingExample.tsx": {
+    "id": "tsr3sl",
+    "url": "https://codesandbox.io/s/tsr3sl"
+  },
+  "examples/sales/SalesExample.tsx": {
+    "id": "233xkf",
+    "url": "https://codesandbox.io/s/233xkf"
   }
 }
