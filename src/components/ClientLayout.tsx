@@ -4,20 +4,29 @@ import Header from "./Header";
 import Footer from "./Footer";
 import "../app/global.css";
 import { QueryProvider } from "../providers/QueryProvider";
-import { ThemeProvider } from "../providers/ThemeProvider";
+import { ThemeProvider, useThemeContext } from "../providers/ThemeProvider";
 import useScrollRestoration from "../hooks/useScrollRestoration";
 import { useRef } from "react";
 import AnimatedBackground from "./AnimatedBackground";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { ConfigProvider, theme } from "antd";
 
-export default function ClientLayout({ children }: { children: React.ReactNode }) {
+const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
   const isMobile = useIsMobile();
   const scrollRef = useRef<HTMLDivElement>(null);
   useScrollRestoration(scrollRef);
+  const themeContext = useThemeContext();
 
   return (
-    <QueryProvider>
-      <ThemeProvider>
+    <ConfigProvider
+      theme={{
+        algorithm: themeContext.theme === "dark" ? theme.darkAlgorithm : theme.defaultAlgorithm,
+        token: {
+          fontFamily: "nunito",
+        },
+      }}
+    >
+      <QueryProvider>
         <div
           className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
           ref={scrollRef}
@@ -29,7 +38,15 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
             <Footer />
           </div>
         </div>
-      </ThemeProvider>
-    </QueryProvider>
+      </QueryProvider>
+    </ConfigProvider>
+  );
+};
+
+export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <ThemeProvider>
+      <ClientLayoutContent>{children}</ClientLayoutContent>
+    </ThemeProvider>
   );
 }

@@ -45,7 +45,7 @@ export default function BlogsContent() {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 dark:border-gray-100"></div>
       </div>
     );
   }
@@ -53,7 +53,7 @@ export default function BlogsContent() {
   if (error) {
     return (
       <div
-        className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded relative"
+        className="bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-700 text-red-700 dark:text-red-300 px-4 py-3 rounded relative"
         role="alert"
       >
         <strong className="font-bold">Error!</strong>
@@ -67,8 +67,8 @@ export default function BlogsContent() {
       <div className="max-w-7xl mx-auto px-4 py-8">
         <div className="space-y-8">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Blog</h1>
-            <p className="text-xl text-gray-600">
+            <h1 className="text-4xl font-bold text-gray-900 dark:text-white mb-4">Blog</h1>
+            <p className="text-xl text-gray-600 dark:text-gray-300">
               Latest articles and tutorials about Simple Table
             </p>
           </div>
@@ -79,7 +79,7 @@ export default function BlogsContent() {
               placeholder="Search posts..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full p-2 border border-gray-300 rounded"
+              className="w-full p-2 border border-gray-300 dark:border-gray-700 rounded dark:bg-gray-800 dark:text-white"
             />
           </div>
 
@@ -90,8 +90,10 @@ export default function BlogsContent() {
           </div>
 
           {filteredPosts.length === 0 && (
-            <div className="bg-white rounded-lg shadow p-6">
-              <p className="text-center text-gray-500">No blog posts found matching your search.</p>
+            <div className="bg-white dark:bg-gray-800 rounded-lg shadow p-6">
+              <p className="text-center text-gray-500 dark:text-gray-400">
+                No blog posts found matching your search.
+              </p>
             </div>
           )}
         </div>

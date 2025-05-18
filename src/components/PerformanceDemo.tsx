@@ -160,8 +160,8 @@ export default function PerformanceDemo({
 
   return (
     <div className={className}>
-      {title && <h3 className="text-xl font-bold mb-3">{title}</h3>}
-      {description && <p className="mb-4">{description}</p>}
+      {title && <h3 className="text-xl font-bold mb-3 dark:text-white">{title}</h3>}
+      {description && <p className="mb-4 dark:text-gray-300">{description}</p>}
 
       <div className="flex flex-wrap gap-4 mb-6">
         {buttonVariants.small && (
@@ -202,9 +202,11 @@ export default function PerformanceDemo({
         )}
       </div>
 
-      <div className="mb-6 p-4 bg-gray-50 rounded-lg">
+      <div className="mb-6 p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
         <div className="flex flex-wrap justify-between items-center mb-3">
-          <Text strong>Current Dataset:</Text>
+          <Text strong className="dark:text-white">
+            Current Dataset:
+          </Text>
           <Tag color="blue" className="text-base py-1">
             {rowCount.toLocaleString()} rows
           </Tag>
@@ -212,7 +214,9 @@ export default function PerformanceDemo({
 
         {showGenerationTime && renderTime && (
           <div className="flex flex-wrap justify-between items-center">
-            <Text strong>Generation Time:</Text>
+            <Text strong className="dark:text-white">
+              Generation Time:
+            </Text>
             <Tag color="green" className="text-base py-1">
               {renderTime.toFixed(2)} ms
             </Tag>
@@ -221,12 +225,14 @@ export default function PerformanceDemo({
       </div>
 
       {!hideTable && (
-        <div className="border border-gray-200 rounded">
+        <div className="border border-gray-200 dark:border-gray-700 rounded">
           {isLoading ? (
-            <div className="h-full flex items-center justify-center">
+            <div className="h-full flex items-center justify-center dark:bg-gray-800">
               <div className="text-center">
                 <div className="spinner mb-4"></div>
-                <Text>Generating {generatingAmount.toLocaleString()} rows...</Text>
+                <Text className="dark:text-gray-300">
+                  Generating {generatingAmount.toLocaleString()} rows...
+                </Text>
               </div>
             </div>
           ) : (

@@ -355,11 +355,11 @@ const SimpleTableVsHandsontableContent = () => {
     <>
       When building applications that need spreadsheet-like functionality, choosing the right data
       grid is crucial. In this comparison, we'll look at{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>
       , a lightweight (16 kB) React data grid, against{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Handsontable
       </Text>
       , a feature-rich commercial spreadsheet component. Let's break down their features, pricing,
@@ -369,16 +369,16 @@ const SimpleTableVsHandsontableContent = () => {
 
   const summaryContent = (
     <>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Simple Table
         </Text>{" "}
         is a lightweight, free alternative to Handsontable, offering essential features like
         virtualization, cell editing, and column management. It's ideal for projects that need basic
         spreadsheet functionality without the overhead of advanced features or commercial licensing.
       </Text>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Handsontable
         </Text>{" "}
         is a full-featured spreadsheet component with Excel-like capabilities, including advanced
@@ -386,9 +386,12 @@ const SimpleTableVsHandsontableContent = () => {
         come at the cost of a larger bundle size and require a commercial license starting at
         $590/year for production use.
       </Text>
-      <Text className="text-lg text-gray-700" style={{ display: "block" }}>
+      <Text className="text-lg block text-inherit">
         If you need basic spreadsheet functionality with a small footprint,{" "}
-        <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
+        <a
+          href="https://www.simple-table.com"
+          className="text-blue-600 hover:underline dark:text-blue-400"
+        >
           try Simple Table
         </a>
         . If you need full Excel-like capabilities and don't mind the commercial license,

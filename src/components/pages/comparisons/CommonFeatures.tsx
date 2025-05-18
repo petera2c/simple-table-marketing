@@ -17,68 +17,68 @@ import {
 export const FeatureIcons = {
   QuickStart: (
     <Space>
-      <FontAwesomeIcon icon={faCode} className="text-gray-600" />
-      <span>Quick Start</span>
+      <FontAwesomeIcon icon={faCode} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Quick Start</span>
     </Space>
   ),
   Virtualization: (
     <Space>
-      <FontAwesomeIcon icon={faGaugeHigh} className="text-gray-600" />
-      <span>Virtualization</span>
+      <FontAwesomeIcon icon={faGaugeHigh} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Virtualization</span>
     </Space>
   ),
   ColumnFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faTableColumns} className="text-gray-600" />
-      <span>Column Features</span>
+      <FontAwesomeIcon icon={faTableColumns} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Column Features</span>
     </Space>
   ),
   RowFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faLayerGroup} className="text-gray-600" />
-      <span>Row Features</span>
+      <FontAwesomeIcon icon={faLayerGroup} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Row Features</span>
     </Space>
   ),
   CellFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faTableCells} className="text-gray-600" />
-      <span>Cell Features</span>
+      <FontAwesomeIcon icon={faTableCells} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Cell Features</span>
     </Space>
   ),
   Customization: (
     <Space>
-      <FontAwesomeIcon icon={faPalette} className="text-gray-600" />
-      <span>Customization</span>
+      <FontAwesomeIcon icon={faPalette} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Customization</span>
     </Space>
   ),
   EnterpriseFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faGear} className="text-gray-600" />
-      <span>Enterprise Features</span>
+      <FontAwesomeIcon icon={faGear} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Enterprise Features</span>
     </Space>
   ),
   PricingSize: (
     <Space>
-      <FontAwesomeIcon icon={faDollarSign} className="text-gray-600" />
-      <span>Pricing & Size</span>
+      <FontAwesomeIcon icon={faDollarSign} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Pricing & Size</span>
     </Space>
   ),
   AdvancedDataFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faGear} className="text-gray-600" />
-      <span>Advanced Data Features</span>
+      <FontAwesomeIcon icon={faGear} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Advanced Data Features</span>
     </Space>
   ),
   AdvancedUIFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faPalette} className="text-gray-600" />
-      <span>Advanced UI Features</span>
+      <FontAwesomeIcon icon={faPalette} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Advanced UI Features</span>
     </Space>
   ),
   IntegrationFeatures: (
     <Space>
-      <FontAwesomeIcon icon={faCode} className="text-gray-600" />
-      <span>Integration Features</span>
+      <FontAwesomeIcon icon={faCode} className="text-gray-600 dark:text-gray-300" />
+      <span className="dark:text-white">Integration Features</span>
     </Space>
   ),
 };
@@ -88,13 +88,13 @@ export const FeatureStatus = {
   Available: (text: string) => (
     <Space>
       <FontAwesomeIcon icon={faCheck} className="text-green-500" />
-      <span>{text}</span>
+      <span className="dark:text-gray-300">{text}</span>
     </Space>
   ),
   Paid: (text: string) => (
     <Space>
       <FontAwesomeIcon icon={faDollarSign} className="text-yellow-500" />
-      <span>{text}</span>
+      <span className="dark:text-gray-300">{text}</span>
     </Space>
   ),
 };

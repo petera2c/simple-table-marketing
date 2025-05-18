@@ -370,11 +370,11 @@ const SimpleVsAgGrid = () => {
     <>
       Choosing the right React data grid can make or break your project. In this comparison, we'll
       look at{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>
       , a lightweight (16 kB) React data grid, against{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         AG Grid
       </Text>
       , a popular, feature-rich data grid known for its enterprise capabilities. Let's break down
@@ -384,8 +384,8 @@ const SimpleVsAgGrid = () => {
 
   const summaryContent = (
     <>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Simple Table
         </Text>{" "}
         is a lightweight, free alternative to AG Grid, offering essential features like
@@ -393,8 +393,8 @@ const SimpleVsAgGrid = () => {
         It's ideal for projects needing a simple, performant data grid without the overhead of
         enterprise features.
       </Text>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           AG Grid
         </Text>{" "}
         is a feature-rich data grid with advanced capabilities like pivot tables and tree data, but
@@ -402,7 +402,7 @@ const SimpleVsAgGrid = () => {
         bundle size and a steeper learning curve, making it better suited for complex,
         enterprise-level applications.
       </Text>
-      <Text className="text-lg text-gray-700" style={{ display: "block" }}>
+      <Text className="text-lg block text-inherit">
         If you're looking for a free, lightweight solution with solid features,{" "}
         <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
           try Simple Table

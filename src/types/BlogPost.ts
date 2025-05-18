@@ -85,7 +85,6 @@ export type BlogContentItem = {
   // Performance Demo specific properties
   headers?: any[];
   height?: string;
-  theme?: "light" | "dark";
   initialRowCount?: number;
   dataCategories?: string[];
   maxDealValue?: number;

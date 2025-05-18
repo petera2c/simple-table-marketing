@@ -350,11 +350,11 @@ const SimpleTableVsMaterialReactContent = () => {
     <>
       When choosing a data grid for your React application, you need to consider both functionality
       and integration with your existing UI framework. In this comparison, we'll look at{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>
       , a lightweight (16 kB) standalone React data grid, against{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Material-UI Table
       </Text>
       , a component from the popular Material Design framework. Let's break down their features,
@@ -364,8 +364,8 @@ const SimpleTableVsMaterialReactContent = () => {
 
   const summaryContent = (
     <>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Simple Table
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
@@ -373,8 +373,8 @@ const SimpleTableVsMaterialReactContent = () => {
         of a full UI framework. With its 16 kB bundle size, it offers a great balance of features
         and performance.
       </Text>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Material-UI Table
         </Text>{" "}
         is part of the comprehensive Material Design framework, offering a consistent look and feel
@@ -382,9 +382,12 @@ const SimpleTableVsMaterialReactContent = () => {
         comes with the overhead of the full framework and lacks some advanced data grid features
         found in dedicated solutions.
       </Text>
-      <Text className="text-lg text-gray-700" style={{ display: "block" }}>
+      <Text className="text-lg block text-inherit">
         If you need a lightweight, standalone table component with advanced data grid features,{" "}
-        <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
+        <a
+          href="https://www.simple-table.com"
+          className="text-blue-600 hover:underline dark:text-blue-400"
+        >
           try Simple Table
         </a>
         . If you're already using Material-UI and want consistent styling with basic table

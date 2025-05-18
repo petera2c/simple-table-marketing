@@ -20,13 +20,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 import { far } from "@fortawesome/free-regular-svg-icons";
 import { fas } from "@fortawesome/free-solid-svg-icons";
 import PerformanceDemo from "../PerformanceDemo";
+import { Theme } from "simple-table-core";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 library.add(far, fas);
 
 const { Title, Paragraph, Text } = Typography;
 
 // Add this helper function after imports but before renderContent
-export function getTableWinnerRenderer() {
+function getTableWinnerRenderer() {
   return (winner: string) => {
     if (winner === "simple-table") {
       return {
@@ -80,7 +82,7 @@ export function processBlogContent(content: BlogContentItem[]): BlogContentItem[
 }
 
 // Export the renderContent function so it can be used by other components
-export const renderContent = (content: BlogContentItem[]) => {
+const renderContent = (content: BlogContentItem[], theme: Theme) => {
   if (!content) return null;
 
   return content.map((item: BlogContentItem, index: number) => {
@@ -98,23 +100,23 @@ export const renderContent = (content: BlogContentItem[]) => {
     if (item.type === "performanceDemo") {
       return (
         <PerformanceDemo
-          title={item.title}
+          buttonColors={item.buttonColors}
+          buttonVariants={item.buttonVariants}
+          className={item.demoClassName}
+          dataCategories={item.dataCategories}
           description={item.description}
           headers={item.headers}
           height={item.height}
-          theme={item.theme}
-          initialRowCount={item.initialRowCount}
-          dataCategories={item.dataCategories}
-          maxDealValue={item.maxDealValue}
-          minDealValue={item.minDealValue}
-          maxProfit={item.maxProfit}
-          minProfit={item.minProfit}
-          buttonVariants={item.buttonVariants}
-          buttonColors={item.buttonColors}
-          showGenerationTime={item.showGenerationTime}
-          className={item.demoClassName}
           hideTable={item.hideTable}
+          initialRowCount={item.initialRowCount}
           key={index}
+          maxDealValue={item.maxDealValue}
+          maxProfit={item.maxProfit}
+          minDealValue={item.minDealValue}
+          minProfit={item.minProfit}
+          showGenerationTime={item.showGenerationTime}
+          theme={theme}
+          title={item.title}
         />
       );
     }
@@ -122,7 +124,7 @@ export const renderContent = (content: BlogContentItem[]) => {
     if (item.type === "title" && item.level) {
       return (
         <Title {...commonProps} key={index} level={item.level}>
-          {item.icon && renderContent([item.icon])}
+          {item.icon && renderContent([item.icon], theme)}
           {item.text}
         </Title>
       );
@@ -146,13 +148,13 @@ export const renderContent = (content: BlogContentItem[]) => {
               {item.title}
             </Title>
           )}
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </div>
       );
     } else if (item.type === "row") {
       return (
         <Row key={index} gutter={item.gutter} {...commonProps}>
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </Row>
       );
     } else if (item.type === "col") {
@@ -166,12 +168,12 @@ export const renderContent = (content: BlogContentItem[]) => {
           xl={item.xl}
           {...commonProps}
         >
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </Col>
       );
     } else if (item.type === "card") {
       const cardTitle = item.titleContent ? (
-        <div>{renderContent([item.titleContent])}</div>
+        <div>{renderContent([item.titleContent], theme)}</div>
       ) : (
         item.title
       );
@@ -185,7 +187,7 @@ export const renderContent = (content: BlogContentItem[]) => {
             header: item.headStyle,
           }}
         >
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </Card>
       );
     } else if (item.type === "list") {
@@ -207,7 +209,7 @@ export const renderContent = (content: BlogContentItem[]) => {
     } else if (item.type === "space") {
       return (
         <Space key={index} direction={item.direction} size={item.size} {...commonProps}>
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </Space>
       );
     } else if (item.type === "divider") {
@@ -239,7 +241,7 @@ export const renderContent = (content: BlogContentItem[]) => {
                   const renderOutput = column.render(value, record, rowIndex);
                   // If result is an object with BlogContentItem structure, process it
                   if (renderOutput && typeof renderOutput === "object" && renderOutput.type) {
-                    return renderContent([renderOutput]);
+                    return renderContent([renderOutput], theme);
                   }
                   return renderOutput;
                 };
@@ -261,7 +263,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       return (
         <Tag key={index} color={item.colorClassName} {...commonProps}>
           <div className="flex items-center gap-2">
-            {item.icon && renderContent([item.icon])}
+            {item.icon && renderContent([item.icon], theme)}
             {item.text}
           </div>
         </Tag>
@@ -339,7 +341,7 @@ export const renderContent = (content: BlogContentItem[]) => {
             "bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-4 md:p-8 mb-8 md:mb-12"
           }`}
         >
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </div>
       );
     } else if (item.type === "callToAction") {
@@ -351,13 +353,13 @@ export const renderContent = (content: BlogContentItem[]) => {
             "bg-gradient-to-r from-purple-800 to-violet-800 rounded-xl p-4 md:p-8 text-center shadow-lg"
           }`}
         >
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </div>
       );
     } else if (item.type === "featureItem") {
       return (
         <div key={index} className={`flex items-start ${item.className || ""}`}>
-          {item.icon && typeof item.icon !== "string" && renderContent([item.icon])}
+          {item.icon && typeof item.icon !== "string" && renderContent([item.icon], theme)}
           <div>
             {item.title && <Text strong>{item.title}</Text>}
             {item.description && (
@@ -374,7 +376,7 @@ export const renderContent = (content: BlogContentItem[]) => {
       return (
         <div key={index} {...commonProps}>
           {item.title && <Text strong>{item.title}</Text>}
-          {item.children && renderContent(item.children)}
+          {item.children && renderContent(item.children, theme)}
         </div>
       );
     } else {
@@ -384,6 +386,7 @@ export const renderContent = (content: BlogContentItem[]) => {
 };
 
 export default function BlogPostContent({ slug }: { slug: string }) {
+  const { theme } = useThemeContext();
   const {
     data: post,
     isLoading: isLoadingPost,
@@ -401,7 +404,7 @@ export default function BlogPostContent({ slug }: { slug: string }) {
   if (isLoadingPost) {
     return (
       <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 dark:border-blue-400"></div>
       </div>
     );
   }
@@ -409,8 +412,10 @@ export default function BlogPostContent({ slug }: { slug: string }) {
   if (postError || !post) {
     return (
       <div className="text-center py-12 scroll-mt-10">
-        <Title level={2}>Blog post not found</Title>
-        <Text type="secondary">
+        <Title level={2} className="dark:text-white">
+          Blog post not found
+        </Title>
+        <Text type="secondary" className="dark:text-gray-400">
           The blog post you're looking for doesn't exist or has been removed.
         </Text>
       </div>
@@ -420,5 +425,5 @@ export default function BlogPostContent({ slug }: { slug: string }) {
   // Process the blog content to handle special rendering cases
   const processedContent = processBlogContent(post.content);
 
-  return <>{renderContent(processedContent)}</>;
+  return <>{renderContent(processedContent, theme)}</>;
 }

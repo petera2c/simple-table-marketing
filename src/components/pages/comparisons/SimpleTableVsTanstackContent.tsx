@@ -329,11 +329,11 @@ const SimpleTableVsTanstackContent = () => {
     <>
       When choosing a React table library, you have two main approaches: a ready-to-use solution or
       a headless library. This comparison examines{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>
       , a full-featured data grid with built-in UI, and{" "}
-      <Text className="text-lg" strong>
+      <Text className="text-lg text-inherit" strong>
         TanStack Table
       </Text>{" "}
       (formerly React Table), a headless library that provides table logic without UI components.
@@ -342,8 +342,8 @@ const SimpleTableVsTanstackContent = () => {
 
   const summaryContent = (
     <>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           Simple Table
         </Text>{" "}
         provides a complete solution with pre-built UI components, ready to use out of the box. It's
@@ -352,8 +352,8 @@ const SimpleTableVsTanstackContent = () => {
         most table needs where you want to focus on your application logic rather than building UI
         components.
       </Text>
-      <Text className="text-lg text-gray-700 mb-4" style={{ display: "block" }}>
-        <Text className="text-lg" strong>
+      <Text className="text-lg mb-4 block text-inherit">
+        <Text className="text-lg text-inherit" strong>
           TanStack Table
         </Text>{" "}
         is a headless library that gives you complete control over your table's UI. It provides
@@ -361,9 +361,12 @@ const SimpleTableVsTanstackContent = () => {
         yourself. It's perfect for projects that require highly customized tables and have the
         resources to build custom UI components from scratch.
       </Text>
-      <Text className="text-lg text-gray-700" style={{ display: "block" }}>
+      <Text className="text-lg block text-inherit">
         Choose{" "}
-        <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
+        <a
+          href="https://www.simple-table.com"
+          className="text-blue-600 hover:underline dark:text-blue-400"
+        >
           Simple Table
         </a>{" "}
         if you want a ready-to-use solution with minimal setup. Choose TanStack Table if you need
