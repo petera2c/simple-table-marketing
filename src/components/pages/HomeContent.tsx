@@ -29,6 +29,7 @@ import { UI_STRINGS } from "../../constants/strings/ui";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { Suspense } from "react";
 import FinancialExampleWrapper from "@/examples/finance/FinanceExampleWrapper";
+import FinancialExample from "@/examples/finance/FinanceExample";
 
 // Define feature data with more details
 const features = [
@@ -231,7 +232,7 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Suspense fallback={<div />}>
-            <FinancialExampleWrapper themeOverride="light" height={"70dvh"} />
+            <FinancialExample theme="light" height={"70dvh"} />
           </Suspense>
         </motion.section>
 
