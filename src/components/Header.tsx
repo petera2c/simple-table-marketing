@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTable, faBars, faXmark, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useIsMobile } from "../hooks/useIsMobile";
-import { useTheme } from "../hooks/useTheme";
+import { useThemeContext } from "../providers/ThemeProvider";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -100,7 +100,7 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
-  const [theme, toggleTheme] = useTheme();
+  const { theme, toggleTheme } = useThemeContext();
   const headerRef = useRef<HTMLElement>(null);
 
   // Handle click outside header to close mobile menu

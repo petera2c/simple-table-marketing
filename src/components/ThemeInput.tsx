@@ -11,7 +11,7 @@ const ThemeInput: React.FC<ThemeInputProps> = ({ label, value, onChange }) => {
   return (
     <div className="mb-2">
       <div className="flex items-center justify-between mb-1.5">
-        <label className="text-sm font-medium text-gray-700" title={label}>
+        <label className="text-sm font-medium text-gray-700 dark:text-gray-300" title={label}>
           {label}
         </label>
       </div>

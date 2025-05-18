@@ -10,10 +10,14 @@ import {
   faSwatchbook,
   faColumns,
   faDownload,
+  faSun,
+  faMoon,
+  faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 // Import our reusable components
 import PageLayout from "@/components/PageLayout";
@@ -66,7 +70,7 @@ interface ThemeConfig {
   spacingSmall: string;
 }
 
-const defaultTheme: ThemeConfig = {
+const lightThemeDefaults: ThemeConfig = {
   // Layout/Structure variables
   borderRadius: "4px",
   cellPadding: "8px",
@@ -112,6 +116,52 @@ const defaultTheme: ThemeConfig = {
   buttonActiveBackgroundColor: "#2563eb", // blue-600
 };
 
+const darkThemeDefaults: ThemeConfig = {
+  // Layout/Structure variables
+  borderRadius: "4px",
+  cellPadding: "8px",
+
+  // Spacing variables
+  spacingSmall: "4px",
+  spacingMedium: "8px",
+
+  // Scrollbar variables
+  scrollbarBgColor: "#1e293b", // slate-800
+  scrollbarThumbColor: "#475569", // slate-600
+
+  // Color variables
+  borderColor: "#475569", // slate-600
+  oddRowBackgroundColor: "#0f172a", // slate-900
+  evenRowBackgroundColor: "#1e293b", // slate-800
+  headerBackgroundColor: "#0f172a", // slate-900
+  headerLabelColor: "#f8fafc", // slate-50
+  draggingBackgroundColor: "#334155", // slate-700
+  selectedCellBackgroundColor: "#1e3a8a", // blue-900
+  selectedFirstCellBackgroundColor: "#172554", // blue-950
+  footerBackgroundColor: "#1e293b", // slate-800
+  cellColor: "#f8fafc", // slate-50
+  cellOddRowColor: "#e2e8f0", // slate-200
+  editCellShadow: "0 1px 3px 0 rgba(0, 0, 0, 0.3)",
+  selectedCellColor: "#f8fafc", // slate-50
+  selectedFirstCellColor: "#f8fafc", // slate-50
+  resizeHandleColor: "#64748b", // slate-500
+  separatorBorderColor: "#334155", // slate-700
+  lastGroupRowSeparatorBorderColor: "#64748b", // slate-500
+  cellFlashColor: "#334155", // slate-700
+
+  // Border colors
+  selectedBorderColor: "#60a5fa", // blue-400
+  editableCellFocusBorderColor: "#60a5fa", // blue-400
+
+  // Component-specific colors
+  checkboxCheckedBackgroundColor: "#3b82f6", // blue-500
+  checkboxCheckedBorderColor: "#3b82f6", // blue-500
+  columnEditorBackgroundColor: "#1e293b", // slate-800
+  columnEditorPopoutBackgroundColor: "#1e293b", // slate-800
+  buttonHoverBackgroundColor: "#334155", // slate-700
+  buttonActiveBackgroundColor: "#3b82f6", // blue-500
+};
+
 const setThemeToDocument = (theme: ThemeConfig) => {
   const container = document.querySelector(".simple-table-root");
   if (container) {
@@ -125,7 +175,18 @@ const setThemeToDocument = (theme: ThemeConfig) => {
 
 export default function ThemeBuilderContent() {
   const isMobile = useIsMobile();
-  const [theme, setTheme] = useState<ThemeConfig>(defaultTheme);
+  const { theme: appTheme } = useThemeContext();
+
+  // Track user changes that apply to all themes
+  const [userChanges, setUserChanges] = useState<Partial<ThemeConfig>>({});
+
+  // The current theme is a combination of the default theme for the current mode + user changes
+  const [theme, setTheme] = useState<ThemeConfig>(
+    appTheme === "light"
+      ? { ...lightThemeDefaults, ...userChanges }
+      : { ...darkThemeDefaults, ...userChanges }
+  );
+
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
     colors: true,
     typography: false,
@@ -133,18 +194,37 @@ export default function ThemeBuilderContent() {
     effects: false,
   });
 
+  // Update the theme when app theme changes or user makes changes
+  useEffect(() => {
+    const baseTheme = appTheme === "light" ? lightThemeDefaults : darkThemeDefaults;
+
+    // Apply the current theme defaults + any user changes
+    setTheme({ ...baseTheme, ...userChanges });
+  }, [appTheme, userChanges]);
+
   useEffect(() => {
     setThemeToDocument(theme);
   }, [theme]);
 
   const handleColorChange = (key: keyof ThemeConfig) => (color: Color) => {
-    setTheme((prev) => ({ ...prev, [key]: color.toHexString() }));
+    const newValue = color.toHexString();
+
+    // Store the change in the user changes object
+    setUserChanges((prev) => ({ ...prev, [key]: newValue }));
   };
 
   const handleValueChange = (key: keyof ThemeConfig) => (value: string | number | null) => {
     if (value !== null) {
-      setTheme((prev) => ({ ...prev, [key]: value.toString() }));
+      const stringValue = value.toString();
+
+      // Store the change in the user changes object
+      setUserChanges((prev) => ({ ...prev, [key]: stringValue }));
     }
+  };
+
+  const resetTheme = () => {
+    // Clear all user changes
+    setUserChanges({});
   };
 
   const generateCSS = (): string => {
@@ -252,7 +332,9 @@ export default function ThemeBuilderContent() {
       >
         {Object.entries(colorSubcategories).map(([subcategory, subKeys], index) => (
           <div key={index} className="mb-6">
-            <h4 className="text-sm font-semibold text-gray-800 mb-3">{subcategory}</h4>
+            <h4 className="text-sm font-semibold text-gray-800 dark:text-gray-200 mb-3">
+              {subcategory}
+            </h4>
             <div className="grid grid-cols-1 gap-y-4">
               {subKeys.map((key, index) => (
                 <ThemeColorPicker
@@ -309,14 +391,24 @@ export default function ThemeBuilderContent() {
 
   // Create footer content
   const footerContent = (
-    <Button
-      className="w-full"
-      type="primary"
-      onClick={downloadCSS}
-      icon={<FontAwesomeIcon icon={faDownload} />}
-    >
-      {UI_STRINGS.common.download} {UI_STRINGS.common.theme}
-    </Button>
+    <div className="space-y-3">
+      <Button
+        onClick={resetTheme}
+        className="w-full"
+        icon={<FontAwesomeIcon icon={faRotateLeft} />}
+      >
+        Reset to Default
+      </Button>
+
+      <Button
+        className="w-full"
+        type="primary"
+        onClick={downloadCSS}
+        icon={<FontAwesomeIcon icon={faDownload} />}
+      >
+        {UI_STRINGS.common.download} {UI_STRINGS.common.theme}
+      </Button>
+    </div>
   );
 
   // Create sidebar config
@@ -335,7 +427,7 @@ export default function ThemeBuilderContent() {
 
   return (
     <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">
+      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
         {UI_STRINGS.themeBuilder.sections.livePreview}
       </h1>
       <SalesExample

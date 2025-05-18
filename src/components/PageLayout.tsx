@@ -16,7 +16,9 @@ const PageLayout: React.FC<PageLayoutProps> = ({ sidebar, children }) => {
           {sidebar}
 
           <motion.div
-            className={`flex flex-col flex-grow overflow-auto bg-white rounded-xl my-6 p-4 sm:p-6 md:p-8 min-h-[calc(100dvh-84px-1.5rem)] shadow-[4px_0_16px_rgba(0,0,0,0.08)]`}
+            className={`flex flex-col flex-grow overflow-auto bg-white dark:bg-gray-900 text-gray-800 dark:text-white 
+              rounded-xl my-6 p-4 sm:p-6 md:p-8 min-h-[calc(100dvh-84px-1.5rem)] 
+              shadow-[4px_0_16px_rgba(0,0,0,0.08)] dark:shadow-[4px_0_16px_rgba(0,0,0,0.3)]`}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}

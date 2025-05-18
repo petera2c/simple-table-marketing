@@ -756,6 +756,10 @@ video {
   margin-top: auto;
 }
 
+.ml-6 {
+  margin-left: 1.5rem;
+}
+
 .line-clamp-2 {
   overflow: hidden;
   display: -webkit-box;
@@ -917,6 +921,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-3 {
+  width: 0.75rem;
 }
 
 .min-w-\[120px\] {
@@ -2348,6 +2356,11 @@ body {
   border-color: rgb(107 33 168 / var(--tw-border-opacity, 1));
 }
 
+.dark\:border-blue-900:is(.dark *) {
+  --tw-border-opacity: 1;
+  border-color: rgb(30 58 138 / var(--tw-border-opacity, 1));
+}
+
 .dark\:bg-blue-900:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(30 58 138 / var(--tw-bg-opacity, 1));
@@ -2415,6 +2428,10 @@ body {
 .dark\:bg-purple-950:is(.dark *) {
   --tw-bg-opacity: 1;
   background-color: rgb(59 7 100 / var(--tw-bg-opacity, 1));
+}
+
+.dark\:bg-blue-900\/50:is(.dark *) {
+  background-color: rgb(30 58 138 / 0.5);
 }
 
 .dark\:from-blue-900\/20:is(.dark *) {
@@ -2497,12 +2514,42 @@ body {
   color: rgb(250 204 21 / var(--tw-text-opacity, 1));
 }
 
+.dark\:text-gray-200:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(229 231 235 / var(--tw-text-opacity, 1));
+}
+
+.dark\:text-gray-500:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(107 114 128 / var(--tw-text-opacity, 1));
+}
+
+.dark\:text-blue-500:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(59 130 246 / var(--tw-text-opacity, 1));
+}
+
 .dark\:opacity-\[0\.15\]:is(.dark *) {
   opacity: 0.15;
 }
 
+.dark\:shadow-\[4px_0_16px_rgba\(0\2c 0\2c 0\2c 0\.3\)\]:is(.dark *) {
+  --tw-shadow: 4px 0 16px rgba(0,0,0,0.3);
+  --tw-shadow-colored: 4px 0 16px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+}
+
 .dark\:hover\:bg-gray-800\/50:hover:is(.dark *) {
   background-color: rgb(31 41 55 / 0.5);
+}
+
+.dark\:hover\:bg-gray-800\/60:hover:is(.dark *) {
+  background-color: rgb(31 41 55 / 0.6);
+}
+
+.dark\:hover\:bg-gray-800:hover:is(.dark *) {
+  --tw-bg-opacity: 1;
+  background-color: rgb(31 41 55 / var(--tw-bg-opacity, 1));
 }
 
 .dark\:hover\:text-blue-400:hover:is(.dark *) {
