@@ -12,6 +12,7 @@ import {
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, Suspense } from "react";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 // Define example navigation items
 const examples = [
@@ -64,6 +65,7 @@ function ExamplesNavigationContent() {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const { theme } = useThemeContext();
   const currentTheme = searchParams.get("theme") as Theme;
 
   // Determine current active example
@@ -73,12 +75,10 @@ function ExamplesNavigationContent() {
 
   // Initialize default theme if none is set
   useEffect(() => {
-    if (!currentTheme && currentExample) {
-      const params = new URLSearchParams(searchParams.toString());
-      params.set("theme", currentExample.defaultTheme);
-      router.replace(`${pathname}?${params.toString()}`);
-    }
-  }, [currentTheme, currentExample, pathname, router, searchParams]);
+    const params = new URLSearchParams();
+    params.set("theme", theme);
+    router.replace(`?${params.toString()}`, { scroll: false });
+  }, [router, theme]);
 
   const handleLinkClick = (linkPath: string, linkName: string) => {
     const example = examples.find((e) => e.path === linkPath);
