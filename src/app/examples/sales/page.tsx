@@ -1,6 +1,6 @@
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
-import { SalesExampleWrapper } from "@/examples/sales/SalesExampleWrapper";
+import SalesExampleWrapper from "@/examples/sales/SalesExampleWrapper";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.examples.manufacturing.title,

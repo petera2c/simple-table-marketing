@@ -1,5 +1,5 @@
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import { ManufacturingExampleWrapper } from "@/examples/manufacturing/ManufacturingExampleWrapper";
+import ManufacturingExampleWrapper from "@/examples/manufacturing/ManufacturingExampleWrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

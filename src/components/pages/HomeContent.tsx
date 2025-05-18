@@ -28,7 +28,7 @@ import { trackButtonClick } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
 import { useIsMobile } from "../../hooks/useIsMobile";
 import { Suspense } from "react";
-import { FinancialExampleWrapper } from "@/examples/finance/FinanceExampleWrapper";
+import FinancialExampleWrapper from "@/examples/finance/FinanceExampleWrapper";
 
 // Define feature data with more details
 const features = [
