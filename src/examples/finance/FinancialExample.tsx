@@ -1,49 +1,14 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { SimpleTable, TableRefType, CellChangeProps } from "simple-table-core";
-import { Theme } from "simple-table-core";
+import { SimpleTable, TableRefType, CellChangeProps, Theme } from "simple-table-core";
 
 import "simple-table-core/styles.css";
 import { HEADERS } from "./finance-headers";
-import rawData from "./finance-data.json";
-import { useExampleHeight } from "@/hooks/useExampleHeight";
-
-const ROW_HEIGHT = 40;
-
-// Process data to add analyst ratings and dates
-const processedData = rawData.map((item: any) => {
-  // Randomly assign one of the analyst ratings
-  const ratings = ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"];
-  const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
-
-  // Generate a random date from the past 30 days
-  const today = new Date();
-  const pastDate = new Date(today);
-  pastDate.setDate(today.getDate() - Math.floor(Math.random() * 30));
-  const dateString = pastDate.toISOString().split("T")[0];
-
-  // 70% chance of following a stock
-  const isFollowed = Math.random() < 0.7;
-
-  return {
-    ...item,
-    rowData: {
-      ...item.rowData,
-      analystRating: randomRating,
-      date: dateString,
-      isFollowed: isFollowed,
-    },
-  };
-});
+import FINANCE_DATA from "./finance-data.json";
 
 export default function FinancialExample({ height, theme }: { height?: string; theme?: Theme }) {
-  const containerHeight = useExampleHeight({
-    isUsingPagination: false,
-    rowHeight: ROW_HEIGHT,
-  });
-
-  const [data, setData] = useState(processedData);
+  const [data, setData] = useState(FINANCE_DATA);
   const tableRef = useRef<TableRefType | null>(null);
 
   useEffect(() => {
@@ -133,7 +98,7 @@ export default function FinancialExample({ height, theme }: { height?: string; t
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
-      height={height ? height : containerHeight ? `${containerHeight}px` : "70dvh"}
+      height={height ? height : "70dvh"}
       rows={data}
       selectableCells
       tableRef={tableRef}

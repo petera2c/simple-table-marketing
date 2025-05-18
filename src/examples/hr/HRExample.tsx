@@ -1,23 +1,23 @@
 "use client";
 
 import { SimpleTable, Theme, CellChangeProps } from "simple-table-core";
-import { generateHRData } from "@/examples/hr/hr-rows";
 import { HEADERS } from "@/examples/hr/hr-headers";
 import { useState } from "react";
 import "simple-table-core/styles.css";
-import { useExampleHeight } from "@/hooks/useExampleHeight";
+import HR_DATA from "./hr-data.json";
 
-const initialData = generateHRData();
-const ROW_HEIGHT = 40;
+export default function HRExample({
+  height,
+  rowHeight = 40,
+  theme,
+}: {
+  height: number | null;
+  rowHeight?: number;
+  theme?: Theme;
+}) {
+  const [data, setData] = useState(HR_DATA);
 
-export default function HRExample({ theme }: { theme?: Theme }) {
-  const [data, setData] = useState(initialData);
-
-  const containerHeight = useExampleHeight({
-    isUsingPagination: true,
-    rowHeight: ROW_HEIGHT,
-  });
-  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
+  const howManyRowsCanFit = height ? Math.floor(height / rowHeight) : 10;
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>

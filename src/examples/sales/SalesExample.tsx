@@ -3,9 +3,6 @@ import { SALES_HEADERS } from "./sales-headers";
 import rawData from "./sales-data.json";
 import { useState } from "react";
 import "simple-table-core/styles.css";
-import { useExampleHeight } from "@/hooks/useExampleHeight";
-
-const ROW_HEIGHT = 40;
 
 // Process the data to add the new fields
 const processedData = (rawData as Row[]).map((row: Row) => {
@@ -30,21 +27,15 @@ const processedData = (rawData as Row[]).map((row: Row) => {
 });
 
 export function SalesExample({
+  height,
   onGridReady,
-  shouldPaginate,
   theme,
 }: {
+  height?: number | null;
   onGridReady?: () => void;
-  shouldPaginate: boolean;
   theme?: Theme;
 }) {
   const [data, setData] = useState(processedData);
-
-  const containerHeight = useExampleHeight({
-    isUsingPagination: shouldPaginate,
-    rowHeight: ROW_HEIGHT,
-  });
-  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -74,11 +65,7 @@ export function SalesExample({
       theme={theme}
       selectableCells
       onCellEdit={handleCellEdit}
-      {...(shouldPaginate
-        ? { rowsPerPage: howManyRowsCanFit, shouldPaginate }
-        : {
-            height: containerHeight ? `${containerHeight}px` : "70dvh",
-          })}
+      height={height ? `${height}px` : "70dvh"}
     />
   );
 }

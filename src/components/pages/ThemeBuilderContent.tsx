@@ -24,25 +24,13 @@ import ThemeColorPicker from "@/components/ThemeColorPicker";
 import ThemeInput from "@/components/ThemeInput";
 import MobileUnsupportedPage from "@/components/MobileUnsupported";
 
-import { Metadata } from "next";
-import { SEO_STRINGS } from "@/constants/strings/seo";
-import { SalesExample } from "@/examples/sales/SalesExample";
+import { CellChangeProps, Row, SimpleTable, Theme } from "simple-table-core";
+import { SALES_HEADERS } from "@/examples/sales/sales-headers";
+import { useExampleHeight } from "@/hooks/useExampleHeight";
+import rawData from "@/examples/sales/sales-data.json";
+import "simple-table-core/styles.css";
 
-export const metadata: Metadata = {
-  title: SEO_STRINGS.themeBuilder.title,
-  description: SEO_STRINGS.themeBuilder.description,
-  keywords: SEO_STRINGS.themeBuilder.keywords,
-  openGraph: {
-    title: SEO_STRINGS.themeBuilder.title,
-    description: SEO_STRINGS.themeBuilder.description,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: SEO_STRINGS.themeBuilder.title,
-    description: SEO_STRINGS.themeBuilder.description,
-  },
-};
+const ROW_HEIGHT = 40;
 
 interface ThemeConfig {
   borderColor: string;
@@ -356,9 +344,72 @@ export default function ThemeBuilderContent() {
         onGridReady={() => {
           setThemeToDocument(theme);
         }}
-        shouldPaginate
-        theme="custom"
       />
     </PageLayout>
+  );
+}
+
+// Process the data to add the new fields
+const processedData = (rawData as Row[]).map((row: Row) => {
+  // Generate a random close date in the past 90 days
+  const today = new Date();
+  const pastDate = new Date(today);
+  pastDate.setDate(today.getDate() - Math.floor(Math.random() * 90));
+  const closeDate = pastDate.toISOString().split("T")[0];
+
+  // Assign a random category
+  const categories = ["Software", "Hardware", "Services", "Consulting", "Training", "Support"];
+  const category = categories[Math.floor(Math.random() * categories.length)];
+
+  return {
+    ...row,
+    rowData: {
+      ...row.rowData,
+      closeDate,
+      category,
+    },
+  };
+});
+
+function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
+  const [data, setData] = useState(processedData);
+
+  const containerHeight = useExampleHeight({
+    isUsingPagination: true,
+    rowHeight: ROW_HEIGHT,
+  });
+  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
+
+  const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
+    setData((prevData) =>
+      prevData.map((item) => {
+        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+          return {
+            ...item,
+            rowData: {
+              ...item.rowData,
+              [accessor]: newValue,
+            },
+          };
+        }
+        return item;
+      })
+    );
+  };
+
+  return (
+    <SimpleTable
+      columnReordering
+      columnResizing
+      defaultHeaders={SALES_HEADERS}
+      editColumns
+      onCellEdit={handleCellEdit}
+      onGridReady={onGridReady}
+      rows={data}
+      rowsPerPage={howManyRowsCanFit}
+      selectableCells
+      shouldPaginate
+      theme={"custom"}
+    />
   );
 }

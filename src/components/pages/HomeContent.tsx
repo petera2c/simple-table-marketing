@@ -26,27 +26,9 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { trackButtonClick } from "../../utils/analytics";
 import { UI_STRINGS } from "../../constants/strings/ui";
-import { SEO_STRINGS } from "../../constants/strings/seo";
 import { useIsMobile } from "../../hooks/useIsMobile";
-import { FinancialExample } from "../../examples/finance/FinancialExample";
-import { Metadata } from "next";
 import { Suspense } from "react";
-
-export const metadata: Metadata = {
-  title: SEO_STRINGS.home.title,
-  description: SEO_STRINGS.home.description,
-  keywords: SEO_STRINGS.home.keywords,
-  openGraph: {
-    title: SEO_STRINGS.home.title,
-    description: SEO_STRINGS.home.description,
-    type: "website",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: SEO_STRINGS.home.title,
-    description: SEO_STRINGS.home.description,
-  },
-};
+import { FinancialExampleWrapper } from "@/examples/finance/FinancialExampleWrapper";
 
 // Define feature data with more details
 const features = [
@@ -249,7 +231,7 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Suspense fallback={<div />}>
-            <FinancialExample themeOverride="light" height="70dvh" />
+            <FinancialExampleWrapper themeOverride="light" height={"70dvh"} />
           </Suspense>
         </motion.section>
 
