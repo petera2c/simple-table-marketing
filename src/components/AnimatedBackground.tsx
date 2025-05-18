@@ -1,8 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
+import { useThemeContext } from "../providers/ThemeProvider";
 
-// Available gradient colors
-const colors = [
+// Light mode gradient colors
+const lightColors = [
   "bg-gradient-to-br from-blue-300 to-indigo-400",
   "bg-gradient-to-br from-purple-300 to-pink-400",
   "bg-gradient-to-br from-cyan-300 to-blue-400",
@@ -12,8 +13,19 @@ const colors = [
   "bg-gradient-to-br from-teal-300 to-cyan-400",
 ];
 
+// Dark mode gradient colors - deeper, richer colors with lower opacity
+const darkColors = [
+  "bg-gradient-to-br from-blue-900/60 to-indigo-900/60",
+  "bg-gradient-to-br from-purple-900/60 to-pink-900/60",
+  "bg-gradient-to-br from-cyan-900/60 to-blue-900/60",
+  "bg-gradient-to-br from-indigo-900/60 to-purple-900/60",
+  "bg-gradient-to-br from-blue-900/60 to-teal-900/60",
+  "bg-gradient-to-br from-pink-900/60 to-purple-900/60",
+  "bg-gradient-to-br from-teal-900/60 to-cyan-900/60",
+];
+
 // Fixed positions with fixed size and color
-const bubbles = [
+const createBubbles = (colors: string[]) => [
   {
     size: 300,
     x: 85,
@@ -54,7 +66,6 @@ const bubbles = [
     opacity: 0.2,
     color: colors[4],
   },
-
   {
     size: 300,
     x: 5,
@@ -88,7 +99,6 @@ const BackgroundBubble = ({
       height: size,
       left: `${x}%`,
       top: `${y}%`,
-      zIndex: -1,
     }}
     initial={{ scale: 0.75, opacity: 0, x: 0, y: 0 }}
     animate={{
@@ -108,6 +118,10 @@ const BackgroundBubble = ({
 );
 
 const AnimatedBackground = () => {
+  const { theme } = useThemeContext();
+  const colors = theme === "dark" ? darkColors : lightColors;
+  const bubbles = createBubbles(colors);
+
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none min-h-[200vh]">
       {bubbles.map((bubble, index) => (
@@ -121,7 +135,7 @@ const AnimatedBackground = () => {
           color={bubble.color}
         />
       ))}
-      <div className="absolute inset-0 bg-grid-pattern opacity-[0.08]"></div>
+      <div className="absolute inset-0 bg-grid-pattern opacity-[0.08] dark:opacity-[0.15]"></div>
     </div>
   );
 };

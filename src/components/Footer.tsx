@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-gray-900 dark:bg-gray-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr_1fr_1fr] gap-8">
           {/* Documentation */}
@@ -251,7 +251,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-400">
+        <div className="mt-12 pt-8 border-t border-gray-800 dark:border-gray-700 text-center text-gray-400">
           <p>© {new Date().getFullYear()} Simple Table. All rights reserved.</p>
         </div>
       </div>

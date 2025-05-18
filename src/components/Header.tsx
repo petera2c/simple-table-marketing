@@ -4,9 +4,10 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTable, faBars, faXmark } from "@fortawesome/free-solid-svg-icons";
+import { faTable, faBars, faXmark, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { useTheme } from "../hooks/useTheme";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -35,8 +36,8 @@ const NavLink = ({ href, label, icon, isMobile = false, useActivePath = false }:
         href={href}
         className={`px-3 py-2 rounded-md text-base ${
           shouldHighlight
-            ? "bg-blue-50 text-blue-600 font-medium"
-            : "text-gray-600 hover:bg-gray-50 hover:text-blue-600"
+            ? "bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 font-medium"
+            : "text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-blue-600 dark:hover:text-blue-400"
         } transition-colors flex items-center`}
       >
         {icon && <FontAwesomeIcon icon={icon} className="mr-2" />}
@@ -48,8 +49,10 @@ const NavLink = ({ href, label, icon, isMobile = false, useActivePath = false }:
   return (
     <Link
       href={href}
-      className={`hover:text-blue-600 transition-colors flex items-center ${
-        shouldHighlight ? "text-blue-600 font-semibold" : "text-gray-600"
+      className={`hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center ${
+        shouldHighlight
+          ? "text-blue-600 dark:text-blue-400 font-semibold"
+          : "text-gray-600 dark:text-gray-300"
       }`}
     >
       {icon && <FontAwesomeIcon icon={icon} className="mr-1" />}
@@ -73,7 +76,7 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
         href={href}
         target="_blank"
         rel="noopener noreferrer"
-        className="px-3 py-2 rounded-md text-base text-gray-600 hover:bg-gray-50 hover:text-blue-600 transition-colors flex items-center"
+        className="px-3 py-2 rounded-md text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
       >
         <FontAwesomeIcon icon={icon} className="mr-2" />
         {label}
@@ -86,7 +89,7 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center text-gray-600 hover:text-blue-600 transition-colors"
+      className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
     >
       <FontAwesomeIcon icon={icon} className="mr-1" />
       {label}
@@ -97,6 +100,7 @@ const ExternalLink = ({ href, label, icon, isMobile = false }: ExternalLinkProps
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isMobile = useIsMobile();
+  const [theme, toggleTheme] = useTheme();
   const headerRef = useRef<HTMLElement>(null);
 
   // Handle click outside header to close mobile menu
@@ -132,24 +136,37 @@ const Header = () => {
   ];
 
   return (
-    <header ref={headerRef} className="backdrop-blur-md bg-white/80 shadow-sm sticky top-0 z-50">
+    <header
+      ref={headerRef}
+      className="backdrop-blur-md bg-white/80 dark:bg-gray-900/90 shadow-sm sticky top-0 z-50"
+    >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <Link
               href="/"
-              className="flex items-center text-xl font-bold text-gray-800 hover:text-blue-600 transition-colors"
+              className="flex items-center text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
             >
-              <FontAwesomeIcon icon={faTable} className="text-blue-600 text-2xl mr-2" />
+              <FontAwesomeIcon
+                icon={faTable}
+                className="text-blue-600 dark:text-blue-400 text-2xl mr-2"
+              />
               Simple Table
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <button
+              onClick={toggleTheme}
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
+              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            >
+              <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="text-xl" />
+            </button>
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 hover:text-blue-600 focus:outline-none transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
               aria-label="Toggle menu"
             >
               <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-2xl" />
@@ -157,7 +174,7 @@ const Header = () => {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) =>
               link.href !== "/theme-builder" || !isMobile ? (
                 <NavLink key={link.href} {...link} />
@@ -167,12 +184,20 @@ const Header = () => {
             {externalLinks.map((link) => (
               <ExternalLink key={link.href} {...link} />
             ))}
+
+            <button
+              onClick={toggleTheme}
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
+              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+            >
+              <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="text-xl" />
+            </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {isMobile && isMenuOpen && (
-          <div className="mt-4 pt-2 pb-4 border-t border-gray-200">
+          <div className="mt-4 pt-2 pb-4 border-t border-gray-200 dark:border-gray-700">
             <div className="flex flex-col space-y-3">
               {navLinks.map((link) => (
                 <NavLink key={link.href} {...link} isMobile={true} />
