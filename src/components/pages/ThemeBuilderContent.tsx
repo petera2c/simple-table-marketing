@@ -357,7 +357,7 @@ export default function ThemeBuilderContent() {
           setThemeToDocument(theme);
         }}
         shouldPaginate
-        themeOverride="custom"
+        theme="custom"
       />
     </PageLayout>
   );

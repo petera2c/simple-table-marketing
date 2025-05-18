@@ -1,11 +1,7 @@
-"use client";
-
-import { useSearchParams } from "next/navigation";
-import { SimpleTable, Row, CellChangeProps } from "simple-table-core";
-import { Theme } from "simple-table-core";
+import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
 import rawData from "./sales-data.json";
-import { Suspense, useState } from "react";
+import { useState } from "react";
 import "simple-table-core/styles.css";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 
@@ -33,17 +29,15 @@ const processedData = (rawData as Row[]).map((row: Row) => {
   };
 });
 
-function SalesExampleContent({
+export function SalesExample({
   onGridReady,
   shouldPaginate,
-  themeOverride,
+  theme,
 }: {
   onGridReady?: () => void;
   shouldPaginate: boolean;
-  themeOverride?: Theme;
+  theme?: Theme;
 }) {
-  const searchParams = useSearchParams();
-  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
   const [data, setData] = useState(processedData);
 
   const containerHeight = useExampleHeight({
@@ -88,23 +82,3 @@ function SalesExampleContent({
     />
   );
 }
-
-export const SalesExample = ({
-  onGridReady,
-  shouldPaginate = true,
-  themeOverride,
-}: {
-  onGridReady?: () => void;
-  shouldPaginate?: boolean;
-  themeOverride?: Theme;
-}) => {
-  return (
-    <Suspense fallback={<div />}>
-      <SalesExampleContent
-        shouldPaginate={shouldPaginate}
-        themeOverride={themeOverride}
-        onGridReady={onGridReady}
-      />
-    </Suspense>
-  );
-};

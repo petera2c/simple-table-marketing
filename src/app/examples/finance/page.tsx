@@ -1,6 +1,6 @@
-import { FinancialExample } from "@/examples/finance/FinancialExample";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import { FinancialExampleWrapper } from "@/examples/finance/FinancialExampleWrapper";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.examples.finance.title,
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function FinancePage() {
-  return <FinancialExample />;
+  return <FinancialExampleWrapper />;
 }

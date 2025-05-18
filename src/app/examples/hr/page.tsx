@@ -1,6 +1,6 @@
-import HRExampleContent from "@/examples/hr/HRExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
+import { HRExampleWrapper } from "@/examples/hr/HRExampleWrapper";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.examples.hr.title,
@@ -8,5 +8,5 @@ export const metadata: Metadata = {
 };
 
 export default function HRExample() {
-  return <HRExampleContent />;
+  return <HRExampleWrapper />;
 }

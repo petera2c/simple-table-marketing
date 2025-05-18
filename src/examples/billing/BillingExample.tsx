@@ -3,8 +3,6 @@
 import { SimpleTable, Theme } from "simple-table-core";
 // import { generateBillingData } from "@/examples/billing/billing-rows";
 import { HEADERS } from "@/examples/billing/billing-headers";
-import { useSearchParams } from "next/navigation";
-import { Suspense } from "react";
 import "simple-table-core/styles.css";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import billingData from "./billing-data.json";
@@ -13,15 +11,13 @@ import billingData from "./billing-data.json";
 const data = billingData;
 const ROW_HEIGHT = 40;
 
-function BillingExampleContent({
+export default function BillingExample({
   onGridReady,
-  themeOverride,
+  theme,
 }: {
   onGridReady?: () => void;
-  themeOverride?: Theme;
+  theme?: Theme;
 }) {
-  const searchParams = useSearchParams();
-  const theme = themeOverride || (searchParams.get("theme") as Theme) || "dark";
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -39,19 +35,5 @@ function BillingExampleContent({
       selectableCells
       theme={theme}
     />
-  );
-}
-
-export default function BillingExample({
-  onGridReady,
-  themeOverride,
-}: {
-  onGridReady?: () => void;
-  themeOverride?: Theme;
-}) {
-  return (
-    <Suspense fallback={<div />}>
-      <BillingExampleContent onGridReady={onGridReady} themeOverride={themeOverride} />
-    </Suspense>
   );
 }

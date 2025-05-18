@@ -1,5 +1,5 @@
-import ManufacturingExampleContent from "@/examples/manufacturing/ManufacturingExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import { ManufacturingExampleWrapper } from "@/examples/manufacturing/ManufacturingExampleWrapper";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -18,5 +18,5 @@ export const metadata: Metadata = {
 };
 
 export default function ManufacturingExample() {
-  return <ManufacturingExampleContent />;
+  return <ManufacturingExampleWrapper />;
 }

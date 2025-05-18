@@ -1,7 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import { useEffect, useRef, Suspense, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SimpleTable, TableRefType, CellChangeProps } from "simple-table-core";
 import { Theme } from "simple-table-core";
 
@@ -38,19 +37,11 @@ const processedData = rawData.map((item: any) => {
   };
 });
 
-function FinancialExampleContent({
-  height,
-  themeOverride,
-}: {
-  height?: string;
-  themeOverride?: Theme;
-}) {
-  const searchParams = useSearchParams();
+export default function FinancialExample({ height, theme }: { height?: string; theme?: Theme }) {
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
   });
-  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
 
   const [data, setData] = useState(processedData);
   const tableRef = useRef<TableRefType | null>(null);
@@ -151,17 +142,3 @@ function FinancialExampleContent({
     />
   );
 }
-
-export const FinancialExample = ({
-  height,
-  themeOverride,
-}: {
-  height?: string;
-  themeOverride?: Theme;
-}) => {
-  return (
-    <Suspense fallback={<div />}>
-      <FinancialExampleContent height={height} themeOverride={themeOverride} />
-    </Suspense>
-  );
-};

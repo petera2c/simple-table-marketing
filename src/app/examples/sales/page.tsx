@@ -1,6 +1,6 @@
-import { SalesExample } from "@/examples/sales/SalesExample";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
+import { SalesExampleWrapper } from "@/examples/sales/SalesExampleWrapper";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.examples.manufacturing.title,
@@ -18,5 +18,5 @@ export const metadata: Metadata = {
 };
 
 export default function SalesPage() {
-  return <SalesExample shouldPaginate={false} />;
+  return <SalesExampleWrapper shouldPaginate={false} />;
 }
