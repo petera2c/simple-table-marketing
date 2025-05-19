@@ -41,6 +41,7 @@ import "simple-table-core/styles.css";`,
   --st-button-hover-background-color: var(--gray-200);
   --st-button-active-background-color: var(--blue-800);
   --st-editable-cell-focus-border-color: var(--blue-600);
+  --st-hover-row-background-color: var(--gray-200);
 }`,
     },
   },

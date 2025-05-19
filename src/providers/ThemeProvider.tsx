@@ -5,33 +5,29 @@ import { createContext, useContext, ReactNode, useState, useEffect } from "react
 type Theme = "light" | "dark";
 
 type ThemeContextType = {
-  theme: Theme;
+  theme?: Theme;
   toggleTheme: () => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // Private hook for internal use only - not exported
-const useThemeImplementation = (): [Theme, () => void] => {
-  const [theme, setTheme] = useState<Theme>("light");
+const useThemeImplementation = () => {
+  const [theme, setTheme] = useState<Theme>();
 
   // Initialize theme from localStorage on component mount
   useEffect(() => {
     const savedTheme = localStorage.getItem("theme") as Theme;
-    const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
+    const prefersLight = window.matchMedia?.("(prefers-color-scheme: light)").matches;
 
-    // Use saved theme or fallback to system preference
-    if (savedTheme) {
-      setTheme(savedTheme);
-    } else if (prefersDark) {
-      setTheme("dark");
-    }
+    const defaultTheme: Theme = savedTheme ? savedTheme : prefersLight ? "light" : "dark";
+
+    setTheme(defaultTheme);
+
+    localStorage.setItem("theme", defaultTheme);
 
     // Apply theme to document
-    document.documentElement.classList.toggle(
-      "dark",
-      savedTheme === "dark" || (!savedTheme && prefersDark)
-    );
+    document.documentElement.classList.toggle("dark", defaultTheme === "dark");
   }, []);
 
   // Toggle theme function
@@ -42,7 +38,7 @@ const useThemeImplementation = (): [Theme, () => void] => {
     document.documentElement.classList.toggle("dark", newTheme === "dark");
   };
 
-  return [theme, toggleTheme];
+  return { theme, toggleTheme };
 };
 
 export const useThemeContext = () => {
@@ -54,7 +50,9 @@ export const useThemeContext = () => {
 };
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const [theme, toggleTheme] = useThemeImplementation();
+  const { theme, toggleTheme } = useThemeImplementation();
+
+  if (!theme) return null;
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
 };

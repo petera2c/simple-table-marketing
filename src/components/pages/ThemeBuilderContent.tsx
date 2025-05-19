@@ -68,6 +68,7 @@ interface ThemeConfig {
   separatorBorderColor: string;
   spacingMedium: string;
   spacingSmall: string;
+  hoverRowBackgroundColor: string;
 }
 
 const lightThemeDefaults: ThemeConfig = {
@@ -114,6 +115,7 @@ const lightThemeDefaults: ThemeConfig = {
   columnEditorPopoutBackgroundColor: "#ffffff", // white
   buttonHoverBackgroundColor: "#f1f5f9", // slate-100
   buttonActiveBackgroundColor: "#2563eb", // blue-600
+  hoverRowBackgroundColor: "#f1f5f9", // slate-100
 };
 
 const darkThemeDefaults: ThemeConfig = {
@@ -148,6 +150,7 @@ const darkThemeDefaults: ThemeConfig = {
   separatorBorderColor: "#334155", // slate-700
   lastGroupRowSeparatorBorderColor: "#64748b", // slate-500
   cellFlashColor: "#334155", // slate-700
+  hoverRowBackgroundColor: "#334155", // slate-700
 
   // Border colors
   selectedBorderColor: "#60a5fa", // blue-400
