@@ -2,10 +2,12 @@
   {
     "rowMeta": {
       "rowId": 15,
+      "isExpanded": true,
       "children": [
         {
           "rowMeta": {
             "rowId": 2,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -161,6 +163,7 @@
         {
           "rowMeta": {
             "rowId": 8,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -466,6 +469,7 @@
         {
           "rowMeta": {
             "rowId": 14,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -768,8 +772,7 @@
             "balance_Dec_2024": 199.94
           }
         }
-      ],
-      "isExpanded": true
+      ]
     },
     "rowData": {
       "type": "account",
@@ -826,6 +829,7 @@
         {
           "rowMeta": {
             "rowId": 18,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -981,6 +985,7 @@
         {
           "rowMeta": {
             "rowId": 23,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -1236,6 +1241,7 @@
         {
           "rowMeta": {
             "rowId": 29,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -1541,6 +1547,7 @@
         {
           "rowMeta": {
             "rowId": 32,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -1751,6 +1758,7 @@
         {
           "rowMeta": {
             "rowId": 36,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -1906,6 +1914,7 @@
         {
           "rowMeta": {
             "rowId": 41,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -2161,6 +2170,7 @@
         {
           "rowMeta": {
             "rowId": 44,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -2371,6 +2381,7 @@
         {
           "rowMeta": {
             "rowId": 51,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -2676,6 +2687,7 @@
         {
           "rowMeta": {
             "rowId": 54,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -2831,6 +2843,7 @@
         {
           "rowMeta": {
             "rowId": 57,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -2986,6 +2999,7 @@
         {
           "rowMeta": {
             "rowId": 62,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -3296,6 +3310,7 @@
         {
           "rowMeta": {
             "rowId": 68,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -3551,6 +3566,7 @@
         {
           "rowMeta": {
             "rowId": 71,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -3706,6 +3722,7 @@
         {
           "rowMeta": {
             "rowId": 77,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -4011,6 +4028,7 @@
         {
           "rowMeta": {
             "rowId": 80,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -4166,6 +4184,7 @@
         {
           "rowMeta": {
             "rowId": 84,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -4371,6 +4390,7 @@
         {
           "rowMeta": {
             "rowId": 88,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {
@@ -4576,6 +4596,7 @@
         {
           "rowMeta": {
             "rowId": 92,
+            "isExpanded": true,
             "children": [
               {
                 "rowMeta": {

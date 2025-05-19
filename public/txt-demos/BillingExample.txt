@@ -23,6 +23,7 @@ export default function BillingExample({
       rows={BILLING_DATA}
       selectableCells
       theme={theme}
+      useOddColumnBackground
     />
   );
 }

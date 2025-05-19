@@ -12,6 +12,7 @@ import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, useState } from "react";
 import { Theme } from "simple-table-core";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import CodeBlock from "@/components/CodeBlock";
 
 export default function ThemesContent() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light");
@@ -93,6 +94,109 @@ export default function ThemesContent() {
             <li>funky - Bold and colorful theme</li>
             <li>neutral - Subtle and balanced theme</li>
           </ul>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        Styling Flags
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          In addition to themes, Simple Table provides several boolean flags that control specific
+          aspects of table appearance:
+        </p>
+
+        <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Table Styling Flags</h3>
+          <ul className="space-y-4 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                useHoverRowBackground = true
+              </code>
+              <p className="mt-1">
+                Enables a background color change when hovering over a row. This provides better
+                visual feedback for users when interacting with the table. The default is{" "}
+                <strong>true</strong>.
+              </p>
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                useOddEvenRowBackground = true
+              </code>
+              <p className="mt-1">
+                Applies alternating background colors to odd and even rows. This makes it easier to
+                distinguish between adjacent rows, especially in tables with many columns. The
+                default is <strong>true</strong>.
+              </p>
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                useOddColumnBackground = false
+              </code>
+              <p className="mt-1">
+                Applies alternating background colors to odd and even columns. This can help
+                differentiate between adjacent columns in tables with many columns or narrow
+                columns. The default is <strong>false</strong>.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          You can use these flags together with any theme to control the visual presentation of your
+          table:
+        </p>
+
+        <CodeBlock
+          className="mb-6"
+          code={`import { SimpleTable } from 'simple-table-core';
+import 'simple-table-core/styles.css';
+
+export default function MyTable() {
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      rows={data}
+      theme="dark"
+      useHoverRowBackground={true}
+      useOddEvenRowBackground={true}
+      useOddColumnBackground={false}
+    />
+  );
+}`}
+        />
+
+        <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Tip</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            When creating custom themes, you can customize the colors used for these styling
+            features using CSS variables like{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              --st-hover-row-background-color
+            </code>{" "}
+            and{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              --st-odd-row-background-color
+            </code>
+            . See the{" "}
+            <a
+              href="/docs/custom-theme"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Custom Theme
+            </a>{" "}
+            documentation for details.
+          </p>
         </div>
       </motion.div>
 
