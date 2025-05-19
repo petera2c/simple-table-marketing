@@ -66,7 +66,7 @@ function ExamplesNavigationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
-  const currentTheme = searchParams.get("theme") as Theme;
+  const currentTheme = (searchParams.get("theme") as Theme) || theme;
 
   // Determine current active example
   const currentPath = pathname;
