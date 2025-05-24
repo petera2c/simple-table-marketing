@@ -1,5 +1,109 @@
 import { HeaderObject } from "simple-table-core";
 
+// Theme-dependent color helper function
+const getThemeColors = (theme?: string) => {
+  const themes = {
+    light: {
+      gray: "#374151",
+      grayMuted: "#9ca3af",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      progressColors: {
+        high: "#10B981",
+        medium: "#3B82F6",
+        low: "#D97706",
+      },
+    },
+    dark: {
+      gray: "#f3f4f6",
+      grayMuted: "#f3f4f6",
+      success: {
+        high: { color: "#86efac", fontWeight: "bold" },
+        medium: "#4ade80",
+        low: "#22c55e",
+      },
+      info: "#60a5fa",
+      warning: "#facc15",
+      progressColors: {
+        high: "#34D399",
+        medium: "#60A5FA",
+        low: "#FBBF24",
+      },
+    },
+    sky: {
+      gray: "#334155",
+      grayMuted: "#94a3b8",
+      success: {
+        high: { color: "#0369a1", fontWeight: "bold" },
+        medium: "#0284c7",
+        low: "#0ea5e9",
+      },
+      info: "#06b6d4",
+      warning: "#f59e0b",
+      progressColors: {
+        high: "#0EA5E9",
+        medium: "#06B6D4",
+        low: "#F59E0B",
+      },
+    },
+    funky: {
+      gray: "#374151",
+      grayMuted: "#9ca3af",
+      success: {
+        high: { color: "#059669", fontWeight: "bold" },
+        medium: "#65a30d",
+        low: "#22c55e",
+      },
+      info: "#8b5cf6",
+      warning: "#f97316",
+      progressColors: {
+        high: "#10B981",
+        medium: "#8B5CF6",
+        low: "#F97316",
+      },
+    },
+    neutral: {
+      gray: "#1f2937",
+      grayMuted: "#9ca3af",
+      success: {
+        high: { color: "#1f2937", fontWeight: "bold" },
+        medium: "#374151",
+        low: "#4b5563",
+      },
+      info: "#6b7280",
+      warning: "#6b7280",
+      progressColors: {
+        high: "#6B7280",
+        medium: "#9CA3AF",
+        low: "#D1D5DB",
+      },
+    },
+    custom: {
+      gray: "#9ca3af",
+      grayMuted: "#e5e7eb",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      progressColors: {
+        high: "#10B981",
+        medium: "#3B82F6",
+        low: "#D97706",
+      },
+    },
+  };
+
+  return themes[theme as keyof typeof themes] || themes.light;
+};
+
 // Custom Tag component
 const Tag = ({
   children,
@@ -159,18 +263,19 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.rowData.dealValue === "—") return "—";
           const value = row.rowData.dealValue as number;
+          const colors = getThemeColors(theme);
 
           // Color code based on value tiers
-          let valueClass = "text-gray-700";
-          if (value > 100000) valueClass = "text-green-700 font-bold";
-          else if (value > 50000) valueClass = "text-green-600";
-          else if (value > 10000) valueClass = "text-green-500";
+          let valueStyle: React.CSSProperties = { color: colors.gray };
+          if (value > 100000) valueStyle = colors.success.high;
+          else if (value > 50000) valueStyle = { color: colors.success.medium };
+          else if (value > 10000) valueStyle = { color: colors.success.low };
 
           return (
-            <span className={valueClass}>
+            <span style={valueStyle}>
               $
               {value.toLocaleString("en-US", {
                 minimumFractionDigits: 2,
@@ -240,10 +345,12 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.rowData.commission === "—") return "—";
           const value = row.rowData.commission as number;
-          if (value === 0) return <span className="text-gray-400">$0.00</span>;
+          const colors = getThemeColors(theme);
+
+          if (value === 0) return <span style={{ color: colors.grayMuted }}>$0.00</span>;
 
           return `$${value.toLocaleString("en-US", {
             minimumFractionDigits: 2,
@@ -260,27 +367,34 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.rowData.profitMargin === "—") return "—";
           const value = row.rowData.profitMargin as number;
+          const colors = getThemeColors(theme);
 
           // Enhanced color coding based on profit margin tiers
-          let colorClass = "";
-          if (value >= 0.7) colorClass = "text-green-700 font-bold"; // Software-like margins
-          else if (value >= 0.5) colorClass = "text-green-600";
-          else if (value >= 0.4) colorClass = "text-green-500";
-          else if (value >= 0.3) colorClass = "text-blue-500";
-          else colorClass = "text-yellow-600"; // Hardware-like margins
+          let colorStyle: React.CSSProperties = { color: colors.gray };
+          if (value >= 0.7) colorStyle = colors.success.high; // Software-like margins
+          else if (value >= 0.5) colorStyle = { color: colors.success.medium };
+          else if (value >= 0.4) colorStyle = { color: colors.success.low };
+          else if (value >= 0.3) colorStyle = { color: colors.info };
+          else colorStyle = { color: colors.warning }; // Hardware-like margins
 
           return (
             <div className="flex items-center justify-end">
-              <span className={colorClass}>{(value * 100).toFixed(1)}%</span>
+              <span style={colorStyle}>{(value * 100).toFixed(1)}%</span>
               <div className="ml-2 w-12">
                 <Progress
                   percent={value * 100}
                   size="small"
                   showInfo={false}
-                  strokeColor={value >= 0.5 ? "#10B981" : value >= 0.3 ? "#3B82F6" : "#D97706"}
+                  strokeColor={
+                    value >= 0.5
+                      ? colors.progressColors.high
+                      : value >= 0.3
+                      ? colors.progressColors.medium
+                      : colors.progressColors.low
+                  }
                 />
               </div>
             </div>
@@ -296,19 +410,21 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.rowData.dealProfit === "—") return "—";
           const value = row.rowData.dealProfit as number;
-          if (value === 0) return <span className="text-gray-400">$0.00</span>;
+          const colors = getThemeColors(theme);
+
+          if (value === 0) return <span style={{ color: colors.grayMuted }}>$0.00</span>;
 
           // Color code based on profit tiers
-          let profitClass = "text-gray-700";
-          if (value > 50000) profitClass = "text-green-700 font-bold";
-          else if (value > 20000) profitClass = "text-green-600";
-          else if (value > 10000) profitClass = "text-green-500";
+          let profitStyle: React.CSSProperties = { color: colors.gray };
+          if (value > 50000) profitStyle = colors.success.high;
+          else if (value > 20000) profitStyle = { color: colors.success.medium };
+          else if (value > 10000) profitStyle = { color: colors.success.low };
 
           return (
-            <span className={profitClass}>
+            <span style={profitStyle}>
               $
               {value.toLocaleString("en-US", {
                 minimumFractionDigits: 2,

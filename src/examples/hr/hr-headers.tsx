@@ -1,8 +1,206 @@
 import { HeaderObject } from "simple-table-core";
 
+// Theme-dependent color helper function
+const getThemeColors = (theme?: string) => {
+  const themes = {
+    light: {
+      gray: "#1f2937",
+      grayMuted: "#6b7280",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      avatar: {
+        bg: "#1890ff",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#f6ffed", text: "#2a6a0d" },
+        orange: { bg: "#fff7e6", text: "#ad4e00" },
+        blue: { bg: "#e6f7ff", text: "#0050b3" },
+        purple: { bg: "#f9f0ff", text: "#391085" },
+        red: { bg: "#fff1f0", text: "#a8071a" },
+        default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+      },
+      progressColors: {
+        success: "#52c41a",
+        normal: "#1890ff",
+        exception: "#ff4d4f",
+        bg: "#f5f5f5",
+        text: "rgba(0, 0, 0, 0.65)",
+      },
+    },
+    dark: {
+      gray: "#f3f4f6",
+      grayMuted: "#f3f4f6",
+      success: {
+        high: { color: "#86efac", fontWeight: "bold" },
+        medium: "#4ade80",
+        low: "#22c55e",
+      },
+      info: "#60a5fa",
+      warning: "#facc15",
+      avatar: {
+        bg: "#3b82f6",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#065f46", text: "#86efac" },
+        orange: { bg: "#9a3412", text: "#fed7aa" },
+        blue: { bg: "#1e3a8a", text: "#93c5fd" },
+        purple: { bg: "#581c87", text: "#c4b5fd" },
+        red: { bg: "#991b1b", text: "#fca5a5" },
+        default: { bg: "#374151", text: "#e5e7eb" },
+      },
+      progressColors: {
+        success: "#34d399",
+        normal: "#60a5fa",
+        exception: "#f87171",
+        bg: "#374151",
+        text: "#d1d5db",
+      },
+    },
+    sky: {
+      gray: "#0f172a",
+      grayMuted: "#475569",
+      success: {
+        high: { color: "#0369a1", fontWeight: "bold" },
+        medium: "#0284c7",
+        low: "#0ea5e9",
+      },
+      info: "#06b6d4",
+      warning: "#f59e0b",
+      avatar: {
+        bg: "#0ea5e9",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#ecfdf5", text: "#065f46" },
+        orange: { bg: "#fff7ed", text: "#9a3412" },
+        blue: { bg: "#f0f9ff", text: "#0c4a6e" },
+        purple: { bg: "#faf5ff", text: "#581c87" },
+        red: { bg: "#fef2f2", text: "#991b1b" },
+        default: { bg: "#f1f5f9", text: "#334155" },
+      },
+      progressColors: {
+        success: "#10b981",
+        normal: "#0ea5e9",
+        exception: "#f59e0b",
+        bg: "#e2e8f0",
+        text: "#475569",
+      },
+    },
+    funky: {
+      gray: "#111827",
+      grayMuted: "#4b5563",
+      success: {
+        high: { color: "#059669", fontWeight: "bold" },
+        medium: "#65a30d",
+        low: "#22c55e",
+      },
+      info: "#8b5cf6",
+      warning: "#f97316",
+      avatar: {
+        bg: "#8b5cf6",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#ecfdf5", text: "#059669" },
+        orange: { bg: "#fff7ed", text: "#ea580c" },
+        blue: { bg: "#f3e8ff", text: "#7c3aed" },
+        purple: { bg: "#fdf4ff", text: "#a21caf" },
+        red: { bg: "#fef2f2", text: "#dc2626" },
+        default: { bg: "#f3f4f6", text: "#374151" },
+      },
+      progressColors: {
+        success: "#10b981",
+        normal: "#8b5cf6",
+        exception: "#f97316",
+        bg: "#f3f4f6",
+        text: "#6b7280",
+      },
+    },
+    neutral: {
+      gray: "#111827",
+      grayMuted: "#4b5563",
+      success: {
+        high: { color: "#1f2937", fontWeight: "bold" },
+        medium: "#374151",
+        low: "#4b5563",
+      },
+      info: "#6b7280",
+      warning: "#6b7280",
+      avatar: {
+        bg: "#6b7280",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#f9fafb", text: "#374151" },
+        orange: { bg: "#f9fafb", text: "#374151" },
+        blue: { bg: "#f9fafb", text: "#374151" },
+        purple: { bg: "#f9fafb", text: "#374151" },
+        red: { bg: "#f9fafb", text: "#374151" },
+        default: { bg: "#f3f4f6", text: "#374151" },
+      },
+      progressColors: {
+        success: "#6b7280",
+        normal: "#9ca3af",
+        exception: "#d1d5db",
+        bg: "#f3f4f6",
+        text: "#6b7280",
+      },
+    },
+    custom: {
+      gray: "#374151",
+      grayMuted: "#4b5563",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      avatar: {
+        bg: "#1890ff",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#f6ffed", text: "#2a6a0d" },
+        orange: { bg: "#fff7e6", text: "#ad4e00" },
+        blue: { bg: "#e6f7ff", text: "#0050b3" },
+        purple: { bg: "#f9f0ff", text: "#391085" },
+        red: { bg: "#fff1f0", text: "#a8071a" },
+        default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+      },
+      progressColors: {
+        success: "#52c41a",
+        normal: "#1890ff",
+        exception: "#ff4d4f",
+        bg: "#f5f5f5",
+        text: "rgba(0, 0, 0, 0.65)",
+      },
+    },
+  };
+
+  return themes[theme as keyof typeof themes] || themes.light;
+};
+
 // Custom Avatar component
-const Avatar = ({ children, size }: { children: React.ReactNode; size?: string }) => {
+const Avatar = ({
+  children,
+  size,
+  theme,
+}: {
+  children: React.ReactNode;
+  size?: string;
+  theme?: string;
+}) => {
   const sizePx = size === "small" ? 24 : 32;
+  const colors = getThemeColors(theme);
+
   return (
     <div
       style={{
@@ -12,8 +210,8 @@ const Avatar = ({ children, size }: { children: React.ReactNode; size?: string }
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        backgroundColor: "#1890ff",
-        color: "white",
+        backgroundColor: colors.avatar.bg,
+        color: colors.avatar.text,
         fontSize: size === "small" ? "12px" : "14px",
       }}
     >
@@ -23,38 +221,24 @@ const Avatar = ({ children, size }: { children: React.ReactNode; size?: string }
 };
 
 // Custom Tag component
-const Tag = ({ children, color }: { children: React.ReactNode; color?: string }) => {
-  const getBackgroundColor = (color?: string) => {
-    const colors: Record<string, string> = {
-      green: "#f6ffed",
-      orange: "#fff7e6",
-      blue: "#e6f7ff",
-      purple: "#f9f0ff",
-      red: "#fff1f0",
-      default: "#f0f0f0",
-    };
-
-    const textColors: Record<string, string> = {
-      green: "#2a6a0d",
-      orange: "#ad4e00",
-      blue: "#0050b3",
-      purple: "#391085",
-      red: "#a8071a",
-      default: "rgba(0, 0, 0, 0.85)",
-    };
-
-    return {
-      backgroundColor: colors[color || "default"],
-      color: textColors[color || "default"],
-    };
-  };
-
-  const style = getBackgroundColor(color);
+const Tag = ({
+  children,
+  color,
+  theme,
+}: {
+  children: React.ReactNode;
+  color?: string;
+  theme?: string;
+}) => {
+  const colors = getThemeColors(theme);
+  const tagColor =
+    colors.tagColors[color as keyof typeof colors.tagColors] || colors.tagColors.default;
 
   return (
     <span
       style={{
-        ...style,
+        backgroundColor: tagColor.bg,
+        color: tagColor.text,
         padding: "0 7px",
         fontSize: "12px",
         lineHeight: "20px",
@@ -73,21 +257,24 @@ const Progress = ({
   size,
   showInfo = true,
   status,
+  theme,
 }: {
   percent: number;
   size?: string;
   showInfo?: boolean;
   status?: "success" | "normal" | "exception";
+  theme?: string;
 }) => {
+  const colors = getThemeColors(theme);
   const getColorByStatus = (status?: string) => {
     switch (status) {
       case "success":
-        return "#52c41a";
+        return colors.progressColors.success;
       case "exception":
-        return "#ff4d4f";
+        return colors.progressColors.exception;
       case "normal":
       default:
-        return "#1890ff";
+        return colors.progressColors.normal;
     }
   };
 
@@ -105,7 +292,7 @@ const Progress = ({
     >
       <div
         style={{
-          backgroundColor: "#f5f5f5",
+          backgroundColor: colors.progressColors.bg,
           height: `${height}px`,
           width: "100%",
           borderRadius: "100px",
@@ -126,7 +313,7 @@ const Progress = ({
           style={{
             marginLeft: "8px",
             fontSize: "14px",
-            color: "rgba(0, 0, 0, 0.65)",
+            color: colors.progressColors.text,
           }}
         >
           {`${percent}%`}
@@ -147,20 +334,23 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     pinned: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row, theme }) => {
       // Employee row, render with avatar and details
       const initials = `${row.rowData.firstName?.toString().charAt(0) || ""}${
         row.rowData.lastName?.toString().charAt(0) || ""
       }`;
       const name = row.rowData.fullName as string;
       const position = row.rowData.position as string;
+      const colors = getThemeColors(theme);
 
       return (
         <div style={{ display: "flex", alignItems: "center" }}>
-          <Avatar size="small">{initials}</Avatar>
+          <Avatar size="small" theme={theme}>
+            {initials}
+          </Avatar>
           <div style={{ marginLeft: "8px" }}>
             <div>{name}</div>
-            <div style={{ fontSize: "12px", color: "rgba(0, 0, 0, 0.5)" }}>{position}</div>
+            <div style={{ fontSize: "12px", color: colors.grayMuted }}>{position}</div>
           </div>
         </div>
       );
@@ -174,8 +364,9 @@ export const HEADERS: HeaderObject[] = [
     isEditable: true,
     align: "center",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row, theme }) => {
       const score = row.rowData.performanceScore as number;
+      const colors = getThemeColors(theme);
 
       const getColorByScore = (score: number): "success" | "normal" | "exception" => {
         if (score >= 90) return "success";
@@ -184,9 +375,19 @@ export const HEADERS: HeaderObject[] = [
       };
 
       return (
-        <div className="w-full flex flex-col">
-          <Progress percent={score} size="small" showInfo={false} status={getColorByScore(score)} />
-          <div className="text-xs text-center mt-1">{score}/100</div>
+        <div style={{ width: "100%", display: "flex", flexDirection: "column" }}>
+          <Progress
+            percent={score}
+            size="small"
+            showInfo={false}
+            status={getColorByScore(score)}
+            theme={theme}
+          />
+          <div
+            style={{ fontSize: "12px", textAlign: "center", marginTop: "4px", color: colors.gray }}
+          >
+            {score}/100
+          </div>
         </div>
       );
     },
@@ -245,14 +446,20 @@ export const HEADERS: HeaderObject[] = [
     isEditable: true,
     align: "left",
     type: "date",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row, theme }) => {
       if (!row.rowData.hireDate) return "";
       const date = new Date(row.rowData.hireDate as string);
-      return date.toLocaleDateString("en-US", {
-        month: "short",
-        day: "numeric",
-        year: "numeric",
-      });
+      const colors = getThemeColors(theme);
+
+      return (
+        <span style={{ color: colors.gray }}>
+          {date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })}
+        </span>
+      );
     },
   },
   {
@@ -263,9 +470,11 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row, theme }) => {
       if (row.rowData.yearsOfService === null) return "";
-      return `${row.rowData.yearsOfService} yrs`;
+      const colors = getThemeColors(theme);
+
+      return <span style={{ color: colors.gray }}>{`${row.rowData.yearsOfService} yrs`}</span>;
     },
   },
   {
@@ -276,8 +485,14 @@ export const HEADERS: HeaderObject[] = [
     isEditable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row }) => {
-      return `$${(row.rowData.salary as number).toLocaleString()}`;
+    cellRenderer: ({ row, theme }) => {
+      const colors = getThemeColors(theme);
+
+      return (
+        <span style={{ color: colors.gray }}>
+          {`$${(row.rowData.salary as number).toLocaleString()}`}
+        </span>
+      );
     },
   },
   {
@@ -290,7 +505,7 @@ export const HEADERS: HeaderObject[] = [
     pinned: "right",
     type: "enum",
     enumOptions: ["Active", "On Leave", "Probation", "Contract", "Terminated"],
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row, theme }) => {
       if (!row.rowData.status) return "";
 
       const status = row.rowData.status as string;
@@ -303,7 +518,11 @@ export const HEADERS: HeaderObject[] = [
           Terminated: "red",
         }[status] || "default";
 
-      return <Tag color={statusColor}>{status}</Tag>;
+      return (
+        <Tag color={statusColor} theme={theme}>
+          {status}
+        </Tag>
+      );
     },
   },
   {
