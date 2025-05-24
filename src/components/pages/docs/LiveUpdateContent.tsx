@@ -21,7 +21,7 @@ const LiveUpdateContent = () => {
         <div className="p-2 bg-indigo-100 rounded-lg">
           <FontAwesomeIcon icon={faBolt} className="text-indigo-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Live Updates</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Live Updates</h1>
       </motion.div>
 
       {/* Demo Section */}
@@ -40,23 +40,30 @@ const LiveUpdateContent = () => {
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         SimpleTable provides powerful tools for creating dynamic, real-time tables with data that
         updates on the fly. Using the{" "}
-        <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">tableRef</code> and
-        <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">updateData</code> API, you
-        can update individual cells with smooth visual feedback through the{" "}
-        <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellUpdateFlash</code>
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          tableRef
+        </code>{" "}
+        and{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          updateData
+        </code>{" "}
+        API, you can update individual cells with smooth visual feedback through the{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          cellUpdateFlash
+        </code>{" "}
         feature.
       </motion.p>
 
       {/* Basic Usage Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -70,26 +77,36 @@ const LiveUpdateContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           To enable live updates in your table, follow these steps:
         </p>
 
-        <ol className="list-decimal pl-5 mb-6 space-y-3 text-gray-700">
+        <ol className="list-decimal pl-5 mb-6 space-y-3 text-gray-700 dark:text-gray-300">
           <li>
             <strong>Create a table reference</strong> - Create a ref using{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">useRef</code>
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              useRef
+            </code>
             and pass it to the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">tableRef</code> prop
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              tableRef
+            </code>{" "}
+            prop
           </li>
           <li>
             <strong>Enable flash animation</strong> - Set the{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellUpdateFlash</code>{" "}
-            prop to <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">true</code> to
-            enable visual feedback on cell updates
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              cellUpdateFlash
+            </code>{" "}
+            prop to{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              true
+            </code>{" "}
+            to enable visual feedback on cell updates
           </li>
           <li>
             <strong>Update data</strong> - Call{" "}
-            <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
               tableRef.current.updateData()
             </code>
             with the appropriate parameters to update specific cells
@@ -99,7 +116,7 @@ const LiveUpdateContent = () => {
 
       {/* TableRef Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -113,10 +130,16 @@ const LiveUpdateContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <p className="text-gray-700 mb-4">
-          The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">TableRefType</code>{" "}
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            TableRefType
+          </code>{" "}
           provides methods to interact with the table. Currently, it offers the{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">updateData</code> method:
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            updateData
+          </code>{" "}
+          method:
         </p>
 
         <CodeBlock
@@ -130,9 +153,12 @@ const LiveUpdateContent = () => {
 };`}
         />
 
-        <h3 className="font-bold text-gray-800 mb-2">TableRef Example</h3>
-        <p className="text-gray-700 mb-2">
-          The <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">updateData</code>{" "}
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">TableRef Example</h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-2">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            updateData
+          </code>{" "}
           method updates a single cell in the table:
         </p>
         <CodeBlock
@@ -151,7 +177,7 @@ tableRef.current?.updateData({
 
       {/* Cell Update Flash Section */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
@@ -165,10 +191,12 @@ tableRef.current?.updateData({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           When{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">cellUpdateFlash</code> is
-          enabled, cells will momentarily highlight when their value changes, providing a subtle
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            cellUpdateFlash
+          </code>{" "}
+          is enabled, cells will momentarily highlight when their value changes, providing a subtle
           visual cue to users:
         </p>
 
@@ -182,9 +210,9 @@ tableRef.current?.updateData({
 />`}
         />
 
-        <div className="bg-amber-50 border-l-4 border-amber-400 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 mb-2">Important Notes</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Important Notes</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
               When updating cells, remember to also update your local state to keep it in sync with
               the table
@@ -202,7 +230,7 @@ tableRef.current?.updateData({
 
       {/* Real-world Use Cases */}
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.9 }}
@@ -215,11 +243,11 @@ tableRef.current?.updateData({
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 1.0 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           Live updates are particularly valuable in these scenarios:
         </p>
 
-        <ul className="list-disc pl-5 space-y-3 text-gray-700 mb-6">
+        <ul className="list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300 mb-6">
           <li>
             <strong>Financial dashboards</strong> - Display real-time stock price changes and trades
           </li>

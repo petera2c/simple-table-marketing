@@ -34,6 +34,7 @@ const docNavigation = [
 
   // Advanced Features
   { id: "pagination", path: "/docs/pagination" },
+  { id: "live-updates", path: "/docs/live-updates" },
 
   // Customization
   { id: "themes", path: "/docs/themes" },
