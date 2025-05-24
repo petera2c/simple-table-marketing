@@ -43,7 +43,7 @@
     "react-dom": "^18.2.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^0.8.30"
+    "simple-table-core": "^0.8.31"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
