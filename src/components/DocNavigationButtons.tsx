@@ -21,6 +21,7 @@ const docNavigation = [
   { id: "column-pinning", path: "/docs/column-pinning" },
   { id: "column-alignment", path: "/docs/column-alignment" },
   { id: "column-sorting", path: "/docs/column-sorting" },
+  { id: "column-filtering", path: "/docs/column-filtering" },
   { id: "nested-headers", path: "/docs/nested-headers" },
 
   // Row Features
@@ -52,6 +53,7 @@ const pathToLabel: Record<string, string> = {
   "/docs/column-pinning": "Column Pinning",
   "/docs/column-alignment": "Column Alignment",
   "/docs/column-sorting": "Column Sorting",
+  "/docs/column-filtering": "Column Filtering",
   "/docs/nested-headers": "Nested Headers",
   "/docs/row-grouping": "Row Grouping",
   "/docs/row-height": "Row Height",

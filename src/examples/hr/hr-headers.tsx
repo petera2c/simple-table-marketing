@@ -401,13 +401,13 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     type: "enum",
     enumOptions: [
-      "Engineering",
-      "Marketing",
-      "Sales",
-      "Finance",
-      "HR",
-      "Operations",
-      "Customer Support",
+      { label: "Engineering", value: "Engineering" },
+      { label: "Marketing", value: "Marketing" },
+      { label: "Sales", value: "Sales" },
+      { label: "Finance", value: "Finance" },
+      { label: "HR", value: "HR" },
+      { label: "Operations", value: "Operations" },
+      { label: "Customer Support", value: "Customer Support" },
     ],
   },
   {
@@ -428,14 +428,14 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     type: "enum",
     enumOptions: [
-      "New York",
-      "Los Angeles",
-      "Chicago",
-      "San Francisco",
-      "Austin",
-      "Boston",
-      "Seattle",
-      "Remote",
+      { label: "New York", value: "New York" },
+      { label: "Los Angeles", value: "Los Angeles" },
+      { label: "Chicago", value: "Chicago" },
+      { label: "San Francisco", value: "San Francisco" },
+      { label: "Austin", value: "Austin" },
+      { label: "Boston", value: "Boston" },
+      { label: "Seattle", value: "Seattle" },
+      { label: "Remote", value: "Remote" },
     ],
   },
   {
@@ -504,7 +504,13 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     pinned: "right",
     type: "enum",
-    enumOptions: ["Active", "On Leave", "Probation", "Contract", "Terminated"],
+    enumOptions: [
+      { label: "Active", value: "Active" },
+      { label: "On Leave", value: "On Leave" },
+      { label: "Probation", value: "Probation" },
+      { label: "Contract", value: "Contract" },
+      { label: "Terminated", value: "Terminated" },
+    ],
     cellRenderer: ({ row, theme }) => {
       if (!row.rowData.status) return "";
 

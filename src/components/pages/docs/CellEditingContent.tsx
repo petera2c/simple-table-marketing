@@ -176,7 +176,11 @@ export default function CellEditingContent() {
               </p>
               <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
                 {`type: "enum",
-enumOptions: ["Option1", "Option2", "Option3"]`}
+enumOptions: [
+  { label: "Option 1", value: "option1" },
+  { label: "Option 2", value: "option2" },
+  { label: "Option 3", value: "option3" }
+]`}
               </code>
             </div>
           </div>

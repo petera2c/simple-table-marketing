@@ -20,7 +20,13 @@ const headers: HeaderObject[] = [
     width: 120,
     isEditable: true,
     type: "enum",
-    enumOptions: ["Developer", "Designer", "Manager", "Marketing", "QA"],
+    enumOptions: [
+      { label: "Developer", value: "Developer" },
+      { label: "Designer", value: "Designer" },
+      { label: "Manager", value: "Manager" },
+      { label: "Marketing", value: "Marketing" },
+      { label: "QA", value: "QA" },
+    ],
   },
   {
     accessor: "hireDate",

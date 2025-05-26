@@ -133,6 +133,7 @@ export const commonColumnFeatures = {
       {FeatureTags.Success("Pinning", "Pin columns to the left or right side")}
       {FeatureTags.Success("Alignment", "Align content left, center, or right")}
       {FeatureTags.Success("Sorting", "Sort data by clicking column headers")}
+      {FeatureTags.Success("Filtering", "Filter data with type-specific controls")}
       {FeatureTags.Success("Nested Headers", "Column grouping and nesting")}
     </Space>
   ),

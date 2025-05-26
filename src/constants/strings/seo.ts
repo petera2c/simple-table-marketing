@@ -64,6 +64,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, column alignment, table layout, typescript table, responsive table",
   },
+  columnFiltering: {
+    title: "Column Filtering with Simple Table React Grid",
+    description:
+      "Add powerful filtering to your react-table with Simple Table. Smart filters for text, numbers, dates, and dropdowns in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column filtering, table filtering, data filtering, typescript table, search table",
+  },
   columnPinning: {
     title: "Column Pinning with Simple Table React Grid",
     description:
