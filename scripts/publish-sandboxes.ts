@@ -13,11 +13,21 @@ async function getDependencies() {
     dependencies: {
       react: packageJson.dependencies.react,
       "react-dom": packageJson.dependencies["react-dom"],
-      "react-scripts": "^5.0.0",
+      "react-scripts": "^5.0.1",
       "simple-table-core": packageJson.dependencies["simple-table-core"],
     },
     devDependencies: {
       typescript: packageJson.devDependencies.typescript,
+    },
+    scripts: {
+      start: "react-scripts start",
+      build: "react-scripts build",
+      test: "react-scripts test",
+      eject: "react-scripts eject",
+    },
+    browserslist: {
+      production: [">0.2%", "not dead", "not op_mini all"],
+      development: ["last 1 chrome version", "last 1 firefox version", "last 1 safari version"],
     },
   };
 }
