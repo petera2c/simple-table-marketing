@@ -55,6 +55,7 @@ interface ThemeConfig {
   footerBackgroundColor: string;
   headerBackgroundColor: string;
   headerLabelColor: string;
+  headerIconColor: string;
   lastGroupRowSeparatorBorderColor: string;
   oddRowBackgroundColor: string;
   resizeHandleColor: string;
@@ -90,6 +91,7 @@ const lightThemeDefaults: ThemeConfig = {
   evenRowBackgroundColor: "#f8fafc", // slate-50
   headerBackgroundColor: "#f1f5f9", // slate-100
   headerLabelColor: "#0f172a", // slate-900
+  headerIconColor: "#64748b", // slate-500
   draggingBackgroundColor: "#e2e8f0", // slate-200
   selectedCellBackgroundColor: "#dbeafe", // blue-100
   selectedFirstCellBackgroundColor: "#eff6ff", // blue-50
@@ -137,6 +139,7 @@ const darkThemeDefaults: ThemeConfig = {
   evenRowBackgroundColor: "#1e293b", // slate-800
   headerBackgroundColor: "#0f172a", // slate-900
   headerLabelColor: "#f8fafc", // slate-50
+  headerIconColor: "#94a3b8", // slate-400
   draggingBackgroundColor: "#334155", // slate-700
   selectedCellBackgroundColor: "#1e3a8a", // blue-900
   selectedFirstCellBackgroundColor: "#172554", // blue-950

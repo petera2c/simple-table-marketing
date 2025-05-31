@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NestedHeadersDemo from "@/components/demos/NestedHeadersDemo";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
@@ -21,11 +20,11 @@ export default function NestedHeadersContent() {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faLayerGroup} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800">Nested Headers</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Nested Headers</h1>
       </motion.div>
 
       <motion.p
-        className="text-gray-700 mb-6 text-lg"
+        className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
@@ -49,7 +48,7 @@ export default function NestedHeadersContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
@@ -62,15 +61,19 @@ export default function NestedHeadersContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
-        <p className="text-gray-700 mb-4">
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
           To create nested headers, add a{" "}
-          <code className="bg-gray-200 px-1 py-0.5 rounded text-gray-800">children</code> array to
-          your parent header object, containing the child column definitions:
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            children
+          </code>{" "}
+          array to your parent header object, containing the child column definitions:
         </p>
 
-        <div className="bg-blue-50 border-l-4 border-blue-400 p-4 rounded-lg shadow-sm mb-6 mt-6">
-          <h3 className="font-bold text-gray-800 mb-2">Key Points About Nested Headers</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6 mt-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+            Key Points About Nested Headers
+          </h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>Parent headers serve as container columns and typically don't display cell data</li>
             <li>
               Child columns can have all the same properties as regular columns (sorting, filtering,
@@ -83,7 +86,7 @@ export default function NestedHeadersContent() {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 mb-4 flex items-center gap-2 pb-2 border-b border-gray-200"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
@@ -96,7 +99,7 @@ export default function NestedHeadersContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
       >
-        <ul className="list-disc pl-5 space-y-2 text-gray-700">
+        <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
           <li>
             <strong>Grouped Data Categories:</strong> Organize related columns like "Personal
             Information", "Contact Details", etc.
