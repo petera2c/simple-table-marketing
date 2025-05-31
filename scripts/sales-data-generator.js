@@ -159,7 +159,7 @@ const SALES_REPS = [
 ];
 
 // Generate realistic sales record
-function generateRealisticSaleRecord(repData, rowId) {
+function generateRealisticSaleRecord(repData, recordId) {
   // Product tier selection - more experienced reps sell more enterprise products
   const repExperienceWeight = repData.experience / 10;
   const tierWeights = [
@@ -205,26 +205,18 @@ function generateRealisticSaleRecord(repData, rowId) {
   const experienceBonus = repData.experience * 0.02;
   const finalWinRate = Math.min(0.85, baseWinRate + experienceBonus);
 
-  // Determine if this was a won deal
-  const isWon = Math.random() < finalWinRate;
-
-  // Number of units sold - varies by product type and price point
-  let units;
-  if (product.basePrice < 500) {
-    // Cheaper products sell in larger quantities
-    units = Math.floor(Math.random() * 200) + 1;
-  } else if (product.basePrice < 5000) {
-    // Mid-tier products
-    units = Math.floor(Math.random() * 20) + 1;
+  // Determine status
+  const statusRoll = Math.random();
+  let status;
+  if (statusRoll < finalWinRate) {
+    status = "Won";
+  } else if (statusRoll < finalWinRate + 0.1) {
+    status = "Lost";
   } else {
-    // Expensive products
-    units = Math.floor(Math.random() * 3) + 1;
+    status = "In Progress";
   }
 
-  // Calculate deal value
-  const dealValue = parseFloat((dealSize * units).toFixed(2));
-
-  // Profit margin varies by product category
+  // Generate profit margin based on product category
   let baseProfitMargin;
   switch (product.category) {
     case "Software":
@@ -245,10 +237,7 @@ function generateRealisticSaleRecord(repData, rowId) {
   }
 
   // Add some variability to profit margin
-  const profitMargin = parseFloat((baseProfitMargin + (Math.random() * 0.2 - 0.1)).toFixed(2));
-
-  // Calculate profit only for won deals
-  const dealProfit = isWon ? parseFloat((dealValue * profitMargin).toFixed(2)) : 0;
+  const margin = parseFloat((baseProfitMargin + (Math.random() * 0.2 - 0.1)).toFixed(2));
 
   // Commission rates vary by product and rep experience
   const baseCommissionRate = product.category === "Software" ? 0.1 : 0.08;
@@ -256,52 +245,79 @@ function generateRealisticSaleRecord(repData, rowId) {
   const commissionRate = parseFloat((baseCommissionRate + experienceCommissionBonus).toFixed(3));
 
   // Calculate commission only for won deals
-  const commission = isWon ? parseFloat((dealValue * commissionRate).toFixed(2)) : 0;
+  const commission = status === "Won" ? parseFloat((dealSize * commissionRate).toFixed(2)) : 0;
 
   // Generate a random close date in the past 90 days (YYYY-MM-DD format)
   const today = new Date();
   const pastDate = new Date(today);
   pastDate.setDate(today.getDate() - Math.floor(Math.random() * 90));
-  const closeDate = pastDate.toISOString().split("T")[0];
+  const date = pastDate.toISOString().split("T")[0];
 
-  // Assign a random category
-  const categories = ["Software", "Hardware", "Services", "Consulting", "Training", "Support"];
-  const category = categories[Math.floor(Math.random() * categories.length)];
+  // Generate quarter from date
+  const month = pastDate.getMonth();
+  const quarter = `Q${Math.floor(month / 3) + 1} ${pastDate.getFullYear()}`;
+
+  // Generate region
+  const regions = ["North America", "Europe", "Asia Pacific", "Latin America"];
+  const region = regions[Math.floor(Math.random() * regions.length)];
+
+  // Generate sales channel
+  const channels = ["Direct Sales", "Partner", "Online", "Inbound"];
+  const salesChannel = channels[Math.floor(Math.random() * channels.length)];
+
+  // Generate customer type
+  const customerTypes = ["Enterprise", "SMB", "Startup", "Government"];
+  const customerType = customerTypes[Math.floor(Math.random() * customerTypes.length)];
 
   return {
-    rowMeta: {
-      rowId: rowId,
-      isExpanded: true,
-    },
-    rowData: {
-      repName: repData.name,
-      dealSize: dealSize,
-      isWon: isWon,
-      commission: commission,
-      dealProfit: dealProfit,
-      dealValue: dealValue,
-      profitMargin: profitMargin,
-      closeDate: closeDate,
-      category: category,
-    },
+    product,
+    dealSize,
+    margin,
+    commission,
+    quarter,
+    region,
+    salesChannel,
+    customerType,
+    status,
+    date,
   };
 }
 
 // Generate realistic dataset
 function generateRealisticSalesDataset(numRecords = 200) {
-  const data = [];
+  const salesData = [];
 
   for (let i = 0; i < numRecords; i++) {
-    // Pick a random sales rep, but weight by experience for more realistic distribution
-    // More experienced reps will have more deals
-    const repIndex = weightedRandomIndex(SALES_REPS.map((rep) => rep.experience));
-    const rep = SALES_REPS[repIndex];
+    // Select a random sales rep
+    const rep = SALES_REPS[Math.floor(Math.random() * SALES_REPS.length)];
 
-    const saleData = generateRealisticSaleRecord(rep, i);
-    data.push(saleData);
+    // Generate the sale record
+    const saleRecord = generateRealisticSaleRecord(rep, i + 1);
+
+    // Create flat row structure
+    salesData.push({
+      id: `SALE-${String(i + 1).padStart(4, "0")}`,
+      date: saleRecord.date,
+      repId: rep.id,
+      repName: rep.name,
+      repExperience: rep.experience,
+      repPerformance: rep.performanceRating,
+      productId: saleRecord.product.id,
+      productName: saleRecord.product.name,
+      productCategory: saleRecord.product.category,
+      basePrice: saleRecord.product.basePrice,
+      dealSize: saleRecord.dealSize,
+      margin: saleRecord.margin,
+      commission: saleRecord.commission,
+      quarter: saleRecord.quarter,
+      region: saleRecord.region,
+      salesChannel: saleRecord.salesChannel,
+      customerType: saleRecord.customerType,
+      status: saleRecord.status,
+    });
   }
 
-  return data;
+  return salesData;
 }
 
 // Helper function for weighted random selection

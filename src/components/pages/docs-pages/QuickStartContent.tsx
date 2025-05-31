@@ -33,7 +33,7 @@ const QuickStartContent = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         This guide will help you quickly set up Simple Table in your React project. In just a few
-        minutes, you'll have a fully functional data table.
+        minutes, you'll have a fully functional data table with sorting, filtering, and more.
       </motion.p>
 
       <motion.div
@@ -108,7 +108,15 @@ const QuickStartContent = () => {
             </li>
             <li>
               <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rows</code> - Your data
-              array with rowMeta and rowData
+              array
+            </li>
+            <li>
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rowIdAccessor</code> -
+              Property name to use as the unique row identifier (e.g., "id")
+            </li>
+            <li>
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rowGrouping</code> - Array
+              defining hierarchical grouping (e.g., ["departments", "teams"])
             </li>
             <li>
               <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">height</code> - Table
@@ -134,17 +142,86 @@ const QuickStartContent = () => {
             Data Structure
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-2">
-            Each row in your data should follow this structure:
+            Your data should be structured as an array of flat objects. Each row is a simple object
+            with direct property access:
           </p>
           <CodeBlock
-            code={`{
-  rowMeta: { rowId: number },
-  rowData: {
-    // Your actual data fields here
-    id: number,
-    name: string,
-    // ... other fields
+            code={`// Simple flat structure
+const data = [
+  {
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering"
+  },
+  {
+    id: 2, 
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design"
   }
+];
+
+// Usage
+<SimpleTable
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+/>`}
+          />
+
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-white mt-4 mb-2">
+            Hierarchical Data
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            For hierarchical data, use named array properties:
+          </p>
+          <CodeBlock
+            code={`// Hierarchical structure
+const data = [
+  {
+    id: "COMP-001",
+    name: "TechSolutions Inc.",
+    employees: 137,
+    departments: [
+      {
+        id: "DEPT-001",
+        name: "Engineering",
+        employees: 45,
+        teams: [
+          {
+            id: "TEAM-001",
+            name: "Frontend",
+            employees: 12
+          }
+        ]
+      }
+    ]
+  }
+];
+
+// Usage with row grouping
+<SimpleTable
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+  rowGrouping={["departments", "teams"]}
+/>`}
+          />
+        </div>
+
+        <div>
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
+            Cell Renderers
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Cell renderers give you direct access to row properties:
+          </p>
+          <CodeBlock
+            code={`cellRenderer: ({ row }) => {
+  return <span>{row.propertyName}</span>;
 }`}
           />
         </div>
@@ -172,20 +249,6 @@ const QuickStartContent = () => {
         <CodeBlock code={TECHNICAL_STRINGS.css.import} language="js" />
 
         <p className="text-gray-700 dark:text-gray-300">{UI_STRINGS.docs.cssSetup.note}</p>
-      </motion.div>
-
-      <motion.div
-        className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
-      >
-        <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pro Tip</h3>
-        <p className="text-gray-700 dark:text-gray-300">
-          Simple Table automatically handles the styling of alternating rows, borders, and hover
-          states. You can customize these later with themes, but the defaults look great out of the
-          box!
-        </p>
       </motion.div>
 
       <DocNavigationButtons />

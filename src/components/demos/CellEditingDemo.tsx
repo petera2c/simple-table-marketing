@@ -1,175 +1,47 @@
-import { useState } from "react";
-import { SimpleTable, HeaderObject, CellChangeProps, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme, CellChangeProps } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useState } from "react";
 
-// Define headers with editable property and various types
+const initialData = [
+  { id: 1, name: "John Doe", age: 30, role: "Software Engineer", department: "Engineering" },
+  { id: 2, name: "Jane Smith", age: 25, role: "Product Manager", department: "Product" },
+  { id: 3, name: "Mike Johnson", age: 35, role: "Designer", department: "Design" },
+  { id: 4, name: "Sarah Williams", age: 28, role: "Data Scientist", department: "Engineering" },
+  { id: 5, name: "David Brown", age: 32, role: "Marketing Manager", department: "Marketing" },
+];
+
 const headers: HeaderObject[] = [
-  {
-    accessor: "firstName",
-    label: "First Name",
-    width: "1fr",
-    minWidth: 100,
-    isEditable: true,
-    type: "string",
-  },
-  { accessor: "lastName", label: "Last Name", width: 120, isEditable: true, type: "string" },
-
-  {
-    accessor: "role",
-    label: "Role",
-    width: 120,
-    isEditable: true,
-    type: "enum",
-    enumOptions: [
-      { label: "Developer", value: "Developer" },
-      { label: "Designer", value: "Designer" },
-      { label: "Manager", value: "Manager" },
-      { label: "Marketing", value: "Marketing" },
-      { label: "QA", value: "QA" },
-    ],
-  },
-  {
-    accessor: "hireDate",
-    label: "Hire Date",
-    width: 120,
-    isEditable: true,
-    type: "date",
-  },
-  {
-    accessor: "isActive",
-    label: "Active",
-    width: 100,
-    isEditable: true,
-    type: "boolean",
-  },
-  {
-    accessor: "salary",
-    label: "Salary",
-    width: 120,
-    isEditable: true,
-    type: "number",
-  },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Name", width: 150, isEditable: true, type: "string" },
+  { accessor: "age", label: "Age", width: 80, isEditable: true, type: "number" },
+  { accessor: "role", label: "Role", width: 150, isEditable: true, type: "string" },
+  { accessor: "department", label: "Department", width: 150, isEditable: true, type: "string" },
 ];
-
-// Sample data
-const EMPLOYEE_DATA = [
-  {
-    id: 1,
-    firstName: "John",
-    lastName: "Doe",
-    role: "Developer",
-    hireDate: "2020-01-15",
-    isActive: true,
-    salary: 85000,
-  },
-  {
-    id: 2,
-    firstName: "Jane",
-    lastName: "Smith",
-    role: "Designer",
-    hireDate: "2021-03-22",
-    isActive: true,
-    salary: 78000,
-  },
-  {
-    id: 3,
-    firstName: "Bob",
-    lastName: "Johnson",
-    role: "Manager",
-    hireDate: "2019-11-05",
-    isActive: true,
-    salary: 92000,
-  },
-  {
-    id: 4,
-    firstName: "Alice",
-    lastName: "Williams",
-    role: "Developer",
-    hireDate: "2022-01-10",
-    isActive: false,
-    salary: 83000,
-  },
-  {
-    id: 5,
-    firstName: "Charlie",
-    lastName: "Brown",
-    role: "Marketing",
-    hireDate: "2021-08-17",
-    isActive: true,
-    salary: 76000,
-  },
-  {
-    id: 6,
-    firstName: "David",
-    lastName: "Lee",
-    role: "QA",
-    hireDate: "2020-07-22",
-    isActive: true,
-    salary: 82000,
-  },
-  {
-    id: 7,
-    firstName: "Eve",
-    lastName: "Green",
-    role: "Manager",
-    hireDate: "2019-04-18",
-    isActive: true,
-    salary: 95000,
-  },
-  {
-    id: 8,
-    firstName: "Frank",
-    lastName: "White",
-    role: "Developer",
-    hireDate: "2022-03-01",
-    isActive: false,
-    salary: 88000,
-  },
-  {
-    id: 9,
-    firstName: "Grace",
-    lastName: "Black",
-    role: "Designer",
-    hireDate: "2021-11-15",
-    isActive: true,
-    salary: 81000,
-  },
-];
-
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
 
 const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
-  // State to track the data
-  const [data, setData] = useState(rows);
+  const [data, setData] = useState(initialData);
 
-  // Handle cell edit
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
-    setData((prevData) =>
-      prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
-          return {
-            ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
-          };
-        }
-        return item;
-      })
-    );
+    setData((prevData) => {
+      const newData = [...prevData];
+      const rowIndex = newData.findIndex((item) => item.id === (row as any).id);
+      if (rowIndex !== -1) {
+        newData[rowIndex] = {
+          ...newData[rowIndex],
+          [accessor]: newValue,
+        };
+      }
+      return newData;
+    });
   };
 
   return (
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      onCellEdit={handleCellEdit}
+      rowIdAccessor="id"
       height={height}
+      onCellEdit={handleCellEdit}
       theme={theme}
     />
   );

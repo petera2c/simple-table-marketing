@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import InstallationContent from "@/components/pages/docs/InstallationContent";
+import InstallationContent from "@/components/pages/docs-pages/InstallationContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

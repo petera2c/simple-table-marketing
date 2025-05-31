@@ -446,7 +446,7 @@ export default function ThemeBuilderContent() {
 }
 
 // Process the data to add the new fields
-const processedData = (rawData as Row[]).map((row: Row) => {
+const processedData = (rawData as any[]).map((row: any) => {
   // Generate a random close date in the past 90 days
   const today = new Date();
   const pastDate = new Date(today);
@@ -459,11 +459,8 @@ const processedData = (rawData as Row[]).map((row: Row) => {
 
   return {
     ...row,
-    rowData: {
-      ...row.rowData,
-      closeDate,
-      category,
-    },
+    closeDate,
+    category,
   };
 });
 
@@ -479,13 +476,10 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === (row as any).id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -502,6 +496,7 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
       rows={data}
+      rowIdAccessor="id"
       rowsPerPage={howManyRowsCanFit}
       selectableCells
       shouldPaginate

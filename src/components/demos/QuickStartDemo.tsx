@@ -18,8 +18,8 @@ const headers: HeaderObject[] = [
   { accessor: "startDate", label: "Start Date", width: 150, isSortable: true, type: "date" },
 ];
 
-// Sample data
-const EMPLOYEE_DATA = [
+// Sample data with flat structure
+const employeeData = [
   {
     id: 1,
     name: "John Doe",
@@ -94,19 +94,14 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
       editColumns
       height={height}
-      rows={rows}
+      rows={employeeData}
+      rowIdAccessor="id"
       rowHeight={48}
       selectableCells
       theme={theme}

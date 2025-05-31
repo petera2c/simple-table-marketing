@@ -1,96 +1,21 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define all possible headers
+const data = [
+  { id: 1, name: "John Doe", age: 30, role: "Software Engineer", department: "Engineering" },
+  { id: 2, name: "Jane Smith", age: 25, role: "Product Manager", department: "Product" },
+  { id: 3, name: "Mike Johnson", age: 35, role: "Designer", department: "Design" },
+  { id: 4, name: "Sarah Williams", age: 28, role: "Data Scientist", department: "Engineering" },
+  { id: 5, name: "David Brown", age: 32, role: "Marketing Manager", department: "Marketing" },
+];
+
 const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true, type: "string" },
+  { accessor: "age", label: "Age", width: 80, hide: true, type: "number" },
   { accessor: "role", label: "Role", width: 150, type: "string" },
   { accessor: "department", label: "Department", width: 150, type: "string" },
 ];
-
-// Sample data
-const EMPLOYEE_DATA = [
-  {
-    id: 1,
-    name: "John Doe",
-    age: 28,
-    role: "Developer",
-    department: "Engineering",
-    startDate: "2018-06-15",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    age: 32,
-    role: "Designer",
-    department: "Design",
-    startDate: "2019-02-20",
-  },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    age: 45,
-    role: "Manager",
-    department: "Management",
-    startDate: "2017-05-10",
-  },
-  {
-    id: 4,
-    name: "Alice Williams",
-    age: 24,
-    role: "Intern",
-    department: "Internship",
-    startDate: "2018-09-01",
-  },
-  {
-    id: 5,
-    name: "Charlie Brown",
-    age: 37,
-    role: "DevOps",
-    department: "Engineering",
-    startDate: "2018-03-15",
-  },
-  {
-    id: 6,
-    name: "David Lee",
-    age: 31,
-    role: "QA Engineer",
-    department: "Quality Assurance",
-    startDate: "2018-07-22",
-  },
-  {
-    id: 7,
-    name: "Eve Green",
-    age: 29,
-    role: "Product Manager",
-    department: "Product Management",
-    startDate: "2018-04-18",
-  },
-  {
-    id: 8,
-    name: "Frank White",
-    age: 33,
-    role: "Sales Manager",
-    department: "Sales",
-    startDate: "2018-01-01",
-  },
-  {
-    id: 9,
-    name: "Grace Black",
-    age: 27,
-    role: "HR Manager",
-    department: "Human Resources",
-    startDate: "2018-01-01",
-  },
-];
-
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
 
 const ColumnVisibilityDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
@@ -98,7 +23,8 @@ const ColumnVisibilityDemo = ({ height = "400px", theme }: { height?: string; th
       defaultHeaders={headers}
       editColumns
       editColumnsInitOpen
-      rows={rows}
+      rows={data}
+      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

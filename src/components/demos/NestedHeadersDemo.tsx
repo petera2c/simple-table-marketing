@@ -1,164 +1,75 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-const headers: HeaderObject[] = [
-  {
-    accessor: "id",
-    label: "ID",
-    width: 80,
-    isSortable: true,
-    type: "number",
-  },
-  {
-    accessor: "name",
-    label: "Name",
-    width: "1fr",
-    isSortable: true,
-    type: "string",
-  },
-  {
-    accessor: "score",
-    label: "Test Scores",
-    width: 300,
-    isSortable: false,
-    type: "number",
-    children: [
-      {
-        accessor: "mathScore",
-        label: "Math",
-        width: 100,
-        isSortable: true,
-        type: "number",
-        align: "right",
-        cellRenderer: ({ row, accessor }) => {
-          const score = row.rowData[accessor] as number;
-          return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
-        },
-      },
-      {
-        accessor: "scienceScore",
-        label: "Science",
-        width: 100,
-        isSortable: true,
-        type: "number",
-        align: "right",
-        cellRenderer: ({ row, accessor }) => {
-          const score = row.rowData[accessor] as number;
-          return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
-        },
-      },
-      {
-        accessor: "historyScore",
-        label: "History",
-        width: 100,
-        isSortable: true,
-        type: "number",
-        align: "right",
-        cellRenderer: ({ row, accessor }) => {
-          const score = row.rowData[accessor] as number;
-          return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
-        },
-      },
-    ],
-  },
-  {
-    accessor: "grade",
-    label: "Overall Grade",
-    width: 120,
-    isSortable: true,
-    type: "string",
-    align: "center",
-  },
+const data = [
+  { id: 1, name: "John Doe", math: 92, science: 88, english: 85, history: 90 },
+  { id: 2, name: "Jane Smith", math: 78, science: 95, english: 92, history: 87 },
+  { id: 3, name: "Mike Johnson", math: 85, science: 82, english: 90, history: 88 },
+  { id: 4, name: "Sarah Williams", math: 96, science: 93, english: 89, history: 91 },
+  { id: 5, name: "David Brown", math: 83, science: 87, english: 94, history: 86 },
+  { id: 6, name: "Lisa Chen", math: 89, science: 91, english: 88, history: 92 },
+  { id: 7, name: "Alex Rodriguez", math: 91, science: 85, english: 87, history: 89 },
+  { id: 8, name: "Emily Davis", math: 87, science: 89, english: 91, history: 93 },
 ];
 
-const rows = [
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Student Name", width: 150, type: "string" },
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      name: "Emma Johnson",
-      mathScore: 92,
-      scienceScore: 88,
-      historyScore: 95,
-      grade: "A",
-    },
-  },
-  {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      name: "Noah Smith",
-      mathScore: 78,
-      scienceScore: 82,
-      historyScore: 75,
-      grade: "B",
-    },
-  },
-  {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      name: "Olivia Davis",
-      mathScore: 95,
-      scienceScore: 97,
-      historyScore: 91,
-      grade: "A",
-    },
-  },
-  {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      name: "Liam Wilson",
-      mathScore: 65,
-      scienceScore: 71,
-      historyScore: 68,
-      grade: "C",
-    },
-  },
-  {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      name: "Ava Martinez",
-      mathScore: 88,
-      scienceScore: 92,
-      historyScore: 84,
-      grade: "B",
-    },
-  },
-  {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      name: "Mason Lee",
-      mathScore: 73,
-      scienceScore: 68,
-      historyScore: 79,
-      grade: "C",
-    },
-  },
-  {
-    rowMeta: { rowId: 7 },
-    rowData: {
-      id: 7,
-      name: "Sophia Brown",
-      mathScore: 91,
-      scienceScore: 85,
-      historyScore: 93,
-      grade: "A",
-    },
-  },
-  {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      name: "Isabella White",
-      mathScore: 82,
-      scienceScore: 78,
-      historyScore: 87,
-      grade: "B",
-    },
+    accessor: "scores",
+    label: "Academic Scores",
+    width: 400,
+    type: "string",
+    children: [
+      {
+        accessor: "math",
+        label: "Math",
+        width: 100,
+        type: "number",
+        cellRenderer: ({ row, accessor }) => {
+          const score = row[accessor] as number;
+          const bgColor =
+            score >= 90 ? "bg-green-100" : score >= 80 ? "bg-yellow-100" : "bg-red-100";
+          const textColor =
+            score >= 90 ? "text-green-800" : score >= 80 ? "text-yellow-800" : "text-red-800";
+          return <div className={`px-2 py-1 rounded ${bgColor} ${textColor}`}>{score}</div>;
+        },
+      },
+      {
+        accessor: "science",
+        label: "Science",
+        width: 100,
+        type: "number",
+        cellRenderer: ({ row, accessor }) => {
+          const score = row[accessor] as number;
+          const bgColor =
+            score >= 90 ? "bg-green-100" : score >= 80 ? "bg-yellow-100" : "bg-red-100";
+          const textColor =
+            score >= 90 ? "text-green-800" : score >= 80 ? "text-yellow-800" : "text-red-800";
+          return <div className={`px-2 py-1 rounded ${bgColor} ${textColor}`}>{score}</div>;
+        },
+      },
+      {
+        accessor: "english",
+        label: "English",
+        width: 100,
+        type: "number",
+        cellRenderer: ({ row, accessor }) => {
+          const score = row[accessor] as number;
+          const bgColor =
+            score >= 90 ? "bg-green-100" : score >= 80 ? "bg-yellow-100" : "bg-red-100";
+          const textColor =
+            score >= 90 ? "text-green-800" : score >= 80 ? "text-yellow-800" : "text-red-800";
+          return <div className={`px-2 py-1 rounded ${bgColor} ${textColor}`}>{score}</div>;
+        },
+      },
+      {
+        accessor: "history",
+        label: "History",
+        width: 100,
+        type: "number",
+      },
+    ],
   },
 ];
 
@@ -166,9 +77,9 @@ const NestedHeadersDemo = ({ height = "400px", theme }: { height?: string; theme
   return (
     <SimpleTable
       defaultHeaders={headers}
+      rows={data}
+      rowIdAccessor="id"
       height={height}
-      rows={rows}
-      columnResizing
       theme={theme}
     />
   );

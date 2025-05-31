@@ -1,112 +1,58 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define headers
+const data = [
+  { id: 1, name: "John Doe", age: 30, score: 95, status: "Active" },
+  { id: 2, name: "Jane Smith", age: 25, score: 88, status: "Active" },
+  { id: 3, name: "Mike Johnson", age: 35, score: 92, status: "Inactive" },
+  { id: 4, name: "Sarah Williams", age: 28, score: 97, status: "Active" },
+  { id: 5, name: "David Brown", age: 32, score: 84, status: "Active" },
+];
+
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "name", label: "Name", width: 150, type: "string" },
+  { accessor: "age", label: "Age", width: 80, type: "number" },
   {
-    accessor: "name",
-    label: "Name",
-    minWidth: 80,
-    width: "1fr",
-    isSortable: true,
+    accessor: "score",
+    label: "Score",
+    width: 100,
+    type: "number",
+    cellRenderer: ({ row }) => {
+      const score = row.score as number;
+      const bgColor = score >= 90 ? "bg-green-100" : score >= 80 ? "bg-yellow-100" : "bg-red-100";
+      const textColor =
+        score >= 90 ? "text-green-800" : score >= 80 ? "text-yellow-800" : "text-red-800";
+      return <div className={`px-2 py-1 rounded ${bgColor} ${textColor}`}>{score}</div>;
+    },
+  },
+  {
+    accessor: "status",
+    label: "Status",
+    width: 100,
     type: "string",
-  },
-  { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
-  { accessor: "role", label: "Role", width: 150, isSortable: true, type: "string" },
-  { accessor: "department", label: "Department", width: 150, isSortable: true, type: "string" },
-  { accessor: "startDate", label: "Start Date", width: 150, isSortable: true, type: "date" },
-];
-
-// Sample data
-const EMPLOYEE_DATA = [
-  {
-    id: 1,
-    name: "John Doe",
-    age: 28,
-    role: "Developer",
-    department: "Engineering",
-    startDate: "2018-06-15",
-  },
-  {
-    id: 2,
-    name: "Jane Smith",
-    age: 32,
-    role: "Designer",
-    department: "Design",
-    startDate: "2019-02-20",
-  },
-  {
-    id: 3,
-    name: "Bob Johnson",
-    age: 45,
-    role: "Manager",
-    department: "Management",
-    startDate: "2017-05-10",
-  },
-  {
-    id: 4,
-    name: "Alice Williams",
-    age: 24,
-    role: "Intern",
-    department: "Internship",
-    startDate: "2018-09-01",
-  },
-  {
-    id: 5,
-    name: "Charlie Brown",
-    age: 37,
-    role: "DevOps",
-    department: "Engineering",
-    startDate: "2018-03-15",
-  },
-  {
-    id: 6,
-    name: "David Lee",
-    age: 31,
-    role: "QA Engineer",
-    department: "Quality Assurance",
-    startDate: "2018-07-22",
-  },
-  {
-    id: 7,
-    name: "Eve Green",
-    age: 29,
-    role: "Product Manager",
-    department: "Product Management",
-    startDate: "2018-04-18",
-  },
-  {
-    id: 8,
-    name: "Frank White",
-    age: 33,
-    role: "Sales Manager",
-    department: "Sales",
-    startDate: "2018-01-01",
-  },
-  {
-    id: 9,
-    name: "Grace Black",
-    age: 27,
-    role: "HR Manager",
-    department: "Human Resources",
-    startDate: "2018-01-01",
+    cellRenderer: ({ row }) => {
+      const status = row.status as string;
+      const isActive = status === "Active";
+      return (
+        <div
+          className={`px-2 py-1 rounded ${
+            isActive ? "bg-green-100 text-green-800" : "bg-gray-100 text-gray-800"
+          }`}
+        >
+          {status}
+        </div>
+      );
+    },
   },
 ];
-
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
 
 const CellHighlightingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
-      selectableCells
-      selectableColumns
-      rows={rows}
+      rows={data}
+      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

@@ -54,21 +54,16 @@ const generateLargeDataset = (
     const category = config.categories[Math.floor(Math.random() * config.categories.length)];
 
     data.push({
-      rowMeta: {
-        rowId: i,
-        isExpanded: false,
-      },
-      rowData: {
-        repName: `Sales Rep ${i.toLocaleString()}`,
-        dealSize: Math.random() * 10000 + 100,
-        isWon,
-        commission,
-        dealProfit,
-        dealValue,
-        profitMargin,
-        closeDate,
-        category,
-      },
+      id: i,
+      repName: `Sales Rep ${i.toLocaleString()}`,
+      dealSize: Math.random() * 10000 + 100,
+      isWon,
+      commission,
+      dealProfit,
+      dealValue,
+      profitMargin,
+      closeDate,
+      category,
     });
   }
 
@@ -144,13 +139,10 @@ export default function PerformanceDemo({
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === (row as any).id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -239,6 +231,7 @@ export default function PerformanceDemo({
             <SimpleTable
               defaultHeaders={headers}
               rows={data}
+              rowIdAccessor="id"
               theme={theme}
               height={height}
               editColumns

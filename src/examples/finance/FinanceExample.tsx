@@ -1,88 +1,58 @@
-import { useEffect, useRef, useState } from "react";
-import { SimpleTable, TableRefType, CellChangeProps, Theme } from "simple-table-core";
-
+import { SimpleTable, CellChangeProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useState, useEffect } from "react";
 import { HEADERS } from "./finance-headers";
-import FINANCE_DATA from "./finance-data.json";
+import financeData from "./finance-data.json";
 
-export default function FinancialExample({ height, theme }: { height?: string; theme?: Theme }) {
-  const [data, setData] = useState(FINANCE_DATA);
-  const tableRef = useRef<TableRefType | null>(null);
+const ROW_HEIGHT = 32;
+
+export default function FinanceExample({
+  onGridReady,
+  height,
+  theme = "light",
+}: {
+  onGridReady?: () => void;
+  height?: string;
+  theme?: Theme;
+}) {
+  const [data, setData] = useState(financeData);
 
   useEffect(() => {
-    // Keep a copy of the current data in memory for calculations
-    const currentData = JSON.parse(JSON.stringify(data));
-
-    // Repeat every 2.5 seconds
     const interval = setInterval(() => {
-      // Update a random row
-      const indexToUpdate = Math.floor(Math.random() * currentData.length);
+      setData((currentData) => {
+        const newData = [...currentData];
+        const indexToUpdate = Math.floor(Math.random() * newData.length);
 
-      // Get the current values
-      const currentPrice = currentData[indexToUpdate].rowData.price;
+        // Get current price and calculate new price with realistic volatility
+        const currentPrice = currentData[indexToUpdate].currentPrice;
+        const volatility = 0.02; // 2% max change
+        const changePercent = (Math.random() - 0.5) * 2 * volatility;
+        const newPrice = currentPrice * (1 + changePercent);
 
-      // Generate a random price change percentage between -0.5% and +0.5%
-      // More likely to be positive than negative (market tends to go up)
-      let priceChangePercent;
-      const random = Math.random();
-      if (random < 0.1) {
-        // 10% chance for a bigger drop (-1% to -0.5%)
-        priceChangePercent = -(Math.random() * 0.5 + 0.5);
-      } else if (random < 0.4) {
-        // 30% chance for a small drop (-0.5% to 0%)
-        priceChangePercent = -(Math.random() * 0.5);
-      } else if (random < 0.8) {
-        // 40% chance for a small gain (0% to 0.5%)
-        priceChangePercent = Math.random() * 0.5;
-      } else {
-        // 20% chance for a bigger gain (0.5% to 1%)
-        priceChangePercent = Math.random() * 0.5 + 0.5;
-      }
+        // Update price
+        newData[indexToUpdate].currentPrice = newPrice;
 
-      // Calculate the new price based on the percentage change
-      const priceChange = currentPrice * (priceChangePercent / 100);
-      const newPrice = currentPrice + priceChange;
+        // Calculate and update price change percentage
+        const storedChangePercent = currentData[indexToUpdate].priceChangePercent;
+        const basePrice = currentPrice / (1 + storedChangePercent / 100);
+        newData[indexToUpdate].priceChangePercent = parseFloat(
+          (((newPrice - basePrice) / basePrice) * 100).toFixed(2)
+        );
 
-      // Update the current data in memory
-      currentData[indexToUpdate].rowData.price = newPrice;
-
-      // Get the stored price change percentage and update it
-      const storedChangePercent = currentData[indexToUpdate].rowData.priceChangePercent;
-      // Adjust the stored percentage by the new change, with some damping to avoid wild swings
-      const newChangePercent = storedChangePercent + priceChangePercent * 0.5;
-      currentData[indexToUpdate].rowData.priceChangePercent = parseFloat(
-        newChangePercent.toFixed(2)
-      );
-
-      // Update the price in the table
-      tableRef?.current?.updateData({
-        accessor: "price",
-        rowIndex: indexToUpdate,
-        newValue: newPrice,
+        return newData;
       });
-
-      // Update the price change percentage in the table
-      tableRef?.current?.updateData({
-        accessor: "priceChangePercent",
-        rowIndex: indexToUpdate,
-        newValue: newChangePercent,
-      });
-    }, 50);
+    }, 2000);
 
     return () => clearInterval(interval);
-  }, [data]);
+  }, []);
 
-  // Handle cell edit
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
-      prevData.map((item: any) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+      prevData.map((item) => {
+        if (item.id === (row as any).id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -92,16 +62,20 @@ export default function FinancialExample({ height, theme }: { height?: string; t
 
   return (
     <SimpleTable
-      cellUpdateFlash={true}
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
-      height={height ? height : "70dvh"}
-      rows={data}
-      selectableCells
-      tableRef={tableRef}
-      theme={theme}
+      editColumns
+      height={height || "70dvh"}
       onCellEdit={handleCellEdit}
+      onGridReady={onGridReady}
+      rows={data}
+      rowIdAccessor="id"
+      rowHeight={ROW_HEIGHT}
+      selectableCells
+      shouldPaginate
+      rowsPerPage={15}
+      theme={theme}
     />
   );
 }

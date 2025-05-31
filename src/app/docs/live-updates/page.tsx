@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import LiveUpdateContent from "@/components/pages/docs/LiveUpdateContent";
+import LiveUpdateContent from "@/components/pages/docs-pages/LiveUpdateContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

@@ -1,207 +1,180 @@
-import { SimpleTable, TableRefType, HeaderObject, Theme } from "simple-table-core";
-import { useRef, useEffect } from "react";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useState, useEffect } from "react";
 
-// Define headers
+// Headers with cell renderers
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60, type: "number" },
-  { accessor: "product", label: "Product", width: 180, type: "string" },
+  { accessor: "symbol", label: "Symbol", width: 100, type: "string" },
+  { accessor: "company", label: "Company", width: 200, type: "string" },
   {
     accessor: "price",
     label: "Price",
-    width: "1fr",
+    width: 120,
     type: "number",
     cellRenderer: ({ row }) => {
-      const price = row.rowData.price;
-      if (typeof price === "number") {
-        return `$${price.toFixed(2)}`;
-      }
-      return `$0.00`;
+      const price = row.price as number;
+      return `$${price.toFixed(2)}`;
     },
   },
-  { accessor: "stock", label: "In Stock", width: 120, type: "number" },
-  { accessor: "sales", label: "Sales", width: 120, type: "number" },
+  { accessor: "change", label: "Change", width: 120, type: "number" },
+  { accessor: "stock", label: "Stock", width: 100, type: "number" },
+  { accessor: "sales", label: "Sales", width: 100, type: "number" },
 ];
 
-// Sample data
+// Initial stock data with flat structure
 const initialData = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      product: "Widget A",
-      price: 19.99,
-      stock: 42,
-      sales: 120,
-    },
+    id: 1,
+    symbol: "AAPL",
+    company: "Apple Inc.",
+    price: 150.25,
+    change: 2.15,
+    stock: 100,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      product: "Widget B",
-      price: 24.99,
-      stock: 28,
-      sales: 85,
-    },
+    id: 2,
+    symbol: "MSFT",
+    company: "Microsoft Corp.",
+    price: 280.75,
+    change: -1.25,
+    stock: 150,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      product: "Widget C",
-      price: 15.99,
-      stock: 53,
-      sales: 210,
-    },
+    id: 3,
+    symbol: "GOOGL",
+    company: "Alphabet Inc.",
+    price: 2650.5,
+    change: 15.75,
+    stock: 75,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      product: "Widget D",
-      price: 29.99,
-      stock: 14,
-      sales: 65,
-    },
+    id: 4,
+    symbol: "AMZN",
+    company: "Amazon.com Inc.",
+    price: 3200.0,
+    change: -8.5,
+    stock: 50,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      product: "Widget E",
-      price: 12.99,
-      stock: 78,
-      sales: 180,
-    },
+    id: 5,
+    symbol: "TSLA",
+    company: "Tesla Inc.",
+    price: 720.25,
+    change: 12.3,
+    stock: 80,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      product: "Widget F",
-      price: 14.99,
-      stock: 32,
-      sales: 105,
-    },
+    id: 6,
+    symbol: "META",
+    company: "Meta Platforms",
+    price: 325.4,
+    change: -3.2,
+    stock: 120,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 7 },
-    rowData: {
-      id: 7,
-      product: "Widget G",
-      price: 16.99,
-      stock: 45,
-      sales: 150,
-    },
+    id: 7,
+    symbol: "NVDA",
+    company: "NVIDIA Corp.",
+    price: 450.8,
+    change: 8.9,
+    stock: 90,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      product: "Widget H",
-      price: 18.99,
-      stock: 22,
-      sales: 90,
-    },
+    id: 8,
+    symbol: "NFLX",
+    company: "Netflix Inc.",
+    price: 380.15,
+    change: -2.75,
+    stock: 110,
+    sales: 0,
   },
   {
-    rowMeta: { rowId: 9 },
-    rowData: {
-      id: 9,
-      product: "Widget I",
-      price: 13.99,
-      stock: 50,
-      sales: 120,
-    },
+    id: 9,
+    symbol: "AMD",
+    company: "Advanced Micro Devices",
+    price: 95.6,
+    change: 1.85,
+    stock: 200,
+    sales: 0,
   },
 ];
 
 const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
-  // Keep a local copy of the data to update
-  const tableRef = useRef<TableRefType | null>(null);
+  const [data, setData] = useState(initialData);
 
-  // Set up intervals for automatic updates
   useEffect(() => {
-    // Keep a copy of the current data in memory for calculations
-    const currentData = JSON.parse(JSON.stringify(initialData));
+    const interval = setInterval(() => {
+      setData((currentData) => {
+        const newData = [...currentData];
+        // Update a random stock price
+        const randomIndex = Math.floor(Math.random() * newData.length);
+        const currentPrice = newData[randomIndex].price;
+        const changePercent = (Math.random() - 0.5) * 0.1; // ±5% change
+        const newPrice = parseFloat((currentPrice * (1 + changePercent)).toFixed(2));
+        const priceChange = parseFloat((newPrice - currentPrice).toFixed(2));
 
-    // Update price at regular intervals
-    const priceInterval = setInterval(() => {
-      if (tableRef.current) {
-        // Pick a random row to update
-        const rowIndex = Math.floor(Math.random() * currentData.length);
+        newData[randomIndex] = {
+          ...newData[randomIndex],
+          price: newPrice,
+          change: priceChange,
+        };
 
-        // Generate a new price (±5% from current)
-        const currentPrice = currentData[rowIndex].rowData.price;
-        const randomFactor = 0.95 + Math.random() * 0.1; // between -5% and +5%
-        const newPrice = parseFloat((currentPrice * randomFactor).toFixed(2));
+        return newData;
+      });
+    }, 2000);
 
-        // Update our local copy
-        currentData[rowIndex].rowData.price = newPrice;
-
-        // Update the table with flash animation
-        tableRef.current.updateData({
-          accessor: "price",
-          rowIndex,
-          newValue: newPrice,
-        });
-      }
-    }, 500); // Update every 2 seconds
-
-    // Simulate sales activity (stock/sales updates)
-    const salesInterval = setInterval(() => {
-      if (tableRef.current) {
-        // Pick a random row that has stock
-        const availableRows = currentData
-          .map((row: (typeof initialData)[0], index: number) => ({
-            index,
-            stock: row.rowData.stock,
-          }))
-          .filter((item: { index: number; stock: number }) => item.stock > 0);
-
-        if (availableRows.length > 0) {
-          const randomItem = availableRows[Math.floor(Math.random() * availableRows.length)];
-          const rowIndex = randomItem.index;
-
-          // Decrease stock by 1
-          const newStock = currentData[rowIndex].rowData.stock - 1;
-          currentData[rowIndex].rowData.stock = newStock;
-
-          // Update stock in the table
-          tableRef.current.updateData({
-            accessor: "stock",
-            rowIndex,
-            newValue: newStock,
-          });
-
-          // Increase sales
-          const newSales = currentData[rowIndex].rowData.sales + 1;
-          currentData[rowIndex].rowData.sales = newSales;
-
-          // Update sales in the table
-          tableRef.current.updateData({
-            accessor: "sales",
-            rowIndex,
-            newValue: newSales,
-          });
-        }
-      }
-    }, 5000); // Update every 5 seconds
-
-    // Clean up intervals on unmount
-    return () => {
-      clearInterval(priceInterval);
-      clearInterval(salesInterval);
-    };
+    return () => clearInterval(interval);
   }, []);
+
+  const handleBuyStock = (rowIndex: number) => {
+    setData((currentData) => {
+      const newData = [...currentData];
+      if (newData[rowIndex].stock > 0) {
+        newData[rowIndex] = {
+          ...newData[rowIndex],
+          stock: newData[rowIndex].stock - 1,
+          sales: newData[rowIndex].sales + 1,
+        };
+      }
+      return newData;
+    });
+  };
+
+  // Add action column with buy button
+  const headersWithActions: HeaderObject[] = [
+    ...headers,
+    {
+      accessor: "actions",
+      label: "Actions",
+      width: 120,
+      cellRenderer: ({ row }) => {
+        const rowIndex = data.findIndex((item) => item.id === row.id);
+        const stock = row.stock as number;
+        return (
+          <button
+            onClick={() => handleBuyStock(rowIndex)}
+            disabled={stock <= 0}
+            className="px-3 py-1 bg-blue-500 text-white rounded text-sm hover:bg-blue-600 disabled:bg-gray-400 disabled:cursor-not-allowed"
+          >
+            Buy ({stock})
+          </button>
+        );
+      },
+    },
+  ];
 
   return (
     <SimpleTable
-      defaultHeaders={headers}
-      rows={initialData}
-      tableRef={tableRef}
-      cellUpdateFlash={true}
+      defaultHeaders={headersWithActions}
+      rows={data}
+      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

@@ -1,11 +1,13 @@
-import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
-import { SALES_HEADERS } from "./sales-headers";
-import rawData from "./sales-data.json";
-import { useState } from "react";
+import { SimpleTable, CellChangeProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useState } from "react";
+import { SALES_HEADERS } from "./sales-headers";
+import salesData from "./sales-data.json";
+
+const ROW_HEIGHT = 32;
 
 // Process the data to add the new fields
-const processedData = (rawData as Row[]).map((row: Row) => {
+const processedData = (salesData as any[]).map((row: any) => {
   // Generate a random close date in the past 90 days
   const today = new Date();
   const pastDate = new Date(today);
@@ -18,35 +20,29 @@ const processedData = (rawData as Row[]).map((row: Row) => {
 
   return {
     ...row,
-    rowData: {
-      ...row.rowData,
-      closeDate,
-      category,
-    },
+    closeDate,
+    category,
   };
 });
 
 export default function SalesExample({
-  height,
   onGridReady,
-  theme,
+  height,
+  theme = "light",
 }: {
-  height?: number | null;
   onGridReady?: () => void;
+  height?: number;
   theme?: Theme;
 }) {
   const [data, setData] = useState(processedData);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
-    setData((prevData) =>
-      prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+    setData((prevData: any) =>
+      prevData.map((item: any) => {
+        if (item.id === (row as any).id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -56,16 +52,20 @@ export default function SalesExample({
 
   return (
     <SimpleTable
-      columnResizing
       columnReordering
+      columnResizing
       defaultHeaders={SALES_HEADERS}
       editColumns
+      height={height ? `${height}px` : "70dvh"}
+      onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
       rows={data}
-      theme={theme}
+      rowIdAccessor="id"
+      rowHeight={ROW_HEIGHT}
       selectableCells
-      onCellEdit={handleCellEdit}
-      height={height ? `${height}px` : "70dvh"}
+      shouldPaginate
+      rowsPerPage={15}
+      theme={theme}
     />
   );
 }

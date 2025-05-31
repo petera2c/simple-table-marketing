@@ -16,6 +16,8 @@ export default function ManufacturingExample({
       columnReordering
       defaultHeaders={HEADERS}
       rows={MANUFACTURING_DATA}
+      rowIdAccessor="id"
+      rowGrouping={["productionLines", "stations"]}
       height={height ? `${height}px` : "70dvh"}
       theme={theme}
       selectableCells

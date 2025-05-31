@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import QuickStartContent from "@/components/pages/docs/QuickStartContent";
+import QuickStartContent from "@/components/pages/docs-pages/QuickStartContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

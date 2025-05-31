@@ -30,7 +30,7 @@ const generateMonthHeaders = () => {
           align: "right",
           type: "number",
           cellRenderer: ({ row, accessor }) => {
-            const balance = row.rowData[accessor] as number;
+            const balance = row[accessor] as number;
             if (!balance) return "—";
 
             return `$${balance.toLocaleString("en-US", {
@@ -49,7 +49,7 @@ const generateMonthHeaders = () => {
           align: "right",
           type: "number",
           cellRenderer: ({ row, accessor }) => {
-            const revenue = row.rowData[accessor] as number;
+            const revenue = row[accessor] as number;
             if (!revenue) return "—";
 
             return `$${revenue.toLocaleString("en-US", {
@@ -78,9 +78,9 @@ export const HEADERS: HeaderObject[] = [
     pinned: "left",
     type: "string",
     cellRenderer: ({ row }) => {
-      const name = row.rowData.name as string;
-
-      return <div className={row.rowData.type === "account" ? "font-semibold" : ""}>{name}</div>;
+      const name = row.name as string;
+      const type = row.type as string;
+      return <div className={type === "account" ? "font-semibold" : ""}>{name}</div>;
     },
   },
   {
@@ -92,7 +92,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const amount = row.rowData.amount as number;
+      const amount = row.amount as number;
       if (!amount) return "—";
 
       return `$${amount.toLocaleString("en-US", {
@@ -110,10 +110,9 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const amount = row.rowData.amount as number;
-      const deferred = row.rowData.deferredRevenue as number;
+      const deferred = row.deferredRevenue as number;
 
-      if (deferred === undefined || amount === undefined) return "—";
+      if (deferred === undefined) return "—";
 
       return `$${deferred.toLocaleString("en-US", {
         minimumFractionDigits: 2,
