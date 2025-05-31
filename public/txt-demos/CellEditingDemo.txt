@@ -136,27 +136,18 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   // State to track the data
-  const [data, setData] = useState(rows);
+  const [data, setData] = useState(EMPLOYEE_DATA);
 
   // Handle cell edit
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === row.id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -167,9 +158,10 @@ const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?:
   return (
     <SimpleTable
       defaultHeaders={headers}
-      rows={data}
-      onCellEdit={handleCellEdit}
       height={height}
+      onCellEdit={handleCellEdit}
+      rowIdAccessor="id"
+      rows={data}
       theme={theme}
     />
   );

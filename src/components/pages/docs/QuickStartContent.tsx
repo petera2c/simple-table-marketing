@@ -108,7 +108,7 @@ const QuickStartContent = () => {
             </li>
             <li>
               <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">rows</code> - Your data
-              array with rowMeta and rowData
+              array
             </li>
             <li>
               <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">height</code> - Table
@@ -127,26 +127,6 @@ const QuickStartContent = () => {
               Enable cell selection
             </li>
           </ul>
-        </div>
-
-        <div>
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
-            Data Structure
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-2">
-            Each row in your data should follow this structure:
-          </p>
-          <CodeBlock
-            code={`{
-  rowMeta: { rowId: number },
-  rowData: {
-    // Your actual data fields here
-    id: number,
-    name: string,
-    // ... other fields
-  }
-}`}
-          />
         </div>
       </motion.div>
 

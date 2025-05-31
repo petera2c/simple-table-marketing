@@ -1,1052 +1,802 @@
 [
   {
-    "rowMeta": {
-      "rowId": 0
-    },
-    "rowData": {
-      "id": 1211,
-      "department": "Marketing",
-      "firstName": "Betty",
-      "lastName": "Parker",
-      "fullName": "Betty Parker",
-      "position": "Assistant Marketer",
-      "email": "betty.parker@company.com",
-      "hireDate": "2024-11-17",
-      "yearsOfService": 0.5,
-      "salary": 79000,
-      "performanceScore": 100,
-      "location": "Los Angeles",
-      "status": "On Leave",
-      "isRemoteEligible": true
-    }
+    "id": 10452,
+    "department": "HR",
+    "firstName": "Carol",
+    "lastName": "Baker",
+    "fullName": "Carol Baker",
+    "position": "Lead Specialist",
+    "email": "carol.baker@company.com",
+    "hireDate": "2023-11-26",
+    "yearsOfService": 1.5,
+    "salary": 112000,
+    "performanceScore": 98,
+    "location": "Chicago",
+    "status": "Active",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 1
-    },
-    "rowData": {
-      "id": 4360,
-      "department": "Customer Support",
-      "firstName": "Cynthia",
-      "lastName": "Hill",
-      "fullName": "Cynthia Hill",
-      "position": "Coordinator Agent",
-      "email": "cynthia.hill@company.com",
-      "hireDate": "2018-03-20",
-      "yearsOfService": 7.2,
-      "salary": 78000,
-      "performanceScore": 91,
-      "location": "Chicago",
-      "status": "Active",
-      "isRemoteEligible": false
-    }
+    "id": 9673,
+    "department": "Finance",
+    "firstName": "Stephanie",
+    "lastName": "Baker",
+    "fullName": "Stephanie Baker",
+    "position": "Assistant Analyst",
+    "email": "stephanie.baker@company.com",
+    "hireDate": "2021-08-28",
+    "yearsOfService": 3.8,
+    "salary": 97000,
+    "performanceScore": 61,
+    "location": "Seattle",
+    "status": "Active",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 2
-    },
-    "rowData": {
-      "id": 10707,
-      "department": "Sales",
-      "firstName": "Ashley",
-      "lastName": "Harris",
-      "fullName": "Ashley Harris",
-      "position": "Executive Representative",
-      "email": "ashley.harris@company.com",
-      "hireDate": "2023-02-03",
-      "yearsOfService": 2.3,
-      "salary": 222000,
-      "performanceScore": 71,
-      "location": "Boston",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 5508,
+    "department": "Customer Support",
+    "firstName": "Mary",
+    "lastName": "Johnson",
+    "fullName": "Mary Johnson",
+    "position": "Coordinator Agent",
+    "email": "mary.johnson@company.com",
+    "hireDate": "2025-08-11",
+    "yearsOfService": -0.2,
+    "salary": 50000,
+    "performanceScore": 96,
+    "location": "Seattle",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 3
-    },
-    "rowData": {
-      "id": 10890,
-      "department": "Operations",
-      "firstName": "Margaret",
-      "lastName": "Evans",
-      "fullName": "Margaret Evans",
-      "position": "Specialist Manager",
-      "email": "margaret.evans@company.com",
-      "hireDate": "2021-03-02",
-      "yearsOfService": 4.2,
-      "salary": 77000,
-      "performanceScore": 62,
-      "location": "Chicago",
-      "status": "Probation",
-      "isRemoteEligible": true
-    }
+    "id": 3168,
+    "department": "Operations",
+    "firstName": "Melissa",
+    "lastName": "Baker",
+    "fullName": "Melissa Baker",
+    "position": "Analyst Manager",
+    "email": "melissa.baker@company.com",
+    "hireDate": "2025-03-02",
+    "yearsOfService": 0.2,
+    "salary": 87000,
+    "performanceScore": 97,
+    "location": "Los Angeles",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 4
-    },
-    "rowData": {
-      "id": 4335,
-      "department": "HR",
-      "firstName": "Anna",
-      "lastName": "King",
-      "fullName": "Anna King",
-      "position": "Intern Specialist",
-      "email": "anna.king@company.com",
-      "hireDate": "2025-10-05",
-      "yearsOfService": -0.4,
-      "salary": 26000,
-      "performanceScore": 63,
-      "location": "Chicago",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 2665,
+    "department": "Customer Support",
+    "firstName": "Nancy",
+    "lastName": "Hall",
+    "fullName": "Nancy Hall",
+    "position": "Junior Agent",
+    "email": "nancy.hall@company.com",
+    "hireDate": "2024-05-25",
+    "yearsOfService": 1,
+    "salary": 97000,
+    "performanceScore": 75,
+    "location": "San Francisco",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 5
-    },
-    "rowData": {
-      "id": 1257,
-      "department": "HR",
-      "firstName": "Cynthia",
-      "lastName": "White",
-      "fullName": "Cynthia White",
-      "position": "Specialist Specialist",
-      "email": "cynthia.white@company.com",
-      "hireDate": "2023-02-25",
-      "yearsOfService": 2.2,
-      "salary": 98000,
-      "performanceScore": 95,
-      "location": "New York",
-      "status": "Active",
-      "isRemoteEligible": false
-    }
+    "id": 7203,
+    "department": "Marketing",
+    "firstName": "Jennifer",
+    "lastName": "Roberts",
+    "fullName": "Jennifer Roberts",
+    "position": "Head Marketer",
+    "email": "jennifer.roberts@company.com",
+    "hireDate": "2019-05-01",
+    "yearsOfService": 6.1,
+    "salary": 155000,
+    "performanceScore": 76,
+    "location": "New York",
+    "status": "On Leave",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 6
-    },
-    "rowData": {
-      "id": 3949,
-      "department": "Sales",
-      "firstName": "Sarah",
-      "lastName": "Mitchell",
-      "fullName": "Sarah Mitchell",
-      "position": "Lead Representative",
-      "email": "sarah.mitchell@company.com",
-      "hireDate": "2024-06-06",
-      "yearsOfService": 0.9,
-      "salary": 90000,
-      "performanceScore": 90,
-      "location": "Boston",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 7229,
+    "department": "Sales",
+    "firstName": "Sarah",
+    "lastName": "Davis",
+    "fullName": "Sarah Davis",
+    "position": "Associate Representative",
+    "email": "sarah.davis@company.com",
+    "hireDate": "2023-05-24",
+    "yearsOfService": 2,
+    "salary": 67000,
+    "performanceScore": 99,
+    "location": "Chicago",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 7
-    },
-    "rowData": {
-      "id": 1554,
-      "department": "Customer Support",
-      "firstName": "Donna",
-      "lastName": "Brown",
-      "fullName": "Donna Brown",
-      "position": "Executive Agent",
-      "email": "donna.brown@company.com",
-      "hireDate": "2019-08-20",
-      "yearsOfService": 5.7,
-      "salary": 180000,
-      "performanceScore": 87,
-      "location": "Austin",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 2781,
+    "department": "HR",
+    "firstName": "Margaret",
+    "lastName": "Hill",
+    "fullName": "Margaret Hill",
+    "position": "Analyst Specialist",
+    "email": "margaret.hill@company.com",
+    "hireDate": "2019-10-28",
+    "yearsOfService": 5.6,
+    "salary": 98000,
+    "performanceScore": 62,
+    "location": "Chicago",
+    "status": "On Leave",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 8
-    },
-    "rowData": {
-      "id": 5272,
-      "department": "Customer Support",
-      "firstName": "Karen",
-      "lastName": "Carter",
-      "fullName": "Karen Carter",
-      "position": "Head Agent",
-      "email": "karen.carter@company.com",
-      "hireDate": "2024-09-26",
-      "yearsOfService": 0.6,
-      "salary": 135000,
-      "performanceScore": 69,
-      "location": "New York",
-      "status": "Terminated",
-      "isRemoteEligible": true
-    }
+    "id": 9253,
+    "department": "Marketing",
+    "firstName": "Michael",
+    "lastName": "Jones",
+    "fullName": "Michael Jones",
+    "position": "Coordinator Marketer",
+    "email": "michael.jones@company.com",
+    "hireDate": "2020-10-16",
+    "yearsOfService": 4.6,
+    "salary": 52000,
+    "performanceScore": 94,
+    "location": "San Francisco",
+    "status": "On Leave",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 9
-    },
-    "rowData": {
-      "id": 5575,
-      "department": "Engineering",
-      "firstName": "John",
-      "lastName": "Hill",
-      "fullName": "John Hill",
-      "position": "Intern Engineer",
-      "email": "john.hill@company.com",
-      "hireDate": "2025-08-24",
-      "yearsOfService": -0.3,
-      "salary": 47000,
-      "performanceScore": 83,
-      "location": "San Francisco",
-      "status": "Active",
-      "isRemoteEligible": false
-    }
+    "id": 1550,
+    "department": "Customer Support",
+    "firstName": "Cynthia",
+    "lastName": "Turner",
+    "fullName": "Cynthia Turner",
+    "position": "Executive Agent",
+    "email": "cynthia.turner@company.com",
+    "hireDate": "2017-08-10",
+    "yearsOfService": 7.8,
+    "salary": 195000,
+    "performanceScore": 62,
+    "location": "Boston",
+    "status": "Terminated",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 10
-    },
-    "rowData": {
-      "id": 5630,
-      "department": "Marketing",
-      "firstName": "Linda",
-      "lastName": "Scott",
-      "fullName": "Linda Scott",
-      "position": "Manager Marketer",
-      "email": "linda.scott@company.com",
-      "hireDate": "2022-04-25",
-      "yearsOfService": 3.1,
-      "salary": 110000,
-      "performanceScore": 88,
-      "location": "Boston",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 4688,
+    "department": "HR",
+    "firstName": "Rebecca",
+    "lastName": "Hernandez",
+    "fullName": "Rebecca Hernandez",
+    "position": "Coordinator Specialist",
+    "email": "rebecca.hernandez@company.com",
+    "hireDate": "2017-09-06",
+    "yearsOfService": 7.7,
+    "salary": 88000,
+    "performanceScore": 64,
+    "location": "New York",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 11
-    },
-    "rowData": {
-      "id": 7597,
-      "department": "Operations",
-      "firstName": "James",
-      "lastName": "Clark",
-      "fullName": "James Clark",
-      "position": "Assistant Manager",
-      "email": "james.clark@company.com",
-      "hireDate": "2019-12-26",
-      "yearsOfService": 5.4,
-      "salary": 53000,
-      "performanceScore": 61,
-      "location": "Remote",
-      "status": "Terminated",
-      "isRemoteEligible": true
-    }
+    "id": 3985,
+    "department": "Finance",
+    "firstName": "Sandra",
+    "lastName": "Campbell",
+    "fullName": "Sandra Campbell",
+    "position": "Director Analyst",
+    "email": "sandra.campbell@company.com",
+    "hireDate": "2023-12-20",
+    "yearsOfService": 1.4,
+    "salary": 186000,
+    "performanceScore": 66,
+    "location": "Remote",
+    "status": "On Leave",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 12
-    },
-    "rowData": {
-      "id": 1168,
-      "department": "Customer Support",
-      "firstName": "Emily",
-      "lastName": "Robinson",
-      "fullName": "Emily Robinson",
-      "position": "Intern Agent",
-      "email": "emily.robinson@company.com",
-      "hireDate": "2022-05-25",
-      "yearsOfService": 3,
-      "salary": 48000,
-      "performanceScore": 68,
-      "location": "Austin",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 9289,
+    "department": "Customer Support",
+    "firstName": "Barbara",
+    "lastName": "Campbell",
+    "fullName": "Barbara Campbell",
+    "position": "Senior Agent",
+    "email": "barbara.campbell@company.com",
+    "hireDate": "2025-05-15",
+    "yearsOfService": 0,
+    "salary": 117000,
+    "performanceScore": 66,
+    "location": "Los Angeles",
+    "status": "On Leave",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 13
-    },
-    "rowData": {
-      "id": 5215,
-      "department": "Sales",
-      "firstName": "David",
-      "lastName": "Martinez",
-      "fullName": "David Martinez",
-      "position": "Associate Representative",
-      "email": "david.martinez@company.com",
-      "hireDate": "2021-02-05",
-      "yearsOfService": 4.3,
-      "salary": 83000,
-      "performanceScore": 86,
-      "location": "Boston",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 3294,
+    "department": "Finance",
+    "firstName": "Katherine",
+    "lastName": "Hall",
+    "fullName": "Katherine Hall",
+    "position": "Manager Analyst",
+    "email": "katherine.hall@company.com",
+    "hireDate": "2021-03-22",
+    "yearsOfService": 4.2,
+    "salary": 196000,
+    "performanceScore": 91,
+    "location": "Los Angeles",
+    "status": "On Leave",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 14
-    },
-    "rowData": {
-      "id": 4148,
-      "department": "Customer Support",
-      "firstName": "Dorothy",
-      "lastName": "Thomas",
-      "fullName": "Dorothy Thomas",
-      "position": "Analyst Agent",
-      "email": "dorothy.thomas@company.com",
-      "hireDate": "2018-08-23",
-      "yearsOfService": 6.7,
-      "salary": 55000,
-      "performanceScore": 79,
-      "location": "Boston",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 8876,
+    "department": "Operations",
+    "firstName": "Dorothy",
+    "lastName": "Harris",
+    "fullName": "Dorothy Harris",
+    "position": "Lead Manager",
+    "email": "dorothy.harris@company.com",
+    "hireDate": "2021-06-16",
+    "yearsOfService": 4,
+    "salary": 109000,
+    "performanceScore": 89,
+    "location": "San Francisco",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 15
-    },
-    "rowData": {
-      "id": 2586,
-      "department": "Sales",
-      "firstName": "Katherine",
-      "lastName": "Young",
-      "fullName": "Katherine Young",
-      "position": "Manager Representative",
-      "email": "katherine.young@company.com",
-      "hireDate": "2021-08-24",
-      "yearsOfService": 3.7,
-      "salary": 166000,
-      "performanceScore": 76,
-      "location": "Seattle",
-      "status": "Terminated",
-      "isRemoteEligible": true
-    }
+    "id": 10049,
+    "department": "Customer Support",
+    "firstName": "Sharon",
+    "lastName": "Green",
+    "fullName": "Sharon Green",
+    "position": "Coordinator Agent",
+    "email": "sharon.green@company.com",
+    "hireDate": "2024-01-12",
+    "yearsOfService": 1.4,
+    "salary": 82000,
+    "performanceScore": 90,
+    "location": "Chicago",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 16
-    },
-    "rowData": {
-      "id": 3803,
-      "department": "HR",
-      "firstName": "Susan",
-      "lastName": "Hill",
-      "fullName": "Susan Hill",
-      "position": "Head Specialist",
-      "email": "susan.hill@company.com",
-      "hireDate": "2020-01-28",
-      "yearsOfService": 5.3,
-      "salary": 225000,
-      "performanceScore": 67,
-      "location": "Boston",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 6793,
+    "department": "Customer Support",
+    "firstName": "Linda",
+    "lastName": "Martinez",
+    "fullName": "Linda Martinez",
+    "position": "Senior Agent",
+    "email": "linda.martinez@company.com",
+    "hireDate": "2021-10-11",
+    "yearsOfService": 3.6,
+    "salary": 148000,
+    "performanceScore": 91,
+    "location": "Boston",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 17
-    },
-    "rowData": {
-      "id": 3501,
-      "department": "Marketing",
-      "firstName": "Ruth",
-      "lastName": "Nelson",
-      "fullName": "Ruth Nelson",
-      "position": "Executive Marketer",
-      "email": "ruth.nelson@company.com",
-      "hireDate": "2022-07-01",
-      "yearsOfService": 2.9,
-      "salary": 185000,
-      "performanceScore": 92,
-      "location": "New York",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 7057,
+    "department": "Engineering",
+    "firstName": "Amy",
+    "lastName": "Jackson",
+    "fullName": "Amy Jackson",
+    "position": "Manager Engineer",
+    "email": "amy.jackson@company.com",
+    "hireDate": "2019-12-27",
+    "yearsOfService": 5.4,
+    "salary": 106000,
+    "performanceScore": 79,
+    "location": "Seattle",
+    "status": "On Leave",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 18
-    },
-    "rowData": {
-      "id": 5833,
-      "department": "Marketing",
-      "firstName": "Anna",
-      "lastName": "Harris",
-      "fullName": "Anna Harris",
-      "position": "Manager Marketer",
-      "email": "anna.harris@company.com",
-      "hireDate": "2022-03-03",
-      "yearsOfService": 3.2,
-      "salary": 124000,
-      "performanceScore": 79,
-      "location": "Seattle",
-      "status": "Terminated",
-      "isRemoteEligible": false
-    }
+    "id": 6674,
+    "department": "Engineering",
+    "firstName": "Kathleen",
+    "lastName": "Wright",
+    "fullName": "Kathleen Wright",
+    "position": "Specialist Engineer",
+    "email": "kathleen.wright@company.com",
+    "hireDate": "2016-09-10",
+    "yearsOfService": 8.7,
+    "salary": 78000,
+    "performanceScore": 70,
+    "location": "Chicago",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 19
-    },
-    "rowData": {
-      "id": 5981,
-      "department": "HR",
-      "firstName": "Sandra",
-      "lastName": "Roberts",
-      "fullName": "Sandra Roberts",
-      "position": "Associate Specialist",
-      "email": "sandra.roberts@company.com",
-      "hireDate": "2020-10-23",
-      "yearsOfService": 4.6,
-      "salary": 96000,
-      "performanceScore": 96,
-      "location": "Remote",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 3645,
+    "department": "HR",
+    "firstName": "Sandra",
+    "lastName": "Thomas",
+    "fullName": "Sandra Thomas",
+    "position": "Head Specialist",
+    "email": "sandra.thomas@company.com",
+    "hireDate": "2019-12-12",
+    "yearsOfService": 5.5,
+    "salary": 162000,
+    "performanceScore": 97,
+    "location": "Boston",
+    "status": "On Leave",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 20
-    },
-    "rowData": {
-      "id": 7994,
-      "department": "Sales",
-      "firstName": "Emily",
-      "lastName": "Rodriguez",
-      "fullName": "Emily Rodriguez",
-      "position": "Senior Representative",
-      "email": "emily.rodriguez@company.com",
-      "hireDate": "2020-01-21",
-      "yearsOfService": 5.3,
-      "salary": 76000,
-      "performanceScore": 61,
-      "location": "Austin",
-      "status": "Active",
-      "isRemoteEligible": false
-    }
+    "id": 1310,
+    "department": "Sales",
+    "firstName": "John",
+    "lastName": "Hall",
+    "fullName": "John Hall",
+    "position": "Specialist Representative",
+    "email": "john.hall@company.com",
+    "hireDate": "2016-03-28",
+    "yearsOfService": 9.2,
+    "salary": 55000,
+    "performanceScore": 96,
+    "location": "Seattle",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 21
-    },
-    "rowData": {
-      "id": 3173,
-      "department": "Sales",
-      "firstName": "Emily",
-      "lastName": "Gonzalez",
-      "fullName": "Emily Gonzalez",
-      "position": "Executive Representative",
-      "email": "emily.gonzalez@company.com",
-      "hireDate": "2022-08-17",
-      "yearsOfService": 2.8,
-      "salary": 172000,
-      "performanceScore": 99,
-      "location": "Chicago",
-      "status": "Terminated",
-      "isRemoteEligible": false
-    }
+    "id": 1364,
+    "department": "Sales",
+    "firstName": "Robert",
+    "lastName": "Gonzalez",
+    "fullName": "Robert Gonzalez",
+    "position": "Director Representative",
+    "email": "robert.gonzalez@company.com",
+    "hireDate": "2023-01-27",
+    "yearsOfService": 2.3,
+    "salary": 116000,
+    "performanceScore": 98,
+    "location": "Remote",
+    "status": "Terminated",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 22
-    },
-    "rowData": {
-      "id": 4302,
-      "department": "Sales",
-      "firstName": "Linda",
-      "lastName": "Nelson",
-      "fullName": "Linda Nelson",
-      "position": "Intern Representative",
-      "email": "linda.nelson@company.com",
-      "hireDate": "2024-05-16",
-      "yearsOfService": 1,
-      "salary": 40000,
-      "performanceScore": 73,
-      "location": "San Francisco",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 4887,
+    "department": "Marketing",
+    "firstName": "Ruth",
+    "lastName": "Scott",
+    "fullName": "Ruth Scott",
+    "position": "Director Marketer",
+    "email": "ruth.scott@company.com",
+    "hireDate": "2019-09-07",
+    "yearsOfService": 5.7,
+    "salary": 154000,
+    "performanceScore": 87,
+    "location": "Chicago",
+    "status": "Terminated",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 23
-    },
-    "rowData": {
-      "id": 9921,
-      "department": "Finance",
-      "firstName": "Robert",
-      "lastName": "Green",
-      "fullName": "Robert Green",
-      "position": "Analyst Analyst",
-      "email": "robert.green@company.com",
-      "hireDate": "2024-06-28",
-      "yearsOfService": 0.9,
-      "salary": 94000,
-      "performanceScore": 85,
-      "location": "Boston",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 4279,
+    "department": "HR",
+    "firstName": "Linda",
+    "lastName": "Walker",
+    "fullName": "Linda Walker",
+    "position": "Intern Specialist",
+    "email": "linda.walker@company.com",
+    "hireDate": "2022-10-22",
+    "yearsOfService": 2.6,
+    "salary": 43000,
+    "performanceScore": 86,
+    "location": "Austin",
+    "status": "On Leave",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 24
-    },
-    "rowData": {
-      "id": 7526,
-      "department": "Customer Support",
-      "firstName": "Dorothy",
-      "lastName": "Thomas",
-      "fullName": "Dorothy Thomas",
-      "position": "Manager Agent",
-      "email": "dorothy.thomas@company.com",
-      "hireDate": "2018-07-27",
-      "yearsOfService": 6.8,
-      "salary": 102000,
-      "performanceScore": 68,
-      "location": "New York",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 5976,
+    "department": "Sales",
+    "firstName": "Linda",
+    "lastName": "Allen",
+    "fullName": "Linda Allen",
+    "position": "Coordinator Representative",
+    "email": "linda.allen@company.com",
+    "hireDate": "2022-01-04",
+    "yearsOfService": 3.4,
+    "salary": 63000,
+    "performanceScore": 90,
+    "location": "Remote",
+    "status": "Terminated",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 25
-    },
-    "rowData": {
-      "id": 7624,
-      "department": "Customer Support",
-      "firstName": "Nancy",
-      "lastName": "Moore",
-      "fullName": "Nancy Moore",
-      "position": "Manager Agent",
-      "email": "nancy.moore@company.com",
-      "hireDate": "2025-10-28",
-      "yearsOfService": -0.4,
-      "salary": 162000,
-      "performanceScore": 77,
-      "location": "Remote",
-      "status": "Probation",
-      "isRemoteEligible": false
-    }
+    "id": 3588,
+    "department": "Sales",
+    "firstName": "Shirley",
+    "lastName": "Lopez",
+    "fullName": "Shirley Lopez",
+    "position": "Assistant Representative",
+    "email": "shirley.lopez@company.com",
+    "hireDate": "2024-06-19",
+    "yearsOfService": 1,
+    "salary": 89000,
+    "performanceScore": 80,
+    "location": "Boston",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 26
-    },
-    "rowData": {
-      "id": 9389,
-      "department": "Operations",
-      "firstName": "Amanda",
-      "lastName": "Thomas",
-      "fullName": "Amanda Thomas",
-      "position": "Analyst Manager",
-      "email": "amanda.thomas@company.com",
-      "hireDate": "2024-11-03",
-      "yearsOfService": 0.5,
-      "salary": 85000,
-      "performanceScore": 64,
-      "location": "New York",
-      "status": "On Leave",
-      "isRemoteEligible": true
-    }
+    "id": 9807,
+    "department": "Sales",
+    "firstName": "Kimberly",
+    "lastName": "Evans",
+    "fullName": "Kimberly Evans",
+    "position": "Intern Representative",
+    "email": "kimberly.evans@company.com",
+    "hireDate": "2022-09-18",
+    "yearsOfService": 2.7,
+    "salary": 31000,
+    "performanceScore": 61,
+    "location": "Remote",
+    "status": "Active",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 27
-    },
-    "rowData": {
-      "id": 1617,
-      "department": "Operations",
-      "firstName": "Margaret",
-      "lastName": "Green",
-      "fullName": "Margaret Green",
-      "position": "Junior Manager",
-      "email": "margaret.green@company.com",
-      "hireDate": "2023-07-21",
-      "yearsOfService": 1.8,
-      "salary": 81000,
-      "performanceScore": 65,
-      "location": "Remote",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 4582,
+    "department": "Customer Support",
+    "firstName": "Michelle",
+    "lastName": "Roberts",
+    "fullName": "Michelle Roberts",
+    "position": "Specialist Agent",
+    "email": "michelle.roberts@company.com",
+    "hireDate": "2021-05-16",
+    "yearsOfService": 4,
+    "salary": 61000,
+    "performanceScore": 89,
+    "location": "San Francisco",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 28
-    },
-    "rowData": {
-      "id": 9547,
-      "department": "Engineering",
-      "firstName": "Barbara",
-      "lastName": "Martinez",
-      "fullName": "Barbara Martinez",
-      "position": "Associate Engineer",
-      "email": "barbara.martinez@company.com",
-      "hireDate": "2022-01-28",
-      "yearsOfService": 3.3,
-      "salary": 54000,
-      "performanceScore": 87,
-      "location": "Los Angeles",
-      "status": "Active",
-      "isRemoteEligible": false
-    }
+    "id": 8800,
+    "department": "Marketing",
+    "firstName": "Carol",
+    "lastName": "Miller",
+    "fullName": "Carol Miller",
+    "position": "Junior Marketer",
+    "email": "carol.miller@company.com",
+    "hireDate": "2024-10-14",
+    "yearsOfService": 0.6,
+    "salary": 86000,
+    "performanceScore": 67,
+    "location": "San Francisco",
+    "status": "Contract",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 29
-    },
-    "rowData": {
-      "id": 4476,
-      "department": "Sales",
-      "firstName": "Mary",
-      "lastName": "Young",
-      "fullName": "Mary Young",
-      "position": "Executive Representative",
-      "email": "mary.young@company.com",
-      "hireDate": "2021-03-14",
-      "yearsOfService": 4.2,
-      "salary": 152000,
-      "performanceScore": 61,
-      "location": "Los Angeles",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 6900,
+    "department": "Customer Support",
+    "firstName": "Deborah",
+    "lastName": "Phillips",
+    "fullName": "Deborah Phillips",
+    "position": "Manager Agent",
+    "email": "deborah.phillips@company.com",
+    "hireDate": "2025-08-28",
+    "yearsOfService": -0.2,
+    "salary": 152000,
+    "performanceScore": 77,
+    "location": "Chicago",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 30
-    },
-    "rowData": {
-      "id": 4886,
-      "department": "Operations",
-      "firstName": "Cynthia",
-      "lastName": "Nelson",
-      "fullName": "Cynthia Nelson",
-      "position": "Manager Manager",
-      "email": "cynthia.nelson@company.com",
-      "hireDate": "2018-07-28",
-      "yearsOfService": 6.8,
-      "salary": 102000,
-      "performanceScore": 85,
-      "location": "Los Angeles",
-      "status": "Probation",
-      "isRemoteEligible": false
-    }
+    "id": 7097,
+    "department": "Marketing",
+    "firstName": "Betty",
+    "lastName": "Walker",
+    "fullName": "Betty Walker",
+    "position": "Junior Marketer",
+    "email": "betty.walker@company.com",
+    "hireDate": "2017-07-06",
+    "yearsOfService": 7.9,
+    "salary": 68000,
+    "performanceScore": 86,
+    "location": "Remote",
+    "status": "Active",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 31
-    },
-    "rowData": {
-      "id": 10758,
-      "department": "Engineering",
-      "firstName": "Amy",
-      "lastName": "Wilson",
-      "fullName": "Amy Wilson",
-      "position": "Lead Engineer",
-      "email": "amy.wilson@company.com",
-      "hireDate": "2021-05-18",
-      "yearsOfService": 4,
-      "salary": 76000,
-      "performanceScore": 84,
-      "location": "New York",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 2237,
+    "department": "Operations",
+    "firstName": "Karen",
+    "lastName": "Lewis",
+    "fullName": "Karen Lewis",
+    "position": "Coordinator Manager",
+    "email": "karen.lewis@company.com",
+    "hireDate": "2019-05-28",
+    "yearsOfService": 6,
+    "salary": 73000,
+    "performanceScore": 64,
+    "location": "New York",
+    "status": "Active",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 32
-    },
-    "rowData": {
-      "id": 9894,
-      "department": "Engineering",
-      "firstName": "Samantha",
-      "lastName": "Taylor",
-      "fullName": "Samantha Taylor",
-      "position": "Executive Engineer",
-      "email": "samantha.taylor@company.com",
-      "hireDate": "2024-10-16",
-      "yearsOfService": 0.6,
-      "salary": 142000,
-      "performanceScore": 86,
-      "location": "San Francisco",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 2651,
+    "department": "Sales",
+    "firstName": "Sharon",
+    "lastName": "Garcia",
+    "fullName": "Sharon Garcia",
+    "position": "Intern Representative",
+    "email": "sharon.garcia@company.com",
+    "hireDate": "2018-12-15",
+    "yearsOfService": 6.5,
+    "salary": 31000,
+    "performanceScore": 73,
+    "location": "Austin",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 33
-    },
-    "rowData": {
-      "id": 10876,
-      "department": "Engineering",
-      "firstName": "Katherine",
-      "lastName": "Hall",
-      "fullName": "Katherine Hall",
-      "position": "Head Engineer",
-      "email": "katherine.hall@company.com",
-      "hireDate": "2018-02-08",
-      "yearsOfService": 7.3,
-      "salary": 242000,
-      "performanceScore": 64,
-      "location": "Chicago",
-      "status": "On Leave",
-      "isRemoteEligible": true
-    }
+    "id": 8503,
+    "department": "HR",
+    "firstName": "Brenda",
+    "lastName": "Allen",
+    "fullName": "Brenda Allen",
+    "position": "Coordinator Specialist",
+    "email": "brenda.allen@company.com",
+    "hireDate": "2016-05-24",
+    "yearsOfService": 9,
+    "salary": 62000,
+    "performanceScore": 66,
+    "location": "San Francisco",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 34
-    },
-    "rowData": {
-      "id": 3172,
-      "department": "HR",
-      "firstName": "Ruth",
-      "lastName": "Jackson",
-      "fullName": "Ruth Jackson",
-      "position": "Executive Specialist",
-      "email": "ruth.jackson@company.com",
-      "hireDate": "2016-09-16",
-      "yearsOfService": 8.7,
-      "salary": 195000,
-      "performanceScore": 75,
-      "location": "Chicago",
-      "status": "Probation",
-      "isRemoteEligible": false
-    }
+    "id": 9038,
+    "department": "HR",
+    "firstName": "Rebecca",
+    "lastName": "Thompson",
+    "fullName": "Rebecca Thompson",
+    "position": "Coordinator Specialist",
+    "email": "rebecca.thompson@company.com",
+    "hireDate": "2019-02-25",
+    "yearsOfService": 6.3,
+    "salary": 78000,
+    "performanceScore": 76,
+    "location": "Austin",
+    "status": "Active",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 35
-    },
-    "rowData": {
-      "id": 10637,
-      "department": "Sales",
-      "firstName": "Robert",
-      "lastName": "Davis",
-      "fullName": "Robert Davis",
-      "position": "Assistant Representative",
-      "email": "robert.davis@company.com",
-      "hireDate": "2016-03-14",
-      "yearsOfService": 9.2,
-      "salary": 67000,
-      "performanceScore": 97,
-      "location": "Chicago",
-      "status": "On Leave",
-      "isRemoteEligible": true
-    }
+    "id": 10337,
+    "department": "HR",
+    "firstName": "Dorothy",
+    "lastName": "Martin",
+    "fullName": "Dorothy Martin",
+    "position": "Assistant Specialist",
+    "email": "dorothy.martin@company.com",
+    "hireDate": "2017-01-17",
+    "yearsOfService": 8.4,
+    "salary": 99000,
+    "performanceScore": 77,
+    "location": "San Francisco",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 36
-    },
-    "rowData": {
-      "id": 9644,
-      "department": "Sales",
-      "firstName": "Melissa",
-      "lastName": "Brown",
-      "fullName": "Melissa Brown",
-      "position": "Junior Representative",
-      "email": "melissa.brown@company.com",
-      "hireDate": "2020-04-07",
-      "yearsOfService": 5.1,
-      "salary": 74000,
-      "performanceScore": 73,
-      "location": "Austin",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 2761,
+    "department": "Finance",
+    "firstName": "Anna",
+    "lastName": "Moore",
+    "fullName": "Anna Moore",
+    "position": "Manager Analyst",
+    "email": "anna.moore@company.com",
+    "hireDate": "2025-04-07",
+    "yearsOfService": 0.2,
+    "salary": 100000,
+    "performanceScore": 92,
+    "location": "Los Angeles",
+    "status": "Probation",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 37
-    },
-    "rowData": {
-      "id": 1340,
-      "department": "Operations",
-      "firstName": "Jennifer",
-      "lastName": "Martin",
-      "fullName": "Jennifer Martin",
-      "position": "Associate Manager",
-      "email": "jennifer.martin@company.com",
-      "hireDate": "2024-06-08",
-      "yearsOfService": 0.9,
-      "salary": 83000,
-      "performanceScore": 68,
-      "location": "New York",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 6556,
+    "department": "Customer Support",
+    "firstName": "Linda",
+    "lastName": "Green",
+    "fullName": "Linda Green",
+    "position": "Junior Agent",
+    "email": "linda.green@company.com",
+    "hireDate": "2024-02-02",
+    "yearsOfService": 1.3,
+    "salary": 89000,
+    "performanceScore": 93,
+    "location": "Los Angeles",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 38
-    },
-    "rowData": {
-      "id": 10052,
-      "department": "Customer Support",
-      "firstName": "Christine",
-      "lastName": "Turner",
-      "fullName": "Christine Turner",
-      "position": "Head Agent",
-      "email": "christine.turner@company.com",
-      "hireDate": "2022-10-26",
-      "yearsOfService": 2.6,
-      "salary": 145000,
-      "performanceScore": 78,
-      "location": "Remote",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 9855,
+    "department": "Customer Support",
+    "firstName": "Lisa",
+    "lastName": "Thompson",
+    "fullName": "Lisa Thompson",
+    "position": "Specialist Agent",
+    "email": "lisa.thompson@company.com",
+    "hireDate": "2023-07-24",
+    "yearsOfService": 1.9,
+    "salary": 93000,
+    "performanceScore": 62,
+    "location": "New York",
+    "status": "Contract",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 39
-    },
-    "rowData": {
-      "id": 6063,
-      "department": "Marketing",
-      "firstName": "Katherine",
-      "lastName": "Adams",
-      "fullName": "Katherine Adams",
-      "position": "Junior Marketer",
-      "email": "katherine.adams@company.com",
-      "hireDate": "2025-10-28",
-      "yearsOfService": -0.4,
-      "salary": 68000,
-      "performanceScore": 72,
-      "location": "Remote",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 7802,
+    "department": "Customer Support",
+    "firstName": "Stephanie",
+    "lastName": "Harris",
+    "fullName": "Stephanie Harris",
+    "position": "Analyst Agent",
+    "email": "stephanie.harris@company.com",
+    "hireDate": "2025-02-13",
+    "yearsOfService": 0.3,
+    "salary": 78000,
+    "performanceScore": 100,
+    "location": "Remote",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 40
-    },
-    "rowData": {
-      "id": 2142,
-      "department": "HR",
-      "firstName": "Susan",
-      "lastName": "Taylor",
-      "fullName": "Susan Taylor",
-      "position": "Senior Specialist",
-      "email": "susan.taylor@company.com",
-      "hireDate": "2025-05-24",
-      "yearsOfService": 0,
-      "salary": 141000,
-      "performanceScore": 98,
-      "location": "San Francisco",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 1920,
+    "department": "Operations",
+    "firstName": "Michelle",
+    "lastName": "Hernandez",
+    "fullName": "Michelle Hernandez",
+    "position": "Junior Manager",
+    "email": "michelle.hernandez@company.com",
+    "hireDate": "2025-01-28",
+    "yearsOfService": 0.3,
+    "salary": 56000,
+    "performanceScore": 97,
+    "location": "Chicago",
+    "status": "Contract",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 41
-    },
-    "rowData": {
-      "id": 5991,
-      "department": "HR",
-      "firstName": "Karen",
-      "lastName": "Martin",
-      "fullName": "Karen Martin",
-      "position": "Coordinator Specialist",
-      "email": "karen.martin@company.com",
-      "hireDate": "2022-07-20",
-      "yearsOfService": 2.8,
-      "salary": 66000,
-      "performanceScore": 86,
-      "location": "Seattle",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 1889,
+    "department": "Engineering",
+    "firstName": "Karen",
+    "lastName": "Jones",
+    "fullName": "Karen Jones",
+    "position": "Intern Engineer",
+    "email": "karen.jones@company.com",
+    "hireDate": "2023-12-06",
+    "yearsOfService": 1.5,
+    "salary": 45000,
+    "performanceScore": 73,
+    "location": "New York",
+    "status": "Probation",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 42
-    },
-    "rowData": {
-      "id": 7665,
-      "department": "Finance",
-      "firstName": "Betty",
-      "lastName": "Evans",
-      "fullName": "Betty Evans",
-      "position": "Executive Analyst",
-      "email": "betty.evans@company.com",
-      "hireDate": "2024-06-09",
-      "yearsOfService": 0.9,
-      "salary": 197000,
-      "performanceScore": 68,
-      "location": "Remote",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 5395,
+    "department": "Operations",
+    "firstName": "Michelle",
+    "lastName": "King",
+    "fullName": "Michelle King",
+    "position": "Associate Manager",
+    "email": "michelle.king@company.com",
+    "hireDate": "2025-10-01",
+    "yearsOfService": -0.3,
+    "salary": 59000,
+    "performanceScore": 83,
+    "location": "Boston",
+    "status": "Probation",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 43
-    },
-    "rowData": {
-      "id": 1857,
-      "department": "Finance",
-      "firstName": "Brenda",
-      "lastName": "Lopez",
-      "fullName": "Brenda Lopez",
-      "position": "Intern Analyst",
-      "email": "brenda.lopez@company.com",
-      "hireDate": "2024-11-02",
-      "yearsOfService": 0.5,
-      "salary": 49000,
-      "performanceScore": 61,
-      "location": "Remote",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 2733,
+    "department": "Sales",
+    "firstName": "Amy",
+    "lastName": "Harris",
+    "fullName": "Amy Harris",
+    "position": "Lead Representative",
+    "email": "amy.harris@company.com",
+    "hireDate": "2017-08-14",
+    "yearsOfService": 7.8,
+    "salary": 108000,
+    "performanceScore": 79,
+    "location": "Chicago",
+    "status": "Active",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 44
-    },
-    "rowData": {
-      "id": 1584,
-      "department": "Engineering",
-      "firstName": "Katherine",
-      "lastName": "Robinson",
-      "fullName": "Katherine Robinson",
-      "position": "Senior Engineer",
-      "email": "katherine.robinson@company.com",
-      "hireDate": "2018-07-21",
-      "yearsOfService": 6.8,
-      "salary": 126000,
-      "performanceScore": 60,
-      "location": "Chicago",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 9307,
+    "department": "Customer Support",
+    "firstName": "Susan",
+    "lastName": "Perez",
+    "fullName": "Susan Perez",
+    "position": "Junior Agent",
+    "email": "susan.perez@company.com",
+    "hireDate": "2018-03-01",
+    "yearsOfService": 7.3,
+    "salary": 78000,
+    "performanceScore": 96,
+    "location": "Remote",
+    "status": "Active",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 45
-    },
-    "rowData": {
-      "id": 9845,
-      "department": "Operations",
-      "firstName": "Dorothy",
-      "lastName": "Carter",
-      "fullName": "Dorothy Carter",
-      "position": "Director Manager",
-      "email": "dorothy.carter@company.com",
-      "hireDate": "2019-08-07",
-      "yearsOfService": 5.8,
-      "salary": 142000,
-      "performanceScore": 97,
-      "location": "New York",
-      "status": "Contract",
-      "isRemoteEligible": false
-    }
+    "id": 6176,
+    "department": "HR",
+    "firstName": "Shirley",
+    "lastName": "Clark",
+    "fullName": "Shirley Clark",
+    "position": "Head Specialist",
+    "email": "shirley.clark@company.com",
+    "hireDate": "2019-11-01",
+    "yearsOfService": 5.6,
+    "salary": 162000,
+    "performanceScore": 97,
+    "location": "Remote",
+    "status": "Probation",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 46
-    },
-    "rowData": {
-      "id": 3436,
-      "department": "HR",
-      "firstName": "Dorothy",
-      "lastName": "Wilson",
-      "fullName": "Dorothy Wilson",
-      "position": "Junior Specialist",
-      "email": "dorothy.wilson@company.com",
-      "hireDate": "2019-12-18",
-      "yearsOfService": 5.4,
-      "salary": 94000,
-      "performanceScore": 88,
-      "location": "Seattle",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 1488,
+    "department": "Sales",
+    "firstName": "Michelle",
+    "lastName": "Lee",
+    "fullName": "Michelle Lee",
+    "position": "Director Representative",
+    "email": "michelle.lee@company.com",
+    "hireDate": "2023-08-01",
+    "yearsOfService": 1.8,
+    "salary": 124000,
+    "performanceScore": 91,
+    "location": "Remote",
+    "status": "Contract",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 47
-    },
-    "rowData": {
-      "id": 9490,
-      "department": "Marketing",
-      "firstName": "Sarah",
-      "lastName": "Mitchell",
-      "fullName": "Sarah Mitchell",
-      "position": "Executive Marketer",
-      "email": "sarah.mitchell@company.com",
-      "hireDate": "2018-06-05",
-      "yearsOfService": 7,
-      "salary": 172000,
-      "performanceScore": 91,
-      "location": "New York",
-      "status": "Active",
-      "isRemoteEligible": true
-    }
+    "id": 8883,
+    "department": "HR",
+    "firstName": "Pamela",
+    "lastName": "Lopez",
+    "fullName": "Pamela Lopez",
+    "position": "Specialist Specialist",
+    "email": "pamela.lopez@company.com",
+    "hireDate": "2024-12-13",
+    "yearsOfService": 0.5,
+    "salary": 84000,
+    "performanceScore": 63,
+    "location": "Remote",
+    "status": "Terminated",
+    "isRemoteEligible": false
   },
   {
-    "rowMeta": {
-      "rowId": 48
-    },
-    "rowData": {
-      "id": 6498,
-      "department": "Finance",
-      "firstName": "Rebecca",
-      "lastName": "Nelson",
-      "fullName": "Rebecca Nelson",
-      "position": "Manager Analyst",
-      "email": "rebecca.nelson@company.com",
-      "hireDate": "2020-07-08",
-      "yearsOfService": 4.9,
-      "salary": 102000,
-      "performanceScore": 93,
-      "location": "Los Angeles",
-      "status": "Contract",
-      "isRemoteEligible": true
-    }
+    "id": 8552,
+    "department": "Sales",
+    "firstName": "Michael",
+    "lastName": "Taylor",
+    "fullName": "Michael Taylor",
+    "position": "Senior Representative",
+    "email": "michael.taylor@company.com",
+    "hireDate": "2019-08-01",
+    "yearsOfService": 5.8,
+    "salary": 126000,
+    "performanceScore": 74,
+    "location": "Chicago",
+    "status": "On Leave",
+    "isRemoteEligible": true
   },
   {
-    "rowMeta": {
-      "rowId": 49
-    },
-    "rowData": {
-      "id": 8335,
-      "department": "Operations",
-      "firstName": "Katherine",
-      "lastName": "Hill",
-      "fullName": "Katherine Hill",
-      "position": "Head Manager",
-      "email": "katherine.hill@company.com",
-      "hireDate": "2017-03-19",
-      "yearsOfService": 8.2,
-      "salary": 152000,
-      "performanceScore": 60,
-      "location": "Austin",
-      "status": "On Leave",
-      "isRemoteEligible": false
-    }
+    "id": 2258,
+    "department": "HR",
+    "firstName": "Donna",
+    "lastName": "Moore",
+    "fullName": "Donna Moore",
+    "position": "Coordinator Specialist",
+    "email": "donna.moore@company.com",
+    "hireDate": "2022-03-08",
+    "yearsOfService": 3.2,
+    "salary": 79000,
+    "performanceScore": 74,
+    "location": "Chicago",
+    "status": "Active",
+    "isRemoteEligible": true
   }
 ]

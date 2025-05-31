@@ -77,11 +77,6 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
 
 const CustomRenderersDemo = () => {
   // Custom cell renderers

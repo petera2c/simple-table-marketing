@@ -87,12 +87,6 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const ColumnReorderingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
   const [, setCurrentColumnOrder] = useState<string>(
@@ -109,7 +103,8 @@ const ColumnReorderingDemo = ({ height = "400px", theme }: { height?: string; th
       columnReordering
       defaultHeaders={headers}
       height={height}
-      rows={rows}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
       onColumnOrderChange={handleColumnOrderChange}
       theme={theme}
     />

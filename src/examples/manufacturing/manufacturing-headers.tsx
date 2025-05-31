@@ -123,11 +123,11 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     type: "string",
     cellRenderer: ({ row }) => {
-      const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
+      const isLineRow = row.station?.toString().includes("Summary") || false;
       return isLineRow ? (
-        <span className="font-bold">{row.rowData.productLine}</span>
+        <span className="font-bold">{row.productLine as string}</span>
       ) : (
-        row.rowData.productLine
+        (row.productLine as string)
       );
     },
   },
@@ -140,16 +140,16 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     type: "string",
     cellRenderer: ({ row }) => {
-      const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
+      const isLineRow = row.station?.toString().includes("Summary") || false;
       if (isLineRow) {
-        return <span className="text-gray-500">{row.rowData.id}</span>;
+        return <span className="text-gray-500">{row.id as string}</span>;
       }
       return (
         <div className="flex items-center gap-1">
           <span className="bg-blue-100 text-blue-700 text-xs font-medium px-1.5 py-0.5 rounded">
-            {row.rowData.id}
+            {row.id as string}
           </span>
-          <span>{row.rowData.station}</span>
+          <span>{row.station as string}</span>
         </div>
       );
     },
@@ -172,9 +172,9 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "string",
     cellRenderer: ({ row }) => {
-      if (row.rowData.status === "—") return "—";
+      if (row.status === "—") return "—";
 
-      const status = row.rowData.status as string;
+      const status = row.status as string;
       const colorMap: Record<string, string> = {
         Running: "green",
         "Scheduled Maintenance": "blue",
@@ -201,10 +201,10 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const isLineRow = row.rowData.station?.toString().includes("Summary") || false;
+      const isLineRow = row.station?.toString().includes("Summary") || false;
       return (
         <div className={isLineRow ? "font-bold" : ""}>
-          {(row.rowData.outputRate as number).toLocaleString()}
+          {(row.outputRate as number).toLocaleString()}
         </div>
       );
     },
@@ -227,9 +227,9 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "number",
     cellRenderer: ({ row }) => {
-      if (row.rowData.efficiency === "—") return "—";
+      if (row.efficiency === "—") return "—";
 
-      const efficiency = row.rowData.efficiency as number;
+      const efficiency = row.efficiency as number;
       const getColorByEfficiency = (value: number): "success" | "normal" | "exception" => {
         if (value >= 90) return "success";
         if (value >= 75) return "normal";
@@ -258,8 +258,8 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      if (row.rowData.defectRate === "—") return "—";
-      const rate = parseFloat(row.rowData.defectRate as string);
+      if (row.defectRate === "—") return "—";
+      const rate = parseFloat(row.defectRate as string);
       const color = rate < 1 ? "text-green-600" : rate < 3 ? "text-orange-500" : "text-red-600";
 
       return <span className={color}>{rate}%</span>;
@@ -283,9 +283,9 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      if (row.rowData.downtime === "—") return "—";
+      if (row.downtime === "—") return "—";
 
-      const hours = parseFloat(row.rowData.downtime as string);
+      const hours = parseFloat(row.downtime as string);
       const color = hours < 1 ? "text-green-600" : hours < 2 ? "text-orange-500" : "text-red-600";
 
       return <span className={color}>{hours}</span>;
@@ -300,8 +300,8 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      if (row.rowData.utilization === "—") return "—";
-      return `${row.rowData.utilization}%`;
+      if (row.utilization === "—") return "—";
+      return `${row.utilization}%`;
     },
   },
   {
@@ -313,7 +313,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      return (row.rowData.energy as number).toLocaleString();
+      return (row.energy as number).toLocaleString();
     },
   },
   {
@@ -325,9 +325,9 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "date",
     cellRenderer: ({ row }) => {
-      if (row.rowData.maintenanceDate === "—") return "—";
+      if (row.maintenanceDate === "—") return "—";
 
-      const date = new Date(row.rowData.maintenanceDate as string);
+      const date = new Date(row.maintenanceDate as string);
       const today = new Date();
       const diffDays = Math.ceil((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 

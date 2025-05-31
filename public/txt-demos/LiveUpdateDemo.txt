@@ -12,7 +12,7 @@ const headers: HeaderObject[] = [
     width: "1fr",
     type: "number",
     cellRenderer: ({ row }) => {
-      const price = row.rowData.price;
+      const price = row.price;
       if (typeof price === "number") {
         return `$${price.toFixed(2)}`;
       }
@@ -26,94 +26,67 @@ const headers: HeaderObject[] = [
 // Sample data
 const initialData = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      product: "Widget A",
-      price: 19.99,
-      stock: 42,
-      sales: 120,
-    },
+    id: 1,
+    product: "Widget A",
+    price: 19.99,
+    stock: 42,
+    sales: 120,
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      product: "Widget B",
-      price: 24.99,
-      stock: 28,
-      sales: 85,
-    },
+    id: 2,
+    product: "Widget B",
+    price: 24.99,
+    stock: 28,
+    sales: 85,
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      product: "Widget C",
-      price: 15.99,
-      stock: 53,
-      sales: 210,
-    },
+    id: 3,
+    product: "Widget C",
+    price: 15.99,
+    stock: 53,
+    sales: 210,
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      product: "Widget D",
-      price: 29.99,
-      stock: 14,
-      sales: 65,
-    },
+    id: 4,
+    product: "Widget D",
+    price: 29.99,
+    stock: 14,
+    sales: 65,
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      product: "Widget E",
-      price: 12.99,
-      stock: 78,
-      sales: 180,
-    },
+    id: 5,
+    product: "Widget E",
+    price: 12.99,
+    stock: 78,
+    sales: 180,
   },
   {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      product: "Widget F",
-      price: 14.99,
-      stock: 32,
-      sales: 105,
-    },
+    id: 6,
+    product: "Widget F",
+    price: 14.99,
+    stock: 32,
+    sales: 105,
   },
   {
-    rowMeta: { rowId: 7 },
-    rowData: {
-      id: 7,
-      product: "Widget G",
-      price: 16.99,
-      stock: 45,
-      sales: 150,
-    },
+    id: 7,
+    product: "Widget G",
+    price: 16.99,
+    stock: 45,
+    sales: 150,
   },
   {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      product: "Widget H",
-      price: 18.99,
-      stock: 22,
-      sales: 90,
-    },
+    id: 8,
+    product: "Widget H",
+    price: 18.99,
+    stock: 22,
+    sales: 90,
   },
   {
-    rowMeta: { rowId: 9 },
-    rowData: {
-      id: 9,
-      product: "Widget I",
-      price: 13.99,
-      stock: 50,
-      sales: 120,
-    },
+    id: 9,
+    product: "Widget I",
+    price: 13.99,
+    stock: 50,
+    sales: 120,
   },
 ];
 
@@ -133,12 +106,12 @@ const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: 
         const rowIndex = Math.floor(Math.random() * currentData.length);
 
         // Generate a new price (±5% from current)
-        const currentPrice = currentData[rowIndex].rowData.price;
+        const currentPrice = currentData[rowIndex].price;
         const randomFactor = 0.95 + Math.random() * 0.1; // between -5% and +5%
         const newPrice = parseFloat((currentPrice * randomFactor).toFixed(2));
 
         // Update our local copy
-        currentData[rowIndex].rowData.price = newPrice;
+        currentData[rowIndex].price = newPrice;
 
         // Update the table with flash animation
         tableRef.current.updateData({
@@ -156,7 +129,7 @@ const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: 
         const availableRows = currentData
           .map((row: (typeof initialData)[0], index: number) => ({
             index,
-            stock: row.rowData.stock,
+            stock: row.stock,
           }))
           .filter((item: { index: number; stock: number }) => item.stock > 0);
 
@@ -165,8 +138,8 @@ const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: 
           const rowIndex = randomItem.index;
 
           // Decrease stock by 1
-          const newStock = currentData[rowIndex].rowData.stock - 1;
-          currentData[rowIndex].rowData.stock = newStock;
+          const newStock = currentData[rowIndex].stock - 1;
+          currentData[rowIndex].stock = newStock;
 
           // Update stock in the table
           tableRef.current.updateData({
@@ -176,8 +149,8 @@ const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: 
           });
 
           // Increase sales
-          const newSales = currentData[rowIndex].rowData.sales + 1;
-          currentData[rowIndex].rowData.sales = newSales;
+          const newSales = currentData[rowIndex].sales + 1;
+          currentData[rowIndex].sales = newSales;
 
           // Update sales in the table
           tableRef.current.updateData({
@@ -199,6 +172,7 @@ const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: 
   return (
     <SimpleTable
       defaultHeaders={headers}
+      rowIdAccessor="id"
       rows={initialData}
       tableRef={tableRef}
       cellUpdateFlash={true}

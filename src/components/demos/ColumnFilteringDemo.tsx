@@ -53,7 +53,7 @@ const headers: HeaderObject[] = [
     isSortable: true,
     filterable: true,
     cellRenderer: ({ row }) => {
-      const salary = row.rowData.salary as number;
+      const salary = row.salary as number;
       return `$${salary.toLocaleString()}`;
     },
   },
@@ -170,14 +170,16 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const ColumnFilteringDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
-  return <SimpleTable defaultHeaders={headers} rows={rows} height={height} theme={theme} />;
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
+      height={height}
+      theme={theme}
+    />
+  );
 };
 
 export default ColumnFilteringDemo;

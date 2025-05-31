@@ -1,11 +1,45 @@
-import { Row } from "simple-table-core";
+import path from "path";
+import type { Row } from "simple-table-core";
+import fs from "fs";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Generate manufacturing data
-export const generateManufacturingData = (): Row[] => {
-  const productLines = ["Assembly Line A", "Assembly Line B", "Electronics", "Packaging", "Quality Control", "Tooling"];
-  const productTypes = ["Component X", "Widget Y", "Module Z", "Part Alpha", "Unit Beta", "System Gamma"];
-  const machines = ["Robot Arm", "CNC Machine", "Injection Molder", "Circuit Printer", "Quality Scanner", "Packaging"];
-  const operators = ["Team Alpha", "Team Beta", "Team Gamma", "Team Delta", "Team Epsilon", "Team Zeta"];
+const generateManufacturingData = (): Row[] => {
+  const productLines = [
+    "Assembly Line A",
+    "Assembly Line B",
+    "Electronics",
+    "Packaging",
+    "Quality Control",
+    "Tooling",
+  ];
+  const productTypes = [
+    "Component X",
+    "Widget Y",
+    "Module Z",
+    "Part Alpha",
+    "Unit Beta",
+    "System Gamma",
+  ];
+  const machines = [
+    "Robot Arm",
+    "CNC Machine",
+    "Injection Molder",
+    "Circuit Printer",
+    "Quality Scanner",
+    "Packaging",
+  ];
+  const operators = [
+    "Team Alpha",
+    "Team Beta",
+    "Team Gamma",
+    "Team Delta",
+    "Team Epsilon",
+    "Team Zeta",
+  ];
 
   let rowId = 0;
   const rows: Row[] = [];
@@ -15,7 +49,7 @@ export const generateManufacturingData = (): Row[] => {
     // Number of machines/workstations per product line
     const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
 
-    const children: Row[] = [];
+    const stations: Row[] = [];
     let totalOutput = 0;
     let totalDefects = 0;
     let totalDowntime = 0;
@@ -54,27 +88,24 @@ export const generateManufacturingData = (): Row[] => {
           ? "Idle"
           : "Setup";
 
-      children.push({
-        rowMeta: { rowId: rowId++, isExpanded: true },
-        rowData: {
-          id: stationId,
-          productLine,
-          station: `Station ${i + 1}`,
-          machineType,
-          operator,
-          productType,
-          outputRate,
-          cycletime: avgCycleTime.toFixed(2),
-          efficiency,
-          defectRate: defectRate.toFixed(2),
-          defectCount,
-          downtime: downtimeHours.toFixed(2),
-          utilization: utilizationRate,
-          energy: energyConsumption,
-          status,
-          maintenanceDate: maintenanceDate.toISOString().split("T")[0],
-          cycleTimeData: JSON.stringify(cycleTimes),
-        },
+      stations.push({
+        id: stationId,
+        productLine,
+        station: `Station ${i + 1}`,
+        machineType,
+        operator,
+        productType,
+        outputRate,
+        cycletime: avgCycleTime.toFixed(2),
+        efficiency,
+        defectRate: defectRate.toFixed(2),
+        defectCount,
+        downtime: downtimeHours.toFixed(2),
+        utilization: utilizationRate,
+        energy: energyConsumption,
+        status,
+        maintenanceDate: maintenanceDate.toISOString().split("T")[0],
+        cycleTimeData: JSON.stringify(cycleTimes),
       });
 
       // Accumulate totals for product line summary
@@ -85,32 +116,44 @@ export const generateManufacturingData = (): Row[] => {
     }
 
     // Create product line summary row
-    const avgEfficiency = Math.round(totalEfficiency / children.length);
+    const avgEfficiency = Math.round(totalEfficiency / stations.length);
     const avgDefectRate = ((totalDefects / totalOutput) * 100).toFixed(2);
 
     rows.push({
-      rowMeta: { rowId: rowId++, isExpanded: true, children },
-      rowData: {
-        id: `${productLine.charAt(0)}${lineIndex + 1}`,
-        productLine,
-        station: `${productLine} Summary`,
-        machineType: "—",
-        operator: "—",
-        productType: "—",
-        outputRate: totalOutput,
-        cycletime: "—",
-        efficiency: avgEfficiency,
-        defectRate: avgDefectRate,
-        defectCount: totalDefects,
-        downtime: totalDowntime.toFixed(2),
-        utilization: "—",
-        energy: children.reduce((sum, child) => sum + (child.rowData.energy as number), 0),
-        status: "—",
-        maintenanceDate: "—",
-        cycleTimeData: "—",
-      },
+      id: `${productLine.charAt(0)}${lineIndex + 1}`,
+      productLine,
+      station: `${productLine} Summary`,
+      machineType: "—",
+      operator: "—",
+      productType: "—",
+      outputRate: totalOutput,
+      cycletime: "—",
+      efficiency: avgEfficiency,
+      defectRate: avgDefectRate,
+      defectCount: totalDefects,
+      downtime: totalDowntime.toFixed(2),
+      utilization: "—",
+      energy: stations.reduce((sum, station) => sum + (station.energy as number), 0),
+      status: "—",
+      maintenanceDate: "—",
+      cycleTimeData: "—",
+      stations,
     });
   });
 
   return rows;
 };
+
+// Run the generation and save to a file
+function saveDataToFile() {
+  console.log("Generating finance dataset...");
+  const data = generateManufacturingData();
+  console.log(`Generated ${data.length} finance records`);
+
+  const filePath = path.join(__dirname, "../src/examples/manufacturing/manufacturing-data.json");
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  console.log(`Data saved to ${filePath}`);
+}
+
+// Execute the function
+saveDataToFile();

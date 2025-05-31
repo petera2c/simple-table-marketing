@@ -7,11 +7,12 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 // Utility functions
-const randomBetween = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-const randomChoice = (arr) => arr[Math.floor(Math.random() * arr.length)];
+const randomBetween = (min: number, max: number): number =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+const randomChoice = <T>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 
 // Generate a random date between two dates
-const randomDate = (start, end) => {
+const randomDate = (start: Date, end: Date): Date => {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 };
 
@@ -21,7 +22,7 @@ const oneYearAgo = new Date();
 oneYearAgo.setFullYear(currentDate.getFullYear() - 1);
 
 // Generate random account name
-const generateAccountName = () => {
+const generateAccountName = (): string => {
   const companies = [
     "Acme Corp",
     "Globex",
@@ -59,7 +60,7 @@ const generateAccountName = () => {
 };
 
 // Generate charge description
-const generateChargeDescription = () => {
+const generateChargeDescription = (): string => {
   const tiers = ["Small", "Medium", "Large", "Basic", "Premium", "Enterprise", "Standard"];
   const types = [
     "Installation",
@@ -78,7 +79,7 @@ const generateChargeDescription = () => {
 };
 
 // Generate monthly data for a row - only 2024 data
-const generateMonthlyData = (startMonth, amount) => {
+const generateMonthlyData = (startMonth: number, amount: number): Record<string, number> => {
   const months = [
     "Jan",
     "Feb",
@@ -98,9 +99,9 @@ const generateMonthlyData = (startMonth, amount) => {
 
   // For charges, distribute the amount over the months
   let remainingAmount = amount;
-  const monthlyValues = {};
-  const monthlyRevenue = {};
-  const monthlyBalance = {};
+  const monthlyValues: Record<string, number> = {};
+  const monthlyRevenue: Record<string, number> = {};
+  const monthlyBalance: Record<string, number> = {};
 
   // Ensure all 2024 months have data
   for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
@@ -163,7 +164,10 @@ const generateMonthlyData = (startMonth, amount) => {
 };
 
 // Calculate revenue recognition
-const calculateRevenueRecognition = (amount, createdDate) => {
+const calculateRevenueRecognition = (
+  amount: number,
+  createdDate: Date
+): { recognizedRevenue: number; deferredRevenue: number } => {
   const diffMonths =
     currentDate.getMonth() -
     createdDate.getMonth() +
@@ -181,8 +185,48 @@ const calculateRevenueRecognition = (amount, createdDate) => {
   };
 };
 
+interface ChargeData {
+  id: string;
+  type: string;
+  name: string;
+  createdDate: string;
+  amount: number;
+  recognizedRevenue: number;
+  deferredRevenue: number;
+  [key: string]: any; // For monthly data fields
+}
+
+interface InvoiceData {
+  id: string;
+  type: string;
+  name: string;
+  status: string;
+  createdDate: string;
+  dueDate: string;
+  amount: number;
+  remaining: number;
+  recognizedRevenue: number;
+  deferredRevenue: number;
+  charges: ChargeData[];
+  [key: string]: any; // For monthly data fields
+}
+
+interface AccountData {
+  id: string;
+  type: string;
+  name: string;
+  status: string;
+  createdDate: string;
+  amount: number;
+  remaining: number;
+  recognizedRevenue: number;
+  deferredRevenue: number;
+  invoices: InvoiceData[];
+  [key: string]: any; // For monthly data fields
+}
+
 // Generate billing data with accounts -> invoices -> charges
-const generateBillingData = () => {
+const generateBillingData = (): AccountData[] => {
   const months = [
     "Jan",
     "Feb",
@@ -198,7 +242,7 @@ const generateBillingData = () => {
     "Dec",
   ];
   let rowId = 0;
-  const accountRows = [];
+  const accountRows: AccountData[] = [];
 
   // Invoice statuses and probabilities
   const invoiceStatuses = ["paid", "overdue", "pending", "partial", "cancelled"];
@@ -214,7 +258,7 @@ const generateBillingData = () => {
   for (let a = 0; a < accountCount; a++) {
     // Generate account data
     const accountName = generateAccountName();
-    const accountId = `ACC-${100000 + randomBetween(1, 99999)}`;
+    const accountId = `ACC-${rowId++}`;
 
     // Create a date in 2024
     const accountCreatedDate = new Date(2024, randomBetween(0, 3), randomBetween(1, 28));
@@ -234,7 +278,7 @@ const generateBillingData = () => {
 
     // Generate invoices for this account
     const invoiceCount = randomBetween(3, 8);
-    const invoiceChildren = [];
+    const invoiceChildren: InvoiceData[] = [];
     let accountTotal = 0;
     let accountRemaining = 0;
     let accountRecognizedRevenue = 0;
@@ -250,7 +294,7 @@ const generateBillingData = () => {
       dueDate.setDate(dueDate.getDate() + randomBetween(10, 30));
 
       const invoiceNumber = randomBetween(100, 999);
-      const invoiceId = `INV-${invoiceNumber}`;
+      const invoiceId = `INV-${rowId++}`;
       // Use I-XXX format for invoice name
       const invoiceName = `I-${invoiceNumber}`;
 
@@ -290,7 +334,7 @@ const generateBillingData = () => {
 
       // Generate charges for this invoice
       const chargeCount = randomBetween(2, 5);
-      const chargeChildren = [];
+      const chargeChildren: ChargeData[] = [];
       let invoiceRecognizedRevenue = 0;
       let invoiceDeferredRevenue = 0;
       const chargeTotalAmount = invoiceAmountRounded;
@@ -298,7 +342,7 @@ const generateBillingData = () => {
 
       for (let c = 0; c < chargeCount; c++) {
         // Calculate charge amount (divide invoice amount among charges)
-        let chargeAmount;
+        let chargeAmount: number;
 
         if (c === chargeCount - 1) {
           // Last charge gets the remainder to ensure sum equals invoice amount
@@ -311,8 +355,6 @@ const generateBillingData = () => {
           currentChargeTotal += chargeAmount;
         }
 
-        const chargeId = `CHG-${100000 + randomBetween(1, 999999)}`;
-
         // Calculate revenue recognition
         const { recognizedRevenue, deferredRevenue } = calculateRevenueRecognition(
           chargeAmount,
@@ -324,27 +366,25 @@ const generateBillingData = () => {
 
         // Generate monthly distribution for this charge - only 2024 data
         const monthlyData = generateMonthlyData(invoiceMonth, chargeAmount);
+        const chargeId = `CHG-${rowId++}`;
 
         // Create charge row
         chargeChildren.push({
-          rowMeta: { rowId: rowId++ },
-          rowData: {
-            type: "charge",
-            name: generateChargeDescription(),
-            id: chargeId,
-            createdDate: invoiceCreatedDate.toISOString(),
-            amount: chargeAmount,
-            recognizedRevenue,
-            deferredRevenue,
-            ...monthlyData,
-          },
+          id: chargeId,
+          type: "charge",
+          name: generateChargeDescription(),
+          createdDate: invoiceCreatedDate.toISOString(),
+          amount: chargeAmount,
+          recognizedRevenue,
+          deferredRevenue,
+          ...monthlyData,
         });
       }
 
       // Calculate monthly data for the invoice by summing its charges
-      const invoiceMonthlyData = {};
-      const invoiceMonthlyRevenue = {};
-      const invoiceMonthlyBalance = {};
+      const invoiceMonthlyData: Record<string, number> = {};
+      const invoiceMonthlyRevenue: Record<string, number> = {};
+      const invoiceMonthlyBalance: Record<string, number> = {};
 
       // Only process 2024 months
       for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
@@ -355,17 +395,17 @@ const generateBillingData = () => {
 
         // Sum this month's value from all charges
         invoiceMonthlyData[key] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge.rowData[key] || 0);
+          return sum + (charge[key] || 0);
         }, 0);
 
         // Sum this month's revenue from all charges
         invoiceMonthlyRevenue[revenueKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge.rowData[revenueKey] || 0);
+          return sum + (charge[revenueKey] || 0);
         }, 0);
 
         // Sum this month's balance from all charges
         invoiceMonthlyBalance[balanceKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge.rowData[balanceKey] || 0);
+          return sum + (charge[balanceKey] || 0);
         }, 0);
       }
 
@@ -377,29 +417,27 @@ const generateBillingData = () => {
 
       // Create invoice row
       invoiceChildren.push({
-        rowMeta: { rowId: rowId++, children: chargeChildren },
-        rowData: {
-          type: "invoice",
-          name: invoiceName,
-          id: invoiceId,
-          status: invoiceStatus,
-          createdDate: invoiceCreatedDate.toISOString(),
-          dueDate: dueDate.toISOString(),
-          amount: invoiceAmountRounded,
-          remaining: remainingAmount,
-          recognizedRevenue: parseFloat(invoiceRecognizedRevenue.toFixed(2)),
-          deferredRevenue: parseFloat(invoiceDeferredRevenue.toFixed(2)),
-          ...invoiceMonthlyData,
-          ...invoiceMonthlyRevenue,
-          ...invoiceMonthlyBalance,
-        },
+        id: invoiceId,
+        type: "invoice",
+        name: invoiceName,
+        status: invoiceStatus,
+        createdDate: invoiceCreatedDate.toISOString(),
+        dueDate: dueDate.toISOString(),
+        amount: invoiceAmountRounded,
+        remaining: remainingAmount,
+        recognizedRevenue: parseFloat(invoiceRecognizedRevenue.toFixed(2)),
+        deferredRevenue: parseFloat(invoiceDeferredRevenue.toFixed(2)),
+        charges: chargeChildren,
+        ...invoiceMonthlyData,
+        ...invoiceMonthlyRevenue,
+        ...invoiceMonthlyBalance,
       });
     }
 
     // Calculate monthly data for the account by summing its invoices
-    const accountMonthlyData = {};
-    const accountMonthlyRevenue = {};
-    const accountMonthlyBalance = {};
+    const accountMonthlyData: Record<string, number> = {};
+    const accountMonthlyRevenue: Record<string, number> = {};
+    const accountMonthlyBalance: Record<string, number> = {};
 
     // Only process 2024 months
     for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
@@ -410,37 +448,35 @@ const generateBillingData = () => {
 
       // Sum this month's value from all invoices
       accountMonthlyData[key] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice.rowData[key] || 0);
+        return sum + (invoice[key] || 0);
       }, 0);
 
       // Sum this month's revenue from all invoices
       accountMonthlyRevenue[revenueKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice.rowData[revenueKey] || 0);
+        return sum + (invoice[revenueKey] || 0);
       }, 0);
 
       // Sum this month's balance from all invoices
       accountMonthlyBalance[balanceKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice.rowData[balanceKey] || 0);
+        return sum + (invoice[balanceKey] || 0);
       }, 0);
     }
 
     // Create account row
     accountRows.push({
-      rowMeta: { rowId: rowId++, children: invoiceChildren, isExpanded: true },
-      rowData: {
-        type: "account",
-        name: accountName,
-        id: accountId,
-        status: accountStatus,
-        createdDate: accountCreatedDate.toISOString(),
-        amount: parseFloat(accountTotal.toFixed(2)),
-        remaining: parseFloat(accountRemaining.toFixed(2)),
-        recognizedRevenue: parseFloat(accountRecognizedRevenue.toFixed(2)),
-        deferredRevenue: parseFloat(accountDeferredRevenue.toFixed(2)),
-        ...accountMonthlyData,
-        ...accountMonthlyRevenue,
-        ...accountMonthlyBalance,
-      },
+      id: accountId,
+      type: "account",
+      name: accountName,
+      status: accountStatus,
+      createdDate: accountCreatedDate.toISOString(),
+      amount: parseFloat(accountTotal.toFixed(2)),
+      remaining: parseFloat(accountRemaining.toFixed(2)),
+      recognizedRevenue: parseFloat(accountRecognizedRevenue.toFixed(2)),
+      deferredRevenue: parseFloat(accountDeferredRevenue.toFixed(2)),
+      invoices: invoiceChildren,
+      ...accountMonthlyData,
+      ...accountMonthlyRevenue,
+      ...accountMonthlyBalance,
     });
   }
 
@@ -448,7 +484,7 @@ const generateBillingData = () => {
 };
 
 // Run the generation and save to a file
-async function saveDataToFile() {
+async function saveDataToFile(): Promise<void> {
   console.log("Generating realistic billing dataset...");
   const data = generateBillingData();
   console.log(`Generated data with ${data.length} accounts`);

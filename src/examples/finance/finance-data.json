@@ -1,1141 +1,873 @@
 [
   {
-    "rowMeta": {
-      "rowId": 0
-    },
-    "rowData": {
-      "ticker": "AAPL",
-      "companyName": "Apple Inc.",
-      "price": 185.40658989371303,
-      "priceChangePercent": 8.452842724671585,
-      "marketCap": 2852.4,
-      "peRatio": 25.5,
-      "dividendYield": 0.56,
-      "analystRating": "Buy",
-      "date": "2025-04-17",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 1
-    },
-    "rowData": {
-      "ticker": "MSFT",
-      "companyName": "Microsoft Corporation",
-      "price": 352.53625693653794,
-      "priceChangePercent": 7.560721785537571,
-      "marketCap": 2512.9,
-      "peRatio": 16.4,
-      "dividendYield": 0.79,
-      "analystRating": "Strong Buy",
-      "date": "2025-05-01",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 2
-    },
-    "rowData": {
-      "ticker": "GOOGL",
-      "companyName": "Alphabet Inc.",
-      "price": 130.058224064256,
-      "priceChangePercent": 4.099523167656326,
-      "marketCap": 1789.3,
-      "peRatio": 15.3,
-      "dividendYield": null,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-26",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 3
-    },
-    "rowData": {
-      "ticker": "AMZN",
-      "companyName": "Amazon.com Inc.",
-      "price": 190.6286748604675,
-      "priceChangePercent": -1.95,
-      "marketCap": 1811.2,
-      "peRatio": 56,
-      "dividendYield": null,
-      "analystRating": "Sell",
-      "date": "2025-04-30",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 4
-    },
-    "rowData": {
-      "ticker": "META",
-      "companyName": "Meta Platforms Inc.",
-      "price": 456.9846623367666,
-      "priceChangePercent": 3.8957931825432404,
-      "marketCap": 1214.6,
-      "peRatio": 21.7,
-      "dividendYield": null,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-14",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 5
-    },
-    "rowData": {
-      "ticker": "TSLA",
-      "companyName": "Tesla Inc.",
-      "price": 165.50533300521596,
-      "priceChangePercent": -0.22,
-      "marketCap": 567.2,
-      "peRatio": 40.2,
-      "dividendYield": null,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-15",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 6
-    },
-    "rowData": {
-      "ticker": "NVDA",
-      "companyName": "NVIDIA Corporation",
-      "price": 113.50918623015131,
-      "priceChangePercent": -1.17,
-      "marketCap": 2724.1,
-      "peRatio": 66.5,
-      "dividendYield": 0.05,
-      "analystRating": "Sell",
-      "date": "2025-04-24",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 7
-    },
-    "rowData": {
-      "ticker": "NFLX",
-      "companyName": "Netflix Inc.",
-      "price": 578.57816673934,
-      "priceChangePercent": 4.364937273105877,
-      "marketCap": 272.3,
-      "peRatio": 61.3,
-      "dividendYield": null,
-      "analystRating": "Sell",
-      "date": "2025-04-08",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 8
-    },
-    "rowData": {
-      "ticker": "JNJ",
-      "companyName": "Johnson & Johnson",
-      "price": 137.89852035773976,
-      "priceChangePercent": 1.9,
-      "marketCap": 355.3,
-      "peRatio": 31.7,
-      "dividendYield": 2.96,
-      "analystRating": "Hold",
-      "date": "2025-05-02",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 9
-    },
-    "rowData": {
-      "ticker": "PFE",
-      "companyName": "Pfizer Inc.",
-      "price": 24.88292178553385,
-      "priceChangePercent": -1.5380815975445645,
-      "marketCap": 152.9,
-      "peRatio": 23.1,
-      "dividendYield": 5.17,
-      "analystRating": "Buy",
-      "date": "2025-04-24",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 10
-    },
-    "rowData": {
-      "ticker": "UNH",
-      "companyName": "UnitedHealth Group Inc.",
-      "price": 532.6582483172946,
-      "priceChangePercent": 4.593170810619542,
-      "marketCap": 487.5,
-      "peRatio": 22.6,
-      "dividendYield": 1.4,
-      "analystRating": "Sell",
-      "date": "2025-04-11",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 11
-    },
-    "rowData": {
-      "ticker": "MRK",
-      "companyName": "Merck & Co Inc.",
-      "price": 110.15991692600855,
-      "priceChangePercent": 5.364483364409177,
-      "marketCap": 265.8,
-      "peRatio": 26.4,
-      "dividendYield": 2.86,
-      "analystRating": "Buy",
-      "date": "2025-04-25",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 12
-    },
-    "rowData": {
-      "ticker": "ABT",
-      "companyName": "Abbott Laboratories",
-      "price": 117.04780426802293,
-      "priceChangePercent": 16.33,
-      "marketCap": 187.1,
-      "peRatio": 22.1,
-      "dividendYield": 1.78,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-17",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 13
-    },
-    "rowData": {
-      "ticker": "LLY",
-      "companyName": "Eli Lilly & Co.",
-      "price": 744.7384237939333,
-      "priceChangePercent": 0.1692148350296974,
-      "marketCap": 745.2,
-      "peRatio": 33.6,
-      "dividendYield": 0.68,
-      "analystRating": "Strong Buy",
-      "date": "2025-05-05",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 14
-    },
-    "rowData": {
-      "ticker": "TMO",
-      "companyName": "Thermo Fisher Scientific",
-      "price": 527.6300060830213,
-      "priceChangePercent": 1.73,
-      "marketCap": 225.7,
-      "peRatio": 11.1,
-      "dividendYield": 0.29,
-      "analystRating": "Hold",
-      "date": "2025-04-27",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 15
-    },
-    "rowData": {
-      "ticker": "JPM",
-      "companyName": "JPMorgan Chase & Co.",
-      "price": 199.45346011918932,
-      "priceChangePercent": 0.29,
-      "marketCap": 522.7,
-      "peRatio": 14.1,
-      "dividendYield": 2.36,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-08",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 16
-    },
-    "rowData": {
-      "ticker": "BAC",
-      "companyName": "Bank of America Corp.",
-      "price": 39.80816593243246,
-      "priceChangePercent": -1.1278914907952635,
-      "marketCap": 301.2,
-      "peRatio": 9.2,
-      "dividendYield": 2.78,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-19",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 17
-    },
-    "rowData": {
-      "ticker": "WFC",
-      "companyName": "Wells Fargo & Co.",
-      "price": 55.06137480549552,
-      "priceChangePercent": 3.6201963866717186,
-      "marketCap": 204.1,
-      "peRatio": 7,
-      "dividendYield": 2.58,
-      "analystRating": "Buy",
-      "date": "2025-04-20",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 18
-    },
-    "rowData": {
-      "ticker": "V",
-      "companyName": "Visa Inc.",
-      "price": 268.63727824483396,
-      "priceChangePercent": -1.4508189692380076,
-      "marketCap": 583.2,
-      "peRatio": 32.1,
-      "dividendYield": 0.75,
-      "analystRating": "Sell",
-      "date": "2025-04-17",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 19
-    },
-    "rowData": {
-      "ticker": "MA",
-      "companyName": "Mastercard Inc.",
-      "price": 481.3110124242617,
-      "priceChangePercent": -1.472635804130694,
-      "marketCap": 416.8,
-      "peRatio": 19.1,
-      "dividendYield": 0.58,
-      "analystRating": "Sell",
-      "date": "2025-04-07",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 20
-    },
-    "rowData": {
-      "ticker": "GS",
-      "companyName": "Goldman Sachs Group",
-      "price": 399.7838887205309,
-      "priceChangePercent": 9.357658458647137,
-      "marketCap": 142.5,
-      "peRatio": 20,
-      "dividendYield": 2.31,
-      "analystRating": "Hold",
-      "date": "2025-04-20",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 21
-    },
-    "rowData": {
-      "ticker": "MS",
-      "companyName": "Morgan Stanley",
-      "price": 93.4488946191172,
-      "priceChangePercent": 0.56,
-      "marketCap": 153.2,
-      "peRatio": 30.8,
-      "dividendYield": 3.67,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-20",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 22
-    },
-    "rowData": {
-      "ticker": "BLK",
-      "companyName": "BlackRock Inc.",
-      "price": 844.4604688889666,
-      "priceChangePercent": -1.31,
-      "marketCap": 124.3,
-      "peRatio": 17.3,
-      "dividendYield": 2.5,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-19",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 23
-    },
-    "rowData": {
-      "ticker": "PG",
-      "companyName": "Procter & Gamble Co.",
-      "price": 177.18704322114814,
-      "priceChangePercent": 3.9295724286345086,
-      "marketCap": 400.2,
-      "peRatio": 18.8,
-      "dividendYield": 2.56,
-      "analystRating": "Buy",
-      "date": "2025-04-10",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 24
-    },
-    "rowData": {
-      "ticker": "KO",
-      "companyName": "Coca-Cola Co.",
-      "price": 66.08557975575684,
-      "priceChangePercent": -17.67649373050951,
-      "marketCap": 268.6,
-      "peRatio": 32.3,
-      "dividendYield": 3.22,
-      "analystRating": "Hold",
-      "date": "2025-05-01",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 25
-    },
-    "rowData": {
-      "ticker": "PEP",
-      "companyName": "PepsiCo Inc.",
-      "price": 166.14626440823687,
-      "priceChangePercent": -1.5458324051774364,
-      "marketCap": 233.2,
-      "peRatio": 27,
-      "dividendYield": 2.65,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-28",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 26
-    },
-    "rowData": {
-      "ticker": "WMT",
-      "companyName": "Walmart Inc.",
-      "price": 55.05644621990453,
-      "priceChangePercent": -8.36442580896554,
-      "marketCap": 481.4,
-      "peRatio": 29.1,
-      "dividendYield": 1.37,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-11",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 27
-    },
-    "rowData": {
-      "ticker": "MCD",
-      "companyName": "McDonald's Corp.",
-      "price": 254.9557996956613,
-      "priceChangePercent": -4.58,
-      "marketCap": 186.9,
-      "peRatio": 25.4,
-      "dividendYield": 2.42,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-23",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 28
-    },
-    "rowData": {
-      "ticker": "COST",
-      "companyName": "Costco Wholesale",
-      "price": 792.4247250205678,
-      "priceChangePercent": 1.98,
-      "marketCap": 324.8,
-      "peRatio": 29.7,
-      "dividendYield": 0.73,
-      "analystRating": "Hold",
-      "date": "2025-04-23",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 29
-    },
-    "rowData": {
-      "ticker": "HD",
-      "companyName": "Home Depot Inc.",
-      "price": 315.3503257227429,
-      "priceChangePercent": 2.9316384817176484,
-      "marketCap": 342.5,
-      "peRatio": 15.7,
-      "dividendYield": 2.21,
-      "analystRating": "Hold",
-      "date": "2025-04-23",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 30
-    },
-    "rowData": {
-      "ticker": "NKE",
-      "companyName": "Nike Inc.",
-      "price": 102.33457693358095,
-      "priceChangePercent": 5.634403265653705,
-      "marketCap": 142.6,
-      "peRatio": 34,
-      "dividendYield": 1.22,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-24",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 31
-    },
-    "rowData": {
-      "ticker": "XOM",
-      "companyName": "Exxon Mobil Corp.",
-      "price": 107.09036137878199,
-      "priceChangePercent": -3.4228234341967174,
-      "marketCap": 453.2,
-      "peRatio": 12.3,
-      "dividendYield": 3.72,
-      "analystRating": "Sell",
-      "date": "2025-04-18",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 32
-    },
-    "rowData": {
-      "ticker": "CVX",
-      "companyName": "Chevron Corp.",
-      "price": 146.98929279275742,
-      "priceChangePercent": 1.29,
-      "marketCap": 271.4,
-      "peRatio": 11.1,
-      "dividendYield": 4.18,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-19",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 33
-    },
-    "rowData": {
-      "ticker": "COP",
-      "companyName": "ConocoPhillips",
-      "price": 111.43643078974769,
-      "priceChangePercent": 4.81,
-      "marketCap": 126.5,
-      "peRatio": 10.4,
-      "dividendYield": 2.77,
-      "analystRating": "Sell",
-      "date": "2025-04-23",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 34
-    },
-    "rowData": {
-      "ticker": "SLB",
-      "companyName": "Schlumberger NV",
-      "price": 41.26886467258114,
-      "priceChangePercent": 2.78,
-      "marketCap": 62.1,
-      "peRatio": 30.5,
-      "dividendYield": 2.18,
-      "analystRating": "Buy",
-      "date": "2025-04-07",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 35
-    },
-    "rowData": {
-      "ticker": "EOG",
-      "companyName": "EOG Resources",
-      "price": 115.49614300212247,
-      "priceChangePercent": 4.543042241877241,
-      "marketCap": 71.1,
-      "peRatio": 25.2,
-      "dividendYield": 3,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-21",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 36
-    },
-    "rowData": {
-      "ticker": "OXY",
-      "companyName": "Occidental Petroleum",
-      "price": 56.89490490548106,
-      "priceChangePercent": 0.128537741041595,
-      "marketCap": 50.7,
-      "peRatio": 21,
-      "dividendYield": 1.3,
-      "analystRating": "Hold",
-      "date": "2025-04-17",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 37
-    },
-    "rowData": {
-      "ticker": "GE",
-      "companyName": "General Electric Co.",
-      "price": 156.01084058450925,
-      "priceChangePercent": 1.08,
-      "marketCap": 174.5,
-      "peRatio": 26.4,
-      "dividendYield": 0.28,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-09",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 38
-    },
-    "rowData": {
-      "ticker": "BA",
-      "companyName": "Boeing Co.",
-      "price": 173.67056909783582,
-      "priceChangePercent": 1.4290147432548368,
-      "marketCap": 110.9,
-      "peRatio": 33.8,
-      "dividendYield": null,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-23",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 39
-    },
-    "rowData": {
-      "ticker": "HON",
-      "companyName": "Honeywell International Inc.",
-      "price": 211.37198371990277,
-      "priceChangePercent": 7.731861771890707,
-      "marketCap": 131.7,
-      "peRatio": 27.7,
-      "dividendYield": 1.84,
-      "analystRating": "Strong Sell",
-      "date": "2025-05-05",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 40
-    },
-    "rowData": {
-      "ticker": "CAT",
-      "companyName": "Caterpillar Inc.",
-      "price": 313.39776730095844,
-      "priceChangePercent": -4.317837962771332,
-      "marketCap": 168.9,
-      "peRatio": 31.3,
-      "dividendYield": 1.87,
-      "analystRating": "Buy",
-      "date": "2025-04-22",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 41
-    },
-    "rowData": {
-      "ticker": "UPS",
-      "companyName": "United Parcel Service Inc.",
-      "price": 143.67869732478397,
-      "priceChangePercent": 0.48257871432606836,
-      "marketCap": 115.3,
-      "peRatio": 19.2,
-      "dividendYield": 3.96,
-      "analystRating": "Buy",
-      "date": "2025-04-29",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 42
-    },
-    "rowData": {
-      "ticker": "LMT",
-      "companyName": "Lockheed Martin",
-      "price": 426.2523225657317,
-      "priceChangePercent": 2.040835500807128,
-      "marketCap": 110.3,
-      "peRatio": 21.6,
-      "dividendYield": 2.73,
-      "analystRating": "Sell",
-      "date": "2025-04-19",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 43
-    },
-    "rowData": {
-      "ticker": "RTX",
-      "companyName": "RTX Corporation",
-      "price": 94.64238315483199,
-      "priceChangePercent": -0.12,
-      "marketCap": 123.7,
-      "peRatio": 30.1,
-      "dividendYield": 2.35,
-      "analystRating": "Hold",
-      "date": "2025-04-13",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 44
-    },
-    "rowData": {
-      "ticker": "DE",
-      "companyName": "Deere & Company",
-      "price": 408.68664483055426,
-      "priceChangePercent": 0.5113437153966733,
-      "marketCap": 107.2,
-      "peRatio": 25.2,
-      "dividendYield": 1.38,
-      "analystRating": "Sell",
-      "date": "2025-04-15",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 45
-    },
-    "rowData": {
-      "ticker": "VZ",
-      "companyName": "Verizon Communications Inc.",
-      "price": 43.72708994080671,
-      "priceChangePercent": -4.14,
-      "marketCap": 171.9,
-      "peRatio": 10.3,
-      "dividendYield": 6.32,
-      "analystRating": "Hold",
-      "date": "2025-04-21",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 46
-    },
-    "rowData": {
-      "ticker": "T",
-      "companyName": "AT&T Inc.",
-      "price": 17.632457015029964,
-      "priceChangePercent": 3.5998570573560933,
-      "marketCap": 123,
-      "peRatio": 13.3,
-      "dividendYield": 6.28,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-09",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 47
-    },
-    "rowData": {
-      "ticker": "CMCSA",
-      "companyName": "Comcast Corp.",
-      "price": 43.699721918168414,
-      "priceChangePercent": 1.58,
-      "marketCap": 158.1,
-      "peRatio": 27,
-      "dividendYield": 3.16,
-      "analystRating": "Buy",
-      "date": "2025-04-18",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 48
-    },
-    "rowData": {
-      "ticker": "TMUS",
-      "companyName": "T-Mobile US",
-      "price": 169.95385892488173,
-      "priceChangePercent": 4.243056494892264,
-      "marketCap": 196.4,
-      "peRatio": 8,
-      "dividendYield": null,
-      "analystRating": "Hold",
-      "date": "2025-04-15",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 49
-    },
-    "rowData": {
-      "ticker": "CRM",
-      "companyName": "Salesforce Inc.",
-      "price": 223.57654512642586,
-      "priceChangePercent": 2.9174511438289614,
-      "marketCap": 235.6,
-      "peRatio": 23.4,
-      "dividendYield": null,
-      "analystRating": "Buy",
-      "date": "2025-04-13",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 50
-    },
-    "rowData": {
-      "ticker": "ADBE",
-      "companyName": "Adobe Inc.",
-      "price": 553.637531471783,
-      "priceChangePercent": 4.429392769780474,
-      "marketCap": 233.2,
-      "peRatio": 27.9,
-      "dividendYield": null,
-      "analystRating": "Hold",
-      "date": "2025-05-01",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 51
-    },
-    "rowData": {
-      "ticker": "ORCL",
-      "companyName": "Oracle Corporation",
-      "price": 110.17120944976112,
-      "priceChangePercent": 2.5132846588389777,
-      "marketCap": 323.5,
-      "peRatio": 23.3,
-      "dividendYield": 1.39,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-07",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 52
-    },
-    "rowData": {
-      "ticker": "INTC",
-      "companyName": "Intel Corporation",
-      "price": 32.899920313759914,
-      "priceChangePercent": 1.6007228783448095,
-      "marketCap": 132.1,
-      "peRatio": 28.7,
-      "dividendYield": 1.63,
-      "analystRating": "Strong Buy",
-      "date": "2025-04-17",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 53
-    },
-    "rowData": {
-      "ticker": "CSCO",
-      "companyName": "Cisco Systems",
-      "price": 50.13988364736063,
-      "priceChangePercent": 8.78,
-      "marketCap": 193.4,
-      "peRatio": 22.5,
-      "dividendYield": 3.18,
-      "analystRating": "Hold",
-      "date": "2025-04-10",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 54
-    },
-    "rowData": {
-      "ticker": "AMD",
-      "companyName": "Advanced Micro Devices",
-      "price": 149.68293080209773,
-      "priceChangePercent": -1.3343685037313713,
-      "marketCap": 253.9,
-      "peRatio": 33.1,
-      "dividendYield": null,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-27",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 55
-    },
-    "rowData": {
-      "ticker": "IBM",
-      "companyName": "IBM Corporation",
-      "price": 178.79103171942305,
-      "priceChangePercent": 0.12649826262797711,
-      "marketCap": 158.7,
-      "peRatio": 28.3,
-      "dividendYield": 4.75,
-      "analystRating": "Sell",
-      "date": "2025-04-22",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 56
-    },
-    "rowData": {
-      "ticker": "SBUX",
-      "companyName": "Starbucks Corporation",
-      "price": 79.36226359893777,
-      "priceChangePercent": 3.773294177302461,
-      "marketCap": 88.5,
-      "peRatio": 34.9,
-      "dividendYield": 2.3,
-      "analystRating": "Sell",
-      "date": "2025-04-30",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 57
-    },
-    "rowData": {
-      "ticker": "TGT",
-      "companyName": "Target Corporation",
-      "price": 137.97747559146734,
-      "priceChangePercent": 2.7282746626293304,
-      "marketCap": 65.4,
-      "peRatio": 14.1,
-      "dividendYield": 3.04,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-29",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 58
-    },
-    "rowData": {
-      "ticker": "LOW",
-      "companyName": "Lowe's Companies",
-      "price": 225.82829793273643,
-      "priceChangePercent": 3.244829801754169,
-      "marketCap": 121.6,
-      "peRatio": 26.8,
-      "dividendYield": 2,
-      "analystRating": "Hold",
-      "date": "2025-04-15",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 59
-    },
-    "rowData": {
-      "ticker": "EBAY",
-      "companyName": "eBay Inc.",
-      "price": 53.659385358133946,
-      "priceChangePercent": 1.9183766459925926,
-      "marketCap": 26.2,
-      "peRatio": 31.6,
-      "dividendYield": 1.9,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-30",
-      "isFollowed": false
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 60
-    },
-    "rowData": {
-      "ticker": "ETSY",
-      "companyName": "Etsy Inc.",
-      "price": 60.60119320194059,
-      "priceChangePercent": -1.49,
-      "marketCap": 7.7,
-      "peRatio": 70.5,
-      "dividendYield": null,
-      "analystRating": "Buy",
-      "date": "2025-04-23",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 61
-    },
-    "rowData": {
-      "ticker": "DIS",
-      "companyName": "Walt Disney Co.",
-      "price": 89.94251492682854,
-      "priceChangePercent": -1.0767523175438027,
-      "marketCap": 162.8,
-      "peRatio": 27,
-      "dividendYield": null,
-      "analystRating": "Strong Buy",
-      "date": "2025-05-03",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 62
-    },
-    "rowData": {
-      "ticker": "NFLX",
-      "companyName": "Netflix Inc.",
-      "price": 661.6090764313255,
-      "priceChangePercent": 0.6827383743433534,
-      "marketCap": 272.3,
-      "peRatio": 79,
-      "dividendYield": null,
-      "analystRating": "Sell",
-      "date": "2025-05-03",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 63
-    },
-    "rowData": {
-      "ticker": "PYPL",
-      "companyName": "PayPal Holdings",
-      "price": 55.68655269538529,
-      "priceChangePercent": -3.0518140885654077,
-      "marketCap": 65.7,
-      "peRatio": 23.5,
-      "dividendYield": null,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-20",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 64
-    },
-    "rowData": {
-      "ticker": "ABNB",
-      "companyName": "Airbnb Inc.",
-      "price": 151.24007182257932,
-      "priceChangePercent": 9.797286390624986,
-      "marketCap": 92.1,
-      "peRatio": 69.1,
-      "dividendYield": null,
-      "analystRating": "Buy",
-      "date": "2025-04-11",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 65
-    },
-    "rowData": {
-      "ticker": "UBER",
-      "companyName": "Uber Technologies",
-      "price": 64.47830112710741,
-      "priceChangePercent": 0.48580877646512777,
-      "marketCap": 139.7,
-      "peRatio": 77.8,
-      "dividendYield": null,
-      "analystRating": "Strong Buy",
-      "date": "2025-05-04",
-      "isFollowed": true
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 66
-    },
-    "rowData": {
-      "ticker": "ZM",
-      "companyName": "Zoom Video Communications",
-      "price": 61.66874422409917,
-      "priceChangePercent": 3.27,
-      "marketCap": 18.9,
-      "peRatio": 76.7,
-      "dividendYield": null,
-      "analystRating": "Strong Sell",
-      "date": "2025-04-17",
-      "isFollowed": true
-    }
+    "id": "AAPL",
+    "ticker": "AAPL",
+    "companyName": "Apple Inc.",
+    "price": 198.14986710532716,
+    "priceChangePercent": 0.41,
+    "marketCap": 2852.4,
+    "peRatio": 33.2,
+    "dividendYield": 0.56,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-04",
+    "isFollowed": true
+  },
+  {
+    "id": "MSFT",
+    "ticker": "MSFT",
+    "companyName": "Microsoft Corporation",
+    "price": 334.6990330731367,
+    "priceChangePercent": -1.55,
+    "marketCap": 2512.9,
+    "peRatio": 20.5,
+    "dividendYield": 0.83,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-05",
+    "isFollowed": true
+  },
+  {
+    "id": "GOOGL",
+    "ticker": "GOOGL",
+    "companyName": "Alphabet Inc.",
+    "price": 137.06249267183895,
+    "priceChangePercent": -3.03,
+    "marketCap": 1789.3,
+    "peRatio": 27.9,
+    "dividendYield": null,
+    "analystRating": "Hold",
+    "date": "2025-05-07",
+    "isFollowed": true
+  },
+  {
+    "id": "AMZN",
+    "ticker": "AMZN",
+    "companyName": "Amazon.com Inc.",
+    "price": 170.7633269310432,
+    "priceChangePercent": 20.44,
+    "marketCap": 1811.2,
+    "peRatio": 41.9,
+    "dividendYield": null,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-04",
+    "isFollowed": false
+  },
+  {
+    "id": "META",
+    "ticker": "META",
+    "companyName": "Meta Platforms Inc.",
+    "price": 441.78609876381597,
+    "priceChangePercent": 0.25,
+    "marketCap": 1214.6,
+    "peRatio": 20.6,
+    "dividendYield": null,
+    "analystRating": "Hold",
+    "date": "2025-05-08",
+    "isFollowed": true
+  },
+  {
+    "id": "TSLA",
+    "ticker": "TSLA",
+    "companyName": "Tesla Inc.",
+    "price": 162.76591994835198,
+    "priceChangePercent": 8.83,
+    "marketCap": 567.2,
+    "peRatio": 84.6,
+    "dividendYield": null,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-15",
+    "isFollowed": true
+  },
+  {
+    "id": "NVDA",
+    "ticker": "NVDA",
+    "companyName": "NVIDIA Corporation",
+    "price": 105.14197816111984,
+    "priceChangePercent": 3.69,
+    "marketCap": 2724.1,
+    "peRatio": 77.4,
+    "dividendYield": 0.05,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-24",
+    "isFollowed": true
+  },
+  {
+    "id": "NFLX",
+    "ticker": "NFLX",
+    "companyName": "Netflix Inc.",
+    "price": 590.2324841015807,
+    "priceChangePercent": 4.71,
+    "marketCap": 272.3,
+    "peRatio": 71.9,
+    "dividendYield": null,
+    "analystRating": "Buy",
+    "date": "2025-05-04",
+    "isFollowed": true
+  },
+  {
+    "id": "JNJ",
+    "ticker": "JNJ",
+    "companyName": "Johnson & Johnson",
+    "price": 137.274696910307,
+    "priceChangePercent": 4.11,
+    "marketCap": 355.3,
+    "peRatio": 21.8,
+    "dividendYield": 3.04,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-05",
+    "isFollowed": true
+  },
+  {
+    "id": "PFE",
+    "ticker": "PFE",
+    "companyName": "Pfizer Inc.",
+    "price": 25.22316795487762,
+    "priceChangePercent": 7.42,
+    "marketCap": 152.9,
+    "peRatio": 25.2,
+    "dividendYield": 4.32,
+    "analystRating": "Buy",
+    "date": "2025-05-25",
+    "isFollowed": true
+  },
+  {
+    "id": "UNH",
+    "ticker": "UNH",
+    "companyName": "UnitedHealth Group Inc.",
+    "price": 475.17921949571206,
+    "priceChangePercent": 2.77,
+    "marketCap": 487.5,
+    "peRatio": 19.7,
+    "dividendYield": 1.45,
+    "analystRating": "Sell",
+    "date": "2025-05-23",
+    "isFollowed": true
+  },
+  {
+    "id": "MRK",
+    "ticker": "MRK",
+    "companyName": "Merck & Co Inc.",
+    "price": 95.07034288381644,
+    "priceChangePercent": -2.74,
+    "marketCap": 265.8,
+    "peRatio": 34,
+    "dividendYield": 2.85,
+    "analystRating": "Sell",
+    "date": "2025-05-22",
+    "isFollowed": true
+  },
+  {
+    "id": "ABT",
+    "ticker": "ABT",
+    "companyName": "Abbott Laboratories",
+    "price": 108.6489012811955,
+    "priceChangePercent": 4.93,
+    "marketCap": 187.1,
+    "peRatio": 22.1,
+    "dividendYield": 1.93,
+    "analystRating": "Hold",
+    "date": "2025-05-28",
+    "isFollowed": true
+  },
+  {
+    "id": "LLY",
+    "ticker": "LLY",
+    "companyName": "Eli Lilly & Co.",
+    "price": 848.6243525878336,
+    "priceChangePercent": -2.56,
+    "marketCap": 745.2,
+    "peRatio": 25,
+    "dividendYield": 0.7,
+    "analystRating": "Buy",
+    "date": "2025-05-07",
+    "isFollowed": false
+  },
+  {
+    "id": "TMO",
+    "ticker": "TMO",
+    "companyName": "Thermo Fisher Scientific",
+    "price": 527.9984395541143,
+    "priceChangePercent": 4.08,
+    "marketCap": 225.7,
+    "peRatio": 10.9,
+    "dividendYield": 0.32,
+    "analystRating": "Sell",
+    "date": "2025-05-30",
+    "isFollowed": true
+  },
+  {
+    "id": "JPM",
+    "ticker": "JPM",
+    "companyName": "JPMorgan Chase & Co.",
+    "price": 192.67125267513077,
+    "priceChangePercent": 0,
+    "marketCap": 522.7,
+    "peRatio": 5.5,
+    "dividendYield": 2.37,
+    "analystRating": "Hold",
+    "date": "2025-05-10",
+    "isFollowed": true
+  },
+  {
+    "id": "BAC",
+    "ticker": "BAC",
+    "companyName": "Bank of America Corp.",
+    "price": 34.78809818012305,
+    "priceChangePercent": 6.35,
+    "marketCap": 301.2,
+    "peRatio": 9.7,
+    "dividendYield": 2.65,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-07",
+    "isFollowed": true
+  },
+  {
+    "id": "WFC",
+    "ticker": "WFC",
+    "companyName": "Wells Fargo & Co.",
+    "price": 56.448589030484214,
+    "priceChangePercent": -0.5,
+    "marketCap": 204.1,
+    "peRatio": 9.8,
+    "dividendYield": 2.18,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-20",
+    "isFollowed": true
+  },
+  {
+    "id": "V",
+    "ticker": "V",
+    "companyName": "Visa Inc.",
+    "price": 261.30960168147766,
+    "priceChangePercent": -3.65,
+    "marketCap": 583.2,
+    "peRatio": 30.1,
+    "dividendYield": 0.77,
+    "analystRating": "Hold",
+    "date": "2025-05-07",
+    "isFollowed": true
+  },
+  {
+    "id": "MA",
+    "ticker": "MA",
+    "companyName": "Mastercard Inc.",
+    "price": 482.2067872796154,
+    "priceChangePercent": 21.33,
+    "marketCap": 416.8,
+    "peRatio": 19.4,
+    "dividendYield": 0.65,
+    "analystRating": "Buy",
+    "date": "2025-05-29",
+    "isFollowed": true
+  },
+  {
+    "id": "GS",
+    "ticker": "GS",
+    "companyName": "Goldman Sachs Group",
+    "price": 401.3405500028096,
+    "priceChangePercent": -0.15,
+    "marketCap": 142.5,
+    "peRatio": 26.5,
+    "dividendYield": 2.41,
+    "analystRating": "Sell",
+    "date": "2025-05-23",
+    "isFollowed": false
+  },
+  {
+    "id": "MS",
+    "ticker": "MS",
+    "companyName": "Morgan Stanley",
+    "price": 91.30600433179349,
+    "priceChangePercent": -1.73,
+    "marketCap": 153.2,
+    "peRatio": 25.9,
+    "dividendYield": 3.25,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-23",
+    "isFollowed": true
+  },
+  {
+    "id": "BLK",
+    "ticker": "BLK",
+    "companyName": "BlackRock Inc.",
+    "price": 853.8934973784403,
+    "priceChangePercent": 1.93,
+    "marketCap": 124.3,
+    "peRatio": 24.7,
+    "dividendYield": 2.57,
+    "analystRating": "Sell",
+    "date": "2025-05-14",
+    "isFollowed": true
+  },
+  {
+    "id": "PG",
+    "ticker": "PG",
+    "companyName": "Procter & Gamble Co.",
+    "price": 163.11032605730674,
+    "priceChangePercent": 1.65,
+    "marketCap": 400.2,
+    "peRatio": 29.9,
+    "dividendYield": 2.39,
+    "analystRating": "Buy",
+    "date": "2025-05-28",
+    "isFollowed": true
+  },
+  {
+    "id": "KO",
+    "ticker": "KO",
+    "companyName": "Coca-Cola Co.",
+    "price": 56.22311626658422,
+    "priceChangePercent": -15.25,
+    "marketCap": 268.6,
+    "peRatio": 26.3,
+    "dividendYield": 2.84,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-30",
+    "isFollowed": true
+  },
+  {
+    "id": "PEP",
+    "ticker": "PEP",
+    "companyName": "PepsiCo Inc.",
+    "price": 172.22021894112757,
+    "priceChangePercent": 8.49,
+    "marketCap": 233.2,
+    "peRatio": 30.8,
+    "dividendYield": 2.67,
+    "analystRating": "Buy",
+    "date": "2025-05-27",
+    "isFollowed": true
+  },
+  {
+    "id": "WMT",
+    "ticker": "WMT",
+    "companyName": "Walmart Inc.",
+    "price": 62.60793963989238,
+    "priceChangePercent": -0.8,
+    "marketCap": 481.4,
+    "peRatio": 33.4,
+    "dividendYield": 1.42,
+    "analystRating": "Hold",
+    "date": "2025-05-22",
+    "isFollowed": true
+  },
+  {
+    "id": "MCD",
+    "ticker": "MCD",
+    "companyName": "McDonald's Corp.",
+    "price": 282.4262971411583,
+    "priceChangePercent": 2.7,
+    "marketCap": 186.9,
+    "peRatio": 33.4,
+    "dividendYield": 2.37,
+    "analystRating": "Sell",
+    "date": "2025-05-12",
+    "isFollowed": false
+  },
+  {
+    "id": "COST",
+    "ticker": "COST",
+    "companyName": "Costco Wholesale",
+    "price": 767.8020520574381,
+    "priceChangePercent": 19.42,
+    "marketCap": 324.8,
+    "peRatio": 18.3,
+    "dividendYield": 0.65,
+    "analystRating": "Hold",
+    "date": "2025-05-05",
+    "isFollowed": true
+  },
+  {
+    "id": "HD",
+    "ticker": "HD",
+    "companyName": "Home Depot Inc.",
+    "price": 329.4839005213164,
+    "priceChangePercent": 2.02,
+    "marketCap": 342.5,
+    "peRatio": 29,
+    "dividendYield": 2.44,
+    "analystRating": "Hold",
+    "date": "2025-05-07",
+    "isFollowed": true
+  },
+  {
+    "id": "NKE",
+    "ticker": "NKE",
+    "companyName": "Nike Inc.",
+    "price": 101.57531973374579,
+    "priceChangePercent": -0.96,
+    "marketCap": 142.6,
+    "peRatio": 19.9,
+    "dividendYield": 1.38,
+    "analystRating": "Hold",
+    "date": "2025-05-02",
+    "isFollowed": true
+  },
+  {
+    "id": "XOM",
+    "ticker": "XOM",
+    "companyName": "Exxon Mobil Corp.",
+    "price": 115.3194046785017,
+    "priceChangePercent": 9.7,
+    "marketCap": 453.2,
+    "peRatio": 12.2,
+    "dividendYield": 4.15,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-11",
+    "isFollowed": true
+  },
+  {
+    "id": "CVX",
+    "ticker": "CVX",
+    "companyName": "Chevron Corp.",
+    "price": 132.06526666037857,
+    "priceChangePercent": -0.48,
+    "marketCap": 271.4,
+    "peRatio": 5.3,
+    "dividendYield": 3.84,
+    "analystRating": "Sell",
+    "date": "2025-05-09",
+    "isFollowed": false
+  },
+  {
+    "id": "COP",
+    "ticker": "COP",
+    "companyName": "ConocoPhillips",
+    "price": 97.8245297785594,
+    "priceChangePercent": 6.51,
+    "marketCap": 126.5,
+    "peRatio": 10.4,
+    "dividendYield": 3.1,
+    "analystRating": "Buy",
+    "date": "2025-05-21",
+    "isFollowed": false
+  },
+  {
+    "id": "SLB",
+    "ticker": "SLB",
+    "companyName": "Schlumberger NV",
+    "price": 42.16179030767853,
+    "priceChangePercent": 3.1,
+    "marketCap": 62.1,
+    "peRatio": 34,
+    "dividendYield": 2.53,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-27",
+    "isFollowed": true
+  },
+  {
+    "id": "EOG",
+    "ticker": "EOG",
+    "companyName": "EOG Resources",
+    "price": 130.23923467526038,
+    "priceChangePercent": -0.48,
+    "marketCap": 71.1,
+    "peRatio": 29.7,
+    "dividendYield": 2.73,
+    "analystRating": "Sell",
+    "date": "2025-05-02",
+    "isFollowed": true
+  },
+  {
+    "id": "OXY",
+    "ticker": "OXY",
+    "companyName": "Occidental Petroleum",
+    "price": 57.68024742373406,
+    "priceChangePercent": -1.46,
+    "marketCap": 50.7,
+    "peRatio": 15.4,
+    "dividendYield": 1.32,
+    "analystRating": "Sell",
+    "date": "2025-05-18",
+    "isFollowed": false
+  },
+  {
+    "id": "GE",
+    "ticker": "GE",
+    "companyName": "General Electric Co.",
+    "price": 150.59615254863436,
+    "priceChangePercent": -3.51,
+    "marketCap": 174.5,
+    "peRatio": 30.5,
+    "dividendYield": 0.33,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-19",
+    "isFollowed": true
+  },
+  {
+    "id": "BA",
+    "ticker": "BA",
+    "companyName": "Boeing Co.",
+    "price": 192.68542078888598,
+    "priceChangePercent": -11.99,
+    "marketCap": 110.9,
+    "peRatio": 33.7,
+    "dividendYield": null,
+    "analystRating": "Hold",
+    "date": "2025-05-22",
+    "isFollowed": true
+  },
+  {
+    "id": "HON",
+    "ticker": "HON",
+    "companyName": "Honeywell International Inc.",
+    "price": 194.80511331484087,
+    "priceChangePercent": 2.62,
+    "marketCap": 131.7,
+    "peRatio": 26.9,
+    "dividendYield": 1.98,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-16",
+    "isFollowed": false
+  },
+  {
+    "id": "CAT",
+    "ticker": "CAT",
+    "companyName": "Caterpillar Inc.",
+    "price": 331.6269104607896,
+    "priceChangePercent": 4.18,
+    "marketCap": 168.9,
+    "peRatio": 28.5,
+    "dividendYield": 1.77,
+    "analystRating": "Hold",
+    "date": "2025-05-27",
+    "isFollowed": true
+  },
+  {
+    "id": "UPS",
+    "ticker": "UPS",
+    "companyName": "United Parcel Service Inc.",
+    "price": 145.07334782346445,
+    "priceChangePercent": 6.54,
+    "marketCap": 115.3,
+    "peRatio": 24.7,
+    "dividendYield": 4.18,
+    "analystRating": "Buy",
+    "date": "2025-05-30",
+    "isFollowed": true
+  },
+  {
+    "id": "LMT",
+    "ticker": "LMT",
+    "companyName": "Lockheed Martin",
+    "price": 434.21257659597757,
+    "priceChangePercent": 0.95,
+    "marketCap": 110.3,
+    "peRatio": 15.8,
+    "dividendYield": 2.6,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-06",
+    "isFollowed": true
+  },
+  {
+    "id": "RTX",
+    "ticker": "RTX",
+    "companyName": "RTX Corporation",
+    "price": 102.6688248365131,
+    "priceChangePercent": 12.95,
+    "marketCap": 123.7,
+    "peRatio": 24.1,
+    "dividendYield": 2.55,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-18",
+    "isFollowed": true
+  },
+  {
+    "id": "DE",
+    "ticker": "DE",
+    "companyName": "Deere & Company",
+    "price": 407.7490323397764,
+    "priceChangePercent": 1.6,
+    "marketCap": 107.2,
+    "peRatio": 19.7,
+    "dividendYield": 1.4,
+    "analystRating": "Sell",
+    "date": "2025-05-22",
+    "isFollowed": true
+  },
+  {
+    "id": "VZ",
+    "ticker": "VZ",
+    "companyName": "Verizon Communications Inc.",
+    "price": 38.28713898009967,
+    "priceChangePercent": 0.58,
+    "marketCap": 171.9,
+    "peRatio": 11.4,
+    "dividendYield": 7.11,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-05",
+    "isFollowed": true
+  },
+  {
+    "id": "T",
+    "ticker": "T",
+    "companyName": "AT&T Inc.",
+    "price": 17.32838692663008,
+    "priceChangePercent": 6.97,
+    "marketCap": 123,
+    "peRatio": 5.5,
+    "dividendYield": 6.88,
+    "analystRating": "Sell",
+    "date": "2025-05-18",
+    "isFollowed": false
+  },
+  {
+    "id": "CMCSA",
+    "ticker": "CMCSA",
+    "companyName": "Comcast Corp.",
+    "price": 39.87016868572505,
+    "priceChangePercent": 3.06,
+    "marketCap": 158.1,
+    "peRatio": 26.4,
+    "dividendYield": 2.88,
+    "analystRating": "Hold",
+    "date": "2025-05-11",
+    "isFollowed": true
+  },
+  {
+    "id": "TMUS",
+    "ticker": "TMUS",
+    "companyName": "T-Mobile US",
+    "price": 163.00749403999387,
+    "priceChangePercent": -2.6,
+    "marketCap": 196.4,
+    "peRatio": 12.2,
+    "dividendYield": null,
+    "analystRating": "Sell",
+    "date": "2025-05-03",
+    "isFollowed": false
+  },
+  {
+    "id": "CRM",
+    "ticker": "CRM",
+    "companyName": "Salesforce Inc.",
+    "price": 254.68931530964787,
+    "priceChangePercent": -2.46,
+    "marketCap": 235.6,
+    "peRatio": 19.4,
+    "dividendYield": null,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-19",
+    "isFollowed": true
+  },
+  {
+    "id": "ADBE",
+    "ticker": "ADBE",
+    "companyName": "Adobe Inc.",
+    "price": 564.2548790455407,
+    "priceChangePercent": 13.48,
+    "marketCap": 233.2,
+    "peRatio": 16.8,
+    "dividendYield": null,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-21",
+    "isFollowed": true
+  },
+  {
+    "id": "ORCL",
+    "ticker": "ORCL",
+    "companyName": "Oracle Corporation",
+    "price": 124.35326275249548,
+    "priceChangePercent": 1.48,
+    "marketCap": 323.5,
+    "peRatio": 23.6,
+    "dividendYield": 1.33,
+    "analystRating": "Buy",
+    "date": "2025-05-27",
+    "isFollowed": true
+  },
+  {
+    "id": "INTC",
+    "ticker": "INTC",
+    "companyName": "Intel Corporation",
+    "price": 29.162476054038027,
+    "priceChangePercent": 3.5,
+    "marketCap": 132.1,
+    "peRatio": 22.4,
+    "dividendYield": 1.71,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-24",
+    "isFollowed": true
+  },
+  {
+    "id": "CSCO",
+    "ticker": "CSCO",
+    "companyName": "Cisco Systems",
+    "price": 51.85968066728764,
+    "priceChangePercent": 4.02,
+    "marketCap": 193.4,
+    "peRatio": 15.5,
+    "dividendYield": 3.37,
+    "analystRating": "Sell",
+    "date": "2025-05-21",
+    "isFollowed": true
+  },
+  {
+    "id": "AMD",
+    "ticker": "AMD",
+    "companyName": "Advanced Micro Devices",
+    "price": 156.3735393297996,
+    "priceChangePercent": 8.14,
+    "marketCap": 253.9,
+    "peRatio": 24.9,
+    "dividendYield": null,
+    "analystRating": "Strong Buy",
+    "date": "2025-05-10",
+    "isFollowed": true
+  },
+  {
+    "id": "IBM",
+    "ticker": "IBM",
+    "companyName": "IBM Corporation",
+    "price": 186.88250799128085,
+    "priceChangePercent": 5.69,
+    "marketCap": 158.7,
+    "peRatio": 26.7,
+    "dividendYield": 4.6,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-29",
+    "isFollowed": true
+  },
+  {
+    "id": "SBUX",
+    "ticker": "SBUX",
+    "companyName": "Starbucks Corporation",
+    "price": 71.91300180139736,
+    "priceChangePercent": -4.72,
+    "marketCap": 88.5,
+    "peRatio": 30.1,
+    "dividendYield": 2.57,
+    "analystRating": "Hold",
+    "date": "2025-05-12",
+    "isFollowed": true
+  },
+  {
+    "id": "TGT",
+    "ticker": "TGT",
+    "companyName": "Target Corporation",
+    "price": 138.47143661716308,
+    "priceChangePercent": 9.89,
+    "marketCap": 65.4,
+    "peRatio": 12.1,
+    "dividendYield": 3,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-22",
+    "isFollowed": false
+  },
+  {
+    "id": "LOW",
+    "ticker": "LOW",
+    "companyName": "Lowe's Companies",
+    "price": 201.464732962572,
+    "priceChangePercent": 2.51,
+    "marketCap": 121.6,
+    "peRatio": 29.9,
+    "dividendYield": 1.9,
+    "analystRating": "Hold",
+    "date": "2025-05-22",
+    "isFollowed": true
+  },
+  {
+    "id": "EBAY",
+    "ticker": "EBAY",
+    "companyName": "eBay Inc.",
+    "price": 55.429432212031685,
+    "priceChangePercent": 9.82,
+    "marketCap": 26.2,
+    "peRatio": 22.3,
+    "dividendYield": 2.16,
+    "analystRating": "Buy",
+    "date": "2025-05-29",
+    "isFollowed": true
+  },
+  {
+    "id": "ETSY",
+    "ticker": "ETSY",
+    "companyName": "Etsy Inc.",
+    "price": 69.47989226487357,
+    "priceChangePercent": 4.96,
+    "marketCap": 7.7,
+    "peRatio": 84.8,
+    "dividendYield": null,
+    "analystRating": "Buy",
+    "date": "2025-05-20",
+    "isFollowed": false
+  },
+  {
+    "id": "DIS",
+    "ticker": "DIS",
+    "companyName": "Walt Disney Co.",
+    "price": 89.64919315698734,
+    "priceChangePercent": 8.98,
+    "marketCap": 162.8,
+    "peRatio": 17.4,
+    "dividendYield": null,
+    "analystRating": "Buy",
+    "date": "2025-05-03",
+    "isFollowed": false
+  },
+  {
+    "id": "NFLX",
+    "ticker": "NFLX",
+    "companyName": "Netflix Inc.",
+    "price": 584.7258891840562,
+    "priceChangePercent": 0.27,
+    "marketCap": 272.3,
+    "peRatio": 53.3,
+    "dividendYield": null,
+    "analystRating": "Sell",
+    "date": "2025-05-26",
+    "isFollowed": true
+  },
+  {
+    "id": "PYPL",
+    "ticker": "PYPL",
+    "companyName": "PayPal Holdings",
+    "price": 57.98062320189544,
+    "priceChangePercent": 5.55,
+    "marketCap": 65.7,
+    "peRatio": 25.1,
+    "dividendYield": null,
+    "analystRating": "Hold",
+    "date": "2025-05-25",
+    "isFollowed": true
+  },
+  {
+    "id": "ABNB",
+    "ticker": "ABNB",
+    "companyName": "Airbnb Inc.",
+    "price": 151.42434890398664,
+    "priceChangePercent": 2.31,
+    "marketCap": 92.1,
+    "peRatio": 47.1,
+    "dividendYield": null,
+    "analystRating": "Sell",
+    "date": "2025-05-22",
+    "isFollowed": false
+  },
+  {
+    "id": "UBER",
+    "ticker": "UBER",
+    "companyName": "Uber Technologies",
+    "price": 62.439632726925566,
+    "priceChangePercent": -4.37,
+    "marketCap": 139.7,
+    "peRatio": 48.6,
+    "dividendYield": null,
+    "analystRating": "Strong Sell",
+    "date": "2025-05-10",
+    "isFollowed": false
+  },
+  {
+    "id": "ZM",
+    "ticker": "ZM",
+    "companyName": "Zoom Video Communications",
+    "price": 62.48426221246946,
+    "priceChangePercent": -0.64,
+    "marketCap": 18.9,
+    "peRatio": 60.3,
+    "dividendYield": null,
+    "analystRating": "Hold",
+    "date": "2025-05-10",
+    "isFollowed": true
   }
 ]
