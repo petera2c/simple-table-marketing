@@ -13,8 +13,8 @@ const headers: HeaderObject[] = [
     cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <span className="text-gray-400 mr-2">✉</span>
-        <a href={`mailto:${row.rowData.email}`} className="text-blue-600 hover:underline">
-          {row.rowData.email}
+        <a href={`mailto:${row.email}`} className="text-blue-600 hover:underline">
+          {row.email as string}
         </a>
       </div>
     ),
@@ -27,8 +27,8 @@ const headers: HeaderObject[] = [
     cellRenderer: ({ row }) => (
       <div className="flex items-center">
         <span className="text-gray-400 mr-2">📞</span>
-        <a href={`tel:${row.rowData.phone}`} className="text-blue-600 hover:underline">
-          {row.rowData.phone}
+        <a href={`tel:${row.phone}`} className="text-blue-600 hover:underline">
+          {row.phone as string}
         </a>
       </div>
     ),
@@ -42,12 +42,12 @@ const headers: HeaderObject[] = [
       <div className="flex items-center">
         <span className="text-gray-400 mr-2">🌐</span>
         <a
-          href={`https://${row.rowData.website}`}
+          href={`https://${row.website}`}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 hover:underline"
         >
-          {row.rowData.website}
+          {row.website as string}
         </a>
       </div>
     ),
@@ -58,7 +58,7 @@ const headers: HeaderObject[] = [
     width: 120,
     type: "string",
     cellRenderer: ({ row }) => {
-      const status = row.rowData.status as string;
+      const status = row.status as string;
       let color = "gray";
       let icon = "•";
 
@@ -87,7 +87,7 @@ const headers: HeaderObject[] = [
     width: 150,
     type: "number",
     cellRenderer: ({ row }) => {
-      const progress = row.rowData.progress as number;
+      const progress = row.progress as number;
       let color = "blue";
 
       if (progress < 30) color = "red";
@@ -113,7 +113,7 @@ const headers: HeaderObject[] = [
     width: 150,
     type: "number",
     cellRenderer: ({ row }) => {
-      const rating = row.rowData.rating as number;
+      const rating = row.rating as number;
       const fullStars = Math.floor(rating);
       const hasHalfStar = rating % 1 >= 0.5;
 
@@ -146,7 +146,7 @@ const headers: HeaderObject[] = [
     width: 100,
     type: "boolean",
     cellRenderer: ({ row }) => {
-      const verified = row.rowData.verified as boolean;
+      const verified = row.verified as boolean;
 
       return verified ? (
         <span className="inline-flex items-center text-green-500">
@@ -249,9 +249,9 @@ const EMPLOYEE_DATA = [
     phone: "+1 (555) 890-1234",
     website: "frankwhite.com",
     status: "pending",
-    progress: 50,
-    rating: 3.5,
-    verified: true,
+    progress: 55,
+    rating: 3.7,
+    verified: false,
   },
   {
     id: 9,
@@ -266,9 +266,17 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-
 const CellRendererDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
-  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={theme} />;
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      height={height}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
+      selectableCells
+      theme={theme}
+    />
+  );
 };
 
 export default CellRendererDemo;

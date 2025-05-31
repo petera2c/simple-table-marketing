@@ -86,14 +86,14 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-
 const ColumnVisibilityDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
       editColumns
       editColumnsInitOpen
-      rows={rows}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}
     />

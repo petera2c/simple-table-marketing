@@ -27,7 +27,7 @@ const headers: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const price = row.rowData.price as number;
+      const price = row.price as number;
       return `$${price.toFixed(2)}`;
     },
   },
@@ -47,7 +47,7 @@ const headers: HeaderObject[] = [
     align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const rating = row.rowData.rating as number;
+      const rating = row.rating as number;
       return `${rating.toFixed(1)} ★`;
     },
   },
@@ -173,15 +173,16 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
     <div style={{ display: "flex" }}>
       <SimpleTable
         defaultHeaders={headers}
-        rows={rows}
-        shouldPaginate
-        rowsPerPage={7}
         height={"auto"}
+        rowIdAccessor="id"
+        rows={PRODUCT_DATA}
+        rowsPerPage={7}
+        shouldPaginate
         // Custom icons props
-        sortUpIcon={customIcons.sortUpIcon}
-        sortDownIcon={customIcons.sortDownIcon}
         nextIcon={customIcons.nextIcon}
         prevIcon={customIcons.prevIcon}
+        sortDownIcon={customIcons.sortDownIcon}
+        sortUpIcon={customIcons.sortUpIcon}
         theme={theme}
       />
     </div>

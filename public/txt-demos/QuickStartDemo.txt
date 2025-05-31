@@ -94,14 +94,14 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-
 const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
       editColumns
       height={height}
-      rows={rows}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
       rowHeight={48}
       selectableCells
       theme={theme}

@@ -94,14 +94,14 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-
 const CellHighlightingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
       selectableCells
       selectableColumns
-      rows={rows}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}
     />
