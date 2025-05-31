@@ -86,14 +86,16 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const ColumnSortingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
-  return <SimpleTable defaultHeaders={headers} height={height} rows={rows} theme={theme} />;
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      height={height}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
+      theme={theme}
+    />
+  );
 };
 
 export default ColumnSortingDemo;

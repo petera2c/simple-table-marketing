@@ -94,19 +94,14 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = EMPLOYEE_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
       editColumns
       height={height}
-      rows={rows}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
       rowHeight={48}
       selectableCells
       theme={theme}
