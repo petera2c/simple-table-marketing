@@ -18,11 +18,8 @@ const processedData = (rawData as Row[]).map((row: Row) => {
 
   return {
     ...row,
-    rowData: {
-      ...row.rowData,
-      closeDate,
-      category,
-    },
+    closeDate,
+    category,
   };
 });
 
@@ -40,13 +37,10 @@ export default function SalesExample({
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === row.id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -61,6 +55,7 @@ export default function SalesExample({
       defaultHeaders={SALES_HEADERS}
       editColumns
       onGridReady={onGridReady}
+      rowIdAccessor="id"
       rows={data}
       theme={theme}
       selectableCells

@@ -247,8 +247,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         cellRenderer: ({ row }) => {
-          if (row.rowData.dealSize === "—") return "—";
-          return `$${(row.rowData.dealSize as number).toLocaleString("en-US", {
+          if (row.dealSize === "—") return "—";
+          return `$${(row.dealSize as number).toLocaleString("en-US", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}`;
@@ -264,8 +264,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         cellRenderer: ({ row, theme }) => {
-          if (row.rowData.dealValue === "—") return "—";
-          const value = row.rowData.dealValue as number;
+          if (row.dealValue === "—") return "—";
+          const value = row.dealValue as number;
           const colors = getThemeColors(theme);
 
           // Color code based on value tiers
@@ -295,8 +295,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "center",
         type: "boolean",
         cellRenderer: ({ row }) => {
-          if (row.rowData.isWon === "—") return "—";
-          const isWon = row.rowData.isWon as boolean;
+          if (row.isWon === "—") return "—";
+          const isWon = row.isWon as boolean;
           return (
             <Tag color={isWon ? "success" : "error"} className="py-1 px-2">
               {isWon ? "Won" : "Lost"}
@@ -314,8 +314,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "center",
         type: "date",
         cellRenderer: ({ row }) => {
-          if (!row.rowData.closeDate) return "—";
-          const date = new Date(row.rowData.closeDate as string);
+          if (!row.closeDate) return "—";
+          const date = new Date(row.closeDate as string);
           return (
             <div className="flex items-center justify-center">
               {date.toLocaleDateString("en-US", {
@@ -346,8 +346,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         cellRenderer: ({ row, theme }) => {
-          if (row.rowData.commission === "—") return "—";
-          const value = row.rowData.commission as number;
+          if (row.commission === "—") return "—";
+          const value = row.commission as number;
           const colors = getThemeColors(theme);
 
           if (value === 0) return <span style={{ color: colors.grayMuted }}>$0.00</span>;
@@ -368,8 +368,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         cellRenderer: ({ row, theme }) => {
-          if (row.rowData.profitMargin === "—") return "—";
-          const value = row.rowData.profitMargin as number;
+          if (row.profitMargin === "—") return "—";
+          const value = row.profitMargin as number;
           const colors = getThemeColors(theme);
 
           // Enhanced color coding based on profit margin tiers
@@ -411,8 +411,8 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         cellRenderer: ({ row, theme }) => {
-          if (row.rowData.dealProfit === "—") return "—";
-          const value = row.rowData.dealProfit as number;
+          if (row.dealProfit === "—") return "—";
+          const value = row.dealProfit as number;
           const colors = getThemeColors(theme);
 
           if (value === 0) return <span style={{ color: colors.grayMuted }}>$0.00</span>;

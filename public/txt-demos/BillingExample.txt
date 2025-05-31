@@ -20,6 +20,8 @@ export default function BillingExample({
       editColumns
       height={height ? `${height}px` : "70dvh"}
       onGridReady={onGridReady}
+      rowGrouping={["invoices", "charges"]}
+      rowIdAccessor="id"
       rows={BILLING_DATA}
       selectableCells
       theme={theme}

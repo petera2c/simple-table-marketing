@@ -20,7 +20,7 @@ export default function HRExample({
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === row.id) {
           return {
             ...item,
             rowData: {
@@ -40,6 +40,7 @@ export default function HRExample({
         columnReordering
         columnResizing
         defaultHeaders={HEADERS}
+        rowIdAccessor="id"
         rows={data}
         rowsPerPage={howManyRowsCanFit}
         selectableCells

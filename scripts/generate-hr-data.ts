@@ -1,7 +1,13 @@
-import { Row } from "simple-table-core";
+import path from "path";
+import type { Row } from "simple-table-core";
+import fs from "fs";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 // Generate HR employee data
-export const generateHRData = (): Row[] => {
+const generateHRData = (): Row[] => {
   const departments = [
     "Engineering",
     "Marketing",
@@ -192,39 +198,50 @@ export const generateHRData = (): Row[] => {
       Math.random() < (department === "Engineering" || department === "Marketing" ? 0.8 : 0.4);
 
     rows.push({
-      rowMeta: { rowId: rowId++ },
-      rowData: {
-        id: Math.floor(Math.random() * 10000) + 1000,
-        department,
-        firstName,
-        lastName,
-        fullName: `${firstName} ${lastName}`,
-        position: `${position} ${
-          department.includes("Engineering")
-            ? "Engineer"
-            : department.includes("Marketing")
-            ? "Marketer"
-            : department.includes("Sales")
-            ? "Representative"
-            : department.includes("Finance")
-            ? "Analyst"
-            : department.includes("HR")
-            ? "Specialist"
-            : department.includes("Operations")
-            ? "Manager"
-            : "Agent"
-        }`,
-        email,
-        hireDate,
-        yearsOfService: parseFloat(yearsOfService),
-        salary,
-        performanceScore,
-        location,
-        status,
-        isRemoteEligible,
-      },
+      id: Math.floor(Math.random() * 10000) + 1000,
+      department,
+      firstName,
+      lastName,
+      fullName: `${firstName} ${lastName}`,
+      position: `${position} ${
+        department.includes("Engineering")
+          ? "Engineer"
+          : department.includes("Marketing")
+          ? "Marketer"
+          : department.includes("Sales")
+          ? "Representative"
+          : department.includes("Finance")
+          ? "Analyst"
+          : department.includes("HR")
+          ? "Specialist"
+          : department.includes("Operations")
+          ? "Manager"
+          : "Agent"
+      }`,
+      email,
+      hireDate,
+      yearsOfService: parseFloat(yearsOfService),
+      salary,
+      performanceScore,
+      location,
+      status,
+      isRemoteEligible,
     });
   }
 
   return rows;
 };
+
+// Run the generation and save to a file
+function saveDataToFile() {
+  console.log("Generating HR dataset...");
+  const data = generateHRData();
+  console.log(`Generated ${data.length} HR records`);
+
+  const filePath = path.join(__dirname, "../src/examples/hr/hr-data.json");
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
+  console.log(`Data saved to ${filePath}`);
+}
+
+// Execute the function
+saveDataToFile();

@@ -6,8 +6,38 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Product interface
+interface Product {
+  id: string;
+  name: string;
+  basePrice: number;
+  category: string;
+}
+
+// Sales rep interface
+interface SalesRep {
+  id: string;
+  name: string;
+  experience: number;
+  performanceRating: number;
+}
+
+// Sale record interface
+interface SaleRecord {
+  id: string;
+  repName: string;
+  dealSize: number;
+  isWon: boolean;
+  commission: number;
+  dealProfit: number;
+  dealValue: number;
+  profitMargin: number;
+  closeDate: string;
+  category: string;
+}
+
 // Products data
-const PRODUCTS = [
+const PRODUCTS: Product[] = [
   { id: "SAAS-BASIC", name: "Basic SaaS Plan", basePrice: 99, category: "Software" },
   { id: "SAAS-PRO", name: "Professional SaaS Plan", basePrice: 299, category: "Software" },
   { id: "SAAS-ENT", name: "Enterprise SaaS Plan", basePrice: 999, category: "Software" },
@@ -22,7 +52,7 @@ const PRODUCTS = [
 ];
 
 // Sales representatives data
-const SALES_REPS = [
+const SALES_REPS: SalesRep[] = [
   // North America Team
   {
     id: "REP001",
@@ -159,7 +189,7 @@ const SALES_REPS = [
 ];
 
 // Generate realistic sales record
-function generateRealisticSaleRecord(repData, rowId) {
+function generateRealisticSaleRecord(repData: SalesRep, rowId: number): SaleRecord {
   // Product tier selection - more experienced reps sell more enterprise products
   const repExperienceWeight = repData.experience / 10;
   const tierWeights = [
@@ -168,7 +198,7 @@ function generateRealisticSaleRecord(repData, rowId) {
     0.1 + repExperienceWeight * 0.4, // Higher tier products
   ];
 
-  let productTier;
+  let productTier: number;
   const tierRoll = Math.random();
   if (tierRoll < tierWeights[0]) {
     productTier = 0; // Lower tier
@@ -179,7 +209,7 @@ function generateRealisticSaleRecord(repData, rowId) {
   }
 
   // Select product based on tier
-  let product;
+  let product: Product;
   if (productTier === 0) {
     // Lower price products (SAAS-BASIC, SUPPORT-STD)
     const lowerTierProducts = PRODUCTS.filter((p) => p.basePrice < 500);
@@ -209,7 +239,7 @@ function generateRealisticSaleRecord(repData, rowId) {
   const isWon = Math.random() < finalWinRate;
 
   // Number of units sold - varies by product type and price point
-  let units;
+  let units: number;
   if (product.basePrice < 500) {
     // Cheaper products sell in larger quantities
     units = Math.floor(Math.random() * 200) + 1;
@@ -225,7 +255,7 @@ function generateRealisticSaleRecord(repData, rowId) {
   const dealValue = parseFloat((dealSize * units).toFixed(2));
 
   // Profit margin varies by product category
-  let baseProfitMargin;
+  let baseProfitMargin: number;
   switch (product.category) {
     case "Software":
       baseProfitMargin = 0.7; // Software has high margins
@@ -269,27 +299,22 @@ function generateRealisticSaleRecord(repData, rowId) {
   const category = categories[Math.floor(Math.random() * categories.length)];
 
   return {
-    rowMeta: {
-      rowId: rowId,
-      isExpanded: true,
-    },
-    rowData: {
-      repName: repData.name,
-      dealSize: dealSize,
-      isWon: isWon,
-      commission: commission,
-      dealProfit: dealProfit,
-      dealValue: dealValue,
-      profitMargin: profitMargin,
-      closeDate: closeDate,
-      category: category,
-    },
+    id: `SALE-${rowId}`,
+    repName: repData.name,
+    dealSize: dealSize,
+    isWon: isWon,
+    commission: commission,
+    dealProfit: dealProfit,
+    dealValue: dealValue,
+    profitMargin: profitMargin,
+    closeDate: closeDate,
+    category: category,
   };
 }
 
 // Generate realistic dataset
-function generateRealisticSalesDataset(numRecords = 200) {
-  const data = [];
+function generateRealisticSalesDataset(numRecords: number = 200): SaleRecord[] {
+  const data: SaleRecord[] = [];
 
   for (let i = 0; i < numRecords; i++) {
     // Pick a random sales rep, but weight by experience for more realistic distribution
@@ -305,8 +330,8 @@ function generateRealisticSalesDataset(numRecords = 200) {
 }
 
 // Helper function for weighted random selection
-function weightedRandomIndex(weights) {
-  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+function weightedRandomIndex(weights: number[]): number {
+  const totalWeight = weights.reduce((sum: number, weight: number) => sum + weight, 0);
   let random = Math.random() * totalWeight;
 
   for (let i = 0; i < weights.length; i++) {
@@ -320,7 +345,7 @@ function weightedRandomIndex(weights) {
 }
 
 // Run the generation and save to a file
-async function saveDataToFile() {
+async function saveDataToFile(): Promise<void> {
   console.log("Generating realistic sales dataset...");
   const data = generateRealisticSalesDataset();
   console.log(`Generated ${data.length} sales records`);

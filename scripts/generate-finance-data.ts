@@ -567,7 +567,7 @@ const COMPANIES = [
 ];
 
 // Generate realistic finance data with simplified structure
-export const generateFinanceData = (): Row[] => {
+const generateFinanceData = (): Row[] => {
   let rowId = 0;
 
   return COMPANIES.map((company) => {
@@ -631,19 +631,17 @@ export const generateFinanceData = (): Row[] => {
     const isFollowed = Math.random() < 0.7;
 
     return {
-      rowMeta: { rowId: rowId++ },
-      rowData: {
-        ticker: company.ticker,
-        companyName: company.name,
-        price,
-        priceChangePercent,
-        marketCap,
-        peRatio,
-        dividendYield,
-        analystRating: randomRating,
-        date,
-        isFollowed,
-      },
+      id: company.ticker,
+      ticker: company.ticker,
+      companyName: company.name,
+      price,
+      priceChangePercent,
+      marketCap,
+      peRatio,
+      dividendYield,
+      analystRating: randomRating,
+      date,
+      isFollowed,
     };
   });
 };
