@@ -446,26 +446,25 @@ export default function ThemeBuilderContent() {
 }
 
 // Process the data to add the new fields
-const processedData = (rawData as Row[]).map((row: Row) => {
-  // Generate a random close date in the past 90 days
-  const today = new Date();
-  const pastDate = new Date(today);
-  pastDate.setDate(today.getDate() - Math.floor(Math.random() * 90));
-  const closeDate = pastDate.toISOString().split("T")[0];
+const processedData: (Row & { closeDate: string; category: string })[] = (rawData as Row[]).map(
+  (row: Row) => {
+    // Generate a random close date in the past 90 days
+    const today = new Date();
+    const pastDate = new Date(today);
+    pastDate.setDate(today.getDate() - Math.floor(Math.random() * 90));
+    const closeDate = pastDate.toISOString().split("T")[0];
 
-  // Assign a random category
-  const categories = ["Software", "Hardware", "Services", "Consulting", "Training", "Support"];
-  const category = categories[Math.floor(Math.random() * categories.length)];
+    // Assign a random category
+    const categories = ["Software", "Hardware", "Services", "Consulting", "Training", "Support"];
+    const category = categories[Math.floor(Math.random() * categories.length)];
 
-  return {
-    ...row,
-    rowData: {
-      ...row.rowData,
+    return {
+      ...row,
       closeDate,
       category,
-    },
-  };
-});
+    };
+  }
+);
 
 function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
   const [data, setData] = useState(processedData);
@@ -479,13 +478,10 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
       prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+        if (item.id === row.id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -501,6 +497,7 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
       editColumns
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
+      rowIdAccessor="id"
       rows={data}
       rowsPerPage={howManyRowsCanFit}
       selectableCells

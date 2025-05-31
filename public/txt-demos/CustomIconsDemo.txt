@@ -129,12 +129,6 @@ const PRODUCT_DATA = [
   },
 ];
 
-// Map data to rows format expected by SimpleTable
-const rows = PRODUCT_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
 // Custom icons using simple HTML/CSS
 const customIcons = {
   // For sorting columns

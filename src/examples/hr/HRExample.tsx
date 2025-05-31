@@ -23,10 +23,7 @@ export default function HRExample({
         if (item.id === row.id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;

@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CellRendererDemo from "../../demos/CellRendererDemo";
-import CodeBlock from "../../CodeBlock";
 import DocNavigationButtons from "../../DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
@@ -124,31 +123,36 @@ const CellRendererContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             row
           </code>{" "}
-          parameter passed to your cell renderer has the following structure:
+          parameter passed to your cell renderer is a flat object containing all the row's data:
         </p>
 
         <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
           <pre className="whitespace-pre-wrap">
             <code>{`type Row = {
-  // Row metadata
-  rowMeta: {
-    children?: Row[];    // Child rows for hierarchical data
-    isExpanded?: boolean; // Whether this row is expanded (for hierarchical data)
-    rowId: number;       // Unique identifier for the row
-  };
+  id: string | number;           // Unique identifier for the row
+  [accessor: string]: CellValue; // All cell values accessible by column accessor
+  
+  // For hierarchical data (optional):
+  children?: Row[];              // Child rows (e.g., invoices array, stations array)
+};
 
-  // Actual cell values
-  rowData: { [key: string]: CellValue };  // Map of accessors to cell values
-};`}</code>
+// Example row structure:
+{
+  id: "SALE-123",
+  repName: "John Doe",
+  dealSize: 15000,
+  isWon: true,
+  category: "Software"
+}`}</code>
           </pre>
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           To access a specific cell value, use{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            row.rowData[accessor]
-          </code>
-          .
+            row[accessor]
+          </code>{" "}
+          directly. The row object is flat and contains all the data for that row.
         </p>
       </motion.div>
 
