@@ -206,6 +206,7 @@ tableRef.current?.updateData({
   cellUpdateFlash={true} // Enable the flash animation
   defaultHeaders={headers}
   rows={tableData}
+  rowIdAccessor="id"
   tableRef={tableRef}
 />`}
         />

@@ -336,12 +336,12 @@ export const HEADERS: HeaderObject[] = [
     type: "string",
     cellRenderer: ({ row, theme }) => {
       // Employee row, render with avatar and details
-      const initials = `${row.rowData.firstName?.toString().charAt(0) || ""}${
-        row.rowData.lastName?.toString().charAt(0) || ""
-      }`;
-      const name = row.rowData.fullName as string;
-      const position = row.rowData.position as string;
       const colors = getThemeColors(theme);
+      const initials = `${row.firstName?.toString().charAt(0) || ""}${
+        row.lastName?.toString().charAt(0) || ""
+      }`;
+      const name = row.fullName as string;
+      const position = row.position as string;
 
       return (
         <div style={{ display: "flex", alignItems: "center" }}>
@@ -365,8 +365,8 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "number",
     cellRenderer: ({ row, theme }) => {
-      const score = row.rowData.performanceScore as number;
       const colors = getThemeColors(theme);
+      const score = row.performanceScore as number;
 
       const getColorByScore = (score: number): "success" | "normal" | "exception" => {
         if (score >= 90) return "success";
@@ -447,8 +447,8 @@ export const HEADERS: HeaderObject[] = [
     align: "left",
     type: "date",
     cellRenderer: ({ row, theme }) => {
-      if (!row.rowData.hireDate) return "";
-      const date = new Date(row.rowData.hireDate as string);
+      if (!row.hireDate) return "";
+      const date = new Date(row.hireDate as string);
       const colors = getThemeColors(theme);
 
       return (
@@ -471,10 +471,10 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "number",
     cellRenderer: ({ row, theme }) => {
-      if (row.rowData.yearsOfService === null) return "";
+      if (row.yearsOfService === null) return "";
       const colors = getThemeColors(theme);
 
-      return <span style={{ color: colors.gray }}>{`${row.rowData.yearsOfService} yrs`}</span>;
+      return <span style={{ color: colors.gray }}>{`${row.yearsOfService} yrs`}</span>;
     },
   },
   {
@@ -489,9 +489,7 @@ export const HEADERS: HeaderObject[] = [
       const colors = getThemeColors(theme);
 
       return (
-        <span style={{ color: colors.gray }}>
-          {`$${(row.rowData.salary as number).toLocaleString()}`}
-        </span>
+        <span style={{ color: colors.gray }}>{`$${(row.salary as number).toLocaleString()}`}</span>
       );
     },
   },
@@ -512,9 +510,9 @@ export const HEADERS: HeaderObject[] = [
       { label: "Terminated", value: "Terminated" },
     ],
     cellRenderer: ({ row, theme }) => {
-      if (!row.rowData.status) return "";
+      if (!row.status) return "";
 
-      const status = row.rowData.status as string;
+      const status = row.status as string;
       const statusColor =
         {
           Active: "green",

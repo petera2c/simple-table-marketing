@@ -1,32 +1,31 @@
-import { SimpleTable, Theme, CellChangeProps } from "simple-table-core";
-import { HEADERS } from "./hr-headers";
-import { useState } from "react";
+import { SimpleTable, CellChangeProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import HR_DATA from "./hr-data.json";
+import { useState } from "react";
+import { HEADERS } from "./hr-headers";
+import hrData from "./hr-data.json";
+
+const DEFAULT_ROW_HEIGHT = 32;
 
 export default function HRExample({
-  height = 500,
-  rowHeight = 40,
-  theme,
+  onGridReady,
+  height,
+  rowHeight = DEFAULT_ROW_HEIGHT,
+  theme = "light",
 }: {
-  height: number | null;
+  onGridReady?: () => void;
+  height?: number | null;
   rowHeight?: number;
   theme?: Theme;
 }) {
-  const [data, setData] = useState(HR_DATA);
-
-  const howManyRowsCanFit = height ? Math.floor(height / rowHeight) : 10;
+  const [data, setData] = useState(hrData);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
-    setData((prevData) =>
-      prevData.map((item) => {
-        if (item.rowMeta.rowId === row.rowMeta.rowId) {
+    setData((prevData: any) =>
+      prevData.map((item: any) => {
+        if (item.id === (row as any).id) {
           return {
             ...item,
-            rowData: {
-              ...item.rowData,
-              [accessor]: newValue,
-            },
+            [accessor]: newValue,
           };
         }
         return item;
@@ -35,18 +34,22 @@ export default function HRExample({
   };
 
   return (
-    <div style={{ display: "flex" }}>
-      <SimpleTable
-        columnReordering
-        columnResizing
-        defaultHeaders={HEADERS}
-        rows={data}
-        rowsPerPage={howManyRowsCanFit}
-        selectableCells
-        shouldPaginate
-        theme={theme}
-        onCellEdit={handleCellEdit}
-      />
-    </div>
+    <SimpleTable
+      columnReordering
+      columnResizing
+      defaultHeaders={HEADERS}
+      editColumns
+      height={height ? `${height}px` : "70dvh"}
+      onCellEdit={handleCellEdit}
+      onGridReady={onGridReady}
+      rows={data}
+      rowIdAccessor="id"
+      rowGrouping={["departments", "teams"]}
+      rowHeight={rowHeight}
+      selectableCells
+      shouldPaginate
+      rowsPerPage={15}
+      theme={theme}
+    />
   );
 }

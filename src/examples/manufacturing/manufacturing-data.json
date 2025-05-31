@@ -1,889 +1,184 @@
 [
   {
-    "rowMeta": {
-      "rowId": 8,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 0,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S1",
-            "productLine": "Assembly Line A",
-            "station": "Station 1",
-            "machineType": "Robot Arm",
-            "operator": "Team Beta",
-            "productType": "System Gamma",
-            "outputRate": 245,
-            "cycletime": "115.99",
-            "efficiency": 65,
-            "defectRate": "4.56",
-            "defectCount": 11,
-            "downtime": "1.36",
-            "utilization": 84,
-            "energy": 788,
-            "status": "Running",
-            "maintenanceDate": "2025-05-26",
-            "cycleTimeData": "[147.43875348924314,106.52117126698803,86.5040088399272,141.18085078350487,118.46689113174315,115.61050274692839,146.9484441215488,73.48902690713801,108.85647920616287,114.92065250637971]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 1,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S2",
-            "productLine": "Assembly Line A",
-            "station": "Station 2",
-            "machineType": "Circuit Printer",
-            "operator": "Team Zeta",
-            "productType": "Widget Y",
-            "outputRate": 227,
-            "cycletime": "91.92",
-            "efficiency": 65,
-            "defectRate": "0.71",
-            "defectCount": 1,
-            "downtime": "2.12",
-            "utilization": 82,
-            "energy": 1099,
-            "status": "Running",
-            "maintenanceDate": "2025-06-16",
-            "cycleTimeData": "[123.27672862065224,120.15751628659521,90.79248161889092,57.31355889270357,89.20227431506618,56.754713117042876,134.3267635880744,85.5851366046123,85.64301541886701,76.14244533663458]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 2,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S3",
-            "productLine": "Assembly Line A",
-            "station": "Station 3",
-            "machineType": "CNC Machine",
-            "operator": "Team Alpha",
-            "productType": "Part Alpha",
-            "outputRate": 405,
-            "cycletime": "94.53",
-            "efficiency": 81,
-            "defectRate": "0.70",
-            "defectCount": 2,
-            "downtime": "3.46",
-            "utilization": 90,
-            "energy": 1424,
-            "status": "Running",
-            "maintenanceDate": "2025-06-09",
-            "cycleTimeData": "[77.62928665917215,83.30276583693293,113.52054706780407,119.44517223645538,96.02871418722758,99.73175205571403,82.23172836118545,81.60204278355093,102.56174229635377,89.253398127968]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 3,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S4",
-            "productLine": "Assembly Line A",
-            "station": "Station 4",
-            "machineType": "Injection Molder",
-            "operator": "Team Beta",
-            "productType": "Component X",
-            "outputRate": 594,
-            "cycletime": "102.97",
-            "efficiency": 96,
-            "defectRate": "3.32",
-            "defectCount": 19,
-            "downtime": "0.79",
-            "utilization": 81,
-            "energy": 850,
-            "status": "Running",
-            "maintenanceDate": "2025-06-10",
-            "cycleTimeData": "[72.47308292221709,77.0553554030227,73.57507052931581,101.03229264430993,106.45195462178125,96.05405813875501,147.6393116909449,116.43471894857707,134.34466738444303,104.61410238375235]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 4,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S5",
-            "productLine": "Assembly Line A",
-            "station": "Station 5",
-            "machineType": "CNC Machine",
-            "operator": "Team Gamma",
-            "productType": "Unit Beta",
-            "outputRate": 330,
-            "cycletime": "96.73",
-            "efficiency": 96,
-            "defectRate": "4.87",
-            "defectCount": 16,
-            "downtime": "3.76",
-            "utilization": 92,
-            "energy": 518,
-            "status": "Running",
-            "maintenanceDate": "2025-06-09",
-            "cycleTimeData": "[113.93824059042981,72.2071033804614,115.18899489114656,98.37046740280556,50.27609902950626,80.93494420488388,138.70768158561145,93.46916393284673,116.89598742236073,87.29000815383532]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 5,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S6",
-            "productLine": "Assembly Line A",
-            "station": "Station 6",
-            "machineType": "Injection Molder",
-            "operator": "Team Zeta",
-            "productType": "Module Z",
-            "outputRate": 303,
-            "cycletime": "105.83",
-            "efficiency": 78,
-            "defectRate": "1.64",
-            "defectCount": 4,
-            "downtime": "1.30",
-            "utilization": 77,
-            "energy": 1158,
-            "status": "Running",
-            "maintenanceDate": "2025-05-23",
-            "cycleTimeData": "[61.26230295486083,142.0640321253872,140.66833403918852,78.22258824244756,144.0872468517725,136.23592127719255,80.31558252498496,121.26537743756597,87.73443230642953,66.4398668799023]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 6,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S7",
-            "productLine": "Assembly Line A",
-            "station": "Station 7",
-            "machineType": "Quality Scanner",
-            "operator": "Team Epsilon",
-            "productType": "Widget Y",
-            "outputRate": 629,
-            "cycletime": "110.66",
-            "efficiency": 83,
-            "defectRate": "3.57",
-            "defectCount": 22,
-            "downtime": "3.20",
-            "utilization": 72,
-            "energy": 798,
-            "status": "Running",
-            "maintenanceDate": "2025-05-24",
-            "cycleTimeData": "[133.6345239946104,128.69407854357996,142.2450178906653,114.7373617123037,83.18324226077765,62.09759636267359,110.26803032798063,67.945047153844,138.99003660370647,124.75878527647536]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 7,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A1-S8",
-            "productLine": "Assembly Line A",
-            "station": "Station 8",
-            "machineType": "Injection Molder",
-            "operator": "Team Zeta",
-            "productType": "Module Z",
-            "outputRate": 396,
-            "cycletime": "115.16",
-            "efficiency": 73,
-            "defectRate": "3.51",
-            "defectCount": 13,
-            "downtime": "3.70",
-            "utilization": 88,
-            "energy": 600,
-            "status": "Scheduled Maintenance",
-            "maintenanceDate": "2025-06-10",
-            "cycleTimeData": "[135.70601810655515,123.31428546858912,141.27008362592662,95.2831284094674,129.89634679444234,85.47513362513729,122.478940329826,112.1732888951818,114.51103107680099,91.47937671002668]"
-          }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "A1",
-      "productLine": "Assembly Line A",
-      "station": "Assembly Line A Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 3129,
-      "cycletime": "—",
-      "efficiency": 80,
-      "defectRate": "2.81",
-      "defectCount": 88,
-      "downtime": "19.68",
-      "utilization": "—",
-      "energy": 7235,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 13,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 9,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A2-S1",
-            "productLine": "Assembly Line B",
-            "station": "Station 1",
-            "machineType": "Packaging",
-            "operator": "Team Zeta",
-            "productType": "Component X",
-            "outputRate": 664,
-            "cycletime": "92.02",
-            "efficiency": 73,
-            "defectRate": "3.29",
-            "defectCount": 21,
-            "downtime": "3.43",
-            "utilization": 77,
-            "energy": 1332,
-            "status": "Setup",
-            "maintenanceDate": "2025-05-20",
-            "cycleTimeData": "[63.95752211932751,121.14480101852946,62.533673157324785,119.12913503171492,56.850785082425034,129.14784457239472,101.24978237518921,66.78114399997975,78.74256224937665,120.6876497520874]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 10,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A2-S2",
-            "productLine": "Assembly Line B",
-            "station": "Station 2",
-            "machineType": "Circuit Printer",
-            "operator": "Team Beta",
-            "productType": "Component X",
-            "outputRate": 540,
-            "cycletime": "98.51",
-            "efficiency": 69,
-            "defectRate": "0.32",
-            "defectCount": 1,
-            "downtime": "1.48",
-            "utilization": 89,
-            "energy": 1498,
-            "status": "Running",
-            "maintenanceDate": "2025-06-15",
-            "cycleTimeData": "[116.29967802564252,58.786178473145114,66.07453333616664,129.1933174195444,107.98345170528864,84.85400713796756,124.10013009716798,90.18000971255127,142.7771236245648,64.82216933212301]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 11,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A2-S3",
-            "productLine": "Assembly Line B",
-            "station": "Station 3",
-            "machineType": "CNC Machine",
-            "operator": "Team Beta",
-            "productType": "System Gamma",
-            "outputRate": 351,
-            "cycletime": "84.73",
-            "efficiency": 99,
-            "defectRate": "1.56",
-            "defectCount": 5,
-            "downtime": "0.22",
-            "utilization": 85,
-            "energy": 544,
-            "status": "Scheduled Maintenance",
-            "maintenanceDate": "2025-06-16",
-            "cycleTimeData": "[123.15243611256837,52.400135288207665,63.75895283864732,138.21840010555195,82.1399040826768,81.09463434876612,99.45925936345424,90.46625302005185,56.27700132824237,60.31702076709537]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 12,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "A2-S4",
-            "productLine": "Assembly Line B",
-            "station": "Station 4",
-            "machineType": "Injection Molder",
-            "operator": "Team Gamma",
-            "productType": "Widget Y",
-            "outputRate": 573,
-            "cycletime": "109.44",
-            "efficiency": 95,
-            "defectRate": "3.26",
-            "defectCount": 18,
-            "downtime": "0.70",
-            "utilization": 95,
-            "energy": 1408,
-            "status": "Running",
-            "maintenanceDate": "2025-05-30",
-            "cycleTimeData": "[82.04056834007575,129.07327595272068,146.78850693970972,103.4911478530923,70.11847852995928,125.87045996133861,55.51031826215327,113.33065545210115,124.44670287339873,143.70293558243745]"
-          }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "A2",
-      "productLine": "Assembly Line B",
-      "station": "Assembly Line B Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 2128,
-      "cycletime": "—",
-      "efficiency": 84,
-      "defectRate": "2.11",
-      "defectCount": 45,
-      "downtime": "5.83",
-      "utilization": "—",
-      "energy": 4782,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 19,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 14,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "E3-S1",
-            "productLine": "Electronics",
-            "station": "Station 1",
-            "machineType": "Quality Scanner",
-            "operator": "Team Delta",
-            "productType": "Unit Beta",
-            "outputRate": 412,
-            "cycletime": "95.47",
-            "efficiency": 85,
-            "defectRate": "0.44",
-            "defectCount": 1,
-            "downtime": "0.05",
-            "utilization": 85,
-            "energy": 721,
-            "status": "Running",
-            "maintenanceDate": "2025-06-03",
-            "cycleTimeData": "[75.63903961873224,142.46890247418128,121.29979262207942,52.65661910857789,62.23514895395393,78.64016670772965,95.92105315769761,78.80184004984619,103.34634429970166,143.65806798036644]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 15,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "E3-S2",
-            "productLine": "Electronics",
-            "station": "Station 2",
-            "machineType": "Quality Scanner",
-            "operator": "Team Beta",
-            "productType": "Unit Beta",
-            "outputRate": 405,
-            "cycletime": "98.18",
-            "efficiency": 76,
-            "defectRate": "0.74",
-            "defectCount": 3,
-            "downtime": "1.53",
-            "utilization": 94,
-            "energy": 689,
-            "status": "Running",
-            "maintenanceDate": "2025-06-09",
-            "cycleTimeData": "[146.58538528624598,120.98002636823037,53.27147593062955,50.15933204025721,126.42101997422968,110.94140260425115,125.36595609530244,68.18742092622978,62.53007419642918,117.34718843151445]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 16,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "E3-S3",
-            "productLine": "Electronics",
-            "station": "Station 3",
-            "machineType": "Packaging",
-            "operator": "Team Gamma",
-            "productType": "Component X",
-            "outputRate": 214,
-            "cycletime": "78.92",
-            "efficiency": 84,
-            "defectRate": "3.84",
-            "defectCount": 8,
-            "downtime": "2.14",
-            "utilization": 90,
-            "energy": 1434,
-            "status": "Running",
-            "maintenanceDate": "2025-06-06",
-            "cycleTimeData": "[85.31068903523845,101.81039391573222,50.28970085458572,99.94833449633231,54.14811922187614,66.62320344743549,70.37217711179017,78.22528290135251,121.10043514457742,61.419831378179836]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 17,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "E3-S4",
-            "productLine": "Electronics",
-            "station": "Station 4",
-            "machineType": "Circuit Printer",
-            "operator": "Team Alpha",
-            "productType": "Module Z",
-            "outputRate": 660,
-            "cycletime": "88.93",
-            "efficiency": 69,
-            "defectRate": "3.64",
-            "defectCount": 24,
-            "downtime": "0.03",
-            "utilization": 94,
-            "energy": 1336,
-            "status": "Running",
-            "maintenanceDate": "2025-06-15",
-            "cycleTimeData": "[111.1188412594928,139.20756073871271,70.7739031421792,84.7850743909732,64.86957418711022,82.24765274530792,59.182565059181734,124.1309281806735,56.70816578995449,96.30350891440233]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 18,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "E3-S5",
-            "productLine": "Electronics",
-            "station": "Station 5",
-            "machineType": "CNC Machine",
-            "operator": "Team Zeta",
-            "productType": "Widget Y",
-            "outputRate": 290,
-            "cycletime": "82.88",
-            "efficiency": 72,
-            "defectRate": "0.40",
-            "defectCount": 1,
-            "downtime": "0.92",
-            "utilization": 86,
-            "energy": 907,
-            "status": "Running",
-            "maintenanceDate": "2025-06-16",
-            "cycleTimeData": "[133.33381114185187,83.16846713312074,72.2162571450167,116.70220824729519,88.86065415093627,97.30679619258196,68.22742469535666,50.70768997477192,62.902665807950626,55.375041674898654]"
-          }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "E3",
-      "productLine": "Electronics",
-      "station": "Electronics Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 1981,
-      "cycletime": "—",
-      "efficiency": 77,
-      "defectRate": "1.87",
-      "defectCount": 37,
-      "downtime": "4.66",
-      "utilization": "—",
-      "energy": 5087,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 23,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 20,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "P4-S1",
-            "productLine": "Packaging",
-            "station": "Station 1",
-            "machineType": "Packaging",
-            "operator": "Team Alpha",
-            "productType": "Component X",
-            "outputRate": 369,
-            "cycletime": "88.91",
-            "efficiency": 84,
-            "defectRate": "4.96",
-            "defectCount": 18,
-            "downtime": "0.29",
-            "utilization": 78,
-            "energy": 855,
-            "status": "Running",
-            "maintenanceDate": "2025-05-24",
-            "cycleTimeData": "[105.13691622311235,105.69335619080393,50.864350866279175,109.13999209897071,56.25293875676625,129.94975204629503,97.21904566015715,54.89275123918459,92.68307802904603,87.23217540282474]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 21,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "P4-S2",
-            "productLine": "Packaging",
-            "station": "Station 2",
-            "machineType": "CNC Machine",
-            "operator": "Team Delta",
-            "productType": "Part Alpha",
-            "outputRate": 517,
-            "cycletime": "99.91",
-            "efficiency": 70,
-            "defectRate": "2.45",
-            "defectCount": 12,
-            "downtime": "3.04",
-            "utilization": 87,
-            "energy": 990,
-            "status": "Running",
-            "maintenanceDate": "2025-06-12",
-            "cycleTimeData": "[117.92684315734527,64.61074548979556,107.49846825814521,133.1238554137895,76.0200979833067,77.73227471303721,142.23309645894085,79.1469440094424,137.3295482743328,63.5094132085633]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 22,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "P4-S3",
-            "productLine": "Packaging",
-            "station": "Station 3",
-            "machineType": "Injection Molder",
-            "operator": "Team Zeta",
-            "productType": "Module Z",
-            "outputRate": 347,
-            "cycletime": "108.49",
+    "id": "FAC-001",
+    "name": "Tesla Gigafactory Texas",
+    "location": "Austin, TX",
+    "capacity": 500000,
+    "capacityUnit": "vehicles/year",
+    "currentOutput": 320000,
+    "outputUnit": "vehicles/year",
+    "utilization": 64,
+    "efficiency": 87,
+    "status": "Operational",
+    "established": "2022-04-07",
+    "productionLines": [
+      {
+        "id": "LINE-001",
+        "name": "Model Y Assembly",
+        "capacity": 300000,
+        "capacityUnit": "units/year",
+        "currentOutput": 195000,
+        "outputUnit": "units/year",
+        "utilization": 65,
+        "efficiency": 89,
+        "status": "Running",
+        "lastMaintenance": "2024-01-15",
+        "stations": [
+          {
+            "id": "STA-001",
+            "name": "Body Welding",
             "efficiency": 92,
-            "defectRate": "1.43",
-            "defectCount": 4,
-            "downtime": "3.44",
-            "utilization": 70,
-            "energy": 1281,
             "status": "Running",
-            "maintenanceDate": "2025-05-30",
-            "cycleTimeData": "[120.67383036701226,143.61647442009036,133.18157865241994,130.20403338796405,98.79725451040346,87.8985740586659,81.54521347888073,82.86498067431084,148.6158963569265,57.489451555477686]"
-          }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "P4",
-      "productLine": "Packaging",
-      "station": "Packaging Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 1233,
-      "cycletime": "—",
-      "efficiency": 82,
-      "defectRate": "2.76",
-      "defectCount": 34,
-      "downtime": "6.78",
-      "utilization": "—",
-      "energy": 3126,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 28,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 24,
-            "isExpanded": true
+            "output": 1200,
+            "outputUnit": "units/day"
           },
-          "rowData": {
-            "id": "Q5-S1",
-            "productLine": "Quality Control",
-            "station": "Station 1",
-            "machineType": "Injection Molder",
-            "operator": "Team Gamma",
-            "productType": "System Gamma",
-            "outputRate": 625,
-            "cycletime": "112.32",
-            "efficiency": 91,
-            "defectRate": "0.29",
-            "defectCount": 1,
-            "downtime": "3.33",
-            "utilization": 82,
-            "energy": 781,
+          {
+            "id": "STA-002",
+            "name": "Paint Shop",
+            "efficiency": 88,
             "status": "Running",
-            "maintenanceDate": "2025-05-26",
-            "cycleTimeData": "[140.03408968651829,111.9473532396139,63.8553900442418,132.14697165642366,124.96781716345306,130.039437174797,102.43161866490134,51.814380962246865,143.8160711301939,122.15462085903582]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 25,
-            "isExpanded": true
+            "output": 1150,
+            "outputUnit": "units/day"
           },
-          "rowData": {
-            "id": "Q5-S2",
-            "productLine": "Quality Control",
-            "station": "Station 2",
-            "machineType": "CNC Machine",
-            "operator": "Team Epsilon",
-            "productType": "Part Alpha",
-            "outputRate": 646,
-            "cycletime": "103.23",
-            "efficiency": 63,
-            "defectRate": "3.06",
-            "defectCount": 19,
-            "downtime": "1.50",
-            "utilization": 97,
-            "energy": 706,
-            "status": "Running",
-            "maintenanceDate": "2025-05-20",
-            "cycleTimeData": "[144.21265967005198,88.55176526195599,94.53949786754063,74.97108203118273,113.6811129250878,115.78418260962572,101.16276189589628,88.51931430658944,120.64628995662119,90.21652567660277]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 26,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "Q5-S3",
-            "productLine": "Quality Control",
-            "station": "Station 3",
-            "machineType": "Quality Scanner",
-            "operator": "Team Alpha",
-            "productType": "Module Z",
-            "outputRate": 305,
-            "cycletime": "102.86",
+          {
+            "id": "STA-003",
+            "name": "Final Assembly",
             "efficiency": 85,
-            "defectRate": "4.06",
-            "defectCount": 12,
-            "downtime": "0.02",
-            "utilization": 92,
-            "energy": 713,
             "status": "Running",
-            "maintenanceDate": "2025-05-24",
-            "cycleTimeData": "[131.51372215222747,146.43428417006078,81.73641521956152,60.332736259818155,64.52531136492674,109.24876522944751,95.31207985672509,127.43848722540791,82.9731092629493,129.09233980734174]"
+            "output": 1100,
+            "outputUnit": "units/day"
           }
-        },
-        {
-          "rowMeta": {
-            "rowId": 27,
-            "isExpanded": true
+        ]
+      },
+      {
+        "id": "LINE-002",
+        "name": "Model 3 Assembly",
+        "capacity": 200000,
+        "capacityUnit": "units/year",
+        "currentOutput": 125000,
+        "outputUnit": "units/year",
+        "utilization": 63,
+        "efficiency": 84,
+        "status": "Running",
+        "lastMaintenance": "2024-01-20",
+        "stations": [
+          {
+            "id": "STA-004",
+            "name": "Body Welding",
+            "efficiency": 88,
+            "status": "Running",
+            "output": 800,
+            "outputUnit": "units/day"
           },
-          "rowData": {
-            "id": "Q5-S4",
-            "productLine": "Quality Control",
-            "station": "Station 4",
-            "machineType": "CNC Machine",
-            "operator": "Team Gamma",
-            "productType": "Widget Y",
-            "outputRate": 387,
-            "cycletime": "111.11",
-            "efficiency": 72,
-            "defectRate": "4.25",
-            "defectCount": 16,
-            "downtime": "3.62",
-            "utilization": 98,
-            "energy": 751,
+          {
+            "id": "STA-005",
+            "name": "Paint Shop",
+            "efficiency": 82,
+            "status": "Maintenance",
+            "output": 750,
+            "outputUnit": "units/day"
+          },
+          {
+            "id": "STA-006",
+            "name": "Final Assembly",
+            "efficiency": 80,
             "status": "Running",
-            "maintenanceDate": "2025-05-20",
-            "cycleTimeData": "[144.54668461601824,119.9181452843463,100.06205741648907,147.72687894209548,72.48068170341615,129.04919432466417,131.2558667652404,73.8084453473455,125.16302078045253,67.04741526582706]"
+            "output": 720,
+            "outputUnit": "units/day"
           }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "Q5",
-      "productLine": "Quality Control",
-      "station": "Quality Control Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 1963,
-      "cycletime": "—",
-      "efficiency": 78,
-      "defectRate": "2.45",
-      "defectCount": 48,
-      "downtime": "8.47",
-      "utilization": "—",
-      "energy": 2951,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
+        ]
+      }
+    ]
   },
   {
-    "rowMeta": {
-      "rowId": 34,
-      "isExpanded": true,
-      "children": [
-        {
-          "rowMeta": {
-            "rowId": 29,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "T6-S1",
-            "productLine": "Tooling",
-            "station": "Station 1",
-            "machineType": "Packaging",
-            "operator": "Team Zeta",
-            "productType": "Widget Y",
-            "outputRate": 623,
-            "cycletime": "85.31",
-            "efficiency": 70,
-            "defectRate": "2.46",
-            "defectCount": 15,
-            "downtime": "1.98",
-            "utilization": 84,
-            "energy": 1042,
+    "id": "FAC-002",
+    "name": "Ford Rouge Factory",
+    "location": "Dearborn, MI",
+    "capacity": 750000,
+    "capacityUnit": "vehicles/year",
+    "currentOutput": 520000,
+    "outputUnit": "vehicles/year",
+    "utilization": 69,
+    "efficiency": 81,
+    "status": "Operational",
+    "established": "1928-05-26",
+    "productionLines": [
+      {
+        "id": "LINE-003",
+        "name": "F-150 Lightning Assembly",
+        "capacity": 400000,
+        "capacityUnit": "units/year",
+        "currentOutput": 280000,
+        "outputUnit": "units/year",
+        "utilization": 70,
+        "efficiency": 83,
+        "status": "Running",
+        "lastMaintenance": "2024-01-10",
+        "stations": [
+          {
+            "id": "STA-007",
+            "name": "Frame Assembly",
+            "efficiency": 86,
             "status": "Running",
-            "maintenanceDate": "2025-06-10",
-            "cycleTimeData": "[62.506518768777575,104.13096484105972,64.73012637049835,57.56537599819544,143.6780077047449,114.97046178513841,119.90625837174498,66.25465439763421,52.858216884488506,66.46204017616253]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 30,
-            "isExpanded": true
+            "output": 1400,
+            "outputUnit": "units/day"
           },
-          "rowData": {
-            "id": "T6-S2",
-            "productLine": "Tooling",
-            "station": "Station 2",
-            "machineType": "Circuit Printer",
-            "operator": "Team Alpha",
-            "productType": "Widget Y",
-            "outputRate": 271,
-            "cycletime": "103.92",
-            "efficiency": 69,
-            "defectRate": "3.16",
-            "defectCount": 8,
-            "downtime": "0.11",
-            "utilization": 76,
-            "energy": 1149,
+          {
+            "id": "STA-008",
+            "name": "Battery Installation",
+            "efficiency": 78,
             "status": "Running",
-            "maintenanceDate": "2025-06-15",
-            "cycleTimeData": "[145.29790781727783,78.62454197333012,105.83111291565059,64.0776144172601,97.3342398080145,135.23785504808492,115.97182806482424,144.36705723681723,74.10406343475654,78.34588907136808]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 31,
-            "isExpanded": true
+            "output": 1350,
+            "outputUnit": "units/day"
           },
-          "rowData": {
-            "id": "T6-S3",
-            "productLine": "Tooling",
-            "station": "Station 3",
-            "machineType": "CNC Machine",
-            "operator": "Team Epsilon",
-            "productType": "Widget Y",
-            "outputRate": 258,
-            "cycletime": "112.35",
-            "efficiency": 66,
-            "defectRate": "4.56",
-            "defectCount": 11,
-            "downtime": "2.05",
-            "utilization": 91,
-            "energy": 638,
-            "status": "Running",
-            "maintenanceDate": "2025-05-18",
-            "cycleTimeData": "[133.03443906627058,136.82433473926258,81.5563363074993,97.06187206170408,88.3810912702412,122.07284731461898,101.78229055902656,146.4936589399544,148.98430774637586,67.29538618365025]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 32,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "T6-S4",
-            "productLine": "Tooling",
-            "station": "Station 4",
-            "machineType": "Circuit Printer",
-            "operator": "Team Delta",
-            "productType": "System Gamma",
-            "outputRate": 692,
-            "cycletime": "99.59",
+          {
+            "id": "STA-009",
+            "name": "Final Assembly",
             "efficiency": 81,
-            "defectRate": "1.39",
-            "defectCount": 9,
-            "downtime": "3.97",
-            "utilization": 88,
-            "energy": 1158,
-            "status": "Setup",
-            "maintenanceDate": "2025-06-07",
-            "cycleTimeData": "[84.08183441287036,100.01357995171423,79.82668408301672,94.64445999356467,85.27018299131696,127.94995231338964,76.83945714709527,99.77821094619378,105.51035058460542,142.00885421586395]"
-          }
-        },
-        {
-          "rowMeta": {
-            "rowId": 33,
-            "isExpanded": true
-          },
-          "rowData": {
-            "id": "T6-S5",
-            "productLine": "Tooling",
-            "station": "Station 5",
-            "machineType": "Quality Scanner",
-            "operator": "Team Gamma",
-            "productType": "Unit Beta",
-            "outputRate": 502,
-            "cycletime": "102.32",
-            "efficiency": 70,
-            "defectRate": "4.15",
-            "defectCount": 20,
-            "downtime": "2.32",
-            "utilization": 81,
-            "energy": 648,
             "status": "Running",
-            "maintenanceDate": "2025-05-23",
-            "cycleTimeData": "[123.61732620922982,99.31289373488475,94.2676150755142,108.95037173890735,127.4817005674023,61.65134074983989,60.36088173565062,148.11028225745366,140.0298599077577,59.45742155427028]"
+            "output": 1300,
+            "outputUnit": "units/day"
           }
-        }
-      ]
-    },
-    "rowData": {
-      "id": "T6",
-      "productLine": "Tooling",
-      "station": "Tooling Summary",
-      "machineType": "—",
-      "operator": "—",
-      "productType": "—",
-      "outputRate": 2346,
-      "cycletime": "—",
-      "efficiency": 71,
-      "defectRate": "2.69",
-      "defectCount": 63,
-      "downtime": "10.44",
-      "utilization": "—",
-      "energy": 4635,
-      "status": "—",
-      "maintenanceDate": "—",
-      "cycleTimeData": "—"
-    }
+        ]
+      },
+      {
+        "id": "LINE-004",
+        "name": "F-150 ICE Assembly",
+        "capacity": 350000,
+        "capacityUnit": "units/year",
+        "currentOutput": 240000,
+        "outputUnit": "units/year",
+        "utilization": 69,
+        "efficiency": 79,
+        "status": "Running",
+        "lastMaintenance": "2024-01-12",
+        "stations": [
+          {
+            "id": "STA-010",
+            "name": "Engine Installation",
+            "efficiency": 82,
+            "status": "Running",
+            "output": 1200,
+            "outputUnit": "units/day"
+          },
+          {
+            "id": "STA-011",
+            "name": "Transmission",
+            "efficiency": 77,
+            "status": "Running",
+            "output": 1180,
+            "outputUnit": "units/day"
+          },
+          {
+            "id": "STA-012",
+            "name": "Final Assembly",
+            "efficiency": 75,
+            "status": "Running",
+            "output": 1150,
+            "outputUnit": "units/day"
+          }
+        ]
+      }
+    ]
   }
 ]

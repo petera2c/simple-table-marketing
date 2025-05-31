@@ -1,230 +1,226 @@
-import { Row } from "simple-table-core";
+import type { Row } from "simple-table-core";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-// Generate HR employee data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Generate HR organizational data with hierarchical structure
 export const generateHRData = (): Row[] => {
   const departments = [
-    "Engineering",
-    "Marketing",
-    "Sales",
-    "Finance",
-    "HR",
-    "Operations",
-    "Customer Support",
+    {
+      id: "DEPT-001",
+      name: "Engineering",
+      headCount: 45,
+      budget: 5200000,
+      location: "San Francisco",
+      head: "Sarah Thompson",
+      teams: [
+        {
+          id: "TEAM-001",
+          name: "Frontend",
+          headCount: 12,
+          budget: 1400000,
+          location: "San Francisco",
+          lead: "John Anderson",
+          employees: [
+            {
+              id: "EMP-001",
+              name: "John Doe",
+              role: "Senior Engineer",
+              salary: 125000,
+              startDate: "2021-03-15",
+            },
+            {
+              id: "EMP-002",
+              name: "Jane Smith",
+              role: "Engineer",
+              salary: 95000,
+              startDate: "2022-01-10",
+            },
+            {
+              id: "EMP-003",
+              name: "Alex Kim",
+              role: "Junior Engineer",
+              salary: 75000,
+              startDate: "2023-06-01",
+            },
+          ],
+        },
+        {
+          id: "TEAM-002",
+          name: "Backend",
+          headCount: 15,
+          budget: 1600000,
+          location: "San Francisco",
+          lead: "Emily Davis",
+          employees: [
+            {
+              id: "EMP-004",
+              name: "Bob Wilson",
+              role: "Staff Engineer",
+              salary: 150000,
+              startDate: "2020-05-20",
+            },
+            {
+              id: "EMP-005",
+              name: "Lisa Chen",
+              role: "Senior Engineer",
+              salary: 130000,
+              startDate: "2021-08-12",
+            },
+          ],
+        },
+        {
+          id: "TEAM-003",
+          name: "DevOps",
+          headCount: 8,
+          budget: 950000,
+          location: "Remote",
+          lead: "Tom Rodriguez",
+          employees: [
+            {
+              id: "EMP-006",
+              name: "David Lee",
+              role: "DevOps Engineer",
+              salary: 115000,
+              startDate: "2022-03-08",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "DEPT-002",
+      name: "Product",
+      headCount: 18,
+      budget: 2100000,
+      location: "San Francisco",
+      head: "Jennifer Walsh",
+      teams: [
+        {
+          id: "TEAM-004",
+          name: "Product Management",
+          headCount: 8,
+          budget: 980000,
+          location: "San Francisco",
+          lead: "Mark Thompson",
+          employees: [
+            {
+              id: "EMP-007",
+              name: "Sarah Johnson",
+              role: "Senior PM",
+              salary: 140000,
+              startDate: "2021-11-15",
+            },
+            {
+              id: "EMP-008",
+              name: "Chris Lee",
+              role: "Product Manager",
+              salary: 110000,
+              startDate: "2022-07-01",
+            },
+          ],
+        },
+        {
+          id: "TEAM-005",
+          name: "Design",
+          headCount: 10,
+          budget: 1100000,
+          location: "San Francisco",
+          lead: "Anna Martinez",
+          employees: [
+            {
+              id: "EMP-009",
+              name: "Jessica Brown",
+              role: "Senior Designer",
+              salary: 105000,
+              startDate: "2021-09-20",
+            },
+            {
+              id: "EMP-010",
+              name: "Ryan Garcia",
+              role: "UX Designer",
+              salary: 85000,
+              startDate: "2022-12-05",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "DEPT-003",
+      name: "Sales",
+      headCount: 22,
+      budget: 2800000,
+      location: "New York",
+      head: "Robert Kim",
+      teams: [
+        {
+          id: "TEAM-006",
+          name: "Enterprise Sales",
+          headCount: 12,
+          budget: 1600000,
+          location: "New York",
+          lead: "Michael Brown",
+          employees: [
+            {
+              id: "EMP-011",
+              name: "Amanda Wilson",
+              role: "Account Executive",
+              salary: 95000,
+              startDate: "2021-04-12",
+            },
+            {
+              id: "EMP-012",
+              name: "James Taylor",
+              role: "Senior AE",
+              salary: 115000,
+              startDate: "2020-10-08",
+            },
+          ],
+        },
+        {
+          id: "TEAM-007",
+          name: "SMB Sales",
+          headCount: 10,
+          budget: 1200000,
+          location: "Austin",
+          lead: "Nicole Davis",
+          employees: [
+            {
+              id: "EMP-013",
+              name: "Kevin Martinez",
+              role: "Sales Rep",
+              salary: 70000,
+              startDate: "2022-02-14",
+            },
+          ],
+        },
+      ],
+    },
   ];
-  const positions = [
-    "Manager",
-    "Senior",
-    "Junior",
-    "Lead",
-    "Associate",
-    "Head",
-    "Coordinator",
-    "Analyst",
-    "Director",
-    "Specialist",
-    "Assistant",
-    "Executive",
-    "Intern",
-  ];
-  const firstNames = [
-    "James",
-    "Mary",
-    "John",
-    "Patricia",
-    "Robert",
-    "Jennifer",
-    "Michael",
-    "Elizabeth",
-    "William",
-    "Linda",
-    "David",
-    "Barbara",
-    "Sarah",
-    "Susan",
-    "Karen",
-    "Jessica",
-    "Lisa",
-    "Nancy",
-    "Betty",
-    "Margaret",
-    "Sandra",
-    "Ashley",
-    "Kimberly",
-    "Emily",
-    "Donna",
-    "Michelle",
-    "Carol",
-    "Amanda",
-    "Melissa",
-    "Deborah",
-    "Stephanie",
-    "Dorothy",
-    "Rebecca",
-    "Sharon",
-    "Laura",
-    "Cynthia",
-    "Amy",
-    "Kathleen",
-    "Angela",
-    "Shirley",
-    "Anna",
-    "Ruth",
-    "Brenda",
-    "Pamela",
-    "Nicole",
-    "Katherine",
-    "Samantha",
-    "Christine",
-  ];
-  const lastNames = [
-    "Smith",
-    "Johnson",
-    "Williams",
-    "Jones",
-    "Brown",
-    "Davis",
-    "Miller",
-    "Wilson",
-    "Moore",
-    "Taylor",
-    "Anderson",
-    "Thomas",
-    "Jackson",
-    "White",
-    "Harris",
-    "Martin",
-    "Thompson",
-    "Garcia",
-    "Martinez",
-    "Robinson",
-    "Clark",
-    "Rodriguez",
-    "Lewis",
-    "Lee",
-    "Walker",
-    "Hall",
-    "Allen",
-    "Young",
-    "Hernandez",
-    "King",
-    "Wright",
-    "Lopez",
-    "Hill",
-    "Scott",
-    "Green",
-    "Adams",
-    "Baker",
-    "Gonzalez",
-    "Nelson",
-    "Carter",
-    "Mitchell",
-    "Perez",
-    "Roberts",
-    "Turner",
-    "Phillips",
-    "Campbell",
-    "Parker",
-    "Evans",
-  ];
-  const locations = [
-    "New York",
-    "Los Angeles",
-    "Chicago",
-    "San Francisco",
-    "Austin",
-    "Boston",
-    "Seattle",
-    "Remote",
-  ];
-  const statuses = ["Active", "On Leave", "Probation", "Contract", "Terminated"];
 
-  let rowId = 0;
-  const rows: Row[] = [];
+  return departments;
+};
 
-  // Generate a flat list of 50 employees
-  const totalEmployees = 50;
+function saveDataToFile() {
+  const data = generateHRData();
+  const outputPath = path.join(__dirname, "../public/data/hr-data.json");
 
-  for (let i = 0; i < totalEmployees; i++) {
-    const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
-    const lastName = lastNames[Math.floor(Math.random() * lastNames.length)];
-    const department = departments[Math.floor(Math.random() * departments.length)];
-    const position = positions[Math.floor(Math.random() * positions.length)];
-
-    // Calculate random metrics
-    const performanceScore = Math.floor(Math.random() * 41) + 60; // 60-100
-    const salaryBase = Math.floor(Math.random() * 50) + 50; // $50k - $100k base
-    const salaryMultiplier =
-      position.includes("Senior") || position.includes("Lead")
-        ? 1.5
-        : position.includes("Manager") || position.includes("Director")
-        ? 2
-        : position.includes("Head") || position.includes("Executive")
-        ? 2.5
-        : position.includes("Intern")
-        ? 0.5
-        : 1;
-    const salary = Math.floor(salaryBase * salaryMultiplier) * 1000;
-    const status = statuses[Math.floor(Math.random() * statuses.length)];
-
-    // Generate hire date (within last 10 years)
-    const currentYear = new Date().getFullYear();
-    const hireYear = currentYear - Math.floor(Math.random() * 10);
-    const hireMonth = Math.floor(Math.random() * 12) + 1;
-    const hireDay = Math.floor(Math.random() * 28) + 1;
-    const hireDate = `${hireYear}-${hireMonth.toString().padStart(2, "0")}-${hireDay
-      .toString()
-      .padStart(2, "0")}`;
-
-    // Calculate years of service based on hire date
-    const yearsOfService = (
-      (new Date().getTime() - new Date(hireDate).getTime()) /
-      (1000 * 60 * 60 * 24 * 365)
-    ).toFixed(1);
-
-    // Generate random email
-    const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@company.com`;
-
-    // Random location
-    const location = locations[Math.floor(Math.random() * locations.length)];
-
-    // Determine if remote eligible (more likely if in engineering or marketing)
-    const isRemoteEligible =
-      Math.random() < (department === "Engineering" || department === "Marketing" ? 0.8 : 0.4);
-
-    rows.push({
-      rowMeta: { rowId: rowId++ },
-      rowData: {
-        id: Math.floor(Math.random() * 10000) + 1000,
-        department,
-        firstName,
-        lastName,
-        fullName: `${firstName} ${lastName}`,
-        position: `${position} ${
-          department.includes("Engineering")
-            ? "Engineer"
-            : department.includes("Marketing")
-            ? "Marketer"
-            : department.includes("Sales")
-            ? "Representative"
-            : department.includes("Finance")
-            ? "Analyst"
-            : department.includes("HR")
-            ? "Specialist"
-            : department.includes("Operations")
-            ? "Manager"
-            : "Agent"
-        }`,
-        email,
-        hireDate,
-        yearsOfService: parseFloat(yearsOfService),
-        salary,
-        performanceScore,
-        location,
-        status,
-        isRemoteEligible,
-      },
-    });
+  // Ensure directory exists
+  const dir = path.dirname(outputPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
   }
 
-  return rows;
-};
+  fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
+  console.log(`HR data saved to ${outputPath}`);
+  console.log(`Generated ${data.length} departments`);
+}
+
+// Run if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  saveDataToFile();
+}

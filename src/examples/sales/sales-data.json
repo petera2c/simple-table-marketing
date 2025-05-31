@@ -1,3402 +1,4002 @@
 [
   {
-    "rowMeta": {
-      "rowId": 0,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 360.55,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 54443.05,
-      "profitMargin": 0.76,
-      "closeDate": "2025-04-07",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 1,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 3349.47,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 23446.29,
-      "profitMargin": 0.37,
-      "closeDate": "2025-04-22",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 2,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 27335.14,
-      "isWon": true,
-      "commission": 5521.7,
-      "dealProfit": 26788.44,
-      "dealValue": 54670.28,
-      "profitMargin": 0.49,
-      "closeDate": "2025-03-25",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 3,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 8949.39,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 178987.8,
-      "profitMargin": 0.25,
-      "closeDate": "2025-04-15",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 4,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 8280.97,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 124214.55,
-      "profitMargin": 0.34,
-      "closeDate": "2025-04-21",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 5,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 303.62,
-      "isWon": true,
-      "commission": 5678.91,
-      "dealProfit": 32957.95,
-      "dealValue": 50704.54,
-      "profitMargin": 0.65,
-      "closeDate": "2025-04-08",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 6,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 6113.46,
-      "isWon": true,
-      "commission": 9261.89,
-      "dealProfit": 42182.87,
-      "dealValue": 91701.9,
-      "profitMargin": 0.46,
-      "closeDate": "2025-02-25",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 7,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 317.82,
-      "isWon": true,
-      "commission": 1200.09,
-      "dealProfit": 8034.49,
-      "dealValue": 10170.24,
-      "profitMargin": 0.79,
-      "closeDate": "2025-02-24",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 8,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 8666.34,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 60664.38,
-      "profitMargin": 0.26,
-      "closeDate": "2025-02-12",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 9,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 376.35,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 58334.25,
-      "profitMargin": 0.75,
-      "closeDate": "2025-04-25",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 10,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 11062.23,
-      "isWon": true,
-      "commission": 1050.91,
-      "dealProfit": 3650.54,
-      "dealValue": 11062.23,
-      "profitMargin": 0.33,
-      "closeDate": "2025-04-30",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 11,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 25353.14,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 50706.28,
-      "profitMargin": 0.33,
-      "closeDate": "2025-04-08",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 12,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 100.93,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 13625.55,
-      "profitMargin": 0.71,
-      "closeDate": "2025-05-03",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 13,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 338.76,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 5758.92,
-      "profitMargin": 0.73,
-      "closeDate": "2025-04-15",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 14,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 8429.43,
-      "isWon": true,
-      "commission": 10503.07,
-      "dealProfit": 25962.64,
-      "dealValue": 118012.02,
-      "profitMargin": 0.22,
-      "closeDate": "2025-05-02",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 15,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 2458.22,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 22123.98,
-      "profitMargin": 0.54,
-      "closeDate": "2025-03-26",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 16,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 138.06,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 14082.12,
-      "profitMargin": 0.7,
-      "closeDate": "2025-02-28",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 17,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 9580.25,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 19160.5,
-      "profitMargin": 0.4,
-      "closeDate": "2025-03-13",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 18,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 372.16,
-      "isWon": true,
-      "commission": 8306.61,
-      "dealProfit": 45552.38,
-      "dealValue": 66988.8,
-      "profitMargin": 0.68,
-      "closeDate": "2025-03-09",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 19,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 16258.96,
-      "isWon": true,
-      "commission": 3381.86,
-      "dealProfit": 10080.56,
-      "dealValue": 32517.92,
-      "profitMargin": 0.31,
-      "closeDate": "2025-03-21",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 20,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 2287.09,
-      "isWon": true,
-      "commission": 196.69,
-      "dealProfit": 1395.12,
-      "dealValue": 2287.09,
-      "profitMargin": 0.61,
-      "closeDate": "2025-05-03",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 21,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 639.71,
-      "isWon": true,
-      "commission": 3725.67,
-      "dealProfit": 18986.59,
-      "dealValue": 35823.76,
-      "profitMargin": 0.53,
-      "closeDate": "2025-02-06",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 22,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 410.79,
-      "isWon": true,
-      "commission": 6717.24,
-      "dealProfit": 41382.98,
-      "dealValue": 59975.34,
-      "profitMargin": 0.69,
-      "closeDate": "2025-04-06",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 23,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 10176.22,
-      "isWon": true,
-      "commission": 6349.96,
-      "dealProfit": 18317.2,
-      "dealValue": 61057.32,
-      "profitMargin": 0.3,
-      "closeDate": "2025-04-26",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 24,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 3521.76,
-      "isWon": true,
-      "commission": 648,
-      "dealProfit": 3028.71,
-      "dealValue": 7043.52,
-      "profitMargin": 0.43,
-      "closeDate": "2025-04-30",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 25,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 407.8,
-      "isWon": true,
-      "commission": 7810.19,
-      "dealProfit": 55787.04,
-      "dealValue": 69733.8,
-      "profitMargin": 0.8,
-      "closeDate": "2025-03-27",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 26,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 1487.46,
-      "isWon": true,
-      "commission": 3153.42,
-      "dealProfit": 19634.47,
-      "dealValue": 29749.2,
-      "profitMargin": 0.66,
-      "closeDate": "2025-03-08",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 27,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 374.41,
-      "isWon": true,
-      "commission": 3843.69,
-      "dealProfit": 22150.1,
-      "dealValue": 32573.67,
-      "profitMargin": 0.68,
-      "closeDate": "2025-03-08",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 28,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 8517.45,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 25552.35,
-      "profitMargin": 0.46,
-      "closeDate": "2025-02-18",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 29,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 107.71,
-      "isWon": true,
-      "commission": 1013.34,
-      "dealProfit": 5790.49,
-      "dealValue": 9047.64,
-      "profitMargin": 0.64,
-      "closeDate": "2025-04-07",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 30,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 18456.74,
-      "isWon": true,
-      "commission": 5094.06,
-      "dealProfit": 16611.07,
-      "dealValue": 55370.22,
-      "profitMargin": 0.3,
-      "closeDate": "2025-02-08",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 31,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 9315.41,
-      "isWon": true,
-      "commission": 10619.57,
-      "dealProfit": 33535.48,
-      "dealValue": 111784.92,
-      "profitMargin": 0.3,
-      "closeDate": "2025-03-17",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 32,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 2621.2,
-      "isWon": true,
-      "commission": 2055.02,
-      "dealProfit": 13001.15,
-      "dealValue": 20969.6,
-      "profitMargin": 0.62,
-      "closeDate": "2025-04-02",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 33,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 410.97,
-      "isWon": true,
-      "commission": 5285.9,
-      "dealProfit": 30013.14,
-      "dealValue": 44795.73,
-      "profitMargin": 0.67,
-      "closeDate": "2025-02-09",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 34,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 373.22,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 66806.38,
-      "profitMargin": 0.71,
-      "closeDate": "2025-02-11",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 35,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 602.36,
-      "isWon": true,
-      "commission": 3367.19,
-      "dealProfit": 25058.18,
-      "dealValue": 39153.4,
-      "profitMargin": 0.64,
-      "closeDate": "2025-03-03",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 36,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 318.93,
-      "isWon": true,
-      "commission": 4474.59,
-      "dealProfit": 28403.91,
-      "dealValue": 38909.46,
-      "profitMargin": 0.73,
-      "closeDate": "2025-04-23",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 37,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 344.73,
-      "isWon": true,
-      "commission": 5044.09,
-      "dealProfit": 27785.24,
-      "dealValue": 42746.52,
-      "profitMargin": 0.65,
-      "closeDate": "2025-03-26",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 38,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 9651.48,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 106166.28,
-      "profitMargin": 0.24,
-      "closeDate": "2025-05-01",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 39,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 103.27,
-      "isWon": true,
-      "commission": 300.72,
-      "dealProfit": 2094.32,
-      "dealValue": 2685.02,
-      "profitMargin": 0.78,
-      "closeDate": "2025-02-11",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 40,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 3329.29,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 49939.35,
-      "profitMargin": 0.42,
-      "closeDate": "2025-02-16",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 41,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emma Fischer",
-      "dealSize": 108.83,
-      "isWon": true,
-      "commission": 638.94,
-      "dealProfit": 3908.09,
-      "dealValue": 6203.31,
-      "profitMargin": 0.63,
-      "closeDate": "2025-02-20",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 42,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 690.31,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 88359.68,
-      "profitMargin": 0.48,
-      "closeDate": "2025-02-16",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 43,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 539.21,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 105145.95,
-      "profitMargin": 0.64,
-      "closeDate": "2025-03-13",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 44,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emma Fischer",
-      "dealSize": 610.02,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 56121.84,
-      "profitMargin": 0.46,
-      "closeDate": "2025-03-26",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 45,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 1613.04,
-      "isWon": true,
-      "commission": 2285.68,
-      "dealProfit": 13630.19,
-      "dealValue": 20969.52,
-      "profitMargin": 0.65,
-      "closeDate": "2025-02-22",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 46,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 29692.52,
-      "isWon": true,
-      "commission": 8462.37,
-      "dealProfit": 29395.59,
-      "dealValue": 89077.56,
-      "profitMargin": 0.33,
-      "closeDate": "2025-03-09",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 47,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 129.19,
-      "isWon": true,
-      "commission": 2481.09,
-      "dealProfit": 15749.55,
-      "dealValue": 21574.73,
-      "profitMargin": 0.73,
-      "closeDate": "2025-03-09",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 48,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 29850.97,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 89552.91,
-      "profitMargin": 0.47,
-      "closeDate": "2025-03-18",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 49,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 364.8,
-      "isWon": true,
-      "commission": 3928.53,
-      "dealProfit": 21428.35,
-      "dealValue": 32467.2,
-      "profitMargin": 0.66,
-      "closeDate": "2025-04-29",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 50,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 2449.57,
-      "isWon": true,
-      "commission": 494.81,
-      "dealProfit": 2351.59,
-      "dealValue": 4899.14,
-      "profitMargin": 0.48,
-      "closeDate": "2025-04-23",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 51,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 17186.64,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 17186.64,
-      "profitMargin": 0.32,
-      "closeDate": "2025-02-24",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 52,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 9541.48,
-      "isWon": true,
-      "commission": 906.44,
-      "dealProfit": 4007.42,
-      "dealValue": 9541.48,
-      "profitMargin": 0.42,
-      "closeDate": "2025-04-12",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 53,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 1670.97,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 28406.49,
-      "profitMargin": 0.67,
-      "closeDate": "2025-02-27",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 54,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 16945.04,
-      "isWon": true,
-      "commission": 3524.57,
-      "dealProfit": 11183.73,
-      "dealValue": 33890.08,
-      "profitMargin": 0.33,
-      "closeDate": "2025-04-21",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 55,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 100.8,
-      "isWon": true,
-      "commission": 304.92,
-      "dealProfit": 1764,
-      "dealValue": 2520,
-      "profitMargin": 0.7,
-      "closeDate": "2025-05-03",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 56,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 7403.29,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 74032.9,
-      "profitMargin": 0.23,
-      "closeDate": "2025-03-03",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 57,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 397.85,
-      "isWon": true,
-      "commission": 686.29,
-      "dealProfit": 4714.52,
-      "dealValue": 5967.75,
-      "profitMargin": 0.79,
-      "closeDate": "2025-04-06",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 58,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 605.23,
-      "isWon": true,
-      "commission": 4657.24,
-      "dealProfit": 27453.23,
-      "dealValue": 49023.63,
-      "profitMargin": 0.56,
-      "closeDate": "2025-03-03",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 59,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 8527.48,
-      "isWon": true,
-      "commission": 810.11,
-      "dealProfit": 3666.82,
-      "dealValue": 8527.48,
-      "profitMargin": 0.43,
-      "closeDate": "2025-02-17",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 60,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 31397.6,
-      "isWon": true,
-      "commission": 8383.16,
-      "dealProfit": 34851.34,
-      "dealValue": 94192.8,
-      "profitMargin": 0.37,
-      "closeDate": "2025-03-12",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 61,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 1495.03,
-      "isWon": true,
-      "commission": 1203.5,
-      "dealProfit": 6907.04,
-      "dealValue": 10465.21,
-      "profitMargin": 0.66,
-      "closeDate": "2025-04-27",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 62,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 127.04,
-      "isWon": true,
-      "commission": 71.14,
-      "dealProfit": 470.05,
-      "dealValue": 635.2,
-      "profitMargin": 0.74,
-      "closeDate": "2025-04-20",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 63,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 7085.6,
-      "isWon": true,
-      "commission": 3684.51,
-      "dealProfit": 13462.64,
-      "dealValue": 35428,
-      "profitMargin": 0.38,
-      "closeDate": "2025-03-13",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 64,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 3047.83,
-      "isWon": true,
-      "commission": 4437.64,
-      "dealProfit": 13654.28,
-      "dealValue": 42669.62,
-      "profitMargin": 0.32,
-      "closeDate": "2025-04-02",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 65,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 2195.53,
-      "isWon": true,
-      "commission": 3545.78,
-      "dealProfit": 19781.73,
-      "dealValue": 37324.01,
-      "profitMargin": 0.53,
-      "closeDate": "2025-04-27",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 66,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 1987.16,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 25833.08,
-      "profitMargin": 0.64,
-      "closeDate": "2025-04-01",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 67,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 101.93,
-      "isWon": true,
-      "commission": 1723.84,
-      "dealProfit": 9850.52,
-      "dealValue": 15391.43,
-      "profitMargin": 0.64,
-      "closeDate": "2025-04-12",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 68,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mateo Lopez",
-      "dealSize": 598.08,
-      "isWon": true,
-      "commission": 5040.62,
-      "dealProfit": 36925.46,
-      "dealValue": 58611.84,
-      "profitMargin": 0.63,
-      "closeDate": "2025-05-04",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 69,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 403.09,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 8867.98,
-      "profitMargin": 0.66,
-      "closeDate": "2025-04-13",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 70,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 404.64,
-      "isWon": true,
-      "commission": 362.56,
-      "dealProfit": 2039.39,
-      "dealValue": 3237.12,
-      "profitMargin": 0.63,
-      "closeDate": "2025-04-19",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 71,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 568.12,
-      "isWon": true,
-      "commission": 4313.17,
-      "dealProfit": 24883.66,
-      "dealValue": 41472.76,
-      "profitMargin": 0.6,
-      "closeDate": "2025-02-11",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 72,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 122.42,
-      "isWon": true,
-      "commission": 1574.57,
-      "dealProfit": 10256.35,
-      "dealValue": 14445.56,
-      "profitMargin": 0.71,
-      "closeDate": "2025-04-16",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 73,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 129.43,
-      "isWon": true,
-      "commission": 1454.28,
-      "dealProfit": 8917.73,
-      "dealValue": 13719.58,
-      "profitMargin": 0.65,
-      "closeDate": "2025-04-11",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 74,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 30289.87,
-      "isWon": true,
-      "commission": 5391.6,
-      "dealProfit": 22414.5,
-      "dealValue": 60579.74,
-      "profitMargin": 0.37,
-      "closeDate": "2025-03-24",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 75,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 305.99,
-      "isWon": true,
-      "commission": 3870.16,
-      "dealProfit": 22784.02,
-      "dealValue": 31210.98,
-      "profitMargin": 0.73,
-      "closeDate": "2025-04-11",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 76,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 9653.7,
-      "isWon": true,
-      "commission": 17424.93,
-      "dealProfit": 56860.29,
-      "dealValue": 183420.3,
-      "profitMargin": 0.31,
-      "closeDate": "2025-04-14",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 77,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 653.02,
-      "isWon": true,
-      "commission": 6683.66,
-      "dealProfit": 41303.52,
-      "dealValue": 75097.3,
-      "profitMargin": 0.55,
-      "closeDate": "2025-04-17",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 78,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 7674.86,
-      "isWon": true,
-      "commission": 2187.34,
-      "dealProfit": 6677.13,
-      "dealValue": 23024.58,
-      "profitMargin": 0.29,
-      "closeDate": "2025-03-01",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 79,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Kim Seung-Min",
-      "dealSize": 1311.23,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 18357.22,
-      "profitMargin": 0.69,
-      "closeDate": "2025-02-10",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 80,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 122.13,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 4763.07,
-      "profitMargin": 0.79,
-      "closeDate": "2025-04-15",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 81,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 360.68,
-      "isWon": true,
-      "commission": 4204.09,
-      "dealProfit": 26445.06,
-      "dealValue": 33903.92,
-      "profitMargin": 0.78,
-      "closeDate": "2025-04-26",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 82,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 412.65,
-      "isWon": true,
-      "commission": 9486.82,
-      "dealProfit": 55666.49,
-      "dealValue": 78403.5,
-      "profitMargin": 0.71,
-      "closeDate": "2025-05-02",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 83,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 668.92,
-      "isWon": true,
-      "commission": 3333.9,
-      "dealProfit": 20602.74,
-      "dealValue": 37459.52,
-      "profitMargin": 0.55,
-      "closeDate": "2025-03-17",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 84,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 5516.66,
-      "isWon": true,
-      "commission": 7364.74,
-      "dealProfit": 28134.97,
-      "dealValue": 82749.9,
-      "profitMargin": 0.34,
-      "closeDate": "2025-03-13",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 85,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 103.2,
-      "isWon": true,
-      "commission": 462.34,
-      "dealProfit": 2930.88,
-      "dealValue": 4128,
-      "profitMargin": 0.71,
-      "closeDate": "2025-03-16",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 86,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 10353.54,
-      "isWon": true,
-      "commission": 1967.17,
-      "dealProfit": 7454.55,
-      "dealValue": 20707.08,
-      "profitMargin": 0.36,
-      "closeDate": "2025-02-07",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 87,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 10769.56,
-      "isWon": true,
-      "commission": 2046.22,
-      "dealProfit": 6461.74,
-      "dealValue": 21539.12,
-      "profitMargin": 0.3,
-      "closeDate": "2025-05-06",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 88,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 7607.8,
-      "isWon": true,
-      "commission": 11076.96,
-      "dealProfit": 24497.12,
-      "dealValue": 106509.2,
-      "profitMargin": 0.23,
-      "closeDate": "2025-02-13",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 89,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 125.03,
-      "isWon": true,
-      "commission": 431.35,
-      "dealProfit": 2813.18,
-      "dealValue": 3750.9,
-      "profitMargin": 0.75,
-      "closeDate": "2025-03-07",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 90,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 109.47,
-      "isWon": true,
-      "commission": 902.03,
-      "dealProfit": 6480.62,
-      "dealValue": 8757.6,
-      "profitMargin": 0.74,
-      "closeDate": "2025-04-20",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 91,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 586.08,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 103150.08,
-      "profitMargin": 0.62,
-      "closeDate": "2025-04-20",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 92,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 110.95,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 665.7,
-      "profitMargin": 0.66,
-      "closeDate": "2025-04-07",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 93,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 117.21,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 12307.05,
-      "profitMargin": 0.62,
-      "closeDate": "2025-03-24",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 94,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 9363.82,
-      "isWon": true,
-      "commission": 2668.69,
-      "dealProfit": 8989.27,
-      "dealValue": 28091.46,
-      "profitMargin": 0.32,
-      "closeDate": "2025-04-12",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 95,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 684.16,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 84151.68,
-      "profitMargin": 0.54,
-      "closeDate": "2025-04-08",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 96,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 3627.71,
-      "isWon": true,
-      "commission": 623.97,
-      "dealProfit": 2539.4,
-      "dealValue": 7255.42,
-      "profitMargin": 0.35,
-      "closeDate": "2025-03-31",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 97,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 14606.77,
-      "isWon": true,
-      "commission": 3900.01,
-      "dealProfit": 9202.27,
-      "dealValue": 43820.31,
-      "profitMargin": 0.21,
-      "closeDate": "2025-04-13",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 98,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 500.01,
-      "isWon": true,
-      "commission": 1111.02,
-      "dealProfit": 5720.11,
-      "dealValue": 11000.22,
-      "profitMargin": 0.52,
-      "closeDate": "2025-04-20",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 99,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Kim Seung-Min",
-      "dealSize": 1653.17,
-      "isWon": true,
-      "commission": 2554.15,
-      "dealProfit": 16862.33,
-      "dealValue": 24797.55,
-      "profitMargin": 0.68,
-      "closeDate": "2025-03-16",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 100,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 1352.93,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 13529.3,
-      "profitMargin": 0.63,
-      "closeDate": "2025-04-28",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 101,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 101.71,
-      "isWon": true,
-      "commission": 245.63,
-      "dealProfit": 1687.37,
-      "dealValue": 2135.91,
-      "profitMargin": 0.79,
-      "closeDate": "2025-02-14",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 102,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 3254.28,
-      "isWon": true,
-      "commission": 1972.09,
-      "dealProfit": 8005.53,
-      "dealValue": 19525.68,
-      "profitMargin": 0.41,
-      "closeDate": "2025-02-23",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 103,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 315.2,
-      "isWon": true,
-      "commission": 7213.35,
-      "dealProfit": 46416.35,
-      "dealValue": 62724.8,
-      "profitMargin": 0.74,
-      "closeDate": "2025-04-29",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 104,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 1530.02,
-      "isWon": true,
-      "commission": 2594.91,
-      "dealProfit": 14933,
-      "dealValue": 24480.32,
-      "profitMargin": 0.61,
-      "closeDate": "2025-02-21",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 105,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 399.15,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 47498.85,
-      "profitMargin": 0.67,
-      "closeDate": "2025-04-24",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 106,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 504.04,
-      "isWon": true,
-      "commission": 157.26,
-      "dealProfit": 892.15,
-      "dealValue": 1512.12,
-      "profitMargin": 0.59,
-      "closeDate": "2025-04-08",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 107,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 2707.12,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 18949.84,
-      "profitMargin": 0.52,
-      "closeDate": "2025-03-24",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 108,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 687.8,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 15819.4,
-      "profitMargin": 0.56,
-      "closeDate": "2025-04-16",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 109,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 2327.39,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 2327.39,
-      "profitMargin": 0.54,
-      "closeDate": "2025-04-25",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 110,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 7378.89,
-      "isWon": true,
-      "commission": 3504.97,
-      "dealProfit": 10330.45,
-      "dealValue": 36894.45,
-      "profitMargin": 0.28,
-      "closeDate": "2025-04-21",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 111,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 9989.77,
-      "isWon": true,
-      "commission": 9789.97,
-      "dealProfit": 21977.49,
-      "dealValue": 99897.7,
-      "profitMargin": 0.22,
-      "closeDate": "2025-02-22",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 112,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 361.62,
-      "isWon": true,
-      "commission": 7290.26,
-      "dealProfit": 50771.45,
-      "dealValue": 65091.6,
-      "profitMargin": 0.78,
-      "closeDate": "2025-03-13",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 113,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 17092.05,
-      "isWon": true,
-      "commission": 3247.49,
-      "dealProfit": 9913.39,
-      "dealValue": 34184.1,
-      "profitMargin": 0.29,
-      "closeDate": "2025-03-02",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 114,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 127.53,
-      "isWon": true,
-      "commission": 1790.78,
-      "dealProfit": 11078.53,
-      "dealValue": 15176.07,
-      "profitMargin": 0.73,
-      "closeDate": "2025-03-25",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 115,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 342.77,
-      "isWon": true,
-      "commission": 4952.34,
-      "dealProfit": 33163,
-      "dealValue": 44217.33,
-      "profitMargin": 0.75,
-      "closeDate": "2025-04-25",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 116,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 119.87,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 12706.22,
-      "profitMargin": 0.74,
-      "closeDate": "2025-04-26",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 117,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 118.12,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 2834.88,
-      "profitMargin": 0.61,
-      "closeDate": "2025-02-13",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 118,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Mei Chen",
-      "dealSize": 2927.96,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 49775.32,
-      "profitMargin": 0.49,
-      "closeDate": "2025-04-11",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 119,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 28655.29,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 85965.87,
-      "profitMargin": 0.45,
-      "closeDate": "2025-02-25",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 120,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 10268.78,
-      "isWon": true,
-      "commission": 17949.83,
-      "dealProfit": 54629.91,
-      "dealValue": 195106.82,
-      "profitMargin": 0.28,
-      "closeDate": "2025-04-20",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 121,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Liu Wei",
-      "dealSize": 3325.41,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 3325.41,
-      "profitMargin": 0.46,
-      "closeDate": "2025-03-14",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 122,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 29590.88,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 59181.76,
-      "profitMargin": 0.43,
-      "closeDate": "2025-02-11",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 123,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 677.75,
-      "isWon": true,
-      "commission": 6567.4,
-      "dealProfit": 35256.56,
-      "dealValue": 69130.5,
-      "profitMargin": 0.51,
-      "closeDate": "2025-03-14",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 124,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 1498,
-      "isWon": true,
-      "commission": 557.26,
-      "dealProfit": 3055.92,
-      "dealValue": 4494,
-      "profitMargin": 0.68,
-      "closeDate": "2025-04-23",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 125,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 8775.39,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 43876.95,
-      "profitMargin": 0.18,
-      "closeDate": "2025-02-09",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 126,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 8478.53,
-      "isWon": true,
-      "commission": 1712.66,
-      "dealProfit": 7291.54,
-      "dealValue": 16957.06,
-      "profitMargin": 0.43,
-      "closeDate": "2025-04-02",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 127,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 378.01,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 17766.47,
-      "profitMargin": 0.73,
-      "closeDate": "2025-03-19",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 128,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 30012.09,
-      "isWon": true,
-      "commission": 9093.66,
-      "dealProfit": 38715.6,
-      "dealValue": 90036.27,
-      "profitMargin": 0.43,
-      "closeDate": "2025-05-04",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 129,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 115.69,
-      "isWon": true,
-      "commission": 1147.53,
-      "dealProfit": 6737.79,
-      "dealValue": 10527.79,
-      "profitMargin": 0.64,
-      "closeDate": "2025-04-28",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 130,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 104.51,
-      "isWon": true,
-      "commission": 2379.69,
-      "dealProfit": 16347.45,
-      "dealValue": 20692.98,
-      "profitMargin": 0.79,
-      "closeDate": "2025-04-02",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 131,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 26148.84,
-      "isWon": true,
-      "commission": 7452.42,
-      "dealProfit": 33732,
-      "dealValue": 78446.52,
-      "profitMargin": 0.43,
-      "closeDate": "2025-02-06",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 132,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 519.1,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 69040.3,
-      "profitMargin": 0.61,
-      "closeDate": "2025-02-27",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 133,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 381.66,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 4198.26,
-      "profitMargin": 0.75,
-      "closeDate": "2025-02-12",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 134,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 3329.76,
-      "isWon": true,
-      "commission": 2530.62,
-      "dealProfit": 13052.66,
-      "dealValue": 26638.08,
-      "profitMargin": 0.49,
-      "closeDate": "2025-02-25",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 135,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 2100.88,
-      "isWon": true,
-      "commission": 3705.95,
-      "dealProfit": 20798.71,
-      "dealValue": 37815.84,
-      "profitMargin": 0.55,
-      "closeDate": "2025-04-18",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 136,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 397.93,
-      "isWon": true,
-      "commission": 3615.19,
-      "dealProfit": 23262.99,
-      "dealValue": 31436.47,
-      "profitMargin": 0.74,
-      "closeDate": "2025-03-24",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 137,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 1500.06,
-      "isWon": true,
-      "commission": 2760.11,
-      "dealProfit": 16800.67,
-      "dealValue": 24000.96,
-      "profitMargin": 0.7,
-      "closeDate": "2025-03-26",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 138,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 692.4,
-      "isWon": true,
-      "commission": 8042.23,
-      "dealProfit": 39016.74,
-      "dealValue": 79626,
-      "profitMargin": 0.49,
-      "closeDate": "2025-02-16",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 139,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 15260.43,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 30520.86,
-      "profitMargin": 0.19,
-      "closeDate": "2025-03-10",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 140,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 391.34,
-      "isWon": true,
-      "commission": 900.08,
-      "dealProfit": 5165.69,
-      "dealValue": 7826.8,
-      "profitMargin": 0.66,
-      "closeDate": "2025-02-26",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 141,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 17202.69,
-      "isWon": true,
-      "commission": 1685.86,
-      "dealProfit": 2752.43,
-      "dealValue": 17202.69,
-      "profitMargin": 0.16,
-      "closeDate": "2025-03-24",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 142,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 114.35,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 15894.65,
-      "profitMargin": 0.78,
-      "closeDate": "2025-05-05",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 143,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 353.51,
-      "isWon": true,
-      "commission": 3167.45,
-      "dealProfit": 19513.75,
-      "dealValue": 28280.8,
-      "profitMargin": 0.69,
-      "closeDate": "2025-03-02",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 144,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 19513.95,
-      "isWon": true,
-      "commission": 1736.74,
-      "dealProfit": 3707.65,
-      "dealValue": 19513.95,
-      "profitMargin": 0.19,
-      "closeDate": "2025-02-22",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 145,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 31600.34,
-      "isWon": true,
-      "commission": 3002.03,
-      "dealProfit": 9796.11,
-      "dealValue": 31600.34,
-      "profitMargin": 0.31,
-      "closeDate": "2025-02-25",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 146,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 10188.86,
-      "isWon": true,
-      "commission": 1059.64,
-      "dealProfit": 4686.88,
-      "dealValue": 10188.86,
-      "profitMargin": 0.46,
-      "closeDate": "2025-04-08",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 147,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 580.47,
-      "isWon": true,
-      "commission": 8420.88,
-      "dealProfit": 46362.14,
-      "dealValue": 94616.61,
-      "profitMargin": 0.49,
-      "closeDate": "2025-04-11",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 148,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 376.28,
-      "isWon": true,
-      "commission": 348.81,
-      "dealProfit": 2607.62,
-      "dealValue": 3386.52,
-      "profitMargin": 0.77,
-      "closeDate": "2025-04-12",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 149,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 107.34,
-      "isWon": true,
-      "commission": 851.85,
-      "dealProfit": 5083.62,
-      "dealValue": 6869.76,
-      "profitMargin": 0.74,
-      "closeDate": "2025-05-03",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 150,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 520.85,
-      "isWon": true,
-      "commission": 2503.21,
-      "dealProfit": 18281.84,
-      "dealValue": 28125.9,
-      "profitMargin": 0.65,
-      "closeDate": "2025-03-16",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 151,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 6663.95,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 79967.4,
-      "profitMargin": 0.49,
-      "closeDate": "2025-02-19",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 152,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 331.45,
-      "isWon": true,
-      "commission": 7313.11,
-      "dealProfit": 45706.96,
-      "dealValue": 65295.65,
-      "profitMargin": 0.7,
-      "closeDate": "2025-04-12",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 153,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 1713.3,
-      "isWon": true,
-      "commission": 1535.12,
-      "dealProfit": 9731.54,
-      "dealValue": 13706.4,
-      "profitMargin": 0.71,
-      "closeDate": "2025-03-11",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 154,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 331.12,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 49668,
-      "profitMargin": 0.7,
-      "closeDate": "2025-04-29",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 155,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 16715.88,
-      "isWon": true,
-      "commission": 4914.47,
-      "dealProfit": 8023.62,
-      "dealValue": 50147.64,
-      "profitMargin": 0.16,
-      "closeDate": "2025-02-22",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 156,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 100.67,
-      "isWon": true,
-      "commission": 608.85,
-      "dealProfit": 4240.22,
-      "dealValue": 5436.18,
-      "profitMargin": 0.78,
-      "closeDate": "2025-02-26",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 157,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 26197.83,
-      "isWon": true,
-      "commission": 2410.2,
-      "dealProfit": 8907.26,
-      "dealValue": 26197.83,
-      "profitMargin": 0.34,
-      "closeDate": "2025-04-04",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 158,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 1738.48,
-      "isWon": true,
-      "commission": 1168.26,
-      "dealProfit": 7614.54,
-      "dealValue": 10430.88,
-      "profitMargin": 0.73,
-      "closeDate": "2025-03-03",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 159,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 6019.93,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 66219.23,
-      "profitMargin": 0.41,
-      "closeDate": "2025-04-24",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 160,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 7117.39,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 92526.07,
-      "profitMargin": 0.41,
-      "closeDate": "2025-05-04",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 161,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 2013.97,
-      "isWon": true,
-      "commission": 3864.81,
-      "dealProfit": 19515.37,
-      "dealValue": 38265.43,
-      "profitMargin": 0.51,
-      "closeDate": "2025-03-26",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 162,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 111,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 13764,
-      "profitMargin": 0.79,
-      "closeDate": "2025-05-05",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 163,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 10271.64,
-      "isWon": true,
-      "commission": 1068.25,
-      "dealProfit": 4930.39,
-      "dealValue": 10271.64,
-      "profitMargin": 0.48,
-      "closeDate": "2025-04-05",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 164,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 123.98,
-      "isWon": true,
-      "commission": 1888.46,
-      "dealProfit": 13489.02,
-      "dealValue": 16861.28,
-      "profitMargin": 0.8,
-      "closeDate": "2025-03-07",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 165,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 28862.84,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 57725.68,
-      "profitMargin": 0.36,
-      "closeDate": "2025-04-25",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 166,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Andreas Schmitt",
-      "dealSize": 3298.55,
-      "isWon": true,
-      "commission": 4552,
-      "dealProfit": 16822.6,
-      "dealValue": 49478.25,
-      "profitMargin": 0.34,
-      "closeDate": "2025-02-07",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 167,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 633.5,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 6335,
-      "profitMargin": 0.64,
-      "closeDate": "2025-03-08",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 168,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 6644.8,
-      "isWon": true,
-      "commission": 1262.51,
-      "dealProfit": 4917.15,
-      "dealValue": 13289.6,
-      "profitMargin": 0.37,
-      "closeDate": "2025-02-15",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 169,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 3315.58,
-      "isWon": true,
-      "commission": 915.1,
-      "dealProfit": 3481.36,
-      "dealValue": 9946.74,
-      "profitMargin": 0.35,
-      "closeDate": "2025-03-07",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 170,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sophie Dubois",
-      "dealSize": 27745.88,
-      "isWon": true,
-      "commission": 2635.86,
-      "dealProfit": 13040.56,
-      "dealValue": 27745.88,
-      "profitMargin": 0.47,
-      "closeDate": "2025-03-21",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 171,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 2662.68,
-      "isWon": true,
-      "commission": 3794.32,
-      "dealProfit": 18771.89,
-      "dealValue": 39940.2,
-      "profitMargin": 0.47,
-      "closeDate": "2025-02-21",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 172,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 2133.91,
-      "isWon": true,
-      "commission": 665.78,
-      "dealProfit": 3905.06,
-      "dealValue": 6401.73,
-      "profitMargin": 0.61,
-      "closeDate": "2025-03-27",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 173,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 401.12,
-      "isWon": true,
-      "commission": 5304.81,
-      "dealProfit": 35057.89,
-      "dealValue": 46128.8,
-      "profitMargin": 0.76,
-      "closeDate": "2025-04-18",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 174,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 28381.4,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 85144.2,
-      "profitMargin": 0.32,
-      "closeDate": "2025-04-03",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 175,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 627.58,
-      "isWon": true,
-      "commission": 3075.14,
-      "dealProfit": 17572.24,
-      "dealValue": 31379,
-      "profitMargin": 0.56,
-      "closeDate": "2025-04-17",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 176,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 9284.95,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 74279.6,
-      "profitMargin": 0.24,
-      "closeDate": "2025-02-17",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 177,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 26601.26,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 26601.26,
-      "profitMargin": 0.35,
-      "closeDate": "2025-02-15",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 178,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 6793.96,
-      "isWon": true,
-      "commission": 1813.99,
-      "dealProfit": 9171.85,
-      "dealValue": 20381.88,
-      "profitMargin": 0.45,
-      "closeDate": "2025-04-11",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 179,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 100.91,
-      "isWon": true,
-      "commission": 2369.57,
-      "dealProfit": 14659.2,
-      "dealValue": 20081.09,
-      "profitMargin": 0.73,
-      "closeDate": "2025-04-17",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 180,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 115.76,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 4051.6,
-      "profitMargin": 0.71,
-      "closeDate": "2025-04-01",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 181,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Akira Tanaka",
-      "dealSize": 2042.2,
-      "isWon": true,
-      "commission": 970.04,
-      "dealProfit": 5718.16,
-      "dealValue": 10211,
-      "profitMargin": 0.56,
-      "closeDate": "2025-03-29",
-      "category": "Support"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 182,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Robert Garcia",
-      "dealSize": 2289.93,
-      "isWon": true,
-      "commission": 2090.71,
-      "dealProfit": 12090.83,
-      "dealValue": 25189.23,
-      "profitMargin": 0.48,
-      "closeDate": "2025-02-27",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 183,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Michael Johnson",
-      "dealSize": 11060.19,
-      "isWon": true,
-      "commission": 2101.44,
-      "dealProfit": 8184.54,
-      "dealValue": 22120.38,
-      "profitMargin": 0.37,
-      "closeDate": "2025-03-29",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 184,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 348.67,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 2092.02,
-      "profitMargin": 0.71,
-      "closeDate": "2025-03-09",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 185,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Isabella Fernandez",
-      "dealSize": 7921.4,
-      "isWon": true,
-      "commission": 2115.01,
-      "dealProfit": 4990.48,
-      "dealValue": 23764.2,
-      "profitMargin": 0.21,
-      "closeDate": "2025-03-06",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 186,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Robert Garcia",
-      "dealSize": 528.56,
-      "isWon": true,
-      "commission": 2719.97,
-      "dealProfit": 18679.31,
-      "dealValue": 32770.72,
-      "profitMargin": 0.57,
-      "closeDate": "2025-03-09",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 187,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Thomas Müller",
-      "dealSize": 9238.49,
-      "isWon": true,
-      "commission": 6531.61,
-      "dealProfit": 13580.58,
-      "dealValue": 64669.43,
-      "profitMargin": 0.21,
-      "closeDate": "2025-03-11",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 188,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 5933.48,
-      "isWon": true,
-      "commission": 11724.56,
-      "dealProfit": 41712.36,
-      "dealValue": 112736.12,
-      "profitMargin": 0.37,
-      "closeDate": "2025-02-14",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 189,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 8619.79,
-      "isWon": true,
-      "commission": 7869.87,
-      "dealProfit": 31289.84,
-      "dealValue": 94817.69,
-      "profitMargin": 0.33,
-      "closeDate": "2025-03-28",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 190,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Carlos Rodriguez",
-      "dealSize": 3282.9,
-      "isWon": true,
-      "commission": 4990.01,
-      "dealProfit": 25737.94,
-      "dealValue": 52526.4,
-      "profitMargin": 0.49,
-      "closeDate": "2025-05-04",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 191,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "James Wilson",
-      "dealSize": 331.98,
-      "isWon": true,
-      "commission": 3416.74,
-      "dealProfit": 20114.67,
-      "dealValue": 27554.34,
-      "profitMargin": 0.73,
-      "closeDate": "2025-04-22",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 192,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Ravi Patel",
-      "dealSize": 7764.52,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 15529.04,
-      "profitMargin": 0.2,
-      "closeDate": "2025-04-28",
-      "category": "Consulting"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 193,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Pierre Laurent",
-      "dealSize": 372.75,
-      "isWon": true,
-      "commission": 2370.69,
-      "dealProfit": 16997.4,
-      "dealValue": 22365,
-      "profitMargin": 0.76,
-      "closeDate": "2025-03-29",
-      "category": "Services"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 194,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Olivia Bennett",
-      "dealSize": 361.35,
-      "isWon": true,
-      "commission": 1496.71,
-      "dealProfit": 9062.66,
-      "dealValue": 13731.3,
-      "profitMargin": 0.66,
-      "closeDate": "2025-04-07",
-      "category": "Software"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 195,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "David Thompson",
-      "dealSize": 116.58,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 7927.44,
-      "profitMargin": 0.61,
-      "closeDate": "2025-03-13",
-      "category": "Training"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 196,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Jessica Lee",
-      "dealSize": 678.43,
-      "isWon": true,
-      "commission": 6709.67,
-      "dealProfit": 39009.72,
-      "dealValue": 78019.45,
-      "profitMargin": 0.5,
-      "closeDate": "2025-02-18",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 197,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Sarah Martinez",
-      "dealSize": 574.43,
-      "isWon": false,
-      "commission": 0,
-      "dealProfit": 0,
-      "dealValue": 41358.96,
-      "profitMargin": 0.48,
-      "closeDate": "2025-02-21",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 198,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Emily Davis",
-      "dealSize": 689.21,
-      "isWon": true,
-      "commission": 1418.39,
-      "dealProfit": 7526.17,
-      "dealValue": 14473.41,
-      "profitMargin": 0.52,
-      "closeDate": "2025-02-22",
-      "category": "Hardware"
-    }
-  },
-  {
-    "rowMeta": {
-      "rowId": 199,
-      "isExpanded": true
-    },
-    "rowData": {
-      "repName": "Valentina Diaz",
-      "dealSize": 619.23,
-      "isWon": true,
-      "commission": 2261.43,
-      "dealProfit": 12533.22,
-      "dealValue": 27246.12,
-      "profitMargin": 0.46,
-      "closeDate": "2025-03-28",
-      "category": "Software"
-    }
+    "id": "SALE-0001",
+    "date": "2025-04-17",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 578.63,
+    "margin": 0.6,
+    "commission": 48.03,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0002",
+    "date": "2025-03-16",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2180.06,
+    "margin": 0.54,
+    "commission": 207.11,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0003",
+    "date": "2025-03-21",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 10259.23,
+    "margin": 0.33,
+    "commission": 974.63,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0004",
+    "date": "2025-05-12",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 17756.16,
+    "margin": 0.34,
+    "commission": 1686.84,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0005",
+    "date": "2025-03-29",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 404.77,
+    "margin": 0.78,
+    "commission": 45.33,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0006",
+    "date": "2025-03-09",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 8433.23,
+    "margin": 0.22,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0007",
+    "date": "2025-03-30",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 570.47,
+    "margin": 0.56,
+    "commission": 47.35,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0008",
+    "date": "2025-03-05",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 32753.05,
+    "margin": 0.48,
+    "commission": 3308.06,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0009",
+    "date": "2025-03-25",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1795.16,
+    "margin": 0.68,
+    "commission": 206.44,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0010",
+    "date": "2025-03-12",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 588.36,
+    "margin": 0.6,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0011",
+    "date": "2025-04-17",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1722.46,
+    "margin": 0.75,
+    "commission": 213.59,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0012",
+    "date": "2025-05-03",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 610.05,
+    "margin": 0.64,
+    "commission": 50.63,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0013",
+    "date": "2025-05-14",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1432.44,
+    "margin": 0.65,
+    "commission": 160.43,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0014",
+    "date": "2025-05-12",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 10296.69,
+    "margin": 0.43,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0015",
+    "date": "2025-03-15",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 27302.29,
+    "margin": 0.37,
+    "commission": 2593.72,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0016",
+    "date": "2025-04-12",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 339.17,
+    "margin": 0.61,
+    "commission": 35.95,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0017",
+    "date": "2025-03-22",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 25168.39,
+    "margin": 0.34,
+    "commission": 2542.01,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0018",
+    "date": "2025-03-17",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 117.62,
+    "margin": 0.7,
+    "commission": 12.82,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0019",
+    "date": "2025-03-03",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 315.3,
+    "margin": 0.79,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0020",
+    "date": "2025-04-10",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 686.76,
+    "margin": 0.49,
+    "commission": 65.24,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0021",
+    "date": "2025-04-07",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 314.26,
+    "margin": 0.65,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0022",
+    "date": "2025-05-30",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 25263.22,
+    "margin": 0.46,
+    "commission": 2324.22,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0023",
+    "date": "2025-04-02",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 29235.36,
+    "margin": 0.46,
+    "commission": 2426.53,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0024",
+    "date": "2025-05-14",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 312.56,
+    "margin": 0.71,
+    "commission": 32.19,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0025",
+    "date": "2025-04-29",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 561.23,
+    "margin": 0.62,
+    "commission": 51.63,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0026",
+    "date": "2025-05-08",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 127.77,
+    "margin": 0.67,
+    "commission": 15.46,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0027",
+    "date": "2025-04-24",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 5350.16,
+    "margin": 0.46,
+    "commission": 540.37,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0028",
+    "date": "2025-03-27",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 24715.23,
+    "margin": 0.44,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0029",
+    "date": "2025-05-24",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 658.92,
+    "margin": 0.62,
+    "commission": 60.62,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0030",
+    "date": "2025-04-30",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2497.58,
+    "margin": 0.52,
+    "commission": 207.3,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0031",
+    "date": "2025-03-09",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 391.8,
+    "margin": 0.65,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0032",
+    "date": "2025-04-04",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 608.25,
+    "margin": 0.46,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0033",
+    "date": "2025-05-09",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 408.3,
+    "margin": 0.8,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0034",
+    "date": "2025-03-12",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2648.01,
+    "margin": 0.59,
+    "commission": 251.56,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0035",
+    "date": "2025-03-27",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 612.27,
+    "margin": 0.51,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0036",
+    "date": "2025-04-05",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 413.16,
+    "margin": 0.61,
+    "commission": 47.51,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0037",
+    "date": "2025-05-26",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2506.36,
+    "margin": 0.58,
+    "commission": 238.1,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0038",
+    "date": "2025-03-10",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 687.48,
+    "margin": 0.46,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0039",
+    "date": "2025-03-24",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 322.41,
+    "margin": 0.79,
+    "commission": 35.14,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0040",
+    "date": "2025-03-21",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 391.17,
+    "margin": 0.7,
+    "commission": 42.64,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0041",
+    "date": "2025-04-03",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 339.07,
+    "margin": 0.72,
+    "commission": 41.03,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0042",
+    "date": "2025-03-07",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 15586.14,
+    "margin": 0.19,
+    "commission": 1433.92,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0043",
+    "date": "2025-04-13",
+    "repId": "REP014",
+    "repName": "Liu Wei",
+    "repExperience": 6,
+    "repPerformance": 0.77,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 131.25,
+    "margin": 0.75,
+    "commission": 15.49,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0044",
+    "date": "2025-03-22",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 539.14,
+    "margin": 0.58,
+    "commission": 51.22,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0045",
+    "date": "2025-05-05",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1519.62,
+    "margin": 0.75,
+    "commission": 165.64,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0046",
+    "date": "2025-05-08",
+    "repId": "REP006",
+    "repName": "Jessica Lee",
+    "repExperience": 2,
+    "repPerformance": 0.58,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 20047.76,
+    "margin": 0.35,
+    "commission": 1724.11,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0047",
+    "date": "2025-04-13",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2325.03,
+    "margin": 0.48,
+    "commission": 220.88,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0048",
+    "date": "2025-03-17",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 31853.49,
+    "margin": 0.31,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0049",
+    "date": "2025-04-22",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 625.74,
+    "margin": 0.63,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0050",
+    "date": "2025-04-24",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 635.82,
+    "margin": 0.48,
+    "commission": 52.77,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0051",
+    "date": "2025-03-15",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 118.9,
+    "margin": 0.72,
+    "commission": 14.03,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0052",
+    "date": "2025-04-15",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 126.28,
+    "margin": 0.73,
+    "commission": 13.01,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0053",
+    "date": "2025-05-04",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 5721.59,
+    "margin": 0.36,
+    "commission": 474.89,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0054",
+    "date": "2025-04-09",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2622.89,
+    "margin": 0.54,
+    "commission": 241.31,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0055",
+    "date": "2025-04-02",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 7451.42,
+    "margin": 0.31,
+    "commission": 640.82,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0056",
+    "date": "2025-03-31",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 122.55,
+    "margin": 0.72,
+    "commission": 12.99,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0057",
+    "date": "2025-05-03",
+    "repId": "REP014",
+    "repName": "Liu Wei",
+    "repExperience": 6,
+    "repPerformance": 0.77,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 347.17,
+    "margin": 0.68,
+    "commission": 40.97,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0058",
+    "date": "2025-03-15",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 386.23,
+    "margin": 0.69,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0059",
+    "date": "2025-04-15",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 19990.24,
+    "margin": 0.26,
+    "commission": 1839.1,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0060",
+    "date": "2025-05-02",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 120.02,
+    "margin": 0.61,
+    "commission": 13.08,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0061",
+    "date": "2025-03-11",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 568.86,
+    "margin": 0.45,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0062",
+    "date": "2025-05-22",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 373.75,
+    "margin": 0.79,
+    "commission": 42.98,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0063",
+    "date": "2025-04-10",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 2965.05,
+    "margin": 0.43,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0064",
+    "date": "2025-04-15",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 14792.95,
+    "margin": 0.31,
+    "commission": 1449.71,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0065",
+    "date": "2025-03-20",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 602.08,
+    "margin": 0.46,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0066",
+    "date": "2025-03-11",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 553.34,
+    "margin": 0.47,
+    "commission": 47.59,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0067",
+    "date": "2025-04-17",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 131.73,
+    "margin": 0.65,
+    "commission": 14.75,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0068",
+    "date": "2025-05-01",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 376.59,
+    "margin": 0.6,
+    "commission": 46.7,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0069",
+    "date": "2025-04-24",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6902.49,
+    "margin": 0.49,
+    "commission": 655.74,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0070",
+    "date": "2025-05-17",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 20048.31,
+    "margin": 0.17,
+    "commission": 1904.59,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0071",
+    "date": "2025-04-16",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 662.27,
+    "margin": 0.57,
+    "commission": 62.92,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0072",
+    "date": "2025-04-06",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 412.51,
+    "margin": 0.63,
+    "commission": 47.44,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0073",
+    "date": "2025-04-07",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1335.22,
+    "margin": 0.63,
+    "commission": 141.53,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0074",
+    "date": "2025-03-07",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 399.78,
+    "margin": 0.7,
+    "commission": 41.18,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0075",
+    "date": "2025-03-18",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 571.94,
+    "margin": 0.63,
+    "commission": 52.62,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0076",
+    "date": "2025-03-17",
+    "repId": "REP006",
+    "repName": "Jessica Lee",
+    "repExperience": 2,
+    "repPerformance": 0.58,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 120.89,
+    "margin": 0.75,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0077",
+    "date": "2025-05-15",
+    "repId": "REP005",
+    "repName": "David Thompson",
+    "repExperience": 3,
+    "repPerformance": 0.62,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 679.6,
+    "margin": 0.52,
+    "commission": 60.48,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0078",
+    "date": "2025-03-19",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 111.35,
+    "margin": 0.65,
+    "commission": 12.47,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0079",
+    "date": "2025-04-17",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 135.09,
+    "margin": 0.78,
+    "commission": 16.75,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0080",
+    "date": "2025-05-30",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 124.72,
+    "margin": 0.74,
+    "commission": 13.22,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0081",
+    "date": "2025-03-05",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 385.99,
+    "margin": 0.79,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0082",
+    "date": "2025-03-15",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 303.93,
+    "margin": 0.69,
+    "commission": 32.22,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0083",
+    "date": "2025-04-13",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 372.65,
+    "margin": 0.67,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0084",
+    "date": "2025-04-09",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 376.8,
+    "margin": 0.69,
+    "commission": 42.2,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0085",
+    "date": "2025-04-15",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 328.12,
+    "margin": 0.78,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0086",
+    "date": "2025-04-03",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 102.69,
+    "margin": 0.74,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0087",
+    "date": "2025-04-11",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 9806.35,
+    "margin": 0.22,
+    "commission": 990.44,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0088",
+    "date": "2025-03-13",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 696.69,
+    "margin": 0.53,
+    "commission": 66.19,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0089",
+    "date": "2025-04-05",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 125.02,
+    "margin": 0.62,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0090",
+    "date": "2025-03-16",
+    "repId": "REP005",
+    "repName": "David Thompson",
+    "repExperience": 3,
+    "repPerformance": 0.62,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 653.78,
+    "margin": 0.64,
+    "commission": 58.19,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0091",
+    "date": "2025-05-10",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 108.36,
+    "margin": 0.67,
+    "commission": 11.49,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0092",
+    "date": "2025-03-27",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 406.16,
+    "margin": 0.78,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0093",
+    "date": "2025-05-12",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 386.73,
+    "margin": 0.74,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0094",
+    "date": "2025-05-16",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1638.61,
+    "margin": 0.75,
+    "commission": 203.19,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0095",
+    "date": "2025-04-05",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 120.21,
+    "margin": 0.75,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0096",
+    "date": "2025-04-26",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2396.7,
+    "margin": 0.57,
+    "commission": 220.5,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0097",
+    "date": "2025-03-23",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 378.02,
+    "margin": 0.75,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0098",
+    "date": "2025-04-01",
+    "repId": "REP005",
+    "repName": "David Thompson",
+    "repExperience": 3,
+    "repPerformance": 0.62,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 322.67,
+    "margin": 0.68,
+    "commission": 35.17,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0099",
+    "date": "2025-04-22",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 325.36,
+    "margin": 0.75,
+    "commission": 33.51,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0100",
+    "date": "2025-03-29",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 132.37,
+    "margin": 0.67,
+    "commission": 14.43,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0101",
+    "date": "2025-04-30",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 26894.3,
+    "margin": 0.45,
+    "commission": 2716.32,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0102",
+    "date": "2025-03-17",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 312.77,
+    "margin": 0.73,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0103",
+    "date": "2025-03-23",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 119.26,
+    "margin": 0.61,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0104",
+    "date": "2025-04-07",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 357.23,
+    "margin": 0.77,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0105",
+    "date": "2025-03-26",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 527.53,
+    "margin": 0.49,
+    "commission": 53.28,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0106",
+    "date": "2025-05-13",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 8580.99,
+    "margin": 0.46,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0107",
+    "date": "2025-05-17",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 120.38,
+    "margin": 0.67,
+    "commission": 14.93,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0108",
+    "date": "2025-04-08",
+    "repId": "REP005",
+    "repName": "David Thompson",
+    "repExperience": 3,
+    "repPerformance": 0.62,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 133.73,
+    "margin": 0.65,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0109",
+    "date": "2025-04-12",
+    "repId": "REP006",
+    "repName": "Jessica Lee",
+    "repExperience": 2,
+    "repPerformance": 0.58,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 543.68,
+    "margin": 0.46,
+    "commission": 46.76,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0110",
+    "date": "2025-04-30",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 118.99,
+    "margin": 0.77,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0111",
+    "date": "2025-04-09",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 544.3,
+    "margin": 0.61,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0112",
+    "date": "2025-05-03",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 3240.46,
+    "margin": 0.33,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0113",
+    "date": "2025-03-27",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 10576.08,
+    "margin": 0.46,
+    "commission": 1004.73,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0114",
+    "date": "2025-05-05",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 126.28,
+    "margin": 0.63,
+    "commission": 13.39,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0115",
+    "date": "2025-03-19",
+    "repId": "REP010",
+    "repName": "Andreas Schmitt",
+    "repExperience": 4,
+    "repPerformance": 0.68,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 8694.82,
+    "margin": 0.37,
+    "commission": 799.92,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0116",
+    "date": "2025-04-20",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 594.85,
+    "margin": 0.51,
+    "commission": 56.51,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0117",
+    "date": "2025-05-05",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 350.58,
+    "margin": 0.74,
+    "commission": 39.26,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0118",
+    "date": "2025-05-14",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 32492.54,
+    "margin": 0.48,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0119",
+    "date": "2025-05-21",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 341.87,
+    "margin": 0.77,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0120",
+    "date": "2025-05-04",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 32443.01,
+    "margin": 0.46,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0121",
+    "date": "2025-04-24",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 18303.88,
+    "margin": 0.25,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0122",
+    "date": "2025-04-01",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 677.19,
+    "margin": 0.65,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0123",
+    "date": "2025-04-09",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 30112.12,
+    "margin": 0.31,
+    "commission": 2860.65,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0124",
+    "date": "2025-04-02",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 10260.39,
+    "margin": 0.24,
+    "commission": 851.61,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0125",
+    "date": "2025-04-13",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2667.98,
+    "margin": 0.64,
+    "commission": 221.44,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0126",
+    "date": "2025-05-02",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 9088.55,
+    "margin": 0.46,
+    "commission": 863.41,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0127",
+    "date": "2025-04-19",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 8167.17,
+    "margin": 0.34,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0128",
+    "date": "2025-04-25",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 25641.18,
+    "margin": 0.43,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0129",
+    "date": "2025-04-16",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 100.62,
+    "margin": 0.74,
+    "commission": 11.27,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0130",
+    "date": "2025-05-14",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 16942.43,
+    "margin": 0.32,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0131",
+    "date": "2025-04-03",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 657.34,
+    "margin": 0.57,
+    "commission": 68.36,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0132",
+    "date": "2025-03-15",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 8856.5,
+    "margin": 0.15,
+    "commission": 788.23,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0133",
+    "date": "2025-03-09",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 410.68,
+    "margin": 0.63,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0134",
+    "date": "2025-04-04",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 8524.04,
+    "margin": 0.27,
+    "commission": 733.07,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0135",
+    "date": "2025-03-21",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 108.52,
+    "margin": 0.65,
+    "commission": 12.48,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0136",
+    "date": "2025-03-19",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 132.73,
+    "margin": 0.61,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0137",
+    "date": "2025-03-28",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2567.26,
+    "margin": 0.64,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0138",
+    "date": "2025-03-18",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 101.3,
+    "margin": 0.72,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0139",
+    "date": "2025-04-07",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 18010.05,
+    "margin": 0.3,
+    "commission": 1710.95,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0140",
+    "date": "2025-05-11",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 325.5,
+    "margin": 0.76,
+    "commission": 37.43,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0141",
+    "date": "2025-03-11",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 604.5,
+    "margin": 0.46,
+    "commission": 59.24,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0142",
+    "date": "2025-05-12",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 375.41,
+    "margin": 0.74,
+    "commission": 40.92,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0143",
+    "date": "2025-04-28",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 31169.08,
+    "margin": 0.45,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0144",
+    "date": "2025-05-27",
+    "repId": "REP009",
+    "repName": "Sophie Dubois",
+    "repExperience": 5,
+    "repPerformance": 0.75,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 19148.38,
+    "margin": 0.35,
+    "commission": 1819.1,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0145",
+    "date": "2025-04-07",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 19535.57,
+    "margin": 0.21,
+    "commission": 2031.7,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0146",
+    "date": "2025-05-09",
+    "repId": "REP006",
+    "repName": "Jessica Lee",
+    "repExperience": 2,
+    "repPerformance": 0.58,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1338.26,
+    "margin": 0.78,
+    "commission": 141.86,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0147",
+    "date": "2025-03-10",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "CONSULT-STD",
+    "productName": "Standard Consulting",
+    "productCategory": "Services",
+    "basePrice": 5000,
+    "dealSize": 11111.14,
+    "margin": 0.48,
+    "commission": 955.56,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0148",
+    "date": "2025-03-13",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 125.52,
+    "margin": 0.8,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0149",
+    "date": "2025-03-10",
+    "repId": "REP014",
+    "repName": "Liu Wei",
+    "repExperience": 6,
+    "repPerformance": 0.77,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 104.86,
+    "margin": 0.63,
+    "commission": 12.37,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0150",
+    "date": "2025-05-05",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 16944.7,
+    "margin": 0.16,
+    "commission": 1609.75,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0151",
+    "date": "2025-05-26",
+    "repId": "REP004",
+    "repName": "Sarah Martinez",
+    "repExperience": 4,
+    "repPerformance": 0.65,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 354.17,
+    "margin": 0.77,
+    "commission": 39.67,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0152",
+    "date": "2025-04-15",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 343.8,
+    "margin": 0.69,
+    "commission": 38.51,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0153",
+    "date": "2025-03-05",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 109.77,
+    "margin": 0.67,
+    "commission": 11.31,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0154",
+    "date": "2025-04-04",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 2828.19,
+    "margin": 0.34,
+    "commission": 268.68,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0155",
+    "date": "2025-04-05",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 3506.39,
+    "margin": 0.46,
+    "commission": 291.03,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0156",
+    "date": "2025-03-21",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 601.69,
+    "margin": 0.62,
+    "commission": 53.55,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0157",
+    "date": "2025-03-31",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 17949.04,
+    "margin": 0.15,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0158",
+    "date": "2025-05-31",
+    "repId": "REP020",
+    "repName": "Isabella Fernandez",
+    "repExperience": 3,
+    "repPerformance": 0.64,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 695.9,
+    "margin": 0.64,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0159",
+    "date": "2025-03-04",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 30485.71,
+    "margin": 0.43,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0160",
+    "date": "2025-03-20",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6738.34,
+    "margin": 0.34,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0161",
+    "date": "2025-05-12",
+    "repId": "REP018",
+    "repName": "Kim Seung-Min",
+    "repExperience": 1,
+    "repPerformance": 0.51,
+    "productId": "CONSULT-PREM",
+    "productName": "Premium Consulting",
+    "productCategory": "Services",
+    "basePrice": 15000,
+    "dealSize": 26701.75,
+    "margin": 0.48,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0162",
+    "date": "2025-03-27",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 570.91,
+    "margin": 0.63,
+    "commission": 47.39,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0163",
+    "date": "2025-05-27",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 544.05,
+    "margin": 0.62,
+    "commission": 51.68,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0164",
+    "date": "2025-04-23",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6310.88,
+    "margin": 0.34,
+    "commission": 599.53,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0165",
+    "date": "2025-04-13",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6029.06,
+    "margin": 0.47,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0166",
+    "date": "2025-04-23",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 5796.59,
+    "margin": 0.43,
+    "commission": 550.68,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0167",
+    "date": "2025-03-23",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 360.04,
+    "margin": 0.63,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0168",
+    "date": "2025-05-19",
+    "repId": "REP013",
+    "repName": "Emma Fischer",
+    "repExperience": 1,
+    "repPerformance": 0.52,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 647.83,
+    "margin": 0.46,
+    "commission": 53.77,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0169",
+    "date": "2025-04-17",
+    "repId": "REP001",
+    "repName": "James Wilson",
+    "repExperience": 8,
+    "repPerformance": 0.85,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 368.08,
+    "margin": 0.72,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0170",
+    "date": "2025-04-08",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 331.57,
+    "margin": 0.65,
+    "commission": 35.15,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0171",
+    "date": "2025-03-30",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 614.49,
+    "margin": 0.62,
+    "commission": 58.38,
+    "quarter": "Q1 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0172",
+    "date": "2025-03-24",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1560.94,
+    "margin": 0.7,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Lost"
+  },
+  {
+    "id": "SALE-0173",
+    "date": "2025-03-27",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1598.23,
+    "margin": 0.7,
+    "commission": 183.8,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0174",
+    "date": "2025-05-17",
+    "repId": "REP014",
+    "repName": "Liu Wei",
+    "repExperience": 6,
+    "repPerformance": 0.77,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 565.9,
+    "margin": 0.65,
+    "commission": 55.46,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0175",
+    "date": "2025-05-16",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 7803.97,
+    "margin": 0.21,
+    "commission": 671.14,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0176",
+    "date": "2025-03-09",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 353.59,
+    "margin": 0.77,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0177",
+    "date": "2025-05-09",
+    "repId": "REP006",
+    "repName": "Jessica Lee",
+    "repExperience": 2,
+    "repPerformance": 0.58,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 15025.93,
+    "margin": 0.16,
+    "commission": 1292.23,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0178",
+    "date": "2025-05-05",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 15437.11,
+    "margin": 0.17,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0179",
+    "date": "2025-04-11",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 2288.97,
+    "margin": 0.48,
+    "commission": 231.19,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0180",
+    "date": "2025-03-07",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 624.89,
+    "margin": 0.48,
+    "commission": 0,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Partner",
+    "customerType": "SMB",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0181",
+    "date": "2025-04-25",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 340.88,
+    "margin": 0.65,
+    "commission": 37.16,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0182",
+    "date": "2025-05-30",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 2634.46,
+    "margin": 0.44,
+    "commission": 258.18,
+    "quarter": "Q2 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0183",
+    "date": "2025-04-15",
+    "repId": "REP014",
+    "repName": "Liu Wei",
+    "repExperience": 6,
+    "repPerformance": 0.77,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 10156.09,
+    "margin": 0.27,
+    "commission": 995.3,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Inbound",
+    "customerType": "SMB",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0184",
+    "date": "2025-03-21",
+    "repId": "REP003",
+    "repName": "Michael Johnson",
+    "repExperience": 5,
+    "repPerformance": 0.72,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 363.07,
+    "margin": 0.75,
+    "commission": 41.75,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0185",
+    "date": "2025-04-30",
+    "repId": "REP008",
+    "repName": "Thomas Müller",
+    "repExperience": 7,
+    "repPerformance": 0.8,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 8083.76,
+    "margin": 0.21,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0186",
+    "date": "2025-03-05",
+    "repId": "REP011",
+    "repName": "Olivia Bennett",
+    "repExperience": 3,
+    "repPerformance": 0.63,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 101.43,
+    "margin": 0.78,
+    "commission": 11.06,
+    "quarter": "Q1 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0187",
+    "date": "2025-05-26",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 123.19,
+    "margin": 0.67,
+    "commission": 12.69,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0188",
+    "date": "2025-05-25",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SUPPORT-STD",
+    "productName": "Standard Support",
+    "productCategory": "Support",
+    "basePrice": 499,
+    "dealSize": 587.13,
+    "margin": 0.51,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0189",
+    "date": "2025-05-13",
+    "repId": "REP012",
+    "repName": "Pierre Laurent",
+    "repExperience": 2,
+    "repPerformance": 0.6,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 123.53,
+    "margin": 0.76,
+    "commission": 13.09,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0190",
+    "date": "2025-05-29",
+    "repId": "REP017",
+    "repName": "Mei Chen",
+    "repExperience": 2,
+    "repPerformance": 0.59,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6002.88,
+    "margin": 0.49,
+    "commission": 516.25,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Partner",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0191",
+    "date": "2025-03-07",
+    "repId": "REP007",
+    "repName": "Robert Garcia",
+    "repExperience": 1,
+    "repPerformance": 0.55,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6757.38,
+    "margin": 0.36,
+    "commission": 560.86,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Online",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0192",
+    "date": "2025-04-17",
+    "repId": "REP015",
+    "repName": "Akira Tanaka",
+    "repExperience": 5,
+    "repPerformance": 0.76,
+    "productId": "TRAIN-BASIC",
+    "productName": "Basic Training",
+    "productCategory": "Training",
+    "basePrice": 1999,
+    "dealSize": 2950.03,
+    "margin": 0.47,
+    "commission": 280.25,
+    "quarter": "Q2 2025",
+    "region": "Europe",
+    "salesChannel": "Direct Sales",
+    "customerType": "Enterprise",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0193",
+    "date": "2025-04-05",
+    "repId": "REP010",
+    "repName": "Andreas Schmitt",
+    "repExperience": 4,
+    "repPerformance": 0.68,
+    "productId": "SAAS-PRO",
+    "productName": "Professional SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 299,
+    "dealSize": 317.52,
+    "margin": 0.69,
+    "commission": 35.56,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Partner",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0194",
+    "date": "2025-05-04",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 134.56,
+    "margin": 0.62,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0195",
+    "date": "2025-04-01",
+    "repId": "REP021",
+    "repName": "Mateo Lopez",
+    "repExperience": 2,
+    "repPerformance": 0.57,
+    "productId": "SUPPORT-24x7",
+    "productName": "24x7 Premium Support",
+    "productCategory": "Support",
+    "basePrice": 1499,
+    "dealSize": 1997.57,
+    "margin": 0.56,
+    "commission": 171.79,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Inbound",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0196",
+    "date": "2025-05-12",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "TRAIN-ADV",
+    "productName": "Advanced Training",
+    "productCategory": "Training",
+    "basePrice": 3999,
+    "dealSize": 6491.38,
+    "margin": 0.47,
+    "commission": 0,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Startup",
+    "status": "In Progress"
+  },
+  {
+    "id": "SALE-0197",
+    "date": "2025-05-04",
+    "repId": "REP002",
+    "repName": "Emily Davis",
+    "repExperience": 6,
+    "repPerformance": 0.78,
+    "productId": "HW-SERVER",
+    "productName": "Server Hardware",
+    "productCategory": "Hardware",
+    "basePrice": 8999,
+    "dealSize": 17594.51,
+    "margin": 0.16,
+    "commission": 1724.26,
+    "quarter": "Q2 2025",
+    "region": "Asia Pacific",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0198",
+    "date": "2025-03-17",
+    "repId": "REP016",
+    "repName": "Ravi Patel",
+    "repExperience": 4,
+    "repPerformance": 0.7,
+    "productId": "SAAS-ENT",
+    "productName": "Enterprise SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 999,
+    "dealSize": 1537.9,
+    "margin": 0.71,
+    "commission": 172.24,
+    "quarter": "Q1 2025",
+    "region": "North America",
+    "salesChannel": "Inbound",
+    "customerType": "Startup",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0199",
+    "date": "2025-04-12",
+    "repId": "REP022",
+    "repName": "Valentina Diaz",
+    "repExperience": 1,
+    "repPerformance": 0.53,
+    "productId": "SAAS-BASIC",
+    "productName": "Basic SaaS Plan",
+    "productCategory": "Software",
+    "basePrice": 99,
+    "dealSize": 119.7,
+    "margin": 0.75,
+    "commission": 12.33,
+    "quarter": "Q2 2025",
+    "region": "Latin America",
+    "salesChannel": "Direct Sales",
+    "customerType": "Government",
+    "status": "Won"
+  },
+  {
+    "id": "SALE-0200",
+    "date": "2025-03-05",
+    "repId": "REP019",
+    "repName": "Carlos Rodriguez",
+    "repExperience": 5,
+    "repPerformance": 0.73,
+    "productId": "HW-NETWORK",
+    "productName": "Network Equipment",
+    "productCategory": "Hardware",
+    "basePrice": 4599,
+    "dealSize": 9444.95,
+    "margin": 0.25,
+    "commission": 897.27,
+    "quarter": "Q1 2025",
+    "region": "Europe",
+    "salesChannel": "Online",
+    "customerType": "SMB",
+    "status": "Won"
   }
 ]

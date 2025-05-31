@@ -14,8 +14,8 @@ const headers: HeaderObject[] = [
     label: "Number",
     width: 150,
     type: "number",
-    cellRenderer: ({ accessor, colIndex, row }) => {
-      const number = row.rowData[accessor]?.toString() ?? "";
+    cellRenderer: ({ row }) => {
+      const number = row.number?.toString() ?? "";
       const areaCode = number.slice(0, 3);
       const prefix = number.slice(3, 6);
       const lineNumber = number.slice(6);
@@ -31,103 +31,76 @@ const headers: HeaderObject[] = [
 // Sample data
 const data = [
   {
-    rowMeta: { rowId: 1 },
-    rowData: {
-      id: 1,
-      name: "John Doe",
-      email: "john@example.com",
-      department: "Engineering",
-      status: "Active",
-      number: 4155551234,
-    },
+    id: 1,
+    name: "John Doe",
+    email: "john@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 4155551234,
   },
   {
-    rowMeta: { rowId: 2 },
-    rowData: {
-      id: 2,
-      name: "Jane Smith",
-      email: "jane@example.com",
-      department: "Design",
-      status: "Active",
-      number: 2125556789,
-    },
+    id: 2,
+    name: "Jane Smith",
+    email: "jane@example.com",
+    department: "Design",
+    status: "Active",
+    number: 2125556789,
   },
   {
-    rowMeta: { rowId: 3 },
-    rowData: {
-      id: 3,
-      name: "Bob Johnson",
-      email: "bob@example.com",
-      department: "Marketing",
-      status: "Inactive",
-      number: 3105554321,
-    },
+    id: 3,
+    name: "Bob Johnson",
+    email: "bob@example.com",
+    department: "Marketing",
+    status: "Inactive",
+    number: 3105554321,
   },
   {
-    rowMeta: { rowId: 4 },
-    rowData: {
-      id: 4,
-      name: "Alice Williams",
-      email: "alice@example.com",
-      department: "Engineering",
-      status: "Active",
-      number: 6175559876,
-    },
+    id: 4,
+    name: "Alice Williams",
+    email: "alice@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 6175559876,
   },
   {
-    rowMeta: { rowId: 5 },
-    rowData: {
-      id: 5,
-      name: "Charlie Brown",
-      email: "charlie@example.com",
-      department: "Sales",
-      status: "Active",
-      number: 2065553456,
-    },
+    id: 5,
+    name: "Charlie Brown",
+    email: "charlie@example.com",
+    department: "Sales",
+    status: "Active",
+    number: 2065553456,
   },
   {
-    rowMeta: { rowId: 6 },
-    rowData: {
-      id: 6,
-      name: "Eve Green",
-      email: "eve@example.com",
-      department: "Engineering",
-      status: "Active",
-      number: 5125557890,
-    },
+    id: 6,
+    name: "Eve Green",
+    email: "eve@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 5125557890,
   },
   {
-    rowMeta: { rowId: 7 },
-    rowData: {
-      id: 7,
-      name: "Frank White",
-      email: "frank@example.com",
-      department: "Sales",
-      status: "Active",
-      number: 3035552345,
-    },
+    id: 7,
+    name: "Frank White",
+    email: "frank@example.com",
+    department: "Sales",
+    status: "Active",
+    number: 3035552345,
   },
   {
-    rowMeta: { rowId: 8 },
-    rowData: {
-      id: 8,
-      name: "Grace Black",
-      email: "grace@example.com",
-      department: "Engineering",
-      status: "Active",
-      number: 4045558765,
-    },
+    id: 8,
+    name: "Grace Black",
+    email: "grace@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 4045558765,
   },
   {
-    rowMeta: { rowId: 9 },
-    rowData: {
-      id: 9,
-      name: "Henry Blue",
-      email: "henry@example.com",
-      department: "Engineering",
-      status: "Active",
-      number: 3125556543,
-    },
+    id: 9,
+    name: "Henry Blue",
+    email: "henry@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 3125556543,
   },
 ];
 
@@ -138,6 +111,7 @@ const CustomThemeDemo = ({ height = "400px" }: { height?: string }) => {
         columnResizing
         defaultHeaders={headers}
         height={height}
+        rowIdAccessor="id"
         rows={data}
         selectableCells
         selectableColumns

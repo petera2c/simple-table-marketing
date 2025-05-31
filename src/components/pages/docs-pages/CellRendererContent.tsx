@@ -47,7 +47,8 @@ const CellRendererContent = () => {
       >
         Cell renderers give you complete control over how data is displayed in your table cells.
         Using custom renderers, you can create rich, interactive elements like buttons, badges,
-        progress bars, and more.
+        progress bars, and more. Direct property access makes working with your data straightforward
+        and intuitive.
       </motion.p>
 
       {/* Basic Usage Section */}
@@ -68,9 +69,7 @@ const CellRendererContent = () => {
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Each column in your table can have its own{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            cellRenderer
-          </code>{" "}
+          <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">cellRenderer</code>{" "}
           function. This function receives information about the cell and returns either a ReactNode
           or a string to be rendered in the cell.
         </p>
@@ -82,22 +81,16 @@ const CellRendererContent = () => {
           </p>
           <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700 dark:text-gray-300">
             <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                accessor
-              </code>
-              : The column accessor string
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">accessor</code>:
+              The column accessor string
             </li>
             <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                colIndex
-              </code>
-              : The column index
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">colIndex</code>:
+              The column index
             </li>
             <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                row
-              </code>
-              : The row object containing the data
+              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">row</code>: The row
+              object containing all the data properties
             </li>
           </ul>
         </div>
@@ -120,46 +113,44 @@ const CellRendererContent = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            row
-          </code>{" "}
-          parameter passed to your cell renderer has the following structure:
+          The <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">row</code>{" "}
+          parameter is a simple object with all your data properties directly accessible:
         </p>
 
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <pre className="whitespace-pre-wrap">
-            <code>{`type Row = {
-  // Row metadata
-  rowMeta: {
-    children?: Row[];    // Child rows for hierarchical data
-    isExpanded?: boolean; // Whether this row is expanded (for hierarchical data)
-    rowId: number;       // Unique identifier for the row
-  };
+        <CodeBlock
+          code={`// Row structure
+const row = {
+  id: 1,
+  name: "John Doe",
+  email: "john@example.com",
+  status: "active",
+  progress: 85,
+  // ... all your other properties
+};
 
-  // Actual cell values
-  rowData: { [key: string]: CellValue };  // Map of accessors to cell values
-};`}</code>
-          </pre>
+// Access properties directly
+cellRenderer: ({ row }) => {
+  return <span>{row.name}</span>;
+}`}
+        />
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mt-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Direct Property Access</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            All row properties are directly accessible, making it simple to reference any data field
+            in your cell renderers without complex nesting or data traversal.
+          </p>
         </div>
-
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          To access a specific cell value, use{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            row.rowData[accessor]
-          </code>
-          .
-        </p>
       </motion.div>
 
-      {/* Return Types */}
+      {/* Examples Section */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
       >
-        Return Types
+        Common Examples
       </motion.h2>
 
       <motion.div
@@ -167,39 +158,74 @@ const CellRendererContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Your{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            cellRenderer
-          </code>{" "}
-          function should return one of the following:
-        </p>
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              Status Badge
+            </h3>
+            <CodeBlock
+              code={`cellRenderer: ({ row }) => {
+  const status = row.status;
+  const color = status === 'active' ? 'green' : 'red';
+  
+  return (
+    <span className={\`px-2 py-1 rounded text-\${color}-600 bg-\${color}-100\`}>
+      {status}
+    </span>
+  );
+}`}
+            />
+          </div>
 
-        <ul className="list-disc pl-5 mt-2 space-y-3 text-gray-700 dark:text-gray-300 mb-6">
-          <li>
-            <strong>String</strong>: A simple text value to display in the cell
-            <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded mt-1">
-              <code className="text-gray-800 dark:text-gray-200">return "Hello, world!";</code>
-            </div>
-          </li>
-          <li>
-            <strong>ReactNode</strong>: A React component for custom rendering
-            <div className="bg-gray-100 dark:bg-gray-800 p-2 rounded mt-1">
-              <code className="text-gray-800 dark:text-gray-200">
-                return &lt;div className="flex items-center"&gt;&lt;span
-                className="mr-2"&gt;⭐&lt;/span&gt; Custom Content&lt;/div&gt;;
-              </code>
-            </div>
-          </li>
-        </ul>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              Progress Bar
+            </h3>
+            <CodeBlock
+              code={`cellRenderer: ({ row }) => {
+  const progress = row.progress;
+  
+  return (
+    <div className="w-full">
+      <div className="text-xs mb-1">{progress}%</div>
+      <div className="w-full bg-gray-200 rounded-full h-2">
+        <div 
+          className="bg-blue-500 h-2 rounded-full"
+          style={{ width: \`\${progress}%\` }}
+        />
+      </div>
+    </div>
+  );
+}`}
+            />
+          </div>
 
-        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Important Notes</h3>
+          <div>
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">
+              Clickable Link
+            </h3>
+            <CodeBlock
+              code={`cellRenderer: ({ row }) => {
+  return (
+    <a 
+      href={\`mailto:\${row.email}\`}
+      className="text-blue-600 hover:underline"
+    >
+      {row.email}
+    </a>
+  );
+}`}
+            />
+          </div>
+        </div>
+
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mt-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Best Practices</h3>
           <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>Each column can have its own unique renderer</li>
-            <li>Columns without a cellRenderer will display their values as plain text</li>
-            <li>Avoid expensive operations in cell renderers as they run frequently</li>
-            <li>Consider memoizing complex components to improve performance</li>
+            <li>Keep cell renderers simple and focused on presentation</li>
+            <li>Use TypeScript for better type safety with row properties</li>
+            <li>Consider performance for large datasets - avoid complex computations</li>
+            <li>Test your renderers with different data types and edge cases</li>
           </ul>
         </div>
       </motion.div>

@@ -1,116 +1,217 @@
-import { Row } from "simple-table-core";
+import type { Row } from "simple-table-core";
+import fs from "fs";
+import path from "path";
+import { fileURLToPath } from "url";
 
-// Generate manufacturing data
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Generate manufacturing data with hierarchical structure
 export const generateManufacturingData = (): Row[] => {
-  const productLines = ["Assembly Line A", "Assembly Line B", "Electronics", "Packaging", "Quality Control", "Tooling"];
-  const productTypes = ["Component X", "Widget Y", "Module Z", "Part Alpha", "Unit Beta", "System Gamma"];
-  const machines = ["Robot Arm", "CNC Machine", "Injection Molder", "Circuit Printer", "Quality Scanner", "Packaging"];
-  const operators = ["Team Alpha", "Team Beta", "Team Gamma", "Team Delta", "Team Epsilon", "Team Zeta"];
-
-  let rowId = 0;
-  const rows: Row[] = [];
-
-  // Generate data for each product line
-  productLines.forEach((productLine, lineIndex) => {
-    // Number of machines/workstations per product line
-    const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
-
-    const children: Row[] = [];
-    let totalOutput = 0;
-    let totalDefects = 0;
-    let totalDowntime = 0;
-    let totalEfficiency = 0;
-
-    // Generate station data
-    for (let i = 0; i < numStations; i++) {
-      const stationId = `${productLine.charAt(0)}${lineIndex + 1}-S${i + 1}`;
-      const machineType = machines[Math.floor(Math.random() * machines.length)];
-      const operator = operators[Math.floor(Math.random() * operators.length)];
-      const productType = productTypes[Math.floor(Math.random() * productTypes.length)];
-
-      // Calculate metrics
-      const outputRate = Math.floor(Math.random() * 500) + 200; // 200-700 units per shift
-      const cycleTimes = Array.from({ length: 10 }, () => Math.random() * 100 + 50);
-      const avgCycleTime = cycleTimes.reduce((sum, time) => sum + time, 0) / cycleTimes.length;
-      const efficiency = Math.floor(Math.random() * 40) + 60; // 60-100%
-      const defectRate = Math.random() * 5; // 0-5%
-      const defectCount = Math.floor(outputRate * (defectRate / 100));
-      const downtimeHours = Math.random() * 4; // 0-4 hours
-      const utilizationRate = Math.floor(Math.random() * 30) + 70; // 70-100%
-      const energyConsumption = Math.floor(Math.random() * 1000) + 500; // 500-1500 kWh
-      const maintenanceDate = new Date();
-      maintenanceDate.setDate(maintenanceDate.getDate() + Math.floor(Math.random() * 30));
-
-      // Random status weighted toward "Running"
-      const statusRandom = Math.random();
-      const status =
-        statusRandom < 0.7
-          ? "Running"
-          : statusRandom < 0.8
-          ? "Scheduled Maintenance"
-          : statusRandom < 0.9
-          ? "Unplanned Downtime"
-          : statusRandom < 0.95
-          ? "Idle"
-          : "Setup";
-
-      children.push({
-        rowMeta: { rowId: rowId++, isExpanded: true },
-        rowData: {
-          id: stationId,
-          productLine,
-          station: `Station ${i + 1}`,
-          machineType,
-          operator,
-          productType,
-          outputRate,
-          cycletime: avgCycleTime.toFixed(2),
-          efficiency,
-          defectRate: defectRate.toFixed(2),
-          defectCount,
-          downtime: downtimeHours.toFixed(2),
-          utilization: utilizationRate,
-          energy: energyConsumption,
-          status,
-          maintenanceDate: maintenanceDate.toISOString().split("T")[0],
-          cycleTimeData: JSON.stringify(cycleTimes),
+  const factories = [
+    {
+      id: "FAC-001",
+      name: "Tesla Gigafactory Texas",
+      location: "Austin, TX",
+      capacity: 500000,
+      capacityUnit: "vehicles/year",
+      currentOutput: 320000,
+      outputUnit: "vehicles/year",
+      utilization: 64,
+      efficiency: 87,
+      status: "Operational",
+      established: "2022-04-07",
+      productionLines: [
+        {
+          id: "LINE-001",
+          name: "Model Y Assembly",
+          capacity: 300000,
+          capacityUnit: "units/year",
+          currentOutput: 195000,
+          outputUnit: "units/year",
+          utilization: 65,
+          efficiency: 89,
+          status: "Running",
+          lastMaintenance: "2024-01-15",
+          stations: [
+            {
+              id: "STA-001",
+              name: "Body Welding",
+              efficiency: 92,
+              status: "Running",
+              output: 1200,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-002",
+              name: "Paint Shop",
+              efficiency: 88,
+              status: "Running",
+              output: 1150,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-003",
+              name: "Final Assembly",
+              efficiency: 85,
+              status: "Running",
+              output: 1100,
+              outputUnit: "units/day",
+            },
+          ],
         },
-      });
+        {
+          id: "LINE-002",
+          name: "Model 3 Assembly",
+          capacity: 200000,
+          capacityUnit: "units/year",
+          currentOutput: 125000,
+          outputUnit: "units/year",
+          utilization: 63,
+          efficiency: 84,
+          status: "Running",
+          lastMaintenance: "2024-01-20",
+          stations: [
+            {
+              id: "STA-004",
+              name: "Body Welding",
+              efficiency: 88,
+              status: "Running",
+              output: 800,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-005",
+              name: "Paint Shop",
+              efficiency: 82,
+              status: "Maintenance",
+              output: 750,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-006",
+              name: "Final Assembly",
+              efficiency: 80,
+              status: "Running",
+              output: 720,
+              outputUnit: "units/day",
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: "FAC-002",
+      name: "Ford Rouge Factory",
+      location: "Dearborn, MI",
+      capacity: 750000,
+      capacityUnit: "vehicles/year",
+      currentOutput: 520000,
+      outputUnit: "vehicles/year",
+      utilization: 69,
+      efficiency: 81,
+      status: "Operational",
+      established: "1928-05-26",
+      productionLines: [
+        {
+          id: "LINE-003",
+          name: "F-150 Lightning Assembly",
+          capacity: 400000,
+          capacityUnit: "units/year",
+          currentOutput: 280000,
+          outputUnit: "units/year",
+          utilization: 70,
+          efficiency: 83,
+          status: "Running",
+          lastMaintenance: "2024-01-10",
+          stations: [
+            {
+              id: "STA-007",
+              name: "Frame Assembly",
+              efficiency: 86,
+              status: "Running",
+              output: 1400,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-008",
+              name: "Battery Installation",
+              efficiency: 78,
+              status: "Running",
+              output: 1350,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-009",
+              name: "Final Assembly",
+              efficiency: 81,
+              status: "Running",
+              output: 1300,
+              outputUnit: "units/day",
+            },
+          ],
+        },
+        {
+          id: "LINE-004",
+          name: "F-150 ICE Assembly",
+          capacity: 350000,
+          capacityUnit: "units/year",
+          currentOutput: 240000,
+          outputUnit: "units/year",
+          utilization: 69,
+          efficiency: 79,
+          status: "Running",
+          lastMaintenance: "2024-01-12",
+          stations: [
+            {
+              id: "STA-010",
+              name: "Engine Installation",
+              efficiency: 82,
+              status: "Running",
+              output: 1200,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-011",
+              name: "Transmission",
+              efficiency: 77,
+              status: "Running",
+              output: 1180,
+              outputUnit: "units/day",
+            },
+            {
+              id: "STA-012",
+              name: "Final Assembly",
+              efficiency: 75,
+              status: "Running",
+              output: 1150,
+              outputUnit: "units/day",
+            },
+          ],
+        },
+      ],
+    },
+  ];
 
-      // Accumulate totals for product line summary
-      totalOutput += outputRate;
-      totalDefects += defectCount;
-      totalDowntime += downtimeHours;
-      totalEfficiency += efficiency;
-    }
-
-    // Create product line summary row
-    const avgEfficiency = Math.round(totalEfficiency / children.length);
-    const avgDefectRate = ((totalDefects / totalOutput) * 100).toFixed(2);
-
-    rows.push({
-      rowMeta: { rowId: rowId++, isExpanded: true, children },
-      rowData: {
-        id: `${productLine.charAt(0)}${lineIndex + 1}`,
-        productLine,
-        station: `${productLine} Summary`,
-        machineType: "—",
-        operator: "—",
-        productType: "—",
-        outputRate: totalOutput,
-        cycletime: "—",
-        efficiency: avgEfficiency,
-        defectRate: avgDefectRate,
-        defectCount: totalDefects,
-        downtime: totalDowntime.toFixed(2),
-        utilization: "—",
-        energy: children.reduce((sum, child) => sum + (child.rowData.energy as number), 0),
-        status: "—",
-        maintenanceDate: "—",
-        cycleTimeData: "—",
-      },
-    });
-  });
-
-  return rows;
+  return factories;
 };
+
+function saveDataToFile() {
+  const data = generateManufacturingData();
+  const outputPath = path.join(__dirname, "../public/data/manufacturing-data.json");
+
+  // Ensure directory exists
+  const dir = path.dirname(outputPath);
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+
+  fs.writeFileSync(outputPath, JSON.stringify(data, null, 2));
+  console.log(`Manufacturing data saved to ${outputPath}`);
+  console.log(`Generated ${data.length} factories`);
+}
+
+// Run if this file is executed directly
+if (import.meta.url === `file://${process.argv[1]}`) {
+  saveDataToFile();
+}

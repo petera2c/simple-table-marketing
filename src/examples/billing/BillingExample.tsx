@@ -21,6 +21,8 @@ export default function BillingExample({
       height={height ? `${height}px` : "70dvh"}
       onGridReady={onGridReady}
       rows={BILLING_DATA}
+      rowIdAccessor="id"
+      rowGrouping={["invoices", "charges"]}
       selectableCells
       theme={theme}
       useOddColumnBackground

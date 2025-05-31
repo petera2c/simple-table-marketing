@@ -1,190 +1,104 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define headers with various properties
+const data = [
+  {
+    id: 1,
+    product: "Smartphone Pro",
+    price: 899,
+    rating: 4.8,
+    category: "Electronics",
+    inStock: true,
+  },
+  {
+    id: 2,
+    product: "Laptop Ultra",
+    price: 1299,
+    rating: 4.6,
+    category: "Electronics",
+    inStock: true,
+  },
+  {
+    id: 3,
+    product: "Wireless Headphones",
+    price: 199,
+    rating: 4.4,
+    category: "Audio",
+    inStock: false,
+  },
+  { id: 4, product: "Smart Watch", price: 299, rating: 4.2, category: "Wearables", inStock: true },
+  { id: 5, product: "Gaming Console", price: 499, rating: 4.9, category: "Gaming", inStock: true },
+  {
+    id: 6,
+    product: "4K Monitor",
+    price: 399,
+    rating: 4.5,
+    category: "Electronics",
+    inStock: false,
+  },
+];
+
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
-  {
-    accessor: "product",
-    label: "Product",
-    minWidth: 100,
-    width: "1fr",
-    isSortable: true,
-    type: "string",
-  },
-  {
-    accessor: "category",
-    label: "Category",
-    width: 150,
-    isSortable: true,
-    type: "string",
-  },
+  { accessor: "id", label: "ID", width: 60, type: "number" },
+  { accessor: "product", label: "Product", minWidth: 150, width: "1fr", type: "string" },
   {
     accessor: "price",
     label: "Price",
     width: 120,
-    isSortable: true,
-    align: "right",
     type: "number",
     cellRenderer: ({ row }) => {
-      const price = row.rowData.price as number;
-      return `$${price.toFixed(2)}`;
+      const price = row.price as number;
+      return (
+        <div className="flex items-center">
+          <span className="mr-2">💰</span>
+          <span>${price}</span>
+        </div>
+      );
     },
-  },
-  {
-    accessor: "stock",
-    label: "Stock",
-    width: 100,
-    isSortable: true,
-    align: "right",
-    type: "number",
   },
   {
     accessor: "rating",
     label: "Rating",
-    width: 120,
-    isSortable: true,
-    align: "right",
+    width: 140,
     type: "number",
     cellRenderer: ({ row }) => {
-      const rating = row.rowData.rating as number;
-      return `${rating.toFixed(1)} ★`;
+      const rating = row.rating as number;
+      const stars = Math.round(rating);
+      return (
+        <div className="flex items-center">
+          <span className="mr-2">{"⭐".repeat(stars)}</span>
+          <span>{rating}</span>
+        </div>
+      );
+    },
+  },
+  { accessor: "category", label: "Category", width: 120, type: "string" },
+  {
+    accessor: "inStock",
+    label: "In Stock",
+    width: 100,
+    type: "boolean",
+    cellRenderer: ({ row }) => {
+      const inStock = row.inStock as boolean;
+      return (
+        <div className="flex items-center">
+          <span className="mr-2">{inStock ? "✅" : "❌"}</span>
+          <span>{inStock ? "Yes" : "No"}</span>
+        </div>
+      );
     },
   },
 ];
 
-// Sample data
-const PRODUCT_DATA = [
-  {
-    id: 1,
-    product: "Laptop Pro",
-    category: "Electronics",
-    price: 1299.99,
-    stock: 45,
-    rating: 4.5,
-  },
-  {
-    id: 2,
-    product: "Wireless Mouse",
-    category: "Accessories",
-    price: 49.99,
-    stock: 120,
-    rating: 4.2,
-  },
-  {
-    id: 3,
-    product: "Mechanical Keyboard",
-    category: "Accessories",
-    price: 129.99,
-    stock: 75,
-    rating: 4.8,
-  },
-  {
-    id: 4,
-    product: "4K Monitor",
-    category: "Electronics",
-    price: 399.99,
-    stock: 30,
-    rating: 4.6,
-  },
-  {
-    id: 5,
-    product: "Gaming Headset",
-    category: "Audio",
-    price: 89.99,
-    stock: 60,
-    rating: 4.3,
-  },
-  {
-    id: 6,
-    product: "USB-C Hub",
-    category: "Accessories",
-    price: 39.99,
-    stock: 200,
-    rating: 4.0,
-  },
-  {
-    id: 7,
-    product: "External SSD",
-    category: "Storage",
-    price: 149.99,
-    stock: 85,
-    rating: 4.7,
-  },
-  {
-    id: 8,
-    product: "Webcam",
-    category: "Electronics",
-    price: 79.99,
-    stock: 50,
-    rating: 4.4,
-  },
-  {
-    id: 9,
-    product: "Wireless Earbuds",
-    category: "Audio",
-    price: 159.99,
-    stock: 90,
-    rating: 4.5,
-  },
-];
-
-// Map data to rows format expected by SimpleTable
-const rows = PRODUCT_DATA.map((item) => ({
-  rowMeta: { rowId: item.id },
-  rowData: item,
-}));
-
-// Custom icons using simple HTML/CSS
-const customIcons = {
-  // For sorting columns
-  sortUpIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
-  sortDownIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
-
-  // For pagination navigation
-  nextIcon: (
-    <span
-      style={{
-        color: "#2563eb",
-        fontSize: "1.125rem",
-        display: "inline-block",
-        transform: "rotate(90deg)",
-      }}
-    >
-      ▲
-    </span>
-  ),
-  prevIcon: (
-    <span
-      style={{
-        color: "#2563eb",
-        fontSize: "1.125rem",
-        display: "inline-block",
-        transform: "rotate(-90deg)",
-      }}
-    >
-      ▲
-    </span>
-  ),
-};
-
-const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
+const CustomIconsDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   return (
-    <div style={{ display: "flex" }}>
-      <SimpleTable
-        defaultHeaders={headers}
-        rows={rows}
-        shouldPaginate
-        rowsPerPage={7}
-        height={"auto"}
-        // Custom icons props
-        sortUpIcon={customIcons.sortUpIcon}
-        sortDownIcon={customIcons.sortDownIcon}
-        nextIcon={customIcons.nextIcon}
-        prevIcon={customIcons.prevIcon}
-        theme={theme}
-      />
-    </div>
+    <SimpleTable
+      defaultHeaders={headers}
+      rows={data}
+      rowIdAccessor="id"
+      height={height}
+      theme={theme}
+    />
   );
 };
 

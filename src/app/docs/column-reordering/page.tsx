@@ -1,4 +1,4 @@
-import ColumnReorderingContent from "@/components/pages/docs/ColumnReorderingContent";
+import ColumnReorderingContent from "@/components/pages/docs-pages/ColumnReorderingContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

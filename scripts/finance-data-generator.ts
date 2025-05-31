@@ -566,86 +566,115 @@ const COMPANIES = [
   },
 ];
 
+// Helper function for weighted random selection
+function weightedRandom<T>(items: T[], weights: number[]): T {
+  const totalWeight = weights.reduce((sum, weight) => sum + weight, 0);
+  let randomValue = Math.random() * totalWeight;
+
+  for (let i = 0; i < items.length; i++) {
+    randomValue -= weights[i];
+    if (randomValue <= 0) {
+      return items[i];
+    }
+  }
+
+  return items[items.length - 1];
+}
+
 // Generate realistic finance data with simplified structure
 export const generateFinanceData = (): Row[] => {
-  let rowId = 0;
+  const data: Row[] = [];
 
-  return COMPANIES.map((company) => {
-    // Use realistic company data as a base
-    const price = company.price * (0.9 + Math.random() * 0.2); // +/- 10% from base price
-    const marketCap = company.marketCap;
+  // Generate stock data with realistic variance
+  for (let i = 0; i < Math.min(COMPANIES.length, 30); i++) {
+    const company = COMPANIES[i];
 
-    // Calculate PE ratio based on sector characteristics
-    let peRatio;
-    if (company.ticker.match(/^(AMZN|TSLA|NVDA|NFLX|ZM|ETSY|ABNB|UBER)/)) {
-      // Growth stocks typically have higher P/E
-      peRatio = parseFloat((Math.random() * 50 + 40).toFixed(1));
-    } else if (company.ticker.match(/^(XOM|CVX|COP|VZ|T|JPM|BAC|WFC)/)) {
-      // Value stocks typically have lower P/E
-      peRatio = parseFloat((Math.random() * 10 + 5).toFixed(1));
-    } else {
-      // Other stocks have moderate P/E
-      peRatio = parseFloat((Math.random() * 20 + 15).toFixed(1));
-    }
+    // Generate price variance for realistic fluctuation
+    const priceVariance = (Math.random() - 0.5) * 0.15; // ±15% variance
+    const currentPrice = parseFloat((company.price * (1 + priceVariance)).toFixed(2));
 
-    // Only set dividend yield if the company has dividends
-    let dividendYield = null;
+    // Generate market cap based on current price
+    const marketCapVariance = (Math.random() - 0.5) * 0.1; // ±10% variance
+    const currentMarketCap = parseFloat((company.marketCap * (1 + marketCapVariance)).toFixed(1));
+
+    // Generate volume (shares traded)
+    const baseVolume = currentMarketCap * 1000000; // Base volume calculation
+    const volumeVariance = Math.random() * 2 + 0.5; // 0.5x to 2.5x multiplier
+    const volume = Math.floor(baseVolume * volumeVariance);
+
+    // Generate price change
+    const priceChangePercent = parseFloat(((Math.random() - 0.5) * 10).toFixed(2)); // ±5%
+    const priceChange = parseFloat((currentPrice * (priceChangePercent / 100)).toFixed(2));
+
+    // Generate dividend yield with realistic variance if company pays dividends
+    let dividendYield = 0;
+    let annualDividend = 0;
     if (company.hasDividend) {
-      // Minor randomization around the base dividend yield
-      dividendYield = parseFloat(
-        (company.baseDividendYield * (0.9 + Math.random() * 0.2)).toFixed(2)
-      );
+      const yieldVariance = (Math.random() - 0.5) * 0.3; // ±30% variance
+      dividendYield = parseFloat((company.baseDividendYield * (1 + yieldVariance)).toFixed(3));
+      dividendYield = Math.max(0, dividendYield); // Ensure non-negative
+      annualDividend = parseFloat((currentPrice * (dividendYield / 100)).toFixed(2));
     }
 
-    // Calculate a price change with more realistic distribution
-    let priceChangePercent;
-    const rand = Math.random();
-    if (rand < 0.05) {
-      // Rare big drops
-      priceChangePercent = parseFloat((Math.random() * -15 - 5).toFixed(2));
-    } else if (rand < 0.3) {
-      // Common small drops
-      priceChangePercent = parseFloat((Math.random() * -5).toFixed(2));
-    } else if (rand < 0.7) {
-      // Common small gains
-      priceChangePercent = parseFloat((Math.random() * 5).toFixed(2));
-    } else if (rand < 0.95) {
-      // Common large gains
-      priceChangePercent = parseFloat((Math.random() * 10).toFixed(2));
-    } else {
-      // Rare big gains
-      priceChangePercent = parseFloat((Math.random() * 15 + 10).toFixed(2));
+    // Generate P/E ratio based on company characteristics
+    let peRatio = null;
+    if (Math.random() > 0.1) {
+      // 90% of companies have P/E ratios
+      let basePE = 20; // Default P/E
+
+      // Adjust based on company sector (inferred from ticker/name)
+      if (
+        ["AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "NVDA", "NFLX"].includes(company.ticker)
+      ) {
+        basePE = 25; // Tech stocks tend to have higher P/E
+      } else if (["JNJ", "PFE", "UNH", "MRK", "ABT", "LLY", "TMO"].includes(company.ticker)) {
+        basePE = 18; // Healthcare stocks
+      } else if (["JPM", "BAC", "WFC", "V", "MA", "GS", "MS", "BLK"].includes(company.ticker)) {
+        basePE = 12; // Financial stocks typically lower P/E
+      }
+
+      const peVariance = (Math.random() - 0.5) * 0.6; // ±60% variance
+      peRatio = parseFloat((basePE * (1 + peVariance)).toFixed(2));
+      peRatio = Math.max(5, peRatio); // Minimum P/E of 5
     }
 
-    // Generate analyst rating data
+    // Generate 52-week high/low
+    const fiftyTwoWeekHigh = parseFloat(
+      (currentPrice * (1 + Math.random() * 0.3 + 0.05)).toFixed(2)
+    ); // 5-35% higher
+    const fiftyTwoWeekLow = parseFloat(
+      (currentPrice * (1 - Math.random() * 0.25 - 0.05)).toFixed(2)
+    ); // 5-30% lower
+
+    // Generate analyst rating
     const ratings = ["Strong Buy", "Buy", "Hold", "Sell", "Strong Sell"];
-    const randomRating = ratings[Math.floor(Math.random() * ratings.length)];
+    const ratingWeights = [0.25, 0.35, 0.25, 0.1, 0.05]; // Skewed towards positive
+    const analystRating = weightedRandom(ratings, ratingWeights);
 
-    // Generate a random date from the past 30 days in YYYY-MM-DD format
-    const today = new Date();
-    const pastDate = new Date(today);
-    pastDate.setDate(today.getDate() - Math.floor(Math.random() * 30));
-    const date = pastDate.toISOString().split("T")[0];
+    // Generate target price
+    const targetPriceVariance = (Math.random() - 0.3) * 0.4; // Slightly bullish bias
+    const analystTargetPrice = parseFloat((currentPrice * (1 + targetPriceVariance)).toFixed(2));
 
-    // 70% chance of following a stock
-    const isFollowed = Math.random() < 0.7;
+    data.push({
+      id: company.ticker,
+      ticker: company.ticker,
+      companyName: company.name,
+      currentPrice: currentPrice,
+      priceChange: priceChange,
+      priceChangePercent: priceChangePercent,
+      volume: volume,
+      marketCap: currentMarketCap,
+      dividendYield: company.hasDividend ? dividendYield : 0,
+      annualDividend: company.hasDividend ? annualDividend : 0,
+      peRatio: peRatio || 0,
+      fiftyTwoWeekHigh: fiftyTwoWeekHigh,
+      fiftyTwoWeekLow: fiftyTwoWeekLow,
+      analystRating: analystRating,
+      analystTargetPrice: analystTargetPrice,
+    });
+  }
 
-    return {
-      rowMeta: { rowId: rowId++ },
-      rowData: {
-        ticker: company.ticker,
-        companyName: company.name,
-        price,
-        priceChangePercent,
-        marketCap,
-        peRatio,
-        dividendYield,
-        analystRating: randomRating,
-        date,
-        isFollowed,
-      },
-    };
-  });
+  return data;
 };
 
 // Run the generation and save to a file

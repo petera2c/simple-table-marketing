@@ -186,6 +186,7 @@ faChevronDown
 
 <SimpleTable
 // other props...
+rowIdAccessor="id"
 sortUpIcon={<FontAwesomeIcon icon={faCaretUp} className="text-blue-500" />}
 sortDownIcon={<FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />}
 nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
@@ -209,6 +210,7 @@ import ExpandMore from "@mui/icons-material/ExpandMore";
 
 <SimpleTable
 // other props...
+rowIdAccessor="id"
 sortUpIcon={<ArrowUpward className="text-blue-500" />}
 sortDownIcon={<ArrowDownward className="text-blue-500" />}
 nextIcon={<NavigateNext className="text-blue-600" />}
@@ -225,6 +227,7 @@ collapseIcon={<ExpandMore className="text-blue-600" />}
             <CodeBlock
               code={`<SimpleTable
 // other props...
+rowIdAccessor="id"
 sortUpIcon={
 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-500">
   <path d="M8 4l4 4H4z" />

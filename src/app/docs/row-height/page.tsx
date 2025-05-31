@@ -1,4 +1,4 @@
-import RowHeightContent from "@/components/pages/docs/RowHeightContent";
+import RowHeightContent from "@/components/pages/docs-pages/RowHeightContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

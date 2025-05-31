@@ -167,6 +167,7 @@ export default function MyTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
+      rowIdAccessor="id"
       theme="dark"
       useHoverRowBackground={true}
       useOddEvenRowBackground={true}
