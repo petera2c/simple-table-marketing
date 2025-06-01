@@ -6,7 +6,7 @@ import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
-  commonColumnFeatures,
+  renderFeatures,
   simplePricing,
 } from "./CommonFeatures";
 
@@ -38,8 +38,10 @@ const SimpleTableVsTanstackContent = () => {
     {
       key: "quick-start",
       feature: FeatureIcons.QuickStart,
-      simpleTable: FeatureStatus.Available("Single package with ready-to-use components"),
-      tanstack: FeatureStatus.Available("Headless library requiring custom UI implementation"),
+      simpleTable: FeatureStatus.Available("Easy npm install and minimal setup"),
+      tanstack: FeatureStatus.Available(
+        "Easy npm install, but requires more setup for UI components"
+      ),
     },
     {
       key: "component-type",
@@ -54,8 +56,10 @@ const SimpleTableVsTanstackContent = () => {
     {
       key: "virtualization",
       feature: FeatureIcons.Virtualization,
-      simpleTable: FeatureStatus.Available("Built-in virtualization for millions of rows"),
-      tanstack: FeatureStatus.Available("Requires additional package (@tanstack/react-virtual)"),
+      simpleTable: FeatureStatus.Available(
+        "Supports millions of rows with advanced row virtualization"
+      ),
+      tanstack: FeatureStatus.Available("Built-in support through @tanstack/react-virtual"),
     },
     {
       key: "infinite-scroll",
@@ -75,18 +79,8 @@ const SimpleTableVsTanstackContent = () => {
     {
       key: "column-features",
       feature: FeatureIcons.ColumnFeatures,
-      simpleTable: commonColumnFeatures.simpleTable,
-      tanstack: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Resizing", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Reordering", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Visibility", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Pinning", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Error("Alignment", "No direct support for column alignment")}
-          {FeatureTags.Success("Sorting", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Nested Headers", "Available through API hooks, requires custom UI")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
+      tanstack: renderFeatures("columnFeatures", "tanstack"),
     },
     {
       key: "filtering",
@@ -115,44 +109,14 @@ const SimpleTableVsTanstackContent = () => {
     {
       key: "cell-features",
       feature: FeatureIcons.CellFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Built-in cell editors with validation")}
-          {FeatureTags.Success("Custom Renderers", "Custom cell render components")}
-          {FeatureTags.Success("Live Updates", "Update cell values in real-time")}
-          {FeatureTags.Success("Formatting", "Data formatting with built-in formatters")}
-          {FeatureTags.Success("Validation", "Validate cell input with custom rules")}
-        </Space>
-      ),
-      tanstack: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Editing", "Requires custom implementation")}
-          {FeatureTags.Success("Custom Renderers", "Full flexibility for custom components")}
-          {FeatureTags.Error("Live Updates", "Requires custom implementation")}
-          {FeatureTags.Error("Formatting", "Requires custom implementation")}
-          {FeatureTags.Error("Validation", "Requires custom implementation")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
+      tanstack: renderFeatures("cellFeatures", "tanstack"),
     },
     {
       key: "row-features",
       feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Row Selection", "Built-in single/multi-row selection")}
-          {FeatureTags.Success("Row Expansion", "Expandable rows for nested details")}
-          {FeatureTags.Success("Row Grouping", "Group rows by column value")}
-          {FeatureTags.Success("Adjustable Height", "Adjust row height dynamically")}
-        </Space>
-      ),
-      tanstack: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Row Selection", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Row Expansion", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Row Grouping", "Available through API hooks, requires custom UI")}
-          {FeatureTags.Success("Adjustable Height", "Requires custom implementation")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
+      tanstack: renderFeatures("rowFeatures", "tanstack"),
     },
     {
       key: "pagination",

@@ -6,7 +6,7 @@ import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
-  commonColumnFeatures,
+  renderFeatures,
   simplePricing,
 } from "./CommonFeatures";
 
@@ -67,94 +67,20 @@ const SimpleTableVsAntDesignContent = () => {
     {
       key: "column-features",
       feature: FeatureIcons.ColumnFeatures,
-      simpleTable: commonColumnFeatures.simpleTable,
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Resizing", "Resize columns by dragging their edges")}
-          {FeatureTags.Success("Reordering", "Reorder columns by dragging them")}
-          {FeatureTags.Success("Visibility", "Show/hide columns dynamically")}
-          {FeatureTags.Success("Pinning", "Pin columns to the left or right side")}
-          {FeatureTags.Success("Alignment", "Align content left, center, or right")}
-          {FeatureTags.Success("Sorting", "Sort data by clicking column headers")}
-          {FeatureTags.Error("Nested Headers", "No built-in support for nested headers")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
+      antDesign: renderFeatures("columnFeatures", "antDesign"),
     },
     {
       key: "row-features",
       feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Row Grouping",
-            "Group rows by column values with expand/collapse functionality"
-          )}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-          {FeatureTags.Error("Tree Data", "Not available in Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Row Grouping", "No built-in support for row grouping")}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Error("Selection", "No built-in support for row selection")}
-          {FeatureTags.Error("Expansion", "Limited support for row expansion")}
-          {FeatureTags.Success("Tree Data", "Built-in support for tree data structures")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
+      antDesign: renderFeatures("rowFeatures", "antDesign"),
     },
     {
       key: "cell-features",
       feature: FeatureIcons.CellFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Renderers",
-            "Create custom cell renderers for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Success("Formatting", "Format cell values (numbers, dates, currency, etc.)")}
-          {FeatureTags.Success(
-            "Validation",
-            "Validate cell input with custom rules and error messages"
-          )}
-          {FeatureTags.Error("Cell Merging", "Not available in Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Basic cell editing capabilities")}
-          {FeatureTags.Success(
-            "Custom Components",
-            "Create custom cell components for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Error("Formatting", "Limited built-in formatting options")}
-          {FeatureTags.Error("Validation", "No built-in validation, requires Form integration")}
-          {FeatureTags.Error("Cell Merging", "No built-in cell merging support")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
+      antDesign: renderFeatures("cellFeatures", "antDesign"),
     },
     {
       key: "spreadsheet-features",

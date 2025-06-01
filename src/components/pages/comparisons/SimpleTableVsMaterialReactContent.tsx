@@ -6,7 +6,7 @@ import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
-  commonColumnFeatures,
+  renderFeatures,
   simplePricing,
 } from "./CommonFeatures";
 
@@ -67,98 +67,20 @@ const SimpleTableVsMaterialReactContent = () => {
     {
       key: "column-features",
       feature: FeatureIcons.ColumnFeatures,
-      simpleTable: commonColumnFeatures.simpleTable,
-      materialReact: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Resizing", "Resize columns by dragging their edges")}
-          {FeatureTags.Error("Reordering", "No built-in column reordering")}
-          {FeatureTags.Success("Visibility", "Show/hide columns dynamically")}
-          {FeatureTags.Error("Pinning", "No built-in column pinning")}
-          {FeatureTags.Success("Alignment", "Align content left, center, or right")}
-          {FeatureTags.Success("Sorting", "Sort data by clicking column headers")}
-          {FeatureTags.Error("Nested Headers", "No built-in support for nested headers")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
+      materialReact: renderFeatures("columnFeatures", "materialReact"),
     },
     {
       key: "row-features",
       feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Row Grouping",
-            "Group rows by column values with expand/collapse functionality"
-          )}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-        </Space>
-      ),
-      materialReact: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Row Grouping", "No built-in row grouping support")}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-        </Space>
-      ),
+      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
+      materialReact: renderFeatures("rowFeatures", "materialReact"),
     },
     {
       key: "cell-features",
       feature: FeatureIcons.CellFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Renderers",
-            "Create custom cell renderers for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Success("Formatting", "Format cell values (numbers, dates, currency, etc.)")}
-          {FeatureTags.Success(
-            "Validation",
-            "Validate cell input with custom rules and error messages"
-          )}
-          {FeatureTags.Error("Cell Merging", "Not available in Simple Table")}
-        </Space>
-      ),
-      materialReact: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Components",
-            "Create custom cell components for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Error("Formatting", "No built-in formatting utilities")}
-          {FeatureTags.Error("Validation", "No built-in validation utilities")}
-          {FeatureTags.Error("Cell Merging", "No built-in cell merging support")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
+      materialReact: renderFeatures("cellFeatures", "materialReact"),
     },
     {
       key: "filtering",

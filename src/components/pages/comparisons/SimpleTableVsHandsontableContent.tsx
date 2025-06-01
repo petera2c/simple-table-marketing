@@ -6,7 +6,7 @@ import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
-  commonColumnFeatures,
+  renderFeatures,
   simplePricing,
 } from "./CommonFeatures";
 
@@ -67,110 +67,20 @@ const SimpleTableVsHandsontableContent = () => {
     {
       key: "column-features",
       feature: FeatureIcons.ColumnFeatures,
-      simpleTable: commonColumnFeatures.simpleTable,
-      handsontable: (
-        <Space direction="vertical">
-          {FeatureTags.Warning("Resizing", "Resize columns by dragging their edges (paid)")}
-          {FeatureTags.Warning("Reordering", "Drag and drop columns to reorder them (paid)")}
-          {FeatureTags.Warning("Visibility", "Show/hide columns dynamically (paid)")}
-          {FeatureTags.Warning("Pinning", "Pin columns to the left or right side (paid)")}
-          {FeatureTags.Warning("Alignment", "Align content left, center, or right (paid)")}
-          {FeatureTags.Warning("Sorting", "Sort data by clicking column headers (paid)")}
-          {FeatureTags.Warning("Nested Headers", "Create nested column headers (paid)")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
+      handsontable: renderFeatures("columnFeatures", "handsontable"),
     },
     {
       key: "row-features",
       feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Row Grouping",
-            "Group rows by column values with expand/collapse functionality"
-          )}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-        </Space>
-      ),
-      handsontable: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Row Grouping",
-            "Group rows by column values with expand/collapse (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Expansion",
-            "Expand rows to show additional details or nested content (paid)"
-          )}
-        </Space>
-      ),
+      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
+      handsontable: renderFeatures("rowFeatures", "handsontable"),
     },
     {
       key: "cell-features",
       feature: FeatureIcons.CellFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Renderers",
-            "Create custom cell renderers for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Success("Formatting", "Format cell values (numbers, dates, currency, etc.)")}
-          {FeatureTags.Success(
-            "Validation",
-            "Validate cell input with custom rules and error messages"
-          )}
-          {FeatureTags.Error("Cell Merging", "Not available in Simple Table")}
-        </Space>
-      ),
-      handsontable: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Editing",
-            "Excel-like cell editing with validation and formatting (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Custom Renderers",
-            "Create custom cell renderers for complex content (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Live Updates",
-            "Update cell values in real-time without page refresh (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Formatting",
-            "Advanced formatting for numbers, dates, currency, etc. (paid)"
-          )}
-          {FeatureTags.Warning(
-            "Validation",
-            "Excel-like validation with custom rules and error messages (paid)"
-          )}
-          {FeatureTags.Warning("Cell Merging", "Cell merging and spanning (paid)")}
-        </Space>
-      ),
+      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
+      handsontable: renderFeatures("cellFeatures", "handsontable"),
     },
     {
       key: "spreadsheet-features",

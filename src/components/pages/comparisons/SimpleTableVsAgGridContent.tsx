@@ -6,7 +6,7 @@ import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
-  commonColumnFeatures,
+  renderFeatures,
   simplePricing,
 } from "./CommonFeatures";
 
@@ -60,105 +60,20 @@ const SimpleVsAgGrid = () => {
     {
       key: "column-features",
       feature: FeatureIcons.ColumnFeatures,
-      simpleTable: commonColumnFeatures.simpleTable,
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Resizing", "Resize columns by dragging their edges")}
-          {FeatureTags.Success("Reordering", "Drag and drop columns to reorder them")}
-          {FeatureTags.Success("Visibility", "Show/hide columns dynamically")}
-          {FeatureTags.Success("Pinning", "Pin columns to the left or right side")}
-          {FeatureTags.Success("Alignment", "Align content left, center, or right")}
-          {FeatureTags.Success("Sorting", "Sort data by clicking column headers")}
-          {FeatureTags.Success(
-            "Nested Headers",
-            "Create nested column headers for complex data structures"
-          )}
-        </Space>
-      ),
+      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
+      agGrid: renderFeatures("columnFeatures", "agGrid"),
     },
     {
       key: "row-features",
       feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Row Grouping",
-            "Group rows by column values with expand/collapse functionality"
-          )}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Row Grouping (Enterprise)",
-            "Group rows by column values with expand/collapse functionality (Enterprise only)"
-          )}
-          {FeatureTags.Success(
-            "Adjustable Height",
-            "Adjust row height dynamically or set fixed heights"
-          )}
-          {FeatureTags.Success(
-            "Selection",
-            "Select single or multiple rows with checkboxes or clicks"
-          )}
-          {FeatureTags.Success(
-            "Expansion",
-            "Expand rows to show additional details or nested content"
-          )}
-        </Space>
-      ),
+      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
+      agGrid: renderFeatures("rowFeatures", "agGrid"),
     },
     {
       key: "cell-features",
       feature: FeatureIcons.CellFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Renderers",
-            "Create custom cell renderers for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Success("Formatting", "Format cell values (numbers, dates, currency, etc.)")}
-          {FeatureTags.Success(
-            "Validation",
-            "Validate cell input with custom rules and error messages"
-          )}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Editing", "Edit cell values inline with validation and formatting")}
-          {FeatureTags.Success(
-            "Custom Components",
-            "Create custom cell components for complex content"
-          )}
-          {FeatureTags.Success(
-            "Live Updates",
-            "Update cell values in real-time without page refresh"
-          )}
-          {FeatureTags.Success("Formatting", "Format cell values (numbers, dates, currency, etc.)")}
-          {FeatureTags.Warning(
-            "Validation (Enterprise)",
-            "Validate cell input with custom rules and error messages (Enterprise only)"
-          )}
-        </Space>
-      ),
+      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
+      agGrid: renderFeatures("cellFeatures", "agGrid"),
     },
     {
       key: "customization",
