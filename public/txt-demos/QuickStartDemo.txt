@@ -92,6 +92,30 @@ const EMPLOYEE_DATA = [
     department: "Human Resources",
     startDate: "2018-01-01",
   },
+  {
+    id: 10,
+    name: "Henry Blue",
+    age: 35,
+    role: "Backend Developer",
+    department: "Engineering",
+    startDate: "2019-08-12",
+  },
+  {
+    id: 11,
+    name: "Ivy Red",
+    age: 26,
+    role: "UX Designer",
+    department: "Design",
+    startDate: "2020-11-03",
+  },
+  {
+    id: 12,
+    name: "Jack Silver",
+    age: 41,
+    role: "Technical Lead",
+    department: "Engineering",
+    startDate: "2016-02-28",
+  },
 ];
 
 const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: Theme }) => {
@@ -102,7 +126,7 @@ const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: 
       height={height}
       rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
-      rowHeight={48}
+      rowHeight={32}
       selectableCells
       theme={theme}
     />

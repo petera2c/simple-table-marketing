@@ -110,6 +110,30 @@ const data = [
     status: "Active",
     number: 3125556543,
   },
+  {
+    id: 10,
+    name: "Ivy Red",
+    email: "ivy@example.com",
+    department: "Design",
+    status: "Active",
+    number: 2135557654,
+  },
+  {
+    id: 11,
+    name: "Jack Silver",
+    email: "jack@example.com",
+    department: "Engineering",
+    status: "Active",
+    number: 4155558765,
+  },
+  {
+    id: 12,
+    name: "Kate Gold",
+    email: "kate@example.com",
+    department: "Marketing",
+    status: "Active",
+    number: 6175559876,
+  },
 ];
 
 const CustomThemeDemo = ({ height = "400px" }: { height?: string }) => {

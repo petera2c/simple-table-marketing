@@ -134,6 +134,33 @@ const EMPLOYEE_DATA = [
     isActive: true,
     salary: 81000,
   },
+  {
+    id: 10,
+    firstName: "Henry",
+    lastName: "Blue",
+    role: "Developer",
+    hireDate: "2020-09-14",
+    isActive: true,
+    salary: 86000,
+  },
+  {
+    id: 11,
+    firstName: "Ivy",
+    lastName: "Red",
+    role: "Designer",
+    hireDate: "2021-12-08",
+    isActive: true,
+    salary: 79000,
+  },
+  {
+    id: 12,
+    firstName: "Jack",
+    lastName: "Silver",
+    role: "QA",
+    hireDate: "2019-08-29",
+    isActive: false,
+    salary: 84000,
+  },
 ];
 
 const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {

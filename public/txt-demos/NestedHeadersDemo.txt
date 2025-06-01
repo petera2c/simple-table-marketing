@@ -136,6 +136,30 @@ const rows = [
     historyScore: 87,
     grade: "B",
   },
+  {
+    id: 9,
+    name: "Ethan Garcia",
+    mathScore: 89,
+    scienceScore: 94,
+    historyScore: 85,
+    grade: "A",
+  },
+  {
+    id: 10,
+    name: "Mia Rodriguez",
+    mathScore: 76,
+    scienceScore: 72,
+    historyScore: 81,
+    grade: "B",
+  },
+  {
+    id: 11,
+    name: "Alexander Taylor",
+    mathScore: 93,
+    scienceScore: 89,
+    historyScore: 96,
+    grade: "A",
+  },
 ];
 
 const NestedHeadersDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {

@@ -88,6 +88,27 @@ const initialData = [
     stock: 50,
     sales: 120,
   },
+  {
+    id: 10,
+    product: "Widget J",
+    price: 21.99,
+    stock: 35,
+    sales: 75,
+  },
+  {
+    id: 11,
+    product: "Widget K",
+    price: 17.99,
+    stock: 41,
+    sales: 95,
+  },
+  {
+    id: 12,
+    product: "Widget L",
+    price: 26.99,
+    stock: 19,
+    sales: 55,
+  },
 ];
 
 const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {

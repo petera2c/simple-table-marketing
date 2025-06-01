@@ -75,6 +75,27 @@ const EMPLOYEE_DATA = [
     rating: 4.8,
     status: "Active",
   },
+  {
+    id: 10,
+    name: "Henry Blue",
+    score: 87,
+    rating: 4.4,
+    status: "Active",
+  },
+  {
+    id: 11,
+    name: "Ivy Red",
+    score: 93,
+    rating: 4.7,
+    status: "Active",
+  },
+  {
+    id: 12,
+    name: "Jack Silver",
+    score: 90,
+    rating: 4.6,
+    status: "On Leave",
+  },
 ];
 
 const ColumnAlignmentDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {

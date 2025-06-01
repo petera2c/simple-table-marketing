@@ -168,6 +168,24 @@ const EMPLOYEE_DATA = [
     startDate: "2020-06-30",
     isActive: true,
   },
+  {
+    id: 11,
+    name: "Ivy Rodriguez",
+    department: "Engineering",
+    role: "Frontend Developer",
+    salary: 86000,
+    startDate: "2021-09-14",
+    isActive: true,
+  },
+  {
+    id: 12,
+    name: "Jack Thompson",
+    department: "HR",
+    role: "HR Coordinator",
+    salary: 58000,
+    startDate: "2022-05-08",
+    isActive: false,
+  },
 ];
 
 const ColumnFilteringDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
