@@ -408,10 +408,19 @@ const rows = [
   },
 ];
 
-const RowGroupingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const RowGroupingDemo = ({
+  expandAll,
+  height = "400px",
+  theme,
+}: {
+  expandAll: boolean;
+  height?: string;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
+      expandAll={expandAll}
       height={height}
       rowIdAccessor="id"
       rowGrouping={["divisions", "departments"]}

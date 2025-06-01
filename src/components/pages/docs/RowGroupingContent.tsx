@@ -8,8 +8,11 @@ import DocNavigationButtons from "../../DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import CodeBlock from "@/components/CodeBlock";
+import { Button } from "antd";
+import { useState } from "react";
 
 const RowGroupingContent = () => {
+  const [expandAll, setExpandAll] = useState(true);
   return (
     <>
       <motion.div
@@ -35,16 +38,21 @@ const RowGroupingContent = () => {
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="flex flex-col gap-4 mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
+        <div className="flex justify-end">
+          <Button onClick={() => setExpandAll(!expandAll)}>
+            {expandAll ? "Collapse All" : "Expand All"}
+          </Button>
+        </div>
         <LivePreview
           demoCodeFilename="RowGroupingDemo.txt"
           height="400px"
           link={SANDBOX_LIST["RowGroupingDemo.tsx"].url}
-          Preview={RowGroupingDemo}
+          Preview={(props) => <RowGroupingDemo expandAll={expandAll} {...props} />}
         />
       </motion.div>
 
@@ -90,6 +98,13 @@ const RowGroupingContent = () => {
             </code>{" "}
             to specify the unique identifier field
           </li>
+          <li>
+            Add{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              expandAll
+            </code>{" "}
+            to specify if all grouped rows are expanded by default on table load
+          </li>
         </ol>
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
@@ -112,6 +127,12 @@ const RowGroupingContent = () => {
                 rowIdAccessor
               </code>
               : Property name to use as the unique identifier
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                expandAll
+              </code>
+              : When true, all grouped rows are expanded by default on table load (default: true)
             </li>
           </ul>
         </div>
