@@ -47,10 +47,10 @@ import "simple-table-core/styles.css";`,
   },
   links: {
     npm: "https://www.npmjs.com/package/simple-table-core",
-    github: "https://github.com/petera2c/simple-table-marketing",
+    github: "https://github.com/petera2c/simple-table",
     discord: "https://discord.gg/RvKHCfg3PC",
     demo: "https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d",
-    githubIssues: "https://github.com/petera2c/simple-table-marketing/issues",
+    githubIssues: "https://github.com/petera2c/simple-table/issues",
   },
   files: {
     theme: "simple-table-theme.css",

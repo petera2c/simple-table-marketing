@@ -141,7 +141,7 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
             Join Discord Community
           </a>
           <a
-            href="https://github.com/petera2c/simple-table-marketing"
+            href="https://github.com/petera2c/simple-table"
             className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
           >
             Star on GitHub
