@@ -40,6 +40,7 @@ export default function HRExample({
         rowIdAccessor="id"
         rows={data}
         rowsPerPage={howManyRowsCanFit}
+        rowHeight={rowHeight}
         selectableCells
         shouldPaginate
         theme={theme}
