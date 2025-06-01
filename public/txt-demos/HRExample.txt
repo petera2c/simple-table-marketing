@@ -4,18 +4,18 @@ import { useState } from "react";
 import "simple-table-core/styles.css";
 import HR_DATA from "./hr-data.json";
 
+const ROW_HEIGHT = 48;
+
 export default function HRExample({
   height = 500,
-  rowHeight = 32,
   theme,
 }: {
   height: number | null;
-  rowHeight?: number;
   theme?: Theme;
 }) {
   const [data, setData] = useState(HR_DATA);
 
-  const howManyRowsCanFit = height ? Math.floor(height / rowHeight) : 10;
+  const howManyRowsCanFit = height ? Math.floor(height / ROW_HEIGHT) : 10;
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -40,6 +40,7 @@ export default function HRExample({
         rowIdAccessor="id"
         rows={data}
         rowsPerPage={howManyRowsCanFit}
+        rowHeight={ROW_HEIGHT}
         selectableCells
         shouldPaginate
         theme={theme}
