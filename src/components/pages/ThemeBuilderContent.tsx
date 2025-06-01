@@ -44,6 +44,8 @@ interface ThemeConfig {
   cellOddRowColor: string;
   cellPadding: string;
   cellFlashColor: string;
+  copyFlashColor: string;
+  warningFlashColor: string;
   checkboxCheckedBackgroundColor: string;
   checkboxCheckedBorderColor: string;
   columnEditorBackgroundColor: string;
@@ -52,12 +54,14 @@ interface ThemeConfig {
   editCellShadow: string;
   editableCellFocusBorderColor: string;
   evenRowBackgroundColor: string;
+  evenColumnBackgroundColor: string;
   footerBackgroundColor: string;
   headerBackgroundColor: string;
   headerLabelColor: string;
   headerIconColor: string;
   lastGroupRowSeparatorBorderColor: string;
   oddRowBackgroundColor: string;
+  oddColumnBackgroundColor: string;
   resizeHandleColor: string;
   scrollbarBgColor: string;
   scrollbarThumbColor: string;
@@ -89,6 +93,8 @@ const lightThemeDefaults: ThemeConfig = {
   borderColor: "#cbd5e1", // slate-300
   oddRowBackgroundColor: "#ffffff", // white
   evenRowBackgroundColor: "#f8fafc", // slate-50
+  oddColumnBackgroundColor: "#f8fafc", // slate-50
+  evenColumnBackgroundColor: "#ffffff", // white
   headerBackgroundColor: "#f1f5f9", // slate-100
   headerLabelColor: "#0f172a", // slate-900
   headerIconColor: "#64748b", // slate-500
@@ -105,6 +111,8 @@ const lightThemeDefaults: ThemeConfig = {
   separatorBorderColor: "#e2e8f0", // slate-200
   lastGroupRowSeparatorBorderColor: "#94a3b8", // slate-400
   cellFlashColor: "#e2e8f0", // slate-200
+  copyFlashColor: "#3b82f6", // blue-500
+  warningFlashColor: "#fca5a5", // red-300
 
   // Border colors
   selectedBorderColor: "#3b82f6", // blue-500
@@ -137,6 +145,8 @@ const darkThemeDefaults: ThemeConfig = {
   borderColor: "#475569", // slate-600
   oddRowBackgroundColor: "#0f172a", // slate-900
   evenRowBackgroundColor: "#1e293b", // slate-800
+  oddColumnBackgroundColor: "#1e293b", // slate-800
+  evenColumnBackgroundColor: "#0f172a", // slate-900
   headerBackgroundColor: "#0f172a", // slate-900
   headerLabelColor: "#f8fafc", // slate-50
   headerIconColor: "#94a3b8", // slate-400
@@ -153,6 +163,8 @@ const darkThemeDefaults: ThemeConfig = {
   separatorBorderColor: "#334155", // slate-700
   lastGroupRowSeparatorBorderColor: "#64748b", // slate-500
   cellFlashColor: "#334155", // slate-700
+  copyFlashColor: "#60a5fa", // blue-400
+  warningFlashColor: "#f87171", // red-400
   hoverRowBackgroundColor: "#334155", // slate-700
 
   // Border colors
@@ -281,7 +293,12 @@ export default function ThemeBuilderContent() {
       "cellOddRowColor",
       "evenRowBackgroundColor",
       "oddRowBackgroundColor",
+      "evenColumnBackgroundColor",
+      "oddColumnBackgroundColor",
       "cellFlashColor",
+      "copyFlashColor",
+      "warningFlashColor",
+      "hoverRowBackgroundColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.selection]: [
       "selectedBorderColor",
@@ -306,6 +323,8 @@ export default function ThemeBuilderContent() {
     [UI_STRINGS.themeBuilder.subcategories.background]: [
       "footerBackgroundColor",
       "headerBackgroundColor",
+      "headerLabelColor",
+      "headerIconColor",
       "scrollbarBgColor",
       "scrollbarThumbColor",
     ],

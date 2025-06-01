@@ -104,6 +104,57 @@ export default function CellEditingContent() {
           </ul>
         </div>
 
+        {/* Copy-Paste Functionality Section */}
+        <motion.h2
+          className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.45 }}
+        >
+          Copy-Paste Functionality
+        </motion.h2>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.46 }}
+        >
+          <p className="text-gray-700 dark:text-gray-300 mb-4">
+            Simple Table includes built-in copy-paste functionality that works seamlessly with cell
+            editing:
+          </p>
+
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+            <li>
+              Users can copy data from any selected cells using keyboard shortcuts (Ctrl+C/⌘+C)
+            </li>
+            <li>
+              Data can be pasted from external sources like spreadsheets or other applications
+            </li>
+            <li>
+              <strong>Important:</strong> Pasting is only allowed into columns that have{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                isEditable: true
+              </code>
+            </li>
+            <li>Non-editable columns will be skipped during paste operations</li>
+          </ul>
+
+          <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6">
+            <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+              Copy-Paste Restrictions
+            </h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              When pasting data, only columns marked with{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                isEditable: true
+              </code>{" "}
+              will accept the pasted values. This ensures data integrity and prevents accidental
+              modification of read-only columns like IDs or calculated fields.
+            </p>
+          </div>
+        </motion.div>
+
         {/* Specialized Editors Section */}
         <motion.h2
           className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
