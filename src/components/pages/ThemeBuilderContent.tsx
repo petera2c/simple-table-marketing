@@ -33,7 +33,7 @@ import { useExampleHeight } from "@/hooks/useExampleHeight";
 import rawData from "@/examples/sales/sales-data.json";
 import "simple-table-core/styles.css";
 
-const ROW_HEIGHT = 40;
+const ROW_HEIGHT = 32;
 
 interface ThemeConfig {
   borderColor: string;
@@ -499,6 +499,7 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
       onGridReady={onGridReady}
       rowIdAccessor="id"
       rows={data}
+      rowHeight={ROW_HEIGHT}
       rowsPerPage={howManyRowsCanFit}
       selectableCells
       shouldPaginate
