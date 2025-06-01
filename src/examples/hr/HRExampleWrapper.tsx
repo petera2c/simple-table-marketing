@@ -8,7 +8,7 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 
-const ROW_HEIGHT = 32;
+const ROW_HEIGHT = 48;
 
 type HRExampleWrapperProps = {
   themeOverride?: Theme;
