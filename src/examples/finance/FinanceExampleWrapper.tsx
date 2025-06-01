@@ -8,7 +8,7 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 
-const ROW_HEIGHT = 40;
+const ROW_HEIGHT = 32;
 
 type FinancialExampleWrapperProps = {
   height?: string;

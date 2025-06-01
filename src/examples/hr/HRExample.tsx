@@ -6,7 +6,7 @@ import HR_DATA from "./hr-data.json";
 
 export default function HRExample({
   height = 500,
-  rowHeight = 40,
+  rowHeight = 32,
   theme,
 }: {
   height: number | null;

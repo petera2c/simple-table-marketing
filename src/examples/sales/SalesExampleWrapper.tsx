@@ -8,7 +8,7 @@ import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 
-const ROW_HEIGHT = 40;
+const ROW_HEIGHT = 32;
 
 type SalesExampleWrapperProps = {
   onGridReady?: () => void;
