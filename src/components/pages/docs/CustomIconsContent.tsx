@@ -105,12 +105,6 @@ export default function CustomIconsContent() {
               </code>
               : Icon for collapsed row groups
             </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                collapseIcon
-              </code>
-              : Icon for expanded row groups
-            </li>
           </ul>
         </div>
 
@@ -191,7 +185,6 @@ sortDownIcon={<FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />}
 nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
 prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
 expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-collapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
 />`}
             />
           </div>
@@ -214,7 +207,6 @@ sortDownIcon={<ArrowDownward className="text-blue-500" />}
 nextIcon={<NavigateNext className="text-blue-600" />}
 prevIcon={<NavigateBefore className="text-blue-600" />}
 expandIcon={<ChevronRight className="text-blue-600" />}
-collapseIcon={<ExpandMore className="text-blue-600" />}
 />`}
             />
           </div>
@@ -238,11 +230,6 @@ sortDownIcon={
 expandIcon={
 <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-600">
   <path d="M6 4l5 4-5 4V4z" />
-</svg>
-}
-collapseIcon={
-<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-600">
-  <path d="M4 6h8l-4 5z" />
 </svg>
 }
 />`}
@@ -271,11 +258,7 @@ collapseIcon={
           <li>Use colors that match your application's theme</li>
           <li>Ensure icons are clear and intuitive for their purpose</li>
           <li>
-            Pair related icons together (like expandIcon/collapseIcon) with complementary designs
-          </li>
-          <li>
-            For row grouping, choose expandIcon and collapseIcon that clearly indicate the
-            expand/collapse state
+            For row grouping, choose expandIcon that clearly indicate the expand/collapse state
           </li>
           <li>Consider using the same icon family throughout your application</li>
           <li>Test your icons for visibility against different background colors</li>
