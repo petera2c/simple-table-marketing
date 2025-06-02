@@ -11,6 +11,7 @@ import {
   faSun,
   faMoon,
   faQuestionCircle,
+  faNewspaper,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Dropdown, Button } from "antd";
@@ -103,38 +104,70 @@ const SupportDropdown = ({
       href: "https://discord.gg/RvKHCfg3PC",
       label: "Discord Support",
       icon: faDiscord,
+      isExternal: true,
     },
     {
       key: "github",
       href: TECHNICAL_STRINGS.links.githubIssues,
       label: "Report Issue",
       icon: faGithub,
+      isExternal: true,
+    },
+    {
+      key: "blog",
+      href: "/blog",
+      label: "Blog",
+      icon: faNewspaper,
+      isExternal: false,
     },
   ];
 
   if (isMobile) {
     return (
       <>
-        {supportLinks.map((link) => (
-          <a
-            key={link.key}
-            href={link.href}
-            target="_blank"
-            rel="noopener noreferrer"
-            onClick={() => onMobileClick && onMobileClick()}
-            className="px-3 py-2 rounded-md text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center"
-          >
-            <FontAwesomeIcon icon={link.icon} className="mr-2" />
-            {link.label}
-          </a>
-        ))}
+        {supportLinks.map((link) => {
+          const linkClasses =
+            "px-3 py-2 rounded-md text-base text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800/50 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center";
+          const linkContent = (
+            <>
+              <FontAwesomeIcon icon={link.icon} className="mr-2" />
+              {link.label}
+            </>
+          );
+
+          if (link.isExternal) {
+            return (
+              <a
+                key={link.key}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => onMobileClick && onMobileClick()}
+                className={linkClasses}
+              >
+                {linkContent}
+              </a>
+            );
+          } else {
+            return (
+              <Link
+                key={link.key}
+                href={link.href}
+                onClick={() => onMobileClick && onMobileClick()}
+                className={linkClasses}
+              >
+                {linkContent}
+              </Link>
+            );
+          }
+        })}
       </>
     );
   }
 
   const menuItems: MenuProps["items"] = supportLinks.map((link) => ({
     key: link.key,
-    label: (
+    label: link.isExternal ? (
       <a
         href={link.href}
         target="_blank"
@@ -144,6 +177,14 @@ const SupportDropdown = ({
         <FontAwesomeIcon icon={link.icon} className="mr-2 w-4" />
         {link.label}
       </a>
+    ) : (
+      <Link
+        href={link.href}
+        className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+      >
+        <FontAwesomeIcon icon={link.icon} className="mr-2 w-4" />
+        {link.label}
+      </Link>
     ),
   }));
 
