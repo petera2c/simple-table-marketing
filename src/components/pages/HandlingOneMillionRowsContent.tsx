@@ -13,14 +13,15 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import PerformanceDemo from "@/components/PerformanceDemo";
+import CallToActionCard from "@/components/CallToActionCard";
 
 export default function HandlingOneMillionRowsContent() {
   return (
     <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors duration-200">
-      <div className="max-w-4xl mx-auto px-6 py-12">
+      <div className="max-w-4xl mx-auto px-4 md:px-6 py-8 md:py-12">
         {/* Hero Section */}
-        <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-6 md:p-10 mb-8">
-          <h1 className="text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
+        <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
+          <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
             Handling 1,000,000 Rows with Simple Table: The Lightweight React Grid
           </h1>
 
@@ -46,63 +47,57 @@ export default function HandlingOneMillionRowsContent() {
         </section>
 
         {/* Main Content */}
-        <article>
+        <article className="space-y-8">
           {/* The Challenge Section */}
-          <section id="the-challenge" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="the-challenge">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faMemory} className="text-blue-500" />
                 The Challenge: Managing Extreme Data Volumes
               </h3>
 
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Modern web applications often need to display and interact with enormous datasets.
-                Whether you're building analytics dashboards, financial platforms, or enterprise
-                systems, the ability to manage large data volumes efficiently is crucial.
-              </p>
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Modern web applications often need to display and interact with enormous datasets.
+                  Whether you're building analytics dashboards, financial platforms, or enterprise
+                  systems, the ability to manage large data volumes efficiently is crucial.
+                </p>
 
-              <p className="text-gray-700 dark:text-gray-300 mb-4">
-                Traditional data grids struggle when handling more than a few thousand rows, leading
-                to:
-              </p>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Traditional data grids struggle when handling more than a few thousand rows,
+                  leading to:
+                </p>
 
-              <ul className="pl-8 mb-4 space-y-2">
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Sluggish rendering and poor user experience
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Browser freezes and unresponsive interfaces
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Memory consumption issues leading to crashes
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Complex implementation requiring specialized knowledge
-                </li>
-              </ul>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+                  <li>• Sluggish rendering and poor user experience</li>
+                  <li>• Browser freezes and unresponsive interfaces</li>
+                  <li>• Memory consumption issues leading to crashes</li>
+                  <li>• Complex implementation requiring specialized knowledge</li>
+                </ul>
 
-              <p className="text-gray-700 dark:text-gray-300">
-                Simple Table solves these challenges with an optimized architecture designed
-                specifically for high-performance data rendering.
-              </p>
+                <p className="text-gray-700 dark:text-gray-300">
+                  Simple Table solves these challenges with an optimized architecture designed
+                  specifically for high-performance data rendering.
+                </p>
+              </div>
             </div>
           </section>
 
           {/* Simple Table's Approach Section */}
-          <section id="approach" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="approach">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faRocket} className="text-green-500" />
                 Simple Table's Approach to Large Datasets
               </h3>
 
-              <p className="mb-4 text-gray-700 dark:text-gray-300">
+              <p className="mb-6 text-gray-700 dark:text-gray-300">
                 Simple Table employs several advanced techniques to effectively manage large
                 datasets:
               </p>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Virtual Rendering
                   </h4>
@@ -112,7 +107,7 @@ export default function HandlingOneMillionRowsContent() {
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Efficient Updates
                   </h4>
@@ -122,7 +117,7 @@ export default function HandlingOneMillionRowsContent() {
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Pagination Support
                   </h4>
@@ -132,7 +127,7 @@ export default function HandlingOneMillionRowsContent() {
                   </p>
                 </div>
 
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
                   <h4 className="text-lg font-semibold mb-2 text-gray-900 dark:text-gray-100">
                     Memory Management
                   </h4>
@@ -146,19 +141,19 @@ export default function HandlingOneMillionRowsContent() {
           </section>
 
           {/* Performance Demo Section */}
-          <section id="demo" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="demo">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faClock} className="text-amber-500" />
                 Performance Demo
               </h3>
 
-              <p className="mb-4 text-gray-700 dark:text-gray-300">
+              <p className="mb-6 text-gray-700 dark:text-gray-300">
                 Experience Simple Table's performance firsthand. Use the controls below to generate
                 different data volumes and see how quickly the table renders and responds.
               </p>
 
-              <div className="my-8 w-full">
+              <div className="w-full">
                 <PerformanceDemo
                   title="Simple Table Performance Demo"
                   description="Experience how Simple Table effortlessly handles one million rows with near-instant rendering and smooth scrolling."
@@ -197,8 +192,8 @@ export default function HandlingOneMillionRowsContent() {
           </section>
 
           {/* Implementation Section */}
-          <section id="implementation" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="implementation">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faCode} className="text-purple-500" />
                 Implementation: Simpler Than You Might Think
@@ -281,24 +276,20 @@ export default function PerformanceDemo() {
                 Key Implementation Tips:
               </h4>
 
-              <ul className="pl-8 mb-4 space-y-2">
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Set fixed heights to enable virtualization and optimize rendering
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
+              <ul className="space-y-2 text-gray-700 dark:text-gray-300">
+                <li>• Set fixed heights to enable virtualization and optimize rendering</li>
+                <li>
                   • Consider server-side operations (sorting, filtering) for datasets over 100,000
                   rows
                 </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Implement lazy loading for your data to improve initial page load time
-                </li>
+                <li>• Implement lazy loading for your data to improve initial page load time</li>
               </ul>
             </div>
           </section>
 
           {/* Performance Comparison Section */}
-          <section id="comparison" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="comparison">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faChartLine} className="text-red-500" />
                 Performance Comparison
@@ -309,42 +300,42 @@ export default function PerformanceDemo() {
                 datasets? We ran benchmarks rendering 100,000 rows across different libraries:
               </p>
 
-              <div className="mb-8">
+              <div className="space-y-4 mb-6">
                 {/* Simple Table */}
                 <div className="flex justify-between items-center mb-2">
                   <span className="font-bold text-gray-900 dark:text-gray-100">Simple Table</span>
                   <span className="text-gray-700 dark:text-gray-300">420ms</span>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4 mt-2">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4">
                   <div className="bg-green-500 h-3 md:h-4 rounded-full" style={{ width: "42%" }} />
                 </div>
 
                 {/* AG Grid */}
-                <div className="flex justify-between items-center mb-2 mt-4">
+                <div className="flex justify-between items-center mb-2">
                   <span className="font-bold text-gray-900 dark:text-gray-100">AG Grid</span>
                   <span className="text-gray-700 dark:text-gray-300">780ms</span>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4 mt-2">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4">
                   <div className="bg-blue-500 h-3 md:h-4 rounded-full" style={{ width: "78%" }} />
                 </div>
 
                 {/* Material UI DataGrid */}
-                <div className="flex justify-between items-center mb-2 mt-4">
+                <div className="flex justify-between items-center mb-2">
                   <span className="font-bold text-gray-900 dark:text-gray-100">
                     Material UI DataGrid
                   </span>
                   <span className="text-gray-700 dark:text-gray-300">950ms</span>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4 mt-2">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4">
                   <div className="bg-purple-500 h-3 md:h-4 rounded-full" style={{ width: "95%" }} />
                 </div>
 
                 {/* React Table */}
-                <div className="flex justify-between items-center mb-2 mt-4">
+                <div className="flex justify-between items-center mb-2">
                   <span className="font-bold text-gray-900 dark:text-gray-100">React Table</span>
                   <span className="text-gray-700 dark:text-gray-300">620ms</span>
                 </div>
-                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4 mt-2">
+                <div className="bg-gray-200 dark:bg-gray-700 rounded-full h-3 md:h-4">
                   <div className="bg-amber-500 h-3 md:h-4 rounded-full" style={{ width: "62%" }} />
                 </div>
               </div>
@@ -357,91 +348,69 @@ export default function PerformanceDemo() {
           </section>
 
           {/* Conclusion Section */}
-          <section id="conclusion" className="mb-8">
-            <div className="mb-8 shadow-md bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-6">
+          <section id="conclusion">
+            <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
               <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
                 <FontAwesomeIcon icon={faInfoCircle} className="text-blue-500" />
                 Conclusion and Best Practices
               </h3>
 
-              <p className="mb-4 text-gray-700 dark:text-gray-300">
-                Simple Table provides an efficient solution for handling large datasets in React
-                applications without compromising on performance or developer experience.
-              </p>
+              <div className="prose prose-gray dark:prose-invert max-w-none">
+                <p className="mb-4 text-gray-700 dark:text-gray-300">
+                  Simple Table provides an efficient solution for handling large datasets in React
+                  applications without compromising on performance or developer experience.
+                </p>
 
-              <h4 className="mb-3 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                When working with large datasets, remember to:
-              </h4>
-
-              <ul className="pl-8 mb-6 space-y-2">
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Implement virtualization by setting fixed heights
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Minimize unnecessary re-renders with memoization
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Consider server-side operations for extremely large datasets
-                </li>
-                <li className="text-gray-700 dark:text-gray-300">
-                  • Monitor memory usage during development
-                </li>
-              </ul>
-
-              <hr className="border-gray-200 dark:border-gray-700 my-6" />
-
-              <div className="mt-6 bg-gray-50 dark:bg-gray-900 p-6 rounded-lg">
-                <h4 className="mb-4 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                  Ready to handle massive datasets in your React app?
+                <h4 className="mb-3 text-gray-900 dark:text-gray-100 text-lg font-medium">
+                  When working with large datasets, remember to:
                 </h4>
 
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/docs/quick-start"
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-                  >
-                    Get Started with Simple Table
-                  </Link>
+                <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+                  <li>• Implement virtualization by setting fixed heights</li>
+                  <li>• Minimize unnecessary re-renders with memoization</li>
+                  <li>• Consider server-side operations for extremely large datasets</li>
+                  <li>• Monitor memory usage during development</li>
+                </ul>
 
-                  <Link
-                    href="/docs/installation"
-                    className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-colors"
-                  >
-                    Read Documentation
-                  </Link>
+                <div className="bg-gray-50 dark:bg-gray-900 p-4 md:p-6 rounded-lg border border-gray-200 dark:border-gray-700">
+                  <h4 className="mb-4 text-gray-900 dark:text-gray-100 text-lg font-medium">
+                    Ready to handle massive datasets in your React app?
+                  </h4>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link
+                      href="/docs/quick-start"
+                      className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center"
+                    >
+                      Get Started with Simple Table
+                    </Link>
+
+                    <Link
+                      href="/docs/installation"
+                      className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-colors text-center"
+                    >
+                      Read Documentation
+                    </Link>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
 
           {/* Call to Action */}
-          <section className="bg-gradient-to-r from-purple-800 to-violet-800 rounded-xl p-4 md:p-8 text-center shadow-lg">
-            <h2 className="text-white mb-3 md:mb-4 text-xl md:text-2xl font-bold">
-              Ready to scale your data grids?
-            </h2>
-
-            <p className="text-white text-base md:text-lg mb-4 md:mb-6">
-              Simple Table makes it easy to handle large datasets with lightning-fast performance.
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://www.npmjs.com/package/simple-table-core"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full sm:w-auto bg-white text-gray-800 hover:bg-gray-100 px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                View on NPM
-              </a>
-
-              <Link
-                href="/"
-                className="w-full sm:w-auto bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
-              >
-                Back to Home
-              </Link>
-            </div>
-          </section>
+          <CallToActionCard
+            title="Ready to scale your data grids?"
+            description="Simple Table makes it easy to handle large datasets with lightning-fast performance."
+            primaryButton={{
+              text: "View on NPM",
+              href: "https://www.npmjs.com/package/simple-table-core",
+              external: true,
+            }}
+            secondaryButton={{
+              text: "Back to Home",
+              href: "/",
+            }}
+          />
         </article>
       </div>
     </div>
