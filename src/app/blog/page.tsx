@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import BlogLayout from "@/components/BlogLayout";
 import BlogPageContent from "@/components/pages/BlogPageContent";
 
 export const metadata: Metadata = {
@@ -20,5 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <BlogPageContent />;
+  return (
+    <BlogLayout width="wide">
+      <BlogPageContent />
+    </BlogLayout>
+  );
 }

@@ -1,6 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import BlogLayout from "@/components/BlogLayout";
 import HandlingOneMillionRowsContent from "@/components/pages/HandlingOneMillionRowsContent";
 
 export const metadata: Metadata = {
@@ -20,5 +21,9 @@ export const metadata: Metadata = {
 };
 
 export default function HandlingOneMillionRowsPage() {
-  return <HandlingOneMillionRowsContent />;
+  return (
+    <BlogLayout>
+      <HandlingOneMillionRowsContent />
+    </BlogLayout>
+  );
 }

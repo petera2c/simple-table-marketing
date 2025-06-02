@@ -4,6 +4,7 @@ import { faCode, faTable, faDollarSign, faUser, faHeart } from "@fortawesome/fre
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { freeAlternativeToAgGridPost } from "@/constants/blogPosts";
+import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function FreeAlternativeToAgGridPage() {
   return (
-    <>
+    <BlogLayout>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
@@ -208,6 +209,6 @@ export default function FreeAlternativeToAgGridPage() {
           }}
         />
       </article>
-    </>
+    </BlogLayout>
   );
 }
