@@ -6,21 +6,24 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/free-alternative-to-ag-grid</loc>
-    <lastmod>2025-06-01T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.simple-table.com/blog/handling-one-million-rows</loc>
-    <lastmod>2025-05-08T00:00:00.000Z</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/blog</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/customizing-data-grids-styling-easy</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/free-alternative-to-ag-grid</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/handling-one-million-rows</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://www.simple-table.com/comparisons/simple-table-vs-ag-grid</loc>
