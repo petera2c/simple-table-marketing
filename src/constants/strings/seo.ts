@@ -1,3 +1,10 @@
+import {
+  freeAlternativeToAgGridPost,
+  handlingOneMillionRowsPost,
+  customizingDataGridsStylingEasyPost,
+  nestedHeadersReactTablesPost,
+} from "@/constants/blogPosts";
+
 export const SEO_STRINGS = {
   site: {
     url: "https://www.simple-table.com",
@@ -31,9 +38,8 @@ export const SEO_STRINGS = {
   },
   blogPosts: {
     freeAlternativeToAgGrid: {
-      title: "Why I Built Simple Table: A Free Alternative to AG Grid's $1,000 Fees",
-      description:
-        "Discover how Simple Table provides a powerful, free alternative to expensive data grid solutions like AG Grid, with all essential features for React applications.",
+      title: freeAlternativeToAgGridPost.title,
+      description: freeAlternativeToAgGridPost.description,
       keywords: [
         "simple table",
         "ag grid alternative",
@@ -46,9 +52,8 @@ export const SEO_STRINGS = {
       ],
     },
     handlingOneMillionRows: {
-      title: "Handling 1,000,000 Rows with Simple Table: The Lightweight React Grid",
-      description:
-        "Learn how Simple Table efficiently handles millions of rows with virtualization and optimized rendering for React applications.",
+      title: handlingOneMillionRowsPost.title,
+      description: handlingOneMillionRowsPost.description,
       keywords: [
         "react table",
         "large datasets",
@@ -61,9 +66,8 @@ export const SEO_STRINGS = {
       ],
     },
     customizingDataGridsStylingEasy: {
-      title: "Customizing Data Grids in React: Why Simple Table Makes Styling Easy",
-      description:
-        "Learn how Simple Table simplifies data grid customization in React with easy theming, CSS variables, and flexible styling options.",
+      title: customizingDataGridsStylingEasyPost.title,
+      description: customizingDataGridsStylingEasyPost.description,
       keywords: [
         "react data grid styling",
         "table customization",
@@ -73,6 +77,20 @@ export const SEO_STRINGS = {
         "grid theming",
         "custom data grid",
         "react styling",
+      ],
+    },
+    nestedHeadersReactTables: {
+      title: nestedHeadersReactTablesPost.title,
+      description: nestedHeadersReactTablesPost.description,
+      keywords: [
+        "React nested headers",
+        "hierarchical columns",
+        "complex tables",
+        "grouped columns",
+        "table organization",
+        "React data structure",
+        "multi-level headers",
+        "table hierarchy",
       ],
     },
   },

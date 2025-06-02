@@ -1,9 +1,9 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode, faTable, faDollarSign, faUser, faHeart } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import { freeAlternativeToAgGridPost } from "@/constants/blogPosts";
 import CallToActionCard from "@/components/CallToActionCard";
 
 export const metadata: Metadata = {
@@ -28,7 +28,7 @@ export default function FreeAlternativeToAgGridPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          Why I Built Simple Table: A Free Alternative to AG Grid's $1,000 Fees
+          {freeAlternativeToAgGridPost.title}
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -47,8 +47,7 @@ export default function FreeAlternativeToAgGridPage() {
         </div>
 
         <p className="text-lg max-w-3xl mx-auto text-center text-gray-700 dark:text-gray-300">
-          Discover why I created Simple Table—a lightweight React data grid—as a free alternative to
-          AG Grid, TanStack, and Handsontable, and how it solves common developer pain points.
+          {freeAlternativeToAgGridPost.description}
         </p>
       </section>
 

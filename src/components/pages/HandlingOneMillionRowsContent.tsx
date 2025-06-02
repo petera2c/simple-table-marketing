@@ -11,7 +11,7 @@ import {
   faChartLine,
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import Link from "next/link";
+import { handlingOneMillionRowsPost } from "@/constants/blogPosts";
 import PerformanceDemo from "@/components/PerformanceDemo";
 import CallToActionCard from "@/components/CallToActionCard";
 
@@ -21,7 +21,7 @@ export default function HandlingOneMillionRowsContent() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          Handling 1,000,000 Rows with Simple Table: The Lightweight React Grid
+          {handlingOneMillionRowsPost.title}
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -40,8 +40,7 @@ export default function HandlingOneMillionRowsContent() {
         </div>
 
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto text-center">
-          Discover how Simple Table efficiently handles massive datasets while maintaining
-          exceptional performance and responsiveness in your React applications.
+          {handlingOneMillionRowsPost.description}
         </p>
       </section>
 

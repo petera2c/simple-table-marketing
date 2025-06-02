@@ -11,6 +11,7 @@ import {
 import Link from "next/link";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import { customizingDataGridsStylingEasyPost } from "@/constants/blogPosts";
 import CallToActionCard from "@/components/CallToActionCard";
 
 export const metadata: Metadata = {
@@ -35,7 +36,7 @@ export default function CustomizingDataGridsStylingEasyPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          Customizing Data Grids: Why Styling Should Be Easy
+          {customizingDataGridsStylingEasyPost.title}
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -54,8 +55,7 @@ export default function CustomizingDataGridsStylingEasyPage() {
         </div>
 
         <p className="text-lg max-w-3xl mx-auto text-center text-gray-700 dark:text-gray-300">
-          Learn how Simple Table makes customizing data grid styles as easy as writing regular CSS,
-          with no complex configuration or overrides required.
+          {customizingDataGridsStylingEasyPost.description}
         </p>
       </section>
 
