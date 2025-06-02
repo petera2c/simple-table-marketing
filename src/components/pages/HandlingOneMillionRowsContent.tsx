@@ -369,28 +369,6 @@ export default function PerformanceDemo() {
                 <li>• Consider server-side operations for extremely large datasets</li>
                 <li>• Monitor memory usage during development</li>
               </ul>
-
-              <div className="bg-gray-50 dark:bg-gray-900 p-4 md:p-6 rounded-lg border border-gray-200 dark:border-gray-700">
-                <h4 className="mb-4 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                  Ready to handle massive datasets in your React app?
-                </h4>
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/docs/quick-start"
-                    className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center"
-                  >
-                    Get Started with Simple Table
-                  </Link>
-
-                  <Link
-                    href="/docs/installation"
-                    className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-blue-500 hover:text-blue-600 px-6 py-3 rounded-lg font-medium transition-colors text-center"
-                  >
-                    Read Documentation
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>

@@ -243,6 +243,26 @@ export default function CustomizingDataGridsStylingEasyPage() {
                 natural, not like a battle.
               </p>
 
+              <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 mb-6">
+                <div className="flex items-center gap-2 mb-2">
+                  <FontAwesomeIcon icon={faPaintBrush} className="text-blue-500" />
+                  <span className="font-medium text-blue-800 dark:text-blue-200">
+                    Try It Yourself
+                  </span>
+                </div>
+                <p className="text-blue-700 dark:text-blue-300 mb-3">
+                  Want to see how easy styling can be? Try our interactive Theme Builder to create
+                  custom themes visually and see the results in real-time.
+                </p>
+                <Link
+                  href="/theme-builder"
+                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
+                >
+                  <FontAwesomeIcon icon={faPaintBrush} />
+                  Open Theme Builder
+                </Link>
+              </div>
+
               <div className="bg-gray-50 dark:bg-gray-900 p-4 md:p-6 rounded-lg border border-gray-200 dark:border-gray-700">
                 <h4 className="mb-4 text-gray-900 dark:text-gray-100 text-lg font-medium">
                   Ready to style your data grids the easy way?
@@ -250,17 +270,17 @@ export default function CustomizingDataGridsStylingEasyPage() {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <Link
-                    href="/docs/styling"
+                    href="/docs/custom-theme"
                     className="bg-purple-500 hover:bg-purple-600 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center"
                   >
-                    View Styling Docs
+                    Custom Theme Guide
                   </Link>
 
                   <Link
-                    href="/examples"
+                    href="/docs/custom-icons"
                     className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-purple-500 hover:text-purple-600 px-6 py-3 rounded-lg font-medium transition-colors text-center"
                   >
-                    See Examples
+                    Custom Icons Guide
                   </Link>
                 </div>
               </div>
