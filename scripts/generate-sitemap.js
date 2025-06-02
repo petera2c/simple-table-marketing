@@ -1,7 +1,7 @@
 import { SitemapStream, streamToPromise } from "sitemap";
-import { createWriteStream, readdirSync, readFileSync } from "fs";
+import { createWriteStream } from "fs";
 import { fileURLToPath } from "url";
-import { dirname, resolve, join } from "path";
+import { dirname, resolve } from "path";
 import { glob } from "glob";
 
 const __filename = fileURLToPath(import.meta.url);
@@ -43,30 +43,6 @@ async function getNextJsRoutes() {
   return processedRoutes;
 }
 
-// Function to get all blog posts from JSON files
-function getBlogPosts() {
-  const blogsDir = resolve(__dirname, "../../simple-table-marketing-api/src/blogs");
-  try {
-    const blogFiles = readdirSync(blogsDir).filter((file) => file.endsWith(".json"));
-
-    return blogFiles
-      .map((file) => {
-        const content = readFileSync(join(blogsDir, file), "utf-8");
-        const post = JSON.parse(content);
-        return {
-          url: `/blog/${post.slug}`,
-          changefreq: "monthly",
-          priority: 0.7,
-          lastmod: post.updatedAt || post.createdAt,
-        };
-      })
-      .sort((a, b) => a.url.localeCompare(b.url)); // Sort blog posts by URL
-  } catch (err) {
-    console.warn("No blog posts found or error reading blog directory:", err);
-    return [];
-  }
-}
-
 // Function to format XML with proper indentation
 function formatXML(xml) {
   // Remove any existing XML declaration
@@ -104,16 +80,16 @@ async function generateSitemap() {
 
     // Get all routes
     const nextJsRoutes = await getNextJsRoutes();
-    const blogPosts = getBlogPosts();
 
-    // Extract route categories
+    // Extract route categories for reporting
+    const blogRoutes = nextJsRoutes.filter((route) => route.startsWith("blog/")).sort();
     const examplesRoutes = nextJsRoutes.filter((route) => route.startsWith("examples/")).sort();
     const docsRoutes = nextJsRoutes.filter((route) => route.startsWith("docs/")).sort();
 
     // Create and sort all sitemap entries to ensure consistent order
     const sitemapEntries = [];
 
-    // Add Next.js routes with default priorities
+    // Add Next.js routes with appropriate priorities
     nextJsRoutes.forEach((route) => {
       const routeConfig = {
         url: route || "/", // Handle root route
@@ -124,21 +100,21 @@ async function generateSitemap() {
       if (route === "") {
         routeConfig.priority = 1.0;
         routeConfig.changefreq = "daily";
+      } else if (route.startsWith("blog/")) {
+        routeConfig.priority = 0.8;
+        routeConfig.changefreq = "monthly";
       } else if (route.startsWith("comparisons/")) {
         routeConfig.priority = 0.9;
         routeConfig.changefreq = "weekly";
       } else if (route.startsWith("docs/")) {
         routeConfig.priority = 0.8;
+        routeConfig.changefreq = "weekly";
       } else if (route.startsWith("examples/")) {
         routeConfig.priority = 0.7;
+        routeConfig.changefreq = "weekly";
       }
 
       sitemapEntries.push(routeConfig);
-    });
-
-    // Add blog posts
-    blogPosts.forEach((post) => {
-      sitemapEntries.push(post);
     });
 
     // Sort all entries by URL for consistent ordering
@@ -166,9 +142,9 @@ async function generateSitemap() {
     createWriteStream(outputPath).write(formattedXML);
 
     console.log("✅ Sitemap generated successfully!");
-    console.log(`📊 Found ${nextJsRoutes.length} static routes and ${blogPosts.length} blog posts`);
+    console.log(`📊 Found ${nextJsRoutes.length} total routes`);
     console.log(
-      `📊 Found ${examplesRoutes.length} examples routes and ${docsRoutes.length} docs routes`
+      `📊 Blog posts: ${blogRoutes.length}, Examples: ${examplesRoutes.length}, Docs: ${docsRoutes.length}`
     );
   } catch (error) {
     console.error("❌ Error generating sitemap:", error);

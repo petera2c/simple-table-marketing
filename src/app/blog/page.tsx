@@ -1,6 +1,7 @@
-import BlogsContent from "@/components/pages/BlogsContent";
+import React from "react";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import BlogPageContent from "@/components/pages/BlogPageContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blog.title,
@@ -19,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function BlogPage() {
-  return <BlogsContent />;
+  return <BlogPageContent />;
 }
