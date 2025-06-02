@@ -29,6 +29,53 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
+  blogPosts: {
+    freeAlternativeToAgGrid: {
+      title: "Why I Built Simple Table: A Free Alternative to AG Grid's $1,000 Fees",
+      description:
+        "Discover how Simple Table provides a powerful, free alternative to expensive data grid solutions like AG Grid, with all essential features for React applications.",
+      keywords: [
+        "simple table",
+        "ag grid alternative",
+        "free data grid",
+        "react table",
+        "data grid comparison",
+        "typescript table",
+        "react grid",
+        "lightweight table",
+      ],
+    },
+    handlingOneMillionRows: {
+      title: "Handling 1,000,000 Rows with Simple Table: The Lightweight React Grid",
+      description:
+        "Learn how Simple Table efficiently handles millions of rows with virtualization and optimized rendering for React applications.",
+      keywords: [
+        "react table",
+        "large datasets",
+        "data grid",
+        "performance",
+        "virtualization",
+        "million rows",
+        "simple table",
+        "react",
+      ],
+    },
+    customizingDataGridsStylingEasy: {
+      title: "Customizing Data Grids in React: Why Simple Table Makes Styling Easy",
+      description:
+        "Learn how Simple Table simplifies data grid customization in React with easy theming, CSS variables, and flexible styling options.",
+      keywords: [
+        "react data grid styling",
+        "table customization",
+        "simple table themes",
+        "CSS variables",
+        "react table styling",
+        "grid theming",
+        "custom data grid",
+        "react styling",
+      ],
+    },
+  },
   themeBuilder: {
     title: "Simple Table Theme Builder for React Grids",
     description:
