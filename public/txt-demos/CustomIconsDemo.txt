@@ -164,22 +164,20 @@ const customIcons = {
 
 const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
   return (
-    <div style={{ display: "flex" }}>
-      <SimpleTable
-        defaultHeaders={headers}
-        height={"auto"}
-        rowIdAccessor="id"
-        rows={PRODUCT_DATA}
-        rowsPerPage={7}
-        shouldPaginate
-        // Custom icons props
-        nextIcon={customIcons.nextIcon}
-        prevIcon={customIcons.prevIcon}
-        sortDownIcon={customIcons.sortDownIcon}
-        sortUpIcon={customIcons.sortUpIcon}
-        theme={theme}
-      />
-    </div>
+    <SimpleTable
+      defaultHeaders={headers}
+      height={"auto"}
+      rowIdAccessor="id"
+      rows={PRODUCT_DATA}
+      rowsPerPage={7}
+      shouldPaginate
+      // Custom icons props
+      nextIcon={customIcons.nextIcon}
+      prevIcon={customIcons.prevIcon}
+      sortDownIcon={customIcons.sortDownIcon}
+      sortUpIcon={customIcons.sortUpIcon}
+      theme={theme}
+    />
   );
 };
 

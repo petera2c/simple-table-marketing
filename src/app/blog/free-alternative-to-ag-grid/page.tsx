@@ -93,9 +93,19 @@ export default function FreeAlternativeToAgGridPage() {
                     AG Grid's Steep Price
                   </span>
                 </div>
-                <p className="text-amber-700 dark:text-amber-300">
+                <p className="text-amber-700 dark:text-amber-300 mb-3">
                   $1,000 per year per developer, plus $750 per license! That was way out of my
                   budget of $0.00.
+                </p>
+                <p className="text-amber-700 dark:text-amber-300">
+                  Want to see a detailed cost breakdown? Check out our{" "}
+                  <a
+                    href="/comparisons/simple-table-vs-ag-grid"
+                    className="font-medium text-amber-900 dark:text-amber-100 underline hover:no-underline"
+                  >
+                    comprehensive Simple Table vs AG Grid comparison
+                  </a>{" "}
+                  with real ROI calculations.
                 </p>
               </div>
 
@@ -189,6 +199,19 @@ export default function FreeAlternativeToAgGridPage() {
                 problems for developers like us, especially those who can't afford expensive
                 Enterprise licenses. I hope Simple Table can help make your React projects easier
                 and more affordable.
+              </p>
+
+              <p className="mb-4 text-gray-700 dark:text-gray-300">
+                If you're currently evaluating AG Grid or considering alternatives, I've put
+                together a{" "}
+                <a
+                  href="/comparisons/simple-table-vs-ag-grid"
+                  className="font-medium text-blue-600 dark:text-blue-400 underline hover:no-underline"
+                >
+                  detailed feature-by-feature comparison
+                </a>{" "}
+                that includes cost analysis, bundle size impact, and enterprise feature breakdown.
+                It might help you make the best decision for your project and budget.
               </p>
             </div>
           </div>
