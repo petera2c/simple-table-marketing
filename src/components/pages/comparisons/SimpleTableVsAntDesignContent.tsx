@@ -335,62 +335,64 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
         </div>
 
-        <div className="overflow-x-auto">
-          <table className="w-full border-collapse border border-gray-300 dark:border-gray-600">
+        <div className="overflow-x-auto shadow-sm">
+          <table className="w-full min-w-[600px] border-collapse border border-gray-300 dark:border-gray-600">
             <thead className="bg-gray-50 dark:bg-gray-800">
               <tr>
-                <th className="border border-gray-300 dark:border-gray-600 p-3 text-left">
+                <th className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-left text-sm sm:text-base">
                   Connection Type
                 </th>
-                <th className="border border-gray-300 dark:border-gray-600 p-3 text-center">
+                <th className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-sm sm:text-base">
                   Simple Table Load Time
                 </th>
-                <th className="border border-gray-300 dark:border-gray-600 p-3 text-center">
+                <th className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-sm sm:text-base">
                   Ant Design Table Load Time
                 </th>
-                <th className="border border-gray-300 dark:border-gray-600 p-3 text-center">
+                <th className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-sm sm:text-base">
                   Time Difference
                 </th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td className="border border-gray-300 dark:border-gray-600 p-3">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-sm sm:text-base">
                   Fast 3G (1.5 Mbps)
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-green-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-green-600 text-sm sm:text-base">
                   0.12 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-red-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
                   25.8 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center font-semibold">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
                   +25.7s slower
                 </td>
               </tr>
               <tr className="bg-gray-50 dark:bg-gray-800">
-                <td className="border border-gray-300 dark:border-gray-600 p-3">4G (25 Mbps)</td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-green-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-sm sm:text-base">
+                  4G (25 Mbps)
+                </td>
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-green-600 text-sm sm:text-base">
                   0.008 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-red-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
                   1.5 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center font-semibold">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
                   +1.5s slower
                 </td>
               </tr>
               <tr>
-                <td className="border border-gray-300 dark:border-gray-600 p-3">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-sm sm:text-base">
                   Cable (100 Mbps)
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-green-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-green-600 text-sm sm:text-base">
                   0.002 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center text-red-600">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
                   0.39 seconds
                 </td>
-                <td className="border border-gray-300 dark:border-gray-600 p-3 text-center font-semibold">
+                <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
                   +0.39s slower
                 </td>
               </tr>
@@ -399,7 +401,7 @@ const SimpleTableVsAntDesignContent = () => {
         </div>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
+      <div className="space-y-6 sm:space-y-0 sm:grid sm:grid-cols-1 md:grid-cols-2 gap-6 mb-6">
         <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
           <Text className="text-lg font-semibold text-red-700 dark:text-red-300 mb-3 block">
             📊 Ant Design Table Impact

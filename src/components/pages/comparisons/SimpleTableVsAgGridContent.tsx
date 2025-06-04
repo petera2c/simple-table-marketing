@@ -339,53 +339,63 @@ const SimpleVsAgGrid = () => {
         Enterprise ROI Calculator: AG Grid vs Simple Table
       </Title>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-red-50 dark:bg-red-900/20 p-6 rounded-lg border border-red-200 dark:border-red-800">
-          <Text className="text-xl font-bold text-red-700 dark:text-red-300 mb-4 block">
+      <div className="space-y-6 mb-6">
+        <div className="bg-red-50 dark:bg-red-900/20 p-4 sm:p-6 rounded-lg border border-red-200 dark:border-red-800">
+          <Text className="text-lg sm:text-xl font-bold text-red-700 dark:text-red-300 mb-4 block">
             💸 AG Grid Enterprise Cost (3-Year Projection)
           </Text>
           <div className="space-y-3">
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">5 developers × $999/year:</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                5 developers × $999/year:
+              </span>
               <span className="font-semibold">$14,985</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
                 Bundle size impact (CDN costs):
               </span>
               <span className="font-semibold">~$2,400</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">Training/onboarding time:</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                Training/onboarding time:
+              </span>
               <span className="font-semibold">~$8,000</span>
             </div>
             <hr className="border-red-300" />
-            <div className="flex justify-between text-lg font-bold">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-lg font-bold">
               <span>Total 3-year cost:</span>
               <span className="text-red-600 dark:text-red-400">$25,385</span>
             </div>
           </div>
         </div>
 
-        <div className="bg-green-50 dark:bg-green-900/20 p-6 rounded-lg border border-green-200 dark:border-green-800">
-          <Text className="text-xl font-bold text-green-700 dark:text-green-300 mb-4 block">
+        <div className="bg-green-50 dark:bg-green-900/20 p-4 sm:p-6 rounded-lg border border-green-200 dark:border-green-800">
+          <Text className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-300 mb-4 block">
             ✅ Simple Table Cost (3-Year Projection)
           </Text>
           <div className="space-y-3">
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">Licensing (unlimited devs):</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                Licensing (unlimited devs):
+              </span>
               <span className="font-semibold">$0</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">Bundle size impact:</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                Bundle size impact:
+              </span>
               <span className="font-semibold">$0</span>
             </div>
-            <div className="flex justify-between">
-              <span className="text-gray-700 dark:text-gray-300">Training (minimal setup):</span>
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
+              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                Training (minimal setup):
+              </span>
               <span className="font-semibold">~$500</span>
             </div>
             <hr className="border-green-300" />
-            <div className="flex justify-between text-lg font-bold">
+            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-lg font-bold">
               <span>Total 3-year cost:</span>
               <span className="text-green-600 dark:text-green-400">$500</span>
             </div>

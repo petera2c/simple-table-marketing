@@ -341,13 +341,14 @@ const SimpleTableVsMaterialReactContent = () => {
         </Text>
       </div>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+      <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 gap-6 mb-6">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
+          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
             CSS Variables for Material Design
           </Text>
-          <pre className="text-sm bg-gray-900 text-blue-400 p-3 rounded overflow-x-auto">
-            {`:root {
+          <div className="overflow-x-auto">
+            <pre className="text-xs sm:text-sm bg-gray-900 text-blue-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
+              {`:root {
   /* Material Design Colors */
   --st-primary: #1976d2;
   --st-surface: #ffffff;
@@ -367,15 +368,17 @@ const SimpleTableVsMaterialReactContent = () => {
   --st-hover-color: rgba(25,118,210,0.04);
   --st-focus-color: rgba(25,118,210,0.12);
 }`}
-          </pre>
+            </pre>
+          </div>
         </div>
 
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
+          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
             Usage with Material-UI Theme
           </Text>
-          <pre className="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto">
-            {`import { useTheme } from '@mui/material/styles';
+          <div className="overflow-x-auto">
+            <pre className="text-xs sm:text-sm bg-gray-900 text-green-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
+              {`import { useTheme } from '@mui/material/styles';
 import { SimpleTable } from 'simple-table-core';
 
 function MyDataGrid() {
@@ -395,7 +398,8 @@ function MyDataGrid() {
     </div>
   );
 }`}
-          </pre>
+            </pre>
+          </div>
         </div>
       </div>
 
@@ -403,7 +407,7 @@ function MyDataGrid() {
         <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
           📋 Material Design Compliance Checklist
         </Text>
-        <div className="grid md:grid-cols-2 gap-4">
+        <div className="space-y-4 sm:space-y-0 sm:grid sm:grid-cols-1 md:grid-cols-2 gap-4">
           <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
             <Text className="font-semibold text-green-700 dark:text-green-300 mb-2 block">
               ✅ Simple Table + Material Design

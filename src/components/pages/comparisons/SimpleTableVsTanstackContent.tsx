@@ -352,13 +352,14 @@ const SimpleTableVsTanstackContent = () => {
         Setup Comparison: Ready-to-Use vs Headless
       </Title>
 
-      <div className="grid md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+      <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 gap-6 mb-6">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
+          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
             Simple Table (5 minutes to working table)
           </Text>
-          <pre className="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto">
-            {`import { SimpleTable } from 'simple-table-core';
+          <div className="overflow-x-auto">
+            <pre className="text-xs sm:text-sm bg-gray-900 text-green-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
+              {`import { SimpleTable } from 'simple-table-core';
 import 'simple-table-core/styles.css';
 
 function MyApp() {
@@ -383,15 +384,17 @@ function MyApp() {
     />
   );
 }`}
-          </pre>
+            </pre>
+          </div>
         </div>
 
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
+          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
             TanStack Table (2-3 days to working table)
           </Text>
-          <pre className="text-sm bg-gray-900 text-blue-400 p-3 rounded overflow-x-auto">
-            {`import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
+          <div className="overflow-x-auto">
+            <pre className="text-xs sm:text-sm bg-gray-900 text-blue-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
+              {`import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
 
 function MyApp() {
   const columns = [ /* define columns */ ];
@@ -412,7 +415,8 @@ function MyApp() {
     </div>
   );
 }`}
-          </pre>
+            </pre>
+          </div>
         </div>
       </div>
 
