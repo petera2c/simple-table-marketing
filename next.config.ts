@@ -2,6 +2,15 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const config: NextConfig = {
+  redirects: async () => {
+    return [
+      {
+        source: "/blog/simple-table-vs-ag-grid",
+        destination: "/comparisons/simple-table-vs-ag-grid",
+        permanent: true,
+      },
+    ];
+  },
   eslint: {
     // Only run ESLint during development, not during build
     ignoreDuringBuilds: true,

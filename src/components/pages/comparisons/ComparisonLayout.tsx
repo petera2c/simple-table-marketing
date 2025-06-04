@@ -22,6 +22,7 @@ interface ComparisonLayoutProps {
   featureTable: FeatureTableProps;
   performanceMetrics: PerformanceMetricsProps;
   summaryContent: ReactNode;
+  faqSection?: ReactNode;
 }
 
 const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
@@ -31,6 +32,7 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
   featureTable,
   performanceMetrics,
   summaryContent,
+  faqSection,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
   const { theme } = useThemeContext();
@@ -123,6 +125,11 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
           {summaryContent}
         </Paragraph>
       </Card>
+
+      {/* FAQ Section (optional) */}
+      {faqSection && (
+        <Card className="mb-8 shadow-sm dark:bg-gray-800 dark:border-gray-700">{faqSection}</Card>
+      )}
 
       {/* Feature Requests */}
       <Card className="mb-8 shadow-sm dark:bg-gray-800 dark:border-gray-700">

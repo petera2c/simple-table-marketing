@@ -10,7 +10,7 @@ import {
   simplePricing,
 } from "./CommonFeatures";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 const SimpleTableVsMaterialReactContent = () => {
   const columns = [
@@ -270,17 +270,24 @@ const SimpleTableVsMaterialReactContent = () => {
 
   const introText = (
     <>
-      When choosing a data grid for your React application, you need to consider both functionality
-      and integration with your existing UI framework. In this comparison, we'll look at{" "}
+      Material Design represents Google's comprehensive design philosophy, emphasizing clean
+      aesthetics, meaningful motion, and consistent user experiences across platforms. When building
+      React applications that follow Material Design principles, developers often turn to
+      Material-UI (now MUI) for its faithful implementation of Google's design language. However,
+      this devotion to design consistency can sometimes come at the cost of functionality,
+      particularly when it comes to data tables. Material-UI's Table component prioritizes visual
+      harmony over advanced data grid capabilities, leaving developers to choose between aesthetic
+      consistency and feature completeness.{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
-      </Text>
-      , a lightweight (16 kB) standalone React data grid, against{" "}
-      <Text className="text-lg text-inherit" strong>
-        Material-UI Table
-      </Text>
-      , a component from the popular Material Design framework. Let's break down their features,
-      performance, and more to help you decide.
+      </Text>{" "}
+      challenges this false dichotomy. While it doesn't come with Material Design styling out of the
+      box, its flexible theming system allows you to achieve Material Design compliance without
+      sacrificing the advanced features your users need. This comparison explores whether you can
+      maintain Material Design's visual excellence while gaining enterprise-level data grid
+      functionality. We'll examine theming strategies, accessibility compliance, and design system
+      integration to help you determine if Simple Table can deliver both the aesthetics your
+      designers demand and the functionality your users deserve.
     </>
   );
 
@@ -318,6 +325,144 @@ const SimpleTableVsMaterialReactContent = () => {
     </>
   );
 
+  const materialDesignIntegration = (
+    <>
+      <Title level={2} className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+        Material Design Integration Guide
+      </Title>
+
+      <div className="mb-6">
+        <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+          🎨 Achieving Material Design Compliance with Simple Table
+        </Text>
+        <Text className="text-base text-gray-700 dark:text-gray-300 mb-4">
+          Simple Table's CSS variable system makes it easy to match Material Design's aesthetic
+          while keeping all the advanced functionality Material-UI Table lacks.
+        </Text>
+      </div>
+
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+            CSS Variables for Material Design
+          </Text>
+          <pre className="text-sm bg-gray-900 text-blue-400 p-3 rounded overflow-x-auto">
+            {`:root {
+  /* Material Design Colors */
+  --st-primary: #1976d2;
+  --st-surface: #ffffff;
+  --st-on-surface: rgba(0,0,0,0.87);
+  --st-outline: rgba(0,0,0,0.12);
+  
+  /* Material Typography */
+  --st-font-family: 'Roboto', sans-serif;
+  --st-font-size: 14px;
+  --st-line-height: 20px;
+  
+  /* Material Elevation */
+  --st-shadow: 0px 1px 3px rgba(0,0,0,0.12);
+  --st-border-radius: 4px;
+  
+  /* Material Interactions */
+  --st-hover-color: rgba(25,118,210,0.04);
+  --st-focus-color: rgba(25,118,210,0.12);
+}`}
+          </pre>
+        </div>
+
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+            Usage with Material-UI Theme
+          </Text>
+          <pre className="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto">
+            {`import { useTheme } from '@mui/material/styles';
+import { SimpleTable } from 'simple-table-core';
+
+function MyDataGrid() {
+  const theme = useTheme();
+  
+  // Apply Material theme to Simple Table
+  const materialTableStyle = {
+    '--st-primary': theme.palette.primary.main,
+    '--st-surface': theme.palette.background.paper,
+    '--st-on-surface': theme.palette.text.primary,
+    '--st-outline': theme.palette.divider,
+  };
+  
+  return (
+    <div style={materialTableStyle}>
+      <SimpleTable {...props} />
+    </div>
+  );
+}`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="mb-6">
+        <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+          📋 Material Design Compliance Checklist
+        </Text>
+        <div className="grid md:grid-cols-2 gap-4">
+          <div className="bg-green-50 dark:bg-green-900/20 p-4 rounded-lg border border-green-200 dark:border-green-800">
+            <Text className="font-semibold text-green-700 dark:text-green-300 mb-2 block">
+              ✅ Simple Table + Material Design
+            </Text>
+            <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Roboto font support</li>
+              <li>✓ Material color palette</li>
+              <li>✓ 4dp elevation shadows</li>
+              <li>✓ 40dp touch targets</li>
+              <li>✓ Focus indicators (ripple effect)</li>
+              <li>✓ Accessibility compliance</li>
+              <li>✓ Dark theme support</li>
+              <li>✓ Advanced data grid features</li>
+            </ul>
+          </div>
+
+          <div className="bg-red-50 dark:bg-red-900/20 p-4 rounded-lg border border-red-200 dark:border-red-800">
+            <Text className="font-semibold text-red-700 dark:text-red-300 mb-2 block">
+              ❌ Material-UI Table Limitations
+            </Text>
+            <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300">
+              <li>✓ Native Material Design</li>
+              <li>✗ No virtualization</li>
+              <li>✗ No advanced filtering</li>
+              <li>✗ No cell editing</li>
+              <li>✗ No column management</li>
+              <li>✗ No infinite scroll</li>
+              <li>✗ Limited customization</li>
+              <li>✗ Poor performance at scale</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800 mb-4">
+        <Text className="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-2 block">
+          🚀 Best Practice: Hybrid Approach
+        </Text>
+        <Text className="text-base text-gray-700 dark:text-gray-300 mb-2">
+          Use Material-UI for forms, navigation, and layout components where Material Design excels,
+          but switch to Simple Table for complex data display. This gives you:
+        </Text>
+        <ul className="space-y-1 text-sm text-gray-700 dark:text-gray-300 ml-4">
+          <li>• Material Design consistency across 90% of your UI</li>
+          <li>• Enterprise-grade data grid capabilities where you need them</li>
+          <li>• Smaller bundle size (5.56MB → 0.2MB for tables)</li>
+          <li>• Better performance for data-heavy applications</li>
+        </ul>
+      </div>
+
+      <div className="text-center">
+        <Text className="text-lg text-gray-600 dark:text-gray-400">
+          💡 <strong>Pro Tip:</strong> Most users won't notice the difference in visual styling, but
+          they will notice the difference in performance and functionality.
+        </Text>
+      </div>
+    </>
+  );
+
   return (
     <ComparisonLayout
       title="Simple Table vs. Material-UI Table"
@@ -329,6 +474,7 @@ const SimpleTableVsMaterialReactContent = () => {
         competitorSize: "5.56 MB (unpacked)",
       }}
       summaryContent={summaryContent}
+      faqSection={materialDesignIntegration}
     />
   );
 };

@@ -10,7 +10,7 @@ import {
   simplePricing,
 } from "./CommonFeatures";
 
-const { Text } = Typography;
+const { Text, Title } = Typography;
 
 const SimpleTableVsTanstackContent = () => {
   const columns = [
@@ -291,16 +291,23 @@ const SimpleTableVsTanstackContent = () => {
 
   const introText = (
     <>
-      When choosing a React table library, you have two main approaches: a ready-to-use solution or
-      a headless library. This comparison examines{" "}
-      <Text className="text-lg text-inherit" strong>
-        Simple Table
-      </Text>
-      , a full-featured data grid with built-in UI, and{" "}
+      The React table ecosystem offers two distinct philosophies: ready-to-use components versus
+      headless libraries that provide logic without UI. This fundamental choice affects everything
+      from development speed to long-term maintenance. Many developers start their projects by
+      evaluating{" "}
       <Text className="text-lg text-inherit" strong>
         TanStack Table
       </Text>{" "}
-      (formerly React Table), a headless library that provides table logic without UI components.
+      (formerly React Table), the most popular headless table library, which provides powerful hooks
+      and utilities but requires you to build every UI component from scratch. On the other side,{" "}
+      <Text className="text-lg text-inherit" strong>
+        Simple Table
+      </Text>{" "}
+      offers a complete, production-ready solution that gets you from zero to functional data grid
+      in minutes rather than weeks. This comparison examines both approaches: the flexibility and
+      control of building everything yourself versus the speed and convenience of a
+      batteries-included solution. We'll help you determine which approach aligns better with your
+      project timeline, team expertise, and design requirements.
     </>
   );
 
@@ -339,6 +346,87 @@ const SimpleTableVsTanstackContent = () => {
     </>
   );
 
+  const codeComparisonSection = (
+    <>
+      <Title level={2} className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
+        Setup Comparison: Ready-to-Use vs Headless
+      </Title>
+
+      <div className="grid md:grid-cols-2 gap-6 mb-6">
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+            Simple Table (5 minutes to working table)
+          </Text>
+          <pre className="text-sm bg-gray-900 text-green-400 p-3 rounded overflow-x-auto">
+            {`import { SimpleTable } from 'simple-table-core';
+import 'simple-table-core/styles.css';
+
+function MyApp() {
+  const headers = [
+    { accessor: 'name', label: 'Name', width: '1fr' },
+    { accessor: 'age', label: 'Age', width: 100 },
+    { accessor: 'city', label: 'City', width: 150 }
+  ];
+  
+  const data = [
+    { id: 1, name: 'John', age: 30, city: 'NYC' },
+    { id: 2, name: 'Jane', age: 25, city: 'LA' }
+  ];
+
+  return (
+    <SimpleTable 
+      defaultHeaders={headers}
+      rows={data}
+      rowIdAccessor="id"
+      editColumns
+      selectableCells
+    />
+  );
+}`}
+          </pre>
+        </div>
+
+        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
+            TanStack Table (2-3 days to working table)
+          </Text>
+          <pre className="text-sm bg-gray-900 text-blue-400 p-3 rounded overflow-x-auto">
+            {`import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
+
+function MyApp() {
+  const columns = [ /* define columns */ ];
+  const data = [ /* your data */ ];
+  
+  const table = useReactTable({
+    data, columns,
+    getCoreRowModel: getCoreRowModel(),
+    // Configure all features manually
+  });
+
+  return (
+    <div>
+      {/* Build entire table UI yourself */}
+      {/* Headers, rows, cells, styling */}
+      {/* Filtering UI, pagination UI */}
+      {/* Loading states, error handling */}
+    </div>
+  );
+}`}
+          </pre>
+        </div>
+      </div>
+
+      <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800 mb-4">
+        <Text className="text-base text-gray-700 dark:text-gray-300">
+          <strong>Time Investment:</strong> Simple Table gets you a production-ready table
+          immediately, while TanStack Table requires building all UI components, styling, and
+          interaction patterns from scratch. The code above represents about 5 minutes vs 2-3 days
+          of development time.
+        </Text>
+      </div>
+    </>
+  );
+
   return (
     <ComparisonLayout
       title="Simple Table vs. TanStack Table"
@@ -350,6 +438,7 @@ const SimpleTableVsTanstackContent = () => {
         competitorSize: "762 kB (unpacked) + custom UI",
       }}
       summaryContent={summaryContent}
+      faqSection={codeComparisonSection}
     />
   );
 };
