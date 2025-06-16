@@ -9,6 +9,11 @@ const config: NextConfig = {
         destination: "/comparisons/simple-table-vs-ag-grid",
         permanent: true,
       },
+      {
+        source: "/blog/simple-table-vs-handsontable",
+        destination: "/comparisons/simple-table-vs-handsontable",
+        permanent: true,
+      },
     ];
   },
   eslint: {
