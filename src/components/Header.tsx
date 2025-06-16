@@ -227,7 +227,7 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
     { href: "/theme-builder", label: "Theme Builder" },
-    { href: "/examples/finance", label: "Examples", useActivePath: true },
+    { href: `/examples/finance?theme=${theme}`, label: "Examples", useActivePath: true },
   ];
 
   const externalLinks = [{ href: TECHNICAL_STRINGS.links.npm, label: "NPM", icon: faNpm }];

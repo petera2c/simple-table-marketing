@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
-import { useEffect, Suspense } from "react";
+import { useEffect, Suspense, useState } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 
 // Define example navigation items
@@ -67,6 +67,7 @@ function ExamplesNavigationContent() {
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
   const currentTheme = (searchParams.get("theme") as Theme) || theme;
+  const [hasSetTheme, setHasSetTheme] = useState(false);
 
   // Determine current active example
   const currentPath = pathname;
@@ -75,9 +76,12 @@ function ExamplesNavigationContent() {
 
   // Initialize default theme if none is set
   useEffect(() => {
+    if (hasSetTheme || hasSetTheme) return;
     const params = new URLSearchParams();
     params.set("theme", theme);
     router.replace(`?${params.toString()}`, { scroll: false });
+
+    setHasSetTheme(true);
   }, [router, theme]);
 
   const handleLinkClick = (linkPath: string, linkName: string) => {

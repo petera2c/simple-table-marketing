@@ -5,10 +5,11 @@ import { faGithub, faDiscord, faNpm } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
+import { useThemeContext } from "@/providers/ThemeProvider";
 
 export default function Footer() {
   const pathname = usePathname();
-
+  const { theme } = useThemeContext();
   const isActive = (path: string) => {
     return pathname === path;
   };
@@ -50,7 +51,7 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href="/examples/finance"
+                  href={`/examples/finance?theme=${theme}`}
                   className={`text-gray-400 hover:text-white transition-colors ${
                     isActive("/examples/finance") ? "text-white font-medium" : ""
                   }`}
