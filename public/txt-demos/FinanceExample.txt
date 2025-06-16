@@ -65,7 +65,7 @@ export default function FinancialExample({ height, theme }: { height?: string; t
         rowIndex: indexToUpdate,
         newValue: newChangePercent,
       });
-    }, 50);
+    }, 200);
 
     return () => clearInterval(interval);
   }, [data]);
