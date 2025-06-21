@@ -48,8 +48,19 @@ export const nestedHeadersReactTablesPost: BlogPostMetadata = {
   updatedAt: "2025-06-01",
 };
 
+export const bestFreeReactDataGridPost: BlogPostMetadata = {
+  title: "Best Free React Data Grid: Why Simple Table Stands Out in 2025",
+  description:
+    "Discover why Simple Table is the best free React data grid in 2025. Compare features, performance, and ease of use against popular alternatives like AG Grid, TanStack Table, and Material-UI.",
+  slug: "best-free-react-data-grid-2025",
+  tags: ["react", "data-grid", "free", "2025", "comparison", "best-practices"],
+  createdAt: "2025-06-21",
+  updatedAt: "2025-06-21",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  bestFreeReactDataGridPost,
   freeAlternativeToAgGridPost,
   handlingOneMillionRowsPost,
   customizingDataGridsStylingEasyPost,

@@ -46,14 +46,23 @@ function BlogCard({ post }: { post: BlogPostMetadata }) {
 
 export default function BlogPageContent() {
   const [searchQuery, setSearchQuery] = useState("");
-  const [filteredPosts, setFilteredPosts] = useState<BlogPostMetadata[]>(BLOG_POSTS);
+  // Sort blog posts by date (newest first)
+  const sortedBlogPosts = [...BLOG_POSTS].sort(
+    (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+  );
+  const [filteredPosts, setFilteredPosts] = useState<BlogPostMetadata[]>(sortedBlogPosts);
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
     if (value.trim() === "") {
-      setFilteredPosts(BLOG_POSTS);
+      setFilteredPosts(sortedBlogPosts);
     } else {
-      setFilteredPosts(searchBlogPosts(value));
+      const searchResults = searchBlogPosts(value);
+      // Sort search results by date too (newest first)
+      const sortedSearchResults = searchResults.sort(
+        (a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      );
+      setFilteredPosts(sortedSearchResults);
     }
   };
 
@@ -119,7 +128,7 @@ export default function BlogPageContent() {
           Browse by Tags
         </h3>
         <div className="flex flex-wrap gap-2">
-          {Array.from(new Set(BLOG_POSTS.flatMap((post) => post.tags))).map((tag) => (
+          {Array.from(new Set(sortedBlogPosts.flatMap((post) => post.tags))).map((tag) => (
             <button
               key={tag}
               onClick={() => handleSearch(tag)}

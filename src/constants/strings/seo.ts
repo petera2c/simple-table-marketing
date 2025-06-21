@@ -3,6 +3,7 @@ import {
   handlingOneMillionRowsPost,
   customizingDataGridsStylingEasyPost,
   nestedHeadersReactTablesPost,
+  bestFreeReactDataGridPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -37,6 +38,20 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    bestFreeReactDataGrid2025: {
+      title: bestFreeReactDataGridPost.title,
+      description: bestFreeReactDataGridPost.description,
+      keywords: [
+        "best free react data grid",
+        "react table 2025",
+        "free data grid comparison",
+        "simple table vs ag grid",
+        "react grid library",
+        "typescript data grid",
+        "lightweight table",
+        "open source react table",
+      ],
+    },
     freeAlternativeToAgGrid: {
       title: freeAlternativeToAgGridPost.title,
       description: freeAlternativeToAgGridPost.description,
