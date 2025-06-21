@@ -156,27 +156,27 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/billing?theme=dark</loc>
+    <loc>https://www.simple-table.com/examples/billing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/finance?theme=dark</loc>
+    <loc>https://www.simple-table.com/examples/finance</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/hr?theme=dark</loc>
+    <loc>https://www.simple-table.com/examples/hr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/manufacturing?theme=dark</loc>
+    <loc>https://www.simple-table.com/examples/manufacturing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/sales?theme=dark</loc>
+    <loc>https://www.simple-table.com/examples/sales</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
