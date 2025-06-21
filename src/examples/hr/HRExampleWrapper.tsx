@@ -1,23 +1,20 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
 import HRExample from "./HRExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
+import ExamplesWrapper from "../ExamplesWrapper";
 
 const ROW_HEIGHT = 48;
 
 type HRExampleWrapperProps = {
-  themeOverride?: Theme;
+  theme?: Theme;
 };
 
-const HRExampleWrapper = ({ themeOverride }: HRExampleWrapperProps) => {
-  const searchParams = useSearchParams();
-  const theme = themeOverride || (searchParams.get("theme") as Theme) || "light";
-
+const HRExampleWrapper = ({ theme }: HRExampleWrapperProps) => {
   const containerHeight = useExampleHeight({
     isUsingPagination: true,
     rowHeight: ROW_HEIGHT,
@@ -28,7 +25,11 @@ const HRExampleWrapper = ({ themeOverride }: HRExampleWrapperProps) => {
       <LivePreview
         demoCodeFilename="HRExample.txt"
         link={SANDBOX_LIST["examples/hr/HRExample.tsx"].url}
-        Preview={() => <HRExample height={containerHeight} rowHeight={ROW_HEIGHT} theme={theme} />}
+        Preview={() => (
+          <ExamplesWrapper>
+            <HRExample height={containerHeight} rowHeight={ROW_HEIGHT} theme={theme} />
+          </ExamplesWrapper>
+        )}
       />
     </SearchParamsSuspenseWrapper>
   );

@@ -112,7 +112,6 @@ async function generateSitemap() {
       } else if (route.startsWith("examples/")) {
         routeConfig.priority = 0.7;
         routeConfig.changefreq = "weekly";
-        routeConfig.url += "?theme=dark";
       }
 
       sitemapEntries.push(routeConfig);
