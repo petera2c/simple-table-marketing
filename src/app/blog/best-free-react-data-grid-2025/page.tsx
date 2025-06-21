@@ -510,24 +510,23 @@ import { SimpleTable } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 const headers = [
-  { accessor: "name", label: "Name", type: "string" },
-  { accessor: "age", label: "Age", type: "number" },
-  { accessor: "email", label: "Email", type: "string" },
+  { accessor: "id", label: "ID", width: 80, type: "number" },
+  { accessor: "name", label: "Name", width: "1fr", type: "string" },
+  { accessor: "age", label: "Age", width: 100, type: "number" },
+  { accessor: "email", label: "Email", width: 200, type: "string" },
 ];
 
 const data = [
-  { name: "John Doe", age: 30, email: "john@example.com" },
-  { name: "Jane Smith", age: 25, email: "jane@example.com" },
+  { id: 1, name: "John Doe", age: 30, email: "john@example.com" },
+  { id: 2, name: "Jane Smith", age: 25, email: "jane@example.com" },
 ];
 
 export default function MyTable() {
   return (
     <SimpleTable
-      headers={headers}
-      rows={data.map((item, index) => ({
-        rowId: index,
-        rowData: item,
-      }))}
+      defaultHeaders={headers}
+      rows={data}
+      rowIdAccessor="id"
     />
   );
 }`}

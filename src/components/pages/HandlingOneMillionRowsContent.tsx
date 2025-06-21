@@ -203,13 +203,22 @@ export default function HandlingOneMillionRowsContent() {
 
             <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto mb-6 text-sm leading-relaxed">
               {`import React, { useState, useEffect } from "react";
-import { SimpleTable, Row, CellChangeProps } from "simple-table-core";
-import { SALES_HEADERS } from "@/examples/sales/sales-headers";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 
+// Define headers for the performance demo
+const PERFORMANCE_HEADERS: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+  { accessor: "repName", label: "Sales Rep", width: "1fr", isSortable: true, type: "string" },
+  { accessor: "dealSize", label: "Deal Size", width: 120, isSortable: true, type: "number" },
+  { accessor: "isWon", label: "Status", width: 100, isSortable: true, type: "boolean" },
+  { accessor: "dealProfit", label: "Profit", width: 120, isSortable: true, type: "number" },
+  { accessor: "dealValue", label: "Value", width: 120, isSortable: true, type: "number" },
+];
+
 // Generates a large dataset for demo purposes
-const generateLargeDataset = (count: number): Row[] => {
-  const data: Row[] = [];
+const generateLargeDataset = (count: number) => {
+  const data = [];
   const config = {
     categories: ["Software", "Hardware", "Services", "Consulting"],
     maxDealValue: 100000,
@@ -225,15 +234,13 @@ const generateLargeDataset = (count: number): Row[] => {
     const dealProfit = isWon ? dealValue * profitMargin : 0;
 
     data.push({
-      rowMeta: { rowId: i, isExpanded: false },
-      rowData: {
-        repName: \`Sales Rep \${i.toLocaleString()}\`,
-        dealSize: Math.random() * 10000 + 100,
-        isWon,
-        dealProfit,
-        dealValue,
-        profitMargin,
-      },
+      id: i,
+      repName: \`Sales Rep \${i.toLocaleString()}\`,
+      dealSize: Math.random() * 10000 + 100,
+      isWon,
+      dealProfit,
+      dealValue,
+      profitMargin,
     });
   }
 
@@ -241,7 +248,7 @@ const generateLargeDataset = (count: number): Row[] => {
 };
 
 export default function PerformanceDemo() {
-  const [data, setData] = useState<Row[]>([]);
+  const [data, setData] = useState([]);
 
   useEffect(() => {
     // Initial data load
@@ -257,9 +264,9 @@ export default function PerformanceDemo() {
 
   return (
     <SimpleTable
-      defaultHeaders={SALES_HEADERS}
+      defaultHeaders={PERFORMANCE_HEADERS}
       rows={data}
-      theme="light"
+      rowIdAccessor="id"
       height="500px"
       editColumns
       columnResizing

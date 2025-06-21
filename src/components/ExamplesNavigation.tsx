@@ -11,7 +11,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
-import { useEffect, Suspense, useState } from "react";
+import { Suspense } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 
 // Define example navigation items
@@ -21,35 +21,30 @@ const examples = [
     label: "Financial",
     path: "/examples/finance",
     icon: faChartLine,
-    defaultTheme: "light" as Theme,
   },
   {
     id: "manufacturing",
     label: "Manufacturing",
     path: "/examples/manufacturing",
     icon: faIndustry,
-    defaultTheme: "dark" as Theme,
   },
   {
     id: "hr",
     label: "HR",
     path: "/examples/hr",
     icon: faUsers,
-    defaultTheme: "dark" as Theme,
   },
   {
     id: "billing",
     label: "Billing",
     path: "/examples/billing",
     icon: faFileInvoiceDollar,
-    defaultTheme: "light" as Theme,
   },
   {
     id: "sales",
     label: "Sales",
     path: "/examples/sales",
     icon: faChartLine,
-    defaultTheme: "light" as Theme,
   },
 ];
 
@@ -73,14 +68,8 @@ function ExamplesNavigationContent() {
   const currentExample =
     examples.find((example) => currentPath.includes(example.id)) || examples[0];
 
-  const handleLinkClick = (linkPath: string, linkName: string) => {
-    const example = examples.find((e) => e.path === linkPath);
+  const handleLinkClick = (linkPath: string) => {
     const params = new URLSearchParams(searchParams.toString());
-
-    // Only set default theme if no theme is currently set
-    if (!params.has("theme") && example) {
-      params.set("theme", example.defaultTheme);
-    }
 
     router.push(`${linkPath}?${params.toString()}`);
   };
@@ -103,7 +92,7 @@ function ExamplesNavigationContent() {
           onChange={(value) => {
             const example = examples.find((e) => e.id === value);
             if (example) {
-              handleLinkClick(example.path, example.label);
+              handleLinkClick(example.path);
             }
           }}
           value={currentExample.id}
