@@ -628,7 +628,7 @@ export default function MyTable() {
         }}
         secondaryButton={{
           text: "View Examples",
-          href: "/examples",
+          href: "/examples/finance",
         }}
       />
     </BlogLayout>

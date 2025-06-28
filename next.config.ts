@@ -14,6 +14,11 @@ const config: NextConfig = {
         destination: "/comparisons/simple-table-vs-handsontable",
         permanent: true,
       },
+      {
+        source: "/examples",
+        destination: "/examples/finance",
+        permanent: true,
+      },
     ];
   },
   eslint: {
