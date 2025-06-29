@@ -8,6 +8,83 @@ import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const LIVE_UPDATE_PROPS: PropInfo[] = [
+  {
+    key: "tableRef",
+    name: "tableRef",
+    required: false,
+    description:
+      "React ref object that provides access to table methods for programmatic updates. Used to call updateData method.",
+    type: "React.RefObject<TableRefType>",
+    example: `const tableRef = useRef<TableRefType | null>(null);
+
+<SimpleTable
+  tableRef={tableRef}
+  // ... other props
+/>`,
+  },
+  {
+    key: "cellUpdateFlash",
+    name: "cellUpdateFlash",
+    required: false,
+    description:
+      "Enables visual flash animation when cell values are updated programmatically. Provides user feedback for data changes.",
+    type: "boolean",
+    example: `<SimpleTable
+  cellUpdateFlash={true}
+  // ... other props
+/>`,
+  },
+];
+
+const UPDATE_DATA_PARAMS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key that identifies which column to update.",
+    type: "string",
+    example: `tableRef.current?.updateData({
+  accessor: "price",
+  rowIndex: 2,
+  newValue: 29.99
+});`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The zero-based index of the row to update.",
+    type: "number",
+    example: `tableRef.current?.updateData({
+  accessor: "status",
+  rowIndex: 0,  // First row
+  newValue: "active"
+});`,
+  },
+  {
+    key: "newValue",
+    name: "newValue",
+    required: true,
+    description: "The new value to set in the specified cell.",
+    type: "any",
+    example: `// Update with string
+tableRef.current?.updateData({
+  accessor: "name",
+  rowIndex: 1,
+  newValue: "John Doe"
+});
+
+// Update with number
+tableRef.current?.updateData({
+  accessor: "count",
+  rowIndex: 3,
+  newValue: 42
+});`,
+  },
+];
 
 const LiveUpdateContent = () => {
   return (
@@ -112,6 +189,8 @@ const LiveUpdateContent = () => {
             with the appropriate parameters to update specific cells
           </li>
         </ol>
+
+        <PropTable props={LIVE_UPDATE_PROPS} title="Live Update Configuration" />
       </motion.div>
 
       {/* TableRef Section */}
@@ -142,36 +221,26 @@ const LiveUpdateContent = () => {
           method:
         </p>
 
+        <PropTable props={UPDATE_DATA_PARAMS_PROPS} title="updateData Method Parameters" />
+
         <CodeBlock
           className="mb-4"
-          code={`type TableRefType = {
-  updateData: (params: {
-    accessor: string;   // The column accessor to target
-    rowIndex: number;   // The row index to update
-    newValue: any;      // The new value to set
-  }) => void;
+          code={`// Example: Update multiple cells
+const updatePrices = () => {
+  // Update first row
+  tableRef.current?.updateData({
+    accessor: "price",
+    rowIndex: 0,
+    newValue: 25.99
+  });
+  
+  // Update third row
+  tableRef.current?.updateData({
+    accessor: "status", 
+    rowIndex: 2,
+    newValue: "updated"
+  });
 };`}
-        />
-
-        <h3 className="font-bold text-gray-800 dark:text-white mb-2">TableRef Example</h3>
-        <p className="text-gray-700 dark:text-gray-300 mb-2">
-          The{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            updateData
-          </code>{" "}
-          method updates a single cell in the table:
-        </p>
-        <CodeBlock
-          className="mb-4"
-          code={`// Create a ref
-const tableRef = useRef<TableRefType | null>(null);
-
-// Update a specific cell
-tableRef.current?.updateData({
-  accessor: "price",
-  rowIndex: 2,
-  newValue: 29.99,
-});`}
         />
       </motion.div>
 

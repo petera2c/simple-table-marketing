@@ -7,6 +7,23 @@ import ColumnSortingDemo from "@/demos/ColumnSortingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const COLUMN_SORTING_PROPS: PropInfo[] = [
+  {
+    key: "isSortable",
+    name: "HeaderObject.isSortable",
+    required: false,
+    description:
+      "Enables sorting functionality for the column. When true, users can click the column header to sort data.",
+    type: "boolean",
+    example: `{ 
+  accessor: "name", 
+  label: "Full Name", 
+  isSortable: true 
+}`,
+  },
+];
 
 const ColumnSortingContent = () => {
   return (
@@ -70,52 +87,7 @@ const ColumnSortingContent = () => {
           property to your column definition.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Sorting Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                isSortable
-              </code>
-              : Enables sorting for the column
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                sortDirection
-              </code>
-              : Current sort direction ('asc' | 'desc' | null)
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                onSort
-              </code>
-              : Callback function when sort direction changes
-            </li>
-          </ul>
-        </div>
-      </motion.div>
-
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Custom Sort Functions
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 dark:text-gray-300">
-          You can provide a custom sort function using the{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            sortFn
-          </code>{" "}
-          property. This allows you to implement complex sorting logic for your data.
-        </p>
+        <PropTable props={COLUMN_SORTING_PROPS} title="Column Sorting Configuration" />
       </motion.div>
 
       <DocNavigationButtons />

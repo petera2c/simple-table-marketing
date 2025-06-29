@@ -7,6 +7,55 @@ import ColumnVisibilityDemo from "@/demos/ColumnVisibilityDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const COLUMN_VISIBILITY_PROPS: PropInfo[] = [
+  {
+    key: "hide",
+    name: "HeaderObject.hide",
+    required: false,
+    description:
+      "Controls the initial visibility of the column. When true, the column will be hidden by default.",
+    type: "boolean",
+    example: `// Hidden by default
+{ 
+  accessor: "internalId", 
+  label: "Internal ID", 
+  hide: true 
+}
+
+// Visible by default (default behavior)
+{ 
+  accessor: "name", 
+  label: "Name" 
+}`,
+  },
+  {
+    key: "editColumns",
+    name: "editColumns",
+    required: false,
+    description:
+      "Enables the column visibility controls, allowing users to show/hide columns through a UI panel.",
+    type: "boolean",
+    example: `<SimpleTable
+  editColumns={true}
+  // ... other props
+/>`,
+  },
+  {
+    key: "editColumnsInitOpen",
+    name: "editColumnsInitOpen",
+    required: false,
+    description:
+      "Opens the column visibility menu by default when the table loads. Requires editColumns to be true.",
+    type: "boolean",
+    example: `<SimpleTable
+  editColumns={true}
+  editColumnsInitOpen={true}
+  // ... other props
+/>`,
+  },
+];
 
 const ColumnVisibilityContent = () => {
   return (
@@ -73,31 +122,7 @@ const ColumnVisibilityContent = () => {
           prop on the SimpleTable component.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
-            Key Visibility Properties
-          </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                hide
-              </code>
-              : Boolean property in header objects to control initial visibility
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                editColumns
-              </code>
-              : Enable column visibility controls
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                editColumnsInitOpen
-              </code>
-              : Open the column visibility menu by default
-            </li>
-          </ul>
-        </div>
+        <PropTable props={COLUMN_VISIBILITY_PROPS} title="Column Visibility Configuration" />
       </motion.div>
 
       <DocNavigationButtons />

@@ -7,6 +7,34 @@ import CellHighlightingDemo from "@/demos/CellHighlightingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const CELL_HIGHLIGHTING_PROPS: PropInfo[] = [
+  {
+    key: "selectableCells",
+    name: "selectableCells",
+    required: false,
+    description:
+      "Enable selection of individual cells. When enabled, users can click on cells to select them and use keyboard shortcuts to copy the selected data.",
+    type: "boolean",
+    example: `<SimpleTable
+  selectableCells={true}
+  // ... other props
+/>`,
+  },
+  {
+    key: "selectableColumns",
+    name: "selectableColumns",
+    required: false,
+    description:
+      "Enable selection of entire columns. When enabled, users can click on column headers to select all cells in that column.",
+    type: "boolean",
+    example: `<SimpleTable
+  selectableColumns={true}
+  // ... other props
+/>`,
+  },
+];
 
 const CellHighlightingContent = () => {
   return (
@@ -78,23 +106,7 @@ const CellHighlightingContent = () => {
           entire columns.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Selection Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                selectableCells
-              </code>
-              : Enables selection of individual cells
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                selectableColumns
-              </code>
-              : Enables selection of entire columns
-            </li>
-          </ul>
-        </div>
+        <PropTable props={CELL_HIGHLIGHTING_PROPS} title="Cell Highlighting Properties" />
       </motion.div>
 
       {/* Column Selection Section */}

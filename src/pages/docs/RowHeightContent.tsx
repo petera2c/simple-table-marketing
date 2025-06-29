@@ -4,10 +4,38 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
 import RowHeightDemo from "@/demos/RowHeightDemo";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const ROW_HEIGHT_PROPS: PropInfo[] = [
+  {
+    key: "rowHeight",
+    name: "rowHeight",
+    required: false,
+    description:
+      "Sets the height of all rows in the table. Accepts a numeric value representing pixels.",
+    type: "number",
+    example: `// Standard row height
+<SimpleTable
+  rowHeight={40}
+  // ... other props
+/>
+
+// Compact rows
+<SimpleTable
+  rowHeight={32}
+  // ... other props
+/>
+
+// Large rows for better readability
+<SimpleTable
+  rowHeight={56}
+  // ... other props
+/>`,
+  },
+];
 
 export default function RowHeightContent() {
   return (
@@ -71,33 +99,8 @@ export default function RowHeightContent() {
           </code>{" "}
           property. This property accepts a numeric value representing the height in pixels.
         </p>
-      </motion.div>
 
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Row Height Configuration
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Row Height Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                rowHeight
-              </code>
-              : Sets the height of all rows in pixels (numeric value)
-            </li>
-          </ul>
-        </div>
+        <PropTable props={ROW_HEIGHT_PROPS} title="Row Height Configuration" />
       </motion.div>
 
       <DocNavigationButtons />

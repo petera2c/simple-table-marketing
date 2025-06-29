@@ -7,6 +7,59 @@ import DocNavigationButtons from "@/components/DocNavigationButtons";
 import ColumnReorderingDemo from "@/demos/ColumnReorderingDemo";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const COLUMN_REORDERING_PROPS: PropInfo[] = [
+  {
+    key: "columnReordering",
+    name: "columnReordering",
+    required: false,
+    description:
+      "Enables drag-and-drop column reordering functionality. When true, users can drag column headers to rearrange them.",
+    type: "boolean",
+    example: `<SimpleTable
+  columnReordering={true}
+  // ... other props
+/>`,
+  },
+  {
+    key: "onColumnOrderChange",
+    name: "onColumnOrderChange",
+    required: false,
+    description:
+      "Callback function that fires when column order changes. Receives the new header configuration as parameter.",
+    type: "(newHeaders: HeaderObject[]) => void",
+    example: `<SimpleTable
+  columnReordering={true}
+  onColumnOrderChange={(newHeaders) => {
+    console.log('New column order:', newHeaders);
+    // Save to localStorage or backend
+    localStorage.setItem('columnOrder', JSON.stringify(newHeaders));
+  }}
+  // ... other props
+/>`,
+  },
+  {
+    key: "disableReorder",
+    name: "HeaderObject.disableReorder",
+    required: false,
+    description:
+      "Prevents specific columns from being reordered. Set this on individual header objects to lock them in place.",
+    type: "boolean",
+    example: `// This column cannot be reordered
+{ 
+  accessor: "id", 
+  label: "ID", 
+  disableReorder: true 
+}
+
+// This column can be reordered normally
+{ 
+  accessor: "name", 
+  label: "Name"
+}`,
+  },
+];
 
 export default function ColumnReorderingContent() {
   return (
@@ -74,31 +127,7 @@ export default function ColumnReorderingContent() {
           them.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Reordering Configuration</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                columnReordering
-              </code>
-              : Enable column reordering functionality
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                onColumnOrderChange
-              </code>
-              : Optional callback that fires when column order changes, receiving the new header
-              configuration as a parameter
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                disableReorder
-              </code>
-              : Set this property on individual headers to prevent specific columns from being
-              reordered
-            </li>
-          </ul>
-        </div>
+        <PropTable props={COLUMN_REORDERING_PROPS} title="Column Reordering Configuration" />
 
         <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Tip</h3>

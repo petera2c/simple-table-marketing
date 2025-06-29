@@ -7,6 +7,40 @@ import ColumnAlignmentDemo from "@/demos/ColumnAlignmentDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const COLUMN_ALIGNMENT_PROPS: PropInfo[] = [
+  {
+    key: "align",
+    name: "HeaderObject.align",
+    required: false,
+    description:
+      "Controls the horizontal alignment of content within the column for both header and cell content.",
+    type: "enum",
+    link: "/docs/api-reference#union-types",
+    enumValues: ["left", "center", "right"],
+    example: `// Left alignment (default)
+{ 
+  accessor: "name", 
+  label: "Full Name", 
+  align: "left" 
+}
+
+// Center alignment for status indicators
+{ 
+  accessor: "status", 
+  label: "Status", 
+  align: "center" 
+}
+
+// Right alignment for numeric values
+{ 
+  accessor: "price", 
+  label: "Price", 
+  align: "right" 
+}`,
+  },
+];
 
 const ColumnAlignmentContent = () => {
   return (
@@ -67,29 +101,7 @@ const ColumnAlignmentContent = () => {
           definitions:
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Alignment Options</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                align: "left"
-              </code>{" "}
-              (default): Left-align content
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                align: "center"
-              </code>
-              : Center content horizontally
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                align: "right"
-              </code>
-              : Right-align content
-            </li>
-          </ul>
-        </div>
+        <PropTable props={COLUMN_ALIGNMENT_PROPS} title="Column Alignment Configuration" />
       </motion.div>
 
       <motion.h2

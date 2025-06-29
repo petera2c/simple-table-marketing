@@ -7,6 +7,71 @@ import CellRendererDemo from "@/demos/CellRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+import CodeBlock from "@/components/CodeBlock";
+
+const CELL_RENDERER_PROPS: PropInfo[] = [
+  {
+    key: "cellRenderer",
+    name: "HeaderObject.cellRenderer",
+    required: false,
+    description:
+      "Custom function to render cell content. Receives cell information and returns either a ReactNode or string for display.",
+    type: "(params: CellRendererParams) => ReactNode | string",
+    example: `{
+  accessor: "status",
+  label: "Status",
+  cellRenderer: ({ row, accessor }) => {
+    const status = row[accessor];
+    return (
+      <span className={\`badge \${status === 'active' ? 'badge-green' : 'badge-red'}\`}>
+        {status}
+      </span>
+    );
+  }
+}`,
+  },
+];
+
+const CELL_RENDERER_PARAMS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor string identifying which column this cell belongs to.",
+    type: "string",
+    example: `// In cellRenderer function
+({ accessor }) => {
+  console.log(accessor); // "firstName", "salary", etc.
+}`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The zero-based index of the column within the table.",
+    type: "number",
+    example: `// In cellRenderer function
+({ colIndex }) => {
+  console.log(colIndex); // 0, 1, 2, etc.
+}`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description:
+      "The complete row object containing all data for this row. Access cell values using row[accessor].",
+    type: "Row",
+    link: "/docs/api-reference#union-types",
+    example: `// In cellRenderer function
+({ row, accessor }) => {
+  const cellValue = row[accessor];
+  const otherValue = row["otherColumn"];
+  return \`\${cellValue} - \${otherValue}\`;
+}`,
+  },
+];
 
 const CellRendererContent = () => {
   return (
@@ -74,31 +139,24 @@ const CellRendererContent = () => {
           or a string to be rendered in the cell.
         </p>
 
+        <PropTable props={CELL_RENDERER_PROPS} title="Cell Renderer Configuration" />
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-6">
+          Cell Renderer Parameters
+        </h3>
+
+        <PropTable props={CELL_RENDERER_PARAMS_PROPS} title="CellRendererParams Interface" />
+
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">cellRenderer Parameters</h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-2">
-            Each cellRenderer function receives an object with these properties:
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tip</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            Use the{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              row
+            </code>{" "}
+            parameter to access any data from the current row, not just the current cell. This
+            allows you to create renderers that depend on multiple column values.
           </p>
-          <ul className="list-disc pl-5 mt-2 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                accessor
-              </code>
-              : The column accessor string
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                colIndex
-              </code>
-              : The column index
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                row
-              </code>
-              : The row object containing the data
-            </li>
-          </ul>
         </div>
       </motion.div>
 
@@ -127,8 +185,8 @@ const CellRendererContent = () => {
         </p>
 
         <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <pre className="whitespace-pre-wrap">
-            <code>{`type Row = {
+          <CodeBlock
+            code={`type Row = {
   id: string | number;           // Unique identifier for the row
   [accessor: string]: CellValue; // All cell values accessible by column accessor
   
@@ -143,8 +201,8 @@ const CellRendererContent = () => {
   dealSize: 15000,
   isWon: true,
   category: "Software"
-}`}</code>
-          </pre>
+}`}
+          />
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">

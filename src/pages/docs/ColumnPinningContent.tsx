@@ -6,6 +6,35 @@ import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import ColumnPinningDemo from "@/demos/ColumnPinningDemo";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const COLUMN_PINNING_PROPS: PropInfo[] = [
+  {
+    key: "pinned",
+    name: "HeaderObject.pinned",
+    required: false,
+    description:
+      "Pins the column to the left or right side of the table, keeping it visible during horizontal scrolling.",
+    type: "enum",
+    link: "/docs/api-reference#union-types",
+    enumValues: ["left", "right"],
+    example: `// Pin to left side
+{ 
+  accessor: "id", 
+  label: "ID", 
+  pinned: "left",
+  width: 80
+}
+
+// Pin to right side
+{ 
+  accessor: "actions", 
+  label: "Actions", 
+  pinned: "right",
+  width: 120
+}`,
+  },
+];
 
 const ColumnPinningContent = () => {
   return (
@@ -69,23 +98,7 @@ const ColumnPinningContent = () => {
           property to your header objects:
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pinning Options</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                pinned: "left"
-              </code>
-              : Pin the column to the left side
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                pinned: "right"
-              </code>
-              : Pin the column to the right side
-            </li>
-          </ul>
-        </div>
+        <PropTable props={COLUMN_PINNING_PROPS} title="Column Pinning Configuration" />
       </motion.div>
 
       <DocNavigationButtons />

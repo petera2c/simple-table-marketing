@@ -7,6 +7,48 @@ import PaginationDemo from "@/demos/PaginationDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const PAGINATION_PROPS: PropInfo[] = [
+  {
+    key: "shouldPaginate",
+    name: "shouldPaginate",
+    required: false,
+    description:
+      "Enables pagination functionality for the table. When true, the table will display pagination controls and divide data into pages.",
+    type: "boolean",
+    example: `<SimpleTable
+  shouldPaginate={true}
+  // ... other props
+/>`,
+  },
+  {
+    key: "rowsPerPage",
+    name: "rowsPerPage",
+    required: false,
+    description: "Number of rows to display per page. Default is 10.",
+    type: "number",
+    example: `<SimpleTable
+  shouldPaginate={true}
+  rowsPerPage={20}
+  // ... other props
+/>`,
+  },
+  {
+    key: "onNextPage",
+    name: "onNextPage",
+    required: false,
+    description: "Callback function triggered when user clicks the next page button.",
+    type: "() => void",
+    example: `const [currentPage, setCurrentPage] = useState(1);
+
+<SimpleTable
+  shouldPaginate={true}
+  onNextPage={() => setCurrentPage(prev => prev + 1)}
+  // ... other props
+/>`,
+  },
+];
 
 const PaginationContent = () => {
   return (
@@ -72,72 +114,7 @@ const PaginationContent = () => {
           data.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pagination Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                shouldPaginate
-              </code>
-              : Enables pagination functionality
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                rowsPerPage
-              </code>
-              : Number of rows per page (default: 10)
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                totalPages
-              </code>
-              : Total number of pages available -<span className="font-semibold"> required</span>{" "}
-              for proper pagination controls
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                onNextPage
-              </code>
-              : Callback function triggered when user clicks the next page button
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                onPreviousPage
-              </code>
-              : Callback function triggered when user clicks the previous page button
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                rowHeight
-              </code>
-              : Sets the height of rows in pixels (number, e.g., 40)
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-300 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">Important Note</h3>
-          <p className="text-gray-600 dark:text-gray-400">
-            The{" "}
-            <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-700 dark:text-gray-300">
-              totalPages
-            </code>{" "}
-            property is crucial for proper pagination functionality. Without it:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400 mt-2">
-            <li>The table won't know how many page numbers to display</li>
-            <li>Next/Previous buttons won't disable correctly at boundaries</li>
-            <li>Users may attempt to navigate to non-existent pages</li>
-          </ul>
-          <p className="text-gray-600 dark:text-gray-400 mt-2">
-            Always calculate and provide{" "}
-            <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-gray-700 dark:text-gray-300">
-              totalPages
-            </code>{" "}
-            based on your data size and page size (e.g.,{" "}
-            <code>Math.ceil(totalItems / pageSize)</code>).
-          </p>
-        </div>
+        <PropTable props={PAGINATION_PROPS} title="Pagination Configuration" />
       </motion.div>
 
       <motion.h2
