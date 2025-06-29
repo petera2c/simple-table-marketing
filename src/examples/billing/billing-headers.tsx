@@ -29,6 +29,7 @@ const generateMonthHeaders = () => {
           isEditable: false,
           align: "right",
           type: "number",
+          aggregation: { type: "sum" },
           cellRenderer: ({ row, accessor }) => {
             const balance = row[accessor] as number;
             if (!balance) return "—";
@@ -48,6 +49,7 @@ const generateMonthHeaders = () => {
           isEditable: false,
           align: "right",
           type: "number",
+          aggregation: { type: "sum" },
           cellRenderer: ({ row, accessor }) => {
             const revenue = row[accessor] as number;
             if (!revenue) return "—";
@@ -91,6 +93,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "right",
     type: "number",
+    aggregation: { type: "sum" },
     cellRenderer: ({ row }) => {
       const amount = row.amount as number;
       if (!amount) return "—";
@@ -109,6 +112,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "right",
     type: "number",
+    aggregation: { type: "sum" },
     cellRenderer: ({ row }) => {
       const amount = row.amount as number;
       const deferred = row.deferredRevenue as number;
