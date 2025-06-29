@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ColumnFilteringDemo from "@/components/demos/ColumnFilteringDemo";
+import ExternalFilterDemo from "@/components/demos/ExternalFilterDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -60,6 +61,32 @@ const COLUMN_FILTERING_PROPS: PropInfo[] = [
     { label: "Inactive", value: "inactive" }
   ]
 }`,
+  },
+];
+
+const EXTERNAL_FILTERING_PROPS: PropInfo[] = [
+  {
+    key: "onFilterChange",
+    name: "onFilterChange",
+    required: false,
+    description:
+      "Callback function triggered when filter configuration changes. Receives the current filter state with all active filters.",
+    type: "(filters: TableFilterState) => void",
+    example: `onFilterChange={(filters) => {
+  console.log('Active filters:', filters);
+  // Make API call with filter parameters
+  // filters is an object where keys are unique filter IDs
+  // and values are FilterCondition objects
+}}`,
+  },
+  {
+    key: "externalFilterHandling",
+    name: "externalFilterHandling",
+    required: false,
+    description:
+      "When true, completely disables internal filtering logic. The table will not filter data internally - you must provide pre-filtered data via the rows prop.",
+    type: "boolean",
+    example: `externalFilterHandling={true}`,
   },
 ];
 
@@ -127,6 +154,60 @@ const ColumnFilteringContent = () => {
         </p>
 
         <PropTable props={COLUMN_FILTERING_PROPS} title="Filter Configuration" />
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        External Filtering
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          For advanced use cases, you can handle filtering externally - perfect for server-side
+          filtering, API integration, or custom filtering logic. This demo shows how to manage
+          filtering completely outside the table component with diverse data types and locations.
+        </p>
+
+        <div className="mb-6">
+          <LivePreview
+            demoCodeFilename="ExternalFilterDemo.txt"
+            height="500px"
+            link={SANDBOX_LIST["ExternalFilterDemo.tsx"].url}
+            Preview={ExternalFilterDemo}
+          />
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          External filtering provides two key benefits:
+        </p>
+
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 mb-4 space-y-2">
+          <li>
+            <strong>API Integration:</strong> Use{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              onFilterChange
+            </code>{" "}
+            to trigger server-side filtering while keeping the table's UI filter controls.
+          </li>
+          <li>
+            <strong>Complete Control:</strong> Use{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              externalFilterHandling={true}
+            </code>{" "}
+            to disable all internal filtering and provide your own pre-filtered data.
+          </li>
+        </ul>
+
+        <PropTable props={EXTERNAL_FILTERING_PROPS} title="External Filtering Configuration" />
       </motion.div>
 
       <DocNavigationButtons />

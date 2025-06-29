@@ -23,6 +23,37 @@ const score: CellValue = null;          // null
 const description: CellValue = undefined; // undefined`,
   },
   {
+    key: "sortconfig",
+    name: "SortConfig",
+    required: false,
+    description: "Configuration object describing the current sort state.",
+    type: "{ key: HeaderObject; direction: 'ascending' | 'descending' }",
+    example: `const sortConfig: SortConfig = {
+  key: { accessor: "name", label: "Name", width: 150 },
+  direction: "ascending"
+};`,
+  },
+  {
+    key: "tablefilterstate",
+    name: "TableFilterState",
+    required: false,
+    description:
+      "Object containing all active filters, where keys are unique filter IDs and values are FilterCondition objects.",
+    type: "{ [key: string]: FilterCondition }",
+    example: `const filters: TableFilterState = {
+  "name_contains": {
+    accessor: "name",
+    operator: "contains",
+    value: "John"
+  },
+  "age_greaterThan": {
+    accessor: "age", 
+    operator: "greaterThan",
+    value: 25
+  }
+};`,
+  },
+  {
     key: "theme",
     name: "Theme",
     required: false,
@@ -331,12 +362,49 @@ rowHeight={48}`,
     example: `externalFilterHandling={true}`,
   },
   {
+    key: "externalSortHandling",
+    name: "externalSortHandling",
+    required: false,
+    description:
+      "When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop.",
+    type: "boolean",
+    example: `externalSortHandling={true}`,
+  },
+  {
     key: "hideFooter",
     name: "hideFooter",
     required: false,
     description: "Flag for hiding the table footer.",
     type: "boolean",
     example: `hideFooter={true}`,
+  },
+  {
+    key: "onFilterChange",
+    name: "onFilterChange",
+    required: false,
+    description:
+      "Callback function triggered when filter configuration changes. Receives the current filter state with all active filters.",
+    type: "(filters: TableFilterState) => void",
+    example: `onFilterChange={(filters) => {
+  console.log('Active filters:', filters);
+  // Make API call with filter parameters
+  // filters is an object where keys are unique filter IDs
+  // and values are FilterCondition objects
+}}`,
+  },
+  {
+    key: "onSortChange",
+    name: "onSortChange",
+    required: false,
+    description:
+      "Callback function triggered when sort configuration changes. Receives the current sort configuration or null if no sorting is applied.",
+    type: "(sort: SortConfig | null) => void",
+    example: `onSortChange={(sortConfig) => {
+  if (sortConfig) {
+    console.log(\`Sorting by \${sortConfig.key.accessor} (\${sortConfig.direction})\`);
+    // Make API call with sort parameters
+  }
+}}`,
   },
   {
     key: "rowGrouping",
