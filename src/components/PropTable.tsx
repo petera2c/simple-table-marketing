@@ -34,10 +34,11 @@ const PropTable = ({ props, title }: PropTableProps) => {
       title: "Property",
       dataIndex: "name",
       key: "name",
-      width: 200,
+      width: "auto",
       render: (name: string, record: PropInfo) => (
         <Space direction="vertical" size={2}>
           <Text
+            className="whitespace-nowrap"
             code
             style={{
               fontSize: "14px",

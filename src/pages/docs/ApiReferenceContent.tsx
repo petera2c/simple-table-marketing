@@ -6,6 +6,7 @@ import { faBook } from "@fortawesome/free-solid-svg-icons";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { HEADER_HEIGHT } from "@/constants/global";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import useHashNavigation from "@/hooks/useHashNavigation";
 
 // Union type definitions
 const UNION_TYPE_DEFINITIONS: PropInfo[] = [
@@ -580,6 +581,8 @@ minWidth: "100px"`,
 ];
 
 const ApiReferenceContent = () => {
+  useHashNavigation();
+
   return (
     <>
       <motion.div
@@ -654,7 +657,6 @@ const ApiReferenceContent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
-        id="type-definitions"
       >
         Type Definitions
       </motion.h2>
@@ -668,19 +670,19 @@ const ApiReferenceContent = () => {
         All union type values and object type properties used in SimpleTable.
       </motion.p>
 
-      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="enumoption-type">
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="enum-option">
         <PropTable props={ENUM_OPTION_PROPS} title="EnumOption" />
       </div>
 
-      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="aggregationconfig-type">
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="aggregation-config">
         <PropTable props={AGGREGATION_CONFIG_PROPS} title="AggregationConfig" />
       </div>
 
-      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cellchangeprops-type">
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-change-props">
         <PropTable props={CELL_CHANGE_PROPS_PROPS} title="CellChangeProps" />
       </div>
 
-      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filtercondition-type">
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filter-condition">
         <PropTable props={FILTER_CONDITION_PROPS} title="FilterCondition" />
       </div>
 
