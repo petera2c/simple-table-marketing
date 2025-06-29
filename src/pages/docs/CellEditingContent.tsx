@@ -6,6 +6,104 @@ import { motion } from "framer-motion";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const CELL_EDITING_PROPS: PropInfo[] = [
+  {
+    key: "isEditable",
+    name: "HeaderObject.isEditable",
+    required: false,
+    description:
+      "Makes a column editable, allowing users to modify cell values directly within the table interface.",
+    type: "boolean",
+    example: `{ 
+  accessor: "name", 
+  label: "Full Name", 
+  isEditable: true 
+}`,
+  },
+  {
+    key: "type",
+    name: "HeaderObject.type",
+    required: false,
+    description:
+      "Specifies the data type and editor for the column. Simple Table provides specialized editors for different data types.",
+    type: "enum",
+    enumValues: ["string", "number", "boolean", "date", "enum"],
+    example: `// String editor (default text input)
+{ 
+  accessor: "firstName", 
+  label: "First Name", 
+  type: "string",
+  isEditable: true 
+}
+
+// Number editor (numeric input with validation)
+{ 
+  accessor: "salary", 
+  label: "Salary", 
+  type: "number",
+  isEditable: true 
+}
+
+// Boolean editor (checkbox)
+{ 
+  accessor: "isActive", 
+  label: "Active", 
+  type: "boolean",
+  isEditable: true 
+}
+
+// Date editor (date picker)
+{ 
+  accessor: "hireDate", 
+  label: "Hire Date", 
+  type: "date",
+  isEditable: true 
+}
+
+// Enum editor (dropdown with options)
+{ 
+  accessor: "role", 
+  label: "Role", 
+  type: "enum",
+  isEditable: true,
+  enumOptions: [
+    { label: "Developer", value: "Developer" },
+    { label: "Designer", value: "Designer" },
+    { label: "Manager", value: "Manager" }
+  ]
+}`,
+  },
+  {
+    key: "onCellEdit",
+    name: "onCellEdit",
+    required: false,
+    description:
+      "Callback function that is triggered when a cell value is edited. Receives the cell change properties including accessor, newValue, and row data.",
+    type: "(props: CellChangeProps) => void",
+    link: "/docs/api-reference#cell-change-props",
+    example: `const handleCellEdit = (props) => {
+  console.log('Column:', props.accessor);
+  console.log('New Value:', props.newValue);
+  console.log('Row Data:', props.row);
+  
+  // Update your data state
+  setData(prevData => 
+    prevData.map(row => 
+      row.id === props.row.id 
+        ? { ...row, [props.accessor]: props.newValue }
+        : row
+    )
+  );
+};
+
+<SimpleTable 
+  onCellEdit={handleCellEdit}
+  // ... other props
+/>`,
+  },
+];
 
 export default function CellEditingContent() {
   return (
@@ -86,23 +184,7 @@ export default function CellEditingContent() {
           </li>
         </ol>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Cell Editing Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                isEditable: true
-              </code>
-              : Makes a column editable
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                onCellEdit
-              </code>
-              : Callback function to handle cell edits
-            </li>
-          </ul>
-        </div>
+        <PropTable props={CELL_EDITING_PROPS} title="Cell Editing Properties" />
 
         {/* Copy-Paste Functionality Section */}
         <motion.h2
@@ -152,88 +234,6 @@ export default function CellEditingContent() {
               will accept the pasted values. This ensures data integrity and prevents accidental
               modification of read-only columns like IDs or calculated fields.
             </p>
-          </div>
-        </motion.div>
-
-        {/* Specialized Editors Section */}
-        <motion.h2
-          className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          Specialized Editors
-        </motion.h2>
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.6 }}
-        >
-          <p className="text-gray-700 dark:text-gray-300 mb-4">
-            Simple Table provides specialized editors for different data types, making it more
-            user-friendly than competitors:
-          </p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold text-gray-800 dark:text-white mb-2">String Editor</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Default text input for string values like names, descriptions, and emails.
-              </p>
-              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
-                {`type: "string"`}
-              </code>
-            </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Number Editor</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Specialized input for numeric values with validation.
-              </p>
-              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
-                {`type: "number"`}
-              </code>
-            </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Boolean Editor</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Checkbox interface for true/false values.
-              </p>
-              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
-                {`type: "boolean"`}
-              </code>
-            </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Date Editor</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Date picker interface for selecting dates. Date values must be in the format{" "}
-                <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                  YYYY-MM-DD
-                </code>
-                .
-              </p>
-              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
-                {`type: "date"`}
-              </code>
-            </div>
-
-            <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700 md:col-span-2">
-              <h3 className="font-bold text-gray-800 dark:text-white mb-2">Enum Editor</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Dropdown selector for choosing from predefined options.
-              </p>
-              <code className="block bg-gray-200 dark:bg-gray-700 p-2 mt-2 rounded text-gray-800 dark:text-gray-200 text-sm">
-                {`type: "enum",
-enumOptions: [
-  { label: "Option 1", value: "option1" },
-  { label: "Option 2", value: "option2" },
-  { label: "Option 3", value: "option3" }
-]`}
-              </code>
-            </div>
           </div>
         </motion.div>
       </motion.div>

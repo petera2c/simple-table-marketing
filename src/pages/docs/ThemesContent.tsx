@@ -6,13 +6,66 @@ import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import ThemesDemo from "@/demos/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import LivePreview from "@/components/LivePreview";
-
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, useState } from "react";
 import { Theme } from "simple-table-core";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import CodeBlock from "@/components/CodeBlock";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const THEME_PROPS: PropInfo[] = [
+  {
+    key: "theme",
+    name: "theme",
+    required: false,
+    description:
+      "Built-in theme option for styling the table. Choose from predefined themes to quickly customize your table's appearance.",
+    type: "Theme",
+    link: "/docs/api-reference#union-types",
+    enumValues: ["light", "dark", "sky", "funky", "neutral"],
+    example: `<SimpleTable
+  theme="dark"
+  // ... other props
+/>`,
+  },
+  {
+    key: "useHoverRowBackground",
+    name: "useHoverRowBackground",
+    required: false,
+    description:
+      "Enables a background color change when hovering over a row. This provides better visual feedback for users when interacting with the table.",
+    type: "boolean",
+    example: `<SimpleTable
+  useHoverRowBackground={true}  // Default
+  // ... other props
+/>`,
+  },
+  {
+    key: "useOddEvenRowBackground",
+    name: "useOddEvenRowBackground",
+    required: false,
+    description:
+      "Applies alternating background colors to odd and even rows. This makes it easier to distinguish between adjacent rows, especially in tables with many columns.",
+    type: "boolean",
+    example: `<SimpleTable
+  useOddEvenRowBackground={true}  // Default
+  // ... other props
+/>`,
+  },
+  {
+    key: "useOddColumnBackground",
+    name: "useOddColumnBackground",
+    required: false,
+    description:
+      "Applies alternating background colors to odd and even columns. This can help differentiate between adjacent columns in tables with many columns or narrow columns.",
+    type: "boolean",
+    example: `<SimpleTable
+  useOddColumnBackground={false}  // Default
+  // ... other props
+/>`,
+  },
+];
 
 export default function ThemesContent() {
   const [currentTheme, setCurrentTheme] = useState<Theme>("light");
@@ -84,17 +137,6 @@ export default function ThemesContent() {
           </code>{" "}
           prop with one of the available theme options:
         </p>
-
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Available Themes</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>light - Default light theme</li>
-            <li>dark - Dark mode theme</li>
-            <li>sky - Calm sky blue theme</li>
-            <li>funky - Bold and colorful theme</li>
-            <li>neutral - Subtle and balanced theme</li>
-          </ul>
-        </div>
       </motion.div>
 
       <motion.h2
@@ -116,41 +158,7 @@ export default function ThemesContent() {
           aspects of table appearance:
         </p>
 
-        <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Table Styling Flags</h3>
-          <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
-                useHoverRowBackground = true
-              </code>
-              <p className="mt-1">
-                Enables a background color change when hovering over a row. This provides better
-                visual feedback for users when interacting with the table. The default is{" "}
-                <strong>true</strong>.
-              </p>
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
-                useOddEvenRowBackground = true
-              </code>
-              <p className="mt-1">
-                Applies alternating background colors to odd and even rows. This makes it easier to
-                distinguish between adjacent rows, especially in tables with many columns. The
-                default is <strong>true</strong>.
-              </p>
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
-                useOddColumnBackground = false
-              </code>
-              <p className="mt-1">
-                Applies alternating background colors to odd and even columns. This can help
-                differentiate between adjacent columns in tables with many columns or narrow
-                columns. The default is <strong>false</strong>.
-              </p>
-            </li>
-          </ul>
-        </div>
+        <PropTable props={THEME_PROPS} title="Theme Configuration Options" />
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           You can use these flags together with any theme to control the visual presentation of your

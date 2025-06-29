@@ -8,6 +8,80 @@ import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const CUSTOM_ICON_PROPS: PropInfo[] = [
+  {
+    key: "sortUpIcon",
+    name: "sortUpIcon",
+    required: false,
+    description: "Custom icon component for ascending sort indicator in column headers.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  sortUpIcon={<FontAwesomeIcon icon={faCaretUp} className="text-blue-500" />}
+  // ... other props
+/>`,
+  },
+  {
+    key: "sortDownIcon",
+    name: "sortDownIcon",
+    required: false,
+    description: "Custom icon component for descending sort indicator in column headers.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  sortDownIcon={<FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />}
+  // ... other props
+/>`,
+  },
+  {
+    key: "nextIcon",
+    name: "nextIcon",
+    required: false,
+    description: "Custom icon component for pagination next button.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
+  {
+    key: "prevIcon",
+    name: "prevIcon",
+    required: false,
+    description: "Custom icon component for pagination previous button.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
+  {
+    key: "expandIcon",
+    name: "expandIcon",
+    required: false,
+    description: "Custom icon component for collapsed row groups in hierarchical data display.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
+];
 
 export default function CustomIconsContent() {
   return (
@@ -72,41 +146,7 @@ export default function CustomIconsContent() {
           SVG icons.
         </p>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Available Icon Props</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                sortUpIcon
-              </code>
-              : Icon for ascending sort
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                sortDownIcon
-              </code>
-              : Icon for descending sort
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                nextIcon
-              </code>
-              : Icon for pagination next button
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                prevIcon
-              </code>
-              : Icon for pagination previous button
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                expandIcon
-              </code>
-              : Icon for collapsed row groups
-            </li>
-          </ul>
-        </div>
+        <PropTable props={CUSTOM_ICON_PROPS} title="Available Icon Props" />
 
         <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-300 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">
@@ -139,102 +179,6 @@ export default function CustomIconsContent() {
               ) to enhance the visualization of expandable row groups.
             </li>
           </ul>
-        </div>
-      </motion.div>
-
-      {/* Usage with Different Icon Libraries */}
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Using Different Icon Libraries
-      </motion.h2>
-
-      <motion.div
-        className="mb-4"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Simple Table's icon customization is library-agnostic. Here are examples of how to use
-          different icon libraries:
-        </p>
-
-        <div className="space-y-6">
-          {/* Font Awesome Example */}
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Font Awesome</h3>
-            <CodeBlock
-              code={`import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { 
-faCaretUp, 
-faCaretDown, 
-faAngleRight, 
-faAngleLeft,
-faChevronRight,
-faChevronDown
-} from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-// other props...
-sortUpIcon={<FontAwesomeIcon icon={faCaretUp} className="text-blue-500" />}
-sortDownIcon={<FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />}
-nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
-prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
-expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-/>`}
-            />
-          </div>
-
-          {/* Material UI Icons Example */}
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Material UI Icons</h3>
-            <CodeBlock
-              code={`import ArrowUpward from "@mui/icons-material/ArrowUpward";
-import ArrowDownward from "@mui/icons-material/ArrowDownward";
-import NavigateNext from "@mui/icons-material/NavigateNext";
-import NavigateBefore from "@mui/icons-material/NavigateBefore";
-import ChevronRight from "@mui/icons-material/ChevronRight";
-import ExpandMore from "@mui/icons-material/ExpandMore";
-
-<SimpleTable
-// other props...
-sortUpIcon={<ArrowUpward className="text-blue-500" />}
-sortDownIcon={<ArrowDownward className="text-blue-500" />}
-nextIcon={<NavigateNext className="text-blue-600" />}
-prevIcon={<NavigateBefore className="text-blue-600" />}
-expandIcon={<ChevronRight className="text-blue-600" />}
-/>`}
-            />
-          </div>
-
-          {/* Custom SVG Example */}
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h3 className="font-bold text-gray-800 dark:text-white mb-2">Custom SVG Icons</h3>
-            <CodeBlock
-              code={`<SimpleTable
-// other props...
-sortUpIcon={
-<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-500">
-  <path d="M8 4l4 4H4z" />
-</svg>
-}
-sortDownIcon={
-<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-500">
-  <path d="M8 12l4-4H4z" />
-</svg>
-}
-expandIcon={
-<svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" className="text-blue-600">
-  <path d="M6 4l5 4-5 4V4z" />
-</svg>
-}
-/>`}
-            />
-          </div>
         </div>
       </motion.div>
 

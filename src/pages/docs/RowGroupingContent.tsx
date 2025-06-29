@@ -10,6 +10,54 @@ import LivePreview from "@/components/LivePreview";
 import CodeBlock from "@/components/CodeBlock";
 import { Button } from "antd";
 import { useState } from "react";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const ROW_GROUPING_PROPS: PropInfo[] = [
+  {
+    key: "expandable",
+    name: "HeaderObject.expandable",
+    required: false,
+    description:
+      "Makes a column expandable for grouping. This allows users to expand/collapse hierarchical data in that column.",
+    type: "boolean",
+    example: `{ 
+  accessor: "name", 
+  label: "Company Name", 
+  expandable: true 
+}`,
+  },
+  {
+    key: "rowGrouping",
+    name: "rowGrouping",
+    required: false,
+    description:
+      "Array of property names that define the hierarchy levels. The order determines the nesting depth (first element is level 1, second is level 2, etc.).",
+    type: "string[]",
+    example: `// Single level: companies → divisions
+<SimpleTable
+  rowGrouping={["divisions"]}
+  // ... other props
+/>
+
+// Multi-level: companies → divisions → departments  
+<SimpleTable
+  rowGrouping={["divisions", "departments"]}
+  // ... other props
+/>`,
+  },
+  {
+    key: "expandAll",
+    name: "expandAll",
+    required: false,
+    description:
+      "When true, all grouped rows are expanded by default on table load. When false, rows start collapsed.",
+    type: "boolean",
+    example: `<SimpleTable
+  expandAll={true}  // Default: all groups expanded
+  // ... other props
+/>`,
+  },
+];
 
 const RowGroupingContent = () => {
   const [expandAll, setExpandAll] = useState(true);
@@ -91,13 +139,7 @@ const RowGroupingContent = () => {
             </code>{" "}
             prop to specify which array properties define the hierarchy
           </li>
-          <li>
-            Add{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              rowIdAccessor
-            </code>{" "}
-            to specify the unique identifier field
-          </li>
+
           <li>
             Add{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
@@ -107,35 +149,7 @@ const RowGroupingContent = () => {
           </li>
         </ol>
 
-        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Key Properties</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                expandable: true
-              </code>
-              : Makes a column expandable for grouping
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                rowGrouping
-              </code>
-              : Array of property names that define the hierarchy levels
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                rowIdAccessor
-              </code>
-              : Property name to use as the unique identifier
-            </li>
-            <li>
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-                expandAll
-              </code>
-              : When true, all grouped rows are expanded by default on table load (default: true)
-            </li>
-          </ul>
-        </div>
+        <PropTable props={ROW_GROUPING_PROPS} title="Row Grouping Properties" />
       </motion.div>
 
       <motion.h2

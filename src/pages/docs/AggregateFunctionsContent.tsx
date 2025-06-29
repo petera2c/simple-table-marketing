@@ -7,6 +7,71 @@ import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const AGGREGATION_SETUP_PROPS: PropInfo[] = [
+  {
+    key: "aggregation",
+    name: "HeaderObject.aggregation",
+    required: false,
+    description:
+      "Configuration object for aggregation functions that automatically calculate summary values for grouped data. Supports built-in types (sum, average, count, min, max) and custom functions.",
+    type: "AggregationConfig",
+    link: "/docs/api-reference#aggregation-config",
+    enumValues: ["sum", "average", "count", "min", "max", "custom"],
+    example: `// Sum aggregation - totals all numeric values
+{
+  accessor: "budget",
+  label: "Budget", 
+  aggregation: { type: "sum" }
+}
+
+// Average aggregation - computes arithmetic mean
+{
+  accessor: "rating",
+  label: "Rating", 
+  aggregation: { type: "average" }
+}
+
+// Count aggregation - counts non-null values
+{
+  accessor: "projects",
+  label: "Projects", 
+  aggregation: { type: "count" }
+}
+
+// Min/Max aggregation - finds extremes
+{
+  accessor: "score",
+  label: "Score", 
+  aggregation: { type: "max" }
+}
+
+// Custom aggregation with value parsing
+{
+  accessor: "budget",
+  label: "Budget", 
+  aggregation: {
+    type: "sum",
+    parseValue: (val) => parseFloat(val.replace(/[^0-9.-]/g, '')),
+    formatResult: (val) => '$' + val.toLocaleString()
+  }
+}
+
+// Custom function aggregation
+{
+  accessor: "performance",
+  label: "Performance", 
+  aggregation: {
+    type: "custom",
+    customFn: (values) => {
+      const sum = values.reduce((acc, val) => acc + parseFloat(val), 0);
+      return Math.round((sum / values.length) * 10) / 10;
+    }
+  }
+}`,
+  },
+];
 
 const AggregateFunctionsContent = () => {
   return (
@@ -71,17 +136,7 @@ const AggregateFunctionsContent = () => {
           automatically calculate summary values for each group level.
         </p>
 
-        <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
-            Aggregation Configuration
-          </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>Works seamlessly with row grouping to calculate values at each hierarchy level</li>
-            <li>Supports both numeric and string data with optional value parsing</li>
-            <li>Custom cell renderers can format aggregated values differently from source data</li>
-            <li>Automatic recalculation when underlying data changes</li>
-          </ul>
-        </div>
+        <PropTable props={AGGREGATION_SETUP_PROPS} title="Aggregation Configuration" />
 
         <motion.h2
           className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
