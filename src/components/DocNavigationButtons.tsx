@@ -7,64 +7,11 @@ import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { getAllDocPages, getPathToLabelMap } from "@/constants/docsNavigation";
 
-// This should match the structure in DocsLayout.tsx
-const docNavigation = [
-  // Getting Started
-  { id: "installation", path: "/docs/installation" },
-  { id: "quick-start", path: "/docs/quick-start" },
-
-  // Column Features
-  { id: "column-resizing", path: "/docs/column-resizing" },
-  { id: "column-reordering", path: "/docs/column-reordering" },
-  { id: "column-visibility", path: "/docs/column-visibility" },
-  { id: "column-pinning", path: "/docs/column-pinning" },
-  { id: "column-alignment", path: "/docs/column-alignment" },
-  { id: "column-sorting", path: "/docs/column-sorting" },
-  { id: "column-filtering", path: "/docs/column-filtering" },
-  { id: "nested-headers", path: "/docs/nested-headers" },
-
-  // Row Features
-  { id: "row-grouping", path: "/docs/row-grouping" },
-  { id: "row-height", path: "/docs/row-height" },
-
-  // Cell Features
-  { id: "cell-editing", path: "/docs/cell-editing" },
-  { id: "cell-highlighting", path: "/docs/cell-highlighting" },
-  { id: "cell-renderer", path: "/docs/cell-renderer" },
-
-  // Advanced Features
-  { id: "pagination", path: "/docs/pagination" },
-  { id: "live-updates", path: "/docs/live-updates" },
-
-  // Customization
-  { id: "themes", path: "/docs/themes" },
-  { id: "custom-icons", path: "/docs/custom-icons" },
-  { id: "custom-theme", path: "/docs/custom-theme" },
-];
-
-// Map paths to labels for more readable navigation buttons
-const pathToLabel: Record<string, string> = {
-  "/docs/installation": "Installation",
-  "/docs/quick-start": "Quick Start",
-  "/docs/column-resizing": "Column Resizing",
-  "/docs/column-reordering": "Column Reordering",
-  "/docs/column-visibility": "Column Visibility",
-  "/docs/column-pinning": "Column Pinning",
-  "/docs/column-alignment": "Column Alignment",
-  "/docs/column-sorting": "Column Sorting",
-  "/docs/column-filtering": "Column Filtering",
-  "/docs/nested-headers": "Nested Headers",
-  "/docs/row-grouping": "Row Grouping",
-  "/docs/row-height": "Row Height",
-  "/docs/cell-editing": "Cell Editing",
-  "/docs/cell-highlighting": "Cell Highlighting",
-  "/docs/cell-renderer": "Cell Renderer",
-  "/docs/pagination": "Pagination",
-  "/docs/themes": "Themes",
-  "/docs/custom-icons": "Custom Icons",
-  "/docs/custom-theme": "Custom Theme",
-};
+// Get the navigation structure and labels from shared config
+const docNavigation = getAllDocPages();
+const pathToLabel = getPathToLabelMap();
 
 /**
  * Component for rendering dynamic next/previous navigation buttons based on the docs structure
