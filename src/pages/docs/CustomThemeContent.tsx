@@ -8,6 +8,31 @@ import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const CUSTOM_THEME_PROPS: PropInfo[] = [
+  {
+    key: "theme",
+    name: "theme",
+    required: false,
+    description:
+      'Set to "custom" to apply your custom CSS theme. Requires a corresponding CSS file with .theme-custom class and CSS variables.',
+    type: "enum",
+    link: "/docs/api-reference#union-types",
+    example: `// Apply custom theme
+<SimpleTable
+  theme="custom"
+  // ... other props
+/>
+
+// With custom CSS file containing:
+// .theme-custom {
+//   --st-primary-color: #your-color;
+//   --st-background-color: #your-bg;
+//   /* ... other CSS variables */
+// }`,
+  },
+];
 
 export default function CustomThemeContent() {
   return (
@@ -85,6 +110,8 @@ export default function CustomThemeContent() {
             to the SimpleTable component
           </li>
         </ol>
+
+        <PropTable props={CUSTOM_THEME_PROPS} title="Custom Theme Configuration" />
 
         <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Theme Variable Tips</h3>

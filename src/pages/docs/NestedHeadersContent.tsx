@@ -7,6 +7,43 @@ import NestedHeadersDemo from "@/demos/NestedHeadersDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
+import PropTable, { type PropInfo } from "@/components/PropTable";
+
+const NESTED_HEADERS_PROPS: PropInfo[] = [
+  {
+    key: "children",
+    name: "HeaderObject.children",
+    required: false,
+    description:
+      "Array of child column definitions that will be grouped under this parent header. Creates a hierarchical column structure.",
+    type: "HeaderObject[]",
+    link: "/docs/api-reference#header-object",
+    example: `// Parent header with child columns
+{
+  label: "Test Scores",
+  children: [
+    { 
+      accessor: "math", 
+      label: "Math", 
+      width: 80,
+      type: "number" 
+    },
+    { 
+      accessor: "science", 
+      label: "Science", 
+      width: 80,
+      type: "number" 
+    },
+    { 
+      accessor: "english", 
+      label: "English", 
+      width: 80,
+      type: "number" 
+    }
+  ]
+}`,
+  },
+];
 
 export default function NestedHeadersContent() {
   return (
@@ -68,6 +105,8 @@ export default function NestedHeadersContent() {
           </code>{" "}
           array to your parent header object, containing the child column definitions:
         </p>
+
+        <PropTable props={NESTED_HEADERS_PROPS} title="Nested Headers Configuration" />
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6 mt-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">
