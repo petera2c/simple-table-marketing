@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AggregateFunctionsDemo from "@/demos/AggregateFunctionsDemo";
+import AggregateFunctionsDemo from "@/components/demos/AggregateFunctionsDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";

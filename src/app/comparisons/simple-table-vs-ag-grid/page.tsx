@@ -1,4 +1,4 @@
-import SimpleTableVsAgGridContent from "@/pages/comparisons/SimpleTableVsAgGridContent";
+import SimpleTableVsAgGridContent from "@/components/pages/comparisons/SimpleTableVsAgGridContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

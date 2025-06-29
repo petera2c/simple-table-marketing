@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ColumnFilteringDemo from "@/demos/ColumnFilteringDemo";
+import ColumnFilteringDemo from "@/components/demos/ColumnFilteringDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";

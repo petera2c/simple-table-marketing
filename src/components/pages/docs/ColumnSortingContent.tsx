@@ -1,42 +1,31 @@
 "use client";
+
 import { motion } from "framer-motion";
-import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import ColumnPinningDemo from "@/demos/ColumnPinningDemo";
+import { faSort } from "@fortawesome/free-solid-svg-icons";
+import ColumnSortingDemo from "@/components/demos/ColumnSortingDemo";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
-const COLUMN_PINNING_PROPS: PropInfo[] = [
+const COLUMN_SORTING_PROPS: PropInfo[] = [
   {
-    key: "pinned",
-    name: "HeaderObject.pinned",
+    key: "isSortable",
+    name: "HeaderObject.isSortable",
     required: false,
     description:
-      "Pins the column to the left or right side of the table, keeping it visible during horizontal scrolling.",
-    type: "enum",
-    link: "/docs/api-reference#union-types",
-    enumValues: ["left", "right"],
-    example: `// Pin to left side
-{ 
-  accessor: "id", 
-  label: "ID", 
-  pinned: "left",
-  width: 80
-}
-
-// Pin to right side
-{ 
-  accessor: "actions", 
-  label: "Actions", 
-  pinned: "right",
-  width: 120
+      "Enables sorting functionality for the column. When true, users can click the column header to sort data.",
+    type: "boolean",
+    example: `{ 
+  accessor: "name", 
+  label: "Full Name", 
+  isSortable: true 
 }`,
   },
 ];
 
-const ColumnPinningContent = () => {
+const ColumnSortingContent = () => {
   return (
     <>
       <motion.div
@@ -46,9 +35,9 @@ const ColumnPinningContent = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="p-2 bg-blue-100 rounded-lg">
-          <FontAwesomeIcon icon={faThumbtack} className="text-blue-600 text-2xl" />
+          <FontAwesomeIcon icon={faSort} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Pinning</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Sorting</h1>
       </motion.div>
 
       <motion.p
@@ -57,9 +46,8 @@ const ColumnPinningContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Column pinning (also known as freezing or sticking) allows you to keep important columns
-        visible while horizontally scrolling through wide tables, making it easier to maintain
-        context.
+        Column sorting allows users to organize table data in ascending or descending order based on
+        column values. This feature is essential for data analysis and quick information retrieval.
       </motion.p>
 
       <motion.div
@@ -69,10 +57,10 @@ const ColumnPinningContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnPinningDemo.txt"
+          demoCodeFilename="ColumnSortingDemo.txt"
           height="400px"
-          link={SANDBOX_LIST["ColumnPinningDemo.tsx"].url}
-          Preview={ColumnPinningDemo}
+          link={SANDBOX_LIST["ColumnSortingDemo.tsx"].url}
+          Preview={ColumnSortingDemo}
         />
       </motion.div>
 
@@ -82,23 +70,24 @@ const ColumnPinningContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Basic Implementation
+        Basic Sorting
       </motion.h2>
 
       <motion.div
+        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          To pin columns, simply add the{" "}
+          To enable sorting for a column, add the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            pinned
+            isSortable: true
           </code>{" "}
-          property to your header objects:
+          property to your column definition.
         </p>
 
-        <PropTable props={COLUMN_PINNING_PROPS} title="Column Pinning Configuration" />
+        <PropTable props={COLUMN_SORTING_PROPS} title="Column Sorting Configuration" />
       </motion.div>
 
       <DocNavigationButtons />
@@ -106,4 +95,4 @@ const ColumnPinningContent = () => {
   );
 };
 
-export default ColumnPinningContent;
+export default ColumnSortingContent;

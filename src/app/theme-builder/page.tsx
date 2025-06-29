@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import ThemeBuilderContent from "@/pages/ThemeBuilderContent";
+import ThemeBuilderContent from "@/components/pages/ThemeBuilderContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.themeBuilder.title,

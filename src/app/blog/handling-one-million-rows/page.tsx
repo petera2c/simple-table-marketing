@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
-import HandlingOneMillionRowsContent from "@/pages/HandlingOneMillionRowsContent";
+import HandlingOneMillionRowsContent from "@/components/pages/HandlingOneMillionRowsContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.handlingOneMillionRows.title,

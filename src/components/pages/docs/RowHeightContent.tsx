@@ -2,29 +2,42 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ColumnResizingDemo from "@/demos/ColumnResizingDemo";
+import { faArrowsUpDown } from "@fortawesome/free-solid-svg-icons";
+import RowHeightDemo from "@/components/demos/RowHeightDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
-import { faLeftRight } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
-const COLUMN_RESIZING_PROPS: PropInfo[] = [
+const ROW_HEIGHT_PROPS: PropInfo[] = [
   {
-    key: "columnResizing",
-    name: "columnResizing",
+    key: "rowHeight",
+    name: "rowHeight",
     required: false,
     description:
-      "Enables column resizing functionality. When true, users can resize columns by dragging the column dividers in the header row.",
-    type: "boolean",
-    example: `<SimpleTable
-  columnResizing={true}
+      "Sets the height of all rows in the table. Accepts a numeric value representing pixels.",
+    type: "number",
+    example: `// Standard row height
+<SimpleTable
+  rowHeight={40}
+  // ... other props
+/>
+
+// Compact rows
+<SimpleTable
+  rowHeight={32}
+  // ... other props
+/>
+
+// Large rows for better readability
+<SimpleTable
+  rowHeight={56}
   // ... other props
 />`,
   },
 ];
 
-const ColumnResizingContent = () => {
+export default function RowHeightContent() {
   return (
     <>
       <motion.div
@@ -34,9 +47,9 @@ const ColumnResizingContent = () => {
         transition={{ duration: 0.5 }}
       >
         <div className="p-2 bg-blue-100 rounded-lg">
-          <FontAwesomeIcon icon={faLeftRight} className="text-blue-600 text-2xl" />
+          <FontAwesomeIcon icon={faArrowsUpDown} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Resizing</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Row Height</h1>
       </motion.div>
 
       <motion.p
@@ -45,21 +58,22 @@ const ColumnResizingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Column resizing allows users to adjust column widths to better view and interact with data
-        according to their preferences.
+        The Simple Table component allows you to customize the height of rows to accommodate
+        different types of content and design requirements. This page explains how to configure and
+        use the row height feature.
       </motion.p>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnResizingDemo.txt"
+          demoCodeFilename="RowHeightDemo.txt"
           height="400px"
-          link={SANDBOX_LIST["ColumnResizingDemo.tsx"].url}
-          Preview={ColumnResizingDemo}
+          link={SANDBOX_LIST["RowHeightDemo.tsx"].url}
+          Preview={RowHeightDemo}
         />
       </motion.div>
 
@@ -69,29 +83,27 @@ const ColumnResizingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Basic Implementation
+        Using Row Height
       </motion.h2>
 
       <motion.div
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Column resizing is enabled by adding the{" "}
+          You can specify the height of rows in a Simple Table using the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            columnResizing
+            rowHeight
           </code>{" "}
-          prop to the SimpleTable component. Users can resize columns by dragging the column
-          dividers in the header row.
+          property. This property accepts a numeric value representing the height in pixels.
         </p>
 
-        <PropTable props={COLUMN_RESIZING_PROPS} title="Column Resizing Configuration" />
+        <PropTable props={ROW_HEIGHT_PROPS} title="Row Height Configuration" />
       </motion.div>
 
       <DocNavigationButtons />
     </>
   );
-};
-
-export default ColumnResizingContent;
+}

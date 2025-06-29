@@ -1,4 +1,4 @@
-import HomeContent from "@/pages/HomeContent";
+import HomeContent from "@/components/pages/HomeContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

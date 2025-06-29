@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faIcons } from "@fortawesome/free-solid-svg-icons";
-import CustomIconsDemo from "@/demos/CustomIconsDemo";
+import CustomIconsDemo from "@/components/demos/CustomIconsDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";

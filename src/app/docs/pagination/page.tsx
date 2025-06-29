@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import PaginationContent from "@/pages/docs/PaginationContent";
+import PaginationContent from "@/components/pages/docs/PaginationContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.pagination.title,

@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ColumnVisibilityContent from "@/pages/docs/ColumnVisibilityContent";
+import ColumnVisibilityContent from "@/components/pages/docs/ColumnVisibilityContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

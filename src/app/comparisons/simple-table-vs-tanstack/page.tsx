@@ -1,4 +1,4 @@
-import SimpleTableVsTanstackContent from "@/pages/comparisons/SimpleTableVsTanstackContent";
+import SimpleTableVsTanstackContent from "@/components/pages/comparisons/SimpleTableVsTanstackContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

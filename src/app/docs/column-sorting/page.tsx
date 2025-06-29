@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ColumnSortingContent from "@/pages/docs/ColumnSortingContent";
+import ColumnSortingContent from "@/components/pages/docs/ColumnSortingContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

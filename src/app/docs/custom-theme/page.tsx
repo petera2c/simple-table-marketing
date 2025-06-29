@@ -1,4 +1,4 @@
-import CustomThemeContent from "@/pages/docs/CustomThemeContent";
+import CustomThemeContent from "@/components/pages/docs/CustomThemeContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

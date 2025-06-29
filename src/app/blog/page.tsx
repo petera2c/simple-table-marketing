@@ -2,7 +2,7 @@ import React from "react";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
-import BlogPageContent from "@/pages/BlogPageContent";
+import BlogPageContent from "@/components/pages/BlogPageContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blog.title,
