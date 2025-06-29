@@ -28,6 +28,7 @@ const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
     >
       <QueryProvider>
         <div
+          id="main-scroll-container"
           className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
           ref={scrollRef}
         >

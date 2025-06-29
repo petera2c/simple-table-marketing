@@ -228,6 +228,20 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, quick start, typescript table, setup guide",
   },
+  apiReference: {
+    title: "Simple Table API Reference: React Grid Props",
+    description:
+      "Complete API reference for Simple Table props and HeaderObject configuration. All react-table props for datagrids and data tables with TypeScript support.",
+    keywords:
+      "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, api reference, props reference, typescript table, documentation",
+  },
+  aggregateFunctions: {
+    title: "Aggregate Functions in Simple Table React Grid",
+    description:
+      "Add aggregate functions to your react-table with Simple Table. Sum, count, average, and more in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, aggregate functions, table aggregation, typescript table, data summary",
+  },
   rowGrouping: {
     title: "Row Grouping in Simple Table React Grid",
     description:
@@ -235,6 +249,7 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, row grouping, hierarchical data, typescript table, data organization",
   },
+
   rowHeight: {
     title: "Row Height in Simple Table React Grid",
     description:

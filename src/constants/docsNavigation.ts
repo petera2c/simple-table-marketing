@@ -6,7 +6,6 @@ import {
   faEdit,
   faSort,
   faLayerGroup,
-  faExpand,
   faPager,
   faTableCells,
   faRocket,
@@ -25,6 +24,7 @@ import {
   faBolt,
   faCalculator,
   faFilter,
+  faBook,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -52,6 +52,7 @@ export const docSections: DocSection[] = [
     subsections: [
       { id: "installation", label: "Installation", path: "/docs/installation", icon: faDownload },
       { id: "quick-start", label: "Quick Start", path: "/docs/quick-start", icon: faRocket },
+      { id: "api-reference", label: "API Reference", path: "/docs/api-reference", icon: faBook },
     ],
   },
   {
