@@ -61,21 +61,21 @@ function ExamplesNavigationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
-  const currentTheme = (searchParams.get("theme") as Theme) || theme;
+  const currentTheme = (searchParams?.get("theme") as Theme) || theme;
 
   // Determine current active example
   const currentPath = pathname;
   const currentExample =
-    examples.find((example) => currentPath.includes(example.id)) || examples[0];
+    examples.find((example) => currentPath?.includes(example.id)) || examples[0];
 
   const handleLinkClick = (linkPath: string) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() || "");
 
     router.push(`${linkPath}?${params.toString()}`);
   };
 
   const handleThemeChange = (theme: Theme) => {
-    const params = new URLSearchParams(searchParams.toString());
+    const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", theme);
     router.push(`${pathname}?${params.toString()}`);
   };

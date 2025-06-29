@@ -7,7 +7,7 @@ import { Theme } from "simple-table-core";
 const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const searchParams = useSearchParams();
   const { theme: websiteMode } = useThemeContext();
-  const theme = (searchParams.get("theme") as Theme) || websiteMode;
+  const theme = (searchParams?.get("theme") as Theme) || websiteMode;
 
   return (
     <>
