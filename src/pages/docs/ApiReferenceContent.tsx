@@ -7,11 +7,13 @@ import { useState } from "react";
 import { Table, Tag, Space, Button, Typography } from "antd";
 import { DownOutlined, RightOutlined } from "@ant-design/icons";
 import type { ColumnsType } from "antd/es/table";
+import Link from "next/link";
 
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import { HEADER_HEIGHT } from "@/constants/global";
 
-const { Text, Title } = Typography;
+const { Text } = Typography;
 
 interface PropInfo {
   key: string;
@@ -21,186 +23,202 @@ interface PropInfo {
   type?: string;
   enumValues?: string[];
   example?: string;
+  link?: string;
 }
 
-interface TypeDefinition {
-  key: string;
-  name: string;
-  description: string;
-  definition: string;
-  example?: string;
-}
-
-const TYPE_DEFINITIONS: TypeDefinition[] = [
+// Union type definitions
+const UNION_TYPE_DEFINITIONS: PropInfo[] = [
+  {
+    key: "cellvalue",
+    name: "CellValue",
+    required: false,
+    description: "Valid data types that can be stored in a table cell.",
+    type: "string | number | boolean | undefined | null",
+    example: `const name: CellValue = "John Doe";     // string
+const age: CellValue = 30;              // number
+const isActive: CellValue = true;       // boolean
+const score: CellValue = null;          // null
+const description: CellValue = undefined; // undefined`,
+  },
   {
     key: "theme",
     name: "Theme",
+    required: false,
     description: "Built-in theme options for styling the table.",
-    definition: `type Theme = "light" | "dark" | "sky" | "funky" | "neutral" | "custom";`,
-    example: `// Use a built-in theme
-theme="dark"
+    type: '"light" | "dark" | "sky" | "funky" | "neutral" | "custom"',
+    example: `theme="dark"
 theme="sky"
-
-// Or create custom theme
 theme="custom"`,
   },
   {
-    key: "enumOption",
-    name: "EnumOption",
-    description: "Configuration object for enum column dropdown options.",
-    definition: `type EnumOption = {
-  label: string;  // Display text
-  value: string;  // Actual value
-};`,
-    example: `enumOptions: [
-  { label: "Active", value: "active" },
-  { label: "Inactive", value: "inactive" },
-  { label: "Pending", value: "pending" }
-]`,
-  },
-  {
-    key: "aggregationType",
+    key: "aggregationtype",
     name: "AggregationType",
+    required: false,
     description: "Available aggregation functions for grouped data.",
-    definition: `type AggregationType = "sum" | "average" | "count" | "min" | "max" | "custom";`,
+    type: '"sum" | "average" | "count" | "min" | "max" | "custom"',
     example: `aggregation: {
-  type: "sum",     // Sum all values
-  type: "average", // Calculate average
-  type: "count",   // Count rows
-  type: "custom"   // Custom function
+  type: "sum"     // Sum all values
+}
+aggregation: {
+  type: "custom"  // Custom function
 }`,
   },
   {
     key: "pinned",
     name: "Pinned",
+    required: false,
     description: "Column pinning position options.",
-    definition: `type Pinned = "left" | "right";`,
-    example: `// Pin to left side
-pinned: "left"
-
-// Pin to right side  
-pinned: "right"`,
+    type: '"left" | "right"',
+    example: `pinned: "left"   // Pin to left side
+pinned: "right"  // Pin to right side`,
   },
   {
-    key: "aggregationConfig",
-    name: "AggregationConfig",
-    description: "Configuration object for column aggregation functions.",
-    definition: `type AggregationConfig = {
-  type: AggregationType;
-  customFunction?: (values: any[]) => any;
-  label?: string;
-};`,
-    example: `aggregation: {
-  type: "sum",
-  label: "Total Sales"
-}
-
-// Custom aggregation
-aggregation: {
-  type: "custom",
-  customFunction: (values) => values.length,
-  label: "Row Count"
-}`,
-  },
-  {
-    key: "headerObject",
-    name: "HeaderObject",
-    description:
-      "Complete column configuration object. See HeaderObject props table above for all available properties.",
-    definition: `type HeaderObject = {
-  accessor: string;
-  label: string;
-  width: number | string;
-  // ... plus all optional properties
-  // See HeaderObject table above for details
-};`,
-    example: `const header: HeaderObject = {
-  accessor: "name",
-  label: "Full Name", 
-  width: "1fr",
-  type: "string",
-  isSortable: true,
-  filterable: true
-}`,
+    key: "columneditorposition",
+    name: "ColumnEditorPosition",
+    required: false,
+    description: "Position options for the column editor panel.",
+    type: '"left" | "right"',
+    example: `columnEditorPosition="left"
+columnEditorPosition="right"`,
   },
   {
     key: "row",
     name: "Row",
+    required: false,
     description:
-      "Data object representing a single table row. Can contain any properties matching your column accessors.",
-    definition: `type Row = Record<string, any>;`,
+      "Data object representing a single table row. Can contain cell values or nested row arrays for hierarchical data.",
+    type: "Record<string, CellValue | Row[]>",
     example: `const row: Row = {
   id: 1,
   name: "John Doe",
   age: 30,
   status: "active",
-  // ... any other properties
+  // Nested rows for hierarchical data
+  children: [
+    { id: 2, name: "Child Row", parentId: 1 }
+  ]
 }`,
   },
-  {
-    key: "columnEditorPosition",
-    name: "ColumnEditorPosition",
-    description: "Position options for the column editor panel.",
-    definition: `type ColumnEditorPosition = "left" | "right";`,
-    example: `columnEditorPosition="right"`,
-  },
-  {
-    key: "cellChangeProps",
-    name: "CellChangeProps",
-    description: "Event data passed to the onCellEdit callback when a cell is edited.",
-    definition: `type CellChangeProps = {
-  rowIndex: number;
-  accessor: string;
-  oldValue: any;
-  newValue: any;
-  row: Row;
-};`,
-    example: `onCellEdit={(props: CellChangeProps) => {
-  console.log('Cell changed:', props.newValue);
-  console.log('Row:', props.row);
-}}`,
-  },
-  {
-    key: "filterCondition",
-    name: "FilterCondition",
-    description: "Filter configuration object passed to the onFilterChange callback.",
-    definition: `type FilterCondition = {
-  accessor: string;
-  operator: string;
-  value: any;
-  type: string;
-};`,
-    example: `onFilterChange={(filter: FilterCondition) => {
-  console.log('Filter applied:', filter);
-  // Handle external filtering logic
-}}`,
-  },
-  {
-    key: "onNextPage",
-    name: "OnNextPage",
-    description: "Callback function type for custom pagination handling.",
-    definition: `type OnNextPage = (direction: "next" | "prev") => void;`,
-    example: `onNextPage={(direction: OnNextPage) => {
-  if (direction === "next") {
-    // Load next page
-  } else {
-    // Load previous page  
-  }
-}}`,
-  },
-  {
-    key: "reactNode",
-    name: "ReactNode",
-    description: "Any valid React element, string, number, or array of React elements.",
-    definition: `type ReactNode = React.ReactElement | string | number | React.ReactNodeArray | null | undefined;`,
-    example: `// String
-expandIcon=">"
+];
 
-// React element
-expandIcon={<ChevronDownIcon />}
+const ENUM_OPTION_PROPS: PropInfo[] = [
+  {
+    key: "label",
+    name: "label",
+    required: true,
+    description: "Display text shown in the dropdown",
+    type: "string",
+    example: `{ label: "Active" }`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "Actual value stored in the data",
+    type: "string",
+    example: `{ value: "active" }`,
+  },
+];
 
-// Custom JSX
-nextIcon={<span>Next →</span>}`,
+const AGGREGATION_CONFIG_PROPS: PropInfo[] = [
+  {
+    key: "type",
+    name: "type",
+    required: true,
+    description: "The aggregation function to use",
+    type: "AggregationType",
+    link: "#union-types",
+    example: `{ type: "sum" }`,
+  },
+  {
+    key: "parseValue",
+    name: "parseValue",
+    required: false,
+    description: "Function to parse string values to numbers (e.g., '$15.0M' to 15000000)",
+    type: "(value: any) => number",
+    example: `parseValue: (val) => parseFloat(val.replace(/[^0-9.-]/g, ''))`,
+  },
+  {
+    key: "formatResult",
+    name: "formatResult",
+    required: false,
+    description: "Function to format the aggregated result back to string",
+    type: "(value: number) => string",
+    example: `formatResult: (val) => '$' + val.toLocaleString()`,
+  },
+  {
+    key: "customFn",
+    name: "customFn",
+    required: false,
+    description: "Custom aggregation function (only when type is 'custom')",
+    type: "(values: any[]) => any",
+    example: `customFn: (values) => values.filter(v => v > 0).length`,
+  },
+];
+
+const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key that was edited",
+    type: "string",
+    example: `props.accessor // "firstName"`,
+  },
+  {
+    key: "newValue",
+    name: "newValue",
+    required: true,
+    description: "The new value after editing",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.newValue // "John Doe"`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that was edited",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+];
+
+const FILTER_CONDITION_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key being filtered",
+    type: "string",
+    example: `{ accessor: "age" }`,
+  },
+  {
+    key: "operator",
+    name: "operator",
+    required: true,
+    description: "The filter operation to perform",
+    type: "FilterOperator",
+    example: `{ operator: "greaterThan" }`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: false,
+    description: "Single value for most filter operations",
+    type: "CellValue",
+    link: "#union-types",
+    example: `{ value: 25 }`,
+  },
+  {
+    key: "values",
+    name: "values",
+    required: false,
+    description: "Array of values for 'between', 'in', etc. operations",
+    type: "CellValue[]",
+    link: "#union-types",
+    example: `{ values: [18, 65] } // for between filter`,
   },
 ];
 
@@ -211,6 +229,7 @@ const SIMPLE_TABLE_PROPS: PropInfo[] = [
     required: true,
     description: "Array of column definitions that specify the structure of your table.",
     type: "HeaderObject[]",
+    link: "#header-object",
     example: `const headers = [
   { accessor: "id", label: "ID", width: 80 },
   { accessor: "name", label: "Name", width: "1fr" }
@@ -222,6 +241,7 @@ const SIMPLE_TABLE_PROPS: PropInfo[] = [
     required: true,
     description: "Array of data objects to display in the table. Each object represents a row.",
     type: "Row[]",
+    link: "#union-types",
     example: `const data = [
   { id: 1, name: "John Doe", age: 30 },
   { id: 2, name: "Jane Smith", age: 25 }
@@ -382,6 +402,7 @@ rowHeight={48}`,
     required: false,
     description: "Theme configuration for the table styling.",
     type: "Theme",
+    link: "#union-types",
     example: `theme={{
   primaryColor: "#1890ff",
   backgroundColor: "#ffffff"
@@ -526,6 +547,7 @@ minWidth: "100px"`,
     description: "Pin this column to left or right side.",
     type: "Pinned",
     enumValues: ["left", "right"],
+    link: "#union-types",
     example: `pinned: "left"`,
   },
   {
@@ -534,6 +556,7 @@ minWidth: "100px"`,
     required: false,
     description: "Child columns for nested header structure.",
     type: "HeaderObject[]",
+    link: "#header-object",
     example: `children: [
   { accessor: "firstName", label: "First", width: 100 },
   { accessor: "lastName", label: "Last", width: 100 }
@@ -545,6 +568,7 @@ minWidth: "100px"`,
     required: false,
     description: "Options for enum type columns (dropdown values).",
     type: "EnumOption[]",
+    link: "#enumoption-type",
     example: `enumOptions: [
   { value: "active", label: "Active" },
   { value: "inactive", label: "Inactive" }
@@ -595,17 +619,30 @@ const PropTable = ({ props, title }: { props: PropInfo[]; title: string }) => {
           >
             {name}
           </Text>
-          {record.type && (
-            <Text
-              type="secondary"
-              style={{
-                fontSize: "11px",
-                fontStyle: "italic",
-              }}
-            >
-              {record.type}
-            </Text>
-          )}
+          {record.type &&
+            (record.link ? (
+              <Link
+                href={record.link}
+                style={{
+                  fontSize: "11px",
+                  fontStyle: "italic",
+                  color: "#1890ff",
+                  textDecoration: "underline",
+                }}
+              >
+                {record.type}
+              </Link>
+            ) : (
+              <Text
+                type="secondary"
+                style={{
+                  fontSize: "11px",
+                  fontStyle: "italic",
+                }}
+              >
+                {record.type}
+              </Text>
+            ))}
         </Space>
       ),
     },
@@ -702,106 +739,6 @@ const PropTable = ({ props, title }: { props: PropInfo[]; title: string }) => {
   );
 };
 
-const TypeDefinitionsTable = () => {
-  const [expandedRows, setExpandedRows] = useState<string[]>([]);
-
-  const columns = [
-    {
-      title: "Type Name",
-      dataIndex: "name",
-      key: "name",
-      width: 200,
-      render: (name: string, record: TypeDefinition) => (
-        <div id={record.key}>
-          <Text
-            code
-            style={{
-              fontSize: "16px",
-              fontWeight: 600,
-              color: "#1890ff",
-            }}
-          >
-            {name}
-          </Text>
-        </div>
-      ),
-    },
-    {
-      title: "Description",
-      dataIndex: "description",
-      key: "description",
-      render: (description: string) => <Text>{description}</Text>,
-    },
-    {
-      title: "Definition",
-      key: "definition",
-      width: 80,
-      align: "center" as const,
-      render: (_: any, record: TypeDefinition) => (
-        <Button
-          type="text"
-          size="small"
-          icon={expandedRows.includes(record.key) ? <DownOutlined /> : <RightOutlined />}
-          onClick={() => {
-            if (expandedRows.includes(record.key)) {
-              setExpandedRows(expandedRows.filter((key) => key !== record.key));
-            } else {
-              setExpandedRows([...expandedRows, record.key]);
-            }
-          }}
-        >
-          View
-        </Button>
-      ),
-    },
-  ];
-
-  const expandedRowRender = (record: TypeDefinition) => {
-    return (
-      <div style={{ margin: "16px 0" }}>
-        <Space direction="vertical" size={16} style={{ width: "100%" }}>
-          <div>
-            <Text strong style={{ marginBottom: 8, display: "block" }}>
-              Type Definition:
-            </Text>
-            <CodeBlock code={record.definition} language="typescript" />
-          </div>
-          {record.example && (
-            <div>
-              <Text strong style={{ marginBottom: 8, display: "block" }}>
-                Usage Examples:
-              </Text>
-              <CodeBlock code={record.example} language="tsx" />
-            </div>
-          )}
-        </Space>
-      </div>
-    );
-  };
-
-  return (
-    <motion.div
-      className="mb-8"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.5, delay: 0.8 }}
-    >
-      <Table<TypeDefinition>
-        columns={columns}
-        dataSource={TYPE_DEFINITIONS}
-        pagination={false}
-        expandable={{
-          expandedRowKeys: expandedRows,
-          expandedRowRender,
-          showExpandColumn: false,
-        }}
-        size="middle"
-        bordered
-      />
-    </motion.div>
-  );
-};
-
 const ApiReferenceContent = () => {
   return (
     <>
@@ -850,9 +787,11 @@ const ApiReferenceContent = () => {
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
+        id="header-object"
       >
         HeaderObject Configuration
       </motion.h2>
@@ -871,9 +810,11 @@ const ApiReferenceContent = () => {
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-12"
+        style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
+        id="type-definitions"
       >
         Type Definitions
       </motion.h2>
@@ -884,11 +825,28 @@ const ApiReferenceContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
       >
-        Detailed definitions for all custom types used in SimpleTable props. Click on any type name
-        in the props tables above to jump to its definition.
+        All union type values and object type properties used in SimpleTable.
       </motion.p>
 
-      <TypeDefinitionsTable />
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="enumoption-type">
+        <PropTable props={ENUM_OPTION_PROPS} title="EnumOption" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="aggregationconfig-type">
+        <PropTable props={AGGREGATION_CONFIG_PROPS} title="AggregationConfig" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cellchangeprops-type">
+        <PropTable props={CELL_CHANGE_PROPS_PROPS} title="CellChangeProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filtercondition-type">
+        <PropTable props={FILTER_CONDITION_PROPS} title="FilterCondition" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="union-types">
+        <PropTable props={UNION_TYPE_DEFINITIONS} title="Union Type Definitions" />
+      </div>
 
       <DocNavigationButtons />
     </>

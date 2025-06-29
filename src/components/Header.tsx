@@ -46,7 +46,7 @@ const LinkButton = ({
 
   // Get the base path (e.g., "/docs" from "/docs/installation")
   const basePath = "/" + href.split("/").filter(Boolean)[0];
-  const isActivePath = pathname.startsWith(basePath);
+  const isActivePath = pathname?.startsWith(basePath);
 
   const shouldHighlight = !isExternal && (useActivePath ? isActivePath : isActive);
 
