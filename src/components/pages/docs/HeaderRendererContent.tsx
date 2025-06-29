@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaintBrush } from "@fortawesome/free-solid-svg-icons";
+import { faPaintBrush, faSort } from "@fortawesome/free-solid-svg-icons";
 import HeaderRendererDemo from "@/components/demos/HeaderRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -113,9 +113,10 @@ const HeaderRendererContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Header renderers allow you to completely customize how column headers appear in your table.
-        Create visually appealing headers with custom styling, icons, gradients, and interactive
-        elements to enhance your table's design and user experience.
+        Header renderers allow you to completely customize how column headers appear and behave in
+        your table. Create clean, modern headers with subtle styling, custom onClick handlers, and
+        interactive elements while maintaining a professional appearance that integrates seamlessly
+        with your design.
       </motion.p>
 
       {/* Basic Usage Section */}
@@ -162,126 +163,6 @@ const HeaderRendererContent = () => {
             sortable status, and more. This allows you to create dynamic headers that adapt based on
             column settings.
           </p>
-        </div>
-      </motion.div>
-
-      {/* Header Object Structure */}
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
-      >
-        Header Object Structure
-      </motion.h2>
-
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            header
-          </code>{" "}
-          parameter passed to your header renderer contains all the column configuration:
-        </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`type HeaderObject = {
-  accessor: string;              // Column accessor
-  label: string;                 // Display label
-  width?: number | string;       // Column width
-  type?: CellType;               // Data type
-  isSortable?: boolean;          // Can be sorted
-  isEditable?: boolean;          // Can be edited
-  align?: "left" | "center" | "right";
-  // ... and many more properties
-};
-
-// Example header object:
-{
-  accessor: "starName",
-  label: "Star Name", 
-  width: 200,
-  type: "string",
-  isSortable: true
-}`}
-          />
-        </div>
-
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Access any header property using{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            header.propertyName
-          </code>{" "}
-          in your renderer function.
-        </p>
-      </motion.div>
-
-      {/* Use Cases */}
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        Common Use Cases
-      </motion.h2>
-
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-800 dark:text-white mb-2">🎨 Custom Styling</h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Add custom colors, gradients, fonts, and visual effects to make your headers stand out
-              and match your brand.
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-800 dark:text-white mb-2">🔤 Icons & Emojis</h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Include FontAwesome icons, emojis, or custom graphics to make headers more intuitive
-              and visually appealing.
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-800 dark:text-white mb-2">📊 Sort Indicators</h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Display custom sorting icons and states to help users understand column functionality.
-            </p>
-          </div>
-
-          <div className="bg-white dark:bg-gray-800 p-4 rounded-lg border border-gray-200 dark:border-gray-700">
-            <h4 className="font-semibold text-gray-800 dark:text-white mb-2">🏷️ Smart Labels</h4>
-            <p className="text-gray-600 dark:text-gray-400 text-sm">
-              Create dynamic header text that adapts based on column properties or application
-              state.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Important Notes</h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              Header renderers are purely visual - they don't affect sorting or filtering logic
-            </li>
-            <li>Each column can have its own unique header renderer</li>
-            <li>Columns without a headerRenderer will display their label as plain text</li>
-            <li>Header renderers should be lightweight to maintain performance</li>
-            <li>Consider responsive design when creating complex header layouts</li>
-          </ul>
         </div>
       </motion.div>
 

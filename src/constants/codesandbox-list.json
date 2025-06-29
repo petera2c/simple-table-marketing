@@ -1,106 +1,110 @@
 {
   "CellEditingDemo.tsx": {
-    "id": "5klywl",
-    "url": "https://codesandbox.io/s/5klywl"
+    "id": "tjrdwy",
+    "url": "https://codesandbox.io/s/tjrdwy"
   },
   "CellHighlightingDemo.tsx": {
-    "id": "sltdhz",
-    "url": "https://codesandbox.io/s/sltdhz"
+    "id": "6mpths",
+    "url": "https://codesandbox.io/s/6mpths"
   },
   "CellRendererDemo.tsx": {
-    "id": "ddnmrm",
-    "url": "https://codesandbox.io/s/ddnmrm"
+    "id": "w4yzdv",
+    "url": "https://codesandbox.io/s/w4yzdv"
   },
   "ColumnAlignmentDemo.tsx": {
-    "id": "m454fm",
-    "url": "https://codesandbox.io/s/m454fm"
+    "id": "ljmmjr",
+    "url": "https://codesandbox.io/s/ljmmjr"
   },
   "ColumnPinningDemo.tsx": {
-    "id": "wpyxcn",
-    "url": "https://codesandbox.io/s/wpyxcn"
+    "id": "8s97cm",
+    "url": "https://codesandbox.io/s/8s97cm"
   },
   "ColumnReorderingDemo.tsx": {
-    "id": "87z89c",
-    "url": "https://codesandbox.io/s/87z89c"
+    "id": "lcqj4g",
+    "url": "https://codesandbox.io/s/lcqj4g"
   },
   "ColumnResizingDemo.tsx": {
-    "id": "pydwy4",
-    "url": "https://codesandbox.io/s/pydwy4"
+    "id": "mh4dm6",
+    "url": "https://codesandbox.io/s/mh4dm6"
   },
   "ColumnSortingDemo.tsx": {
-    "id": "w6938w",
-    "url": "https://codesandbox.io/s/w6938w"
+    "id": "kxkmr9",
+    "url": "https://codesandbox.io/s/kxkmr9"
   },
   "ColumnVisibilityDemo.tsx": {
-    "id": "gsx7wm",
-    "url": "https://codesandbox.io/s/gsx7wm"
+    "id": "kfn5d2",
+    "url": "https://codesandbox.io/s/kfn5d2"
   },
   "CustomIconsDemo.tsx": {
-    "id": "nf3z6j",
-    "url": "https://codesandbox.io/s/nf3z6j"
+    "id": "swlktn",
+    "url": "https://codesandbox.io/s/swlktn"
   },
   "CustomRenderersDemo.tsx": {
     "id": "k2xcds",
     "url": "https://codesandbox.io/s/k2xcds"
   },
   "LiveUpdateDemo.tsx": {
-    "id": "s5yp4z",
-    "url": "https://codesandbox.io/s/s5yp4z"
+    "id": "s4jnty",
+    "url": "https://codesandbox.io/s/s4jnty"
   },
   "NestedHeadersDemo.tsx": {
-    "id": "jk6mr7",
-    "url": "https://codesandbox.io/s/jk6mr7"
+    "id": "p2chy4",
+    "url": "https://codesandbox.io/s/p2chy4"
   },
   "PaginationDemo.tsx": {
-    "id": "z5z7nw",
-    "url": "https://codesandbox.io/s/z5z7nw"
+    "id": "cqxk25",
+    "url": "https://codesandbox.io/s/cqxk25"
   },
   "QuickStartDemo.tsx": {
-    "id": "qk9dk9",
-    "url": "https://codesandbox.io/s/qk9dk9"
+    "id": "xldf4w",
+    "url": "https://codesandbox.io/s/xldf4w"
   },
   "RowGroupingDemo.tsx": {
-    "id": "lyz5l9",
-    "url": "https://codesandbox.io/s/lyz5l9"
+    "id": "r9v2fg",
+    "url": "https://codesandbox.io/s/r9v2fg"
   },
   "RowHeightDemo.tsx": {
-    "id": "lkt3fq",
-    "url": "https://codesandbox.io/s/lkt3fq"
+    "id": "d2t325",
+    "url": "https://codesandbox.io/s/d2t325"
   },
   "ThemesDemo.tsx": {
-    "id": "j4zzjp",
-    "url": "https://codesandbox.io/s/j4zzjp"
+    "id": "w3242t",
+    "url": "https://codesandbox.io/s/w3242t"
   },
   "src/CustomThemeDemo.tsx": {
-    "id": "93zg5g",
-    "url": "https://codesandbox.io/s/93zg5g"
+    "id": "5kd8ng",
+    "url": "https://codesandbox.io/s/5kd8ng"
   },
   "examples/billing/BillingExample.tsx": {
-    "id": "z9z8lm",
-    "url": "https://codesandbox.io/s/z9z8lm"
+    "id": "q7nh5d",
+    "url": "https://codesandbox.io/s/q7nh5d"
   },
   "examples/hr/HRExample.tsx": {
-    "id": "yddmyy",
-    "url": "https://codesandbox.io/s/yddmyy"
+    "id": "yhmkgt",
+    "url": "https://codesandbox.io/s/yhmkgt"
   },
   "examples/manufacturing/ManufacturingExample.tsx": {
-    "id": "xrq9yk",
-    "url": "https://codesandbox.io/s/xrq9yk"
+    "id": "cnd33g",
+    "url": "https://codesandbox.io/s/cnd33g"
   },
   "examples/sales/SalesExample.tsx": {
-    "id": "6yyk55",
-    "url": "https://codesandbox.io/s/6yyk55"
+    "id": "mt6p65",
+    "url": "https://codesandbox.io/s/mt6p65"
   },
   "examples/finance/FinanceExample.tsx": {
-    "id": "jqsdr4",
-    "url": "https://codesandbox.io/s/jqsdr4"
+    "id": "njcty2",
+    "url": "https://codesandbox.io/s/njcty2"
   },
   "ColumnFilteringDemo.tsx": {
-    "id": "s853ws",
-    "url": "https://codesandbox.io/s/s853ws"
+    "id": "zw49qg",
+    "url": "https://codesandbox.io/s/zw49qg"
   },
   "AggregateFunctionsDemo.tsx": {
-    "id": "dh2tnz",
-    "url": "https://codesandbox.io/s/dh2tnz"
+    "id": "t3ttxz",
+    "url": "https://codesandbox.io/s/t3ttxz"
+  },
+  "HeaderRendererDemo.tsx": {
+    "id": "tm89dh",
+    "url": "https://codesandbox.io/s/tm89dh"
   }
 }
