@@ -142,6 +142,12 @@ export const docSections: DocSection[] = [
     subsections: [
       { id: "pagination", label: "Pagination", path: "/docs/pagination", icon: faPager },
       { id: "live-updates", label: "Live Updates", path: "/docs/live-updates", icon: faBolt },
+      {
+        id: "header-renderer",
+        label: "Header Renderer",
+        path: "/docs/header-renderer",
+        icon: faCode,
+      },
     ],
   },
   {

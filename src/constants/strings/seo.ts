@@ -137,6 +137,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell renderer, custom table cells, typescript table, data visualization",
   },
+  headerRenderer: {
+    title: "Custom Header Renderers with Simple Table",
+    description:
+      "Create custom header renderers for your react-table with Simple Table. Style column headers with custom designs, icons, and interactive elements.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, header renderer, custom headers, table headers, typescript table, header customization",
+  },
   columnAlignment: {
     title: "Column Alignment in Simple Table React Grid",
     description:
