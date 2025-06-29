@@ -126,7 +126,7 @@ const publishAllDemos = async (
   codesandboxList: Record<string, { id: string; url: string }>,
   codesandboxListPath: string
 ) => {
-  const demosDir = path.join(__dirname, "../src/demos");
+  const demosDir = path.join(__dirname, "../src/components/demos");
   const entries = await fs.readdir(demosDir, { withFileTypes: true });
 
   for (const entry of entries) {
