@@ -24,8 +24,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { UI_STRINGS } from "../../constants/strings/ui";
-import { useIsMobile } from "../../hooks/useIsMobile";
+import { UI_STRINGS } from "@/constants/strings/ui";
+import { useIsMobile } from "@/hooks/useIsMobile";
 import { Suspense } from "react";
 import FinancialExample from "@/examples/finance/FinanceExample";
 import { useThemeContext } from "@/providers/ThemeProvider";

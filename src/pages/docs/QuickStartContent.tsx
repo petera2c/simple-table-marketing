@@ -3,9 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
-import QuickStartDemo from "../../demos/QuickStartDemo";
-import CodeBlock from "../../CodeBlock";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import QuickStartDemo from "@/demos/QuickStartDemo";
+import CodeBlock from "@/components/CodeBlock";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 import LivePreview from "@/components/LivePreview";

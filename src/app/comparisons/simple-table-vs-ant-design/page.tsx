@@ -1,4 +1,4 @@
-import SimpleTableVsAntDesignContent from "@/components/pages/comparisons/SimpleTableVsAntDesignContent";
+import SimpleTableVsAntDesignContent from "@/pages/comparisons/SimpleTableVsAntDesignContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

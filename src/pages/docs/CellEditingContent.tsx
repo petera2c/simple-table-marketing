@@ -1,9 +1,9 @@
 "use client";
-import CellEditingDemo from "@/components/demos/CellEditingDemo";
+import CellEditingDemo from "@/demos/CellEditingDemo";
 import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 

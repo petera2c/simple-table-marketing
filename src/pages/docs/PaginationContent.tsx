@@ -3,9 +3,8 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPager } from "@fortawesome/free-solid-svg-icons";
-import PaginationDemo from "../../demos/PaginationDemo";
-import CodeBlock from "../../CodeBlock";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import PaginationDemo from "@/demos/PaginationDemo";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 

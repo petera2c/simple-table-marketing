@@ -1,10 +1,9 @@
 "use client";
 import { motion } from "framer-motion";
-import DocNavigationButtons from "../../DocNavigationButtons";
-import CodeBlock from "../../CodeBlock";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
-import ColumnPinningDemo from "../../demos/ColumnPinningDemo";
+import ColumnPinningDemo from "@/demos/ColumnPinningDemo";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 

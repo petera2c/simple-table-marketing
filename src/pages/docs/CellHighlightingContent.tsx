@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import CellHighlightingDemo from "../../demos/CellHighlightingDemo";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import CellHighlightingDemo from "@/demos/CellHighlightingDemo";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 

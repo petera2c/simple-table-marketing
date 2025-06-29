@@ -1,5 +1,5 @@
-import PageLayout from "../../components/PageLayout";
-import ExamplesNavigation from "../../components/ExamplesNavigation";
+import PageLayout from "@/components/PageLayout";
+import ExamplesNavigation from "@/components/ExamplesNavigation";
 
 export default function ExamplesLayout({ children }: { children: React.ReactNode }) {
   return (

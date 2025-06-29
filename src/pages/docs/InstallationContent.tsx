@@ -3,10 +3,9 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
-import CodeBlock from "../../CodeBlock";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import CodeBlock from "@/components/CodeBlock";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const InstallationContent = () => {
   return (

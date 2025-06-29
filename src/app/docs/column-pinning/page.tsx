@@ -1,4 +1,4 @@
-import ColumnPinningContent from "@/components/pages/docs/ColumnPinningContent";
+import ColumnPinningContent from "@/pages/docs/ColumnPinningContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

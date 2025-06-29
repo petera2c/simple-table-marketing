@@ -3,8 +3,8 @@ import CodeBlock from "@/components/CodeBlock";
 import { faArrowRightArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { motion } from "framer-motion";
-import DocNavigationButtons from "../../DocNavigationButtons";
-import ColumnReorderingDemo from "../../demos/ColumnReorderingDemo";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
+import ColumnReorderingDemo from "@/demos/ColumnReorderingDemo";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 

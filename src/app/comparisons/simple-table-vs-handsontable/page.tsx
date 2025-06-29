@@ -1,4 +1,4 @@
-import SimpleTableVsHandsontableContent from "@/components/pages/comparisons/SimpleTableVsHandsontableContent";
+import SimpleTableVsHandsontableContent from "@/pages/comparisons/SimpleTableVsHandsontableContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

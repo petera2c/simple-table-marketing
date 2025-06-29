@@ -3,7 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Button, Space } from "antd";
 import Link from "next/link";
-import { UI_STRINGS } from "../../constants/strings/ui";
+import { UI_STRINGS } from "@/constants/strings/ui";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTableCells, faArrowLeft, faHome, faBook } from "@fortawesome/free-solid-svg-icons";
 import { useMemo } from "react";

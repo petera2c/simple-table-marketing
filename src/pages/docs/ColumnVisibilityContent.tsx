@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import ColumnVisibilityDemo from "../../demos/ColumnVisibilityDemo";
-import DocNavigationButtons from "../../DocNavigationButtons";
+import ColumnVisibilityDemo from "@/demos/ColumnVisibilityDemo";
+import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 

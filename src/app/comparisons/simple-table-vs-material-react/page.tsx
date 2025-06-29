@@ -1,4 +1,4 @@
-import SimpleTableVsMaterialReactContent from "@/components/pages/comparisons/SimpleTableVsMaterialReactContent";
+import SimpleTableVsMaterialReactContent from "@/pages/comparisons/SimpleTableVsMaterialReactContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 
