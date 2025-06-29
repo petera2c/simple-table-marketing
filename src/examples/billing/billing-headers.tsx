@@ -32,7 +32,7 @@ const generateMonthHeaders = () => {
           aggregation: { type: "sum" },
           cellRenderer: ({ row, accessor }) => {
             const balance = row[accessor] as number;
-            if (!balance) return "—";
+            if (balance === undefined || balance === null || balance === 0) return "—";
 
             return `$${balance.toLocaleString("en-US", {
               minimumFractionDigits: 2,
@@ -52,7 +52,7 @@ const generateMonthHeaders = () => {
           aggregation: { type: "sum" },
           cellRenderer: ({ row, accessor }) => {
             const revenue = row[accessor] as number;
-            if (!revenue) return "—";
+            if (revenue === undefined || revenue === null || revenue === 0) return "—";
 
             return `$${revenue.toLocaleString("en-US", {
               minimumFractionDigits: 2,
@@ -96,7 +96,7 @@ export const HEADERS: HeaderObject[] = [
     aggregation: { type: "sum" },
     cellRenderer: ({ row }) => {
       const amount = row.amount as number;
-      if (!amount) return "—";
+      if (amount === undefined || amount === null || amount === 0) return "—";
 
       return `$${amount.toLocaleString("en-US", {
         minimumFractionDigits: 2,
@@ -114,12 +114,29 @@ export const HEADERS: HeaderObject[] = [
     type: "number",
     aggregation: { type: "sum" },
     cellRenderer: ({ row }) => {
-      const amount = row.amount as number;
       const deferred = row.deferredRevenue as number;
-
-      if (deferred === undefined || amount === undefined) return "—";
+      if (deferred === undefined || deferred === null || deferred === 0) return "—";
 
       return `$${deferred.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })}`;
+    },
+  },
+  {
+    accessor: "recognizedRevenue",
+    label: "Recognized Revenue",
+    width: 180,
+    isSortable: true,
+    isEditable: false,
+    align: "right",
+    type: "number",
+    aggregation: { type: "sum" },
+    cellRenderer: ({ row }) => {
+      const recognized = row.recognizedRevenue as number;
+      if (recognized === undefined || recognized === null || recognized === 0) return "—";
+
+      return `$${recognized.toLocaleString("en-US", {
         minimumFractionDigits: 2,
         maximumFractionDigits: 2,
       })}`;

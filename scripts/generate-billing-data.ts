@@ -203,12 +203,8 @@ interface InvoiceData {
   status: string;
   createdDate: string;
   dueDate: string;
-  amount: number;
-  remaining: number;
-  recognizedRevenue: number;
-  deferredRevenue: number;
+  // Remove aggregated fields - table will calculate these automatically
   charges: ChargeData[];
-  [key: string]: any; // For monthly data fields
 }
 
 interface AccountData {
@@ -217,30 +213,12 @@ interface AccountData {
   name: string;
   status: string;
   createdDate: string;
-  amount: number;
-  remaining: number;
-  recognizedRevenue: number;
-  deferredRevenue: number;
+  // Remove aggregated fields - table will calculate these automatically
   invoices: InvoiceData[];
-  [key: string]: any; // For monthly data fields
 }
 
 // Generate billing data with accounts -> invoices -> charges
 const generateBillingData = (): AccountData[] => {
-  const months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
   let rowId = 0;
   const accountRows: AccountData[] = [];
 
@@ -279,10 +257,6 @@ const generateBillingData = (): AccountData[] => {
     // Generate invoices for this account
     const invoiceCount = randomBetween(3, 8);
     const invoiceChildren: InvoiceData[] = [];
-    let accountTotal = 0;
-    let accountRemaining = 0;
-    let accountRecognizedRevenue = 0;
-    let accountDeferredRevenue = 0;
 
     for (let i = 0; i < invoiceCount; i++) {
       // Create invoice date in 2024
@@ -314,29 +288,9 @@ const generateBillingData = (): AccountData[] => {
         }
       }
 
-      // Calculate remaining amount based on status
-      let remainingAmount = 0;
-      switch (invoiceStatus) {
-        case "paid":
-          remainingAmount = 0;
-          break;
-        case "overdue":
-        case "pending":
-          remainingAmount = invoiceAmountRounded;
-          break;
-        case "partial":
-          remainingAmount = parseFloat((invoiceAmountRounded * Math.random() * 0.8).toFixed(2));
-          break;
-        case "cancelled":
-          remainingAmount = 0;
-          break;
-      }
-
       // Generate charges for this invoice
       const chargeCount = randomBetween(2, 5);
       const chargeChildren: ChargeData[] = [];
-      let invoiceRecognizedRevenue = 0;
-      let invoiceDeferredRevenue = 0;
       const chargeTotalAmount = invoiceAmountRounded;
       let currentChargeTotal = 0;
 
@@ -361,14 +315,11 @@ const generateBillingData = (): AccountData[] => {
           invoiceCreatedDate
         );
 
-        invoiceRecognizedRevenue += recognizedRevenue;
-        invoiceDeferredRevenue += deferredRevenue;
-
         // Generate monthly distribution for this charge - only 2024 data
         const monthlyData = generateMonthlyData(invoiceMonth, chargeAmount);
         const chargeId = `CHG-${rowId++}`;
 
-        // Create charge row
+        // Create charge row - this is the leaf data with actual values
         chargeChildren.push({
           id: chargeId,
           type: "charge",
@@ -381,41 +332,7 @@ const generateBillingData = (): AccountData[] => {
         });
       }
 
-      // Calculate monthly data for the invoice by summing its charges
-      const invoiceMonthlyData: Record<string, number> = {};
-      const invoiceMonthlyRevenue: Record<string, number> = {};
-      const invoiceMonthlyBalance: Record<string, number> = {};
-
-      // Only process 2024 months
-      for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
-        const year = 2024;
-        const key = `month_${months[monthIndex]}_${year}`;
-        const revenueKey = `revenue_${months[monthIndex]}_${year}`;
-        const balanceKey = `balance_${months[monthIndex]}_${year}`;
-
-        // Sum this month's value from all charges
-        invoiceMonthlyData[key] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge[key] || 0);
-        }, 0);
-
-        // Sum this month's revenue from all charges
-        invoiceMonthlyRevenue[revenueKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge[revenueKey] || 0);
-        }, 0);
-
-        // Sum this month's balance from all charges
-        invoiceMonthlyBalance[balanceKey] = chargeChildren.reduce((sum, charge) => {
-          return sum + (charge[balanceKey] || 0);
-        }, 0);
-      }
-
-      // Update account totals
-      accountTotal += invoiceAmountRounded;
-      accountRemaining += remainingAmount;
-      accountRecognizedRevenue += invoiceRecognizedRevenue;
-      accountDeferredRevenue += invoiceDeferredRevenue;
-
-      // Create invoice row
+      // Create invoice row - no aggregated values, table will calculate them
       invoiceChildren.push({
         id: invoiceId,
         type: "invoice",
@@ -423,60 +340,18 @@ const generateBillingData = (): AccountData[] => {
         status: invoiceStatus,
         createdDate: invoiceCreatedDate.toISOString(),
         dueDate: dueDate.toISOString(),
-        amount: invoiceAmountRounded,
-        remaining: remainingAmount,
-        recognizedRevenue: parseFloat(invoiceRecognizedRevenue.toFixed(2)),
-        deferredRevenue: parseFloat(invoiceDeferredRevenue.toFixed(2)),
         charges: chargeChildren,
-        ...invoiceMonthlyData,
-        ...invoiceMonthlyRevenue,
-        ...invoiceMonthlyBalance,
       });
     }
 
-    // Calculate monthly data for the account by summing its invoices
-    const accountMonthlyData: Record<string, number> = {};
-    const accountMonthlyRevenue: Record<string, number> = {};
-    const accountMonthlyBalance: Record<string, number> = {};
-
-    // Only process 2024 months
-    for (let monthIndex = 0; monthIndex < 12; monthIndex++) {
-      const year = 2024;
-      const key = `month_${months[monthIndex]}_${year}`;
-      const revenueKey = `revenue_${months[monthIndex]}_${year}`;
-      const balanceKey = `balance_${months[monthIndex]}_${year}`;
-
-      // Sum this month's value from all invoices
-      accountMonthlyData[key] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice[key] || 0);
-      }, 0);
-
-      // Sum this month's revenue from all invoices
-      accountMonthlyRevenue[revenueKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice[revenueKey] || 0);
-      }, 0);
-
-      // Sum this month's balance from all invoices
-      accountMonthlyBalance[balanceKey] = invoiceChildren.reduce((sum, invoice) => {
-        return sum + (invoice[balanceKey] || 0);
-      }, 0);
-    }
-
-    // Create account row
+    // Create account row - no aggregated values, table will calculate them
     accountRows.push({
       id: accountId,
       type: "account",
       name: accountName,
       status: accountStatus,
       createdDate: accountCreatedDate.toISOString(),
-      amount: parseFloat(accountTotal.toFixed(2)),
-      remaining: parseFloat(accountRemaining.toFixed(2)),
-      recognizedRevenue: parseFloat(accountRecognizedRevenue.toFixed(2)),
-      deferredRevenue: parseFloat(accountDeferredRevenue.toFixed(2)),
       invoices: invoiceChildren,
-      ...accountMonthlyData,
-      ...accountMonthlyRevenue,
-      ...accountMonthlyBalance,
     });
   }
 
