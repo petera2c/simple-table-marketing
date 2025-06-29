@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useEffect } from "react";
-import { Typography, Table, Space, Card } from "antd";
+import { Typography, Table, Space, Card, Button } from "antd";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageLayout from "@/components/PageLayout";
 
@@ -141,18 +141,23 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
           available, let us know! We prioritize features based on community demand.
         </Paragraph>
         <Space direction={isMobile ? "vertical" : "horizontal"} className="w-full">
-          <a
+          <Button
+            type="primary"
             href="https://discord.gg/RvKHCfg3PC"
-            className="inline-flex items-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="large"
           >
             Join Discord Community
-          </a>
-          <a
+          </Button>
+          <Button
             href="https://github.com/petera2c/simple-table"
-            className="inline-flex items-center px-4 py-2 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+            target="_blank"
+            rel="noopener noreferrer"
+            size="large"
           >
             Star on GitHub
-          </a>
+          </Button>
         </Space>
       </Card>
     </div>

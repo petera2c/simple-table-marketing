@@ -14,6 +14,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import { customizingDataGridsStylingEasyPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
+import { Button } from "antd";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.customizingDataGridsStylingEasy.title,
@@ -255,12 +256,15 @@ export default function CustomizingDataGridsStylingEasyPage() {
                   Want to see how easy styling can be? Try our interactive Theme Builder to create
                   custom themes visually and see the results in real-time.
                 </p>
-                <Link
-                  href="/theme-builder"
-                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-                >
-                  <FontAwesomeIcon icon={faPaintBrush} />
-                  Open Theme Builder
+                <Link href="/theme-builder">
+                  <Button
+                    type="primary"
+                    size="large"
+                    icon={<FontAwesomeIcon icon={faPaintBrush} />}
+                    block
+                  >
+                    Open Theme Builder
+                  </Button>
                 </Link>
               </div>
 

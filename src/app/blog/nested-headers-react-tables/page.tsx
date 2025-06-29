@@ -14,6 +14,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import { nestedHeadersReactTablesPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
+import { Button } from "antd";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.nestedHeadersReactTables.title,
@@ -466,12 +467,15 @@ export default function StudentGradeTable() {
                   Want to see how nested headers look with different themes? Our Theme Builder lets
                   you customize the appearance of nested headers in real-time.
                 </p>
-                <Link
-                  href="/theme-builder"
-                  className="inline-flex items-center gap-2 bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition-colors"
-                >
-                  <FontAwesomeIcon icon={faPaintBrush} />
-                  Open Theme Builder
+                <Link href="/theme-builder">
+                  <Button
+                    type="primary"
+                    size="large"
+                    icon={<FontAwesomeIcon icon={faPaintBrush} />}
+                    block
+                  >
+                    Open Theme Builder
+                  </Button>
                 </Link>
               </div>
             </div>

@@ -18,6 +18,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import { bestFreeReactDataGridPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
+import { Button } from "antd";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
@@ -546,19 +547,20 @@ export default function MyTable() {
             </div>
 
             <div className="mt-6 flex flex-col sm:flex-row gap-4">
-              <Link
-                href="/docs/quick-start"
-                className="inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-              >
-                <FontAwesomeIcon icon={faRocket} className="mr-2" />
-                Quick Start Guide
+              <Link href="/docs/quick-start">
+                <Button
+                  type="primary"
+                  size="large"
+                  icon={<FontAwesomeIcon icon={faRocket} />}
+                  block
+                >
+                  Quick Start Guide
+                </Button>
               </Link>
-              <Link
-                href="/examples"
-                className="inline-flex items-center justify-center px-6 py-3 border border-gray-300 dark:border-gray-600 text-base font-medium rounded-md text-gray-700 dark:text-gray-300 bg-white dark:bg-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors duration-200"
-              >
-                <FontAwesomeIcon icon={faTable} className="mr-2" />
-                View Examples
+              <Link href="/examples/finance">
+                <Button size="large" icon={<FontAwesomeIcon icon={faTable} />} block>
+                  View Examples
+                </Button>
               </Link>
             </div>
           </div>
@@ -566,7 +568,7 @@ export default function MyTable() {
 
         {/* Conclusion Section */}
         <section id="conclusion">
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm mb-8">
             <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
               <FontAwesomeIcon icon={faTrophy} className="text-gold-500" />
               The Verdict: Simple Table Leads 2025
@@ -599,17 +601,15 @@ export default function MyTable() {
                   can do for your projects.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
-                  <Link
-                    href="/docs/installation"
-                    className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
-                  >
-                    Get Started Now
+                  <Link href="/docs/installation">
+                    <Button type="primary" size="middle" block>
+                      Get Started Now
+                    </Button>
                   </Link>
-                  <Link
-                    href="/examples"
-                    className="inline-flex items-center justify-center px-4 py-2 text-sm font-medium rounded-md text-blue-700 dark:text-blue-300 border border-blue-300 dark:border-blue-600 hover:bg-blue-50 dark:hover:bg-blue-900/20 transition-colors duration-200"
-                  >
-                    Explore Examples
+                  <Link href="/examples/finance">
+                    <Button size="middle" block>
+                      Explore Examples
+                    </Button>
                   </Link>
                 </div>
               </div>
