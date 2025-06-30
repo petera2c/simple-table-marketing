@@ -41,7 +41,6 @@ const generateManufacturingData = (): Row[] => {
     "Team Zeta",
   ];
 
-  let rowId = 0;
   const rows: Row[] = [];
 
   // Generate data for each product line
@@ -50,10 +49,6 @@ const generateManufacturingData = (): Row[] => {
     const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
 
     const stations: Row[] = [];
-    let totalOutput = 0;
-    let totalDefects = 0;
-    let totalDowntime = 0;
-    let totalEfficiency = 0;
 
     // Generate station data
     for (let i = 0; i < numStations; i++) {
@@ -107,36 +102,12 @@ const generateManufacturingData = (): Row[] => {
         maintenanceDate: maintenanceDate.toISOString().split("T")[0],
         cycleTimeData: JSON.stringify(cycleTimes),
       });
-
-      // Accumulate totals for product line summary
-      totalOutput += outputRate;
-      totalDefects += defectCount;
-      totalDowntime += downtimeHours;
-      totalEfficiency += efficiency;
     }
 
-    // Create product line summary row
-    const avgEfficiency = Math.round(totalEfficiency / stations.length);
-    const avgDefectRate = ((totalDefects / totalOutput) * 100).toFixed(2);
-
+    // Create product line summary row with minimal attributes
     rows.push({
       id: `${productLine.charAt(0)}${lineIndex + 1}`,
       productLine,
-      station: `${productLine} Summary`,
-      machineType: "—",
-      operator: "—",
-      productType: "—",
-      outputRate: totalOutput,
-      cycletime: "—",
-      efficiency: avgEfficiency,
-      defectRate: avgDefectRate,
-      defectCount: totalDefects,
-      downtime: totalDowntime.toFixed(2),
-      utilization: "—",
-      energy: stations.reduce((sum, station) => sum + (station.energy as number), 0),
-      status: "—",
-      maintenanceDate: "—",
-      cycleTimeData: "—",
       stations,
     });
   });
@@ -146,9 +117,9 @@ const generateManufacturingData = (): Row[] => {
 
 // Run the generation and save to a file
 function saveDataToFile() {
-  console.log("Generating finance dataset...");
+  console.log("Generating manufacturing dataset...");
   const data = generateManufacturingData();
-  console.log(`Generated ${data.length} finance records`);
+  console.log(`Generated ${data.length} manufacturing records`);
 
   const filePath = path.join(__dirname, "../src/examples/manufacturing/manufacturing-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
