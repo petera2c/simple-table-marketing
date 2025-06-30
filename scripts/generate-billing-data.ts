@@ -117,11 +117,11 @@ const generateMonthlyData = (startMonth: number, amount: number): Record<string,
     let monthlyAmount = Math.min(remainingAmount, baseMonthlyAmount + variance);
 
     // Ensure we don't exceed the remaining amount and round to 2 decimals
-    monthlyAmount = parseFloat(Math.min(remainingAmount, monthlyAmount).toFixed(2));
+    monthlyAmount = Math.round(Math.min(remainingAmount, monthlyAmount) * 100) / 100;
 
     // Ensure non-zero values for all 2024 months
     if (monthlyAmount < 1 && remainingAmount > 0) {
-      monthlyAmount = parseFloat((1 + Math.random() * 10).toFixed(2));
+      monthlyAmount = Math.round((1 + Math.random() * 10) * 100) / 100;
     }
 
     remainingAmount -= monthlyAmount;
@@ -130,10 +130,9 @@ const generateMonthlyData = (startMonth: number, amount: number): Record<string,
     // Split the monthly amount between revenue and balance
     // Revenue is typically 70-95% of the amount
     const revenuePercentage = 0.7 + Math.random() * 0.25;
-    monthlyRevenue[revenueKey] = parseFloat((monthlyValues[key] * revenuePercentage).toFixed(2));
-    monthlyBalance[balanceKey] = parseFloat(
-      (monthlyValues[key] - monthlyRevenue[revenueKey]).toFixed(2)
-    );
+    monthlyRevenue[revenueKey] = Math.round(monthlyValues[key] * revenuePercentage * 100) / 100;
+    monthlyBalance[balanceKey] =
+      Math.round((monthlyValues[key] - monthlyRevenue[revenueKey]) * 100) / 100;
   }
 
   // If we still have remaining amount, distribute it
@@ -144,16 +143,14 @@ const generateMonthlyData = (startMonth: number, amount: number): Record<string,
     const randomRevenueKey = `revenue_${months[randomMonthIndex]}_${year}`;
     const randomBalanceKey = `balance_${months[randomMonthIndex]}_${year}`;
 
-    monthlyValues[randomMonthKey] += parseFloat(remainingAmount.toFixed(2));
+    monthlyValues[randomMonthKey] += remainingAmount;
 
     // Recalculate revenue and balance
     const revenuePercentage = 0.7 + Math.random() * 0.25;
-    monthlyRevenue[randomRevenueKey] = parseFloat(
-      (monthlyValues[randomMonthKey] * revenuePercentage).toFixed(2)
-    );
-    monthlyBalance[randomBalanceKey] = parseFloat(
-      (monthlyValues[randomMonthKey] - monthlyRevenue[randomRevenueKey]).toFixed(2)
-    );
+    monthlyRevenue[randomRevenueKey] =
+      Math.round(monthlyValues[randomMonthKey] * revenuePercentage * 100) / 100;
+    monthlyBalance[randomBalanceKey] =
+      Math.round((monthlyValues[randomMonthKey] - monthlyRevenue[randomRevenueKey]) * 100) / 100;
   }
 
   return {
@@ -176,8 +173,8 @@ const calculateRevenueRecognition = (
   // Calculate how much revenue has been recognized based on time elapsed
   const recognitionPeriod = randomBetween(1, 12); // Revenue is recognized over 1-12 months
   const recognizedPercentage = Math.min(1, diffMonths / recognitionPeriod);
-  const recognizedRevenue = parseFloat((amount * recognizedPercentage).toFixed(2));
-  const deferredRevenue = parseFloat((amount - recognizedRevenue).toFixed(2));
+  const recognizedRevenue = Math.round(amount * recognizedPercentage * 100) / 100;
+  const deferredRevenue = Math.round((amount - recognizedRevenue) * 100) / 100;
 
   return {
     recognizedRevenue,
@@ -273,7 +270,7 @@ const generateBillingData = (): AccountData[] => {
       const invoiceName = `I-${invoiceNumber}`;
 
       const invoiceAmount = randomBetween(1000, 20000) + Math.random();
-      const invoiceAmountRounded = parseFloat(invoiceAmount.toFixed(2));
+      const invoiceAmountRounded = invoiceAmount;
 
       // Determine invoice status based on probability
       let invoiceStatus = "paid";
@@ -300,12 +297,12 @@ const generateBillingData = (): AccountData[] => {
 
         if (c === chargeCount - 1) {
           // Last charge gets the remainder to ensure sum equals invoice amount
-          chargeAmount = parseFloat((chargeTotalAmount - currentChargeTotal).toFixed(2));
+          chargeAmount = chargeTotalAmount - currentChargeTotal;
         } else {
           // Random portion of remaining amount
           const remainingForCharges = chargeTotalAmount - currentChargeTotal;
           const portion = Math.random() * 0.7; // Take up to 70% of what's left
-          chargeAmount = parseFloat((remainingForCharges * portion).toFixed(2));
+          chargeAmount = Math.round(remainingForCharges * portion * 100) / 100;
           currentChargeTotal += chargeAmount;
         }
 

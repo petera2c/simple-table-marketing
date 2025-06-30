@@ -182,10 +182,10 @@ const generateHRData = (): Row[] => {
       .padStart(2, "0")}`;
 
     // Calculate years of service based on hire date
-    const yearsOfService = (
-      (new Date().getTime() - new Date(hireDate).getTime()) /
-      (1000 * 60 * 60 * 24 * 365)
-    ).toFixed(1);
+    const yearsOfService =
+      Math.round(
+        ((new Date().getTime() - new Date(hireDate).getTime()) / (1000 * 60 * 60 * 24 * 365)) * 10
+      ) / 10;
 
     // Generate random email
     const email = `${firstName.toLowerCase()}.${lastName.toLowerCase()}@company.com`;
@@ -220,7 +220,7 @@ const generateHRData = (): Row[] => {
       }`,
       email,
       hireDate,
-      yearsOfService: parseFloat(yearsOfService),
+      yearsOfService,
       salary,
       performanceScore,
       location,

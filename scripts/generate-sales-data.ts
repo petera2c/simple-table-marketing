@@ -228,7 +228,7 @@ function generateRealisticSaleRecord(repData: SalesRep, rowId: number): SaleReco
   const baseMultiplier = 1 + Math.random() * 0.4; // Base 1-1.4x multiplier
   const tierMultiplier = 1 + productTier * 0.3; // Higher tier means potentially larger deals
   const finalMultiplier = baseMultiplier * tierMultiplier;
-  const dealSize = parseFloat((product.basePrice * finalMultiplier).toFixed(2));
+  const dealSize = Math.round(product.basePrice * finalMultiplier * 100) / 100;
 
   // Win probability influenced by rep performance and experience
   const baseWinRate = 0.35 + repData.performanceRating * 0.3;
@@ -252,7 +252,7 @@ function generateRealisticSaleRecord(repData: SalesRep, rowId: number): SaleReco
   }
 
   // Calculate deal value
-  const dealValue = parseFloat((dealSize * units).toFixed(2));
+  const dealValue = Math.round(dealSize * units * 100) / 100;
 
   // Profit margin varies by product category
   let baseProfitMargin: number;
@@ -275,18 +275,18 @@ function generateRealisticSaleRecord(repData: SalesRep, rowId: number): SaleReco
   }
 
   // Add some variability to profit margin
-  const profitMargin = parseFloat((baseProfitMargin + (Math.random() * 0.2 - 0.1)).toFixed(2));
+  const profitMargin = Math.round((baseProfitMargin + (Math.random() * 0.2 - 0.1)) * 100) / 100;
 
   // Calculate profit only for won deals
-  const dealProfit = isWon ? parseFloat((dealValue * profitMargin).toFixed(2)) : 0;
+  const dealProfit = isWon ? Math.round(dealValue * profitMargin * 100) / 100 : 0;
 
   // Commission rates vary by product and rep experience
   const baseCommissionRate = product.category === "Software" ? 0.1 : 0.08;
   const experienceCommissionBonus = (repData.experience / 10) * 0.03;
-  const commissionRate = parseFloat((baseCommissionRate + experienceCommissionBonus).toFixed(3));
+  const commissionRate = Math.round((baseCommissionRate + experienceCommissionBonus) * 1000) / 1000;
 
   // Calculate commission only for won deals
-  const commission = isWon ? parseFloat((dealValue * commissionRate).toFixed(2)) : 0;
+  const commission = isWon ? Math.round(dealValue * commissionRate * 100) / 100 : 0;
 
   // Generate a random close date in the past 90 days (YYYY-MM-DD format)
   const today = new Date();

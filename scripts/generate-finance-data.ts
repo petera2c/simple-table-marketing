@@ -579,22 +579,21 @@ const generateFinanceData = (): Row[] => {
     let peRatio;
     if (company.ticker.match(/^(AMZN|TSLA|NVDA|NFLX|ZM|ETSY|ABNB|UBER)/)) {
       // Growth stocks typically have higher P/E
-      peRatio = parseFloat((Math.random() * 50 + 40).toFixed(1));
+      peRatio = Math.round((Math.random() * 50 + 40) * 10) / 10;
     } else if (company.ticker.match(/^(XOM|CVX|COP|VZ|T|JPM|BAC|WFC)/)) {
       // Value stocks typically have lower P/E
-      peRatio = parseFloat((Math.random() * 10 + 5).toFixed(1));
+      peRatio = Math.round((Math.random() * 10 + 5) * 10) / 10;
     } else {
       // Other stocks have moderate P/E
-      peRatio = parseFloat((Math.random() * 20 + 15).toFixed(1));
+      peRatio = Math.round((Math.random() * 20 + 15) * 10) / 10;
     }
 
     // Only set dividend yield if the company has dividends
     let dividendYield = null;
     if (company.hasDividend) {
       // Minor randomization around the base dividend yield
-      dividendYield = parseFloat(
-        (company.baseDividendYield * (0.9 + Math.random() * 0.2)).toFixed(2)
-      );
+      dividendYield =
+        Math.round(company.baseDividendYield * (0.9 + Math.random() * 0.2) * 100) / 100;
     }
 
     // Calculate a price change with more realistic distribution
@@ -602,19 +601,19 @@ const generateFinanceData = (): Row[] => {
     const rand = Math.random();
     if (rand < 0.05) {
       // Rare big drops
-      priceChangePercent = parseFloat((Math.random() * -15 - 5).toFixed(2));
+      priceChangePercent = Math.round((Math.random() * -15 - 5) * 100) / 100;
     } else if (rand < 0.3) {
       // Common small drops
-      priceChangePercent = parseFloat((Math.random() * -5).toFixed(2));
+      priceChangePercent = Math.round(Math.random() * -5 * 100) / 100;
     } else if (rand < 0.7) {
       // Common small gains
-      priceChangePercent = parseFloat((Math.random() * 5).toFixed(2));
+      priceChangePercent = Math.round(Math.random() * 5 * 100) / 100;
     } else if (rand < 0.95) {
       // Common large gains
-      priceChangePercent = parseFloat((Math.random() * 10).toFixed(2));
+      priceChangePercent = Math.round(Math.random() * 10 * 100) / 100;
     } else {
       // Rare big gains
-      priceChangePercent = parseFloat((Math.random() * 15 + 10).toFixed(2));
+      priceChangePercent = Math.round((Math.random() * 15 + 10) * 100) / 100;
     }
 
     // Generate analyst rating data
