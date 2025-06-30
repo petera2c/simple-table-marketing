@@ -181,7 +181,7 @@ const ColumnFilteringContent = () => {
         <div className="mb-6">
           <LivePreview
             demoCodeFilename="ExternalFilterDemo.txt"
-            height="500px"
+            height="400px"
             link={SANDBOX_LIST["ExternalFilterDemo.tsx"].url}
             Preview={ExternalFilterDemo}
           />

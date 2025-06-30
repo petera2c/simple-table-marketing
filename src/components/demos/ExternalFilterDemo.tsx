@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
@@ -232,21 +232,21 @@ const headers: HeaderObject[] = [
   {
     accessor: "name",
     label: "Name",
-    width: 180,
+    width: "1fr",
     type: "string",
     filterable: true,
   },
   {
     accessor: "age",
     label: "Age",
-    width: 80,
+    width: 120,
     type: "number",
     filterable: true,
   },
   {
     accessor: "department",
     label: "Department",
-    width: 140,
+    width: 150,
     type: "enum",
     filterable: true,
     enumOptions: [
@@ -262,7 +262,7 @@ const headers: HeaderObject[] = [
   {
     accessor: "location",
     label: "Location",
-    width: 120,
+    width: 150,
     type: "enum",
     filterable: true,
     enumOptions: [
@@ -290,7 +290,7 @@ const headers: HeaderObject[] = [
   {
     accessor: "active",
     label: "Active",
-    width: 90,
+    width: 120,
     type: "boolean",
     filterable: true,
     cellRenderer: ({ row }) => (row.active ? "✓ Yes" : "✗ No"),
@@ -307,7 +307,7 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ExternalFilterDemo = ({ height = "500px", theme }: { height?: string; theme?: Theme }) => {
+const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
   const [filters, setFilters] = useState<TableFilterState>({});
 
   // Filter data externally based on filters
@@ -394,7 +394,7 @@ const ExternalFilterDemo = ({ height = "500px", theme }: { height?: string; them
         externalFilterHandling={true} // Disable internal filtering logic
         columnResizing={true}
         columnReordering={true}
-        height={height}
+        height={"338px"}
         theme={theme}
       />
     </div>

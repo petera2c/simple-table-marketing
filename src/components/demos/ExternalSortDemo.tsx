@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { SimpleTable, HeaderObject, Theme, SortConfig } from "simple-table-core";
 import "simple-table-core/styles.css";
 
@@ -180,21 +180,21 @@ const headers: HeaderObject[] = [
   {
     accessor: "name",
     label: "Name",
-    width: 150,
+    width: "1fr",
     isSortable: true,
     type: "string",
   },
   {
     accessor: "age",
     label: "Age",
-    width: 80,
+    width: 120,
     isSortable: true,
     type: "number",
   },
   {
     accessor: "department",
     label: "Department",
-    width: 120,
+    width: 150,
     isSortable: true,
     type: "string",
   },
@@ -216,7 +216,7 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ExternalSortDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
   const [sortConfig, setSortConfig] = useState<SortConfig | null>(null);
 
   // Sort data externally based on sortConfig
@@ -263,7 +263,7 @@ const ExternalSortDemo = ({ height = "400px", theme }: { height?: string; theme?
         externalSortHandling={true} // Disable internal sorting logic
         columnResizing={true}
         columnReordering={true}
-        height={height}
+        height={"338px"}
         theme={theme}
       />
     </div>
