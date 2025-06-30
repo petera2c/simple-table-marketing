@@ -147,7 +147,6 @@ const SimpleTableVsTanstackContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
           {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
-          {FeatureTags.Processing("Aggregation Functions", "Coming soon to Simple Table")}
           {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
           {FeatureTags.Error("Tree Data", "Not available in Simple Table")}
           {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
@@ -158,7 +157,6 @@ const SimpleTableVsTanstackContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("Value Getters/Setters", "Advanced data accessors and mutation")}
           {FeatureTags.Error("Cell Range Selection", "Requires custom implementation")}
-          {FeatureTags.Success("Aggregation Functions", "Built-in support for data aggregation")}
           {FeatureTags.Error("Pivot Tables", "Requires custom implementation")}
           {FeatureTags.Success("Tree Data", "Built-in support for tree data structures")}
           {FeatureTags.Error("Row Spanning", "Requires custom implementation")}

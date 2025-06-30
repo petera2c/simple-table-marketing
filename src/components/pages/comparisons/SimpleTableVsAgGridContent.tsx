@@ -154,10 +154,7 @@ const SimpleVsAgGrid = () => {
             "Display master-detail relationships between rows (not available)"
           )}
           {FeatureTags.Error("Row Spanning", "Span cells across multiple rows (not available)")}
-          {FeatureTags.Processing(
-            "Aggregation Functions (Coming Soon)",
-            "Calculate sums, averages, and other aggregations (coming soon)"
-          )}
+
           {FeatureTags.Success(
             "Value Getters/Setters",
             "Custom functions to get and set cell values"
@@ -174,10 +171,6 @@ const SimpleVsAgGrid = () => {
           {FeatureTags.Warning(
             "Row Spanning (Enterprise)",
             "Span cells across multiple rows (Enterprise only)"
-          )}
-          {FeatureTags.Warning(
-            "Aggregation Functions (Enterprise)",
-            "Calculate sums, averages, and other aggregations (Enterprise only)"
           )}
           {FeatureTags.Success(
             "Value Getters/Setters",

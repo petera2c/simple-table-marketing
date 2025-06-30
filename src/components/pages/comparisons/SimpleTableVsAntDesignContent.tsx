@@ -157,7 +157,6 @@ const SimpleTableVsAntDesignContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
           {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
-          {FeatureTags.Processing("Aggregation Functions", "Coming soon to Simple Table")}
           {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
           {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
           {FeatureTags.Error("Master/Detail Views", "Not available in Simple Table")}
@@ -167,7 +166,6 @@ const SimpleTableVsAntDesignContent = () => {
         <Space direction="vertical">
           {FeatureTags.Error("Value Getters/Setters", "No built-in data accessor functions")}
           {FeatureTags.Error("Cell Range Selection", "Not supported")}
-          {FeatureTags.Error("Aggregation Functions", "No built-in aggregation capabilities")}
           {FeatureTags.Error("Pivot Tables", "Not supported")}
           {FeatureTags.Success("Row Spanning", "Basic row span support through rowSpan property")}
           {FeatureTags.Error("Master/Detail Views", "No built-in master/detail support")}

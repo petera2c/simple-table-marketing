@@ -170,14 +170,19 @@ export const FEATURE_DEFINITIONS = {
         tooltip: "Filter data with type-specific controls",
       },
       {
-        status: "processing" as const,
+        status: "success" as const,
         label: "Advanced Filtering",
-        tooltip: "Multi-condition filtering coming soon",
+        tooltip: "Complex multi-condition filtering with custom operators",
       },
       {
         status: "success" as const,
         label: "Nested Headers",
         tooltip: "Column grouping and nesting",
+      },
+      {
+        status: "success" as const,
+        label: "Aggregation Functions",
+        tooltip: "Built-in aggregation functions (sum, average, count, min, max, etc.)",
       },
     ],
     agGrid: [
@@ -221,6 +226,11 @@ export const FEATURE_DEFINITIONS = {
         status: "success" as const,
         label: "Nested Headers",
         tooltip: "Create nested column headers for complex data structures",
+      },
+      {
+        status: "warning" as const,
+        label: "Aggregation Functions",
+        tooltip: "Built-in aggregation functions with pivot table support (Enterprise only)",
       },
     ],
     tanstack: [
@@ -269,6 +279,11 @@ export const FEATURE_DEFINITIONS = {
         label: "Nested Headers",
         tooltip: "Available through API hooks, requires custom UI",
       },
+      {
+        status: "error" as const,
+        label: "Aggregation Functions",
+        tooltip: "No built-in aggregation functions, requires custom implementation",
+      },
     ],
     antDesign: [
       {
@@ -304,6 +319,11 @@ export const FEATURE_DEFINITIONS = {
         tooltip: "No built-in advanced filtering, requires custom implementation",
       },
       { status: "success" as const, label: "Nested Headers", tooltip: "Column grouping support" },
+      {
+        status: "error" as const,
+        label: "Aggregation Functions",
+        tooltip: "No built-in aggregation functions, requires custom implementation",
+      },
     ],
     materialReact: [
       {
@@ -342,6 +362,11 @@ export const FEATURE_DEFINITIONS = {
         status: "error" as const,
         label: "Nested Headers",
         tooltip: "No built-in support for nested headers",
+      },
+      {
+        status: "error" as const,
+        label: "Aggregation Functions",
+        tooltip: "No built-in aggregation functions, requires custom implementation",
       },
     ],
     handsontable: [
@@ -385,6 +410,11 @@ export const FEATURE_DEFINITIONS = {
         status: "success" as const,
         label: "Nested Headers",
         tooltip: "Multi-level column headers",
+      },
+      {
+        status: "success" as const,
+        label: "Aggregation Functions",
+        tooltip: "Built-in aggregation functions with pivot table capabilities",
       },
     ],
   },

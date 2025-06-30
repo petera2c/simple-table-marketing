@@ -137,7 +137,6 @@ const SimpleTableVsHandsontableContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
           {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
-          {FeatureTags.Processing("Aggregation Functions", "Coming soon to Simple Table")}
           {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
           {FeatureTags.Error("Tree Data", "Not available in Simple Table")}
           {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
@@ -148,7 +147,6 @@ const SimpleTableVsHandsontableContent = () => {
         <Space direction="vertical">
           {FeatureTags.Warning("Value Getters/Setters", "Custom data access functions (paid)")}
           {FeatureTags.Warning("Cell Range Selection", "Select and manipulate cell ranges (paid)")}
-          {FeatureTags.Warning("Aggregation Functions", "Calculate sums, averages, etc. (paid)")}
           {FeatureTags.Warning("Pivot Tables", "Create and customize pivot tables (paid)")}
           {FeatureTags.Warning("Tree Data", "Display hierarchical data structures (paid)")}
           {FeatureTags.Warning("Row Spanning", "Span cells across multiple rows (paid)")}
