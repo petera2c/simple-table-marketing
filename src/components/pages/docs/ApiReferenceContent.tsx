@@ -331,12 +331,49 @@ rowHeight={48}`,
     example: `externalFilterHandling={true}`,
   },
   {
+    key: "externalSortHandling",
+    name: "externalSortHandling",
+    required: false,
+    description:
+      "When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop.",
+    type: "boolean",
+    example: `externalSortHandling={true}`,
+  },
+  {
     key: "hideFooter",
     name: "hideFooter",
     required: false,
     description: "Flag for hiding the table footer.",
     type: "boolean",
     example: `hideFooter={true}`,
+  },
+  {
+    key: "onFilterChange",
+    name: "onFilterChange",
+    required: false,
+    description:
+      "Callback function triggered when filter configuration changes. Receives the current filter state with all active filters.",
+    type: "(filters: TableFilterState) => void",
+    example: `onFilterChange={(filters) => {
+  console.log('Active filters:', filters);
+  // Make API call with filter parameters
+  // filters is an object where keys are unique filter IDs
+  // and values are FilterCondition objects
+}}`,
+  },
+  {
+    key: "onSortChange",
+    name: "onSortChange",
+    required: false,
+    description:
+      "Callback function triggered when sort configuration changes. Receives the current sort configuration or null if no sorting is applied.",
+    type: "(sort: SortConfig | null) => void",
+    example: `onSortChange={(sortConfig) => {
+  if (sortConfig) {
+    console.log(\`Sorting by \${sortConfig.key.accessor} (\${sortConfig.direction})\`);
+    // Make API call with sort parameters
+  }
+}}`,
   },
   {
     key: "rowGrouping",
@@ -580,6 +617,42 @@ minWidth: "100px"`,
   },
 ];
 
+const SORT_CONFIG_PROPS: PropInfo[] = [
+  {
+    key: "key",
+    name: "key",
+    required: true,
+    description: "The HeaderObject representing the column being sorted.",
+    type: "HeaderObject",
+    link: "#header-object",
+    example: `key: { accessor: "name", label: "Name", width: 150 }`,
+  },
+  {
+    key: "direction",
+    name: "direction",
+    required: true,
+    description: "The sort direction for the column.",
+    type: '"ascending" | "descending"',
+    example: `direction: "ascending"`,
+  },
+];
+
+const TABLE_FILTER_STATE_PROPS: PropInfo[] = [
+  {
+    key: "filterCondition",
+    name: "filterCondition",
+    required: true,
+    description: "The FilterCondition object containing the filter logic.",
+    type: "FilterCondition",
+    link: "#filter-condition",
+    example: `{
+  accessor: "name",
+  operator: "contains",
+  value: "John"
+}`,
+  },
+];
+
 const ApiReferenceContent = () => {
   useHashNavigation();
 
@@ -688,6 +761,14 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="union-types">
         <PropTable props={UNION_TYPE_DEFINITIONS} title="Union Type Definitions" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="sort-config">
+        <PropTable props={SORT_CONFIG_PROPS} title="SortConfig" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-filter-state">
+        <PropTable props={TABLE_FILTER_STATE_PROPS} title="TableFilterState" />
       </div>
 
       <DocNavigationButtons />
