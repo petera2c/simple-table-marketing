@@ -72,6 +72,7 @@ const EXTERNAL_FILTERING_PROPS: PropInfo[] = [
     description:
       "Callback function triggered when filter configuration changes. Receives the current filter state with all active filters.",
     type: "(filters: TableFilterState) => void",
+    link: "/docs/api-reference#table-filter-state",
     example: `onFilterChange={(filters) => {
   console.log('Active filters:', filters);
   // Make API call with filter parameters

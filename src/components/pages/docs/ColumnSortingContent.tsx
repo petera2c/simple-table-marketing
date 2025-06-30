@@ -34,6 +34,7 @@ const EXTERNAL_SORTING_PROPS: PropInfo[] = [
     description:
       "Callback function triggered when sort configuration changes. Receives the current sort configuration or null if no sorting is applied.",
     type: "(sort: SortConfig | null) => void",
+    link: "/docs/api-reference#sort-config",
     example: `onSortChange={(sortConfig) => {
   if (sortConfig) {
     console.log(\`Sorting by \${sortConfig.key.accessor} (\${sortConfig.direction})\`);

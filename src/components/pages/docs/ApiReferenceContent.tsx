@@ -23,37 +23,6 @@ const score: CellValue = null;          // null
 const description: CellValue = undefined; // undefined`,
   },
   {
-    key: "sortconfig",
-    name: "SortConfig",
-    required: false,
-    description: "Configuration object describing the current sort state.",
-    type: "{ key: HeaderObject; direction: 'ascending' | 'descending' }",
-    example: `const sortConfig: SortConfig = {
-  key: { accessor: "name", label: "Name", width: 150 },
-  direction: "ascending"
-};`,
-  },
-  {
-    key: "tablefilterstate",
-    name: "TableFilterState",
-    required: false,
-    description:
-      "Object containing all active filters, where keys are unique filter IDs and values are FilterCondition objects.",
-    type: "{ [key: string]: FilterCondition }",
-    example: `const filters: TableFilterState = {
-  "name_contains": {
-    accessor: "name",
-    operator: "contains",
-    value: "John"
-  },
-  "age_greaterThan": {
-    accessor: "age", 
-    operator: "greaterThan",
-    value: 25
-  }
-};`,
-  },
-  {
     key: "theme",
     name: "Theme",
     required: false,
@@ -648,6 +617,42 @@ minWidth: "100px"`,
   },
 ];
 
+const SORT_CONFIG_PROPS: PropInfo[] = [
+  {
+    key: "key",
+    name: "key",
+    required: true,
+    description: "The HeaderObject representing the column being sorted.",
+    type: "HeaderObject",
+    link: "#header-object",
+    example: `key: { accessor: "name", label: "Name", width: 150 }`,
+  },
+  {
+    key: "direction",
+    name: "direction",
+    required: true,
+    description: "The sort direction for the column.",
+    type: '"ascending" | "descending"',
+    example: `direction: "ascending"`,
+  },
+];
+
+const TABLE_FILTER_STATE_PROPS: PropInfo[] = [
+  {
+    key: "filterCondition",
+    name: "filterCondition",
+    required: true,
+    description: "The FilterCondition object containing the filter logic.",
+    type: "FilterCondition",
+    link: "#filter-condition",
+    example: `{
+  accessor: "name",
+  operator: "contains",
+  value: "John"
+}`,
+  },
+];
+
 const ApiReferenceContent = () => {
   useHashNavigation();
 
@@ -756,6 +761,14 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="union-types">
         <PropTable props={UNION_TYPE_DEFINITIONS} title="Union Type Definitions" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="sort-config">
+        <PropTable props={SORT_CONFIG_PROPS} title="SortConfig" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-filter-state">
+        <PropTable props={TABLE_FILTER_STATE_PROPS} title="TableFilterState" />
       </div>
 
       <DocNavigationButtons />
