@@ -58,8 +58,19 @@ export const bestFreeReactDataGridPost: BlogPostMetadata = {
   updatedAt: "2025-06-21",
 };
 
+export const customizingReactTableLookPost: BlogPostMetadata = {
+  title: "Customizing Your React Table Look with Simple Table's Themes",
+  description:
+    "Master the art of React table customization with Simple Table's powerful theming system. Learn how CSS variables, built-in themes, and custom renderers make styling effortless.",
+  slug: "customizing-react-table-look-simple-table-themes",
+  tags: ["react", "themes", "customization", "css-variables", "styling", "design"],
+  createdAt: "2025-06-30",
+  updatedAt: "2025-06-30",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  customizingReactTableLookPost,
   bestFreeReactDataGridPost,
   freeAlternativeToAgGridPost,
   handlingOneMillionRowsPost,

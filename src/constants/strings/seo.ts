@@ -4,6 +4,7 @@ import {
   customizingDataGridsStylingEasyPost,
   nestedHeadersReactTablesPost,
   bestFreeReactDataGridPost,
+  customizingReactTableLookPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -106,6 +107,22 @@ export const SEO_STRINGS = {
         "React data structure",
         "multi-level headers",
         "table hierarchy",
+      ],
+    },
+    customizingReactTableLook: {
+      title: customizingReactTableLookPost.title,
+      description: customizingReactTableLookPost.description,
+      keywords: [
+        "React table customization",
+        "table themes",
+        "CSS variables",
+        "custom renderers",
+        "React table styling",
+        "data grid themes",
+        "table design",
+        "React table appearance",
+        "table UI customization",
+        "theme system",
       ],
     },
   },
