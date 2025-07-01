@@ -118,7 +118,7 @@ const SimpleTableVsAntDesignContent = () => {
           {FeatureTags.Success("Column Filters", "Filter individual columns")}
           {FeatureTags.Success("Global Search", "Search across all columns")}
           {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Processing("Faceted Filters", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
         </Space>
       ),
       antDesign: (
@@ -205,7 +205,7 @@ const SimpleTableVsAntDesignContent = () => {
           {FeatureTags.Processing("Excel Export/Import", "Coming soon to Simple Table")}
           {FeatureTags.Processing("CSV Export/Import", "Coming soon to Simple Table")}
           {FeatureTags.Success("Clipboard Operations", "Copy/paste data to/from clipboard")}
-          {FeatureTags.Processing("Advanced Keyboard Navigation", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Advanced Keyboard Navigation", "Support for keyboard navigation")}
           {FeatureTags.Processing("Accessibility Features", "Coming soon to Simple Table")}
         </Space>
       ),
@@ -272,7 +272,7 @@ const SimpleTableVsAntDesignContent = () => {
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      offers a different philosophy entirely. At just 197 kB, it delivers more data grid
+      offers a different philosophy entirely. At just 255 kB, it delivers more data grid
       functionality than Ant Design Table while being 240x smaller. But the choice isn't just about
       file size—it's about architectural decisions that affect your entire application's
       performance, from initial load times to runtime memory usage. This comparison examines whether
@@ -432,7 +432,7 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>197 kB</strong> total bundle size
+              • <strong>255 kB</strong> total bundle size
             </li>
             <li>
               • <strong>Minimal CDN costs</strong> and fast delivery

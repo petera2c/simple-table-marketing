@@ -92,9 +92,9 @@ const SimpleTableVsTanstackContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Success("Column Filters", "Filter individual columns")}
-          {FeatureTags.Success("Global Search", "Search across all columns")}
+          {FeatureTags.Processing("Global Search", "Search across all columns")}
           {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Processing("Faceted Filters", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
         </Space>
       ),
       tanstack: (
@@ -148,7 +148,7 @@ const SimpleTableVsTanstackContent = () => {
           {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
           {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
           {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
-          {FeatureTags.Error("Tree Data", "Not available in Simple Table")}
+          {FeatureTags.Success("Tree Data", "Display hierarchical data in a tree structure")}
           {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
           {FeatureTags.Error("Master/Detail Views", "Not available in Simple Table")}
         </Space>
@@ -217,7 +217,7 @@ const SimpleTableVsTanstackContent = () => {
           {FeatureTags.Processing("Excel Export/Import", "Coming soon to Simple Table")}
           {FeatureTags.Processing("CSV Export/Import", "Coming soon to Simple Table")}
           {FeatureTags.Success("Clipboard Operations", "Copy/paste data to/from clipboard")}
-          {FeatureTags.Processing("Advanced Keyboard Navigation", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Advanced Keyboard Navigation", "Support for keyboard navigation")}
           {FeatureTags.Processing("Accessibility Features", "Coming soon to Simple Table")}
         </Space>
       ),

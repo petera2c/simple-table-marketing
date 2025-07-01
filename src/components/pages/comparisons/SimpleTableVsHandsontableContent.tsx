@@ -116,9 +116,9 @@ const SimpleTableVsHandsontableContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Success("Column Filters", "Filter individual columns")}
-          {FeatureTags.Success("Global Search", "Search across all columns")}
+          {FeatureTags.Processing("Global Search", "Search across all columns")}
           {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Processing("Faceted Filters", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
         </Space>
       ),
       handsontable: (
@@ -138,7 +138,7 @@ const SimpleTableVsHandsontableContent = () => {
           {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
           {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
           {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
-          {FeatureTags.Error("Tree Data", "Not available in Simple Table")}
+          {FeatureTags.Success("Tree Data", "Display hierarchical data in a tree structure")}
           {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
           {FeatureTags.Error("Master/Detail Views", "Not available in Simple Table")}
         </Space>

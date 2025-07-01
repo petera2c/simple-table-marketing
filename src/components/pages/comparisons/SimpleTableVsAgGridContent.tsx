@@ -108,10 +108,7 @@ const SimpleVsAgGrid = () => {
             "Pivot Tables",
             "Create pivot tables for data analysis (not available)"
           )}
-          {FeatureTags.Error(
-            "Tree Data",
-            "Display hierarchical data in a tree structure (not available)"
-          )}
+          {FeatureTags.Success("Tree Data", "Display hierarchical data in a tree structure")}
         </Space>
       ),
       agGrid: (
@@ -240,9 +237,9 @@ const SimpleVsAgGrid = () => {
             "Export and import data in CSV format (coming soon)"
           )}
           {FeatureTags.Success("Clipboard Operations", "Copy and paste data to/from clipboard")}
-          {FeatureTags.Processing(
-            "Advanced Keyboard Navigation (Coming Soon)",
-            "Advanced keyboard navigation and shortcuts (coming soon)"
+          {FeatureTags.Success(
+            "Advanced Keyboard Navigation",
+            "Advanced keyboard navigation and shortcuts"
           )}
           {FeatureTags.Processing(
             "Accessibility Features (Coming Soon)",

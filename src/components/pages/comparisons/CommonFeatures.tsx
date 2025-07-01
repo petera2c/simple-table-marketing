@@ -1,6 +1,7 @@
 import React from "react";
 import { Space, Tag, Tooltip } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Link from "next/link";
 import {
   faCheck,
   faDollarSign,
@@ -12,6 +13,75 @@ import {
   faPalette,
   faGear,
 } from "@fortawesome/free-solid-svg-icons";
+
+// Mapping of feature labels to their corresponding docs pages
+const FEATURE_DOCS_MAPPING: Record<string, string> = {
+  Resizing: "/docs/column-resizing",
+  Reordering: "/docs/column-reordering",
+  Visibility: "/docs/column-visibility",
+  Pinning: "/docs/column-pinning",
+  Alignment: "/docs/column-alignment",
+  Sorting: "/docs/column-sorting",
+  Filtering: "/docs/column-filtering",
+  "Advanced Filtering": "/docs/column-filtering",
+  "Nested Headers": "/docs/nested-headers",
+  "Aggregation Functions": "/docs/aggregate-functions",
+  "Row Grouping": "/docs/row-grouping",
+  "Adjustable Height": "/docs/row-height",
+  Expansion: "/docs/row-grouping",
+  Editing: "/docs/cell-editing",
+  "Custom Renderers": "/docs/cell-renderer",
+  "Live Updates": "/docs/live-updates",
+  Formatting: "/docs/cell-renderer",
+  Validation: "/docs/cell-renderer",
+  "Custom Icons": "/docs/custom-icons",
+  "Multiple Themes": "/docs/themes",
+  "Full Theme Control": "/docs/custom-theme",
+  "CSS Variables": "/docs/custom-theme",
+  "Clipboard Operations": "/docs/cell-highlighting",
+  "Value Getters/Setters": "/docs/live-updates",
+  "Cell Range Selection": "/docs/cell-highlighting",
+  "Tree Data": "/docs/row-grouping",
+  "Column Filters": "/docs/column-filtering",
+  "Global Search": "/docs/column-filtering",
+  "Custom Filters": "/docs/column-filtering",
+  "Client-side": "/docs/pagination",
+  "Server-side": "/docs/pagination",
+  "Infinite Scroll": "/docs/live-updates",
+  "Built-in Themes": "/docs/themes",
+  "Light/dark themes included": "/docs/themes",
+  "Support for light and dark themes with easy customization": "/docs/themes",
+  "Replace default icons with custom ones": "/docs/custom-icons",
+  "Replace default icons easily": "/docs/custom-icons",
+  "Custom functions to get/set cell values": "/docs/live-updates",
+  "Custom functions to get and set cell values": "/docs/live-updates",
+  "Select multiple cells in a range": "/docs/cell-highlighting",
+  "Display hierarchical data in a tree structure": "/docs/row-grouping",
+  "Group rows by column values with expand/collapse functionality": "/docs/row-grouping",
+  "Adjust row height dynamically or set fixed heights": "/docs/row-height",
+  "Expand rows to show additional details or nested content": "/docs/row-grouping",
+  "Edit cell values inline with validation and formatting": "/docs/cell-editing",
+  "Create custom cell renderers for complex content": "/docs/cell-renderer",
+  "Update cell values in real-time without page refresh": "/docs/live-updates",
+  "Format cell values (numbers, dates, currency, etc.)": "/docs/cell-renderer",
+  "Validate cell input with custom rules and error messages": "/docs/cell-renderer",
+  "Filter individual columns": "/docs/column-filtering",
+  "Search across all columns": "/docs/column-filtering",
+  "Define custom filter functions": "/docs/column-filtering",
+  "Built-in pagination with customizable controls": "/docs/pagination",
+  "Support for controlled pagination": "/docs/pagination",
+  "Copy/paste data to/from clipboard": "/docs/cell-highlighting",
+  "Copy and paste data to/from clipboard": "/docs/cell-highlighting",
+  "Scroll to the bottom of the table to load more data": "/docs/live-updates",
+  "Built-in support with customizable loading states": "/docs/live-updates",
+  "Two-way data binding with React state": "/docs/live-updates",
+  "Complete control over styling through CSS variables": "/docs/custom-theme",
+  "Easy npm install and minimal setup": "/docs/quick-start",
+  "Single package, minimal setup": "/docs/quick-start",
+  "Built-in virtualization for millions of rows": "/docs/live-updates",
+  "Theming through CSS variables": "/docs/custom-theme",
+  "TypeScript Support": "/docs/api-reference",
+};
 
 // Common feature icons
 export const FeatureIcons = {
@@ -101,11 +171,22 @@ export const FeatureStatus = {
 
 // Common feature tags with tooltips
 export const FeatureTags = {
-  Success: (label: string, tooltip: string) => (
-    <Tooltip title={tooltip}>
-      <Tag color="success">{label}</Tag>
-    </Tooltip>
-  ),
+  Success: (label: string, tooltip: string) => {
+    const docLink = FEATURE_DOCS_MAPPING[label];
+    const tagContent = (
+      <Tooltip title={tooltip}>
+        <Tag color="success">{label}</Tag>
+      </Tooltip>
+    );
+
+    return docLink ? (
+      <Link href={docLink} className="hover:opacity-80 transition-opacity">
+        {tagContent}
+      </Link>
+    ) : (
+      tagContent
+    );
+  },
   Warning: (label: string, tooltip: string) => (
     <Tooltip title={tooltip}>
       <Tag color="warning">{label}</Tag>
@@ -430,11 +511,7 @@ export const FEATURE_DEFINITIONS = {
         label: "Adjustable Height",
         tooltip: "Adjust row height dynamically or set fixed heights",
       },
-      {
-        status: "success" as const,
-        label: "Selection",
-        tooltip: "Select single or multiple rows with checkboxes or clicks",
-      },
+
       {
         status: "success" as const,
         label: "Expansion",
@@ -466,16 +543,6 @@ export const FEATURE_DEFINITIONS = {
     tanstack: [
       {
         status: "success" as const,
-        label: "Row Selection",
-        tooltip: "Available through API hooks, requires custom UI",
-      },
-      {
-        status: "success" as const,
-        label: "Row Expansion",
-        tooltip: "Available through API hooks, requires custom UI",
-      },
-      {
-        status: "success" as const,
         label: "Row Grouping",
         tooltip: "Available through API hooks, requires custom UI",
       },
@@ -483,6 +550,12 @@ export const FEATURE_DEFINITIONS = {
         status: "success" as const,
         label: "Adjustable Height",
         tooltip: "Requires custom implementation",
+      },
+
+      {
+        status: "success" as const,
+        label: "Row Expansion",
+        tooltip: "Available through API hooks, requires custom UI",
       },
     ],
     antDesign: [
@@ -495,11 +568,6 @@ export const FEATURE_DEFINITIONS = {
         status: "success" as const,
         label: "Adjustable Height",
         tooltip: "Support for custom row heights",
-      },
-      {
-        status: "success" as const,
-        label: "Selection",
-        tooltip: "Built-in row selection with checkboxes",
       },
       {
         status: "success" as const,
@@ -520,11 +588,6 @@ export const FEATURE_DEFINITIONS = {
       },
       {
         status: "success" as const,
-        label: "Selection",
-        tooltip: "Built-in row selection with checkboxes",
-      },
-      {
-        status: "success" as const,
         label: "Expansion",
         tooltip: "Expandable rows for detail views",
       },
@@ -540,7 +603,6 @@ export const FEATURE_DEFINITIONS = {
         label: "Adjustable Height",
         tooltip: "Dynamic row height adjustment",
       },
-      { status: "success" as const, label: "Selection", tooltip: "Flexible row selection modes" },
       {
         status: "error" as const,
         label: "Expansion",
@@ -713,6 +775,6 @@ export const renderFeatures = (
 export const simplePricing = (
   <Space direction="vertical">
     {FeatureTags.Success("100% Free", "Completely free to use in any project")}
-    {FeatureTags.Success("197 kB (unpacked)", "Minimal bundle size for optimal performance")}
+    {FeatureTags.Success("255 kB (unpacked)", "Minimal bundle size for optimal performance")}
   </Space>
 );
