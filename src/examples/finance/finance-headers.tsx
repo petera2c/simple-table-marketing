@@ -191,17 +191,82 @@ export const HEADERS: HeaderObject[] = [
           { label: "Sell", value: "Sell" },
           { label: "Strong Sell", value: "Strong Sell" },
         ],
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (!row.analystRating) return "—";
           const rating = row.analystRating as string;
-          const styleMap: Record<string, { color: string; backgroundColor: string }> = {
-            "Strong Buy": { color: "#dc2626", backgroundColor: "#f0fdf4" },
-            Buy: { color: "#10b981", backgroundColor: "#f0fdf4" },
-            Hold: { color: "#d97706", backgroundColor: "#fffbeb" },
-            Sell: { color: "#ef4444", backgroundColor: "#fef2f2" },
-            "Strong Sell": { color: "#dc2626", backgroundColor: "#fef2f2" },
+
+          // Theme-dependent color styles for analyst ratings
+          const getColorStyles = (rating: string, theme: string) => {
+            const getRatingColors = (rating: string) => {
+              switch (rating) {
+                case "Strong Buy":
+                  return { type: "strongBuy" };
+                case "Buy":
+                  return { type: "buy" };
+                case "Hold":
+                  return { type: "hold" };
+                case "Sell":
+                  return { type: "sell" };
+                case "Strong Sell":
+                  return { type: "strongSell" };
+                default:
+                  return { type: "neutral" };
+              }
+            };
+
+            const { type } = getRatingColors(rating);
+
+            switch (theme) {
+              case "dark":
+                return {
+                  strongBuy: { color: "#4ade80", backgroundColor: "rgba(20, 83, 45, 0.3)" },
+                  buy: { color: "#22d3ee", backgroundColor: "rgba(6, 78, 59, 0.3)" },
+                  hold: { color: "#fbbf24", backgroundColor: "rgba(146, 64, 14, 0.3)" },
+                  sell: { color: "#fb7185", backgroundColor: "rgba(127, 29, 29, 0.3)" },
+                  strongSell: { color: "#f87171", backgroundColor: "rgba(127, 29, 29, 0.3)" },
+                  neutral: { color: "#9ca3af", backgroundColor: "rgba(55, 65, 81, 0.3)" },
+                }[type];
+              case "sky":
+                return {
+                  strongBuy: { color: "#059669", backgroundColor: "#ecfdf5" },
+                  buy: { color: "#0891b2", backgroundColor: "#f0f9ff" },
+                  hold: { color: "#d97706", backgroundColor: "#fffbeb" },
+                  sell: { color: "#dc2626", backgroundColor: "#fef2f2" },
+                  strongSell: { color: "#b91c1c", backgroundColor: "#fef2f2" },
+                  neutral: { color: "#475569", backgroundColor: "#f8fafc" },
+                }[type];
+              case "funky":
+                return {
+                  strongBuy: { color: "#0891b2", backgroundColor: "#ecfeff" },
+                  buy: { color: "#059669", backgroundColor: "#ecfdf5" },
+                  hold: { color: "#9333ea", backgroundColor: "#faf5ff" },
+                  sell: { color: "#db2777", backgroundColor: "#fdf2f8" },
+                  strongSell: { color: "#be185d", backgroundColor: "#fdf2f8" },
+                  neutral: { color: "#9333ea", backgroundColor: "#faf5ff" },
+                }[type];
+              case "neutral":
+                return {
+                  strongBuy: { color: "#57534e", backgroundColor: "#f5f5f4" },
+                  buy: { color: "#57534e", backgroundColor: "#f5f5f4" },
+                  hold: { color: "#78716c", backgroundColor: "#fafaf9" },
+                  sell: { color: "#57534e", backgroundColor: "#f5f5f4" },
+                  strongSell: { color: "#44403c", backgroundColor: "#f5f5f4" },
+                  neutral: { color: "#78716c", backgroundColor: "#fafaf9" },
+                }[type];
+              case "light":
+              default:
+                return {
+                  strongBuy: { color: "#16a34a", backgroundColor: "#f0fdf4" },
+                  buy: { color: "#10b981", backgroundColor: "#f0fdf4" },
+                  hold: { color: "#d97706", backgroundColor: "#fffbeb" },
+                  sell: { color: "#ef4444", backgroundColor: "#fef2f2" },
+                  strongSell: { color: "#dc2626", backgroundColor: "#fef2f2" },
+                  neutral: { color: "#4b5563", backgroundColor: "#f9fafb" },
+                }[type];
+            }
           };
-          const styles = styleMap[rating] || { color: "#4b5563", backgroundColor: "#f9fafb" };
+
+          const styles = getColorStyles(rating, theme);
 
           return (
             <div
