@@ -379,7 +379,7 @@ const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
                 className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200"
               >
                 {headers.find((h) => h.accessor === filter.accessor)?.label}: {filter.operator}{" "}
-                {filter.value}
+                {filter.values ? filter.values.join(", ") : filter.value}
               </span>
             ))}
           </div>
