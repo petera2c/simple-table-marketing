@@ -236,8 +236,8 @@ const SimpleTableVsHandsontableContent = () => {
       handsontable: (
         <Space direction="vertical">
           {FeatureTags.Warning("Theming System", "Customizable themes (paid)")}
-          {FeatureTags.Error("Limited Styling", "Very limited styling options")}
           {FeatureTags.Warning("Custom Icons", "Replace default icons (paid)")}
+          {FeatureTags.Error("Limited Styling", "Very limited styling options")}
           {FeatureTags.Warning("Responsive", "Responsive configuration options (paid)")}
         </Space>
       ),

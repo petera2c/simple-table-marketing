@@ -56,17 +56,67 @@ export const HEADERS: HeaderObject[] = [
         isEditable: false,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.priceChangePercent === "—" || row.priceChangePercent === null) return "—";
           const value = row.priceChangePercent as number;
-          const color = value < 0 ? "text-red-600" : value > 0 ? "text-green-600" : "text-gray-600";
           const prefix = value > 0 ? "+" : "";
-          const bgColor = value < 0 ? "bg-red-50" : value > 0 ? "bg-green-50" : "";
+
+          // Theme-dependent color styles
+          const getColorStyles = (value: number, theme: string) => {
+            const isNegative = value < 0;
+            const isPositive = value > 0;
+
+            switch (theme) {
+              case "dark":
+                return {
+                  color: isNegative ? "#f87171" : isPositive ? "#4ade80" : "#9ca3af",
+                  backgroundColor: isNegative
+                    ? "rgba(127, 29, 29, 0.3)"
+                    : isPositive
+                    ? "rgba(20, 83, 45, 0.3)"
+                    : "rgba(55, 65, 81, 0.3)",
+                };
+              case "sky":
+                return {
+                  color: isNegative ? "#dc2626" : isPositive ? "#059669" : "#475569",
+                  backgroundColor: isNegative ? "#fef2f2" : isPositive ? "#ecfdf5" : "#f8fafc",
+                };
+              case "funky":
+                return {
+                  color: isNegative ? "#db2777" : isPositive ? "#0891b2" : "#9333ea",
+                  backgroundColor: isNegative ? "#fdf2f8" : isPositive ? "#ecfeff" : "#faf5ff",
+                };
+              case "neutral":
+                return {
+                  color: isNegative ? "#57534e" : isPositive ? "#57534e" : "#78716c",
+                  backgroundColor: isNegative ? "#f5f5f4" : isPositive ? "#f5f5f4" : "#fafaf9",
+                };
+              case "light":
+              default:
+                return {
+                  color: isNegative ? "#dc2626" : isPositive ? "#16a34a" : "#4b5563",
+                  backgroundColor: isNegative ? "#fef2f2" : isPositive ? "#f0fdf4" : "#f9fafb",
+                };
+            }
+          };
+
+          const styles = getColorStyles(value, theme);
 
           return (
-            <div className={`px-2 py-1 rounded font-medium ${bgColor} ${color}`}>
-              {prefix}
-              {value.toFixed(2)}%
+            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+              <div
+                style={{
+                  width: "70%",
+                  minWidth: "min-content",
+                  padding: "1px 8px",
+                  borderRadius: "4px",
+                  fontWeight: "500",
+                  ...styles,
+                }}
+              >
+                {prefix}
+                {value.toFixed(2)}%
+              </div>
             </div>
           );
         },
@@ -144,15 +194,24 @@ export const HEADERS: HeaderObject[] = [
         cellRenderer: ({ row }) => {
           if (!row.analystRating) return "—";
           const rating = row.analystRating as string;
-          const colorMap: Record<string, string> = {
-            "Strong Buy": "text-green-600 bg-green-50",
-            Buy: "text-green-500 bg-green-50",
-            Hold: "text-amber-600 bg-amber-50",
-            Sell: "text-red-500 bg-red-50",
-            "Strong Sell": "text-red-600 bg-red-50",
+          const styleMap: Record<string, { color: string; backgroundColor: string }> = {
+            "Strong Buy": { color: "#dc2626", backgroundColor: "#f0fdf4" },
+            Buy: { color: "#10b981", backgroundColor: "#f0fdf4" },
+            Hold: { color: "#d97706", backgroundColor: "#fffbeb" },
+            Sell: { color: "#ef4444", backgroundColor: "#fef2f2" },
+            "Strong Sell": { color: "#dc2626", backgroundColor: "#fef2f2" },
           };
+          const styles = styleMap[rating] || { color: "#4b5563", backgroundColor: "#f9fafb" };
+
           return (
-            <div className={`px-2 py-1 rounded font-medium ${colorMap[rating] || ""}`}>
+            <div
+              style={{
+                padding: "4px 8px",
+                borderRadius: "4px",
+                fontWeight: "500",
+                ...styles,
+              }}
+            >
               {rating}
             </div>
           );
