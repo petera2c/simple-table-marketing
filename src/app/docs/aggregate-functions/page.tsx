@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import AggregateFunctionsContent from "@/components/pages/docs/AggregateFunctionsContent";
+import AggregateFunctionsContent from "@/components/pages/docs-pages/AggregateFunctionsContent";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.aggregateFunctions.title,

@@ -1,4 +1,4 @@
-import NestedHeadersContent from "@/components/pages/docs/NestedHeadersContent";
+import NestedHeadersContent from "@/components/pages/docs-pages/NestedHeadersContent";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 

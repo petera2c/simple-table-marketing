@@ -1,4 +1,4 @@
-import ColumnFilteringContent from "@/components/pages/docs/ColumnFilteringContent";
+import ColumnFilteringContent from "@/components/pages/docs-pages/ColumnFilteringContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import { Metadata } from "next";
 

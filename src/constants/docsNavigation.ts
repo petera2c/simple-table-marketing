@@ -25,6 +25,7 @@ import {
   faCalculator,
   faFilter,
   faBook,
+  faInfinity,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -148,6 +149,12 @@ export const docSections: DocSection[] = [
       },
       { id: "pagination", label: "Pagination", path: "/docs/pagination", icon: faPager },
       { id: "live-updates", label: "Live Updates", path: "/docs/live-updates", icon: faBolt },
+      {
+        id: "infinite-scroll",
+        label: "Infinite Scroll",
+        path: "/docs/infinite-scroll",
+        icon: faInfinity,
+      },
     ],
   },
   {

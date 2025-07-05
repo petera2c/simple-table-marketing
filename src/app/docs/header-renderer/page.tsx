@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import HeaderRendererContent from "@/components/pages/docs/HeaderRendererContent";
+import HeaderRendererContent from "@/components/pages/docs-pages/HeaderRendererContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

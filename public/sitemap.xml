@@ -136,6 +136,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/docs/infinite-scroll</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/docs/installation</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>

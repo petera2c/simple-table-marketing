@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import CellHighlightingContent from "@/components/pages/docs/CellHighlightingContent";
+import CellHighlightingContent from "@/components/pages/docs-pages/CellHighlightingContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

@@ -362,6 +362,22 @@ rowHeight={48}`,
 }}`,
   },
   {
+    key: "onLoadMore",
+    name: "onLoadMore",
+    required: false,
+    description:
+      "Callback function triggered when user scrolls near the bottom of the table to load more data. Useful for implementing infinite scrolling or paginated data loading.",
+    type: "() => void",
+    example: `onLoadMore={() => {
+  console.log('Loading more data...');
+  // Fetch additional data from API
+  // Append new rows to existing data
+  fetchMoreData().then(newRows => {
+    setRows(prevRows => [...prevRows, ...newRows]);
+  });
+}}`,
+  },
+  {
     key: "onSortChange",
     name: "onSortChange",
     required: false,

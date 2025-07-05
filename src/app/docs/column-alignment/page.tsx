@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ColumnAlignmentContent from "@/components/pages/docs/ColumnAlignmentContent";
+import ColumnAlignmentContent from "@/components/pages/docs-pages/ColumnAlignmentContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {

@@ -332,6 +332,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, live updates, real-time table, typescript table, responsive table",
   },
+  infiniteScroll: {
+    title: "Infinite Scroll with Simple Table React Grid",
+    description:
+      "Add infinite scroll to your react-table with Simple Table. Load more data on scroll in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, infinite scroll, load more data, lazy loading, typescript table, large datasets",
+  },
   comparisons: {
     agGrid: {
       title: "Simple Table vs AG Grid: React Data Grid Comparison",

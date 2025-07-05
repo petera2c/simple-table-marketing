@@ -1,5 +1,5 @@
 import { Metadata } from "next";
-import ApiReferenceContent from "@/components/pages/docs/ApiReferenceContent";
+import ApiReferenceContent from "@/components/pages/docs-pages/ApiReferenceContent";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
 export const metadata: Metadata = {
