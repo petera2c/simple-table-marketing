@@ -70,7 +70,7 @@ const InfiniteScrollContent = () => {
         <LivePreview
           demoCodeFilename="InfiniteScrollDemo.txt"
           height="400px"
-          link="#"
+          link={SANDBOX_LIST["InfiniteScrollDemo.tsx"].url}
           Preview={InfiniteScrollDemo}
         />
       </motion.div>
