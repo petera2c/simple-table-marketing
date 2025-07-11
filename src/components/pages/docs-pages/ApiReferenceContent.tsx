@@ -603,7 +603,7 @@ minWidth: "100px"`,
     required: false,
     description: "Options for enum type columns (dropdown values).",
     type: "EnumOption[]",
-    link: "#enumoption-type",
+    link: "#enum-option",
     example: `enumOptions: [
   { value: "active", label: "Active" },
   { value: "inactive", label: "Inactive" }
