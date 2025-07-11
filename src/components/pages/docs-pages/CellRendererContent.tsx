@@ -111,7 +111,9 @@ const CellRendererContent = () => {
       >
         Cell renderers give you complete control over how data is displayed in your table cells.
         Using custom renderers, you can create rich, interactive elements like buttons, badges,
-        progress bars, and more.
+        progress bars, and more. With the expanded CellValue type supporting arrays and objects, you
+        can now render complex data structures like tag lists, team member arrays, and nested object
+        data.
       </motion.p>
 
       {/* Basic Usage Section */}
@@ -194,13 +196,21 @@ const CellRendererContent = () => {
   children?: Row[];              // Child rows (e.g., invoices array, stations array)
 };
 
+// CellValue now supports arrays and objects:
+type CellValue = string | number | boolean | undefined | null | string[] | number[] | Record<string, any>[];
+
 // Example row structure:
 {
   id: "SALE-123",
   repName: "John Doe",
   dealSize: 15000,
   isWon: true,
-  category: "Software"
+  category: "Software",
+  tags: ["Enterprise", "SaaS"],           // string array
+  teamMembers: [                          // object array
+    { name: "Alice", role: "Manager" },
+    { name: "Bob", role: "Developer" }
+  ]
 }`}
           />
         </div>

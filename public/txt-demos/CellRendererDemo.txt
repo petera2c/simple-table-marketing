@@ -6,46 +6,54 @@ const headers: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: 180, type: "string" },
   {
-    accessor: "email",
-    label: "Email",
-    width: 200,
+    accessor: "teamMembers",
+    label: "Team",
+    width: 280,
     type: "string",
-    cellRenderer: ({ row }) => (
-      <div className="flex items-center">
-        <span className="text-gray-400 mr-2">✉</span>
-        <a href={`mailto:${row.email}`} className="text-blue-600 hover:underline">
-          {row.email as string}
-        </a>
-      </div>
-    ),
-  },
-  {
-    accessor: "phone",
-    label: "Phone",
-    width: 180,
-    type: "string",
-    cellRenderer: ({ row }) => (
-      <div className="flex items-center">
-        <span className="text-gray-400 mr-2">📞</span>
-        <a href={`tel:${row.phone}`} className="text-blue-600 hover:underline">
-          {row.phone as string}
-        </a>
-      </div>
-    ),
+    cellRenderer: ({ row }) => {
+      const teamMembers = row.teamMembers as { name: string; role: string }[];
+      return (
+        <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
+          {teamMembers?.map((member, index) => (
+            <div key={index} style={{ display: "flex", alignItems: "center", gap: "4px" }}>
+              <div
+                style={{
+                  width: "24px",
+                  height: "24px",
+                  borderRadius: "50%",
+                  backgroundColor: "#DBEAFE",
+                  color: "#1E40AF",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  fontSize: "12px",
+                  fontWeight: "500",
+                }}
+              >
+                {member.name.charAt(0)}
+              </div>
+              <span style={{ fontSize: "14px", whiteSpace: "nowrap" }}>{member.name}</span>
+            </div>
+          ))}
+        </div>
+      );
+    },
   },
   {
     accessor: "website",
     label: "Website",
-    width: 150,
+    width: 180,
     type: "string",
     cellRenderer: ({ row }) => (
-      <div className="flex items-center">
-        <span className="text-gray-400 mr-2">🌐</span>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <span style={{ color: "#6B7280", marginRight: "8px" }}>🌐</span>
         <a
           href={`https://${row.website}`}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-600 hover:underline"
+          style={{ color: "#2563EB", textDecoration: "none" }}
+          onMouseOver={(e) => ((e.target as HTMLAnchorElement).style.textDecoration = "underline")}
+          onMouseOut={(e) => ((e.target as HTMLAnchorElement).style.textDecoration = "none")}
         >
           {row.website as string}
         </a>
@@ -59,23 +67,23 @@ const headers: HeaderObject[] = [
     type: "string",
     cellRenderer: ({ row }) => {
       const status = row.status as string;
-      let color = "gray";
+      let color = "#6B7280";
       let icon = "•";
 
       if (status === "active") {
-        color = "green";
+        color = "#10B981";
         icon = "✓";
       } else if (status === "inactive") {
-        color = "red";
+        color = "#EF4444";
         icon = "✕";
       } else if (status === "pending") {
-        color = "yellow";
+        color = "#F59E0B";
         icon = "!";
       }
 
       return (
-        <div className={`flex items-center text-${color}-500 capitalize`}>
-          <span className="mr-1 font-bold">{icon}</span>
+        <div style={{ display: "flex", alignItems: "center", color, textTransform: "capitalize" }}>
+          <span style={{ marginRight: "4px", fontWeight: "bold" }}>{icon}</span>
           {status}
         </div>
       );
@@ -88,19 +96,30 @@ const headers: HeaderObject[] = [
     type: "number",
     cellRenderer: ({ row }) => {
       const progress = row.progress as number;
-      let color = "blue";
+      let color = "#3B82F6";
 
-      if (progress < 30) color = "red";
-      else if (progress < 70) color = "yellow";
-      else color = "green";
+      if (progress < 30) color = "#EF4444";
+      else if (progress < 70) color = "#F59E0B";
+      else color = "#10B981";
 
       return (
-        <div className="w-full">
-          <div className="text-xs mb-1">{progress}%</div>
-          <div className="w-full bg-gray-200 rounded-full h-2.5">
+        <div style={{ width: "100%" }}>
+          <div style={{ fontSize: "12px", marginBottom: "4px" }}>{progress}%</div>
+          <div
+            style={{
+              width: "100%",
+              backgroundColor: "#E5E7EB",
+              borderRadius: "9999px",
+              height: "10px",
+            }}
+          >
             <div
-              className={`bg-${color}-500 h-2.5 rounded-full`}
-              style={{ width: `${progress}%` }}
+              style={{
+                backgroundColor: color,
+                height: "10px",
+                borderRadius: "9999px",
+                width: `${progress}%`,
+              }}
             />
           </div>
         </div>
@@ -118,18 +137,20 @@ const headers: HeaderObject[] = [
       const hasHalfStar = rating % 1 >= 0.5;
 
       return (
-        <div className="flex items-center">
-          <div className="flex text-yellow-400 mr-2">
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <div style={{ display: "flex", color: "#FBBF24", marginRight: "8px" }}>
             {[...Array(5)].map((_, i) => (
               <span
                 key={i}
-                className={
-                  i < fullStars
-                    ? "text-yellow-400"
-                    : i === fullStars && hasHalfStar
-                    ? "text-yellow-400 opacity-50"
-                    : "text-gray-300"
-                }
+                style={{
+                  color:
+                    i < fullStars
+                      ? "#FBBF24"
+                      : i === fullStars && hasHalfStar
+                      ? "#FBBF24"
+                      : "#D1D5DB",
+                  opacity: i === fullStars && hasHalfStar ? 0.5 : 1,
+                }}
               >
                 ★
               </span>
@@ -149,15 +170,43 @@ const headers: HeaderObject[] = [
       const verified = row.verified as boolean;
 
       return verified ? (
-        <span className="inline-flex items-center text-green-500">
-          <span className="mr-1 font-bold">✓</span>
+        <span style={{ display: "inline-flex", alignItems: "center", color: "#10B981" }}>
+          <span style={{ marginRight: "4px", fontWeight: "bold" }}>✓</span>
           Yes
         </span>
       ) : (
-        <span className="inline-flex items-center text-red-500">
-          <span className="mr-1 font-bold">✕</span>
+        <span style={{ display: "inline-flex", alignItems: "center", color: "#EF4444" }}>
+          <span style={{ marginRight: "4px", fontWeight: "bold" }}>✕</span>
           No
         </span>
+      );
+    },
+  },
+  {
+    accessor: "tags",
+    label: "Tags",
+    width: 250,
+    type: "string",
+    cellRenderer: ({ row }) => {
+      const tags = row.tags as string[];
+      return (
+        <div style={{ display: "flex", flexWrap: "nowrap", gap: "4px", overflow: "hidden" }}>
+          {tags?.map((tag, index) => (
+            <span
+              key={index}
+              style={{
+                padding: "4px 8px",
+                backgroundColor: "#DBEAFE",
+                color: "#1E40AF",
+                borderRadius: "4px",
+                fontSize: "12px",
+                whiteSpace: "nowrap",
+              }}
+            >
+              {tag}
+            </span>
+          ))}
+        </div>
       );
     },
   },
@@ -168,134 +217,155 @@ const EMPLOYEE_DATA = [
   {
     id: 1,
     name: "Isabella Romano",
-    email: "isabella@creativedesigns.co",
-    phone: "+1 (917) 845-3721",
     website: "isabellaromano.design",
     status: "active",
     progress: 92,
     rating: 4.9,
     verified: true,
+    tags: ["UI/UX", "Design", "Frontend"],
+    teamMembers: [
+      { name: "Alice Smith", role: "Designer" },
+      { name: "Bob Johnson", role: "Developer" },
+    ],
   },
   {
     id: 2,
     name: "Ethan McKenzie",
-    email: "ethan@webcraft.studio",
-    phone: "+1 (503) 629-4815",
     website: "ethanmckenzie.dev",
     status: "active",
     progress: 87,
     rating: 4.7,
     verified: true,
+    tags: ["Web Development", "Backend", "API"],
+    teamMembers: [
+      { name: "Charlie Brown", role: "Backend Developer" },
+      { name: "Diana Prince", role: "Frontend Developer" },
+    ],
   },
   {
     id: 3,
     name: "Zoe Patterson",
-    email: "zoe@brandalchemy.com",
-    phone: "+1 (415) 738-9264",
     website: "zoepatterson.com",
     status: "pending",
     progress: 34,
     rating: 4.2,
     verified: false,
+    tags: ["Branding", "Marketing"],
+    teamMembers: [{ name: "Eve Adams", role: "Marketing Manager" }],
   },
   {
     id: 4,
     name: "Felix Chang",
-    email: "felix@mobilefirst.agency",
-    phone: "+1 (212) 596-7413",
     website: "felixchang.mobile",
     status: "active",
     progress: 95,
     rating: 4.8,
     verified: true,
+    tags: ["Mobile App", "UX/UI"],
+    teamMembers: [
+      { name: "Grace Lee", role: "UX Designer" },
+      { name: "Hank Johnson", role: "Mobile Developer" },
+    ],
   },
   {
     id: 5,
     name: "Aria Gonzalez",
-    email: "aria@wordsmithcreative.io",
-    phone: "+1 (720) 485-6937",
     website: "ariagonzalez.writer",
     status: "active",
     progress: 78,
     rating: 4.6,
     verified: true,
+    tags: ["Content Writing", "Copywriting"],
+    teamMembers: [{ name: "Ivy White", role: "Content Strategist" }],
   },
   {
     id: 6,
     name: "Jasper Flynn",
-    email: "jasper@techconsulting.pro",
-    phone: "+1 (206) 352-8140",
     website: "jasperflynn.tech",
     status: "inactive",
     progress: 12,
     rating: 3.8,
     verified: false,
+    tags: ["Consulting", "Tech Strategy"],
+    teamMembers: [{ name: "Kate Brown", role: "Consultant" }],
   },
   {
     id: 7,
     name: "Nova Sterling",
-    email: "nova@digitalmarketing.expert",
-    phone: "+1 (312) 674-5829",
     website: "novasterling.marketing",
     status: "active",
     progress: 83,
     rating: 4.5,
     verified: true,
+    tags: ["Digital Marketing", "SEO"],
+    teamMembers: [
+      { name: "Leo Wilson", role: "SEO Specialist" },
+      { name: "Mia Davis", role: "Marketing Analyst" },
+    ],
   },
   {
     id: 8,
     name: "Cruz Martinez",
-    email: "cruz@photographypro.studio",
-    phone: "+1 (818) 429-7605",
     website: "cruzmartinez.photo",
     status: "active",
     progress: 71,
     rating: 4.4,
     verified: true,
+    tags: ["Photography", "Videography"],
+    teamMembers: [
+      { name: "Nina Smith", role: "Photographer" },
+      { name: "Owen Johnson", role: "Videographer" },
+    ],
   },
   {
     id: 9,
     name: "Sage Thompson",
-    email: "sage@uxdesigns.creative",
-    phone: "+1 (404) 538-7291",
     website: "sagethompson.ux",
     status: "active",
     progress: 89,
     rating: 4.7,
     verified: true,
+    tags: ["UX Design", "UI Design"],
+    teamMembers: [
+      { name: "Pete White", role: "UX Lead" },
+      { name: "Quinn Brown", role: "UI Designer" },
+    ],
   },
   {
     id: 10,
     name: "River Davis",
-    email: "river@contentstrategy.pro",
-    phone: "+1 (617) 294-8156",
     website: "riverdavis.content",
     status: "pending",
     progress: 45,
     rating: 4.1,
     verified: false,
+    tags: ["Content Strategy", "Copywriting"],
+    teamMembers: [{ name: "Riley Adams", role: "Content Writer" }],
   },
   {
     id: 11,
     name: "Phoenix Williams",
-    email: "phoenix@digitalconsulting.io",
-    phone: "+1 (512) 675-3948",
     website: "phoenixwilliams.digital",
     status: "active",
     progress: 93,
     rating: 4.8,
     verified: true,
+    tags: ["Digital Consulting", "Strategy"],
+    teamMembers: [
+      { name: "Sofia Lee", role: "Consultant" },
+      { name: "Tucker Brown", role: "Digital Strategist" },
+    ],
   },
   {
     id: 12,
     name: "Atlas Johnson",
-    email: "atlas@branddesign.studio",
-    phone: "+1 (305) 847-2163",
     website: "atlasjohnson.brand",
     status: "inactive",
     progress: 28,
     rating: 3.6,
     verified: false,
+    tags: ["Brand Design", "Graphic Design"],
+    teamMembers: [{ name: "Uma Patel", role: "Graphic Designer" }],
   },
 ];
 

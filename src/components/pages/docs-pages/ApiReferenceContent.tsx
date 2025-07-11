@@ -15,12 +15,18 @@ const UNION_TYPE_DEFINITIONS: PropInfo[] = [
     name: "CellValue",
     required: false,
     description: "Valid data types that can be stored in a table cell.",
-    type: "string | number | boolean | undefined | null",
-    example: `const name: CellValue = "John Doe";     // string
-const age: CellValue = 30;              // number
-const isActive: CellValue = true;       // boolean
-const score: CellValue = null;          // null
-const description: CellValue = undefined; // undefined`,
+    type: "string | number | boolean | undefined | null | string[] | number[] | Record<string, any>[]",
+    example: `const name: CellValue = "John Doe";           // string
+const age: CellValue = 30;                    // number
+const isActive: CellValue = true;             // boolean
+const score: CellValue = null;                // null
+const description: CellValue = undefined;     // undefined
+const tags: CellValue = ["tag1", "tag2"];     // string[]
+const ratings: CellValue = [4.5, 3.8, 5.0];  // number[]
+const users: CellValue = [                    // Record<string, any>[]
+  { id: 1, name: "John", role: "admin" },
+  { id: 2, name: "Jane", role: "user" }
+];`,
   },
   {
     key: "theme",
