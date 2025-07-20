@@ -16,9 +16,6 @@ async function getDependencies() {
       "react-scripts": "^5.0.1",
       "simple-table-core": packageJson.dependencies["simple-table-core"],
     },
-    devDependencies: {
-      typescript: packageJson.devDependencies.typescript,
-    },
     scripts: {
       start: "react-scripts start",
       build: "react-scripts build",
