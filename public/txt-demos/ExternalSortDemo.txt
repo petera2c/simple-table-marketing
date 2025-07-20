@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme, SortConfig } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme, SortColumn } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Type for our sample data
@@ -217,7 +217,7 @@ const headers: HeaderObject[] = [
 ];
 
 const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
-  const [sortConfig, setSortConfig] = useState<SortConfig | null>(null);
+  const [sortConfig, setSortConfig] = useState<SortColumn | null>(null);
 
   // Sort data externally based on sortConfig
   const sortedData = useMemo(() => {
