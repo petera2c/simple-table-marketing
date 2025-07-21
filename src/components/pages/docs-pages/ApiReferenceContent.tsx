@@ -555,11 +555,12 @@ width: "1fr"      // Flexible`,
     description: "Data type for proper formatting and sorting behavior.",
     type: "enum",
     link: "#union-types",
-    enumValues: ["string", "number", "boolean", "date", "enum"],
-    example: `type: "number"   // For numeric columns
-type: "date"     // For date columns
-type: "boolean"  // For true/false columns
-type: "enum"     // For dropdown columns
+    enumValues: ["string", "number", "boolean", "date", "enum", "other"],
+    example: `type: "number"   // For numeric data
+type: "date"     // For date data
+type: "boolean"  // For true/false data
+type: "enum"     // For enum data
+type: "other"    // For custom content (buttons, etc.)
 type: "string"   // Default`,
   },
   {
