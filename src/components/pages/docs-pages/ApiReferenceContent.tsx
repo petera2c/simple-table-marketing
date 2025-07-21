@@ -103,7 +103,7 @@ columnEditorPosition="right"`,
     name: "HeaderObject.type",
     required: false,
     description: "Data type for proper formatting and sorting behavior.",
-    type: "string | number | boolean | date",
+    type: "string | number | boolean | date | enum | other",
     example: `type: "number"   // For numeric columns`,
   },
 ];
