@@ -205,10 +205,12 @@ const PROJECT_TASKS: ProjectTask[] = [
   },
 ];
 
-const CellClickingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const CellClickingDemo = ({ theme }: { height?: string; theme?: Theme }) => {
   const [clickInfo, setClickInfo] = useState<string>("");
   const [selectedTask, setSelectedTask] = useState<ProjectTask | null>(null);
   const [priorityFilter, setPriorityFilter] = useState<string>("");
+  const [assigneeFilter, setAssigneeFilter] = useState<string>("");
+  const [rows, setRows] = useState<ProjectTask[]>(PROJECT_TASKS);
 
   const handleCellClick = ({ accessor, colIndex, row, rowId, rowIndex, value }: any) => {
     const task = row as ProjectTask;
@@ -226,16 +228,42 @@ const CellClickingDemo = ({ height = "400px", theme }: { height?: string; theme?
       case "priority":
         const newFilter = priorityFilter === value ? "" : String(value);
         setPriorityFilter(newFilter);
+        setRows((rows) => {
+          // Reset to original data first if clearing filter
+          const baseData = newFilter ? rows : PROJECT_TASKS;
+          // Apply priority filter
+          const filtered = newFilter
+            ? baseData.filter((task) => task.priority === newFilter)
+            : baseData;
+          // Also apply assignee filter if active
+          return assigneeFilter
+            ? filtered.filter((task) => task.assignee === assigneeFilter)
+            : filtered;
+        });
         setClickInfo(
           `🎯 ${newFilter ? `Filtering by ${value} priority` : "Cleared priority filter"}`
         );
         break;
 
       case "status":
-        // Cycle through statuses
+        // Cycle through statuses and update the data
         const statuses = ["Not Started", "In Progress", "Completed"];
         const currentIndex = statuses.indexOf(String(value));
         const nextStatus = statuses[(currentIndex + 1) % statuses.length];
+
+        // Update both the original data and current filtered view
+        PROJECT_TASKS.forEach((item) => {
+          if (item.id === task.id) {
+            item.status = nextStatus;
+          }
+        });
+
+        setRows(() =>
+          PROJECT_TASKS.map((item) =>
+            item.id === task.id ? { ...item, status: nextStatus } : item
+          )
+        );
+
         setClickInfo(`⚡ Status changed from "${value}" to "${nextStatus}"`);
         break;
 
@@ -257,10 +285,47 @@ const CellClickingDemo = ({ height = "400px", theme }: { height?: string; theme?
         break;
 
       case "estimatedHours":
-      case "completedHours":
-        const progress = (task.completedHours / task.estimatedHours) * 100;
+        // Allow quick hour adjustments
+        const newEstimated = Math.min(task.estimatedHours + 2, 40); // Cap at 40 hours
+
+        // Update both the original data and current filtered view
+        PROJECT_TASKS.forEach((item) => {
+          if (item.id === task.id) {
+            item.estimatedHours = newEstimated;
+          }
+        });
+
+        setRows((prev) =>
+          PROJECT_TASKS.map((item) =>
+            item.id === task.id ? { ...item, estimatedHours: newEstimated } : item
+          )
+        );
         setClickInfo(
-          `⏱️ Progress: ${task.completedHours}h / ${task.estimatedHours}h (${progress.toFixed(1)}%)`
+          `⏱️ Estimated hours increased from ${task.estimatedHours}h to ${newEstimated}h`
+        );
+        break;
+
+      case "completedHours":
+        // Allow quick progress updates
+        const newCompleted = Math.min(task.completedHours + 1, task.estimatedHours);
+
+        // Update both the original data and current filtered view
+        PROJECT_TASKS.forEach((item) => {
+          if (item.id === task.id) {
+            item.completedHours = newCompleted;
+          }
+        });
+
+        setRows(() =>
+          PROJECT_TASKS.map((item) =>
+            item.id === task.id ? { ...item, completedHours: newCompleted } : item
+          )
+        );
+        const newProgress = (newCompleted / task.estimatedHours) * 100;
+        setClickInfo(
+          `⏱️ Progress updated: ${newCompleted}h / ${task.estimatedHours}h (${newProgress.toFixed(
+            1
+          )}%)`
         );
         break;
 
@@ -271,10 +336,7 @@ const CellClickingDemo = ({ height = "400px", theme }: { height?: string; theme?
     }
   };
 
-  // Filter data by priority if a filter is active
-  const filteredData = priorityFilter
-    ? PROJECT_TASKS.filter((task) => task.priority === priorityFilter)
-    : PROJECT_TASKS;
+  // Use rows directly since filtering is handled in click handlers
 
   return (
     <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -375,7 +437,7 @@ const CellClickingDemo = ({ height = "400px", theme }: { height?: string; theme?
         height={"320px"}
         onCellClick={handleCellClick}
         rowIdAccessor="id"
-        rows={filteredData}
+        rows={rows}
         theme={theme}
       />
     </div>
