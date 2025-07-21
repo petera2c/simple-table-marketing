@@ -163,6 +163,34 @@ const AGGREGATION_CONFIG_PROPS: PropInfo[] = [
   },
 ];
 
+const ROW_SELECTION_CHANGE_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that was selected or deselected",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+  {
+    key: "isSelected",
+    name: "isSelected",
+    required: true,
+    description: "Boolean indicating whether the row was selected (true) or deselected (false)",
+    type: "boolean",
+    example: `props.isSelected // true or false`,
+  },
+  {
+    key: "selectedRows",
+    name: "selectedRows",
+    required: true,
+    description: "Set containing the IDs of all currently selected rows",
+    type: "Set<string>",
+    example: `props.selectedRows // Set(['1', '3', '5'])`,
+  },
+];
+
 const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
   {
     key: "accessor",
@@ -496,6 +524,25 @@ rowHeight={48}`,
     type: "boolean",
     example: `useOddEvenRowBackground={true}`,
   },
+  {
+    key: "enableRowSelection",
+    name: "enableRowSelection",
+    required: false,
+    description: "Enable row selection functionality with checkboxes.",
+    type: "boolean",
+    example: `enableRowSelection={true}`,
+  },
+  {
+    key: "onRowSelectionChange",
+    name: "onRowSelectionChange",
+    required: false,
+    description: "Callback function triggered when row selection changes.",
+    type: "(props: RowSelectionChangeProps) => void",
+    link: "#row-selection-change-props",
+    example: `onRowSelectionChange={({ row, isSelected, selectedRows }) => {
+  console.log('Selection changed:', { row, isSelected, selectedRows });
+}}`,
+  },
 ];
 
 const HEADER_OBJECT_PROPS: PropInfo[] = [
@@ -810,6 +857,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="aggregation-config">
         <PropTable props={AGGREGATION_CONFIG_PROPS} title="AggregationConfig" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="row-selection-change-props">
+        <PropTable props={ROW_SELECTION_CHANGE_PROPS_PROPS} title="RowSelectionChangeProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-change-props">

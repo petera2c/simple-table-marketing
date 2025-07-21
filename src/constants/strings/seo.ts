@@ -274,6 +274,13 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, row grouping, hierarchical data, typescript table, data organization",
   },
 
+  rowSelection: {
+    title: "Row Selection in Simple Table React Grid",
+    description:
+      "Add row selection to your react-table with Simple Table. Enable bulk operations and multi-row interactions in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, row selection, multi-select, bulk operations, checkbox selection, typescript table, interactive table",
+  },
   rowHeight: {
     title: "Row Height in Simple Table React Grid",
     description:

@@ -26,6 +26,7 @@ import {
   faFilter,
   faBook,
   faInfinity,
+  faCheckSquare,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -111,6 +112,12 @@ export const docSections: DocSection[] = [
     label: "Row Features",
     icon: faList,
     subsections: [
+      {
+        id: "row-selection",
+        label: "Row Selection",
+        path: "/docs/row-selection",
+        icon: faCheckSquare,
+      },
       { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping", icon: faLayerGroup },
       {
         id: "aggregate-functions",
