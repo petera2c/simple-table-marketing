@@ -15,8 +15,7 @@ const UNION_TYPE_DEFINITIONS: PropInfo[] = [
     name: "Accessor",
     required: false,
     description: "Valid property key that exists in the Row type. Used to safely access row data.",
-    type: "Accessor",
-    link: "#union-types",
+    type: "keyof Row",
     example: `// If your Row type has properties: id, name, age, status
 const accessor: Accessor = "name";     // Valid - exists in Row
 const accessor2: Accessor = "age";     // Valid - exists in Row
