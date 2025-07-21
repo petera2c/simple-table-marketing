@@ -27,6 +27,7 @@ import {
   faBook,
   faInfinity,
   faCheckSquare,
+  faHandPointer,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -141,6 +142,12 @@ export const docSections: DocSection[] = [
         icon: faCopy,
       },
       { id: "cell-renderer", label: "Cell Renderer", path: "/docs/cell-renderer", icon: faCode },
+      {
+        id: "cell-clicking",
+        label: "Cell Clicking",
+        path: "/docs/cell-clicking",
+        icon: faHandPointer,
+      },
     ],
   },
   {

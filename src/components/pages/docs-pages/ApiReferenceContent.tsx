@@ -221,6 +221,60 @@ const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
+const CELL_CLICK_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key of the clicked cell",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "firstName"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index of the clicked cell (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing the clicked cell",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+  {
+    key: "rowId",
+    name: "rowId",
+    required: true,
+    description: "The unique identifier of the row containing the clicked cell",
+    type: "RowId",
+    example: `props.rowId // "user-123"`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index of the clicked cell (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The value of the clicked cell",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "John Doe"`,
+  },
+];
+
 const FILTER_CONDITION_PROPS: PropInfo[] = [
   {
     key: "accessor",
@@ -541,6 +595,22 @@ rowHeight={48}`,
     link: "#row-selection-change-props",
     example: `onRowSelectionChange={({ row, isSelected, selectedRows }) => {
   console.log('Selection changed:', { row, isSelected, selectedRows });
+}}`,
+  },
+  {
+    key: "onCellClick",
+    name: "onCellClick",
+    required: false,
+    description:
+      "Callback function triggered when a cell is clicked. Provides detailed information about the clicked cell including its position, value, and containing row.",
+    type: "(props: CellClickProps) => void",
+    link: "#cell-click-props",
+    example: `onCellClick={({ accessor, colIndex, row, rowId, rowIndex, value }) => {
+  console.log(\`Clicked cell \${accessor} in row \${rowIndex}:\`, value);
+  // Handle cell click - open modal, navigate, etc.
+  if (accessor === 'details') {
+    openDetailModal(row);
+  }
 }}`,
   },
 ];
@@ -865,6 +935,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-change-props">
         <PropTable props={CELL_CHANGE_PROPS_PROPS} title="CellChangeProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-click-props">
+        <PropTable props={CELL_CLICK_PROPS_PROPS} title="CellClickProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filter-condition">

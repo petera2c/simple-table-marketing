@@ -277,7 +277,7 @@ const RowSelectionDemo = ({ theme }: { height?: string; theme?: Theme }) => {
         rowIdAccessor="id"
         enableRowSelection={true}
         onRowSelectionChange={handleRowSelectionChange}
-        height="320px"
+        height="348px"
         theme={theme}
         columnResizing={true}
         columnReordering={true}

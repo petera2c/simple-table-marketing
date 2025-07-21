@@ -102,7 +102,7 @@ const RowSelectionContent = () => {
         <LivePreview
           demoCodeFilename="RowSelectionDemo.txt"
           height="500px"
-          link={(SANDBOX_LIST as any)["RowSelectionDemo.tsx"]?.url || "#"}
+          link={SANDBOX_LIST["RowSelectionDemo.tsx"].url}
           Preview={RowSelectionDemo}
         />
       </motion.div>

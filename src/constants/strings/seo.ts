@@ -154,6 +154,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell renderer, custom table cells, typescript table, data visualization",
   },
+  cellClicking: {
+    title: "Cell Clicking Events in Simple Table React Grid",
+    description:
+      "Handle cell click events in your react-table with Simple Table. Add interactive cell behavior to your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell clicking, cell events, interactive table, cell interactions, typescript table, onclick handlers",
+  },
   headerRenderer: {
     title: "Custom Header Renderers with Simple Table",
     description:
