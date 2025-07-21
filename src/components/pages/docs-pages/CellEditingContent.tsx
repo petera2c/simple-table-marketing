@@ -29,6 +29,7 @@ const CELL_EDITING_PROPS: PropInfo[] = [
     description:
       "Specifies the data type and editor for the column. Simple Table provides specialized editors for different data types.",
     type: "enum",
+    link: "/docs/api-reference#union-types",
     enumValues: ["string", "number", "boolean", "date", "enum"],
     example: `// String editor (default text input)
 { 

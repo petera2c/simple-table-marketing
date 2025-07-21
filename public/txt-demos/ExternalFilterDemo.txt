@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme, Accessor, TableFilterState } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Type for our sample data
@@ -13,16 +13,6 @@ type EmployeeData = {
   active: boolean;
   location: string;
 };
-
-// Type for filter conditions (simplified version)
-type FilterCondition = {
-  accessor: string;
-  operator: string;
-  value?: any;
-  values?: any[];
-};
-
-type TableFilterState = { [key: string]: FilterCondition };
 
 // Sample data - unique and diverse employee data with filtering variety
 const sampleData: EmployeeData[] = [
@@ -379,7 +369,7 @@ const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
                 className="inline-flex items-center px-2 py-1 rounded-md text-xs font-medium bg-green-100 dark:bg-green-800 text-green-800 dark:text-green-200"
               >
                 {headers.find((h) => h.accessor === filter.accessor)?.label}: {filter.operator}{" "}
-                {filter.values ? filter.values.join(", ") : filter.value}
+                {filter.values ? filter.values.join(", ") : String(filter.value)}
               </span>
             ))}
           </div>

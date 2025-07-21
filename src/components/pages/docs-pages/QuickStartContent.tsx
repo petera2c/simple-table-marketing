@@ -43,7 +43,8 @@ const TABLE_PROPS: PropInfo[] = [
     required: true,
     description:
       "The property name that uniquely identifies each row. This is crucial for proper row tracking, selection, and updates. Without this, the table cannot maintain state correctly.",
-    type: "string",
+    type: "Accessor",
+    link: "/docs/api-reference#union-types",
     example: `// If your data has an 'id' field
 rowIdAccessor="id"
 

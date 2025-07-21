@@ -190,7 +190,7 @@ const CellRendererContent = () => {
           <CodeBlock
             code={`type Row = {
   id: string | number;           // Unique identifier for the row
-  [accessor: string]: CellValue; // All cell values accessible by column accessor
+  [accessor: Accessor]: CellValue; // All cell values accessible by column accessor
   
   // For hierarchical data (optional):
   children?: Row[];              // Child rows (e.g., invoices array, stations array)

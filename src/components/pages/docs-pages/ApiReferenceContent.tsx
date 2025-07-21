@@ -11,6 +11,18 @@ import useHashNavigation from "@/hooks/useHashNavigation";
 // Union type definitions
 const UNION_TYPE_DEFINITIONS: PropInfo[] = [
   {
+    key: "accessor",
+    name: "Accessor",
+    required: false,
+    description: "Valid property key that exists in the Row type. Used to safely access row data.",
+    type: "Accessor",
+    link: "#union-types",
+    example: `// If your Row type has properties: id, name, age, status
+const accessor: Accessor = "name";     // Valid - exists in Row
+const accessor2: Accessor = "age";     // Valid - exists in Row
+// const invalid: Accessor = "xyz";    // TypeScript error - doesn't exist in Row`,
+  },
+  {
     key: "cellvalue",
     name: "CellValue",
     required: false,
@@ -87,6 +99,14 @@ columnEditorPosition="right"`,
   ]
 }`,
   },
+  {
+    key: "type",
+    name: "HeaderObject.type",
+    required: false,
+    description: "Data type for proper formatting and sorting behavior.",
+    type: "string | number | boolean | date",
+    example: `type: "number"   // For numeric columns`,
+  },
 ];
 
 const ENUM_OPTION_PROPS: PropInfo[] = [
@@ -150,7 +170,8 @@ const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
     name: "accessor",
     required: true,
     description: "The column accessor/key that was edited",
-    type: "string",
+    type: "Accessor",
+    link: "#union-types",
     example: `props.accessor // "firstName"`,
   },
   {
@@ -179,7 +200,8 @@ const FILTER_CONDITION_PROPS: PropInfo[] = [
     name: "accessor",
     required: true,
     description: "The column accessor/key being filtered",
-    type: "string",
+    type: "Accessor",
+    link: "#union-types",
     example: `{ accessor: "age" }`,
   },
   {
@@ -241,7 +263,8 @@ const SIMPLE_TABLE_PROPS: PropInfo[] = [
     required: true,
     description:
       "Property name to use as row ID. This is crucial for proper row tracking, selection, and updates.",
-    type: "string",
+    type: "Accessor",
+    link: "#union-types",
     example: `rowIdAccessor="id"
 // or
 rowIdAccessor="employeeId"`,
@@ -482,7 +505,8 @@ const HEADER_OBJECT_PROPS: PropInfo[] = [
     name: "accessor",
     required: true,
     description: "The key to access data in your row objects. Must match a property in your data.",
-    type: "string",
+    type: "Accessor",
+    link: "#union-types",
     example: `{ accessor: "firstName" }`,
   },
   {
@@ -504,6 +528,19 @@ width: "150px"    // 150px
 width: "1fr"      // Flexible`,
   },
   {
+    key: "aggregation",
+    name: "aggregation",
+    required: false,
+    description: "Configuration for data aggregation when rows are grouped.",
+    type: "AggregationConfig",
+    link: "#aggregation-config",
+    example: `aggregation: {
+  type: "sum",
+  parseValue: (val) => parseFloat(val.replace('$', '')),
+  formatResult: (val) => '$' + val.toFixed(2)
+}`,
+  },
+  {
     key: "align",
     name: "align",
     required: false,
@@ -517,7 +554,8 @@ width: "1fr"      // Flexible`,
     name: "type",
     required: false,
     description: "Data type for proper formatting and sorting behavior.",
-    type: "string",
+    type: "enum",
+    link: "#union-types",
     enumValues: ["string", "number", "boolean", "date", "enum"],
     example: `type: "number"   // For numeric columns
 type: "date"     // For date columns
@@ -621,8 +659,8 @@ minWidth: "100px"`,
     name: "cellRenderer",
     required: false,
     description: "Custom render function for cell content.",
-    type: "Function",
-    example: `cellRenderer: ({ row, accessor }) => (
+    type: "({ accessor, colIndex, row, theme }: { accessor: Accessor; colIndex: number; row: Row; theme: Theme; }) => ReactNode | string",
+    example: `cellRenderer: ({ accessor, colIndex, row, theme }) => (
   <span style={{ color: 'blue' }}>
     {row[accessor]}
   </span>
@@ -633,8 +671,8 @@ minWidth: "100px"`,
     name: "headerRenderer",
     required: false,
     description: "Custom render function for header content.",
-    type: "Function",
-    example: `headerRenderer: ({ header }) => (
+    type: "({ accessor, colIndex, header }: { accessor: Accessor; colIndex: number; header: HeaderObject; }) => ReactNode | string",
+    example: `headerRenderer: ({ accessor, colIndex, header }) => (
   <strong>{header.label}</strong>
 )`,
   },

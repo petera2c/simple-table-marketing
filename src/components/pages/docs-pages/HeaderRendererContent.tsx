@@ -43,7 +43,8 @@ const HEADER_RENDERER_PARAMS_PROPS: PropInfo[] = [
     name: "accessor",
     required: true,
     description: "The column accessor string identifying which column this header belongs to.",
-    type: "string",
+    type: "Accessor",
+    link: "/docs/api-reference#union-types",
     example: `// In headerRenderer function
 ({ accessor }) => {
   console.log(accessor); // "firstName", "salary", etc.
