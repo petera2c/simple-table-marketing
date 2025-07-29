@@ -10,8 +10,6 @@ import {
   faSwatchbook,
   faColumns,
   faDownload,
-  faSun,
-  faMoon,
   faRotateLeft,
 } from "@fortawesome/free-solid-svg-icons";
 import { UI_STRINGS } from "@/constants/strings/ui";
@@ -48,8 +46,10 @@ interface ThemeConfig {
   warningFlashColor: string;
   checkboxCheckedBackgroundColor: string;
   checkboxCheckedBorderColor: string;
+  checkboxBorderColor: string;
   columnEditorBackgroundColor: string;
   columnEditorPopoutBackgroundColor: string;
+  columnEditorTextColor: string;
   draggingBackgroundColor: string;
   editCellShadow: string;
   editableCellFocusBorderColor: string;
@@ -70,10 +70,20 @@ interface ThemeConfig {
   selectedCellColor: string;
   selectedFirstCellBackgroundColor: string;
   selectedFirstCellColor: string;
+  selectedRowBackgroundColor: string;
   separatorBorderColor: string;
   spacingMedium: string;
   spacingSmall: string;
   hoverRowBackgroundColor: string;
+  nextPrevBtnColor: string;
+  nextPrevBtnDisabledColor: string;
+  pageBtnColor: string;
+  pageBtnHoverBackgroundColor: string;
+  dropdownGroupLabelColor: string;
+  datepickerWeekdayColor: string;
+  datepickerOtherMonthColor: string;
+  filterButtonDisabledBackgroundColor: string;
+  filterButtonDisabledTextColor: string;
 }
 
 const lightThemeDefaults: ThemeConfig = {
@@ -121,11 +131,33 @@ const lightThemeDefaults: ThemeConfig = {
   // Component-specific colors
   checkboxCheckedBackgroundColor: "#2563eb", // blue-600
   checkboxCheckedBorderColor: "#2563eb", // blue-600
+  checkboxBorderColor: "#cbd5e1", // slate-300
   columnEditorBackgroundColor: "#ffffff", // white
   columnEditorPopoutBackgroundColor: "#ffffff", // white
+  columnEditorTextColor: "#64748b", // slate-500
   buttonHoverBackgroundColor: "#f1f5f9", // slate-100
   buttonActiveBackgroundColor: "#2563eb", // blue-600
   hoverRowBackgroundColor: "#f1f5f9", // slate-100
+  selectedRowBackgroundColor: "#eff6ff", // blue-50
+
+  // Navigation button colors
+  nextPrevBtnColor: "#475569", // slate-600
+  nextPrevBtnDisabledColor: "#94a3b8", // slate-400
+
+  // Page button colors
+  pageBtnColor: "#475569", // slate-600
+  pageBtnHoverBackgroundColor: "#f1f5f9", // slate-100
+
+  // Dropdown colors
+  dropdownGroupLabelColor: "#64748b", // slate-500
+
+  // Datepicker colors
+  datepickerWeekdayColor: "#64748b", // slate-500
+  datepickerOtherMonthColor: "#94a3b8", // slate-400
+
+  // Filter button disabled colors
+  filterButtonDisabledBackgroundColor: "#cbd5e1", // slate-300
+  filterButtonDisabledTextColor: "#64748b", // slate-500
 };
 
 const darkThemeDefaults: ThemeConfig = {
@@ -174,10 +206,32 @@ const darkThemeDefaults: ThemeConfig = {
   // Component-specific colors
   checkboxCheckedBackgroundColor: "#3b82f6", // blue-500
   checkboxCheckedBorderColor: "#3b82f6", // blue-500
+  checkboxBorderColor: "#475569", // slate-600
   columnEditorBackgroundColor: "#1e293b", // slate-800
   columnEditorPopoutBackgroundColor: "#1e293b", // slate-800
+  columnEditorTextColor: "#94a3b8", // slate-400
   buttonHoverBackgroundColor: "#334155", // slate-700
   buttonActiveBackgroundColor: "#3b82f6", // blue-500
+  selectedRowBackgroundColor: "#172554", // blue-950
+
+  // Navigation button colors
+  nextPrevBtnColor: "#94a3b8", // slate-400
+  nextPrevBtnDisabledColor: "#64748b", // slate-500
+
+  // Page button colors
+  pageBtnColor: "#94a3b8", // slate-400
+  pageBtnHoverBackgroundColor: "#334155", // slate-700
+
+  // Dropdown colors
+  dropdownGroupLabelColor: "#94a3b8", // slate-400
+
+  // Datepicker colors
+  datepickerWeekdayColor: "#94a3b8", // slate-400
+  datepickerOtherMonthColor: "#64748b", // slate-500
+
+  // Filter button disabled colors
+  filterButtonDisabledBackgroundColor: "#475569", // slate-600
+  filterButtonDisabledTextColor: "#94a3b8", // slate-400
 };
 
 const setThemeToDocument = (theme: ThemeConfig) => {
@@ -306,14 +360,17 @@ export default function ThemeBuilderContent() {
       "selectedCellColor",
       "selectedFirstCellBackgroundColor",
       "selectedFirstCellColor",
+      "selectedRowBackgroundColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.checkbox]: [
       "checkboxCheckedBackgroundColor",
       "checkboxCheckedBorderColor",
+      "checkboxBorderColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.editor]: [
       "columnEditorBackgroundColor",
       "columnEditorPopoutBackgroundColor",
+      "columnEditorTextColor",
       "editableCellFocusBorderColor",
     ],
     [UI_STRINGS.themeBuilder.subcategories.interactiveElements]: [
@@ -328,6 +385,11 @@ export default function ThemeBuilderContent() {
       "scrollbarBgColor",
       "scrollbarThumbColor",
     ],
+    Navigation: ["nextPrevBtnColor", "nextPrevBtnDisabledColor"],
+    Pagination: ["pageBtnColor", "pageBtnHoverBackgroundColor"],
+    Dropdown: ["dropdownGroupLabelColor"],
+    Datepicker: ["datepickerWeekdayColor", "datepickerOtherMonthColor"],
+    Filter: ["filterButtonDisabledBackgroundColor", "filterButtonDisabledTextColor"],
   };
 
   // Shorten label names

@@ -572,7 +572,7 @@ const generateFinanceData = (): Row[] => {
 
   return COMPANIES.map((company) => {
     // Use realistic company data as a base
-    const price = company.price * (0.9 + Math.random() * 0.2); // +/- 10% from base price
+    const price = Math.round(company.price * (0.9 + Math.random() * 0.2) * 100) / 100; // +/- 10% from base price, max 2 decimals
     const marketCap = company.marketCap;
 
     // Calculate PE ratio based on sector characteristics

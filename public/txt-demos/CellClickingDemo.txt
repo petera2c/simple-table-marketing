@@ -222,7 +222,7 @@ const CellClickingDemo = ({ theme }: { height?: string; theme?: Theme }) => {
         break;
 
       case "assignee":
-        setClickInfo(`👤 Clicked assignee: ${value} - showing all tasks for this person`);
+        setClickInfo(`👤 Clicked assignee: ${value}`);
         break;
 
       case "priority":
