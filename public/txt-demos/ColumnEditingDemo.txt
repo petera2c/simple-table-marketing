@@ -6,71 +6,125 @@ import "simple-table-core/styles.css";
 const EMPLOYEE_DATA = [
   {
     id: 1,
-    name: "John Doe",
-    age: 28,
-    role: "Developer",
+    name: "Marcus Rodriguez",
+    age: 29,
+    role: "Frontend Developer",
     department: "Engineering",
-    email: "john.doe@company.com",
+    email: "marcus.rodriguez@company.com",
   },
   {
     id: 2,
-    name: "Jane Smith",
-    age: 32,
-    role: "Designer",
+    name: "Sophia Chen",
+    age: 27,
+    role: "UX/UI Designer",
     department: "Design",
-    email: "jane.smith@company.com",
+    email: "sophia.chen@company.com",
   },
   {
     id: 3,
-    name: "Bob Johnson",
-    age: 45,
-    role: "Manager",
+    name: "Raj Patel",
+    age: 34,
+    role: "Engineering Manager",
     department: "Management",
-    email: "bob.johnson@company.com",
+    email: "raj.patel@company.com",
   },
   {
     id: 4,
-    name: "Alice Williams",
-    age: 24,
-    role: "Intern",
-    department: "Internship",
-    email: "alice.williams@company.com",
+    name: "Luna Martinez",
+    age: 23,
+    role: "Junior Developer",
+    department: "Engineering",
+    email: "luna.martinez@company.com",
   },
   {
     id: 5,
-    name: "Charlie Brown",
-    age: 37,
-    role: "DevOps",
+    name: "Tyler Anderson",
+    age: 31,
+    role: "DevOps Engineer",
+    department: "Operations",
+    email: "tyler.anderson@company.com",
+  },
+  {
+    id: 6,
+    name: "Zara Kim",
+    age: 28,
+    role: "Product Designer",
+    department: "Design",
+    email: "zara.kim@company.com",
+  },
+  {
+    id: 7,
+    name: "Kai Thompson",
+    age: 26,
+    role: "Full Stack Developer",
     department: "Engineering",
-    email: "charlie.brown@company.com",
+    email: "kai.thompson@company.com",
+  },
+  {
+    id: 8,
+    name: "Ava Singh",
+    age: 33,
+    role: "Product Manager",
+    department: "Product",
+    email: "ava.singh@company.com",
+  },
+  {
+    id: 9,
+    name: "Jordan Walsh",
+    age: 25,
+    role: "Marketing Specialist",
+    department: "Growth",
+    email: "jordan.walsh@company.com",
+  },
+  {
+    id: 10,
+    name: "Phoenix Lee",
+    age: 30,
+    role: "Backend Developer",
+    department: "Engineering",
+    email: "phoenix.lee@company.com",
+  },
+  {
+    id: 11,
+    name: "River Jackson",
+    age: 24,
+    role: "Growth Designer",
+    department: "Design",
+    email: "river.jackson@company.com",
+  },
+  {
+    id: 12,
+    name: "Atlas Morgan",
+    age: 32,
+    role: "Tech Lead",
+    department: "Engineering",
+    email: "atlas.morgan@company.com",
   },
 ];
 
 const ColumnEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
   const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
-  const [lastAction, setLastAction] = useState<string>("");
+  const [, setLastAction] = useState<string>("");
 
   // Define headers with add column functionality
   const headers: HeaderObject[] = useMemo(
     () => [
-      { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+      { accessor: "id", label: "ID", width: 80, type: "number" },
       {
         accessor: "name",
         label: "Name",
         minWidth: 120,
         width: "1fr",
-        isSortable: true,
         type: "string",
       },
-      { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
-      { accessor: "role", label: "Role", width: 150, isSortable: true, type: "string" },
-      { accessor: "department", label: "Department", width: 150, isSortable: true, type: "string" },
+      { accessor: "age", label: "Age", width: 100, type: "number" },
+      { accessor: "role", label: "Role", width: 150, type: "string" },
+      { accessor: "department", label: "Department", width: 150, type: "string" },
       ...additionalColumns,
       {
         accessor: "actions",
         label: "Actions",
         width: 120,
-        isSortable: false,
         filterable: false,
         type: "other",
         headerRenderer: () => (
@@ -100,9 +154,9 @@ const ColumnEditingDemo = ({ height = "400px", theme }: { height?: string; theme
             </button>
           </div>
         ),
-        cellRenderer: ({ rowIndex }) => (
+        cellRenderer: ({ row }) => (
           <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
-            <span style={{ fontSize: "12px", color: "#666" }}>Row {rowIndex + 1}</span>
+            <span style={{ fontSize: "12px", color: "#666" }}>Row {String(row.id || "")}</span>
           </div>
         ),
       },
@@ -110,98 +164,22 @@ const ColumnEditingDemo = ({ height = "400px", theme }: { height?: string; theme
     [additionalColumns]
   );
 
-  const handleHeaderEdit = (headerIndex: number, newLabel: string) => {
-    setLastAction(`Renamed column ${headerIndex} to: ${newLabel}`);
-    console.log("Header edited:", { headerIndex, newLabel });
+  const handleHeaderEdit = (header: HeaderObject, newLabel: string) => {
+    setLastAction(`Renamed column "${header.label}" to: ${newLabel}`);
+    console.log("Header edited:", { header, newLabel });
   };
 
   return (
-    <div>
-      {/* Demo Info Panel */}
-      <div
-        style={{
-          marginBottom: "16px",
-          padding: "16px",
-          backgroundColor: "#f8f9fa",
-          borderRadius: "6px",
-          fontSize: "14px",
-          border: "1px solid #e9ecef",
-        }}
-      >
-        <h3 style={{ margin: "0 0 12px 0", fontSize: "18px", color: "#333" }}>
-          Column Editing Demo
-        </h3>
-        <div style={{ marginBottom: "12px" }}>
-          <p style={{ margin: "0 0 4px 0", color: "#666" }}>
-            • <strong>Double-click on column headers</strong> to edit their names
-          </p>
-          <p style={{ margin: "0 0 4px 0", color: "#666" }}>
-            • <strong>Click the "Add Column" button</strong> to dynamically add new columns
-          </p>
-          <p style={{ margin: "0 0 8px 0", color: "#666" }}>
-            • New columns will be inserted before the Actions column
-          </p>
-        </div>
-
-        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
-          <div>
-            <strong>Added Columns:</strong> {additionalColumns.length}
-            {additionalColumns.length > 0 && (
-              <span style={{ marginLeft: "8px", fontSize: "12px", color: "#666" }}>
-                ({additionalColumns.map((col) => col.label).join(", ")})
-              </span>
-            )}
-          </div>
-
-          {additionalColumns.length > 0 && (
-            <button
-              onClick={() => {
-                setAdditionalColumns([]);
-                setLastAction("Cleared all custom columns");
-              }}
-              style={{
-                backgroundColor: "#dc3545",
-                color: "white",
-                border: "none",
-                padding: "4px 8px",
-                borderRadius: "4px",
-                cursor: "pointer",
-                fontSize: "12px",
-              }}
-            >
-              Clear All
-            </button>
-          )}
-        </div>
-
-        {lastAction && (
-          <div
-            style={{
-              marginTop: "12px",
-              padding: "8px 12px",
-              backgroundColor: "#e7f3ff",
-              borderRadius: "4px",
-              border: "1px solid #b3d9ff",
-              fontSize: "12px",
-              color: "#0066cc",
-            }}
-          >
-            <strong>Last Action:</strong> {lastAction}
-          </div>
-        )}
-      </div>
-
-      {/* SimpleTable with Column Editing */}
-      <SimpleTable
-        defaultHeaders={headers}
-        enableHeaderEditing={true}
-        height={height}
-        onHeaderEdit={handleHeaderEdit}
-        rowIdAccessor="id"
-        rows={EMPLOYEE_DATA}
-        theme={theme}
-      />
-    </div>
+    <SimpleTable
+      defaultHeaders={headers}
+      enableHeaderEditing={true}
+      height={height}
+      onHeaderEdit={handleHeaderEdit}
+      rowIdAccessor="id"
+      rows={EMPLOYEE_DATA}
+      selectableColumns={true}
+      theme={theme}
+    />
   );
 };
 

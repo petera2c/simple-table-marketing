@@ -96,6 +96,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/docs/column-editing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/docs/column-filtering</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -112,6 +117,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/docs/column-resizing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/column-selection</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
