@@ -52,9 +52,12 @@ const PricingContent: React.FC = () => {
       subtitle: "For Individuals & Startups",
       price: "$0",
       billingCycle: "forever",
-      description: "Perfect for fun projects, bootstrapped startups, and pre-revenue companies",
+      description:
+        "Perfect for fun projects, bootstrapped startups, and pre-revenue companies. Unlimited users per product license.",
       features: [
         { text: "Full Simple Table library access", included: true, highlight: true },
+        { text: "Unlimited users per product", included: true, highlight: true },
+        { text: "No per-engineer pricing", included: true, highlight: true },
         { text: "All core features (sorting, filtering, editing)", included: true },
         { text: "Built-in themes & TypeScript support", included: true },
         { text: "MIT License & commercial use", included: true },
@@ -75,7 +78,8 @@ const PricingContent: React.FC = () => {
       price: isAnnual ? "$850" : "$85",
       originalPrice: isAnnual ? "$1,020" : undefined,
       billingCycle: isAnnual ? "per year" : "per month",
-      description: "Enhanced support and priority access to new features",
+      description:
+        "Enhanced support and priority access to new features. Unlimited users per product license.",
       features: [
         { text: "Everything in FREE", included: true, highlight: true },
         { text: "Priority email & Discord support", included: true, highlight: true },
@@ -160,8 +164,8 @@ const PricingContent: React.FC = () => {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 0.4 }}
         >
-          Choose the plan that fits your needs. Start free and upgrade when you need enhanced
-          support.
+          Simple, transparent pricing that never changes based on your revenue or team size. Pay
+          once per software product that uses Simple Table - no matter how big your company grows.
         </motion.p>
 
         <motion.div
@@ -345,7 +349,8 @@ const PricingContent: React.FC = () => {
           Ready to Build Amazing Tables?
         </h2>
         <p className="text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
-          Join thousands of developers who trust Simple Table for their data visualization needs.
+          Join thousands of developers who trust Simple Table for their data visualization needs. No
+          per-user fees - one license covers unlimited users per product.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Button
