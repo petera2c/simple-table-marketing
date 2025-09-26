@@ -353,6 +353,20 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, infinite scroll, load more data, lazy loading, typescript table, large datasets",
   },
+  columnSelection: {
+    title: "Column Selection in Simple Table React Grid",
+    description:
+      "Enable column selection in your react-table with Simple Table. Click to select columns in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column selection, selectable columns, interactive table, typescript table, column interaction",
+  },
+  columnEditing: {
+    title: "Column Editing with Simple Table React Grid",
+    description:
+      "Edit columns dynamically in your react-table with Simple Table. Add, rename, and modify columns in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column editing, editable headers, dynamic columns, typescript table, table customization",
+  },
   comparisons: {
     agGrid: {
       title: "Simple Table vs AG Grid: React Data Grid Comparison",

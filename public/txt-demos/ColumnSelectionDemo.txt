@@ -1,0 +1,140 @@
+import { useState } from "react";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import "simple-table-core/styles.css";
+
+// Define headers
+const headers: HeaderObject[] = [
+  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+  {
+    accessor: "name",
+    label: "Name",
+    minWidth: 120,
+    width: "1fr",
+    isSortable: true,
+    type: "string",
+  },
+  { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
+  { accessor: "role", label: "Role", width: 150, isSortable: true, type: "string" },
+  { accessor: "department", label: "Department", width: 150, isSortable: true, type: "string" },
+  { accessor: "email", label: "Email", width: 200, isSortable: true, type: "string" },
+];
+
+// Sample data
+const EMPLOYEE_DATA = [
+  {
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    email: "john.doe@company.com",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    email: "jane.smith@company.com",
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    email: "bob.johnson@company.com",
+  },
+  {
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    email: "alice.williams@company.com",
+  },
+  {
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    email: "charlie.brown@company.com",
+  },
+  {
+    id: 6,
+    name: "Diana Prince",
+    age: 29,
+    role: "Developer",
+    department: "Engineering",
+    email: "diana.prince@company.com",
+  },
+];
+
+const ColumnSelectionDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+  const [selectedColumn, setSelectedColumn] = useState<HeaderObject | null>(null);
+
+  const handleColumnSelect = (header: HeaderObject) => {
+    setSelectedColumn(header);
+    console.log("Column selected:", header);
+  };
+
+  return (
+    <div>
+      {/* Demo Info Panel */}
+      <div
+        style={{
+          marginBottom: "16px",
+          padding: "16px",
+          backgroundColor: "#f8f9fa",
+          borderRadius: "6px",
+          fontSize: "14px",
+          border: "1px solid #e9ecef",
+        }}
+      >
+        <h3 style={{ margin: "0 0 12px 0", fontSize: "18px", color: "#333" }}>
+          Column Selection Demo
+        </h3>
+        <p style={{ margin: "0 0 8px 0", color: "#666" }}>
+          • <strong>Click on any column header</strong> to select it
+        </p>
+        <p style={{ margin: "0 0 12px 0", color: "#666" }}>
+          • The <code>onColumnSelect</code> callback will be triggered with the column details
+        </p>
+
+        {selectedColumn && (
+          <div
+            style={{
+              padding: "8px 12px",
+              backgroundColor: "#e7f3ff",
+              borderRadius: "4px",
+              border: "1px solid #b3d9ff",
+            }}
+          >
+            <strong>Selected Column:</strong>{" "}
+            <span style={{ fontFamily: "monospace" }}>
+              {selectedColumn.label} ({selectedColumn.accessor})
+            </span>
+            <br />
+            <span style={{ fontSize: "12px", color: "#666" }}>
+              Type: {selectedColumn.type}, Width: {selectedColumn.width}
+            </span>
+          </div>
+        )}
+      </div>
+
+      {/* SimpleTable with Column Selection */}
+      <SimpleTable
+        defaultHeaders={headers}
+        height={height}
+        onColumnSelect={handleColumnSelect}
+        rowIdAccessor="id"
+        rows={EMPLOYEE_DATA}
+        selectableColumns={true}
+        theme={theme}
+      />
+    </div>
+  );
+};
+
+export default ColumnSelectionDemo;

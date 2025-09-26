@@ -1,0 +1,208 @@
+import { useState, useMemo } from "react";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import "simple-table-core/styles.css";
+
+// Sample data
+const EMPLOYEE_DATA = [
+  {
+    id: 1,
+    name: "John Doe",
+    age: 28,
+    role: "Developer",
+    department: "Engineering",
+    email: "john.doe@company.com",
+  },
+  {
+    id: 2,
+    name: "Jane Smith",
+    age: 32,
+    role: "Designer",
+    department: "Design",
+    email: "jane.smith@company.com",
+  },
+  {
+    id: 3,
+    name: "Bob Johnson",
+    age: 45,
+    role: "Manager",
+    department: "Management",
+    email: "bob.johnson@company.com",
+  },
+  {
+    id: 4,
+    name: "Alice Williams",
+    age: 24,
+    role: "Intern",
+    department: "Internship",
+    email: "alice.williams@company.com",
+  },
+  {
+    id: 5,
+    name: "Charlie Brown",
+    age: 37,
+    role: "DevOps",
+    department: "Engineering",
+    email: "charlie.brown@company.com",
+  },
+];
+
+const ColumnEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+  const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
+  const [lastAction, setLastAction] = useState<string>("");
+
+  // Define headers with add column functionality
+  const headers: HeaderObject[] = useMemo(
+    () => [
+      { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+      {
+        accessor: "name",
+        label: "Name",
+        minWidth: 120,
+        width: "1fr",
+        isSortable: true,
+        type: "string",
+      },
+      { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
+      { accessor: "role", label: "Role", width: 150, isSortable: true, type: "string" },
+      { accessor: "department", label: "Department", width: 150, isSortable: true, type: "string" },
+      ...additionalColumns,
+      {
+        accessor: "actions",
+        label: "Actions",
+        width: 120,
+        isSortable: false,
+        filterable: false,
+        type: "other",
+        headerRenderer: () => (
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button
+              onClick={() => {
+                const newColumn = {
+                  accessor: `custom-${additionalColumns.length + 1}`,
+                  label: `Custom ${additionalColumns.length + 1}`,
+                  width: 120,
+                  type: "string" as const,
+                };
+                setAdditionalColumns([...additionalColumns, newColumn]);
+                setLastAction(`Added column: ${newColumn.label}`);
+              }}
+              style={{
+                backgroundColor: "#007bff",
+                color: "white",
+                border: "none",
+                padding: "4px 8px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "12px",
+              }}
+            >
+              + Add Column
+            </button>
+          </div>
+        ),
+        cellRenderer: ({ rowIndex }) => (
+          <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
+            <span style={{ fontSize: "12px", color: "#666" }}>Row {rowIndex + 1}</span>
+          </div>
+        ),
+      },
+    ],
+    [additionalColumns]
+  );
+
+  const handleHeaderEdit = (headerIndex: number, newLabel: string) => {
+    setLastAction(`Renamed column ${headerIndex} to: ${newLabel}`);
+    console.log("Header edited:", { headerIndex, newLabel });
+  };
+
+  return (
+    <div>
+      {/* Demo Info Panel */}
+      <div
+        style={{
+          marginBottom: "16px",
+          padding: "16px",
+          backgroundColor: "#f8f9fa",
+          borderRadius: "6px",
+          fontSize: "14px",
+          border: "1px solid #e9ecef",
+        }}
+      >
+        <h3 style={{ margin: "0 0 12px 0", fontSize: "18px", color: "#333" }}>
+          Column Editing Demo
+        </h3>
+        <div style={{ marginBottom: "12px" }}>
+          <p style={{ margin: "0 0 4px 0", color: "#666" }}>
+            • <strong>Double-click on column headers</strong> to edit their names
+          </p>
+          <p style={{ margin: "0 0 4px 0", color: "#666" }}>
+            • <strong>Click the "Add Column" button</strong> to dynamically add new columns
+          </p>
+          <p style={{ margin: "0 0 8px 0", color: "#666" }}>
+            • New columns will be inserted before the Actions column
+          </p>
+        </div>
+
+        <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", alignItems: "center" }}>
+          <div>
+            <strong>Added Columns:</strong> {additionalColumns.length}
+            {additionalColumns.length > 0 && (
+              <span style={{ marginLeft: "8px", fontSize: "12px", color: "#666" }}>
+                ({additionalColumns.map((col) => col.label).join(", ")})
+              </span>
+            )}
+          </div>
+
+          {additionalColumns.length > 0 && (
+            <button
+              onClick={() => {
+                setAdditionalColumns([]);
+                setLastAction("Cleared all custom columns");
+              }}
+              style={{
+                backgroundColor: "#dc3545",
+                color: "white",
+                border: "none",
+                padding: "4px 8px",
+                borderRadius: "4px",
+                cursor: "pointer",
+                fontSize: "12px",
+              }}
+            >
+              Clear All
+            </button>
+          )}
+        </div>
+
+        {lastAction && (
+          <div
+            style={{
+              marginTop: "12px",
+              padding: "8px 12px",
+              backgroundColor: "#e7f3ff",
+              borderRadius: "4px",
+              border: "1px solid #b3d9ff",
+              fontSize: "12px",
+              color: "#0066cc",
+            }}
+          >
+            <strong>Last Action:</strong> {lastAction}
+          </div>
+        )}
+      </div>
+
+      {/* SimpleTable with Column Editing */}
+      <SimpleTable
+        defaultHeaders={headers}
+        enableHeaderEditing={true}
+        height={height}
+        onHeaderEdit={handleHeaderEdit}
+        rowIdAccessor="id"
+        rows={EMPLOYEE_DATA}
+        theme={theme}
+      />
+    </div>
+  );
+};
+
+export default ColumnEditingDemo;

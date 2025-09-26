@@ -613,6 +613,112 @@ rowHeight={48}`,
   }
 }}`,
   },
+  {
+    key: "onCellEdit",
+    name: "onCellEdit",
+    required: false,
+    description:
+      "Callback function triggered when a cell is edited. Provides the edited cell information including the new value, row, and column accessor.",
+    type: "(props: CellChangeProps) => void",
+    link: "#cell-change-props",
+    example: `onCellEdit={({ accessor, newValue, row }) => {
+  console.log(\`Cell \${accessor} edited to:\`, newValue);
+  // Update your data
+  updateRowData(row.id, accessor, newValue);
+}}`,
+  },
+  {
+    key: "onColumnSelect",
+    name: "onColumnSelect",
+    required: false,
+    description:
+      "Callback when a column is selected/clicked. Provides the complete HeaderObject of the selected column.",
+    type: "(header: HeaderObject) => void",
+    link: "#header-object",
+    example: `onColumnSelect={(header) => {
+  console.log('Column selected:', header.label);
+  console.log('Column accessor:', header.accessor);
+  console.log('Column type:', header.type);
+  // Handle column selection - show column menu, apply operations, etc.
+}}`,
+  },
+  {
+    key: "enableHeaderEditing",
+    name: "enableHeaderEditing",
+    required: false,
+    description: "Flag for enabling header label editing when clicking already active headers.",
+    type: "boolean",
+    example: `enableHeaderEditing={true}`,
+  },
+  {
+    key: "onHeaderEdit",
+    name: "onHeaderEdit",
+    required: false,
+    description:
+      "Callback when a header is edited. Receives the HeaderObject and the new label value.",
+    type: "(header: HeaderObject, newLabel: string) => void",
+    link: "#header-object",
+    example: `onHeaderEdit={(header, newLabel) => {
+  console.log('Header edited:', { header, newLabel });
+  // Update your headers state
+  setHeaders(prev => prev.map(h => 
+    h.accessor === header.accessor 
+      ? { ...h, label: newLabel }
+      : h
+  ));
+}}`,
+  },
+  {
+    key: "onColumnOrderChange",
+    name: "onColumnOrderChange",
+    required: false,
+    description:
+      "Callback when column order changes (through drag and drop reordering). Receives the new headers array in the updated order.",
+    type: "(newHeaders: HeaderObject[]) => void",
+    link: "#header-object",
+    example: `onColumnOrderChange={(newHeaders) => {
+  console.log('Column order changed:', newHeaders);
+  // Update your headers state with the new order
+  setHeaders(newHeaders);
+}}`,
+  },
+  {
+    key: "columnBorders",
+    name: "columnBorders",
+    required: false,
+    description: "Flag for showing column borders.",
+    type: "boolean",
+    example: `columnBorders={true}`,
+  },
+  {
+    key: "headerDropdown",
+    name: "headerDropdown",
+    required: false,
+    description: "Custom dropdown component for headers.",
+    type: "HeaderDropdown",
+    example: `headerDropdown={({ accessor, colIndex, header, isOpen, onClose, position }) => (
+  isOpen ? <CustomDropdown header={header} position={position} onClose={onClose} /> : null
+)}`,
+  },
+  {
+    key: "rowButtons",
+    name: "rowButtons",
+    required: false,
+    description: "Array of buttons to show in each row.",
+    type: "RowButton[]",
+    example: `rowButtons={[
+  ({ row }) => <button onClick={() => editRow(row)}>Edit</button>,
+  ({ row }) => <button onClick={() => deleteRow(row)}>Delete</button>
+]}`,
+  },
+  {
+    key: "selectionColumnWidth",
+    name: "selectionColumnWidth",
+    required: false,
+    description: "Width of the selection column (defaults to 42).",
+    type: "number",
+    example: `selectionColumnWidth={60}`,
+  },
 ];
 
 const HEADER_OBJECT_PROPS: PropInfo[] = [

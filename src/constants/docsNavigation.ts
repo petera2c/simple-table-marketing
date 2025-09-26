@@ -28,6 +28,7 @@ import {
   faInfinity,
   faCheckSquare,
   faHandPointer,
+  faMousePointer,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -99,6 +100,18 @@ export const docSections: DocSection[] = [
         label: "Column Filtering",
         path: "/docs/column-filtering",
         icon: faFilter,
+      },
+      {
+        id: "column-selection",
+        label: "Column Selection",
+        path: "/docs/column-selection",
+        icon: faMousePointer,
+      },
+      {
+        id: "column-editing",
+        label: "Column Editing",
+        path: "/docs/column-editing",
+        icon: faEdit,
       },
       {
         id: "nested-headers",
