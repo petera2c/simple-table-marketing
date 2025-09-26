@@ -404,4 +404,11 @@ export const SEO_STRINGS = {
         "simple-table, ant-design, antd-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, lightweight grid, component library, typescript table, performance comparison",
     },
   },
+  pricing: {
+    title: "Simple Table Pricing: Free React Data Grid",
+    description:
+      "Simple Table pricing: FREE plan for individuals and startups, PRO plan for businesses. Get 50% off PRO for first 50 customers. Start building React data grids today!",
+    keywords:
+      "simple-table pricing, free react data grid, react table pricing, data grid cost, simple table pro, free table library, react table subscription, data grid plans",
+  },
 };
