@@ -81,6 +81,34 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
   // ... other props
 />`,
   },
+  {
+    key: "headerExpandIcon",
+    name: "headerExpandIcon",
+    required: false,
+    description: "Custom icon component for the expand state of collapsible column headers.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
+  {
+    key: "headerCollapseIcon",
+    name: "headerCollapseIcon",
+    required: false,
+    description: "Custom icon component for the collapse state of collapsible column headers.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
 ];
 
 export default function CustomIconsContent() {
@@ -147,39 +175,6 @@ export default function CustomIconsContent() {
         </p>
 
         <PropTable props={CUSTOM_ICON_PROPS} title="Available Icon Props" />
-
-        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-300 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-medium text-gray-700 dark:text-gray-300 mb-2">
-            Implementation Examples
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-2">
-            You can find working examples of custom icons in the following components:
-          </p>
-          <ul className="list-disc pl-5 space-y-1 text-gray-600 dark:text-gray-400">
-            <li>
-              <strong>PaginationDemo</strong>: Uses FontAwesome chevron icons (
-              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
-                faChevronRight
-              </code>{" "}
-              and{" "}
-              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
-                faChevronLeft
-              </code>
-              ) to customize the pagination navigation buttons.
-            </li>
-            <li>
-              <strong>RowGroupingDemo</strong>: Uses FontAwesome chevron icons (
-              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
-                faChevronRight
-              </code>{" "}
-              and{" "}
-              <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded">
-                faChevronDown
-              </code>
-              ) to enhance the visualization of expandable row groups.
-            </li>
-          </ul>
-        </div>
       </motion.div>
 
       {/* Best Practices Section */}

@@ -29,6 +29,7 @@ import {
   faCheckSquare,
   faHandPointer,
   faMousePointer,
+  faFolderMinus,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -118,6 +119,12 @@ export const docSections: DocSection[] = [
         label: "Nested Headers",
         path: "/docs/nested-headers",
         icon: faLayerGroup,
+      },
+      {
+        id: "collapsible-columns",
+        label: "Collapsible Columns",
+        path: "/docs/collapsible-columns",
+        icon: faFolderMinus,
       },
     ],
   },

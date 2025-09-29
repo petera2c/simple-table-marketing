@@ -367,6 +367,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, column editing, editable headers, dynamic columns, typescript table, table customization",
   },
+  collapsibleColumns: {
+    title: "Collapsible Columns in Simple Table React Grid",
+    description:
+      "Create collapsible column groups in your react application with Simple Table. Organize complex data with expandable/collapsible headers in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, collapsible columns, column groups, expandable headers, nested columns, typescript table, space optimization",
+  },
   comparisons: {
     agGrid: {
       title: "Simple Table vs AG Grid: React Data Grid Comparison",

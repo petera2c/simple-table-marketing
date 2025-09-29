@@ -719,6 +719,94 @@ rowHeight={48}`,
     type: "number",
     example: `selectionColumnWidth={60}`,
   },
+  {
+    key: "headerExpandIcon",
+    name: "headerExpandIcon",
+    required: false,
+    description:
+      "Custom icon component for the expand state of collapsible column headers. Shows when a column group can be expanded to reveal child columns.",
+    type: "ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} />}`,
+  },
+  {
+    key: "headerCollapseIcon",
+    name: "headerCollapseIcon",
+    required: false,
+    description:
+      "Custom icon component for the collapse state of collapsible column headers. Shows when a column group can be collapsed to hide child columns.",
+    type: "ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} />}`,
+  },
+  {
+    key: "className",
+    name: "className",
+    required: false,
+    description: "CSS class name to apply to the table container element.",
+    type: "string",
+    example: `className="my-custom-table"`,
+  },
+  {
+    key: "columnEditorPosition",
+    name: "columnEditorPosition",
+    required: false,
+    description: "Position of the column editor panel when editColumns is enabled.",
+    type: "ColumnEditorPosition",
+    link: "#union-types",
+    example: `columnEditorPosition="left"
+columnEditorPosition="right"`,
+  },
+  {
+    key: "columnEditorText",
+    name: "columnEditorText",
+    required: false,
+    description: "Custom text label for the column editor panel.",
+    type: "string",
+    example: `columnEditorText="Customize Columns"`,
+  },
+  {
+    key: "onGridReady",
+    name: "onGridReady",
+    required: false,
+    description: "Callback function triggered when the table grid is fully initialized and ready.",
+    type: "() => void",
+    example: `onGridReady={() => {
+  console.log('Table is ready!');
+  // Perform any initialization logic
+}}`,
+  },
+  {
+    key: "onNextPage",
+    name: "onNextPage",
+    required: false,
+    description: "Custom handler for pagination next page action.",
+    type: "OnNextPage",
+    example: `onNextPage={(currentPage, totalPages) => {
+  console.log(\`Going to page \${currentPage + 1} of \${totalPages}\`);
+  // Custom pagination logic
+}}`,
+  },
+  {
+    key: "tableRef",
+    name: "tableRef",
+    required: false,
+    description: "React ref object to access table methods and state programmatically.",
+    type: "MutableRefObject<TableRefType | null>",
+    example: `const tableRef = useRef(null);
+
+<SimpleTable
+  tableRef={tableRef}
+  // ... other props
+/>
+
+// Access table methods
+tableRef.current?.updateRow(rowId, newData);`,
+  },
 ];
 
 const HEADER_OBJECT_PROPS: PropInfo[] = [
@@ -898,6 +986,25 @@ minWidth: "100px"`,
     example: `headerRenderer: ({ accessor, colIndex, header }) => (
   <strong>{header.label}</strong>
 )`,
+  },
+  {
+    key: "collapsible",
+    name: "collapsible",
+    required: false,
+    description:
+      "Makes this column group collapsible. When true, users can click an arrow icon to collapse/expand the column group. Must have children columns.",
+    type: "boolean",
+    example: `collapsible: true`,
+  },
+  {
+    key: "summaryColumn",
+    name: "summaryColumn",
+    required: false,
+    description:
+      "When true, this column is only visible when the parent collapsible group is collapsed. When false (or undefined), the column is only visible when expanded. Used to show summary data vs detailed breakdowns.",
+    type: "boolean",
+    example: `summaryColumn: true  // Shows when collapsed
+summaryColumn: false // Shows when expanded (default)`,
   },
 ];
 

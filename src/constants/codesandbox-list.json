@@ -1,138 +1,142 @@
 {
   "CellEditingDemo.tsx": {
-    "id": "98qv6p",
-    "url": "https://codesandbox.io/s/98qv6p"
+    "id": "vm6q8k",
+    "url": "https://codesandbox.io/s/vm6q8k"
   },
   "CellHighlightingDemo.tsx": {
-    "id": "jhh6jp",
-    "url": "https://codesandbox.io/s/jhh6jp"
+    "id": "jfckjq",
+    "url": "https://codesandbox.io/s/jfckjq"
   },
   "CellRendererDemo.tsx": {
-    "id": "cxc3w2",
-    "url": "https://codesandbox.io/s/cxc3w2"
+    "id": "q3np8t",
+    "url": "https://codesandbox.io/s/q3np8t"
   },
   "ColumnAlignmentDemo.tsx": {
-    "id": "qtwf96",
-    "url": "https://codesandbox.io/s/qtwf96"
+    "id": "t4dpsg",
+    "url": "https://codesandbox.io/s/t4dpsg"
   },
   "ColumnPinningDemo.tsx": {
-    "id": "k2csld",
-    "url": "https://codesandbox.io/s/k2csld"
+    "id": "386yx7",
+    "url": "https://codesandbox.io/s/386yx7"
   },
   "ColumnReorderingDemo.tsx": {
-    "id": "7mrlyz",
-    "url": "https://codesandbox.io/s/7mrlyz"
+    "id": "98w2rc",
+    "url": "https://codesandbox.io/s/98w2rc"
   },
   "ColumnResizingDemo.tsx": {
-    "id": "k4xc8g",
-    "url": "https://codesandbox.io/s/k4xc8g"
+    "id": "4pmggn",
+    "url": "https://codesandbox.io/s/4pmggn"
   },
   "ColumnSortingDemo.tsx": {
-    "id": "ddsg9s",
-    "url": "https://codesandbox.io/s/ddsg9s"
+    "id": "zc7fmy",
+    "url": "https://codesandbox.io/s/zc7fmy"
   },
   "ColumnVisibilityDemo.tsx": {
-    "id": "xw3pdq",
-    "url": "https://codesandbox.io/s/xw3pdq"
+    "id": "7zqpcr",
+    "url": "https://codesandbox.io/s/7zqpcr"
   },
   "CustomIconsDemo.tsx": {
-    "id": "8rdyy4",
-    "url": "https://codesandbox.io/s/8rdyy4"
+    "id": "2p2yj4",
+    "url": "https://codesandbox.io/s/2p2yj4"
   },
   "CustomRenderersDemo.tsx": {
     "id": "k2xcds",
     "url": "https://codesandbox.io/s/k2xcds"
   },
   "LiveUpdateDemo.tsx": {
-    "id": "pzgd74",
-    "url": "https://codesandbox.io/s/pzgd74"
+    "id": "7llw3x",
+    "url": "https://codesandbox.io/s/7llw3x"
   },
   "NestedHeadersDemo.tsx": {
-    "id": "928t4x",
-    "url": "https://codesandbox.io/s/928t4x"
+    "id": "62llh3",
+    "url": "https://codesandbox.io/s/62llh3"
   },
   "PaginationDemo.tsx": {
-    "id": "cr8ryr",
-    "url": "https://codesandbox.io/s/cr8ryr"
+    "id": "z4ch6w",
+    "url": "https://codesandbox.io/s/z4ch6w"
   },
   "QuickStartDemo.tsx": {
-    "id": "msq9fp",
-    "url": "https://codesandbox.io/s/msq9fp"
+    "id": "5ywtg9",
+    "url": "https://codesandbox.io/s/5ywtg9"
   },
   "RowGroupingDemo.tsx": {
-    "id": "6c4rwl",
-    "url": "https://codesandbox.io/s/6c4rwl"
+    "id": "4y5lz5",
+    "url": "https://codesandbox.io/s/4y5lz5"
   },
   "RowHeightDemo.tsx": {
-    "id": "w2mkxf",
-    "url": "https://codesandbox.io/s/w2mkxf"
+    "id": "h7x59t",
+    "url": "https://codesandbox.io/s/h7x59t"
   },
   "ThemesDemo.tsx": {
-    "id": "m9hw9q",
-    "url": "https://codesandbox.io/s/m9hw9q"
+    "id": "jrpmmn",
+    "url": "https://codesandbox.io/s/jrpmmn"
   },
   "src/CustomThemeDemo.tsx": {
-    "id": "3j9x5j",
-    "url": "https://codesandbox.io/s/3j9x5j"
+    "id": "m5qypj",
+    "url": "https://codesandbox.io/s/m5qypj"
   },
   "examples/billing/BillingExample.tsx": {
-    "id": "x4xt98",
-    "url": "https://codesandbox.io/s/x4xt98"
+    "id": "xlxvjs",
+    "url": "https://codesandbox.io/s/xlxvjs"
   },
   "examples/hr/HRExample.tsx": {
-    "id": "258mkj",
-    "url": "https://codesandbox.io/s/258mkj"
+    "id": "hfhjv2",
+    "url": "https://codesandbox.io/s/hfhjv2"
   },
   "examples/manufacturing/ManufacturingExample.tsx": {
-    "id": "y8c67y",
-    "url": "https://codesandbox.io/s/y8c67y"
+    "id": "4575nt",
+    "url": "https://codesandbox.io/s/4575nt"
   },
   "examples/sales/SalesExample.tsx": {
-    "id": "nv6pyl",
-    "url": "https://codesandbox.io/s/nv6pyl"
+    "id": "f4lts3",
+    "url": "https://codesandbox.io/s/f4lts3"
   },
   "examples/finance/FinanceExample.tsx": {
-    "id": "tgmskf",
-    "url": "https://codesandbox.io/s/tgmskf"
+    "id": "ws6rrz",
+    "url": "https://codesandbox.io/s/ws6rrz"
   },
   "ColumnFilteringDemo.tsx": {
-    "id": "hz9hxh",
-    "url": "https://codesandbox.io/s/hz9hxh"
+    "id": "nnmv3q",
+    "url": "https://codesandbox.io/s/nnmv3q"
   },
   "AggregateFunctionsDemo.tsx": {
-    "id": "67prth",
-    "url": "https://codesandbox.io/s/67prth"
+    "id": "svqp3m",
+    "url": "https://codesandbox.io/s/svqp3m"
   },
   "HeaderRendererDemo.tsx": {
-    "id": "kw9m3f",
-    "url": "https://codesandbox.io/s/kw9m3f"
+    "id": "pp9l2p",
+    "url": "https://codesandbox.io/s/pp9l2p"
   },
   "ExternalFilterDemo.tsx": {
-    "id": "cs2nw3",
-    "url": "https://codesandbox.io/s/cs2nw3"
+    "id": "g7ljvg",
+    "url": "https://codesandbox.io/s/g7ljvg"
   },
   "ExternalSortDemo.tsx": {
-    "id": "lvxsv2",
-    "url": "https://codesandbox.io/s/lvxsv2"
+    "id": "ffpm42",
+    "url": "https://codesandbox.io/s/ffpm42"
   },
   "InfiniteScrollDemo.tsx": {
-    "id": "tgmcw2",
-    "url": "https://codesandbox.io/s/tgmcw2"
+    "id": "zln4n6",
+    "url": "https://codesandbox.io/s/zln4n6"
   },
   "RowSelectionDemo.tsx": {
-    "id": "f768s9",
-    "url": "https://codesandbox.io/s/f768s9"
+    "id": "vzfvhm",
+    "url": "https://codesandbox.io/s/vzfvhm"
   },
   "CellClickingDemo.tsx": {
-    "id": "qphddm",
-    "url": "https://codesandbox.io/s/qphddm"
+    "id": "3r9w8w",
+    "url": "https://codesandbox.io/s/3r9w8w"
   },
   "ColumnEditingDemo.tsx": {
-    "id": "88kmxc",
-    "url": "https://codesandbox.io/s/88kmxc"
+    "id": "76sxsv",
+    "url": "https://codesandbox.io/s/76sxsv"
   },
   "ColumnSelectionDemo.tsx": {
-    "id": "rr85qd",
-    "url": "https://codesandbox.io/s/rr85qd"
+    "id": "4wl9gl",
+    "url": "https://codesandbox.io/s/4wl9gl"
+  },
+  "CollapsibleColumnsDemo.tsx": {
+    "id": "4d72yz",
+    "url": "https://codesandbox.io/s/4d72yz"
   }
 }
