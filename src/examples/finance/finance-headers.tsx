@@ -27,45 +27,43 @@ export const HEADERS: HeaderObject[] = [
   {
     accessor: "priceMetrics",
     label: "Price Performance",
-    width: 250,
+    width: 280,
     isSortable: false,
     children: [
       {
         accessor: "price",
         label: "Price (USD)",
-        width: 160,
+        width: 280,
         isSortable: true,
         filterable: true,
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row, theme }) => {
           if (row.price === "—") return "—";
-          return `$${(row.price as number).toLocaleString("en-US", {
+
+          const price = row.price as number;
+          const changePercent = row.priceChangePercent as number;
+
+          const formattedPrice = `$${price.toLocaleString("en-US", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}`;
-        },
-      },
-      {
-        accessor: "priceChangePercent",
-        label: "Change %",
-        width: 160,
-        filterable: true,
-        isSortable: true,
-        isEditable: false,
-        align: "right",
-        type: "number",
-        cellRenderer: ({ row, theme }) => {
-          if (row.priceChangePercent === "—" || row.priceChangePercent === null) return "—";
-          const value = row.priceChangePercent as number;
-          const prefix = value > 0 ? "+" : "";
 
-          // Theme-dependent color styles
-          const getColorStyles = (value: number, theme: string) => {
-            const isNegative = value < 0;
-            const isPositive = value > 0;
+          if (
+            changePercent === null ||
+            changePercent === undefined ||
+            typeof changePercent !== "number"
+          ) {
+            return formattedPrice;
+          }
 
+          const prefix = changePercent > 0 ? "+" : "";
+          const isNegative = changePercent < 0;
+          const isPositive = changePercent > 0;
+
+          // Theme-dependent color styles for change percentage
+          const getColorStyles = (theme: string) => {
             switch (theme) {
               case "dark":
                 return {
@@ -100,23 +98,32 @@ export const HEADERS: HeaderObject[] = [
             }
           };
 
-          const styles = getColorStyles(value, theme);
+          const styles = getColorStyles(theme);
 
           return (
-            <div style={{ display: "flex", justifyContent: "flex-end" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "flex-end",
+                gap: "8px",
+              }}
+            >
               <div
                 style={{
-                  width: "70%",
-                  minWidth: "min-content",
-                  padding: "1px 8px",
+                  width: "60px",
+                  padding: "2px 6px",
                   borderRadius: "4px",
                   fontWeight: "500",
+                  fontSize: "0.75rem",
+                  whiteSpace: "nowrap",
                   ...styles,
                 }}
               >
                 {prefix}
-                {value.toFixed(2)}%
+                {changePercent.toFixed(2)}%
               </div>
+              <span style={{ fontWeight: "600", width: "70px" }}>{formattedPrice}</span>
             </div>
           );
         },
