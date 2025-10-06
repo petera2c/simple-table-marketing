@@ -51,6 +51,7 @@ const COLUMN_FILTERING_PROPS: PropInfo[] = [
 }
 
 // Enum column with filtering (4 operators)
+// When more than 10 options, search input appears automatically
 { 
   accessor: "status", 
   label: "Status", 
@@ -58,7 +59,17 @@ const COLUMN_FILTERING_PROPS: PropInfo[] = [
   filterable: true,
   enumOptions: [
     { label: "Active", value: "active" },
-    { label: "Inactive", value: "inactive" }
+    { label: "Inactive", value: "inactive" },
+    { label: "Pending", value: "pending" },
+    { label: "Suspended", value: "suspended" },
+    { label: "Archived", value: "archived" },
+    { label: "Draft", value: "draft" },
+    { label: "Published", value: "published" },
+    { label: "Under Review", value: "under_review" },
+    { label: "Approved", value: "approved" },
+    { label: "Rejected", value: "rejected" },
+    { label: "Cancelled", value: "cancelled" },
+    { label: "Completed", value: "completed" }
   ]
 }`,
   },
@@ -167,7 +178,7 @@ const ColumnFilteringContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
@@ -209,6 +220,28 @@ const ColumnFilteringContent = () => {
         </ul>
 
         <PropTable props={EXTERNAL_FILTERING_PROPS} title="External Filtering Configuration" />
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Enum Filter Search
+      </motion.h2>
+
+      <motion.div
+        className="mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          For enum columns with more than 10 options, Simple Table automatically provides a search
+          input to help users quickly find and select the desired enum values. This improves
+          usability when dealing with large sets of enum options.
+        </p>
       </motion.div>
 
       <DocNavigationButtons />
