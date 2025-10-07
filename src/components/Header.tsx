@@ -272,25 +272,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Hidden promotional links for SEO purposes */}
-      <div className="fixed -top-[400px] left-0 opacity-0 pointer-events-none">
-        <a href="https://www.superlaun.ch/products/875" target="_blank" rel="noopener">
-          <img
-            src="https://www.superlaun.ch/badge.png"
-            alt="Featured on Super Launch"
-            width="300"
-            height="300"
-          />
-        </a>
-        <a href="https://findly.tools/simple-table?utm_source=simple-table" target="_blank">
-          <img
-            src="https://findly.tools/badges/findly-tools-badge-light.svg"
-            alt="Featured on findly.tools"
-            width="150"
-          />
-        </a>
-      </div>
-
       <header
         ref={headerRef}
         className="backdrop-blur-md bg-white/80 dark:bg-gray-900/90 shadow-sm sticky top-0 z-50"
