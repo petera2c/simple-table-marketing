@@ -271,62 +271,47 @@ const Header = () => {
   const externalLinks = [{ href: TECHNICAL_STRINGS.links.npm, label: "NPM", icon: faNpm }];
 
   return (
-    <header
-      ref={headerRef}
-      className="backdrop-blur-md bg-white/80 dark:bg-gray-900/90 shadow-sm sticky top-0 z-50"
-    >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center">
-            <Link
-              href="/"
-              className="flex items-center text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
-            >
-              <FontAwesomeIcon
-                icon={faTable}
-                className="text-blue-600 dark:text-blue-400 text-2xl mr-2"
-              />
-              Simple Table
-            </Link>
-          </div>
+    <>
+      {/* Hidden promotional links for SEO purposes */}
+      <div className="fixed -top-[400px] left-0 opacity-0 pointer-events-none">
+        <a href="https://www.superlaun.ch/products/875" target="_blank" rel="noopener">
+          <img
+            src="https://www.superlaun.ch/badge.png"
+            alt="Featured on Super Launch"
+            width="300"
+            height="300"
+          />
+        </a>
+        <a href="https://findly.tools/simple-table?utm_source=simple-table" target="_blank">
+          <img
+            src="https://findly.tools/badges/findly-tools-badge-light.svg"
+            alt="Featured on findly.tools"
+            width="150"
+          />
+        </a>
+      </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden flex items-center gap-4">
-            <button
-              onClick={toggleTheme}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
-              aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
-            >
-              <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="text-xl" />
-            </button>
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
-              aria-label="Toggle menu"
-            >
-              <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-2xl" />
-            </button>
-          </div>
-
-          {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-4">
-            <div className="flex items-center gap-4">
-              {navLinks.map((link) =>
-                link.href !== "/theme-builder" || !isMobile ? (
-                  <LinkButton key={link.href} {...link} />
-                ) : null
-              )}
+      <header
+        ref={headerRef}
+        className="backdrop-blur-md bg-white/80 dark:bg-gray-900/90 shadow-sm sticky top-0 z-50"
+      >
+        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center">
+              <Link
+                href="/"
+                className="flex items-center text-xl font-bold text-gray-800 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+              >
+                <FontAwesomeIcon
+                  icon={faTable}
+                  className="text-blue-600 dark:text-blue-400 text-2xl mr-2"
+                />
+                Simple Table
+              </Link>
             </div>
 
-            <Divider type="vertical" className="h-8" />
-
-            <div className="flex items-center gap-4">
-              <GitHubLink />
-              {externalLinks.map((link) => (
-                <LinkButton key={link.href} {...link} isExternal={true} />
-              ))}
-              <SupportDropdown />
-
+            {/* Mobile menu button */}
+            <div className="md:hidden flex items-center gap-4">
               <button
                 onClick={toggleTheme}
                 className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
@@ -334,45 +319,81 @@ const Header = () => {
               >
                 <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="text-xl" />
               </button>
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
+                aria-label="Toggle menu"
+              >
+                <FontAwesomeIcon icon={isMenuOpen ? faXmark : faBars} className="text-2xl" />
+              </button>
+            </div>
+
+            {/* Desktop navigation */}
+            <div className="hidden md:flex items-center gap-4">
+              <div className="flex items-center gap-4">
+                {navLinks.map((link) =>
+                  link.href !== "/theme-builder" || !isMobile ? (
+                    <LinkButton key={link.href} {...link} />
+                  ) : null
+                )}
+              </div>
+
+              <Divider type="vertical" className="h-8" />
+
+              <div className="flex items-center gap-4">
+                <GitHubLink />
+                {externalLinks.map((link) => (
+                  <LinkButton key={link.href} {...link} isExternal={true} />
+                ))}
+                <SupportDropdown />
+
+                <button
+                  onClick={toggleTheme}
+                  className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 focus:outline-none transition-colors"
+                  aria-label={`Switch to ${theme === "light" ? "dark" : "light"} mode`}
+                >
+                  <FontAwesomeIcon icon={theme === "light" ? faMoon : faSun} className="text-xl" />
+                </button>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Mobile menu */}
-        {isMobile && isMenuOpen && (
-          <div className="mt-4 pt-2 pb-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col space-y-3">
-              {navLinks.map((link) => (
-                <LinkButton
-                  key={link.href}
-                  {...link}
-                  isMobile={true}
-                  onMobileClick={() => setIsMenuOpen(false)}
-                />
-              ))}
+          {/* Mobile menu */}
+          {isMobile && isMenuOpen && (
+            <div className="mt-4 pt-2 pb-4 border-t border-gray-200 dark:border-gray-700">
+              <div className="flex flex-col space-y-3">
+                {navLinks.map((link) => (
+                  <LinkButton
+                    key={link.href}
+                    {...link}
+                    isMobile={true}
+                    onMobileClick={() => setIsMenuOpen(false)}
+                  />
+                ))}
 
-              <Divider className="my-2" />
+                <Divider className="my-2" />
 
-              <GitHubLink isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
+                <GitHubLink isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
 
-              {externalLinks.map((link) => (
-                <LinkButton
-                  key={link.href}
-                  href={link.href}
-                  label={link.label === "NPM" ? "NPM Package" : link.label}
-                  icon={link.icon}
-                  isExternal={true}
-                  isMobile={true}
-                  onMobileClick={() => setIsMenuOpen(false)}
-                />
-              ))}
+                {externalLinks.map((link) => (
+                  <LinkButton
+                    key={link.href}
+                    href={link.href}
+                    label={link.label === "NPM" ? "NPM Package" : link.label}
+                    icon={link.icon}
+                    isExternal={true}
+                    isMobile={true}
+                    onMobileClick={() => setIsMenuOpen(false)}
+                  />
+                ))}
 
-              <SupportDropdown isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
+                <SupportDropdown isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
+              </div>
             </div>
-          </div>
-        )}
-      </nav>
-    </header>
+          )}
+        </nav>
+      </header>
+    </>
   );
 };
 

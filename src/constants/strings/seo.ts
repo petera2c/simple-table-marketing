@@ -1,4 +1,5 @@
 import {
+  bestReactTableLibraries2025Post,
   freeAlternativeToAgGridPost,
   handlingOneMillionRowsPost,
   customizingDataGridsStylingEasyPost,
@@ -39,6 +40,22 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    bestReactTableLibraries2025: {
+      title: bestReactTableLibraries2025Post.title,
+      description: bestReactTableLibraries2025Post.description,
+      keywords: [
+        "best react table libraries",
+        "react table comparison 2025",
+        "tanstack table vs simple table",
+        "ag grid vs simple table",
+        "handsontable vs simple table",
+        "react data grid libraries",
+        "table library comparison",
+        "react table 2025",
+        "data grid comparison",
+        "react table pros cons",
+      ],
+    },
     bestFreeReactDataGrid2025: {
       title: bestFreeReactDataGridPost.title,
       description: bestFreeReactDataGridPost.description,
