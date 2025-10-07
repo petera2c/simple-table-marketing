@@ -14,9 +14,9 @@ export const SEO_STRINGS = {
     name: "Simple Table",
     title: "Simple Table: Lightweight React Data Grid",
     description:
-      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free!",
+      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.",
     defaultKeywords:
-      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table",
+      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table, ag grid alternative, handsontable alternative, material ui table alternative, free react table, lightweight react grid, best react table library, react table comparison",
     creator: "@simpletable",
     ogImage: {
       url: "https://www.simple-table.com/og-image.png",
@@ -28,9 +28,9 @@ export const SEO_STRINGS = {
   home: {
     title: "Simple Table: Lightweight React Data Grid",
     description:
-      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free!",
+      "Simple Table: A 16 kB React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.",
     keywords:
-      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table",
+      "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table, ag grid alternative, handsontable alternative, material ui table alternative, free react table, lightweight react grid, best react table library, react table comparison",
   },
   blog: {
     title: "Simple Table Blog: React Grid Tips",

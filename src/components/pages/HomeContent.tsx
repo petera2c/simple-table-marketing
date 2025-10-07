@@ -26,9 +26,10 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import { Suspense } from "react";
+import React, { Suspense } from "react";
 import FinancialExample from "@/examples/finance/FinanceExample";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
 
 // Define feature data with more details
 const features = [
@@ -123,6 +124,94 @@ export default function HomeContent() {
   const router = useRouter();
   const { theme } = useThemeContext();
 
+  // FAQ Schema for AI visibility
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: [
+      {
+        "@type": "Question",
+        name: "What is Simple Table?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Simple Table is a lightweight React data grid and table library that's only 16 kB in size. It provides comprehensive features like cell editing, column management, sorting, filtering, and TypeScript support, making it perfect for building responsive datagrids in React applications.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How does Simple Table compare to AG Grid?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Simple Table is a free alternative to AG Grid that's much lighter (16 kB vs 2+ MB). While AG Grid has more enterprise features, Simple Table provides all the essential functionality most developers need for data grids, including cell editing, column management, sorting, filtering, and theming, without the licensing costs.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Is Simple Table free to use?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, Simple Table is completely free for pre-revenue and bootstrapped projects. For revenue-generating businesses, affordable paid plans are available. You can install it via npm and start building data grids immediately.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "Does Simple Table support TypeScript?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Yes, Simple Table has full TypeScript support with comprehensive type definitions. This provides excellent developer experience with autocomplete, type checking, and IntelliSense support in your IDE.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "What features does Simple Table include?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "Simple Table includes cell editing, column management (resizing, reordering, pinning, visibility), row grouping, pagination, sorting, filtering, custom themes, nested headers, custom renderers, and responsive design. It's designed to handle large datasets efficiently.",
+        },
+      },
+      {
+        "@type": "Question",
+        name: "How do I install Simple Table?",
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: "You can install Simple Table using npm: 'npm install simple-table-core'. Then import and use it in your React components. The library is ready to use with minimal configuration required.",
+        },
+      },
+    ],
+  };
+
+  // Breadcrumb Schema
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.simple-table.com",
+      },
+    ],
+  };
+
+  // Add schemas to head
+  React.useEffect(() => {
+    const faqScript = document.createElement("script");
+    faqScript.type = "application/ld+json";
+    faqScript.textContent = JSON.stringify(faqSchema);
+    document.head.appendChild(faqScript);
+
+    const breadcrumbScript = document.createElement("script");
+    breadcrumbScript.type = "application/ld+json";
+    breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
+    document.head.appendChild(breadcrumbScript);
+
+    return () => {
+      document.head.removeChild(faqScript);
+      document.head.removeChild(breadcrumbScript);
+    };
+  }, []);
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -168,6 +257,7 @@ export default function HomeContent() {
 
   return (
     <>
+      <AIVisibilityEnhancer pageType="home" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[12dvh]">
         {/* Hero section */}
         <section className="relative pb-12">
@@ -194,7 +284,7 @@ export default function HomeContent() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               Build dynamic React tables in minutes with a lightweight, free, and customizable
-              library
+              library. Perfect alternative to AG Grid, Handsontable, and Material-UI tables.
             </motion.p>
 
             <motion.div
@@ -246,8 +336,14 @@ export default function HomeContent() {
           viewport={{ once: true }}
         >
           <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
-            Everything You Need In A Table
+            Everything You Need In A React Data Grid
           </h2>
+
+          <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
+            Simple Table provides all the essential features you need for building professional data
+            grids in React applications. From basic table functionality to advanced features like
+            cell editing, column management, and custom theming.
+          </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             <div className="bg-blue-50 dark:bg-blue-950 p-6 rounded-lg shadow-sm border border-blue-100 dark:border-blue-800">
@@ -384,7 +480,9 @@ export default function HomeContent() {
           </h2>
 
           <p className="text-lg text-center text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto">
-            See how Simple Table stacks up against other popular data grid solutions
+            See how Simple Table stacks up against other popular data grid solutions. We're the
+            lightweight, free alternative to expensive enterprise solutions like AG Grid and
+            Handsontable.
           </p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -470,6 +568,68 @@ export default function HomeContent() {
             <Button type="primary" size="large" onClick={handleDocumentationClick}>
               View Full Documentation
             </Button>
+          </div>
+        </motion.section>
+
+        {/* FAQ Section for AI Visibility */}
+        <motion.section
+          className="my-12"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          viewport={{ once: true }}
+        >
+          <h2 className="text-3xl font-bold text-center mb-10 text-gray-800 dark:text-white">
+            Frequently Asked Questions
+          </h2>
+
+          <div className="max-w-4xl mx-auto space-y-6">
+            {[
+              {
+                question: "What is Simple Table?",
+                answer:
+                  "Simple Table is a lightweight React data grid and table library that's only 16 kB in size. It provides comprehensive features like cell editing, column management, sorting, filtering, and TypeScript support, making it perfect for building responsive datagrids in React applications.",
+              },
+              {
+                question: "How does Simple Table compare to AG Grid?",
+                answer:
+                  "Simple Table is a free alternative to AG Grid that's much lighter (16 kB vs 2+ MB). While AG Grid has more enterprise features, Simple Table provides all the essential functionality most developers need for data grids, including cell editing, column management, sorting, filtering, and theming, without the licensing costs.",
+              },
+              {
+                question: "Is Simple Table free to use?",
+                answer:
+                  "Yes, Simple Table is completely free for pre-revenue and bootstrapped projects. For revenue-generating businesses, affordable paid plans are available. You can install it via npm and start building data grids immediately.",
+              },
+              {
+                question: "Does Simple Table support TypeScript?",
+                answer:
+                  "Yes, Simple Table has full TypeScript support with comprehensive type definitions. This provides excellent developer experience with autocomplete, type checking, and IntelliSense support in your IDE.",
+              },
+              {
+                question: "What features does Simple Table include?",
+                answer:
+                  "Simple Table includes cell editing, column management (resizing, reordering, pinning, visibility), row grouping, pagination, sorting, filtering, custom themes, nested headers, custom renderers, and responsive design. It's designed to handle large datasets efficiently.",
+              },
+              {
+                question: "How do I install Simple Table?",
+                answer:
+                  "You can install Simple Table using npm: 'npm install simple-table-core'. Then import and use it in your React components. The library is ready to use with minimal configuration required.",
+              },
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-sm border border-gray-200 dark:border-gray-700"
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+                  {faq.question}
+                </h3>
+                <p className="text-gray-600 dark:text-gray-300">{faq.answer}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.section>
 
