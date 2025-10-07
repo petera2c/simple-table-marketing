@@ -11,19 +11,20 @@ import {
   faSun,
   faMoon,
   faQuestionCircle,
-  faNewspaper,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord, faNpm, faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Dropdown, Button } from "antd";
+import { Dropdown, Divider } from "antd";
 import type { MenuProps } from "antd";
 import { useIsMobile } from "../hooks/useIsMobile";
+import { useGitHubStars } from "../hooks/useGitHubStars";
 import { useThemeContext } from "../providers/ThemeProvider";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
 // Unified link button component that handles both internal and external links
 interface LinkButtonProps {
-  href: string;
+  href?: string;
   label: string;
   icon?: IconDefinition;
   isMobile?: boolean;
@@ -45,13 +46,13 @@ const LinkButton = ({
   const isActive = pathname === href;
 
   // Get the base path (e.g., "/docs" from "/docs/installation")
-  const basePath = "/" + href.split("/").filter(Boolean)[0];
+  const basePath = href ? "/" + href.split("/").filter(Boolean)[0] : "";
   const isActivePath = pathname?.startsWith(basePath);
 
   const shouldHighlight = !isExternal && (useActivePath ? isActivePath : isActive);
 
   const handleClick = () => {
-    if (isMobile && onMobileClick) {
+    if (!isExternal && isMobile && onMobileClick) {
       onMobileClick();
     }
   };
@@ -77,16 +78,50 @@ const LinkButton = ({
 
   if (isExternal) {
     return (
-      <a href={href} target="_blank" rel="noopener noreferrer" className="inline-block">
+      <a
+        href={href}
+        {...(href?.startsWith("mailto:") ? {} : { target: "_blank", rel: "noopener noreferrer" })}
+        className="inline-block"
+      >
         {buttonContent}
       </a>
     );
+  }
+  if (!href) {
+    return buttonContent;
   }
 
   return (
     <Link href={href} className="inline-block">
       {buttonContent}
     </Link>
+  );
+};
+
+// GitHub link component with star count
+const GitHubLink = ({
+  isMobile = false,
+  onMobileClick,
+}: {
+  isMobile?: boolean;
+  onMobileClick?: () => void;
+}) => {
+  const { stars, isLoading } = useGitHubStars("petera2c", "simple-table");
+
+  const handleClick = () => {
+    window.open("https://github.com/petera2c/simple-table", "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`flex items-center gap-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-full bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors text-gray-700 dark:text-white text-sm ${
+        isMobile ? "justify-start w-fit" : ""
+      }`}
+    >
+      <FontAwesomeIcon icon={faGithub} style={{ fontSize: "1.5rem" }} />
+      {isLoading ? "..." : stars}
+    </button>
   );
 };
 
@@ -107,18 +142,18 @@ const SupportDropdown = ({
       isExternal: true,
     },
     {
+      key: "email",
+      href: "mailto:peter@peteryng.com",
+      label: "Email Support (peter@peteryng.com)",
+      icon: faEnvelope,
+      isExternal: true,
+    },
+    {
       key: "github",
       href: TECHNICAL_STRINGS.links.githubIssues,
       label: "Report Issue",
       icon: faGithub,
       isExternal: true,
-    },
-    {
-      key: "blog",
-      href: "/blog",
-      label: "Blog",
-      icon: faNewspaper,
-      isExternal: false,
     },
   ];
 
@@ -140,9 +175,9 @@ const SupportDropdown = ({
               <a
                 key={link.key}
                 href={link.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={() => onMobileClick && onMobileClick()}
+                {...(link.href.startsWith("mailto:")
+                  ? {}
+                  : { target: "_blank", rel: "noopener noreferrer" })}
                 className={linkClasses}
               >
                 {linkContent}
@@ -170,8 +205,9 @@ const SupportDropdown = ({
     label: link.isExternal ? (
       <a
         href={link.href}
-        target="_blank"
-        rel="noopener noreferrer"
+        {...(link.href.startsWith("mailto:")
+          ? {}
+          : { target: "_blank", rel: "noopener noreferrer" })}
         className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
       >
         <FontAwesomeIcon icon={link.icon} className="mr-2 w-4" />
@@ -189,11 +225,11 @@ const SupportDropdown = ({
   }));
 
   return (
-    <Dropdown menu={{ items: menuItems }} placement="bottomRight" trigger={["click"]}>
-      <Button type="text" size="large">
-        <FontAwesomeIcon icon={faQuestionCircle} className="mr-1" />
+    <Dropdown menu={{ items: menuItems }} placement="bottomRight" trigger={["hover"]}>
+      <button className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center focus:outline-none">
+        <FontAwesomeIcon icon={faQuestionCircle} className="mr-2" />
         Support
-      </Button>
+      </button>
     </Dropdown>
   );
 };
@@ -228,6 +264,7 @@ const Header = () => {
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
     { href: "/theme-builder", label: "Theme Builder" },
     { href: `/examples/finance`, label: "Examples", useActivePath: true },
+    { href: "/blog", label: "Blog" },
     { href: "/pricing", label: "Pricing" },
   ];
 
@@ -272,14 +309,19 @@ const Header = () => {
           </div>
 
           {/* Desktop navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) =>
-              link.href !== "/theme-builder" || !isMobile ? (
-                <LinkButton key={link.href} {...link} />
-              ) : null
-            )}
+          <div className="hidden md:flex items-center gap-4">
+            <div className="flex items-center gap-4">
+              {navLinks.map((link) =>
+                link.href !== "/theme-builder" || !isMobile ? (
+                  <LinkButton key={link.href} {...link} />
+                ) : null
+              )}
+            </div>
+
+            <Divider type="vertical" className="h-8" />
 
             <div className="flex items-center gap-4">
+              <GitHubLink />
               {externalLinks.map((link) => (
                 <LinkButton key={link.href} {...link} isExternal={true} />
               ))}
@@ -308,6 +350,10 @@ const Header = () => {
                   onMobileClick={() => setIsMenuOpen(false)}
                 />
               ))}
+
+              <Divider className="my-2" />
+
+              <GitHubLink isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
 
               {externalLinks.map((link) => (
                 <LinkButton
