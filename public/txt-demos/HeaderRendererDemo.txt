@@ -150,7 +150,7 @@ const HeaderRendererDemo = ({ height = "400px", theme }: { height?: string; them
           hoverColor: "#e5e7eb",
           sortActiveColor: "#60a5fa",
         };
-      case "funky":
+      case "violet":
         return {
           baseColor: "#6b7280",
           hoverColor: "#8b5cf6",

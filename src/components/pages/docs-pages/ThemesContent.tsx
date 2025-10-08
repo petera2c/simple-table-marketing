@@ -23,7 +23,7 @@ const THEME_PROPS: PropInfo[] = [
       "Built-in theme option for styling the table. Choose from predefined themes to quickly customize your table's appearance.",
     type: "Theme",
     link: "/docs/api-reference#union-types",
-    enumValues: ["light", "dark", "sky", "funky", "neutral"],
+    enumValues: ["light", "dark", "sky", "violet", "neutral"],
     example: `<SimpleTable
   theme="dark"
   // ... other props

@@ -51,7 +51,7 @@ const getThemeColors = (theme?: string) => {
         low: "#F59E0B",
       },
     },
-    funky: {
+    violet: {
       gray: "#374151",
       grayMuted: "#9ca3af",
       success: {

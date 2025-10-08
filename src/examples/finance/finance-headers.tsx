@@ -79,7 +79,7 @@ export const HEADERS: HeaderObject[] = [
                   color: isNegative ? "#dc2626" : isPositive ? "#059669" : "#475569",
                   backgroundColor: isNegative ? "#fef2f2" : isPositive ? "#ecfdf5" : "#f8fafc",
                 };
-              case "funky":
+              case "violet":
                 return {
                   color: isNegative ? "#db2777" : isPositive ? "#0891b2" : "#9333ea",
                   backgroundColor: isNegative ? "#fdf2f8" : isPositive ? "#ecfeff" : "#faf5ff",
@@ -242,7 +242,7 @@ export const HEADERS: HeaderObject[] = [
                   strongSell: { color: "#b91c1c", backgroundColor: "#fef2f2" },
                   neutral: { color: "#475569", backgroundColor: "#f8fafc" },
                 }[type];
-              case "funky":
+              case "violet":
                 return {
                   strongBuy: { color: "#0891b2", backgroundColor: "#ecfeff" },
                   buy: { color: "#059669", backgroundColor: "#ecfdf5" },
