@@ -7,11 +7,15 @@ export default function BillingExample({
   height,
   onGridReady,
   theme,
+  rowCount = 1000,
 }: {
   height: number | null;
   onGridReady?: () => void;
   theme?: Theme;
+  rowCount?: number;
 }) {
+  const slicedData = BILLING_DATA.slice(0, rowCount);
+
   return (
     <SimpleTable
       columnReordering
@@ -22,7 +26,7 @@ export default function BillingExample({
       onGridReady={onGridReady}
       rowGrouping={["invoices", "charges"]}
       rowIdAccessor="id"
-      rows={BILLING_DATA}
+      rows={slicedData}
       selectableCells
       theme={theme}
       useOddColumnBackground

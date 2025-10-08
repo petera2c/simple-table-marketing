@@ -54,7 +54,15 @@ const exampleTitles = {
   manufacturing: "Manufacturing Metrics",
   hr: "HR Management",
   billing: "Revenue Recognition",
+  sales: "Sales Pipeline",
 };
+
+// Row count options
+const rowCountOptions = [
+  { value: 1000, label: "1,000 rows" },
+  { value: 10000, label: "10,000 rows" },
+  { value: 100000, label: "100,000 rows" },
+];
 
 function ExamplesNavigationContent() {
   const pathname = usePathname();
@@ -62,6 +70,7 @@ function ExamplesNavigationContent() {
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
   const currentTheme = (searchParams?.get("theme") as Theme) || theme;
+  const currentRowCount = parseInt(searchParams?.get("rows") || "1000");
 
   // Determine current active example
   const currentPath = pathname;
@@ -77,6 +86,12 @@ function ExamplesNavigationContent() {
   const handleThemeChange = (theme: Theme) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", theme);
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handleRowCountChange = (rowCount: number) => {
+    const params = new URLSearchParams(searchParams?.toString() || "");
+    params.set("rows", rowCount.toString());
     router.push(`${pathname}?${params.toString()}`);
   };
 
@@ -105,6 +120,13 @@ function ExamplesNavigationContent() {
               </div>
             ),
           }))}
+        />
+        <Select
+          placeholder="Select row count"
+          style={{ width: 150 }}
+          onChange={handleRowCountChange}
+          value={currentRowCount}
+          options={rowCountOptions}
         />
         <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
       </div>

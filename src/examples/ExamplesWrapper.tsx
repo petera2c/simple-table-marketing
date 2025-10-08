@@ -8,10 +8,13 @@ const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const searchParams = useSearchParams();
   const { theme: websiteMode } = useThemeContext();
   const theme = (searchParams?.get("theme") as Theme) || websiteMode;
+  const rowCount = parseInt(searchParams?.get("rows") || "1000");
 
   return (
     <>
-      {React.isValidElement(children) ? React.cloneElement(children, { theme } as any) : children}
+      {React.isValidElement(children)
+        ? React.cloneElement(children, { theme, rowCount } as any)
+        : children}
     </>
   );
 };

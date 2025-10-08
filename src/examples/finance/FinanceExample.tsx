@@ -16,9 +16,22 @@ const UPDATE_CONFIG = {
   maxStocksPercent: 0.8, // 80%
 };
 
-export default function FinancialExample({ height, theme }: { height?: string; theme?: Theme }) {
-  const [data, setData] = useState(FINANCE_DATA);
+export default function FinancialExample({
+  height,
+  theme,
+  rowCount = 1000,
+}: {
+  height?: string;
+  theme?: Theme;
+  rowCount?: number;
+}) {
+  const [data, setData] = useState(FINANCE_DATA.slice(0, rowCount));
   const tableRef = useRef<TableRefType | null>(null);
+
+  // Update data when rowCount changes
+  useEffect(() => {
+    setData(FINANCE_DATA.slice(0, rowCount));
+  }, [rowCount]);
 
   useEffect(() => {
     // Keep a copy of the current data in memory for calculations

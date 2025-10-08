@@ -1,7 +1,7 @@
 import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
 import rawData from "./sales-data.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
 
 // Process the data to add the new fields
@@ -29,12 +29,19 @@ export default function SalesExample({
   height,
   onGridReady,
   theme,
+  rowCount = 1000,
 }: {
   height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
+  rowCount?: number;
 }) {
-  const [data, setData] = useState(processedData);
+  const [data, setData] = useState(processedData.slice(0, rowCount));
+
+  // Update data when rowCount changes
+  useEffect(() => {
+    setData(processedData.slice(0, rowCount));
+  }, [rowCount]);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
