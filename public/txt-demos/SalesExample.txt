@@ -43,7 +43,10 @@ export default function SalesExample({
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/data/sales?rowCount=${rowCount}`);
+        // Use relative path for local development, full URL for production/sandboxes
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/sales?rowCount=${rowCount}`);
         if (!response.ok) {
           throw new Error("Failed to fetch sales data");
         }

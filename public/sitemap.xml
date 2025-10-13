@@ -216,12 +216,12 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/finance</loc>
+    <loc>https://www.simple-table.com/examples/hr</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/examples/hr</loc>
+    <loc>https://www.simple-table.com/examples/infrastructure</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>

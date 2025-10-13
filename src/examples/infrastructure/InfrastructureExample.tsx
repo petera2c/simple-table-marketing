@@ -3,6 +3,7 @@ import { SimpleTable, TableRefType, Theme, Row } from "simple-table-core";
 
 import "simple-table-core/styles.css";
 import { HEADERS } from "./infrastructure-headers";
+import { getApiUrl } from "@/utils/api";
 
 // Configuration for server metrics updates
 const UPDATE_CONFIG = {
@@ -33,12 +34,14 @@ export default function InfrastructureExample({
     const fetchData = async () => {
       try {
         setIsLoading(true);
-        const response = await fetch(`/api/data/infrastructure?rowCount=${rowCount}`);
+        // Use relative path for local development, full URL for production/sandboxes
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/infrastructure?rowCount=${rowCount}`);
         if (!response.ok) {
           throw new Error("Failed to fetch infrastructure data");
         }
         const infrastructureData = await response.json();
-        console.log(infrastructureData.length);
         setData(infrastructureData);
       } catch (error) {
         console.error("Error fetching infrastructure data:", error);
