@@ -63,7 +63,6 @@ const rowCountOptions = [
   { value: 50, label: "50 rows" },
   { value: 1000, label: "1,000 rows" },
   { value: 10000, label: "10,000 rows" },
-  { value: 100000, label: "100,000 rows" },
 ];
 
 function ExamplesNavigationContent() {
