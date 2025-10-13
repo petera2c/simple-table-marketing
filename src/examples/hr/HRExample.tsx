@@ -1,25 +1,41 @@
-import { SimpleTable, Theme, CellChangeProps } from "simple-table-core";
+import { SimpleTable, Theme, CellChangeProps, Row } from "simple-table-core";
 import { HEADERS } from "./hr-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
-import HR_DATA from "./hr-data.json";
 
 export default function HRExample({
   height = 500,
   rowHeight = 48,
   theme,
-  rowCount = 1000,
+  rowCount = 50,
 }: {
   height: number | null;
   rowHeight?: number;
   theme?: Theme;
   rowCount?: number;
 }) {
-  const [data, setData] = useState(HR_DATA.slice(0, rowCount));
+  const [data, setData] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Update data when rowCount changes
+  // Fetch HR data from API
   useEffect(() => {
-    setData(HR_DATA.slice(0, rowCount));
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`/api/data/hr?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch HR data");
+        }
+        const hrData = await response.json();
+        setData(hrData);
+      } catch (error) {
+        console.error("Error fetching HR data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [rowCount]);
 
   const howManyRowsCanFit = height ? Math.floor(height / rowHeight) : 10;
@@ -37,6 +53,23 @@ export default function HRExample({
       })
     );
   };
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? `${height}px` : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading HR data...
+      </div>
+    );
+  }
 
   return (
     <div style={{ display: "flex" }}>

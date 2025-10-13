@@ -101,7 +101,7 @@ export default function NotFoundContent() {
               whileHover={{ scale: 1.02 }}
             >
               <FontAwesomeIcon icon={faTableCells} className="text-blue-500" />
-              <Link href="/examples/finance" className="hover:text-blue-600">
+              <Link href="/examples/infrastructure" className="hover:text-blue-600">
                 View Examples
               </Link>
             </motion.li>

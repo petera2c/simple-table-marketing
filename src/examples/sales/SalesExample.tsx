@@ -1,12 +1,11 @@
 import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
-import rawData from "./sales-data.json";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
 
-// Process the data to add the new fields
-const processedData: (Row & { closeDate: string; category: string })[] = (rawData as Row[]).map(
-  (row: Row) => {
+// Function to process the data and add the new fields
+const processData = (rawData: Row[]): (Row & { closeDate: string; category: string })[] => {
+  return rawData.map((row: Row) => {
     // Generate a random close date in the past 90 days
     const today = new Date();
     const pastDate = new Date(today);
@@ -22,25 +21,43 @@ const processedData: (Row & { closeDate: string; category: string })[] = (rawDat
       closeDate,
       category,
     };
-  }
-);
+  });
+};
 
 export default function SalesExample({
   height,
   onGridReady,
   theme,
-  rowCount = 1000,
+  rowCount = 50,
 }: {
   height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
   rowCount?: number;
 }) {
-  const [data, setData] = useState(processedData.slice(0, rowCount));
+  const [data, setData] = useState<(Row & { closeDate: string; category: string })[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
-  // Update data when rowCount changes
+  // Fetch sales data from API and process it
   useEffect(() => {
-    setData(processedData.slice(0, rowCount));
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`/api/data/sales?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch sales data");
+        }
+        const salesData = await response.json();
+        const processedData = processData(salesData);
+        setData(processedData);
+      } catch (error) {
+        console.error("Error fetching sales data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
   }, [rowCount]);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
@@ -56,6 +73,23 @@ export default function SalesExample({
       })
     );
   };
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? `${height}px` : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading sales data...
+      </div>
+    );
+  }
 
   return (
     <SimpleTable

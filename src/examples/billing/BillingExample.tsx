@@ -1,7 +1,7 @@
-import { SimpleTable, Theme } from "simple-table-core";
+import { Row, SimpleTable, Theme } from "simple-table-core";
 import { HEADERS } from "./billing-headers";
 import "simple-table-core/styles.css";
-import BILLING_DATA from "./billing-data.json";
+import { useEffect, useState } from "react";
 
 export default function BillingExample({
   height,
@@ -14,7 +14,46 @@ export default function BillingExample({
   theme?: Theme;
   rowCount?: number;
 }) {
-  const slicedData = BILLING_DATA.slice(0, rowCount);
+  const [data, setData] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch billing data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const response = await fetch(`/api/data/billing?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch billing data");
+        }
+        const billingData = await response.json();
+        setData(billingData);
+      } catch (error) {
+        console.error("Error fetching billing data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [rowCount]);
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? `${height}px` : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading billing data...
+      </div>
+    );
+  }
 
   return (
     <SimpleTable
@@ -26,7 +65,7 @@ export default function BillingExample({
       onGridReady={onGridReady}
       rowGrouping={["invoices", "charges"]}
       rowIdAccessor="id"
-      rows={slicedData}
+      rows={data}
       selectableCells
       theme={theme}
       useOddColumnBackground

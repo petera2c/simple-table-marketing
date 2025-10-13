@@ -1,6 +1,6 @@
 "use client";
 
-import FinancialExample from "./FinanceExample";
+import InfrastructureExample from "./InfrastructureExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -10,12 +10,12 @@ import ExamplesWrapper from "../ExamplesWrapper";
 
 const ROW_HEIGHT = 32;
 
-type FinancialExampleWrapperProps = {
+type InfrastructureExampleWrapperProps = {
   height?: string;
   theme?: Theme;
 };
 
-const FinancialExampleWrapper = ({ height, theme }: FinancialExampleWrapperProps) => {
+const InfrastructureExampleWrapper = ({ height, theme }: InfrastructureExampleWrapperProps) => {
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -23,12 +23,15 @@ const FinancialExampleWrapper = ({ height, theme }: FinancialExampleWrapperProps
   return (
     <SearchParamsSuspenseWrapper>
       <LivePreview
-        demoCodeFilename="FinanceExample.txt"
+        demoCodeFilename="InfrastructureExample.txt"
         height={`${containerHeight}px`}
-        link={SANDBOX_LIST["examples/finance/FinanceExample.tsx"].url}
+        link={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <FinancialExample height={height ? height : `${containerHeight}px`} theme={theme} />
+            <InfrastructureExample
+              height={height ? height : `${containerHeight}px`}
+              theme={theme}
+            />
           </ExamplesWrapper>
         )}
       />
@@ -36,10 +39,10 @@ const FinancialExampleWrapper = ({ height, theme }: FinancialExampleWrapperProps
   );
 };
 
-export default function FinancialExampleContainer(props: FinancialExampleWrapperProps) {
+export default function InfrastructureExampleContainer(props: InfrastructureExampleWrapperProps) {
   return (
     <SearchParamsSuspenseWrapper>
-      <FinancialExampleWrapper {...props} />
+      <InfrastructureExampleWrapper {...props} />
     </SearchParamsSuspenseWrapper>
   );
 }

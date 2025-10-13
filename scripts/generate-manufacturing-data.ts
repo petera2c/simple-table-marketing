@@ -43,73 +43,79 @@ const generateManufacturingData = (): Row[] => {
 
   const rows: Row[] = [];
 
-  // Generate data for each product line
+  // Generate data for each product line - scale up to 100,000 rows
+  const totalRows = 100000;
+  const rowsPerProductLine = Math.ceil(totalRows / productLines.length);
+
   productLines.forEach((productLine, lineIndex) => {
-    // Number of machines/workstations per product line
-    const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
+    // Generate multiple batches of stations for each product line
+    for (let batch = 0; batch < rowsPerProductLine; batch++) {
+      // Number of machines/workstations per product line
+      const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
 
-    const stations: Row[] = [];
+      const stations: Row[] = [];
 
-    // Generate station data
-    for (let i = 0; i < numStations; i++) {
-      const stationId = `${productLine.charAt(0)}${lineIndex + 1}-S${i + 1}`;
-      const machineType = machines[Math.floor(Math.random() * machines.length)];
-      const operator = operators[Math.floor(Math.random() * operators.length)];
-      const productType = productTypes[Math.floor(Math.random() * productTypes.length)];
+      // Generate station data
+      for (let i = 0; i < numStations; i++) {
+        const stationId = `${productLine.charAt(0)}${lineIndex + 1}-S${i + 1}-${batch}`;
+        const machineType = machines[Math.floor(Math.random() * machines.length)];
+        const operator = operators[Math.floor(Math.random() * operators.length)];
+        const productType = productTypes[Math.floor(Math.random() * productTypes.length)];
 
-      // Calculate metrics
-      const outputRate = Math.floor(Math.random() * 500) + 200; // 200-700 units per shift
-      const cycleTimes = Array.from({ length: 10 }, () => Math.random() * 100 + 50);
-      const avgCycleTime = cycleTimes.reduce((sum, time) => sum + time, 0) / cycleTimes.length;
-      const efficiency = Math.floor(Math.random() * 40) + 60; // 60-100%
-      const defectRate = Math.random() * 5; // 0-5%
-      const defectCount = Math.floor(outputRate * (defectRate / 100));
-      const downtimeHours = Math.random() * 4; // 0-4 hours
-      const utilizationRate = Math.floor(Math.random() * 30) + 70; // 70-100%
-      const energyConsumption = Math.floor(Math.random() * 1000) + 500; // 500-1500 kWh
-      const maintenanceDate = new Date();
-      maintenanceDate.setDate(maintenanceDate.getDate() + Math.floor(Math.random() * 30));
+        // Calculate metrics
+        const outputRate = Math.floor(Math.random() * 500) + 200; // 200-700 units per shift
+        const cycleTimes = Array.from({ length: 10 }, () => Math.random() * 100 + 50);
+        const avgCycleTime = cycleTimes.reduce((sum, time) => sum + time, 0) / cycleTimes.length;
+        const efficiency = Math.floor(Math.random() * 40) + 60; // 60-100%
+        const defectRate = Math.random() * 5; // 0-5%
+        const defectCount = Math.floor(outputRate * (defectRate / 100));
+        const downtimeHours = Math.random() * 4; // 0-4 hours
+        const utilizationRate = Math.floor(Math.random() * 30) + 70; // 70-100%
+        const energyConsumption = Math.floor(Math.random() * 1000) + 500; // 500-1500 kWh
+        const maintenanceDate = new Date();
+        maintenanceDate.setDate(maintenanceDate.getDate() + Math.floor(Math.random() * 30));
 
-      // Random status weighted toward "Running"
-      const statusRandom = Math.random();
-      const status =
-        statusRandom < 0.7
-          ? "Running"
-          : statusRandom < 0.8
-          ? "Scheduled Maintenance"
-          : statusRandom < 0.9
-          ? "Unplanned Downtime"
-          : statusRandom < 0.95
-          ? "Idle"
-          : "Setup";
+        // Random status weighted toward "Running"
+        const statusRandom = Math.random();
+        const status =
+          statusRandom < 0.7
+            ? "Running"
+            : statusRandom < 0.8
+            ? "Scheduled Maintenance"
+            : statusRandom < 0.9
+            ? "Unplanned Downtime"
+            : statusRandom < 0.95
+            ? "Idle"
+            : "Setup";
 
-      stations.push({
-        id: stationId,
+        stations.push({
+          id: stationId,
+          productLine,
+          station: `Station ${i + 1}`,
+          machineType,
+          operator,
+          productType,
+          outputRate,
+          cycletime: Math.round(avgCycleTime * 100) / 100,
+          efficiency,
+          defectRate: Math.round(defectRate * 100) / 100,
+          defectCount,
+          downtime: Math.round(downtimeHours * 100) / 100,
+          utilization: utilizationRate,
+          energy: energyConsumption,
+          status,
+          maintenanceDate: maintenanceDate.toISOString().split("T")[0],
+          cycleTimeData: JSON.stringify(cycleTimes),
+        });
+      }
+
+      // Create product line summary row with minimal attributes
+      rows.push({
+        id: `${productLine.charAt(0)}${lineIndex + 1}-${batch}`,
         productLine,
-        station: `Station ${i + 1}`,
-        machineType,
-        operator,
-        productType,
-        outputRate,
-        cycletime: Math.round(avgCycleTime * 100) / 100,
-        efficiency,
-        defectRate: Math.round(defectRate * 100) / 100,
-        defectCount,
-        downtime: Math.round(downtimeHours * 100) / 100,
-        utilization: utilizationRate,
-        energy: energyConsumption,
-        status,
-        maintenanceDate: maintenanceDate.toISOString().split("T")[0],
-        cycleTimeData: JSON.stringify(cycleTimes),
+        stations,
       });
     }
-
-    // Create product line summary row with minimal attributes
-    rows.push({
-      id: `${productLine.charAt(0)}${lineIndex + 1}`,
-      productLine,
-      stations,
-    });
   });
 
   return rows;
@@ -121,7 +127,7 @@ function saveDataToFile() {
   const data = generateManufacturingData();
   console.log(`Generated ${data.length} manufacturing records`);
 
-  const filePath = path.join(__dirname, "../src/examples/manufacturing/manufacturing-data.json");
+  const filePath = path.join(__dirname, "../public/data/manufacturing-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }

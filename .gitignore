@@ -40,6 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-
-
-
+# data files (generated during build via postinstall script)
+/public/data/*.json
