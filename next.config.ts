@@ -15,8 +15,13 @@ const config: NextConfig = {
         permanent: true,
       },
       {
+        source: "/examples/finance",
+        destination: "/examples/infrastructure",
+        permanent: true,
+      },
+      {
         source: "/examples",
-        destination: "/examples/finance",
+        destination: "/examples/infrastructure",
         permanent: true,
       },
     ];

@@ -1054,7 +1054,7 @@ export default function BestReactTableLibraries2025Page() {
         }}
         secondaryButton={{
           text: "View Examples",
-          href: "/examples/finance",
+          href: "/examples/infrastructure",
         }}
       />
     </BlogLayout>

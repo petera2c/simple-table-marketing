@@ -1,12 +1,11 @@
 import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
-import rawData from "./sales-data.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
 
-// Process the data to add the new fields
-const processedData: (Row & { closeDate: string; category: string })[] = (rawData as Row[]).map(
-  (row: Row) => {
+// Function to process the data and add the new fields
+const processData = (rawData: Row[]): (Row & { closeDate: string; category: string })[] => {
+  return rawData.map((row: Row) => {
     // Generate a random close date in the past 90 days
     const today = new Date();
     const pastDate = new Date(today);
@@ -22,19 +21,47 @@ const processedData: (Row & { closeDate: string; category: string })[] = (rawDat
       closeDate,
       category,
     };
-  }
-);
+  });
+};
 
 export default function SalesExample({
   height,
   onGridReady,
   theme,
+  rowCount = 50,
 }: {
   height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
+  rowCount?: number;
 }) {
-  const [data, setData] = useState(processedData);
+  const [data, setData] = useState<(Row & { closeDate: string; category: string })[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch sales data from API and process it
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        // Use relative path for local development, full URL for production/sandboxes
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/sales?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch sales data");
+        }
+        const salesData = await response.json();
+        const processedData = processData(salesData);
+        setData(processedData);
+      } catch (error) {
+        console.error("Error fetching sales data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [rowCount]);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -49,6 +76,23 @@ export default function SalesExample({
       })
     );
   };
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? `${height}px` : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading sales data...
+      </div>
+    );
+  }
 
   return (
     <SimpleTable

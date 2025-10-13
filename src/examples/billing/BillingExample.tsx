@@ -1,17 +1,63 @@
-import { SimpleTable, Theme } from "simple-table-core";
+import { Row, SimpleTable, Theme } from "simple-table-core";
 import { HEADERS } from "./billing-headers";
 import "simple-table-core/styles.css";
-import BILLING_DATA from "./billing-data.json";
+import { useEffect, useState } from "react";
 
 export default function BillingExample({
   height,
   onGridReady,
   theme,
+  rowCount = 1000,
 }: {
   height: number | null;
   onGridReady?: () => void;
   theme?: Theme;
+  rowCount?: number;
 }) {
+  const [data, setData] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch billing data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        // Use relative path for local development, full URL for production/sandboxes
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/billing?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch billing data");
+        }
+        const billingData = await response.json();
+        setData(billingData);
+      } catch (error) {
+        console.error("Error fetching billing data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [rowCount]);
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? `${height}px` : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading billing data...
+      </div>
+    );
+  }
+
   return (
     <SimpleTable
       columnReordering
@@ -22,7 +68,7 @@ export default function BillingExample({
       onGridReady={onGridReady}
       rowGrouping={["invoices", "charges"]}
       rowIdAccessor="id"
-      rows={BILLING_DATA}
+      rows={data}
       selectableCells
       theme={theme}
       useOddColumnBackground

@@ -70,9 +70,9 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href={`/examples/finance?theme=${theme}`}
+                  href={`/examples/infrastructure?theme=${theme}`}
                   className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/examples/finance") ? "text-white font-medium" : ""
+                    isActive("/examples/infrastructure") ? "text-white font-medium" : ""
                   }`}
                 >
                   Finance Dashboard

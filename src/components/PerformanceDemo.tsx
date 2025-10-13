@@ -74,7 +74,7 @@ export default function PerformanceDemo({
   headers = SALES_HEADERS,
   height = "500px",
   theme = "light",
-  initialRowCount = 1000,
+  initialRowCount = 50,
   defaultShowAllButtons = true,
   dataCategories,
   maxDealValue,

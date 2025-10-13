@@ -341,12 +341,12 @@ export const SEO_STRINGS = {
       keywords:
         "simple-table, react-table, react-grid, data-grid, datagrid, data table, hr management, employee table, responsive table",
     },
-    finance: {
-      title: "Financial Analytics with Simple Table",
+    infrastructure: {
+      title: "Infrastructure Monitoring with Simple Table",
       description:
-        "Use Simple Table for financial analytics in React. A react-table for budgeting and expense tracking with a responsive datagrid.",
+        "Build infrastructure monitoring dashboards with Simple Table in React. A react-table for server metrics and system monitoring with a responsive datagrid.",
       keywords:
-        "simple-table, react-table, react-grid, data-grid, datagrid, data table, financial analytics, finance table, responsive table",
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, infrastructure monitoring, server metrics, system monitoring, responsive table",
     },
     billing: {
       title: "Billing & Invoicing Table with Simple Table",

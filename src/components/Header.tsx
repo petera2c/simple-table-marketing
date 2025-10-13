@@ -263,7 +263,7 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
     { href: "/theme-builder", label: "Theme Builder" },
-    { href: `/examples/finance`, label: "Examples", useActivePath: true },
+    { href: `/examples/infrastructure`, label: "Examples", useActivePath: true },
     { href: "/blog", label: "Blog" },
     { href: "/pricing", label: "Pricing" },
   ];

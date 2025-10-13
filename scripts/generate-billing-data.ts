@@ -215,6 +215,8 @@ interface AccountData {
 }
 
 // Generate billing data with accounts -> invoices -> charges
+// Note: Due to nested structure, generating fewer accounts but with full hierarchy
+// This creates approximately 100,000 total leaf rows (charges) when fully expanded
 const generateBillingData = (): AccountData[] => {
   let rowId = 0;
   const accountRows: AccountData[] = [];
@@ -227,8 +229,10 @@ const generateBillingData = (): AccountData[] => {
   const accountStatuses = ["active", "pending", "cancelled"];
   const accountStatusProbs = [0.85, 0.1, 0.05]; // 85% active, 10% pending, 5% cancelled
 
-  // Generate 5-8 accounts
-  const accountCount = randomBetween(5, 8);
+  // Calculate accounts needed for ~100,000 total leaf rows (charges)
+  // Average: 6 invoices per account * 3 charges per invoice = 18 charges per account
+  // 100,000 / 18 ≈ 5,555 accounts
+  const accountCount = 5500;
 
   for (let a = 0; a < accountCount; a++) {
     // Generate account data
@@ -252,7 +256,7 @@ const generateBillingData = (): AccountData[] => {
     }
 
     // Generate invoices for this account
-    const invoiceCount = randomBetween(3, 8);
+    const invoiceCount = randomBetween(4, 8);
     const invoiceChildren: InvoiceData[] = [];
 
     for (let i = 0; i < invoiceCount; i++) {
@@ -359,9 +363,19 @@ const generateBillingData = (): AccountData[] => {
 async function saveDataToFile(): Promise<void> {
   console.log("Generating realistic billing dataset...");
   const data = generateBillingData();
-  console.log(`Generated data with ${data.length} accounts`);
+  // Count total rows including nested invoices and charges
+  let totalRows = data.length;
+  data.forEach((account) => {
+    totalRows += account.invoices.length;
+    account.invoices.forEach((invoice: any) => {
+      totalRows += invoice.charges.length;
+    });
+  });
+  console.log(
+    `Generated ${data.length} accounts with ~${totalRows} total rows (including invoices and charges)`
+  );
 
-  const filePath = path.join(__dirname, "../src/examples/billing/billing-data.json");
+  const filePath = path.join(__dirname, "../public/data/billing-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }

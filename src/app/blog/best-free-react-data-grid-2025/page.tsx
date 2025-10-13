@@ -557,7 +557,7 @@ export default function MyTable() {
                   Quick Start Guide
                 </Button>
               </Link>
-              <Link href="/examples/finance">
+              <Link href="/examples/infrastructure">
                 <Button size="large" icon={<FontAwesomeIcon icon={faTable} />} block>
                   View Examples
                 </Button>
@@ -606,7 +606,7 @@ export default function MyTable() {
                       Get Started Now
                     </Button>
                   </Link>
-                  <Link href="/examples/finance">
+                  <Link href="/examples/infrastructure">
                     <Button size="middle" block>
                       Explore Examples
                     </Button>
@@ -628,7 +628,7 @@ export default function MyTable() {
         }}
         secondaryButton={{
           text: "View Examples",
-          href: "/examples/finance",
+          href: "/examples/infrastructure",
         }}
       />
     </BlogLayout>

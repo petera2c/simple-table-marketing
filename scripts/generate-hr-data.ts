@@ -147,8 +147,8 @@ const generateHRData = (): Row[] => {
   let rowId = 0;
   const rows: Row[] = [];
 
-  // Generate a flat list of 50 employees
-  const totalEmployees = 50;
+  // Generate a flat list of 100,000 employees
+  const totalEmployees = 100000;
 
   for (let i = 0; i < totalEmployees; i++) {
     const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];
@@ -238,7 +238,7 @@ function saveDataToFile() {
   const data = generateHRData();
   console.log(`Generated ${data.length} HR records`);
 
-  const filePath = path.join(__dirname, "../src/examples/hr/hr-data.json");
+  const filePath = path.join(__dirname, "../public/data/hr-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }

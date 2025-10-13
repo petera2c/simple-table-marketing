@@ -27,7 +27,7 @@ import { useRouter } from "next/navigation";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import React, { Suspense } from "react";
-import FinancialExample from "@/examples/finance/FinanceExample";
+import InfrastructureExample from "@/examples/infrastructure/InfrastructureExample";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
 
@@ -240,7 +240,7 @@ export default function HomeContent() {
   };
 
   const handleExamplesClick = () => {
-    router.push("/examples/finance");
+    router.push("/examples/infrastructure");
   };
 
   const handleFeatureClick = (link: string) => {
@@ -323,7 +323,7 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Suspense fallback={<div />}>
-            <FinancialExample theme={theme} height={"70dvh"} />
+            <InfrastructureExample theme={theme} height={"70dvh"} />
           </Suspense>
         </motion.section>
 

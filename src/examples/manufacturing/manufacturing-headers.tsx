@@ -371,7 +371,7 @@ export const HEADERS: HeaderObject[] = [
   {
     accessor: "maintenanceDate",
     label: "Next Maintenance",
-    width: 150,
+    width: 200,
     isSortable: true,
     isEditable: false,
     align: "center",

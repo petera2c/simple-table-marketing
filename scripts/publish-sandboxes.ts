@@ -113,7 +113,10 @@ root.render(
     body: JSON.stringify(files),
   });
 
-  if (!response.ok) throw new Error(`Failed to publish: ${response.status}`);
+  if (!response.ok) {
+    console.log(await response.json());
+    throw new Error(`Failed to publish: ${response.status}`);
+  }
   const { sandbox_id } = await response.json();
   console.log("published", sandboxName, sandbox_id);
   return `https://codesandbox.io/s/${sandbox_id}`;
@@ -181,9 +184,9 @@ const publishAllExamples = async (
 
       const mainFilePath = path.join(folderPath, mainFileName);
 
-      // Include all supporting files except Wrapper.tsx files
+      // Include all supporting files except Wrapper.tsx files and data files
       const filesToInclude = folderFiles
-        .filter((file) => !file.endsWith("Wrapper.tsx"))
+        .filter((file) => !file.endsWith("Wrapper.tsx") && !file.endsWith(".json"))
         .map((file) => ({
           localPath: path.join(folderPath, file),
           sandboxPath: `src/${file}`,
