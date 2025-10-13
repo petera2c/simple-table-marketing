@@ -147,8 +147,8 @@ const generateHRData = (): Row[] => {
   let rowId = 0;
   const rows: Row[] = [];
 
-  // Generate a flat list of 100,000 employees
-  const totalEmployees = 100000;
+  // Generate a flat list of 10,000 employees
+  const totalEmployees = 10000;
 
   for (let i = 0; i < totalEmployees; i++) {
     const firstName = firstNames[Math.floor(Math.random() * firstNames.length)];

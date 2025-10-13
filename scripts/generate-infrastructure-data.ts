@@ -48,7 +48,7 @@ const OS_OPTIONS = [
 // Generate realistic infrastructure monitoring data
 const generateInfrastructureData = (): Row[] => {
   const rows: Row[] = [];
-  const totalRows = 100000;
+  const totalRows = 10000;
 
   for (let i = 0; i < totalRows; i++) {
     // Random datacenter

@@ -43,15 +43,15 @@ const generateManufacturingData = (): Row[] => {
 
   const rows: Row[] = [];
 
-  // Generate data for each product line - scale up to 100,000 rows
-  const totalRows = 100000;
+  // Generate data for hierarchical structure - 1,000 base rows with ~10 children each
+  const totalRows = 1000;
   const rowsPerProductLine = Math.ceil(totalRows / productLines.length);
 
   productLines.forEach((productLine, lineIndex) => {
     // Generate multiple batches of stations for each product line
     for (let batch = 0; batch < rowsPerProductLine; batch++) {
-      // Number of machines/workstations per product line
-      const numStations = Math.floor(Math.random() * 6) + 3; // 3 to 8 stations per line
+      // Number of machines/workstations per product line (~10 children)
+      const numStations = Math.floor(Math.random() * 5) + 8; // 8 to 12 stations per line
 
       const stations: Row[] = [];
 
