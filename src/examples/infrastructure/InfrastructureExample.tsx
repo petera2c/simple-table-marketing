@@ -659,7 +659,7 @@ export default function InfrastructureExample({
         setIsLoading(true);
         const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
         const isProduction =
-          typeof window !== "undefined" && window.location.hostname === "simple-table.com";
+          typeof window !== "undefined" && window.location.hostname.includes("simple-table.com");
 
         // Use backup data if not on localhost or production
         if (!isLocal && !isProduction) {
