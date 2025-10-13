@@ -350,7 +350,7 @@ async function saveDataToFile(): Promise<void> {
   const data = generateRealisticSalesDataset();
   console.log(`Generated ${data.length} sales records`);
 
-  const filePath = path.join(__dirname, "../src/examples/sales/sales-data.json");
+  const filePath = path.join(__dirname, "../public/data/sales-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }
