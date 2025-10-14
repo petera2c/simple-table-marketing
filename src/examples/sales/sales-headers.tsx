@@ -315,7 +315,12 @@ export const SALES_HEADERS: HeaderObject[] = [
         type: "date",
         cellRenderer: ({ row }) => {
           if (!row.closeDate) return "—";
-          const date = new Date(row.closeDate as string);
+          if (row.id === "SALE-0") {
+            console.log("row.closeDate", row.closeDate);
+          }
+          // Parse YYYY-MM-DD format correctly without timezone conversion
+          const [year, month, day] = (row.closeDate as string).split("-").map(Number);
+          const date = new Date(year, month - 1, day); // month is 0-indexed
           return (
             <div className="flex items-center justify-center">
               {date.toLocaleDateString("en-US", {

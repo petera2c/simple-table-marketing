@@ -380,7 +380,9 @@ export const HEADERS: HeaderObject[] = [
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 
-      const date = new Date(row.maintenanceDate as string);
+      // Parse YYYY-MM-DD format correctly without timezone conversion
+      const [year, month, day] = (row.maintenanceDate as string).split("-").map(Number);
+      const date = new Date(year, month - 1, day); // month is 0-indexed
       const today = new Date();
       const diffDays = Math.ceil((date.getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 

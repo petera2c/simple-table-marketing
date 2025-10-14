@@ -13,11 +13,16 @@ function BlogCard({ post }: { post: BlogPostMetadata }) {
           <div className="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
             <CalendarOutlined />
             <span className="text-gray-500 dark:text-gray-400">
-              {new Date(post.createdAt).toLocaleDateString("en-US", {
-                year: "numeric",
-                month: "long",
-                day: "numeric",
-              })}
+              {(() => {
+                // Parse YYYY-MM-DD format correctly without timezone conversion
+                const [year, month, day] = post.createdAt.split("-").map(Number);
+                const date = new Date(year, month - 1, day); // month is 0-indexed
+                return date.toLocaleDateString("en-US", {
+                  year: "numeric",
+                  month: "long",
+                  day: "numeric",
+                });
+              })()}
             </span>
           </div>
 

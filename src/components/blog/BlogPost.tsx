@@ -20,11 +20,16 @@ export const BlogPost: React.FC<BlogPostProps> = ({ post }) => {
                 d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
-            {new Date(post.createdAt).toLocaleDateString("en-US", {
-              year: "numeric",
-              month: "long",
-              day: "numeric",
-            })}
+            {(() => {
+              // Parse YYYY-MM-DD format correctly without timezone conversion
+              const [year, month, day] = post.createdAt.split("-").map(Number);
+              const date = new Date(year, month - 1, day); // month is 0-indexed
+              return date.toLocaleDateString("en-US", {
+                year: "numeric",
+                month: "long",
+                day: "numeric",
+              });
+            })()}
           </time>
           {post.tags && post.tags.length > 0 && (
             <div className="flex flex-wrap gap-2">

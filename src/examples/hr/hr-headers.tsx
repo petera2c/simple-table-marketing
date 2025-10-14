@@ -448,7 +448,9 @@ export const HEADERS: HeaderObject[] = [
     type: "date",
     cellRenderer: ({ row, theme }) => {
       if (!row.hireDate) return "";
-      const date = new Date(row.hireDate as string);
+      // Parse YYYY-MM-DD format correctly without timezone conversion
+      const [year, month, day] = (row.hireDate as string).split("-").map(Number);
+      const date = new Date(year, month - 1, day); // month is 0-indexed
       const colors = getThemeColors(theme);
 
       return (
