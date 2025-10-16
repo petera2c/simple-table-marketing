@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
+import Script from "next/script";
 
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
@@ -157,6 +158,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={nunito.className}>
         <ClientLayout>{children}</ClientLayout>
         <Analytics />
+
+        {/* Tawk.to Live Chat */}
+        <Script
+          id="tawk-to-script"
+          strategy="lazyOnload"
+          dangerouslySetInnerHTML={{
+            __html: `
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+                s1.async=true;
+                s1.src='https://embed.tawk.to/68f0897ad3ffaa194d3489c8/1j7lpi271';
+                s1.charset='UTF-8';
+                s1.setAttribute('crossorigin','*');
+                s0.parentNode.insertBefore(s1,s0);
+              })();
+            `,
+          }}
+        />
       </body>
     </html>
   );

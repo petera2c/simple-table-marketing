@@ -32,7 +32,7 @@ const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
           className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
           ref={scrollRef}
         >
-          {!isMobile && <AnimatedBackground />}
+          {/* {!isMobile && <AnimatedBackground />} */}
           <Header />
           <div className="w-full flex-grow z-10 text-gray-800 dark:text-white">
             <main className="flex-grow">{children}</main>
