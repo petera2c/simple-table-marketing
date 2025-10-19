@@ -414,7 +414,7 @@ const RowGroupingDemo = ({
   theme,
 }: {
   expandAll: boolean;
-  height?: string;
+  height?: string | number;
   theme?: Theme;
 }) => {
   return (

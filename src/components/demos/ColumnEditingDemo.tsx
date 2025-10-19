@@ -102,7 +102,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnEditingDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
   const [, setLastAction] = useState<string>("");
 

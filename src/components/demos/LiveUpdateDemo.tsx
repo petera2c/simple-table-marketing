@@ -111,7 +111,13 @@ const initialData = [
   },
 ];
 
-const LiveUpdateDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const LiveUpdateDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   // Keep a local copy of the data to update
   const tableRef = useRef<TableRefType | null>(null);
 

@@ -111,7 +111,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnResizingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnResizingDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       columnResizing

@@ -205,7 +205,7 @@ const PROJECT_TASKS: ProjectTask[] = [
   },
 ];
 
-const CellClickingDemo = ({ theme }: { height?: string; theme?: Theme }) => {
+const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }) => {
   const [clickInfo, setClickInfo] = useState<string>("");
   const [selectedTask, setSelectedTask] = useState<ProjectTask | null>(null);
   const [priorityFilter, setPriorityFilter] = useState<string>("");

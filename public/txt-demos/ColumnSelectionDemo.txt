@@ -119,7 +119,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnSelectionDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnSelectionDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   const [selectedColumn, setSelectedColumn] = useState<HeaderObject | null>(null);
 
   const handleColumnSelect = (header: HeaderObject) => {

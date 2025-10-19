@@ -90,7 +90,13 @@ const generateSampleData = (startId: number, count: number) => {
 // Initial data (first 20 records)
 const initialData = generateSampleData(1, 20);
 
-const InfiniteScrollDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const InfiniteScrollDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   const [rows, setRows] = useState(initialData);
   const [loading, setLoading] = useState(false);
   const [hasMore, setHasMore] = useState(true);

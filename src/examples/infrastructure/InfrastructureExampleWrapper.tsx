@@ -11,7 +11,7 @@ import ExamplesWrapper from "../ExamplesWrapper";
 const ROW_HEIGHT = 32;
 
 type InfrastructureExampleWrapperProps = {
-  height?: string;
+  height?: string | number;
   theme?: Theme;
 };
 

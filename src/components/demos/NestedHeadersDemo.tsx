@@ -162,7 +162,13 @@ const rows = [
   },
 ];
 
-const NestedHeadersDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const NestedHeadersDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={headers}

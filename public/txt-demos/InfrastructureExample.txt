@@ -644,7 +644,7 @@ export default function InfrastructureExample({
   theme,
   rowCount = 50,
 }: {
-  height?: string;
+  height?: string | number;
   theme?: Theme;
   rowCount?: number;
 }) {

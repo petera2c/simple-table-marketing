@@ -3,7 +3,7 @@ import { Theme } from "simple-table-core";
 export interface PerformanceDemoProps {
   // Table configuration
   headers?: any[];
-  height?: string;
+  height?: string | number;
   theme?: Theme;
   initialRowCount?: number;
   defaultShowAllButtons?: boolean;

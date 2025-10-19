@@ -213,7 +213,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnFilteringDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnFilteringDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={headers}

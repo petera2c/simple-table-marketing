@@ -163,7 +163,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const CellEditingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const CellEditingDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   // State to track the data
   const [data, setData] = useState(EMPLOYEE_DATA);
 

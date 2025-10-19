@@ -11,7 +11,7 @@ import ExamplesWrapper from "../ExamplesWrapper";
 const ROW_HEIGHT = 64; // Taller rows for the artist cards
 
 type MusicExampleWrapperProps = {
-  height?: string;
+  height?: string | number;
   theme?: Theme;
 };
 

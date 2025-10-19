@@ -98,7 +98,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnAlignmentDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnAlignmentDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   // Change column alignment
   const onColumnOrderChange = (newHeaders: HeaderObject[]) => {
     // Call api to change alignment in the database

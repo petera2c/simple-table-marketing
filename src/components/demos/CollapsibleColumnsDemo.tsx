@@ -686,7 +686,7 @@ const CollapsibleColumnsDemo = ({
   height = "400px",
   theme,
 }: {
-  height?: string;
+  height?: string | number;
   theme?: Theme;
 }) => {
   return (

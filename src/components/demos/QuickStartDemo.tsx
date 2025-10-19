@@ -118,7 +118,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const QuickStartDemo = ({ height = "300px", theme }: { height?: string; theme?: Theme }) => {
+const QuickStartDemo = ({
+  height = "300px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={headers}

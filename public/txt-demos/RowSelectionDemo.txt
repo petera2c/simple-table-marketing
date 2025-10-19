@@ -205,7 +205,7 @@ const LIBRARY_BOOKS: LibraryBook[] = [
   },
 ];
 
-const RowSelectionDemo = ({ theme }: { height?: string; theme?: Theme }) => {
+const RowSelectionDemo = ({ theme }: { height?: string | number; theme?: Theme }) => {
   const [selectedRowsInfo, setSelectedRowsInfo] = useState<LibraryBook[]>([]);
   const [lastAction, setLastAction] = useState<string>("");
 

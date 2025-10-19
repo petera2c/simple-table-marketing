@@ -111,7 +111,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const ColumnReorderingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const ColumnReorderingDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
   const [, setCurrentColumnOrder] = useState<string>(
     initialHeaders.map((header) => header.accessor).join(", ")

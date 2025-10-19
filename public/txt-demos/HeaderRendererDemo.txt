@@ -102,7 +102,13 @@ const INITIAL_STAR_DATA = [
   },
 ];
 
-const HeaderRendererDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const HeaderRendererDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   const [starData, setStarData] = useState(INITIAL_STAR_DATA);
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: "asc" | "desc" } | null>(
     null

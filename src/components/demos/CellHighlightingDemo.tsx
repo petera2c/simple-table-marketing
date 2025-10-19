@@ -118,7 +118,13 @@ const EMPLOYEE_DATA = [
   },
 ];
 
-const CellHighlightingDemo = ({ height = "400px", theme }: { height?: string; theme?: Theme }) => {
+const CellHighlightingDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
