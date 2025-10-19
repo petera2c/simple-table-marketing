@@ -136,7 +136,7 @@ const data = [
   },
 ];
 
-const CustomThemeDemo = ({ height = "400px" }: { height?: string }) => {
+const CustomThemeDemo = ({ height = "400px" }: { height?: string | number }) => {
   return (
     <div className="custom-theme-container">
       <SimpleTable
