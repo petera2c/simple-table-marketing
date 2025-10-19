@@ -30,6 +30,7 @@ import {
   faHandPointer,
   faMousePointer,
   faFolderMinus,
+  faCommentAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -125,6 +126,12 @@ export const docSections: DocSection[] = [
         label: "Collapsible Columns",
         path: "/docs/collapsible-columns",
         icon: faFolderMinus,
+      },
+      {
+        id: "tooltips",
+        label: "Tooltips",
+        path: "/docs/tooltips",
+        icon: faCommentAlt,
       },
     ],
   },

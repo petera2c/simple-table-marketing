@@ -1016,6 +1016,17 @@ minWidth: "100px"`,
 showWhen: "parentExpanded"   // Only visible when parent is expanded (default)
 showWhen: "always"           // Always visible regardless of parent state`,
   },
+  {
+    key: "tooltip",
+    name: "tooltip",
+    required: false,
+    description:
+      "Tooltip text that appears when hovering over the column header. Provides helpful context about the column's purpose or data.",
+    type: "string",
+    example: `tooltip: "Current retail price in USD"
+tooltip: "Date in YYYY-MM-DD format"
+tooltip: "Average customer rating (1-5 stars)"`,
+  },
 ];
 
 const SORT_CONFIG_PROPS: PropInfo[] = [
