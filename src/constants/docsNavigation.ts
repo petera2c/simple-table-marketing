@@ -191,7 +191,7 @@ export const docSections: DocSection[] = [
       },
       {
         id: "csv-export",
-        label: "CSV Export",
+        label: "CSV Export (beta)",
         path: "/docs/csv-export",
         icon: faDownload,
       },
