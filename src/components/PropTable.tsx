@@ -34,16 +34,18 @@ const PropTable = ({ props, title }: PropTableProps) => {
       title: "Property",
       dataIndex: "name",
       key: "name",
-      width: "auto",
+      width: "25%",
       render: (name: string, record: PropInfo) => (
         <Space direction="vertical" size={2}>
           <Text
-            className="whitespace-nowrap"
             code
             style={{
               fontSize: "14px",
               fontWeight: 500,
               color: "#1890ff",
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
             }}
           >
             {name}
@@ -57,6 +59,8 @@ const PropTable = ({ props, title }: PropTableProps) => {
                   fontStyle: "italic",
                   color: "#1890ff",
                   textDecoration: "underline",
+                  wordBreak: "break-word",
+                  whiteSpace: "normal",
                 }}
               >
                 {record.type}
@@ -67,6 +71,8 @@ const PropTable = ({ props, title }: PropTableProps) => {
                 style={{
                   fontSize: "11px",
                   fontStyle: "italic",
+                  wordBreak: "break-word",
+                  whiteSpace: "normal",
                 }}
               >
                 {record.type}
@@ -79,7 +85,7 @@ const PropTable = ({ props, title }: PropTableProps) => {
       title: "Required",
       dataIndex: "required",
       key: "required",
-      width: 100,
+      width: "15%",
       align: "center",
       render: (required: boolean) => (
         <Tag color={required ? "blue" : "green"}>{required ? "Required" : "Optional"}</Tag>
@@ -89,9 +95,19 @@ const PropTable = ({ props, title }: PropTableProps) => {
       title: "Description",
       dataIndex: "description",
       key: "description",
+      width: "45%",
       render: (description: string, record: PropInfo) => (
         <Space direction="vertical" size={4}>
-          <Text>{description}</Text>
+          <Text
+            style={{
+              wordBreak: "break-word",
+              whiteSpace: "normal",
+              overflowWrap: "break-word",
+              lineHeight: "1.4",
+            }}
+          >
+            {description}
+          </Text>
           {record.enumValues && (
             <Space direction="vertical" size={2}>
               <Text strong style={{ fontSize: "12px" }}>
@@ -112,7 +128,7 @@ const PropTable = ({ props, title }: PropTableProps) => {
     {
       title: "Example",
       key: "example",
-      width: 80,
+      width: "15%",
       align: "center",
       render: (_, record: PropInfo) =>
         record.example ? (
@@ -135,7 +151,7 @@ const PropTable = ({ props, title }: PropTableProps) => {
   const expandedRowRender = (record: PropInfo) => {
     if (!record.example) return null;
     return (
-      <div style={{ margin: "16px 0" }}>
+      <div style={{ margin: "16px 0", wordBreak: "break-word", whiteSpace: "normal" }}>
         <Text strong style={{ marginBottom: 8, display: "block" }}>
           Example Usage:
         </Text>
@@ -152,18 +168,21 @@ const PropTable = ({ props, title }: PropTableProps) => {
       transition={{ duration: 0.5, delay: 0.4 }}
     >
       <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">{title}</h3>
-      <Table<PropInfo>
-        columns={columns}
-        dataSource={props}
-        pagination={false}
-        expandable={{
-          expandedRowKeys: expandedRows,
-          expandedRowRender,
-          showExpandColumn: false,
-        }}
-        size="middle"
-        bordered
-      />
+      <div className="overflow-x-auto">
+        <Table<PropInfo>
+          columns={columns}
+          dataSource={props}
+          pagination={false}
+          expandable={{
+            expandedRowKeys: expandedRows,
+            expandedRowRender,
+            showExpandColumn: false,
+          }}
+          size="middle"
+          bordered
+          scroll={{ x: 800 }}
+        />
+      </div>
     </motion.div>
   );
 };

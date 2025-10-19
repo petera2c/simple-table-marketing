@@ -1301,6 +1301,10 @@ video {
   white-space: pre;
 }
 
+.break-words {
+  overflow-wrap: break-word;
+}
+
 .rounded {
   border-radius: 0.25rem;
 }
