@@ -927,6 +927,10 @@ video {
   max-height: 64vh;
 }
 
+.max-h-\[calc\(100vh-80px\)\] {
+  max-height: calc(100vh - 80px);
+}
+
 .min-h-\[200vh\] {
   min-height: 200vh;
 }
@@ -1269,6 +1273,10 @@ video {
 
 .overflow-hidden {
   overflow: hidden;
+}
+
+.overflow-scroll {
+  overflow: scroll;
 }
 
 .overflow-x-auto {
@@ -1820,6 +1828,11 @@ video {
   --tw-gradient-from: rgb(19 78 74 / 0.6) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(19 78 74 / 0) var(--tw-gradient-to-position);
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-white {
+  --tw-gradient-to: rgb(255 255 255 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #fff var(--tw-gradient-via-position), var(--tw-gradient-to);
 }
 
 .to-amber-50 {
@@ -2956,6 +2969,11 @@ body {
   border-color: rgb(133 77 14 / var(--tw-border-opacity, 1));
 }
 
+.dark\:border-blue-400:is(.dark *) {
+  --tw-border-opacity: 1;
+  border-color: rgb(96 165 250 / var(--tw-border-opacity, 1));
+}
+
 .dark\:bg-amber-900\/20:is(.dark *) {
   background-color: rgb(120 53 15 / 0.2);
 }
@@ -3144,6 +3162,17 @@ body {
   --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
 }
 
+.dark\:from-gray-900:is(.dark *) {
+  --tw-gradient-from: #111827 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(17 24 39 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.dark\:via-gray-800:is(.dark *) {
+  --tw-gradient-to: rgb(31 41 55 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), #1f2937 var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
 .dark\:to-amber-950:is(.dark *) {
   --tw-gradient-to: #451a03 var(--tw-gradient-to-position);
 }
@@ -3174,6 +3203,10 @@ body {
 
 .dark\:to-purple-900\/30:is(.dark *) {
   --tw-gradient-to: rgb(88 28 135 / 0.3) var(--tw-gradient-to-position);
+}
+
+.dark\:to-gray-900:is(.dark *) {
+  --tw-gradient-to: #111827 var(--tw-gradient-to-position);
 }
 
 .dark\:text-amber-100:is(.dark *) {
@@ -3567,6 +3600,10 @@ body {
     grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr;
   }
 
+  .md\:grid-cols-\[1fr_1fr_1\.5fr_1fr_1fr_1fr\] {
+    grid-template-columns: 1fr 1fr 1.5fr 1fr 1fr 1fr;
+  }
+
   .md\:flex-row {
     flex-direction: row;
   }
@@ -3591,6 +3628,10 @@ body {
 
   .md\:p-8 {
     padding: 2rem;
+  }
+
+  .md\:p-12 {
+    padding: 3rem;
   }
 
   .md\:px-8 {

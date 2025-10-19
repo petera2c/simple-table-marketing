@@ -36,7 +36,7 @@ export default function Footer() {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr_1fr_1fr] gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr_1fr_1fr_1fr] gap-8">
           {/* Documentation */}
           <div>
             <h3 className="text-lg font-semibold mb-4">Documentation</h3>
@@ -275,6 +275,33 @@ export default function Footer() {
                   }`}
                 >
                   Custom Theme
+                </Link>
+              </li>
+            </ul>
+          </div>
+
+          {/* Legal */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Legal</h3>
+            <ul className="space-y-2">
+              <li>
+                <Link
+                  href="/legal/eula"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/legal/eula") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  EULA
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/legal/license"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/legal/license") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  MIT License
                 </Link>
               </li>
             </ul>

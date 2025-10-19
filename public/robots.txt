@@ -6,6 +6,7 @@ Allow: /theme-builder/
 Allow: /blog/
 Allow: /comparisons/
 Allow: /pricing/
+Allow: /legal/
 
 # AI Crawlers
 User-agent: GPTBot

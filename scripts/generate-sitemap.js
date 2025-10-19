@@ -112,6 +112,9 @@ async function generateSitemap() {
       } else if (route.startsWith("examples/")) {
         routeConfig.priority = 0.7;
         routeConfig.changefreq = "weekly";
+      } else if (route.startsWith("legal/")) {
+        routeConfig.priority = 0.5;
+        routeConfig.changefreq = "monthly";
       }
 
       sitemapEntries.push(routeConfig);
