@@ -33,25 +33,31 @@ const COLLAPSIBLE_COLUMNS_PROPS: PropInfo[] = [
 />`,
   },
   {
-    key: "summaryColumn",
-    name: "summaryColumn",
+    key: "showWhen",
+    name: "showWhen",
     required: false,
     description:
-      "Controls when a child column is visible. When true, the column shows only when the parent is collapsed. When false (or undefined), the column shows only when the parent is expanded.",
-    type: "boolean",
+      'Controls when a child column is visible in collapsible groups. Can be "parentCollapsed" (only visible when collapsed), "parentExpanded" (only visible when expanded), or "always" (visible in both states).',
+    type: 'ShowWhen ("parentCollapsed" | "parentExpanded" | "always")',
     example: `{
   accessor: "groupName",
   label: "Group Header",
   collapsible: true,
   children: [
     {
-      accessor: "keyMetric",
-      label: "Key Metric",
-      summaryColumn: true // Only visible when collapsed
+      accessor: "alwaysVisible",
+      label: "Always Visible",
+      showWhen: "always" // Visible in both states
     },
     {
-      accessor: "detail",
-      label: "Detail" // Only visible when expanded (default)
+      accessor: "summary",
+      label: "Summary",
+      showWhen: "parentCollapsed" // Only when collapsed
+    },
+    {
+      accessor: "details",
+      label: "Details",
+      showWhen: "parentExpanded" // Only when expanded
     }
   ]
 }`,
@@ -177,144 +183,42 @@ const CollapsibleColumnsContent = () => {
         </p>
 
         <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6 mb-6">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">How It Works</h3>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-4">
+            Visibility Control
+          </h3>
           <div className="space-y-4 text-gray-700 dark:text-gray-300">
-            <div className="grid md:grid-cols-2 gap-4">
+            <p className="text-sm">
+              Control when child columns are visible using the{" "}
+              <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded">showWhen</code>{" "}
+              attribute:
+            </p>
+            <div className="grid md:grid-cols-3 gap-4">
               <div className="bg-white dark:bg-gray-700 p-4 rounded-lg border">
                 <h4 className="font-semibold text-green-600 mb-2">📖 When Expanded</h4>
                 <p className="text-sm">
-                  Shows columns with{" "}
                   <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">
-                    summaryColumn: false
-                  </code>{" "}
-                  (or undefined)
+                    showWhen: "parentExpanded"
+                  </code>
                 </p>
               </div>
               <div className="bg-white dark:bg-gray-700 p-4 rounded-lg border">
                 <h4 className="font-semibold text-blue-600 mb-2">📕 When Collapsed</h4>
                 <p className="text-sm">
-                  Shows columns with{" "}
                   <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">
-                    summaryColumn: true
+                    showWhen: "parentCollapsed"
+                  </code>
+                </p>
+              </div>
+              <div className="bg-white dark:bg-gray-700 p-4 rounded-lg border">
+                <h4 className="font-semibold text-purple-600 mb-2">🔄 Always Visible</h4>
+                <p className="text-sm">
+                  <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded text-xs">
+                    showWhen: "always"
                   </code>
                 </p>
               </div>
             </div>
-            <p className="text-sm text-gray-600 dark:text-gray-400 italic">
-              💡 Tip: If no columns have{" "}
-              <code className="bg-gray-200 dark:bg-gray-600 px-1 py-0.5 rounded">
-                summaryColumn: true
-              </code>
-              , the entire group disappears when collapsed.
-            </p>
           </div>
-        </div>
-      </motion.div>
-
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        Example Implementation
-      </motion.h2>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
-        className="mb-6"
-      >
-        <div className="bg-gray-900 rounded-lg p-4 overflow-x-auto">
-          <pre className="text-green-400 text-sm">
-            <code>{`const salesHeaders = [
-  { accessor: "name", label: "Sales Rep", width: "1fr" },
-  { accessor: "region", label: "Region", width: 120 },
-  
-  // Quarterly breakdown with total summary
-  {
-    accessor: "quarterlySales",
-    label: "Quarterly Sales",
-    collapsible: true,
-    children: [
-      {
-        accessor: "totalSales",
-        label: "Total Sales",
-        summaryColumn: true, // Shows when collapsed
-        cellRenderer: ({ row }) => \`$\${row.totalSales.toLocaleString()}\`
-      },
-      {
-        accessor: "q1Sales", 
-        label: "Q1",
-        // summaryColumn: false (default) - shows when expanded
-        cellRenderer: ({ row }) => \`$\${row.q1Sales.toLocaleString()}\`
-      },
-      {
-        accessor: "q2Sales",
-        label: "Q2", 
-        cellRenderer: ({ row }) => \`$\${row.q2Sales.toLocaleString()}\`
-      },
-      {
-        accessor: "q3Sales",
-        label: "Q3",
-        cellRenderer: ({ row }) => \`$\${row.q3Sales.toLocaleString()}\`
-      },
-      {
-        accessor: "q4Sales",
-        label: "Q4",
-        cellRenderer: ({ row }) => \`$\${row.q4Sales.toLocaleString()}\`
-      }
-    ]
-  },
-
-  // Monthly details with key metrics summary
-  {
-    accessor: "monthlyPerformance",
-    label: "Monthly Performance", 
-    collapsible: true,
-    children: [
-      {
-        accessor: "avgMonthly",
-        label: "Avg Monthly",
-        summaryColumn: true, // Key metric when collapsed
-        cellRenderer: ({ row }) => \`$\${row.avgMonthly.toLocaleString()}\`
-      },
-      {
-        accessor: "bestMonth", 
-        label: "Best Month",
-        summaryColumn: true, // Key metric when collapsed
-        cellRenderer: ({ row }) => \`$\${row.bestMonth.toLocaleString()}\`
-      },
-      // All 12 months show when expanded
-      { accessor: "jan", label: "Jan" },
-      { accessor: "feb", label: "Feb" },
-      { accessor: "mar", label: "Mar" },
-      // ... remaining months
-    ]
-  }
-];
-
-// Data structure
-const salesData = [
-  {
-    name: "Alice Thompson",
-    region: "North America", 
-    // Quarterly data
-    totalSales: 1144000,
-    q1Sales: 245000,
-    q2Sales: 289000,
-    q3Sales: 312000,
-    q4Sales: 298000,
-    // Monthly summary
-    avgMonthly: 95333,
-    bestMonth: 112000,
-    // Monthly breakdown
-    jan: 78000, feb: 82000, mar: 85000,
-    // ... remaining months
-  }
-];`}</code>
-          </pre>
         </div>
       </motion.div>
 

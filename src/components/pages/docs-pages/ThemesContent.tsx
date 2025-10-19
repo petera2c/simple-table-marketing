@@ -23,7 +23,7 @@ const THEME_PROPS: PropInfo[] = [
       "Built-in theme option for styling the table. Choose from predefined themes to quickly customize your table's appearance.",
     type: "Theme",
     link: "/docs/api-reference#union-types",
-    enumValues: ["light", "dark", "sky", "violet", "neutral"],
+    enumValues: ["light", "dark", "sky", "violet", "neutral", "frost"],
     example: `<SimpleTable
   theme="dark"
   // ... other props
@@ -95,8 +95,9 @@ export default function ThemesContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Simple Table can be fully customized to match your application's visual design. You can
-        control everything from colors and spacing to borders and typography using theme options.
+        Simple Table includes several beautiful built-in themes to match your application's visual
+        design. Choose from Light, Dark, Sky, Violet, Neutral, or the new Frost theme with modern
+        cool blue tones.
       </motion.p>
 
       <motion.div

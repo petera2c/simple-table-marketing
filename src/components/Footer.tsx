@@ -75,7 +75,7 @@ export default function Footer() {
                     isActive("/examples/infrastructure") ? "text-white font-medium" : ""
                   }`}
                 >
-                  Finance Dashboard
+                  Infrastructure Dashboard
                 </Link>
               </li>
               <li>
@@ -218,6 +218,16 @@ export default function Footer() {
                   }`}
                 >
                   Blog
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/changelog"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/changelog") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Changelog
                 </Link>
               </li>
               <li>

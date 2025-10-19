@@ -442,4 +442,11 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table pricing, free react data grid, react table pricing, data grid cost, simple table pro, free table library, react table subscription, data grid plans",
   },
+  changelog: {
+    title: "Changelog - Simple Table Updates & Release Notes",
+    description:
+      "Track Simple Table's evolution with detailed release notes. See new features, improvements, and bug fixes in each version of the React data grid library.",
+    keywords:
+      "simple-table changelog, release notes, version history, updates, react table releases, data grid updates, feature updates, bug fixes, version notes",
+  },
 };
