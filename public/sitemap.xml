@@ -11,11 +11,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/changelog</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.simple-table.com/blog/best-free-react-data-grid-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -49,6 +44,11 @@
     <loc>https://www.simple-table.com/blog/nested-headers-react-tables</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/changelog</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
   <url>
     <loc>https://www.simple-table.com/comparisons/simple-table-vs-ag-grid</loc>
@@ -232,6 +232,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/examples/manufacturing</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/examples/music</loc>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
