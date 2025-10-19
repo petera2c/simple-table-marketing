@@ -1,0 +1,193 @@
+import { useEffect, useRef, useState } from "react";
+import { SimpleTable, TableRefType, Theme, Row } from "simple-table-core";
+
+import "simple-table-core/styles.css";
+import "./MusicTheme.css";
+import { HEADERS } from "./music-headers";
+
+const BACKUP_MUSIC_DATA = [
+  {
+    id: "artist-1",
+    rank: 1,
+    artistName: "Taylor Swift",
+    artistType: "Solo Artist",
+    pronouns: "She/Her",
+    recordLabel: "UMG (Republic Records)",
+    lyricsLanguage: "English",
+    growthStatus: "Trending",
+    mood: "Heartbroken",
+    genre: "pop",
+    followers: 144630000,
+    followersFormatted: "144.63M",
+    followersGrowth: 1500000,
+    followersGrowthFormatted: "1.50M",
+    followersGrowthPercent: 1.04,
+    popularity: 100,
+    playlistReach: 1020000000,
+    playlistReachFormatted: "1.02B",
+    playlistReachChange: 201900000,
+    playlistReachChangeFormatted: "201.90M",
+    playlistReachChangePercent: 19.79,
+    playlistCount: 1780,
+    playlistCountGrowth: 19,
+    playlistCountGrowthPercent: 1.07,
+    monthlyListeners: 104600000,
+    monthlyListenersFormatted: "104.60M",
+    monthlyListenersChange: 17000000,
+    monthlyListenersChangeFormatted: "17.00M",
+    monthlyListenersChangePercent: 16.25,
+    conversionRate: 4.3,
+    reachFollowersRatio: 705.2,
+  },
+  {
+    id: "artist-2",
+    rank: 2,
+    artistName: "Arijit Singh",
+    artistType: "Solo Artist",
+    pronouns: "He/Him",
+    recordLabel: "T-Series",
+    lyricsLanguage: "Hindi",
+    growthStatus: "Growth",
+    mood: "Romantic",
+    genre: "bollywood",
+    followers: 161840000,
+    followersFormatted: "161.84M",
+    followersGrowth: 3100000,
+    followersGrowthFormatted: "3.10M",
+    followersGrowthPercent: 1.92,
+    popularity: 89,
+    playlistReach: 284350000,
+    playlistReachFormatted: "284.35M",
+    playlistReachChange: 3800000,
+    playlistReachChangeFormatted: "3.80M",
+    playlistReachChangePercent: 1.34,
+    playlistCount: 2320,
+    playlistCountGrowth: 22,
+    playlistCountGrowthPercent: 0.95,
+    monthlyListeners: 49040000,
+    monthlyListenersFormatted: "49.04M",
+    monthlyListenersChange: 1500000,
+    monthlyListenersChangeFormatted: "1.50M",
+    monthlyListenersChangePercent: 3.06,
+    conversionRate: 1.9,
+    reachFollowersRatio: 175.7,
+  },
+  {
+    id: "artist-3",
+    rank: 3,
+    artistName: "Ed Sheeran",
+    artistType: "Solo Artist",
+    pronouns: "He/Him",
+    recordLabel: "Warner Music Group (Atlantic Records)",
+    lyricsLanguage: "English",
+    growthStatus: "Trending",
+    mood: "Heartbroken",
+    genre: "pop",
+    followers: 122500000,
+    followersFormatted: "122.50M",
+    followersGrowth: 410100,
+    followersGrowthFormatted: "410.10K",
+    followersGrowthPercent: 0.33,
+    popularity: 88,
+    playlistReach: 904420000,
+    playlistReachFormatted: "904.42M",
+    playlistReachChange: 31000000,
+    playlistReachChangeFormatted: "31.00M",
+    playlistReachChangePercent: 3.43,
+    playlistCount: 2320,
+    playlistCountGrowth: 22,
+    playlistCountGrowthPercent: 0.95,
+    monthlyListeners: 92370000,
+    monthlyListenersFormatted: "92.37M",
+    monthlyListenersChange: 717700,
+    monthlyListenersChangeFormatted: "717.70K",
+    monthlyListenersChangePercent: 0.78,
+    conversionRate: 4.4,
+    reachFollowersRatio: 738.3,
+  },
+];
+
+export default function MusicExample({
+  height,
+  theme,
+  rowCount = 50,
+}: {
+  height?: string;
+  theme?: Theme;
+  rowCount?: number;
+}) {
+  const tableRef = useRef<TableRefType | null>(null);
+  const [data, setData] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // Fetch music data from API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const isProduction =
+          typeof window !== "undefined" && window.location.hostname.includes("simple-table.com");
+
+        // Use backup data if not on localhost or production
+        if (!isLocal && !isProduction) {
+          setData(BACKUP_MUSIC_DATA);
+          setIsLoading(false);
+          return;
+        }
+
+        // Use relative path for local development, full URL for production
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/music?rowCount=${rowCount}`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch music data");
+        }
+        const musicData = await response.json();
+        setData(musicData);
+      } catch (error) {
+        console.error("Error fetching music data:", error);
+        // Fallback to backup data on error
+        setData(BACKUP_MUSIC_DATA);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, [rowCount]);
+
+  if (isLoading) {
+    return (
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          height: height ? height : "70dvh",
+          fontSize: "16px",
+          color: "#666",
+        }}
+      >
+        Loading music artist data...
+      </div>
+    );
+  }
+
+  return (
+    <div className="music-theme-container">
+      <SimpleTable
+        columnReordering
+        columnResizing
+        defaultHeaders={HEADERS}
+        height={height ? height : "70dvh"}
+        rowHeight={85}
+        rowIdAccessor="id"
+        rows={data}
+        selectableCells
+        tableRef={tableRef}
+        headerHeight={30}
+        theme={theme}
+      />
+    </div>
+  );
+}

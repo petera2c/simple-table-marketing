@@ -1,0 +1,19 @@
+.music-theme-container {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.music-theme-container * {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu",
+    "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+}
+
+.music-theme-container .st-header-label-text {
+  font-weight: 500;
+  font-size: 12px;
+}
+.music-theme-container .st-cell-content {
+  font-size: 12px;
+}

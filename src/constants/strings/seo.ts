@@ -355,6 +355,13 @@ export const SEO_STRINGS = {
       keywords:
         "simple-table, react-table, react-grid, data-grid, datagrid, data table, billing table, invoice table, responsive table",
     },
+    music: {
+      title: "Music Artist Analytics with Simple Table",
+      description:
+        "Build a music artist analytics dashboard with Simple Table in React. A react-table for tracking followers, popularity, playlist reach, and artist metrics using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, music analytics, artist dashboard, spotify analytics, music metrics, responsive table",
+    },
   },
   liveUpdates: {
     title: "Live Updates in Simple Table React Grid",
