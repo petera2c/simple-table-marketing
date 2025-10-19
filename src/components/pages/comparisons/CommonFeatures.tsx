@@ -925,6 +925,9 @@ export const renderFeatures = (
 export const simplePricing = (
   <Space direction="vertical">
     {FeatureTags.Success("100% Free", "Completely free to use in any project")}
-    {FeatureTags.Success("255 kB (unpacked)", "Minimal bundle size for optimal performance")}
+    {FeatureTags.Success(
+      "31 kB (minified + gzipped)",
+      "Minimal bundle size for optimal performance"
+    )}
   </Space>
 );

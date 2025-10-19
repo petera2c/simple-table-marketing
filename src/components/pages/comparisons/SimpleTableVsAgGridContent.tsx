@@ -134,10 +134,7 @@ const SimpleVsAgGrid = () => {
             "Community (free) / Enterprise ($999/license)",
             "Free community version or paid enterprise version at $999/license"
           )}
-          {FeatureTags.Error(
-            "Large bundle size: 18.4 MB + 22.6 MB for Enterprise",
-            "Basic package is 18.4 MB, with additional 22.6 MB for Enterprise features"
-          )}
+          {FeatureTags.Error("Bundle size: 3 MB", "")}
         </Space>
       ),
     },
@@ -438,7 +435,7 @@ const SimpleVsAgGrid = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "AG Grid",
-        competitorSize: "18.4 MB (unpacked), 41 MB with Enterprise features",
+        competitorSize: "3 MB (unpacked), 41 MB with Enterprise features",
       }}
       summaryContent={summaryContent}
       faqSection={enterpriseROISection}

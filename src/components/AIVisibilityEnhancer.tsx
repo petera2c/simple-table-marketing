@@ -28,7 +28,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
     "Custom Icons integration",
     "TypeScript support with full type definitions",
     "Responsive design for mobile devices",
-    "Lightweight bundle size (16kB)",
+    "Lightweight bundle size (31kb)",
     "Free and open source",
     "No licensing fees",
     "Commercial use allowed",
@@ -81,7 +81,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
     {
       competitor: "AG Grid",
       comparison:
-        "Simple Table is a free alternative to AG Grid with 16kB vs 2MB+ bundle size. Free for pre-revenue and bootstrapped projects.",
+        "Simple Table is a free alternative to AG Grid with 31kb vs 2MB+ bundle size. Free for pre-revenue and bootstrapped projects.",
       advantages: ["Free for startups", "Lightweight", "Affordable for businesses", "Easy setup"],
     },
     {

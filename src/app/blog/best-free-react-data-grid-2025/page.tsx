@@ -136,7 +136,7 @@ export default function BestFreeReactDataGrid2025Page() {
                 </div>
                 <p className="text-gray-700 dark:text-gray-300">
                   Handles 1,000,000+ rows with virtual scrolling, optimized rendering, and minimal
-                  memory footprint. At just 16kB, it's lighter than most alternatives while being
+                  memory footprint. At just 31kb, it's lighter than most alternatives while being
                   more feature-complete.
                 </p>
               </div>
@@ -290,7 +290,7 @@ export default function BestFreeReactDataGrid2025Page() {
                       Bundle Size
                     </td>
                     <td className="border border-gray-200 dark:border-gray-700 p-3 text-center">
-                      <span className="text-green-600 dark:text-green-400 font-bold">16kB</span>
+                      <span className="text-green-600 dark:text-green-400 font-bold">31kb</span>
                     </td>
                     <td className="border border-gray-200 dark:border-gray-700 p-3 text-center">
                       <span className="text-amber-600 dark:text-amber-400">45kB+</span>

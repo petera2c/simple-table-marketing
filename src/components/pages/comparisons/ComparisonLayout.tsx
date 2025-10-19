@@ -105,7 +105,7 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
               {
                 key: "bundle-size",
                 metric: "Bundle Size",
-                simpleTable: "255 kB (unpacked)",
+                simpleTable: "31 kB (minified + gzipped)",
                 competitor: performanceMetrics.competitorSize,
               },
             ]}

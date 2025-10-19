@@ -272,9 +272,9 @@ const SimpleTableVsAntDesignContent = () => {
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      offers a different philosophy entirely. At just 255 kB, it delivers more data grid
-      functionality than Ant Design Table while being 240x smaller. But the choice isn't just about
-      file size—it's about architectural decisions that affect your entire application's
+      offers a different philosophy entirely. At just 31 kB (minified + gzipped), it delivers more
+      data grid functionality than Ant Design Table while being 240x smaller. But the choice isn't
+      just about file size—it's about architectural decisions that affect your entire application's
       performance, from initial load times to runtime memory usage. This comparison examines whether
       you can achieve both design consistency AND performance by choosing Simple Table, even within
       Ant Design projects. We'll explore styling strategies, bundle optimization techniques, and
@@ -432,7 +432,7 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>255 kB</strong> total bundle size
+              • <strong>31 kB (minified + gzipped)</strong> total bundle size
             </li>
             <li>
               • <strong>Minimal CDN costs</strong> and fast delivery

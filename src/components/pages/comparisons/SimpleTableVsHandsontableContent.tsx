@@ -361,7 +361,7 @@ const SimpleTableVsHandsontableContent = () => {
           </Text>
           <Text className="text-base text-gray-700 dark:text-gray-300">
             Yes, Simple Table's virtualization can handle millions of rows efficiently, often with
-            better performance than Handsontable due to its lighter architecture. The 16kB bundle
+            better performance than Handsontable due to its lighter architecture. The 31kb bundle
             size doesn't compromise on data handling capabilities.
           </Text>
         </div>

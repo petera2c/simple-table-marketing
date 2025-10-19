@@ -359,7 +359,7 @@ export default function MobileCompatibilityReactTablesPage() {
                   Optimized Performance
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  At just 16kB, Simple Table loads instantly even on slower mobile connections.
+                  At just 31kb, Simple Table loads instantly even on slower mobile connections.
                   Virtual scrolling and efficient rendering ensure smooth performance, even with
                   thousands of rows on mid-range mobile devices.
                 </p>

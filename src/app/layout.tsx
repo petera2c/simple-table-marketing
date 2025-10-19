@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   },
   other: {
     "ai-content":
-      "Simple Table is a lightweight React data grid library that's only 16kB. It's a free alternative to AG Grid, Handsontable, and Material-UI tables with comprehensive features including cell editing, column management, sorting, filtering, and TypeScript support. Free for pre-revenue and bootstrapped projects.",
+      "Simple Table is a lightweight React data grid library that's only 31kb. It's a free alternative to AG Grid, Handsontable, and Material-UI tables with comprehensive features including cell editing, column management, sorting, filtering, and TypeScript support. Free for pre-revenue and bootstrapped projects.",
     "ai-keywords":
       "react table, react data grid, simple table, ag grid alternative, handsontable alternative, material ui table alternative, free react table, lightweight react grid, typescript table, react spreadsheet, data grid library, react table comparison, best react table library, free for startups, free for bootstrapped",
     "ai-use-cases":
@@ -145,7 +145,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       "Custom Themes",
       "TypeScript Support",
       "Responsive Design",
-      "Lightweight (16kB)",
+      "Lightweight (31kb)",
     ],
   };
 
