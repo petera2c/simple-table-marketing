@@ -795,8 +795,10 @@ columnEditorPosition="right"`,
     key: "tableRef",
     name: "tableRef",
     required: false,
-    description: "React ref object to access table methods and state programmatically.",
+    description:
+      "React ref object to access table methods and state programmatically. Provides access to methods like exportToCSV and updateData.",
     type: "MutableRefObject<TableRefType | null>",
+    link: "#table-ref-type",
     example: `const tableRef = useRef(null);
 
 <SimpleTable
@@ -804,8 +806,15 @@ columnEditorPosition="right"`,
   // ... other props
 />
 
-// Access table methods
-tableRef.current?.updateRow(rowId, newData);`,
+// Export table data to CSV
+tableRef.current?.exportToCSV({ filename: "data.csv" });
+
+// Update cell data programmatically
+tableRef.current?.updateData({
+  accessor: "status",
+  rowIndex: 0,
+  newValue: "active"
+});`,
   },
 ];
 
@@ -1045,6 +1054,66 @@ const TABLE_FILTER_STATE_PROPS: PropInfo[] = [
   },
 ];
 
+const EXPORT_TO_CSV_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "filename",
+    name: "filename",
+    required: false,
+    description:
+      "Custom filename for the exported CSV file. Defaults to 'table-export.csv' if not provided.",
+    type: "string",
+    example: `{ filename: "sales-report-2024.csv" }`,
+  },
+];
+
+const TABLE_REF_TYPE_METHODS: PropInfo[] = [
+  {
+    key: "exportToCSV",
+    name: "exportToCSV",
+    required: false,
+    description:
+      "Exports the current table data to a CSV file. Respects active filters and sorting. Optionally accepts a props object to customize the filename.",
+    type: "(props?: ExportToCSVProps) => void",
+    link: "#export-to-csv-props",
+    example: `// Export with default filename
+tableRef.current?.exportToCSV();
+
+// Export with custom filename
+tableRef.current?.exportToCSV({ 
+  filename: "my-data.csv" 
+});
+
+// Dynamic filename
+const date = new Date().toISOString().split('T')[0];
+tableRef.current?.exportToCSV({ 
+  filename: \`report-\${date}.csv\` 
+});`,
+  },
+  {
+    key: "updateData",
+    name: "updateData",
+    required: false,
+    description:
+      "Programmatically update a specific cell value in the table. Useful for live updates and real-time data changes. Triggers cellUpdateFlash animation if enabled.",
+    type: "(params: { accessor: Accessor; rowIndex: number; newValue: CellValue }) => void",
+    example: `// Update a single cell
+tableRef.current?.updateData({
+  accessor: "price",
+  rowIndex: 2,
+  newValue: 29.99
+});
+
+// Update based on condition
+if (stockLow) {
+  tableRef.current?.updateData({
+    accessor: "status",
+    rowIndex: 5,
+    newValue: "Low Stock"
+  });
+}`,
+  },
+];
+
 const ApiReferenceContent = () => {
   useHashNavigation();
 
@@ -1169,6 +1238,14 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-filter-state">
         <PropTable props={TABLE_FILTER_STATE_PROPS} title="TableFilterState" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-ref-type">
+        <PropTable props={TABLE_REF_TYPE_METHODS} title="TableRefType Methods" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-to-csv-props">
+        <PropTable props={EXPORT_TO_CSV_PROPS_PROPS} title="ExportToCSVProps" />
       </div>
 
       <DocNavigationButtons />

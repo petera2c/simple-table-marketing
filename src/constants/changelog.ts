@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_5_1: ChangelogEntry = {
+  version: "1.5.1",
+  date: "2025-10-19",
+  title: "CSV Export",
+  description:
+    "Export your table data to CSV format with a simple API call. Perfect for data analysis, reporting, and sharing.",
+  changes: [
+    {
+      type: "feature",
+      description: "Export table data to CSV using tableRef.current?.exportToCSV()",
+      link: "/docs/csv-export",
+    },
+  ],
+};
+
 export const v1_5_0: ChangelogEntry = {
   version: "1.5.0",
   date: "2025-10-19",
@@ -93,7 +108,7 @@ export const v1_4_4: ChangelogEntry = {
 };
 
 // Array of all changelog entries (newest first)
-export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_0, v1_4_7, v1_4_6, v1_4_4];
+export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_1, v1_5_0, v1_4_7, v1_4_6, v1_4_4];
 
 // Helper function to get changelog entry by version
 export const getChangelogByVersion = (version: string): ChangelogEntry | undefined => {

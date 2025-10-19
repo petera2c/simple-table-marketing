@@ -13,9 +13,9 @@ const LivePreview = ({
   Preview,
 }: {
   demoCodeFilename?: string;
-  height?: string;
+  height?: string | number;
   link: string;
-  Preview: ({ height, theme }: { height?: string; theme?: Theme }) => JSX.Element;
+  Preview: ({ height, theme }: { height?: string | number; theme?: Theme }) => JSX.Element;
 }) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const { theme } = useThemeContext();

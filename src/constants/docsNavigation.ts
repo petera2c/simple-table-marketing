@@ -189,6 +189,12 @@ export const docSections: DocSection[] = [
         path: "/docs/infinite-scroll",
         icon: faInfinity,
       },
+      {
+        id: "csv-export",
+        label: "CSV Export",
+        path: "/docs/csv-export",
+        icon: faDownload,
+      },
     ],
   },
   {

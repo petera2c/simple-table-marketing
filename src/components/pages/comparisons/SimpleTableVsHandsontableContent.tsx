@@ -160,7 +160,10 @@ const SimpleTableVsHandsontableContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Processing("Excel Export", "Coming soon to Simple Table")}
-          {FeatureTags.Processing("CSV Export", "Coming soon to Simple Table")}
+          {FeatureTags.Success(
+            "CSV Export",
+            "Export table data to CSV format with one method call"
+          )}
           {FeatureTags.Success("Clipboard Operations", "Copy/paste data to/from clipboard")}
           {FeatureTags.Processing("Excel Import", "Coming soon to Simple Table")}
           {FeatureTags.Processing("CSV Import", "Coming soon to Simple Table")}

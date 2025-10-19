@@ -203,7 +203,10 @@ const SimpleTableVsAntDesignContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Processing("Excel Export/Import", "Coming soon to Simple Table")}
-          {FeatureTags.Processing("CSV Export/Import", "Coming soon to Simple Table")}
+          {FeatureTags.Success(
+            "CSV Export",
+            "Export table data to CSV format with one method call"
+          )}
           {FeatureTags.Success("Clipboard Operations", "Copy/paste data to/from clipboard")}
           {FeatureTags.Success("Advanced Keyboard Navigation", "Support for keyboard navigation")}
           {FeatureTags.Processing("Accessibility Features", "Coming soon to Simple Table")}

@@ -395,6 +395,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, infinite scroll, load more data, lazy loading, typescript table, large datasets",
   },
+  csvExport: {
+    title: "CSV Export with Simple Table React Grid",
+    description:
+      "Export your react-table data to CSV with Simple Table. One-click CSV download from your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, csv export, export to csv, download csv, table export, typescript table, data export",
+  },
   columnSelection: {
     title: "Column Selection in Simple Table React Grid",
     description:

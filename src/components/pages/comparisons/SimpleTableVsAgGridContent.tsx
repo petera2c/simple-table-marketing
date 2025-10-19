@@ -232,9 +232,9 @@ const SimpleVsAgGrid = () => {
             "Excel Export/Import (Coming Soon)",
             "Export and import data in Excel format (coming soon)"
           )}
-          {FeatureTags.Processing(
-            "CSV Export/Import (Coming Soon)",
-            "Export and import data in CSV format (coming soon)"
+          {FeatureTags.Success(
+            "CSV Export",
+            "Export table data to CSV format with one method call"
           )}
           {FeatureTags.Success("Clipboard Operations", "Copy and paste data to/from clipboard")}
           {FeatureTags.Success(
