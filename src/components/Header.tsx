@@ -259,6 +259,22 @@ const Header = () => {
     };
   }, [isMenuOpen]);
 
+  // Disable scrolling when mobile menu is open
+  useEffect(() => {
+    const scrollContainer = document.getElementById("main-scroll-container");
+    if (isMenuOpen && isMobile && scrollContainer) {
+      scrollContainer.style.overflow = "hidden";
+    } else if (scrollContainer) {
+      scrollContainer.style.overflow = "auto";
+    }
+
+    return () => {
+      if (scrollContainer) {
+        scrollContainer.style.overflow = "auto";
+      }
+    };
+  }, [isMenuOpen, isMobile]);
+
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
@@ -341,7 +357,7 @@ const Header = () => {
 
           {/* Mobile menu */}
           {isMobile && isMenuOpen && (
-            <div className="mt-4 pt-2 pb-4 border-t border-gray-200 dark:border-gray-700">
+            <div className="mt-4 pt-2 pb-4 border-t border-gray-200 dark:border-gray-700 overflow-auto">
               <div className="flex flex-col space-y-3">
                 {navLinks.map((link) => (
                   <LinkButton
