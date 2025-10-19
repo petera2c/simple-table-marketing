@@ -44,9 +44,9 @@ const users: CellValue = [                    // Record<string, any>[]
     name: "Theme",
     required: false,
     description: "Built-in theme options for styling the table.",
-    type: '"light" | "dark" | "sky" | "violet" | "neutral" | "custom"',
+    type: '"light" | "dark" | "sky" | "violet" | "neutral" | "frost" | "custom"',
     example: `theme="dark"
-theme="sky"
+theme="frost"
 theme="custom"`,
   },
   {
@@ -997,14 +997,15 @@ minWidth: "100px"`,
     example: `collapsible: true`,
   },
   {
-    key: "summaryColumn",
-    name: "summaryColumn",
+    key: "showWhen",
+    name: "showWhen",
     required: false,
     description:
-      "When true, this column is only visible when the parent collapsible group is collapsed. When false (or undefined), the column is only visible when expanded. Used to show summary data vs detailed breakdowns.",
-    type: "boolean",
-    example: `summaryColumn: true  // Shows when collapsed
-summaryColumn: false // Shows when expanded (default)`,
+      'Controls when a child column is visible in collapsible groups. Can be "parentCollapsed" (only visible when collapsed), "parentExpanded" (only visible when expanded), or "always" (visible in both states). Default is "parentExpanded".',
+    type: 'ShowWhen ("parentCollapsed" | "parentExpanded" | "always")',
+    example: `showWhen: "parentCollapsed"  // Only visible when parent is collapsed
+showWhen: "parentExpanded"   // Only visible when parent is expanded (default)
+showWhen: "always"           // Always visible regardless of parent state`,
   },
 ];
 
