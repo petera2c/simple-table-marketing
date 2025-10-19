@@ -92,9 +92,9 @@ const SimpleTableVsMaterialReactContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Success("Column Filters", "Filter individual columns")}
-          {FeatureTags.Processing("Global Search", "Search across all columns")}
+          {FeatureTags.Processing("Global Search", "Coming soon to Simple Table")}
           {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Success("Faceted Filters", "Coming soon to Simple Table")}
+          {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
         </Space>
       ),
       materialReact: (

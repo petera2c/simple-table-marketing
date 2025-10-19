@@ -116,7 +116,7 @@ const SimpleTableVsAntDesignContent = () => {
       simpleTable: (
         <Space direction="vertical">
           {FeatureTags.Success("Column Filters", "Filter individual columns")}
-          {FeatureTags.Success("Global Search", "Search across all columns")}
+          {FeatureTags.Processing("Global Search", "Coming soon to Simple Table")}
           {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
           {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
         </Space>

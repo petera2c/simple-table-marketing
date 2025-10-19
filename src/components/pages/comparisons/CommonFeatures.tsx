@@ -41,13 +41,16 @@ const FEATURE_DOCS_MAPPING: Record<string, string> = {
   "Clipboard Operations": "/docs/cell-highlighting",
   "Value Getters/Setters": "/docs/live-updates",
   "Cell Range Selection": "/docs/cell-highlighting",
+  "Cell Highlighting": "/docs/cell-highlighting",
+  "Header Renderer": "/docs/header-renderer",
   "Tree Data": "/docs/row-grouping",
   "Column Filters": "/docs/column-filtering",
   "Global Search": "/docs/column-filtering",
   "Custom Filters": "/docs/column-filtering",
+  "Faceted Filters": "/docs/column-filtering",
   "Client-side": "/docs/pagination",
   "Server-side": "/docs/pagination",
-  "Infinite Scroll": "/docs/live-updates",
+  "Infinite Scroll": "/docs/infinite-scroll",
   "Built-in Themes": "/docs/themes",
   "Light/dark themes included": "/docs/themes",
   "Support for light and dark themes with easy customization": "/docs/themes",
@@ -265,6 +268,16 @@ export const FEATURE_DEFINITIONS = {
         label: "Aggregation Functions",
         tooltip: "Built-in aggregation functions (sum, average, count, min, max, etc.)",
       },
+      {
+        status: "success" as const,
+        label: "Column Selection",
+        tooltip: "Select entire columns by clicking column headers",
+      },
+      {
+        status: "success" as const,
+        label: "Collapsible Columns",
+        tooltip: "Collapse and expand column groups to manage screen space",
+      },
     ],
     agGrid: [
       {
@@ -312,6 +325,16 @@ export const FEATURE_DEFINITIONS = {
         status: "warning" as const,
         label: "Aggregation Functions",
         tooltip: "Built-in aggregation functions with pivot table support (Enterprise only)",
+      },
+      {
+        status: "success" as const,
+        label: "Column Selection",
+        tooltip: "Select entire columns with advanced features",
+      },
+      {
+        status: "success" as const,
+        label: "Collapsible Columns",
+        tooltip: "Collapse and expand column groups",
       },
     ],
     tanstack: [
@@ -365,6 +388,16 @@ export const FEATURE_DEFINITIONS = {
         label: "Aggregation Functions",
         tooltip: "No built-in aggregation functions, requires custom implementation",
       },
+      {
+        status: "error" as const,
+        label: "Column Selection",
+        tooltip: "No built-in column selection support",
+      },
+      {
+        status: "success" as const,
+        label: "Collapsible Columns",
+        tooltip: "Available through column grouping",
+      },
     ],
     antDesign: [
       {
@@ -404,6 +437,16 @@ export const FEATURE_DEFINITIONS = {
         status: "error" as const,
         label: "Aggregation Functions",
         tooltip: "No built-in aggregation functions, requires custom implementation",
+      },
+      {
+        status: "error" as const,
+        label: "Column Selection",
+        tooltip: "No built-in column selection support",
+      },
+      {
+        status: "error" as const,
+        label: "Collapsible Columns",
+        tooltip: "No built-in support for collapsible columns",
       },
     ],
     materialReact: [
@@ -448,6 +491,16 @@ export const FEATURE_DEFINITIONS = {
         status: "error" as const,
         label: "Aggregation Functions",
         tooltip: "No built-in aggregation functions, requires custom implementation",
+      },
+      {
+        status: "error" as const,
+        label: "Column Selection",
+        tooltip: "No built-in column selection support",
+      },
+      {
+        status: "error" as const,
+        label: "Collapsible Columns",
+        tooltip: "No built-in support for collapsible columns",
       },
     ],
     handsontable: [
@@ -497,10 +550,25 @@ export const FEATURE_DEFINITIONS = {
         label: "Aggregation Functions",
         tooltip: "Built-in aggregation functions with pivot table capabilities",
       },
+      {
+        status: "success" as const,
+        label: "Column Selection",
+        tooltip: "Select entire columns and ranges",
+      },
+      {
+        status: "success" as const,
+        label: "Collapsible Columns",
+        tooltip: "Collapse and expand column groups",
+      },
     ],
   },
   rowFeatures: {
     simpleTable: [
+      {
+        status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Select single or multiple rows with checkboxes or clicks",
+      },
       {
         status: "success" as const,
         label: "Row Grouping",
@@ -511,7 +579,6 @@ export const FEATURE_DEFINITIONS = {
         label: "Adjustable Height",
         tooltip: "Adjust row height dynamically or set fixed heights",
       },
-
       {
         status: "success" as const,
         label: "Expansion",
@@ -519,6 +586,11 @@ export const FEATURE_DEFINITIONS = {
       },
     ],
     agGrid: [
+      {
+        status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Select single or multiple rows with checkboxes or clicks",
+      },
       {
         status: "warning" as const,
         label: "Row Grouping (Enterprise)",
@@ -531,16 +603,16 @@ export const FEATURE_DEFINITIONS = {
       },
       {
         status: "success" as const,
-        label: "Selection",
-        tooltip: "Select single or multiple rows with checkboxes or clicks",
-      },
-      {
-        status: "success" as const,
         label: "Expansion",
         tooltip: "Expand rows to show additional details or nested content",
       },
     ],
     tanstack: [
+      {
+        status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Available through API hooks, requires custom UI",
+      },
       {
         status: "success" as const,
         label: "Row Grouping",
@@ -551,7 +623,6 @@ export const FEATURE_DEFINITIONS = {
         label: "Adjustable Height",
         tooltip: "Requires custom implementation",
       },
-
       {
         status: "success" as const,
         label: "Row Expansion",
@@ -559,6 +630,11 @@ export const FEATURE_DEFINITIONS = {
       },
     ],
     antDesign: [
+      {
+        status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Built-in row selection with checkboxes",
+      },
       {
         status: "error" as const,
         label: "Row Grouping",
@@ -578,6 +654,11 @@ export const FEATURE_DEFINITIONS = {
     materialReact: [
       {
         status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Built-in row selection with checkboxes",
+      },
+      {
+        status: "success" as const,
         label: "Row Grouping",
         tooltip: "Built-in row grouping functionality",
       },
@@ -593,6 +674,11 @@ export const FEATURE_DEFINITIONS = {
       },
     ],
     handsontable: [
+      {
+        status: "success" as const,
+        label: "Row Selection",
+        tooltip: "Excel-like row selection",
+      },
       {
         status: "success" as const,
         label: "Row Grouping",
@@ -614,8 +700,18 @@ export const FEATURE_DEFINITIONS = {
     simpleTable: [
       {
         status: "success" as const,
-        label: "Editing",
+        label: "Cell Editing",
         tooltip: "Edit cell values inline with validation and formatting",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Highlighting",
+        tooltip: "Highlight cells and select cell ranges",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Clicking",
+        tooltip: "Handle cell click events with custom actions",
       },
       {
         status: "success" as const,
@@ -641,8 +737,18 @@ export const FEATURE_DEFINITIONS = {
     agGrid: [
       {
         status: "success" as const,
-        label: "Editing",
+        label: "Cell Editing",
         tooltip: "Edit cell values inline with validation and formatting",
+      },
+      {
+        status: "warning" as const,
+        label: "Cell Highlighting (Enterprise)",
+        tooltip: "Cell range selection and highlighting (Enterprise only)",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Clicking",
+        tooltip: "Handle cell click events",
       },
       {
         status: "success" as const,
@@ -666,7 +772,21 @@ export const FEATURE_DEFINITIONS = {
       },
     ],
     tanstack: [
-      { status: "error" as const, label: "Editing", tooltip: "Requires custom implementation" },
+      {
+        status: "error" as const,
+        label: "Cell Editing",
+        tooltip: "Requires custom implementation",
+      },
+      {
+        status: "error" as const,
+        label: "Cell Highlighting",
+        tooltip: "Requires custom implementation",
+      },
+      {
+        status: "error" as const,
+        label: "Cell Clicking",
+        tooltip: "Requires custom implementation",
+      },
       {
         status: "success" as const,
         label: "Custom Renderers",
@@ -683,8 +803,18 @@ export const FEATURE_DEFINITIONS = {
     antDesign: [
       {
         status: "success" as const,
-        label: "Editing",
+        label: "Cell Editing",
         tooltip: "Built-in editable cells with form validation",
+      },
+      {
+        status: "error" as const,
+        label: "Cell Highlighting",
+        tooltip: "No built-in cell highlighting support",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Clicking",
+        tooltip: "Handle cell click events through onCell prop",
       },
       {
         status: "success" as const,
@@ -706,8 +836,18 @@ export const FEATURE_DEFINITIONS = {
     materialReact: [
       {
         status: "success" as const,
-        label: "Editing",
+        label: "Cell Editing",
         tooltip: "Built-in cell editing capabilities",
+      },
+      {
+        status: "error" as const,
+        label: "Cell Highlighting",
+        tooltip: "No built-in cell highlighting support",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Clicking",
+        tooltip: "Handle cell click events",
       },
       { status: "success" as const, label: "Custom Renderers", tooltip: "Custom cell components" },
       {
@@ -721,8 +861,18 @@ export const FEATURE_DEFINITIONS = {
     handsontable: [
       {
         status: "success" as const,
-        label: "Editing",
+        label: "Cell Editing",
         tooltip: "Excel-like cell editing experience",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Highlighting",
+        tooltip: "Excel-like cell range selection and highlighting",
+      },
+      {
+        status: "success" as const,
+        label: "Cell Clicking",
+        tooltip: "Handle cell click events",
       },
       {
         status: "success" as const,
