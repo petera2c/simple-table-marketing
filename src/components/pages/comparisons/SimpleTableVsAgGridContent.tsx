@@ -134,7 +134,10 @@ const SimpleVsAgGrid = () => {
             "Community (free) / Enterprise ($999/license)",
             "Free community version or paid enterprise version at $999/license"
           )}
-          {FeatureTags.Error("Bundle size: 3 MB", "")}
+          {FeatureTags.Warning(
+            "Bundle size: ~600 kB (minified + gzipped)",
+            "Community version; Enterprise adds more"
+          )}
         </Space>
       ),
     },
@@ -280,13 +283,13 @@ const SimpleVsAgGrid = () => {
         Simple Table
       </Text>{" "}
       presents a compelling alternative for teams seeking enterprise-grade performance without
-      enterprise-grade pricing. At 197kB compared to AG Grid's 41MB (with Enterprise features),
-      Simple Table delivers blazing-fast performance with core data grid features that rival AG
-      Grid's Community edition—and surpass many of its Enterprise capabilities—all while remaining
+      enterprise-grade pricing. At 31 kB compared to AG Grid's ~600 kB (minified + gzipped), Simple
+      Table delivers blazing-fast performance with core data grid features that rival AG Grid's
+      Community edition—and surpass many of its Enterprise capabilities—all while remaining
       completely free. This comparison examines whether you can achieve your data grid goals without
-      the complexity, licensing costs, and massive bundle overhead that AG Grid Enterprise demands.
-      We'll break down the true cost of ownership and help you determine if Simple Table can deliver
-      the enterprise-level functionality your application needs.
+      the complexity, licensing costs, and bundle overhead that AG Grid Enterprise demands. We'll
+      break down the true cost of ownership and help you determine if Simple Table can deliver the
+      enterprise-level functionality your application needs.
     </>
   );
 
@@ -297,9 +300,9 @@ const SimpleVsAgGrid = () => {
           Simple Table
         </Text>{" "}
         is a lightweight, free alternative to AG Grid, offering essential features like
-        virtualization, infinite scroll, and column filters, with a smaller bundle size (16 kB).
-        It's ideal for projects needing a simple, performant data grid without the overhead of
-        enterprise features.
+        virtualization, infinite scroll, and column filters, with a smaller bundle size (31 kB
+        minified + gzipped). It's ideal for projects needing a simple, performant data grid without
+        the overhead of enterprise features.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -435,7 +438,7 @@ const SimpleVsAgGrid = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "AG Grid",
-        competitorSize: "3 MB (unpacked), 41 MB with Enterprise features",
+        competitorSize: "~600 kB (minified + gzipped)",
       }}
       summaryContent={summaryContent}
       faqSection={enterpriseROISection}

@@ -253,7 +253,10 @@ const SimpleTableVsHandsontableContent = () => {
             "Starts at $590/year for a single developer"
           )}
           {FeatureTags.Warning("Free for Non-Commercial", "Free for non-commercial use only")}
-          {FeatureTags.Error("21.3 MB (unpacked)", "20.8 MB main package + 505 kB React add-on")}
+          {FeatureTags.Warning(
+            "~600 kB (minified + gzipped)",
+            "Larger bundle with all spreadsheet features"
+          )}
         </Space>
       ),
     },
@@ -273,10 +276,10 @@ const SimpleTableVsHandsontableContent = () => {
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      presents an interesting alternative. At just 16 kB, Simple Table offers core spreadsheet-like
-      functionality without the commercial licensing requirements or massive bundle size. This
-      comparison explores whether Simple Table can meet your spreadsheet needs without the
-      enterprise complexity and cost of Handsontable.
+      presents an interesting alternative. At just 31 kB (minified + gzipped), Simple Table offers
+      core spreadsheet-like functionality without the commercial licensing requirements or massive
+      bundle size. This comparison explores whether Simple Table can meet your spreadsheet needs
+      without the enterprise complexity and cost of Handsontable.
     </>
   );
 
@@ -310,7 +313,7 @@ const SimpleTableVsHandsontableContent = () => {
           • Need cell editing and basic spreadsheet interactions
         </Text>
         <Text className="text-base mb-2 block text-inherit">
-          • Want to keep bundle size minimal (21MB vs 197KB difference)
+          • Want to keep bundle size minimal (~600 kB vs 31 kB difference)
         </Text>
         <Text className="text-base mb-4 block text-inherit">
           • Prefer open-source solutions without licensing restrictions
@@ -361,7 +364,7 @@ const SimpleTableVsHandsontableContent = () => {
           </Text>
           <Text className="text-base text-gray-700 dark:text-gray-300">
             Yes, Simple Table's virtualization can handle millions of rows efficiently, often with
-            better performance than Handsontable due to its lighter architecture. The 31kb bundle
+            better performance than Handsontable due to its lighter architecture. The 31 kB bundle
             size doesn't compromise on data handling capabilities.
           </Text>
         </div>
@@ -410,7 +413,7 @@ const SimpleTableVsHandsontableContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Handsontable",
-        competitorSize: "21.3 MB (unpacked)",
+        competitorSize: "~600 kB (minified + gzipped)",
       }}
       summaryContent={summaryContent}
       faqSection={faqSection}

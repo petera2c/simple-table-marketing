@@ -255,7 +255,10 @@ const SimpleTableVsAntDesignContent = () => {
       antDesign: (
         <Space direction="vertical">
           {FeatureTags.Success("MIT License", "Free to use with MIT license")}
-          {FeatureTags.Error("48.3 MB (unpacked)", "Entire Ant Design component library required")}
+          {FeatureTags.Warning(
+            "~250 kB (minified + gzipped)",
+            "Entire Ant Design component library required"
+          )}
         </Space>
       ),
     },
@@ -266,9 +269,9 @@ const SimpleTableVsAntDesignContent = () => {
       When you choose Ant Design for your React project, you're making a commitment to an entire
       design system—not just individual components. This comprehensive approach brings consistency
       and polished UI elements, but it also means that adding a simple table component requires
-      pulling in the entire Ant Design ecosystem (48.3 MB unpacked). For many teams, this raises a
-      critical question: is the visual consistency worth the massive bundle size impact, especially
-      when the table component itself lacks many advanced data grid features?{" "}
+      pulling in the entire Ant Design ecosystem (~250 kB minified + gzipped). For many teams, this
+      raises a critical question: is the visual consistency worth the massive bundle size impact,
+      especially when the table component itself lacks many advanced data grid features?{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
@@ -291,8 +294,8 @@ const SimpleTableVsAntDesignContent = () => {
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
         overhead. It's ideal for projects that need a performant table component without the weight
-        of a full UI framework. With its 16 kB bundle size, it offers a great balance of features
-        and performance.
+        of a full UI framework. With its 31 kB (minified + gzipped) bundle size, it offers a great
+        balance of features and performance.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -360,10 +363,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.12 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  25.8 seconds
+                  1.3 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +25.7s slower
+                  +1.2s slower
                 </td>
               </tr>
               <tr className="bg-gray-50 dark:bg-gray-800">
@@ -374,10 +377,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.008 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  1.5 seconds
+                  0.08 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +1.5s slower
+                  +0.07s slower
                 </td>
               </tr>
               <tr>
@@ -388,10 +391,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.002 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  0.39 seconds
+                  0.02 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +0.39s slower
+                  +0.02s slower
                 </td>
               </tr>
             </tbody>
@@ -406,13 +409,13 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>48.3 MB</strong> total bundle size
+              • <strong>~250 kB</strong> total bundle size
             </li>
             <li>
               • <strong>$2,400+/year</strong> extra CDN costs
             </li>
             <li>
-              • <strong>25.7 seconds</strong> extra load time on 3G
+              • <strong>1.2 seconds</strong> extra load time on 3G
             </li>
             <li>
               • <strong>Higher bounce rate</strong> due to slow loads
@@ -461,7 +464,7 @@ const SimpleTableVsAntDesignContent = () => {
           You can style Simple Table to match Ant Design's visual language using CSS variables,
           getting the best of both worlds: Ant Design's design consistency for your forms and
           layouts, plus Simple Table's performance and advanced features for data grids. This hybrid
-          approach can reduce your bundle size by up to 40MB while improving functionality.
+          approach can reduce your bundle size by ~220 kB while improving functionality.
         </Text>
       </div>
     </>
@@ -475,7 +478,7 @@ const SimpleTableVsAntDesignContent = () => {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Ant Design Table",
-        competitorSize: "48.3 MB (unpacked)",
+        competitorSize: "~250 kB (minified + gzipped)",
       }}
       summaryContent={summaryContent}
       faqSection={bundleImpactAnalysis}

@@ -258,7 +258,7 @@ const SimpleTableVsMaterialReactContent = () => {
         <Space direction="vertical">
           {FeatureTags.Success("MIT License", "Free to use with MIT license")}
           {FeatureTags.Warning(
-            "5.56 MB (unpacked)",
+            "~150 kB (minified + gzipped)",
             "Larger bundle size due to Material-UI dependencies"
           )}
         </Space>
@@ -297,8 +297,8 @@ const SimpleTableVsMaterialReactContent = () => {
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
         overhead. It's ideal for projects that need a performant table component without the weight
-        of a full UI framework. With its 16 kB bundle size, it offers a great balance of features
-        and performance.
+        of a full UI framework. With its 31 kB (minified + gzipped) bundle size, it offers a great
+        balance of features and performance.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -473,7 +473,7 @@ function MyDataGrid() {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "Material-UI Table",
-        competitorSize: "5.56 MB (unpacked)",
+        competitorSize: "~150 kB (minified + gzipped)",
       }}
       summaryContent={summaryContent}
       faqSection={materialDesignIntegration}

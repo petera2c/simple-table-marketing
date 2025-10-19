@@ -260,7 +260,7 @@ const SimpleTableVsTanstackContent = () => {
       tanstack: (
         <Space direction="vertical">
           {FeatureTags.Success("Free (MIT License)", "Open-source with MIT license")}
-          {FeatureTags.Success("300 kB (unpacked)", "Core package is lightweight")}
+          {FeatureTags.Success("~50 kB (minified + gzipped)", "Core package is lightweight")}
           {FeatureTags.Warning("Additional Size for UI", "Your custom UI adds to bundle size")}
         </Space>
       ),
@@ -317,9 +317,9 @@ const SimpleTableVsTanstackContent = () => {
         </Text>{" "}
         provides a complete solution with pre-built UI components, ready to use out of the box. It's
         ideal for projects that need a functional data grid quickly without building UI components
-        from scratch. With a small bundle size (16 kB) and comprehensive features, it's great for
-        most table needs where you want to focus on your application logic rather than building UI
-        components.
+        from scratch. With a small bundle size (31 kB minified + gzipped) and comprehensive
+        features, it's great for most table needs where you want to focus on your application logic
+        rather than building UI components.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -437,7 +437,7 @@ function MyApp() {
       featureTable={{ columns, data }}
       performanceMetrics={{
         competitor: "TanStack Table",
-        competitorSize: "300 kB (unpacked) + custom UI",
+        competitorSize: "~50 kB (minified + gzipped) + custom UI",
       }}
       summaryContent={summaryContent}
       faqSection={codeComparisonSection}
