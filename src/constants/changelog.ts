@@ -11,9 +11,34 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_5_0: ChangelogEntry = {
+  version: "1.5.0",
+  date: "2025-10-19",
+  title: "Mobile-First Column Pinning",
+  description:
+    "Enhanced mobile experience with intelligent column pinning behavior. Pinned columns now have limited width on mobile devices and support horizontal scrolling for improved usability.",
+  changes: [
+    {
+      type: "feature",
+      description: "Pinned columns have limited width on mobile devices for better mobile UX",
+      link: "/docs/column-pinning",
+    },
+    {
+      type: "feature",
+      description: "Pinned columns can now scroll horizontally on mobile devices",
+      link: "/docs/column-pinning",
+    },
+    {
+      type: "improvement",
+      description: "Enhanced touch target sizes for better mobile interaction",
+      link: "/blog/mobile-compatibility-react-tables",
+    },
+  ],
+};
+
 export const v1_4_7: ChangelogEntry = {
   version: "1.4.7",
-  date: "2025-10-20",
+  date: "2025-10-18",
   title: "Theme Color Improvements",
   description:
     "Enhanced theme color system with improved contrast, readability, and visual consistency across all built-in themes.",
@@ -68,7 +93,7 @@ export const v1_4_4: ChangelogEntry = {
 };
 
 // Array of all changelog entries (newest first)
-export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_4_7, v1_4_6, v1_4_4];
+export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_0, v1_4_7, v1_4_6, v1_4_4];
 
 // Helper function to get changelog entry by version
 export const getChangelogByVersion = (version: string): ChangelogEntry | undefined => {

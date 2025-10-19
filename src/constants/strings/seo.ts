@@ -6,6 +6,7 @@ import {
   nestedHeadersReactTablesPost,
   bestFreeReactDataGridPost,
   customizingReactTableLookPost,
+  mobileCompatibilityReactTablesPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -40,6 +41,23 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    mobileCompatibilityReactTables: {
+      title: mobileCompatibilityReactTablesPost.title,
+      description: mobileCompatibilityReactTablesPost.description,
+      keywords: [
+        "mobile react table",
+        "responsive data grid",
+        "mobile-first table",
+        "touch-friendly table",
+        "mobile compatibility",
+        "react table mobile",
+        "responsive react grid",
+        "mobile data grid",
+        "touch interactions",
+        "mobile UX",
+        "pinned columns mobile",
+      ],
+    },
     bestReactTableLibraries2025: {
       title: bestReactTableLibraries2025Post.title,
       description: bestReactTableLibraries2025Post.description,
