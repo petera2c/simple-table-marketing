@@ -52,7 +52,7 @@ const CSVExportContent = () => {
         <div className="p-2 bg-green-100 rounded-lg">
           <FontAwesomeIcon icon={faDownload} className="text-green-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">CSV Export</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">CSV Export (beta)</h1>
       </motion.div>
 
       {/* Demo Section */}
