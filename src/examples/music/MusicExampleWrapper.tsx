@@ -25,7 +25,7 @@ const MusicExampleWrapper = ({ height, theme }: MusicExampleWrapperProps) => {
       <LivePreview
         demoCodeFilename="MusicExample.txt"
         height={`${containerHeight}px`}
-        link={SANDBOX_LIST["examples/music/MusicExample.tsx"]?.url || "#"}
+        link={SANDBOX_LIST["examples/music/MusicExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
             <MusicExample height={height ? height : `${containerHeight}px`} theme={theme} />

@@ -11,6 +11,26 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_4_7: ChangelogEntry = {
+  version: "1.4.7",
+  date: "2025-10-20",
+  title: "Theme Color Improvements",
+  description:
+    "Enhanced theme color system with improved contrast, readability, and visual consistency across all built-in themes.",
+  changes: [
+    {
+      type: "improvement",
+      description: "Improved color contrast and readability across all themes",
+      link: "/docs/themes",
+    },
+    {
+      type: "improvement",
+      description: "Enhanced styling flags for better visual customization",
+      link: "/docs/themes",
+    },
+  ],
+};
+
 export const v1_4_6: ChangelogEntry = {
   version: "1.4.6",
   date: "2025-10-19",
@@ -48,7 +68,7 @@ export const v1_4_4: ChangelogEntry = {
 };
 
 // Array of all changelog entries (newest first)
-export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_4_6, v1_4_4];
+export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_4_7, v1_4_6, v1_4_4];
 
 // Helper function to get changelog entry by version
 export const getChangelogByVersion = (version: string): ChangelogEntry | undefined => {
