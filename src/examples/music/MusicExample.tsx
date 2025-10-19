@@ -606,7 +606,7 @@ export default function MusicExample({
   }
 
   return (
-    <div className="music-theme-container">
+    <div className="music-theme-container" style={{ fontFamily: "Inter" }}>
       <SimpleTable
         columnReordering
         columnResizing

@@ -1,5 +1,5 @@
 import { Analytics } from "../components/Analytics";
-import { Nunito } from "next/font/google";
+import { Nunito, Montserrat, Inter } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
@@ -12,6 +12,16 @@ config.autoAddCss = false;
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
+});
+
+const montserrat = Montserrat({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
