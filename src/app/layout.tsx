@@ -1,5 +1,5 @@
 import { Analytics } from "../components/Analytics";
-import { Nunito, Montserrat, Inter } from "next/font/google";
+import { Nunito, Inter } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
@@ -12,11 +12,6 @@ config.autoAddCss = false;
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
-});
-
-const montserrat = Montserrat({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 const inter = Inter({
@@ -101,7 +96,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web Browser",
     description:
-      "A 16 kB React data grid and table library with TypeScript support, built-in themes, and comprehensive features for building responsive datagrids. Free for pre-revenue and bootstrapped projects.",
+      "A 31 kb React data grid and table library with TypeScript support, built-in themes, and comprehensive features for building responsive datagrids. Free for pre-revenue and bootstrapped projects.",
     url: "https://www.simple-table.com",
     downloadUrl: "https://www.npmjs.com/package/simple-table-core",
     softwareVersion: "Latest",
@@ -168,25 +163,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className={nunito.className}>
         <ClientLayout>{children}</ClientLayout>
         <Analytics />
-
-        {/* Tawk.to Live Chat */}
-        <Script
-          id="tawk-to-script"
-          strategy="lazyOnload"
-          dangerouslySetInnerHTML={{
-            __html: `
-                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-              (function(){
-                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-                s1.async=true;
-                s1.src='https://embed.tawk.to/68f0897ad3ffaa194d3489c8/1j7lpi271';
-                s1.charset='UTF-8';
-                s1.setAttribute('crossorigin','*');
-                s0.parentNode.insertBefore(s1,s0);
-              })();
-            `,
-          }}
-        />
       </body>
     </html>
   );

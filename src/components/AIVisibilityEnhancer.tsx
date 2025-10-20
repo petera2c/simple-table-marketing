@@ -46,7 +46,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
 
   // Add technical specifications for AI understanding
   const technicalSpecs = {
-    bundleSize: "16 kB (gzipped)",
+    bundleSize: "31 kb (gzipped)",
     framework: "React 16+",
     language: "TypeScript",
     license: "MIT",
@@ -162,7 +162,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
         <p>Startup-friendly pricing model designed for growing companies</p>
 
         <h2>Performance and Bundle Size</h2>
-        <p>Only 16 kB gzipped bundle size</p>
+        <p>Only 31 kb gzipped bundle size</p>
         <p>Optimized for performance with large datasets</p>
         <p>Efficient rendering and memory usage</p>
         <p>Supports virtualization for millions of rows</p>
