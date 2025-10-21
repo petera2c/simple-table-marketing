@@ -20,15 +20,9 @@ import {
   faBolt,
   faFileCode,
   faCheck,
-  faFilter,
-  faSort,
   faTableCells,
   faPuzzlePiece,
   faCheckSquare,
-  faMousePointer,
-  faHandPointer,
-  faCopy,
-  faCalculator,
   faInfinity,
   faPager,
   faDownload,
@@ -44,7 +38,6 @@ import {
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
-import { UI_STRINGS } from "@/constants/strings/ui";
 import { useIsMobile } from "@/hooks/useIsMobile";
 import React, { Suspense } from "react";
 import InfrastructureExample from "@/examples/infrastructure/InfrastructureExample";
