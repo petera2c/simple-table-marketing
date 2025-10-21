@@ -2,8 +2,9 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRocket, faExclamationTriangle } from "@fortawesome/free-solid-svg-icons";
+import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import QuickStartDemo from "@/components/demos/QuickStartDemo";
+import PageWrapper from "@/components/PageWrapper";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { UI_STRINGS } from "@/constants/strings/ui";
@@ -102,7 +103,7 @@ rowHeight={48}  // Larger rows`,
 
 const QuickStartContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -191,7 +192,7 @@ const QuickStartContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

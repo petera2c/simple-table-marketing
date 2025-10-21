@@ -7,6 +7,7 @@ import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { HEADER_HEIGHT } from "@/constants/global";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import useHashNavigation from "@/hooks/useHashNavigation";
+import PageWrapper from "@/components/PageWrapper";
 
 // Union type definitions
 const UNION_TYPE_DEFINITIONS: PropInfo[] = [
@@ -1129,7 +1130,7 @@ const ApiReferenceContent = () => {
   useHashNavigation();
 
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -1260,7 +1261,7 @@ const ApiReferenceContent = () => {
       </div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

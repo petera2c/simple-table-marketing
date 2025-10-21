@@ -3,8 +3,8 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfinity } from "@fortawesome/free-solid-svg-icons";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
@@ -47,7 +47,7 @@ const INFINITE_SCROLL_PROPS: PropInfo[] = [
 
 const InfiniteScrollContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -171,7 +171,7 @@ const InfiniteScrollContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

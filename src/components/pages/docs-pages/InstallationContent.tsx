@@ -4,12 +4,13 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import CodeBlock from "@/components/CodeBlock";
+import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 
 const InstallationContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -60,7 +61,7 @@ const InstallationContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

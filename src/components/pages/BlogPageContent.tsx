@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { SearchOutlined, CalendarOutlined, TagOutlined } from "@ant-design/icons";
 import Link from "next/link";
 import { BLOG_POSTS, searchBlogPosts, BlogPostMetadata } from "@/constants/blogPosts";
+import PageWrapper from "@/components/PageWrapper";
 
 function BlogCard({ post }: { post: BlogPostMetadata }) {
   return (
@@ -72,7 +73,7 @@ export default function BlogPageContent() {
   };
 
   return (
-    <>
+    <PageWrapper>
       {/* Header */}
       <header className="text-center mb-12">
         <h1 className="text-gray-900 dark:text-gray-100 mb-4 text-4xl font-bold">
@@ -145,6 +146,6 @@ export default function BlogPageContent() {
           ))}
         </div>
       </div>
-    </>
+    </PageWrapper>
   );
 }

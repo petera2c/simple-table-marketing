@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
 import ThemesDemo from "@/components/demos/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ThemeSelector from "@/components/ThemeSelector";
@@ -76,7 +77,7 @@ export default function ThemesContent() {
   }, [theme]);
 
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -210,6 +211,6 @@ export default function MyTable() {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 }

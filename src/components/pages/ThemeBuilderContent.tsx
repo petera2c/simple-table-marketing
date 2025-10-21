@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "antd";
+import PageWrapper from "@/components/PageWrapper";
 import type { Color } from "antd/es/color-picker";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -529,20 +530,26 @@ export default function ThemeBuilderContent() {
 
   // If on mobile, return the unsupported page
   if (isMobile) {
-    return <MobileUnsupportedPage featureName="Theme Builder" />;
+    return (
+      <PageWrapper>
+        <MobileUnsupportedPage featureName="Theme Builder" />
+      </PageWrapper>
+    );
   }
 
   return (
-    <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
-      <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
-        {UI_STRINGS.themeBuilder.sections.livePreview}
-      </h1>
-      <SalesExample
-        onGridReady={() => {
-          setThemeToDocument(theme);
-        }}
-      />
-    </PageLayout>
+    <PageWrapper>
+      <PageLayout sidebar={<ConfigurableSidebar config={sidebarConfig} />}>
+        <h1 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+          {UI_STRINGS.themeBuilder.sections.livePreview}
+        </h1>
+        <SalesExample
+          onGridReady={() => {
+            setThemeToDocument(theme);
+          }}
+        />
+      </PageLayout>
+    </PageWrapper>
   );
 }
 

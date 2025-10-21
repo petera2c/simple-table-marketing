@@ -2,13 +2,13 @@
 
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPaintBrush, faSort } from "@fortawesome/free-solid-svg-icons";
+import { faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 import HeaderRendererDemo from "@/components/demos/HeaderRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
 
 const HEADER_RENDERER_PROPS: PropInfo[] = [
   {
@@ -80,7 +80,7 @@ const HEADER_RENDERER_PARAMS_PROPS: PropInfo[] = [
 
 const HeaderRendererContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -168,7 +168,7 @@ const HeaderRendererContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

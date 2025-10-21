@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import RowGroupingDemo from "@/components/demos/RowGroupingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import CodeBlock from "@/components/CodeBlock";
@@ -62,7 +63,7 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
 const RowGroupingContent = () => {
   const [expandAll, setExpandAll] = useState(true);
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -284,7 +285,7 @@ const RowGroupingContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CellRendererDemo from "@/components/demos/CellRendererDemo";
+import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
@@ -75,7 +76,7 @@ const CELL_RENDERER_PARAMS_PROPS: PropInfo[] = [
 
 const CellRendererContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -277,7 +278,7 @@ type CellValue = string | number | boolean | undefined | null | string[] | numbe
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

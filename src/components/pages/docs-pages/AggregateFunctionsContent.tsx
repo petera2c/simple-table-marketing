@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import AggregateFunctionsDemo from "@/components/demos/AggregateFunctionsDemo";
+import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -75,7 +76,7 @@ const AGGREGATION_SETUP_PROPS: PropInfo[] = [
 
 const AggregateFunctionsContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -279,7 +280,7 @@ const AggregateFunctionsContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

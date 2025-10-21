@@ -5,6 +5,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ColumnFilteringDemo from "@/components/demos/ColumnFilteringDemo";
 import ExternalFilterDemo from "@/components/demos/ExternalFilterDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
@@ -104,7 +105,7 @@ const EXTERNAL_FILTERING_PROPS: PropInfo[] = [
 
 const ColumnFilteringContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -245,7 +246,7 @@ const ColumnFilteringContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

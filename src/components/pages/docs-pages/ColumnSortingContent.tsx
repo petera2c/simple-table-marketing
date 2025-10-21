@@ -6,6 +6,7 @@ import { faSort } from "@fortawesome/free-solid-svg-icons";
 import ColumnSortingDemo from "@/components/demos/ColumnSortingDemo";
 import ExternalSortDemo from "@/components/demos/ExternalSortDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
@@ -55,7 +56,7 @@ const EXTERNAL_SORTING_PROPS: PropInfo[] = [
 
 const ColumnSortingContent = () => {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -173,7 +174,7 @@ const ColumnSortingContent = () => {
       </motion.div>
 
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 };
 

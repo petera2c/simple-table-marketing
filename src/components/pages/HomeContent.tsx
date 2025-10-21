@@ -2,6 +2,7 @@
 
 import { Button } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PageWrapper from "@/components/PageWrapper";
 import {
   faTable,
   faColumns,
@@ -152,7 +153,7 @@ export default function HomeContent() {
   };
 
   return (
-    <>
+    <PageWrapper>
       <AIVisibilityEnhancer pageType="home" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[10dvh]">
         {/* Hero section */}
@@ -1200,6 +1201,6 @@ export default function HomeContent() {
           </div>
         </motion.section>
       </div>
-    </>
+    </PageWrapper>
   );
 }

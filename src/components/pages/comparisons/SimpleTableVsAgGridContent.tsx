@@ -1,14 +1,14 @@
 "use client";
 import React from "react";
 import { Typography, Space, Card } from "antd";
-import ComparisonLayout from "./ComparisonLayout";
+import ComparisonLayout from "../../ComparisonLayout";
 import {
   FeatureIcons,
   FeatureStatus,
   FeatureTags,
   renderFeatures,
   simplePricing,
-} from "./CommonFeatures";
+} from "../../CommonFeatures";
 
 const { Text, Title } = Typography;
 

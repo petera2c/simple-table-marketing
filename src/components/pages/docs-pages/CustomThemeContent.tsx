@@ -6,6 +6,7 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CustomThemeDemo from "@/components/demos/custom-theme/CustomThemeDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
+import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
@@ -36,7 +37,7 @@ const CUSTOM_THEME_PROPS: PropInfo[] = [
 
 export default function CustomThemeContent() {
   return (
-    <>
+    <PageWrapper>
       <motion.div
         className="flex items-center gap-3 mb-6"
         initial={{ opacity: 0, x: -20 }}
@@ -158,6 +159,6 @@ export default function CustomThemeContent() {
         <CodeBlock className="mb-0" demoCodeFilename="custom-theme/CustomTheme.txt" />
       </motion.div>
       <DocNavigationButtons />
-    </>
+    </PageWrapper>
   );
 }

@@ -3,11 +3,11 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const useScrollRestoration = (scrollRef: React.RefObject<HTMLDivElement>) => {
+const useScrollRestoration = () => {
   const pathname = usePathname();
 
   useEffect(() => {
-    scrollRef.current?.scrollTo(0, 0);
+    document.getElementById("main-scroll-container")?.scrollTo(0, 0);
   }, [pathname]);
 };
 

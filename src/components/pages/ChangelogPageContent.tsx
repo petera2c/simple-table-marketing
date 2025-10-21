@@ -3,6 +3,7 @@
 import React from "react";
 import Link from "next/link";
 import { CHANGELOG_ENTRIES, ChangelogEntry } from "@/constants/changelog";
+import PageWrapper from "@/components/PageWrapper";
 
 function ChangeItem({ change }: { change: ChangelogEntry["changes"][0] }) {
   const emoji = {
@@ -68,7 +69,7 @@ function VersionCard({ entry }: { entry: ChangelogEntry }) {
 
 export default function ChangelogPageContent() {
   return (
-    <>
+    <PageWrapper>
       {/* Header */}
       <header className="mb-12">
         <h1 className="text-gray-900 dark:text-gray-100 mb-3 text-3xl font-bold">Changelog</h1>
@@ -108,6 +109,6 @@ export default function ChangelogPageContent() {
           </a>
         </div>
       </div>
-    </>
+    </PageWrapper>
   );
 }
