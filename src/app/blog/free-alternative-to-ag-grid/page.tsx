@@ -15,11 +15,18 @@ export const metadata: Metadata = {
     title: SEO_STRINGS.blogPosts.freeAlternativeToAgGrid.title,
     description: SEO_STRINGS.blogPosts.freeAlternativeToAgGrid.description,
     type: "article",
+    images: [SEO_STRINGS.site.ogImage],
+    siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
     title: SEO_STRINGS.blogPosts.freeAlternativeToAgGrid.title,
     description: SEO_STRINGS.blogPosts.freeAlternativeToAgGrid.description,
+    creator: SEO_STRINGS.site.creator,
+    images: SEO_STRINGS.site.ogImage.url,
+  },
+  alternates: {
+    canonical: "/blog/free-alternative-to-ag-grid",
   },
 };
 
@@ -148,7 +155,7 @@ export default function FreeAlternativeToAgGridPage() {
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 So, I decided to build my own solution:{" "}
                 <span className="font-bold text-blue-600 dark:text-blue-400">Simple Table</span>, a
-                lightweight (16 kB) React data grid that's free for everyone.
+                lightweight (31 kb) React data grid that's free for everyone.
               </p>
 
               <p className="mb-2 text-gray-700 dark:text-gray-300">
@@ -176,7 +183,7 @@ export default function FreeAlternativeToAgGridPage() {
                   </span>
                 </div>
                 <p className="text-green-700 dark:text-green-300">
-                  At just 16 kB and completely free, Simple Table is designed to be accessible for
+                  At just 31 kb and completely free, Simple Table is designed to be accessible for
                   developers like me who can't afford pricey Enterprise licenses.
                 </p>
               </div>

@@ -20,6 +20,8 @@ export const metadata: Metadata = {
       SEO_STRINGS.blogPosts.customizingReactTableLook?.description ||
       customizingReactTableLookPost.description,
     type: "article",
+    images: [SEO_STRINGS.site.ogImage],
+    siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
@@ -28,6 +30,11 @@ export const metadata: Metadata = {
     description:
       SEO_STRINGS.blogPosts.customizingReactTableLook?.description ||
       customizingReactTableLookPost.description,
+    creator: SEO_STRINGS.site.creator,
+    images: SEO_STRINGS.site.ogImage.url,
+  },
+  alternates: {
+    canonical: "/blog/customizing-react-table-look-simple-table-themes",
   },
 };
 

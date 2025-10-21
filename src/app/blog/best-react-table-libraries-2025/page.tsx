@@ -44,11 +44,18 @@ export const metadata: Metadata = {
     title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
     description: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.description,
     type: "article",
+    images: [SEO_STRINGS.site.ogImage],
+    siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
     title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
     description: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.description,
+    creator: SEO_STRINGS.site.creator,
+    images: SEO_STRINGS.site.ogImage.url,
+  },
+  alternates: {
+    canonical: "/blog/best-react-table-libraries-2025",
   },
 };
 
