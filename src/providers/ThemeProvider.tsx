@@ -52,7 +52,11 @@ export const useThemeContext = (): ThemeContextType => {
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   const { theme, toggleTheme } = useThemeImplementation();
 
-  if (!theme) return null;
-
-  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>;
+  // Do not return anything other than children in this component.
+  // If you do, it will break SEO metadata because all metadata will be added to js scripts instead of html tags.
+  return (
+    <ThemeContext.Provider value={{ theme: theme || "dark", toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
 };

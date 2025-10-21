@@ -1,3 +1,4 @@
+// Do not f***ing add a use client to this file. It will break SEO metadata
 import { Analytics } from "../components/Analytics";
 import { Nunito, Inter } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";

@@ -1,3 +1,7 @@
+// Do not f***ing add a use client to this file. It will break SEO metadata
+// The <main className="flex-grow">{children}</main> can not have any parent that is a client component.
+// If you need to use a client component, use a wrapper component like PageWrapper
+
 import Header from "./Header";
 import Footer from "./Footer";
 import "../app/global.css";
