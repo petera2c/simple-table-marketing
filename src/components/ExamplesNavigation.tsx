@@ -10,6 +10,7 @@ import {
   faFileInvoiceDollar,
   faServer,
   faMusic,
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
@@ -55,6 +56,12 @@ const examples = [
     path: "/examples/music",
     icon: faMusic,
   },
+  {
+    id: "leads",
+    label: "Leads",
+    path: "/examples/leads",
+    icon: faUserTie,
+  },
 ];
 
 // Title mapping for each example
@@ -65,6 +72,7 @@ const exampleTitles = {
   billing: "Revenue Recognition",
   sales: "Sales Pipeline",
   music: "Music Artist Analytics",
+  leads: "CRM Leads Management",
 };
 
 // Row count options
@@ -112,7 +120,7 @@ function ExamplesNavigationContent() {
           {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
         </h1>
         <div className="flex items-center gap-2 flex-wrap">
-          {currentExample.id !== "music" && (
+          {currentExample.id !== "music" && currentExample.id !== "leads" && (
             <Select
               placeholder="Select row count"
               style={{ width: 150 }}

@@ -380,6 +380,13 @@ export const SEO_STRINGS = {
       keywords:
         "simple-table, react-table, react-grid, data-grid, datagrid, data table, music analytics, artist dashboard, spotify analytics, music metrics, responsive table",
     },
+    leads: {
+      title: "CRM Leads Management with Simple Table",
+      description:
+        "Build a CRM leads management dashboard with Simple Table in React. A react-table for tracking contacts, signals, AI scoring, and lead status using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, crm table, leads management, sales leads, contact management, responsive table",
+    },
   },
   liveUpdates: {
     title: "Live Updates in Simple Table React Grid",
