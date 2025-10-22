@@ -3,12 +3,14 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const useScrollRestoration = () => {
+const useScrollRestoration = (disableScrollRestoration?: boolean) => {
   const pathname = usePathname();
 
   useEffect(() => {
-    document.getElementById("main-scroll-container")?.scrollTo(0, 0);
-  }, [pathname]);
+    if (!disableScrollRestoration) {
+      document.getElementById("main-scroll-container")?.scrollTo(0, 0);
+    }
+  }, [disableScrollRestoration, pathname]);
 };
 
 export default useScrollRestoration;

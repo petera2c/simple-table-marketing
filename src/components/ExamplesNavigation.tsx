@@ -15,6 +15,7 @@ import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
 import { Suspense } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import PageWrapper from "./PageWrapper";
 
 // Define example navigation items
 const examples = [
@@ -105,44 +106,46 @@ function ExamplesNavigationContent() {
   };
 
   return (
-    <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-      <h1 className="text-xl font-semibold">
-        {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
-      </h1>
-      <div className="flex items-center gap-2 flex-wrap">
-        {currentExample.id !== "music" && (
+    <PageWrapper disableScrollRestoration>
+      <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <h1 className="text-xl font-semibold">
+          {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
+        </h1>
+        <div className="flex items-center gap-2 flex-wrap">
+          {currentExample.id !== "music" && (
+            <Select
+              placeholder="Select row count"
+              style={{ width: 150 }}
+              onChange={handleRowCountChange}
+              value={currentRowCount}
+              options={rowCountOptions}
+            />
+          )}
           <Select
-            placeholder="Select row count"
-            style={{ width: 150 }}
-            onChange={handleRowCountChange}
-            value={currentRowCount}
-            options={rowCountOptions}
+            placeholder="Select an example"
+            style={{ width: 200 }}
+            onChange={(value) => {
+              const example = examples.find((e) => e.id === value);
+              if (example) {
+                handleLinkClick(example.path);
+              }
+            }}
+            value={currentExample.id}
+            options={examples.map((example) => ({
+              value: example.id,
+              label: (
+                <div className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={example.icon} />
+                  {example.label}
+                </div>
+              ),
+            }))}
           />
-        )}
-        <Select
-          placeholder="Select an example"
-          style={{ width: 200 }}
-          onChange={(value) => {
-            const example = examples.find((e) => e.id === value);
-            if (example) {
-              handleLinkClick(example.path);
-            }
-          }}
-          value={currentExample.id}
-          options={examples.map((example) => ({
-            value: example.id,
-            label: (
-              <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={example.icon} />
-                {example.label}
-              </div>
-            ),
-          }))}
-        />
 
-        <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
+          <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

@@ -13,7 +13,7 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 // Private hook for internal use only - not exported
 const useThemeImplementation = () => {
-  const [theme, setTheme] = useState<Theme>();
+  const [theme, setTheme] = useState<Theme>("dark");
 
   // Initialize theme from localStorage on component mount
   useEffect(() => {
@@ -55,8 +55,6 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
   // Do not return anything other than children in this component.
   // If you do, it will break SEO metadata because all metadata will be added to js scripts instead of html tags.
   return (
-    <ThemeContext.Provider value={{ theme: theme || "dark", toggleTheme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme: theme, toggleTheme }}>{children}</ThemeContext.Provider>
   );
 };
