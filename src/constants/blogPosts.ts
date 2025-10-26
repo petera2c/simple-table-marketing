@@ -13,7 +13,7 @@ export const freeAlternativeToAgGridPost: BlogPostMetadata = {
   description:
     "Discover why I created Simple Table—a lightweight React data grid—as a free alternative to AG Grid, TanStack, and Handsontable, and how it solves common developer pain points.",
   slug: "free-alternative-to-ag-grid",
-  tags: ["react", "data-grid", "ag-grid-alternative", "free-table"],
+  tags: ["react", "alternatives", "comparison"],
   createdAt: "2025-06-01",
   updatedAt: "2025-06-01",
 };
@@ -23,7 +23,7 @@ export const handlingOneMillionRowsPost: BlogPostMetadata = {
   description:
     "Discover how Simple Table efficiently handles massive datasets while maintaining exceptional performance and responsiveness in your React applications.",
   slug: "handling-one-million-rows",
-  tags: ["performance", "large-datasets", "react", "data-grid"],
+  tags: ["react", "performance", "tutorials"],
   createdAt: "2025-05-08",
   updatedAt: "2025-05-08",
 };
@@ -33,7 +33,7 @@ export const customizingDataGridsStylingEasyPost: BlogPostMetadata = {
   description:
     "Learn how Simple Table solves styling struggles and makes it easy to create a data grid that fits your app perfectly with CSS variables and customizable themes.",
   slug: "customizing-data-grids-styling-easy",
-  tags: ["react", "styling", "css", "themes"],
+  tags: ["react", "customization", "tutorials"],
   createdAt: "2025-06-01",
   updatedAt: "2025-06-01",
 };
@@ -43,7 +43,7 @@ export const nestedHeadersReactTablesPost: BlogPostMetadata = {
   description:
     "Learn how to create hierarchical column structures with nested headers in React using Simple Table, making complex data organization intuitive and accessible.",
   slug: "nested-headers-react-tables",
-  tags: ["react", "nested-headers", "complex-tables", "data-organization"],
+  tags: ["react", "features", "tutorials"],
   createdAt: "2025-06-01",
   updatedAt: "2025-06-01",
 };
@@ -53,7 +53,7 @@ export const bestFreeReactDataGridPost: BlogPostMetadata = {
   description:
     "Discover why Simple Table is the best free React data grid in 2025. Compare features, performance, and ease of use against popular alternatives like AG Grid, TanStack Table, and Material-UI.",
   slug: "best-free-react-data-grid-2025",
-  tags: ["react", "data-grid", "free", "2025", "comparison", "best-practices"],
+  tags: ["react", "comparison", "alternatives", "best-practices"],
   createdAt: "2025-06-21",
   updatedAt: "2025-06-21",
 };
@@ -63,7 +63,7 @@ export const customizingReactTableLookPost: BlogPostMetadata = {
   description:
     "Master the art of React table customization with Simple Table's powerful theming system. Learn how CSS variables, built-in themes, and custom renderers make styling effortless.",
   slug: "customizing-react-table-look-simple-table-themes",
-  tags: ["react", "themes", "customization", "css-variables", "styling", "design"],
+  tags: ["react", "customization", "tutorials"],
   createdAt: "2025-06-30",
   updatedAt: "2025-06-30",
 };
@@ -73,7 +73,7 @@ export const mobileCompatibilityReactTablesPost: BlogPostMetadata = {
   description:
     "Discover how Simple Table solves mobile compatibility challenges in React data grids. Learn why traditional tables struggle on mobile and how touch-friendly design makes Simple Table the best mobile-first React table library.",
   slug: "mobile-compatibility-react-tables",
-  tags: ["react", "mobile", "responsive", "touch", "mobile-first", "data-grid", "ux"],
+  tags: ["react", "mobile", "features", "best-practices"],
   createdAt: "2025-10-19",
   updatedAt: "2025-10-19",
 };
@@ -83,17 +83,7 @@ export const bestReactTableLibraries2025Post: BlogPostMetadata = {
   description:
     "Discover the best React table libraries in 2025. Compare Simple Table, TanStack Table, AG Grid, Handsontable, and more. Find the perfect solution for your project with detailed pros, cons, and use cases.",
   slug: "best-react-table-libraries-2025",
-  tags: [
-    "react",
-    "table-libraries",
-    "comparison",
-    "2025",
-    "data-grid",
-    "react-table",
-    "tanstack",
-    "ag-grid",
-    "handsontable",
-  ],
+  tags: ["react", "comparison", "alternatives"],
   createdAt: "2025-10-07",
   updatedAt: "2025-10-07",
 };
@@ -103,22 +93,25 @@ export const customFooterRenderersPost: BlogPostMetadata = {
   description:
     "Discover why custom footer renderers are essential for React data grids. Learn how Simple Table's footerRenderer gives you complete control over pagination UI, avoiding the complexity of TanStack's approach and the limitations of rigid feature flags.",
   slug: "custom-footer-renderers-react-tables",
-  tags: [
-    "react",
-    "footer-renderer",
-    "customization",
-    "pagination",
-    "data-grid",
-    "simple-table",
-    "ui-components",
-    "developer-experience",
-  ],
+  tags: ["react", "customization", "features", "tutorials"],
   createdAt: "2025-10-25",
   updatedAt: "2025-10-25",
 };
 
+export const replicatingGojiberryUIPost: BlogPostMetadata = {
+  title:
+    "Replicating Gojiberry's Beautiful UI with Simple Table: The Ultimate Customization Showcase",
+  description:
+    "See how Simple Table perfectly replicates Gojiberry's stunning CRM interface with custom renderers, interactive components, and pixel-perfect design. Proof that Simple Table can handle any design you throw at it.",
+  slug: "replicating-gojiberry-ui-simple-table",
+  tags: ["react", "customization", "use-cases", "tutorials"],
+  createdAt: "2025-10-26",
+  updatedAt: "2025-10-26",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  replicatingGojiberryUIPost,
   customFooterRenderersPost,
   mobileCompatibilityReactTablesPost,
   bestReactTableLibraries2025Post,

@@ -1,55 +1,6 @@
 import { useState } from "react";
 import { HeaderObject } from "simple-table-core";
 
-// Custom Tag component for status badges
-const Tag = ({ children, color }: { children: React.ReactNode; color?: string }) => {
-  const getColorStyles = (color?: string) => {
-    const colors: Record<string, { bg: string; text: string }> = {
-      success: {
-        bg: "color-mix(in srgb, oklch(72.3% .219 149.579) 10%, transparent)",
-        text: "oklch(27.8% .033 256.848)",
-      },
-      warning: {
-        bg: "color-mix(in srgb, oklch(70.5% .213 47.604) 10%, transparent)",
-        text: "oklch(27.8% .033 256.848)",
-      },
-      info: {
-        bg: "color-mix(in srgb, oklch(62.3% .214 259.815) 10%, transparent)",
-        text: "oklch(27.8% .033 256.848)",
-      },
-      error: {
-        bg: "color-mix(in srgb, oklch(63.7% .237 25.331) 10%, transparent)",
-        text: "oklch(27.8% .033 256.848)",
-      },
-      purple: {
-        bg: "color-mix(in srgb, oklch(62.7% .265 303.9) 10%, transparent)",
-        text: "oklch(27.8% .033 256.848)",
-      },
-      default: { bg: "oklch(96.7% .003 264.542)", text: "oklch(21% .034 264.665)" },
-    };
-
-    return colors[color || "default"];
-  };
-
-  const { bg, text } = getColorStyles(color);
-
-  return (
-    <span
-      style={{
-        backgroundColor: bg,
-        color: text,
-        padding: "4px 8px",
-        fontSize: "12px",
-        borderRadius: "9999px",
-        display: "inline-flex",
-        fontWeight: 500,
-      }}
-    >
-      {children}
-    </span>
-  );
-};
-
 export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
   const colors = isDark
     ? {
@@ -80,7 +31,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
       };
 
   // Custom Email Enrich component
-  const EmailEnrich = ({ rowId }: { rowId: string }) => {
+  const EmailEnrich = () => {
     const [isLoading, setIsLoading] = useState(false);
     const [email, setEmail] = useState<string | null>(null);
 
@@ -181,8 +132,28 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
   };
 
   // Custom Fit Buttons component
-  const FitButtons = ({ rowId }: { rowId: string }) => {
+  const FitButtons = ({ isDark }: { isDark: boolean }) => {
     const [selected, setSelected] = useState<string | null>(null);
+
+    const fitColors = isDark
+      ? {
+          selected: "oklch(62.7% .194 149.214)", // green-600
+          unselected: "oklch(52.7% .154 150.069)", // green-700
+        }
+      : {
+          selected: "oklch(87.1% .15 154.449)", // green-300
+          unselected: "oklch(92.5% .084 155.995)", // green-200
+        };
+
+    const noColors = isDark
+      ? {
+          selected: "oklch(64.6% .222 41.116)", // orange-600
+          unselected: "oklch(55.3% .195 38.402)", // orange-700
+        }
+      : {
+          selected: "oklch(83.7% .128 66.29)", // orange-300
+          unselected: "oklch(90.1% .076 70.697)", // orange-200
+        };
 
     const buttonStyle = {
       flex: 1,
@@ -204,8 +175,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
           onClick={() => setSelected(selected === "fit" ? null : "fit")}
           style={{
             ...buttonStyle,
-            backgroundColor:
-              selected === "fit" ? "oklch(87.1% .15 154.449)" : "oklch(92.5% .084 155.995)",
+            backgroundColor: selected === "fit" ? fitColors.selected : fitColors.unselected,
             borderTopLeftRadius: "6px",
             borderBottomLeftRadius: "6px",
           }}
@@ -225,8 +195,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
           onClick={() => setSelected(selected === "no" ? null : "no")}
           style={{
             ...buttonStyle,
-            backgroundColor:
-              selected === "no" ? "oklch(83.7% .128 66.29)" : "oklch(90.1% .076 70.697)",
+            backgroundColor: selected === "no" ? noColors.selected : noColors.unselected,
             borderTopRightRadius: "6px",
             borderBottomRightRadius: "6px",
           }}
@@ -372,8 +341,8 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
         { label: "Pending", value: "Pending" },
         { label: "Bounced", value: "Bounced" },
       ],
-      cellRenderer: ({ row }) => {
-        return <EmailEnrich rowId={row.id as string} />;
+      cellRenderer: () => {
+        return <EmailEnrich />;
       },
     },
     {
@@ -434,8 +403,8 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
       label: "Fit",
       width: 120,
       minWidth: 120,
-      cellRenderer: ({ row }) => {
-        return <FitButtons rowId={row.id as string} />;
+      cellRenderer: () => {
+        return <FitButtons isDark={isDark} />;
       },
     },
     {

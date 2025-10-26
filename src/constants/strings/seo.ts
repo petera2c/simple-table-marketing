@@ -8,6 +8,7 @@ import {
   customizingReactTableLookPost,
   mobileCompatibilityReactTablesPost,
   customFooterRenderersPost,
+  replicatingGojiberryUIPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -42,6 +43,24 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    replicatingGojiberryUI: {
+      title: replicatingGojiberryUIPost.title,
+      description: replicatingGojiberryUIPost.description,
+      keywords: [
+        "react table customization",
+        "gojiberry ui replication",
+        "custom cell renderer",
+        "crm table design",
+        "interactive data grid",
+        "custom table components",
+        "react table design",
+        "ui replication",
+        "design system table",
+        "simple table customization",
+        "custom pagination footer",
+        "gradient avatars table",
+      ],
+    },
     customFooterRenderers: {
       title: customFooterRenderersPost.title,
       description: customFooterRenderersPost.description,
