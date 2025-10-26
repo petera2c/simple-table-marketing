@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
-import { CellChangeProps, FooterRendererProps, Row, SimpleTable, Theme } from "simple-table-core";
+import { CellChangeProps, FooterRendererProps, Row, SimpleTable } from "simple-table-core";
 
 // Custom footer component styled similar to the Angular example
 const CRMCustomFooter = ({

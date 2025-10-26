@@ -1,8 +1,8 @@
 import { Select } from "antd";
-import { Theme } from "simple-table-core";
 import { ThemeOption } from "@/types/theme";
+import { Theme } from "simple-table-core";
 
-const THEME_OPTIONS: ThemeOption[] = ["light", "dark", "sky", "violet", "neutral", "frost"];
+const THEME_OPTIONS: Theme[] = ["light", "dark", "sky", "violet", "neutral", "frost"];
 
 const ThemeSelector = ({
   currentTheme = "light",
@@ -11,7 +11,7 @@ const ThemeSelector = ({
   themeLabels,
 }: {
   currentTheme?: ThemeOption;
-  setCurrentTheme: (theme: ThemeOption) => void;
+  setCurrentTheme: (theme: Theme) => void;
   restrictedThemes?: ThemeOption[];
   themeLabels?: Record<string, string>;
 }) => {
@@ -21,7 +21,7 @@ const ThemeSelector = ({
     <Select
       placeholder="Select a theme"
       style={{ width: 200 }}
-      onChange={(value) => setCurrentTheme(value as ThemeOption)}
+      onChange={(value) => setCurrentTheme(value as Theme)}
       options={availableThemes.map((theme) => ({
         value: theme,
         label: themeLabels?.[theme] || theme.charAt(0).toUpperCase() + theme.slice(1),
