@@ -50,9 +50,12 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
     const data = JSON.parse(fileContents);
 
     // Special handling for billing (use account count)
+    // Each account has ~10 invoices, and each invoice has 1-6 charges (avg 3.5) = ~35 charges per account
     let slicedData;
     if (dataType === "billing") {
-      const accountCount = Math.max(1, Math.floor(rowCount / 20));
+      // Calculate accounts needed based on desired leaf row count (charges)
+      // Average: ~10 invoices per account * 3.5 charges per invoice (1-6 range) = 35 charges per account
+      const accountCount = Math.max(1, Math.ceil(rowCount / 35));
       slicedData = data.slice(0, accountCount);
     } else {
       slicedData = data.slice(0, rowCount);

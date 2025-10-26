@@ -229,10 +229,10 @@ const generateBillingData = (): AccountData[] => {
   const accountStatuses = ["active", "pending", "cancelled"];
   const accountStatusProbs = [0.85, 0.1, 0.05]; // 85% active, 10% pending, 5% cancelled
 
-  // Calculate accounts needed for ~10,000 total leaf rows (charges)
-  // Average: ~10 invoices per account * 1 charge per invoice = 10 charges per account
-  // 10,000 / 10 ≈ 1,000 accounts
-  const accountCount = 1000;
+  // Calculate accounts needed for ~18,000 total leaf rows (charges)
+  // Average: ~10 invoices per account * 3.5 charges per invoice (1-6 range) = 35 charges per account
+  // 18,000 / 35 ≈ 300 accounts
+  const accountCount = 300;
 
   for (let a = 0; a < accountCount; a++) {
     // Generate account data
@@ -289,8 +289,8 @@ const generateBillingData = (): AccountData[] => {
         }
       }
 
-      // Generate charges for this invoice (typically 1 charge per invoice for simpler hierarchy)
-      const chargeCount = 1;
+      // Generate charges for this invoice (1-6 charges per invoice)
+      const chargeCount = randomBetween(1, 6);
       const chargeChildren: ChargeData[] = [];
       const chargeTotalAmount = invoiceAmountRounded;
       let currentChargeTotal = 0;
