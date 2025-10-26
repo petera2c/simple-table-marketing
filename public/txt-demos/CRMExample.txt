@@ -1,13 +1,219 @@
-import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
-import { CRM_HEADERS } from "./crm-headers";
-import { useState, useEffect } from "react";
+import { getCRMHeaders } from "./crm-headers";
+import { useEffect, useState } from "react";
+
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
+import { CellChangeProps, FooterRendererProps, Row, SimpleTable, Theme } from "simple-table-core";
 
-// Backup data (first 20 rows from crm-data.json)
+// Custom footer component styled similar to the Angular example
+const CRMCustomFooter = ({
+  currentPage,
+  totalPages,
+  rowsPerPage,
+  totalRows,
+  startRow,
+  endRow,
+  onPageChange,
+  onNextPage,
+  onPrevPage,
+  hasNextPage,
+  hasPrevPage,
+  isDark,
+  setRowsPerPage,
+}: FooterRendererProps & { isDark?: boolean; setRowsPerPage: (rowsPerPage: number) => void }) => {
+  // Generate visible page numbers with current page centered
+  const generateVisiblePages = (currentPage: number, totalPages: number): number[] => {
+    const maxVisible = 5;
+
+    if (totalPages <= maxVisible) {
+      // Show all pages if we have fewer than maxVisible
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    // Calculate start and end to center current page
+    let start = currentPage - 2;
+    let end = currentPage + 2;
+
+    // Adjust if we're near the beginning
+    if (start < 1) {
+      start = 1;
+      end = Math.min(maxVisible, totalPages);
+    }
+
+    // Adjust if we're near the end
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, totalPages - maxVisible + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
+  };
+
+  const visiblePages = generateVisiblePages(currentPage, totalPages);
+
+  const colors = isDark
+    ? {
+        bg: "#0f172a",
+        border: "#334155",
+        text: "#cbd5e1",
+        textBold: "#e2e8f0",
+        inputBg: "#1e293b",
+        inputBorder: "#475569",
+        buttonBg: "#1e293b",
+        buttonBorder: "#475569",
+        buttonText: "#cbd5e1",
+        activeBg: "#334155",
+        activeText: "#ea580c",
+      }
+    : {
+        bg: "white",
+        border: "#e5e7eb",
+        text: "#374151",
+        textBold: "#374151",
+        inputBg: "white",
+        inputBorder: "#d1d5db",
+        buttonBg: "white",
+        buttonBorder: "#d1d5db",
+        buttonText: "#6b7280",
+        activeBg: "#fff7ed",
+        activeText: "#ea580c",
+      };
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px 16px",
+        borderTop: `1px solid ${colors.border}`,
+        backgroundColor: colors.bg,
+      }}
+    >
+      {/* Results text */}
+      <p style={{ fontSize: "14px", color: colors.text, margin: 0 }}>
+        Showing <span style={{ fontWeight: "500" }}>{startRow}</span> to{" "}
+        <span style={{ fontWeight: "500" }}>{endRow}</span> of{" "}
+        <span style={{ fontWeight: "500" }}>{totalRows}</span> results
+      </p>
+
+      {/* Controls */}
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        {/* Page size selector */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <label htmlFor="itemsPerPage" style={{ fontSize: "14px", color: colors.text }}>
+            Show:
+          </label>
+          <select
+            id="itemsPerPage"
+            value={rowsPerPage}
+            onChange={(event) => {
+              setRowsPerPage(parseInt(event.target.value, 10));
+              onPageChange(1);
+            }}
+            style={{
+              border: `1px solid ${colors.inputBorder}`,
+              borderRadius: "6px",
+              padding: "4px 8px",
+              fontSize: "14px",
+              backgroundColor: colors.inputBg,
+              color: colors.text,
+              cursor: "pointer",
+            }}
+          >
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="10000">all</option>
+          </select>
+          <span style={{ fontSize: "14px", color: colors.text }}>per page</span>
+        </div>
+
+        {/* Pagination */}
+        <nav
+          style={{
+            display: "inline-flex",
+            borderRadius: "6px",
+            boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+          }}
+        >
+          {/* Previous button */}
+          <button
+            onClick={onPrevPage}
+            disabled={!hasPrevPage}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "8px",
+              borderTopLeftRadius: "6px",
+              borderBottomLeftRadius: "6px",
+              border: `1px solid ${colors.buttonBorder}`,
+              backgroundColor: colors.buttonBg,
+              fontSize: "14px",
+              fontWeight: "500",
+              color: colors.buttonText,
+              cursor: hasPrevPage ? "pointer" : "not-allowed",
+              opacity: hasPrevPage ? 1 : 0.5,
+            }}
+          >
+            ‹
+          </button>
+
+          {/* Page buttons */}
+          {visiblePages.map((page) => (
+            <button
+              key={page}
+              onClick={() => onPageChange(page)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "8px 16px",
+                border: `1px solid ${colors.buttonBorder}`,
+                backgroundColor: currentPage === page ? colors.activeBg : colors.buttonBg,
+                fontSize: "14px",
+                fontWeight: "500",
+                color: currentPage === page ? colors.activeText : colors.text,
+                cursor: "pointer",
+                marginLeft: "-1px",
+              }}
+            >
+              {page}
+            </button>
+          ))}
+
+          {/* Next button */}
+          <button
+            onClick={onNextPage}
+            disabled={!hasNextPage}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "8px",
+              borderTopRightRadius: "6px",
+              borderBottomRightRadius: "6px",
+              border: `1px solid ${colors.buttonBorder}`,
+              backgroundColor: colors.buttonBg,
+              fontSize: "14px",
+              fontWeight: "500",
+              color: colors.buttonText,
+              cursor: hasNextPage ? "pointer" : "not-allowed",
+              opacity: hasNextPage ? 1 : 0.5,
+              marginLeft: "-1px",
+            }}
+          >
+            ›
+          </button>
+        </nav>
+      </div>
+    </div>
+  );
+};
+
+// Backup data (first 20 rows from leads-data.json)
 const BACKUP_CRM_DATA = [
   {
-    id: "LEAD-00000",
+    id: "CRM-00000",
     name: "Glenn Lindley",
     title: "Founder and CTO (Chief Taco Officer)",
     company: "Talent IP (In Person)",
@@ -19,7 +225,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00001",
+    id: "CRM-00001",
     name: "Gloria Oppong",
     title: "Co-founder & CEO",
     company: "Cleanster",
@@ -31,7 +237,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00002",
+    id: "CRM-00002",
     name: "Vishal Bhalla",
     title: "CEO & Co-Founder",
     company: "AnalytAIX",
@@ -43,7 +249,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00003",
+    id: "CRM-00003",
     name: "Cyril Delattre",
     title: "Co-founder, CEO",
     company: "Mosala",
@@ -55,7 +261,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00004",
+    id: "CRM-00004",
     name: "Richard Webb",
     title: "Chief Executive Officer & Founder",
     company: "24-7 Press AI Solutions",
@@ -67,7 +273,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00005",
+    id: "CRM-00005",
     name: "Doug Newell",
     title: "Founder & CEO",
     company: "Swarmalytics",
@@ -79,7 +285,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00006",
+    id: "CRM-00006",
     name: "Alan Pendleton",
     title: "CEO and Founder",
     company: "ArenaCX",
@@ -91,7 +297,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00007",
+    id: "CRM-00007",
     name: "Ray Naeini",
     title: "CEO, Chairman",
     company: "OmniSource, Inc.",
@@ -103,7 +309,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00008",
+    id: "CRM-00008",
     name: "Sarah Johnson",
     title: "VP of Engineering",
     company: "TechFlow Solutions",
@@ -115,7 +321,7 @@ const BACKUP_CRM_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00009",
+    id: "CRM-00009",
     name: "Michael Williams",
     title: "VP of Sales",
     company: "DataDrive AI",
@@ -127,7 +333,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00010",
+    id: "CRM-00010",
     name: "Jennifer Brown",
     title: "VP of Marketing",
     company: "CloudScale Systems",
@@ -139,7 +345,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00011",
+    id: "CRM-00011",
     name: "David Jones",
     title: "Head of Product",
     company: "NextGen Analytics",
@@ -151,7 +357,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00012",
+    id: "CRM-00012",
     name: "Emily Garcia",
     title: "Head of Engineering",
     company: "InnovateLabs",
@@ -163,7 +369,7 @@ const BACKUP_CRM_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00013",
+    id: "CRM-00013",
     name: "James Miller",
     title: "Director of Sales",
     company: "VelocityTech",
@@ -175,7 +381,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00014",
+    id: "CRM-00014",
     name: "Lisa Davis",
     title: "Director of Marketing",
     company: "Quantum Solutions",
@@ -187,7 +393,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00015",
+    id: "CRM-00015",
     name: "Robert Rodriguez",
     title: "Chief Technology Officer",
     company: "PrimeData Corp",
@@ -199,7 +405,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00016",
+    id: "CRM-00016",
     name: "Jessica Martinez",
     title: "Chief Marketing Officer",
     company: "FusionWorks",
@@ -211,7 +417,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00017",
+    id: "CRM-00017",
     name: "William Hernandez",
     title: "Chief Revenue Officer",
     company: "CoreStack Technologies",
@@ -223,7 +429,7 @@ const BACKUP_CRM_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00018",
+    id: "CRM-00018",
     name: "Amanda Lopez",
     title: "Chief Product Officer",
     company: "AgileOps Inc",
@@ -235,7 +441,7 @@ const BACKUP_CRM_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00019",
+    id: "CRM-00019",
     name: "Christopher Gonzalez",
     title: "VP of Business Development",
     company: "StreamlineAI",
@@ -248,19 +454,35 @@ const BACKUP_CRM_DATA = [
   },
 ];
 
-export default function CRMExample({
+const CRMExampleComponent = ({
   height,
   onGridReady,
-  theme,
+  theme = "custom-light",
 }: {
   height?: number | null;
   onGridReady?: () => void;
-  theme?: Theme;
-}) {
+  theme?: "custom-light" | "custom-dark";
+}) => {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [rowsPerPage, setRowsPerPage] = useState(100);
 
-  // Fetch CRM data from API
+  const isDark = theme === "custom-dark";
+
+  const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
+    setData((prevData) =>
+      prevData.map((item) => {
+        if (item.id === row.id) {
+          return {
+            ...item,
+            [accessor]: newValue,
+          };
+        }
+        return item;
+      })
+    );
+  };
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -296,51 +518,31 @@ export default function CRMExample({
     fetchData();
   }, []);
 
-  const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
-    setData((prevData) =>
-      prevData.map((item) => {
-        if (item.id === row.id) {
-          return {
-            ...item,
-            [accessor]: newValue,
-          };
-        }
-        return item;
-      })
-    );
-  };
-
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: height ? `${height}px` : "70dvh",
-          fontSize: "16px",
-          color: "#666",
-        }}
-      >
-        Loading CRM data...
-      </div>
-    );
-  }
+  if (isLoading) return <></>;
 
   return (
-    <SimpleTable
-      columnResizing
-      columnReordering
-      defaultHeaders={CRM_HEADERS}
-      editColumns
-      onGridReady={onGridReady}
-      rowIdAccessor="id"
-      rows={data}
-      theme={theme}
-      selectableCells
-      onCellEdit={handleCellEdit}
-      height={height ? `${height}px` : "70dvh"}
-    />
+    <div className={`custom-theme-container theme-${theme}`}>
+      <SimpleTable
+        columnReordering
+        columnResizing
+        defaultHeaders={getCRMHeaders(isDark)}
+        enableRowSelection
+        footerRenderer={(props) => (
+          <CRMCustomFooter {...props} isDark={isDark} setRowsPerPage={setRowsPerPage} />
+        )}
+        headerHeight={48}
+        height={height ? `${height}px` : "70dvh"}
+        onCellEdit={handleCellEdit}
+        onGridReady={onGridReady}
+        rowHeight={92}
+        rowIdAccessor="id"
+        rows={data}
+        rowsPerPage={rowsPerPage}
+        shouldPaginate
+        theme="custom"
+      />
+    </div>
   );
-}
+};
 
+export default CRMExampleComponent;
