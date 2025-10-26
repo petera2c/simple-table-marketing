@@ -455,12 +455,28 @@ const BACKUP_CRM_DATA = [
 ];
 
 const CRMExampleComponent = ({
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
   height,
+  nextIcon,
   onGridReady,
+  prevIcon,
+  sortDownIcon,
+  sortUpIcon,
   theme = "custom-light",
 }: {
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
   height?: number | null;
+  nextIcon?: React.ReactNode;
   onGridReady?: () => void;
+  prevIcon?: React.ReactNode;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
   theme?: "custom-light" | "custom-dark";
 }) => {
   const [data, setData] = useState<Row[]>([]);
@@ -527,18 +543,26 @@ const CRMExampleComponent = ({
         columnResizing
         defaultHeaders={getCRMHeaders(isDark)}
         enableRowSelection
+        expandIcon={expandIcon}
+        filterIcon={filterIcon}
         footerRenderer={(props) => (
           <CRMCustomFooter {...props} isDark={isDark} setRowsPerPage={setRowsPerPage} />
         )}
+        headerCollapseIcon={headerCollapseIcon}
+        headerExpandIcon={headerExpandIcon}
         headerHeight={48}
         height={height ? `${height}px` : "70dvh"}
+        nextIcon={nextIcon}
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
+        prevIcon={prevIcon}
         rowHeight={92}
         rowIdAccessor="id"
         rows={data}
         rowsPerPage={rowsPerPage}
         shouldPaginate
+        sortDownIcon={sortDownIcon}
+        sortUpIcon={sortUpIcon}
         theme="custom"
       />
     </div>

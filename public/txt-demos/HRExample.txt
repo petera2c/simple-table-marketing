@@ -343,15 +343,31 @@ const BACKUP_HR_DATA = [
 ];
 
 export default function HRExample({
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
   height = 500,
-  rowHeight = 48,
-  theme,
+  nextIcon,
+  prevIcon,
   rowCount = 50,
+  rowHeight = 48,
+  sortDownIcon,
+  sortUpIcon,
+  theme,
 }: {
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
   height: number | null;
-  rowHeight?: number;
-  theme?: Theme;
+  nextIcon?: React.ReactNode;
+  prevIcon?: React.ReactNode;
   rowCount?: number;
+  rowHeight?: number;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
+  theme?: Theme;
 }) {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -431,14 +447,22 @@ export default function HRExample({
         columnReordering
         columnResizing
         defaultHeaders={HEADERS}
+        expandIcon={expandIcon}
+        filterIcon={filterIcon}
+        headerCollapseIcon={headerCollapseIcon}
+        headerExpandIcon={headerExpandIcon}
+        nextIcon={nextIcon}
+        onCellEdit={handleCellEdit}
+        prevIcon={prevIcon}
+        rowHeight={rowHeight}
         rowIdAccessor="id"
         rows={data}
         rowsPerPage={howManyRowsCanFit}
-        rowHeight={rowHeight}
         selectableCells
         shouldPaginate
+        sortDownIcon={sortDownIcon}
+        sortUpIcon={sortUpIcon}
         theme={theme}
-        onCellEdit={handleCellEdit}
       />
     </div>
   );

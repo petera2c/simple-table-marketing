@@ -7,6 +7,8 @@ import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const ROW_HEIGHT = 32;
 
@@ -21,6 +23,9 @@ const SalesExampleWrapper = ({
   shouldPaginate = true,
   theme,
 }: SalesExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
@@ -34,7 +39,12 @@ const SalesExampleWrapper = ({
         link={SANDBOX_LIST["examples/sales/SalesExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <SalesExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+            <SalesExample
+              height={containerHeight}
+              theme={theme}
+              onGridReady={onGridReady}
+              {...tableIcons}
+            />
           </ExamplesWrapper>
         )}
       />

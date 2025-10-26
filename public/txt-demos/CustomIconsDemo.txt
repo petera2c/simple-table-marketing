@@ -135,6 +135,9 @@ const customIcons = {
   sortUpIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
   sortDownIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
 
+  // For filtering columns
+  filterIcon: <span style={{ color: "#3b82f6", fontSize: "1rem" }}>⚡</span>,
+
   // For pagination navigation
   nextIcon: (
     <span
@@ -172,6 +175,7 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
       rowsPerPage={7}
       shouldPaginate
       // Custom icons props
+      filterIcon={customIcons.filterIcon}
       nextIcon={customIcons.nextIcon}
       prevIcon={customIcons.prevIcon}
       sortDownIcon={customIcons.sortDownIcon}

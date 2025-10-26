@@ -7,6 +7,8 @@ import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const ROW_HEIGHT = 32;
 
@@ -15,6 +17,9 @@ type ManufacturingExampleWrapperProps = {
 };
 
 const ManufacturingExampleWrapper = ({ theme }: ManufacturingExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -27,7 +32,7 @@ const ManufacturingExampleWrapper = ({ theme }: ManufacturingExampleWrapperProps
         link={SANDBOX_LIST["examples/manufacturing/ManufacturingExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <ManufacturingExample height={containerHeight} theme={theme} />
+            <ManufacturingExample height={containerHeight} theme={theme} {...tableIcons} />
           </ExamplesWrapper>
         )}
       />

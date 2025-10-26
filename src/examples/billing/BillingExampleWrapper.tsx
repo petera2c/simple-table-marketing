@@ -7,6 +7,8 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const ROW_HEIGHT = 40;
 
@@ -16,6 +18,9 @@ type BillingExampleWrapperProps = {
 };
 
 const BillingExampleWrapper = ({ onGridReady, theme }: BillingExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -28,7 +33,12 @@ const BillingExampleWrapper = ({ onGridReady, theme }: BillingExampleWrapperProp
       link={SANDBOX_LIST["examples/billing/BillingExample.tsx"].url}
       Preview={() => (
         <ExamplesWrapper>
-          <BillingExample height={containerHeight} onGridReady={onGridReady} theme={theme} />
+          <BillingExample
+            height={containerHeight}
+            onGridReady={onGridReady}
+            theme={theme}
+            {...tableIcons}
+          />
         </ExamplesWrapper>
       )}
     />

@@ -17,6 +17,8 @@ import { Suspense, useEffect } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
 import { ThemeOption } from "@/types/theme";
+import IconLibrarySelector from "@/components/IconLibrarySelector";
+import { IconLibrary } from "@/utils/getTableIcons";
 
 // Define example navigation items
 const examples = [
@@ -90,6 +92,7 @@ function ExamplesNavigationContent() {
   const { theme } = useThemeContext();
   const currentTheme = (searchParams?.get("theme") as ThemeOption) || theme;
   const currentRowCount = parseInt(searchParams?.get("rows") || "50");
+  const currentIconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
 
   // Determine current active example
   const currentPath = pathname;
@@ -111,6 +114,12 @@ function ExamplesNavigationContent() {
   const handleRowCountChange = (rowCount: number) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("rows", rowCount.toString());
+    router.push(`${pathname}?${params.toString()}`);
+  };
+
+  const handleIconLibraryChange = (iconLibrary: IconLibrary) => {
+    const params = new URLSearchParams(searchParams?.toString() || "");
+    params.set("icons", iconLibrary);
     router.push(`${pathname}?${params.toString()}`);
   };
 
@@ -136,52 +145,69 @@ function ExamplesNavigationContent() {
         <h1 className="text-xl font-semibold">
           {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
         </h1>
-        <div className="flex items-center gap-2 flex-wrap">
+        <div className="flex items-end gap-3 flex-wrap">
           {currentExample.id !== "music" && currentExample.id !== "crm" && (
-            <Select
-              placeholder="Select row count"
-              style={{ width: 150 }}
-              onChange={handleRowCountChange}
-              value={currentRowCount}
-              options={rowCountOptions}
-            />
+            <div className="flex flex-col gap-1">
+              <span className="text-sm text-gray-600 dark:text-gray-300">Rows</span>
+              <Select
+                placeholder="Select row count"
+                style={{ width: 150 }}
+                onChange={handleRowCountChange}
+                value={currentRowCount}
+                options={rowCountOptions}
+              />
+            </div>
           )}
-          <Select
-            placeholder="Select an example"
-            style={{ width: 200 }}
-            onChange={(value) => {
-              const example = examples.find((e) => e.id === value);
-              if (example) {
-                handleLinkClick(example.path);
-              }
-            }}
-            value={currentExample.id}
-            options={examples.map((example) => ({
-              value: example.id,
-              label: (
-                <div className="flex items-center gap-2">
-                  <FontAwesomeIcon icon={example.icon} />
-                  {example.label}
-                </div>
-              ),
-            }))}
-          />
+          <div className="flex flex-col gap-1">
+            <span className="text-sm text-gray-600 dark:text-gray-300">Example</span>
+            <Select
+              placeholder="Select an example"
+              style={{ width: 200 }}
+              onChange={(value) => {
+                const example = examples.find((e) => e.id === value);
+                if (example) {
+                  handleLinkClick(example.path);
+                }
+              }}
+              value={currentExample.id}
+              options={examples.map((example) => ({
+                value: example.id,
+                label: (
+                  <div className="flex items-center gap-2">
+                    <FontAwesomeIcon icon={example.icon} />
+                    {example.label}
+                  </div>
+                ),
+              }))}
+            />
+          </div>
 
-          <ThemeSelector
-            currentTheme={currentTheme}
-            setCurrentTheme={handleThemeChange}
-            restrictedThemes={
-              currentExample.id === "crm" ? ["custom-dark", "custom-light"] : undefined
-            }
-            themeLabels={
-              currentExample.id === "crm"
-                ? {
-                    "custom-light": "Custom Light",
-                    "custom-dark": "Custom Dark",
-                  }
-                : undefined
-            }
-          />
+          <div className="flex flex-col gap-1">
+            <span className="text-sm text-gray-600 dark:text-gray-300">Theme</span>
+            <ThemeSelector
+              currentTheme={currentTheme}
+              setCurrentTheme={handleThemeChange}
+              restrictedThemes={
+                currentExample.id === "crm" ? ["custom-dark", "custom-light"] : undefined
+              }
+              themeLabels={
+                currentExample.id === "crm"
+                  ? {
+                      "custom-light": "Custom Light",
+                      "custom-dark": "Custom Dark",
+                    }
+                  : undefined
+              }
+            />
+          </div>
+
+          <div className="flex flex-col gap-1">
+            <span className="text-sm text-gray-600 dark:text-gray-300">Icons</span>
+            <IconLibrarySelector
+              currentIconLibrary={currentIconLibrary}
+              onChange={handleIconLibraryChange}
+            />
+          </div>
         </div>
       </div>
     </PageWrapper>

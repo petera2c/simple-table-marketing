@@ -39,15 +39,22 @@ import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/useIsMobile";
-import React, { Suspense } from "react";
+import React, { Suspense, useState } from "react";
 import InfrastructureExample from "@/examples/infrastructure/InfrastructureExample";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
+import IconLibrarySelector from "@/components/IconLibrarySelector";
+import ThemeSelector from "@/components/ThemeSelector";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
+import { Theme } from "simple-table-core";
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
   const router = useRouter();
-  const { theme } = useThemeContext();
+  const { theme: globalTheme } = useThemeContext();
+  const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
+  const [selectedTheme, setSelectedTheme] = useState<Theme>();
+  const tableIcons = getTableIcons(iconLibrary);
 
   // FAQ Schema for AI visibility
   const faqSchema = {
@@ -215,6 +222,33 @@ export default function HomeContent() {
           </motion.div>
         </section>
 
+        {/* Theme and Icon Library Selectors */}
+        <div className="mb-4 flex justify-end">
+          <div className="flex items-center gap-4 flex-wrap">
+            <motion.div
+              className="flex items-center gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+            >
+              <span className="text-sm text-gray-600 dark:text-gray-300">Theme:</span>
+              <ThemeSelector
+                currentTheme={selectedTheme || globalTheme}
+                setCurrentTheme={setSelectedTheme}
+              />
+            </motion.div>
+            <motion.div
+              className="flex items-center gap-2"
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.5, delay: 0.75 }}
+            >
+              <span className="text-sm text-gray-600 dark:text-gray-300">Icons:</span>
+              <IconLibrarySelector currentIconLibrary={iconLibrary} onChange={setIconLibrary} />
+            </motion.div>
+          </div>
+        </div>
+
         {/* Demo section with animated entrance */}
         <motion.section
           className="mb-16 shadow-xl rounded-lg"
@@ -223,7 +257,11 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           <Suspense fallback={<div />}>
-            <InfrastructureExample theme={theme} height={"70dvh"} />
+            <InfrastructureExample
+              theme={selectedTheme || globalTheme}
+              height={"70dvh"}
+              {...tableIcons}
+            />
           </Suspense>
         </motion.section>
 

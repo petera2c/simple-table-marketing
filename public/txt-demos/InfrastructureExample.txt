@@ -643,10 +643,26 @@ export default function InfrastructureExample({
   height,
   theme,
   rowCount = 50,
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
+  nextIcon,
+  prevIcon,
+  sortDownIcon,
+  sortUpIcon,
 }: {
   height?: string | number;
   theme?: Theme;
   rowCount?: number;
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
+  nextIcon?: React.ReactNode;
+  prevIcon?: React.ReactNode;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
 }) {
   const tableRef = useRef<TableRefType | null>(null);
   const [data, setData] = useState<Row[]>([]);
@@ -890,10 +906,18 @@ export default function InfrastructureExample({
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
+      expandIcon={expandIcon}
+      filterIcon={filterIcon}
+      headerCollapseIcon={headerCollapseIcon}
+      headerExpandIcon={headerExpandIcon}
       height={height ? height : "70dvh"}
+      nextIcon={nextIcon}
+      prevIcon={prevIcon}
       rowIdAccessor="id"
       rows={data}
       selectableCells
+      sortDownIcon={sortDownIcon}
+      sortUpIcon={sortUpIcon}
       tableRef={tableRef}
       theme={theme}
     />

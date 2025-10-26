@@ -645,13 +645,29 @@ const BACKUP_MANUFACTURING_DATA = [
 ];
 
 export default function ManufacturingExample({
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
   height,
-  theme,
+  nextIcon,
+  prevIcon,
   rowCount = 50,
+  sortDownIcon,
+  sortUpIcon,
+  theme,
 }: {
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
   height: number | null;
-  theme?: Theme;
+  nextIcon?: React.ReactNode;
+  prevIcon?: React.ReactNode;
   rowCount?: number;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
+  theme?: Theme;
 }) {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -715,12 +731,20 @@ export default function ManufacturingExample({
       columnResizing
       columnReordering
       defaultHeaders={HEADERS}
-      rows={data}
+      expandIcon={expandIcon}
+      filterIcon={filterIcon}
+      headerCollapseIcon={headerCollapseIcon}
+      headerExpandIcon={headerExpandIcon}
+      height={height ? `${height}px` : "70dvh"}
+      nextIcon={nextIcon}
+      prevIcon={prevIcon}
       rowGrouping={["stations"]}
       rowIdAccessor="id"
-      height={height ? `${height}px` : "70dvh"}
-      theme={theme}
+      rows={data}
       selectableCells
+      sortDownIcon={sortDownIcon}
+      sortUpIcon={sortUpIcon}
+      theme={theme}
     />
   );
 }

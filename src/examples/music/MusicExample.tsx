@@ -540,13 +540,29 @@ const BACKUP_MUSIC_DATA = [
 ];
 
 export default function MusicExample({
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
   height,
-  theme,
+  nextIcon,
+  prevIcon,
   rowCount = 50,
+  sortDownIcon,
+  sortUpIcon,
+  theme,
 }: {
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
   height?: string | number;
-  theme?: Theme;
+  nextIcon?: React.ReactNode;
+  prevIcon?: React.ReactNode;
   rowCount?: number;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
+  theme?: Theme;
 }) {
   const tableRef = useRef<TableRefType | null>(null);
   const [data, setData] = useState<Row[]>([]);
@@ -611,13 +627,21 @@ export default function MusicExample({
         columnReordering
         columnResizing
         defaultHeaders={HEADERS}
+        expandIcon={expandIcon}
+        filterIcon={filterIcon}
+        headerCollapseIcon={headerCollapseIcon}
+        headerExpandIcon={headerExpandIcon}
+        headerHeight={30}
         height={height ? height : "70dvh"}
+        nextIcon={nextIcon}
+        prevIcon={prevIcon}
         rowHeight={85}
         rowIdAccessor="id"
         rows={data}
         selectableCells
+        sortDownIcon={sortDownIcon}
+        sortUpIcon={sortUpIcon}
         tableRef={tableRef}
-        headerHeight={30}
         theme={theme}
       />
     </div>

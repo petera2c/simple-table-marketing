@@ -68,6 +68,20 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 />`,
   },
   {
+    key: "filterIcon",
+    name: "filterIcon",
+    required: false,
+    description: "Custom icon component for the column filter button in filterable columns.",
+    type: "React.ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFilter } from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  filterIcon={<FontAwesomeIcon icon={faFilter} className="text-blue-600" />}
+  // ... other props
+/>`,
+  },
+  {
     key: "expandIcon",
     name: "expandIcon",
     required: false,

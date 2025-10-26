@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_5_6: ChangelogEntry = {
+  version: "1.5.6",
+  date: "2025-01-26",
+  title: "Custom Filter Icon",
+  description:
+    "Customize the filter icon in table headers to match your design system. Use any React component or icon library to replace the default filter icon.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added filterIcon prop to customize the column filter icon",
+      link: "/docs/column-filtering",
+    },
+  ],
+};
+
 export const v1_5_5: ChangelogEntry = {
   version: "1.5.5",
   date: "2025-01-22",
@@ -123,7 +138,15 @@ export const v1_4_4: ChangelogEntry = {
 };
 
 // Array of all changelog entries (newest first)
-export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_5, v1_5_1, v1_5_0, v1_4_7, v1_4_6, v1_4_4];
+export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_5_6,
+  v1_5_5,
+  v1_5_1,
+  v1_5_0,
+  v1_4_7,
+  v1_4_6,
+  v1_4_4,
+];
 
 // Helper function to get changelog entry by version
 export const getChangelogByVersion = (version: string): ChangelogEntry | undefined => {

@@ -7,6 +7,8 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const ROW_HEIGHT = 32;
 
@@ -16,6 +18,9 @@ type InfrastructureExampleWrapperProps = {
 };
 
 const InfrastructureExampleWrapper = ({ height, theme }: InfrastructureExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -31,6 +36,7 @@ const InfrastructureExampleWrapper = ({ height, theme }: InfrastructureExampleWr
             <InfrastructureExample
               height={height ? height : `${containerHeight}px`}
               theme={theme}
+              {...tableIcons}
             />
           </ExamplesWrapper>
         )}

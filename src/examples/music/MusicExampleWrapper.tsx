@@ -8,6 +8,8 @@ import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { Inter } from "next/font/google";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -22,6 +24,9 @@ type MusicExampleWrapperProps = {
 };
 
 const MusicExampleWrapper = ({ height, theme }: MusicExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -35,7 +40,11 @@ const MusicExampleWrapper = ({ height, theme }: MusicExampleWrapperProps) => {
         Preview={() => (
           <div className={inter.className}>
             <ExamplesWrapper>
-              <MusicExample height={height ? height : `${containerHeight}px`} theme={theme} />
+              <MusicExample
+                height={height ? height : `${containerHeight}px`}
+                theme={theme}
+                {...tableIcons}
+              />
             </ExamplesWrapper>
           </div>
         )}

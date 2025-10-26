@@ -7,6 +7,8 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 const ROW_HEIGHT = 48;
 
@@ -15,6 +17,9 @@ type HRExampleWrapperProps = {
 };
 
 const HRExampleWrapper = ({ theme }: HRExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: true,
     rowHeight: ROW_HEIGHT,
@@ -27,7 +32,12 @@ const HRExampleWrapper = ({ theme }: HRExampleWrapperProps) => {
         link={SANDBOX_LIST["examples/hr/HRExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <HRExample height={containerHeight} rowHeight={ROW_HEIGHT} theme={theme} />
+            <HRExample
+              height={containerHeight}
+              rowHeight={ROW_HEIGHT}
+              theme={theme}
+              {...tableIcons}
+            />
           </ExamplesWrapper>
         )}
       />

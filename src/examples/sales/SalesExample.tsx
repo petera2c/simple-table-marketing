@@ -273,11 +273,27 @@ export default function SalesExample({
   onGridReady,
   theme,
   rowCount = 50,
+  expandIcon,
+  filterIcon,
+  headerCollapseIcon,
+  headerExpandIcon,
+  nextIcon,
+  prevIcon,
+  sortDownIcon,
+  sortUpIcon,
 }: {
   height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
   rowCount?: number;
+  expandIcon?: React.ReactNode;
+  filterIcon?: React.ReactNode;
+  headerCollapseIcon?: React.ReactNode;
+  headerExpandIcon?: React.ReactNode;
+  nextIcon?: React.ReactNode;
+  prevIcon?: React.ReactNode;
+  sortDownIcon?: React.ReactNode;
+  sortUpIcon?: React.ReactNode;
 }) {
   const [data, setData] = useState<(Row & { closeDate: string; category: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -358,13 +374,21 @@ export default function SalesExample({
       columnReordering
       defaultHeaders={SALES_HEADERS}
       editColumns
+      expandIcon={expandIcon}
+      filterIcon={filterIcon}
+      headerCollapseIcon={headerCollapseIcon}
+      headerExpandIcon={headerExpandIcon}
+      height={height ? `${height}px` : "70dvh"}
+      nextIcon={nextIcon}
+      onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
+      prevIcon={prevIcon}
       rowIdAccessor="id"
       rows={data}
-      theme={theme}
       selectableCells
-      onCellEdit={handleCellEdit}
-      height={height ? `${height}px` : "70dvh"}
+      sortDownIcon={sortDownIcon}
+      sortUpIcon={sortUpIcon}
+      theme={theme}
     />
   );
 }

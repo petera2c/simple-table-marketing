@@ -7,6 +7,8 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { ThemeOption } from "@/types/theme";
+import { useSearchParams } from "next/navigation";
+import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 
 /* @import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); */
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -29,6 +31,9 @@ const CRMExampleWrapper = ({
   shouldPaginate = true,
   theme,
 }: CRMExampleWrapperProps) => {
+  const searchParams = useSearchParams();
+  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
+  const tableIcons = getTableIcons(iconLibrary);
   const containerHeight = useExampleHeight({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
@@ -47,7 +52,12 @@ const CRMExampleWrapper = ({
         Preview={() => (
           <div className={plusJakartaSans.className}>
             <ExamplesWrapper>
-              <CRMExample height={containerHeight} theme={crmTheme} onGridReady={onGridReady} />
+              <CRMExample
+                height={containerHeight}
+                theme={crmTheme}
+                onGridReady={onGridReady}
+                {...tableIcons}
+              />
             </ExamplesWrapper>
           </div>
         )}
