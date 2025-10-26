@@ -213,13 +213,13 @@ export default function ReplicatingGojiberryUIPage() {
 
               <div className="mb-6">
                 <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-gray-100">
-                  Category 1: Rigid Feature Tables
+                  Category 1: Feature-Rich but Rigid
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-3">
-                  Libraries like AG Grid provide tons of features but lock you into their design
-                  system. Want a custom cell with a gradient avatar and three lines of text? Good
-                  luck fighting with their cell renderers and CSS overrides. Custom pagination
-                  footer? You'll be deep in their API docs trying to piece together flags.
+                  Some libraries provide tons of features but lock you into their design system.
+                  Want a custom cell with a gradient avatar and three lines of text? Good luck
+                  fighting with their cell renderers and CSS overrides. Custom pagination footer?
+                  You'll be deep in their API docs trying to piece together configuration flags.
                 </p>
                 <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
                   <p className="text-red-700 dark:text-red-300 text-sm">
@@ -825,7 +825,7 @@ const headers = [
 
         {/* Conclusion Section */}
         <section id="conclusion">
-          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm mb-8">
             <h2 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-2xl font-semibold">
               <FontAwesomeIcon icon={faMagic} className="text-purple-500" />
               The Bottom Line
@@ -843,29 +843,6 @@ const headers = [
                 anything in between—your table can look and feel exactly how you want it to. No
                 compromises. No workarounds. Just powerful customization built on solid foundations.
               </p>
-
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900/30 dark:to-purple-900/30 border border-blue-200 dark:border-blue-800 rounded-lg p-6">
-                <p className="text-gray-700 dark:text-gray-300 mb-4 text-lg">
-                  <strong>
-                    Your design. Your data. Your table. Built with Simple Table—the only React data
-                    grid that doesn't hold you back.
-                  </strong>
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Link
-                    href="/examples/crm"
-                    className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors text-center"
-                  >
-                    Explore Live Example
-                  </Link>
-                  <Link
-                    href="/docs/cell-renderer"
-                    className="inline-block border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:border-orange-500 hover:text-orange-600 px-6 py-3 rounded-lg font-medium transition-colors text-center"
-                  >
-                    Read Customization Docs
-                  </Link>
-                </div>
-              </div>
             </div>
           </div>
         </section>
