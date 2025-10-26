@@ -12,7 +12,6 @@ import {
   faMusic,
   faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
-import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
 import { Suspense, useEffect } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
@@ -28,6 +27,24 @@ const examples = [
     icon: faServer,
   },
   {
+    id: "crm",
+    label: "CRM",
+    path: "/examples/crm",
+    icon: faUserTie,
+  },
+  {
+    id: "music",
+    label: "Music",
+    path: "/examples/music",
+    icon: faMusic,
+  },
+  {
+    id: "billing",
+    label: "Billing",
+    path: "/examples/billing",
+    icon: faFileInvoiceDollar,
+  },
+  {
     id: "manufacturing",
     label: "Manufacturing",
     path: "/examples/manufacturing",
@@ -39,29 +56,12 @@ const examples = [
     path: "/examples/hr",
     icon: faUsers,
   },
-  {
-    id: "billing",
-    label: "Billing",
-    path: "/examples/billing",
-    icon: faFileInvoiceDollar,
-  },
+
   {
     id: "sales",
     label: "Sales",
     path: "/examples/sales",
     icon: faChartLine,
-  },
-  {
-    id: "music",
-    label: "Music",
-    path: "/examples/music",
-    icon: faMusic,
-  },
-  {
-    id: "crm",
-    label: "CRM",
-    path: "/examples/crm",
-    icon: faUserTie,
   },
 ];
 
