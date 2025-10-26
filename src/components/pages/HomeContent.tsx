@@ -34,6 +34,9 @@ import {
   faCodeBranch,
   faHeadset,
   faLeftRight,
+  faCrown,
+  faGift,
+  faFire,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -155,11 +158,12 @@ export default function HomeContent() {
   return (
     <PageWrapper>
       <AIVisibilityEnhancer pageType="home" />
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[10dvh]">
         {/* Hero section */}
         <section className="relative pb-12">
           <motion.div
-            className="relative z-10 text-center px-4"
+            className="relative z-10 text-center"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
@@ -193,6 +197,23 @@ export default function HomeContent() {
               lightweight alternative to AG Grid, TanStack Table, Material-UI Table, Ant Design
               Table, and Handsontable.
             </motion.p>
+
+            {/* Limited Time Promo Badge (Hidden on Mobile) */}
+            <Link href="/pricing">
+              <motion.div
+                className="hidden lg:flex absolute -top-2 right-0 items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl cursor-pointer hover:scale-105 transition-transform group"
+                initial={{ opacity: 0, x: 20, rotate: 0 }}
+                animate={{ opacity: 1, x: 0, rotate: 2 }}
+                transition={{ duration: 0.6, delay: 0.8 }}
+              >
+                <FontAwesomeIcon icon={faFire} className="text-lg animate-pulse" />
+                <div className="text-center">
+                  <div className="font-bold text-sm uppercase tracking-wide">50% OFF PRO</div>
+                  <div className="text-xs">Only 3 spots left!</div>
+                </div>
+                <FontAwesomeIcon icon={faCrown} className="text-lg" />
+              </motion.div>
+            </Link>
 
             <motion.div
               className={`${isMobile ? "flex flex-col gap-4" : "flex justify-center gap-4"}`}
@@ -345,7 +366,7 @@ export default function HomeContent() {
 
           {/* Advanced Column Management */}
           <motion.div
-            className="mb-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 p-8 rounded-xl border border-blue-100 dark:border-blue-800"
+            className="mb-16 bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 p-4 sm:p-6 lg:p-8 rounded-xl border border-blue-100 dark:border-blue-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -431,7 +452,7 @@ export default function HomeContent() {
 
           {/* Customization & Theming */}
           <motion.div
-            className="mb-16 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 p-8 rounded-xl border border-purple-100 dark:border-purple-800"
+            className="mb-16 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 p-4 sm:p-6 lg:p-8 rounded-xl border border-purple-100 dark:border-purple-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -517,7 +538,7 @@ export default function HomeContent() {
 
           {/* Performance */}
           <motion.div
-            className="mb-16 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 p-8 rounded-xl border border-green-100 dark:border-green-800"
+            className="mb-16 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 p-4 sm:p-6 lg:p-8 rounded-xl border border-green-100 dark:border-green-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -552,7 +573,7 @@ export default function HomeContent() {
               ].map((item, index) => (
                 <motion.div
                   key={index}
-                  className="p-6 bg-white dark:bg-gray-800 rounded-lg text-center"
+                  className="p-4 sm:p-5 lg:p-6 bg-white dark:bg-gray-800 rounded-lg text-center"
                   initial={{ opacity: 0, scale: 0.9 }}
                   whileInView={{ opacity: 1, scale: 1 }}
                   transition={{ delay: index * 0.1 }}
@@ -571,7 +592,7 @@ export default function HomeContent() {
 
           {/* Responsive & Mobile */}
           <motion.div
-            className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950 dark:to-amber-950 p-8 rounded-xl border border-orange-100 dark:border-orange-800"
+            className="bg-gradient-to-br from-orange-50 to-amber-50 dark:from-orange-950 dark:to-amber-950 p-4 sm:p-6 lg:p-8 rounded-xl border border-orange-100 dark:border-orange-800"
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -633,7 +654,7 @@ export default function HomeContent() {
 
         {/* Built for Production Section */}
         <motion.section
-          className="mb-16 bg-gray-50 dark:bg-gray-800 rounded-xl p-8 border border-gray-200 dark:border-gray-700"
+          className="mb-16 bg-gray-50 dark:bg-gray-800 rounded-xl p-4 sm:p-6 lg:p-8 border border-gray-200 dark:border-gray-700"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -781,7 +802,7 @@ export default function HomeContent() {
 
         {/* Installation Section */}
         <motion.section
-          className="mb-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl p-8 sm:p-12"
+          className="mb-16 bg-gradient-to-br from-gray-900 to-gray-800 text-white rounded-xl p-4 sm:p-6 lg:p-8"
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
@@ -799,7 +820,7 @@ export default function HomeContent() {
           </div>
 
           <div className="max-w-3xl mx-auto">
-            <div className="bg-gray-950 text-gray-100 p-6 rounded-lg mb-6 font-mono text-sm overflow-x-auto border border-gray-700">
+            <div className="bg-gray-950 text-gray-100 p-3 sm:p-4 lg:p-6 rounded-lg mb-6 font-mono text-sm overflow-x-auto border border-gray-700">
               <div className="mb-4">
                 <div className="text-gray-400 mb-1"># Install via npm</div>
                 <code className="text-green-400">npm install simple-table-core</code>
@@ -886,7 +907,7 @@ export default function HomeContent() {
                   viewport={{ once: true }}
                 >
                   <div className={`h-2 bg-gradient-to-r ${comparison.color}`}></div>
-                  <div className="p-6">
+                  <div className="p-4 sm:p-5 lg:p-6">
                     <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">
                       {comparison.title}
                     </h3>
@@ -975,7 +996,7 @@ export default function HomeContent() {
                     transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <summary className="p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <summary className="p-3 sm:p-4 lg:p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                       <FontAwesomeIcon
                         icon={faq.icon}
                         className="text-blue-600 dark:text-blue-400 mt-1 flex-shrink-0"
@@ -988,7 +1009,7 @@ export default function HomeContent() {
                         className="text-gray-400 transform group-open:rotate-90 transition-transform flex-shrink-0"
                       />
                     </summary>
-                    <div className="px-5 pb-5 pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div className="px-3 pb-3 pl-8 sm:px-4 sm:pb-4 sm:pl-10 lg:px-5 lg:pb-5 lg:pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.details>
@@ -1053,7 +1074,7 @@ export default function HomeContent() {
                     transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <summary className="p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <summary className="p-3 sm:p-4 lg:p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                       <FontAwesomeIcon
                         icon={faq.icon}
                         className="text-purple-600 dark:text-purple-400 mt-1 flex-shrink-0"
@@ -1066,7 +1087,7 @@ export default function HomeContent() {
                         className="text-gray-400 transform group-open:rotate-90 transition-transform flex-shrink-0"
                       />
                     </summary>
-                    <div className="px-5 pb-5 pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div className="px-3 pb-3 pl-8 sm:px-4 sm:pb-4 sm:pl-10 lg:px-5 lg:pb-5 lg:pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.details>
@@ -1115,7 +1136,7 @@ export default function HomeContent() {
                     transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <summary className="p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <summary className="p-3 sm:p-4 lg:p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                       <FontAwesomeIcon
                         icon={faq.icon}
                         className="text-green-600 dark:text-green-400 mt-1 flex-shrink-0"
@@ -1128,7 +1149,7 @@ export default function HomeContent() {
                         className="text-gray-400 transform group-open:rotate-90 transition-transform flex-shrink-0"
                       />
                     </summary>
-                    <div className="px-5 pb-5 pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div className="px-3 pb-3 pl-8 sm:px-4 sm:pb-4 sm:pl-10 lg:px-5 lg:pb-5 lg:pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.details>
@@ -1209,7 +1230,7 @@ export default function HomeContent() {
                     transition={{ delay: index * 0.05 }}
                     viewport={{ once: true }}
                   >
-                    <summary className="p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
+                    <summary className="p-3 sm:p-4 lg:p-5 cursor-pointer list-none flex items-start gap-3 hover:bg-gray-50 dark:hover:bg-gray-700/50 transition-colors">
                       <FontAwesomeIcon
                         icon={faq.icon}
                         className="text-orange-600 dark:text-orange-400 mt-1 flex-shrink-0"
@@ -1222,7 +1243,7 @@ export default function HomeContent() {
                         className="text-gray-400 transform group-open:rotate-90 transition-transform flex-shrink-0"
                       />
                     </summary>
-                    <div className="px-5 pb-5 pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
+                    <div className="px-3 pb-3 pl-8 sm:px-4 sm:pb-4 sm:pl-10 lg:px-5 lg:pb-5 lg:pl-11 text-gray-600 dark:text-gray-300 leading-relaxed">
                       {faq.answer}
                     </div>
                   </motion.details>
