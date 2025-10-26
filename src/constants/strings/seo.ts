@@ -203,6 +203,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, header renderer, custom headers, table headers, typescript table, header customization",
   },
+  footerRenderer: {
+    title: "Custom Footer Renderers with Simple Table",
+    description:
+      "Create custom footer renderers for your react-table with Simple Table. Build custom pagination controls and footer UI for your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, footer renderer, custom footer, table footer, pagination footer, typescript table, footer customization",
+  },
   columnAlignment: {
     title: "Column Alignment in Simple Table React Grid",
     description:

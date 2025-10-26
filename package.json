@@ -48,7 +48,7 @@
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^1.5.4",
+    "simple-table-core": "^1.5.5",
     "@ant-design/v5-patch-for-react-19": "^1.0.3"
   },
   "devDependencies": {

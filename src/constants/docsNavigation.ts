@@ -188,6 +188,12 @@ export const docSections: DocSection[] = [
         path: "/docs/header-renderer",
         icon: faCode,
       },
+      {
+        id: "footer-renderer",
+        label: "Footer Renderer",
+        path: "/docs/footer-renderer",
+        icon: faCode,
+      },
       { id: "pagination", label: "Pagination", path: "/docs/pagination", icon: faPager },
       { id: "live-updates", label: "Live Updates", path: "/docs/live-updates", icon: faBolt },
       {

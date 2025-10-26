@@ -1,15 +1,190 @@
+import { useState } from "react";
 import { HeaderObject } from "simple-table-core";
+
+// Custom Email Enrich component
+const EmailEnrich = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [email, setEmail] = useState<string | null>(null);
+
+  const generateRandomEmail = () => {
+    const domains = ["gmail.com", "yahoo.com", "outlook.com", "hotmail.com", "company.com"];
+    const names = ["john", "jane", "mike", "sarah", "david", "lisa", "chris", "emma"];
+    const randomName = names[Math.floor(Math.random() * names.length)];
+    const randomDomain = domains[Math.floor(Math.random() * domains.length)];
+    const randomNumber = Math.floor(Math.random() * 999) + 1;
+    return `${randomName}${randomNumber}@${randomDomain}`;
+  };
+
+  const handleClick = () => {
+    if (isLoading || email) return;
+
+    setIsLoading(true);
+    setTimeout(() => {
+      setEmail(generateRandomEmail());
+      setIsLoading(false);
+    }, 2000);
+  };
+
+  if (email) {
+    return (
+      <span
+        style={{
+          marginRight: "8px",
+          display: "inline-flex",
+          cursor: "default",
+          alignItems: "center",
+          columnGap: "6px",
+          borderRadius: "9999px",
+          backgroundColor: "oklch(96.7% .003 264.542)",
+          paddingInline: "8px",
+          paddingBlock: "4px",
+          fontSize: "12px",
+          fontWeight: 500,
+          color: "oklch(21% .034 264.665)",
+        }}
+      >
+        {email}
+      </span>
+    );
+  }
+
+  if (isLoading) {
+    return (
+      <span
+        style={{
+          marginRight: "8px",
+          display: "inline-flex",
+          cursor: "default",
+          alignItems: "center",
+          columnGap: "6px",
+          borderRadius: "9999px",
+          backgroundColor: "oklch(96.7% .003 264.542)",
+          paddingInline: "8px",
+          paddingBlock: "4px",
+          fontSize: "12px",
+          fontWeight: 500,
+          color: "oklch(21% .034 264.665)",
+        }}
+      >
+        <div
+          style={{
+            width: "12px",
+            height: "12px",
+            border: "2px solid oklch(87.2% .01 258.338)",
+            borderTop: "2px solid oklch(64.6% .222 41.116)",
+            borderRadius: "50%",
+            animation: "spin 1s linear infinite",
+          }}
+        />
+        Enriching...
+      </span>
+    );
+  }
+
+  return (
+    <span
+      onClick={handleClick}
+      style={{
+        cursor: "pointer",
+        alignItems: "center",
+        columnGap: "6px",
+        borderRadius: "9999px",
+        backgroundColor: "color-mix(in oklab, oklch(62.3% .214 259.815) 10%, transparent)",
+        paddingInline: "8px",
+        paddingBlock: "4px",
+        fontSize: "12px",
+        fontWeight: 500,
+        color: "oklch(21% .034 264.665)",
+      }}
+    >
+      Enrich
+    </span>
+  );
+};
+
+// Custom Fit Buttons component
+const FitButtons = ({ rowId }: { rowId: string }) => {
+  const [selected, setSelected] = useState<string | null>(null);
+
+  const buttonStyle = {
+    flex: 1,
+    padding: "4px 8px",
+    fontSize: "0.75rem",
+    fontWeight: 500,
+    border: "none",
+    cursor: "pointer",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    transition: "background-color 0.2s",
+    color: "oklch(70.7% .022 261.325)",
+  };
+
+  return (
+    <div style={{ display: "flex", alignItems: "center" }}>
+      <button
+        onClick={() => setSelected(selected === "fit" ? null : "fit")}
+        style={{
+          ...buttonStyle,
+          backgroundColor:
+            selected === "fit" ? "oklch(87.1% .15 154.449)" : "oklch(92.5% .084 155.995)",
+          borderTopLeftRadius: "6px",
+          borderBottomLeftRadius: "6px",
+        }}
+      >
+        ✓
+      </button>
+      <button
+        onClick={() => setSelected(selected === "partial" ? null : "partial")}
+        style={{
+          ...buttonStyle,
+          backgroundColor:
+            selected === "partial" ? "oklch(87.2% .01 258.338)" : "oklch(92.8% .006 264.531)",
+        }}
+      >
+        ?
+      </button>
+      <button
+        onClick={() => setSelected(selected === "no" ? null : "no")}
+        style={{
+          ...buttonStyle,
+          backgroundColor:
+            selected === "no" ? "oklch(83.7% .128 66.29)" : "oklch(90.1% .076 70.697)",
+          borderTopRightRadius: "6px",
+          borderBottomRightRadius: "6px",
+        }}
+      >
+        X
+      </button>
+    </div>
+  );
+};
 
 // Custom Tag component for status badges
 const Tag = ({ children, color }: { children: React.ReactNode; color?: string }) => {
   const getColorStyles = (color?: string) => {
     const colors: Record<string, { bg: string; text: string }> = {
-      success: { bg: "#f6ffed", text: "#2a6a0d" },
-      warning: { bg: "#fff7e6", text: "#ad4e00" },
-      info: { bg: "#e6f7ff", text: "#0050b3" },
-      error: { bg: "#fff1f0", text: "#a8071a" },
-      purple: { bg: "#f9f0ff", text: "#391085" },
-      default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+      success: {
+        bg: "color-mix(in srgb, oklch(72.3% .219 149.579) 10%, transparent)",
+        text: "oklch(27.8% .033 256.848)",
+      },
+      warning: {
+        bg: "color-mix(in srgb, oklch(70.5% .213 47.604) 10%, transparent)",
+        text: "oklch(27.8% .033 256.848)",
+      },
+      info: {
+        bg: "color-mix(in srgb, oklch(62.3% .214 259.815) 10%, transparent)",
+        text: "oklch(27.8% .033 256.848)",
+      },
+      error: {
+        bg: "color-mix(in srgb, oklch(63.7% .237 25.331) 10%, transparent)",
+        text: "oklch(27.8% .033 256.848)",
+      },
+      purple: {
+        bg: "color-mix(in srgb, oklch(62.7% .265 303.9) 10%, transparent)",
+        text: "oklch(27.8% .033 256.848)",
+      },
+      default: { bg: "oklch(96.7% .003 264.542)", text: "oklch(21% .034 264.665)" },
     };
 
     return colors[color || "default"];
@@ -22,11 +197,10 @@ const Tag = ({ children, color }: { children: React.ReactNode; color?: string })
       style={{
         backgroundColor: bg,
         color: text,
-        padding: "2px 8px",
+        padding: "4px 8px",
         fontSize: "12px",
-        lineHeight: "20px",
-        borderRadius: "4px",
-        display: "inline-block",
+        borderRadius: "9999px",
+        display: "inline-flex",
         fontWeight: 500,
       }}
     >
@@ -38,9 +212,9 @@ const Tag = ({ children, color }: { children: React.ReactNode; color?: string })
 export const LEADS_HEADERS: HeaderObject[] = [
   {
     accessor: "name",
-    label: "Contact",
-    width: "2fr",
-    minWidth: 200,
+    label: "CONTACT",
+    width: 290,
+    minWidth: 290,
     isSortable: true,
     isEditable: true,
     type: "string",
@@ -55,11 +229,12 @@ export const LEADS_HEADERS: HeaderObject[] = [
         <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
           <div
             style={{
-              width: "32px",
-              height: "32px",
+              width: "40px",
+              height: "40px",
               borderRadius: "50%",
-              backgroundColor: "#e0e7ff",
-              color: "#4338ca",
+              background:
+                "linear-gradient(to right, oklch(75% .183 55.934), oklch(70.4% .191 22.216))",
+              color: "white",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -72,7 +247,16 @@ export const LEADS_HEADERS: HeaderObject[] = [
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: "2px" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-              <span style={{ fontWeight: "500" }}>{row.name as string}</span>
+              <span
+                style={{
+                  cursor: "pointer",
+                  fontSize: "14px",
+                  fontWeight: "600",
+                  color: "oklch(64.6% .222 41.116)",
+                }}
+              >
+                {row.name as string}
+              </span>
               {row.linkedin && (
                 <svg
                   width="14"
@@ -85,8 +269,18 @@ export const LEADS_HEADERS: HeaderObject[] = [
                 </svg>
               )}
             </div>
-            <div style={{ fontSize: "12px", color: "#6b7280" }}>{row.title as string}</div>
-            <div style={{ fontSize: "12px", color: "#9ca3af" }}>@ {row.company as string}</div>
+            <div
+              style={{
+                fontSize: "12px",
+                color: "oklch(44.6% .03 256.802)",
+              }}
+            >
+              {row.title as string}
+            </div>
+            <div style={{ fontSize: "12px", color: "oklch(44.6% .03 256.802)" }}>
+              <span style={{ fontSize: "12px", color: "oklch(87.2% .01 258.338)" }}>@</span>{" "}
+              {row.company as string}
+            </div>
           </div>
         </div>
       );
@@ -94,20 +288,39 @@ export const LEADS_HEADERS: HeaderObject[] = [
   },
   {
     accessor: "signal",
-    label: "Signal",
-    width: "2fr",
-    minWidth: 250,
+    label: "SIGNAL",
+    width: 340,
+    minWidth: 340,
     isSortable: true,
     isEditable: true,
     type: "string",
     cellRenderer: ({ row }) => {
-      return <div style={{ fontSize: "13px", color: "#374151" }}>{row.signal as string}</div>;
+      return (
+        <div>
+          <div
+            style={{ color: "oklch(44.6% .03 256.802)", marginBottom: "4px", fontSize: "0.875rem" }}
+          >
+            🧠 Just engaged with a{" "}
+            <a
+              href="https://www.example.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: "#0077b5", textDecoration: "underline !important" }}
+            >
+              post
+            </a>
+          </div>
+          <div style={{ fontSize: "12px", color: "oklch(55.1% .027 264.364)" }}>
+            <span style={{ fontWeight: "600" }}>Keyword:</span> {row.signal as string}
+          </div>
+        </div>
+      );
     },
   },
   {
     accessor: "aiScore",
-    label: "AI Score",
-    width: "1fr",
+    label: "AI SCORE",
+    width: 100,
     minWidth: 100,
     isSortable: true,
     align: "center",
@@ -116,14 +329,14 @@ export const LEADS_HEADERS: HeaderObject[] = [
       const score = row.aiScore as number;
       const fireEmojis = "🔥".repeat(score);
 
-      return <div style={{ fontSize: "18px", letterSpacing: "2px" }}>{fireEmojis}</div>;
+      return <div style={{ fontSize: "0.875rem" }}>{fireEmojis}</div>;
     },
   },
   {
     accessor: "emailStatus",
-    label: "Email",
-    width: "1fr",
-    minWidth: 120,
+    label: "EMAIL",
+    width: 210,
+    minWidth: 210,
     isSortable: true,
     align: "center",
     type: "enum",
@@ -133,45 +346,31 @@ export const LEADS_HEADERS: HeaderObject[] = [
       { label: "Pending", value: "Pending" },
       { label: "Bounced", value: "Bounced" },
     ],
-    cellRenderer: ({ row }) => {
-      const status = row.emailStatus as string;
-      let color = "default";
-
-      switch (status) {
-        case "Verified":
-          color = "success";
-          break;
-        case "Enrich":
-          color = "info";
-          break;
-        case "Pending":
-          color = "warning";
-          break;
-        case "Bounced":
-          color = "error";
-          break;
-      }
-
-      return <Tag color={color}>{status}</Tag>;
+    cellRenderer: () => {
+      return <EmailEnrich />;
     },
   },
   {
     accessor: "timeAgo",
-    label: "Import",
-    width: "1fr",
-    minWidth: 120,
+    label: "IMPORT",
+    width: 100,
+    minWidth: 100,
     isSortable: true,
     align: "center",
     type: "string",
     cellRenderer: ({ row }) => {
-      return <div style={{ fontSize: "13px", color: "#6b7280" }}>{row.timeAgo as string}</div>;
+      return (
+        <div style={{ fontSize: "13px", color: "oklch(44.6% .03 256.802)" }}>
+          {row.timeAgo as string}
+        </div>
+      );
     },
   },
   {
     accessor: "list",
-    label: "List",
-    width: "1fr",
-    minWidth: 120,
+    label: "LIST",
+    width: 160,
+    minWidth: 160,
     isSortable: true,
     align: "center",
     type: "enum",
@@ -186,27 +385,54 @@ export const LEADS_HEADERS: HeaderObject[] = [
     ],
     cellRenderer: ({ row }) => {
       const listName = row.list as string;
-      let color = "default";
 
-      switch (listName) {
-        case "Hot Leads":
-          color = "error";
-          break;
-        case "Warm Leads":
-          color = "warning";
-          break;
-        case "Leads":
-          color = "success";
-          break;
-        case "Enterprise":
-          color = "purple";
-          break;
-        default:
-          color = "info";
-          break;
-      }
-
-      return <Tag color={color}>{listName}</Tag>;
+      return (
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          style={{
+            cursor: "pointer",
+            fontSize: "0.875rem",
+            color: "oklch(64.6% .222 41.116)",
+            textDecoration: "none",
+            fontWeight: "600",
+          }}
+        >
+          {listName}
+        </a>
+      );
+    },
+  },
+  {
+    accessor: "_fit",
+    label: "Fit",
+    width: 120,
+    minWidth: 120,
+    cellRenderer: ({ row }) => {
+      return <FitButtons rowId={row.id as string} />;
+    },
+  },
+  {
+    accessor: "_contactNow",
+    label: "",
+    width: 160,
+    minWidth: 160,
+    cellRenderer: () => {
+      return (
+        <a
+          href="#"
+          onClick={(e) => e.preventDefault()}
+          style={{
+            cursor: "pointer",
+            fontSize: "0.875rem",
+            color: "oklch(64.6% .222 41.116)",
+            textDecoration: "none",
+            fontWeight: "600",
+          }}
+        >
+          Contact Now
+        </a>
+      );
     },
   },
 ];

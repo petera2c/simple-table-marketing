@@ -8,6 +8,14 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
 
+/* @import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); */
+import { Plus_Jakarta_Sans } from "next/font/google";
+
+const plusJakartaSans = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
+});
+
 const ROW_HEIGHT = 60;
 
 type LeadsExampleWrapperProps = {
@@ -34,7 +42,9 @@ const LeadsExampleWrapper = ({
         link={SANDBOX_LIST["examples/leads/LeadsExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <LeadsExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+            <div className={plusJakartaSans.className}>
+              <LeadsExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+            </div>
           </ExamplesWrapper>
         )}
       />

@@ -7,6 +7,12 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
+import { Inter } from "next/font/google";
+
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
 
 const ROW_HEIGHT = 64; // Taller rows for the artist cards
 
@@ -28,7 +34,9 @@ const MusicExampleWrapper = ({ height, theme }: MusicExampleWrapperProps) => {
         link={SANDBOX_LIST["examples/music/MusicExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
-            <MusicExample height={height ? height : `${containerHeight}px`} theme={theme} />
+            <div className={inter.className}>
+              <MusicExample height={height ? height : `${containerHeight}px`} theme={theme} />
+            </div>
           </ExamplesWrapper>
         )}
       />

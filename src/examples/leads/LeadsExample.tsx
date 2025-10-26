@@ -1,7 +1,166 @@
-import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { LEADS_HEADERS } from "./leads-headers";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+
 import "simple-table-core/styles.css";
+import "./CustomTheme.css";
+import { CellChangeProps, FooterRendererProps, Row, SimpleTable, Theme } from "simple-table-core";
+
+export const leadsExampleDefaults = {
+  height: "400px",
+};
+
+// Custom footer component styled similar to the Angular example
+const LeadsCustomFooter = ({
+  currentPage,
+  totalPages,
+  rowsPerPage,
+  totalRows,
+  startRow,
+  endRow,
+  onPageChange,
+  onNextPage,
+  onPrevPage,
+  hasNextPage,
+  hasPrevPage,
+}: FooterRendererProps) => {
+  const [pageSize, setPageSize] = useState(rowsPerPage);
+
+  const handlePageSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const newSize = parseInt(event.target.value, 10);
+    setPageSize(newSize);
+    // Note: In a real implementation, you'd need to pass onRowsPerPageChange callback
+    console.log("Page size changed to:", newSize);
+  };
+
+  // Generate visible page numbers (show first 4 pages max)
+  const visiblePages = Array.from({ length: Math.min(totalPages, 4) }, (_, i) => i + 1);
+
+  return (
+    <div
+      style={{
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "space-between",
+        padding: "12px 16px",
+        borderTop: "1px solid #e5e7eb",
+        backgroundColor: "white",
+      }}
+    >
+      {/* Results text */}
+      <p style={{ fontSize: "14px", color: "#374151", margin: 0 }}>
+        Showing <span style={{ fontWeight: "500" }}>{startRow}</span> to{" "}
+        <span style={{ fontWeight: "500" }}>{endRow}</span> of{" "}
+        <span style={{ fontWeight: "500" }}>{totalRows}</span> results
+      </p>
+
+      {/* Controls */}
+      <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+        {/* Page size selector */}
+        <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+          <label htmlFor="itemsPerPage" style={{ fontSize: "14px", color: "#374151" }}>
+            Show:
+          </label>
+          <select
+            id="itemsPerPage"
+            value={pageSize}
+            onChange={handlePageSizeChange}
+            style={{
+              border: "1px solid #d1d5db",
+              borderRadius: "6px",
+              padding: "4px 8px",
+              fontSize: "14px",
+              backgroundColor: "white",
+              cursor: "pointer",
+            }}
+          >
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+            <option value="200">200</option>
+            <option value="10000">all</option>
+          </select>
+          <span style={{ fontSize: "14px", color: "#374151" }}>per page</span>
+        </div>
+
+        {/* Pagination */}
+        <nav
+          style={{
+            display: "inline-flex",
+            borderRadius: "6px",
+            boxShadow: "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+          }}
+        >
+          {/* Previous button */}
+          <button
+            onClick={onPrevPage}
+            disabled={!hasPrevPage}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "8px",
+              borderTopLeftRadius: "6px",
+              borderBottomLeftRadius: "6px",
+              border: "1px solid #d1d5db",
+              backgroundColor: "white",
+              fontSize: "14px",
+              fontWeight: "500",
+              color: "#6b7280",
+              cursor: hasPrevPage ? "pointer" : "not-allowed",
+              opacity: hasPrevPage ? 1 : 0.5,
+            }}
+          >
+            ‹
+          </button>
+
+          {/* Page buttons */}
+          {visiblePages.map((page) => (
+            <button
+              key={page}
+              onClick={() => onPageChange(page)}
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                padding: "8px 16px",
+                border: "1px solid #d1d5db",
+                backgroundColor: currentPage === page ? "#fff7ed" : "white",
+                fontSize: "14px",
+                fontWeight: "500",
+                color: currentPage === page ? "#ea580c" : "#374151",
+                cursor: "pointer",
+                marginLeft: "-1px",
+              }}
+            >
+              {page}
+            </button>
+          ))}
+
+          {/* Next button */}
+          <button
+            onClick={onNextPage}
+            disabled={!hasNextPage}
+            style={{
+              display: "inline-flex",
+              alignItems: "center",
+              padding: "8px",
+              borderTopRightRadius: "6px",
+              borderBottomRightRadius: "6px",
+              border: "1px solid #d1d5db",
+              backgroundColor: "white",
+              fontSize: "14px",
+              fontWeight: "500",
+              color: "#6b7280",
+              cursor: hasNextPage ? "pointer" : "not-allowed",
+              opacity: hasNextPage ? 1 : 0.5,
+              marginLeft: "-1px",
+            }}
+          >
+            ›
+          </button>
+        </nav>
+      </div>
+    </div>
+  );
+};
 
 // Backup data (first 20 rows from leads-data.json)
 const BACKUP_LEADS_DATA = [
@@ -247,55 +406,15 @@ const BACKUP_LEADS_DATA = [
   },
 ];
 
-export default function LeadsExample({
-  height,
+const LeadsExampleComponent = ({
   onGridReady,
   theme,
-  rowCount = 50,
 }: {
-  height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
-  rowCount?: number;
-}) {
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fetch leads data from API
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
-        const isProduction =
-          typeof window !== "undefined" && window.location.hostname.includes("simple-table.com");
-
-        // Use backup data if not on localhost or production
-        if (!isLocal && !isProduction) {
-          setData(BACKUP_LEADS_DATA);
-          setIsLoading(false);
-          return;
-        }
-
-        // Use relative path for local development, full URL for production
-        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
-        const response = await fetch(`${baseUrl}/api/data/leads?rowCount=${rowCount}`);
-        if (!response.ok) {
-          throw new Error("Failed to fetch leads data");
-        }
-        const leadsData = await response.json();
-        setData(leadsData);
-      } catch (error) {
-        console.error("Error fetching leads data:", error);
-        // Fallback to backup data on error
-        setData(BACKUP_LEADS_DATA);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [rowCount]);
+  height?: number | null;
+}) => {
+  const [data, setData] = useState<Row[]>(BACKUP_LEADS_DATA);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -311,35 +430,27 @@ export default function LeadsExample({
     );
   };
 
-  if (isLoading) {
-    return (
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          height: height ? `${height}px` : "70dvh",
-          fontSize: "16px",
-          color: "#666",
-        }}
-      >
-        Loading leads data...
-      </div>
-    );
-  }
-
   return (
-    <SimpleTable
-      columnResizing
-      columnReordering
-      defaultHeaders={LEADS_HEADERS}
-      onGridReady={onGridReady}
-      rowIdAccessor="id"
-      rows={data}
-      theme={theme}
-      selectableCells
-      onCellEdit={handleCellEdit}
-      height={height ? `${height}px` : "70dvh"}
-    />
+    <div className="custom-theme-container">
+      <SimpleTable
+        columnResizing
+        columnReordering
+        defaultHeaders={LEADS_HEADERS}
+        enableRowSelection
+        onGridReady={onGridReady}
+        rowIdAccessor="id"
+        rows={data}
+        rowHeight={92}
+        theme="custom"
+        onCellEdit={handleCellEdit}
+        height={"70dvh"}
+        headerHeight={48}
+        shouldPaginate
+        rowsPerPage={100}
+        footerRenderer={(props) => <LeadsCustomFooter {...props} />}
+      />
+    </div>
   );
-}
+};
+
+export default LeadsExampleComponent;
