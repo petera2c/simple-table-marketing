@@ -6,10 +6,11 @@ import useScrollRestoration from "../hooks/useScrollRestoration";
 
 interface PageWrapperProps {
   children: React.ReactNode;
+  disableScrollRestoration?: boolean;
 }
 
-export default function PageWrapper({ children }: PageWrapperProps) {
-  useScrollRestoration();
+export default function PageWrapper({ children, disableScrollRestoration }: PageWrapperProps) {
+  useScrollRestoration(disableScrollRestoration);
   const themeContext = useThemeContext();
 
   return (

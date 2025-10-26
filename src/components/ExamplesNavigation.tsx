@@ -10,11 +10,14 @@ import {
   faFileInvoiceDollar,
   faServer,
   faMusic,
+  faUserTie,
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import PageWrapper from "./PageWrapper";
+import { ThemeOption } from "@/types/theme";
 
 // Define example navigation items
 const examples = [
@@ -54,6 +57,12 @@ const examples = [
     path: "/examples/music",
     icon: faMusic,
   },
+  {
+    id: "crm",
+    label: "CRM",
+    path: "/examples/crm",
+    icon: faUserTie,
+  },
 ];
 
 // Title mapping for each example
@@ -64,6 +73,7 @@ const exampleTitles = {
   billing: "Revenue Recognition",
   sales: "Sales Pipeline",
   music: "Music Artist Analytics",
+  crm: "CRM Leads Management",
 };
 
 // Row count options
@@ -78,7 +88,7 @@ function ExamplesNavigationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
-  const currentTheme = (searchParams?.get("theme") as Theme) || theme;
+  const currentTheme = (searchParams?.get("theme") as ThemeOption) || theme;
   const currentRowCount = parseInt(searchParams?.get("rows") || "50");
 
   // Determine current active example
@@ -92,7 +102,7 @@ function ExamplesNavigationContent() {
     router.push(`${linkPath}?${params.toString()}`);
   };
 
-  const handleThemeChange = (theme: Theme) => {
+  const handleThemeChange = (theme: ThemeOption) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", theme);
     router.push(`${pathname}?${params.toString()}`);
@@ -104,45 +114,77 @@ function ExamplesNavigationContent() {
     router.push(`${pathname}?${params.toString()}`);
   };
 
-  return (
-    <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-      <h1 className="text-xl font-semibold">
-        {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
-      </h1>
-      <div className="flex items-center gap-2 flex-wrap">
-        {currentExample.id !== "music" && (
-          <Select
-            placeholder="Select row count"
-            style={{ width: 150 }}
-            onChange={handleRowCountChange}
-            value={currentRowCount}
-            options={rowCountOptions}
-          />
-        )}
-        <Select
-          placeholder="Select an example"
-          style={{ width: 200 }}
-          onChange={(value) => {
-            const example = examples.find((e) => e.id === value);
-            if (example) {
-              handleLinkClick(example.path);
-            }
-          }}
-          value={currentExample.id}
-          options={examples.map((example) => ({
-            value: example.id,
-            label: (
-              <div className="flex items-center gap-2">
-                <FontAwesomeIcon icon={example.icon} />
-                {example.label}
-              </div>
-            ),
-          }))}
-        />
+  // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to the website theme
+  useEffect(() => {
+    if (
+      currentExample.id !== "crm" &&
+      (currentTheme === "custom-light" || currentTheme === "custom-dark")
+    ) {
+      handleThemeChange(theme);
+    } else if (
+      currentExample.id === "crm" &&
+      currentTheme !== "custom-light" &&
+      currentTheme !== "custom-dark"
+    ) {
+      handleThemeChange(theme === "dark" ? "custom-dark" : "custom-light");
+    }
+  }, [currentExample.id, currentTheme, theme]);
 
-        <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
+  return (
+    <PageWrapper disableScrollRestoration>
+      <div className="mb-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
+        <h1 className="text-xl font-semibold">
+          {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
+        </h1>
+        <div className="flex items-center gap-2 flex-wrap">
+          {currentExample.id !== "music" && currentExample.id !== "crm" && (
+            <Select
+              placeholder="Select row count"
+              style={{ width: 150 }}
+              onChange={handleRowCountChange}
+              value={currentRowCount}
+              options={rowCountOptions}
+            />
+          )}
+          <Select
+            placeholder="Select an example"
+            style={{ width: 200 }}
+            onChange={(value) => {
+              const example = examples.find((e) => e.id === value);
+              if (example) {
+                handleLinkClick(example.path);
+              }
+            }}
+            value={currentExample.id}
+            options={examples.map((example) => ({
+              value: example.id,
+              label: (
+                <div className="flex items-center gap-2">
+                  <FontAwesomeIcon icon={example.icon} />
+                  {example.label}
+                </div>
+              ),
+            }))}
+          />
+
+          <ThemeSelector
+            currentTheme={currentTheme}
+            setCurrentTheme={handleThemeChange}
+            restrictedThemes={
+              currentExample.id === "crm" ? ["custom-dark", "custom-light"] : undefined
+            }
+            themeLabels={
+              currentExample.id === "crm"
+                ? {
+                    "custom-light": "Custom Light",
+                    "custom-dark": "Custom Dark",
+                  }
+                : undefined
+            }
+          />
+        </div>
       </div>
-    </div>
+    </PageWrapper>
   );
 }
 

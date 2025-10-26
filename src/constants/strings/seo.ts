@@ -7,6 +7,7 @@ import {
   bestFreeReactDataGridPost,
   customizingReactTableLookPost,
   mobileCompatibilityReactTablesPost,
+  customFooterRenderersPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -41,6 +42,22 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    customFooterRenderers: {
+      title: customFooterRenderersPost.title,
+      description: customFooterRenderersPost.description,
+      keywords: [
+        "custom footer renderer",
+        "react table footer",
+        "pagination customization",
+        "footer renderer react",
+        "custom pagination",
+        "table footer design",
+        "react data grid footer",
+        "footer UI control",
+        "simple table footer",
+        "tanstack footer comparison",
+      ],
+    },
     mobileCompatibilityReactTables: {
       title: mobileCompatibilityReactTablesPost.title,
       description: mobileCompatibilityReactTablesPost.description,
@@ -202,6 +219,13 @@ export const SEO_STRINGS = {
       "Create custom header renderers for your react-table with Simple Table. Style column headers with custom designs, icons, and interactive elements.",
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, header renderer, custom headers, table headers, typescript table, header customization",
+  },
+  footerRenderer: {
+    title: "Custom Footer Renderers with Simple Table",
+    description:
+      "Create custom footer renderers for your react-table with Simple Table. Build custom pagination controls and footer UI for your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, footer renderer, custom footer, table footer, pagination footer, typescript table, footer customization",
   },
   columnAlignment: {
     title: "Column Alignment in Simple Table React Grid",
@@ -379,6 +403,13 @@ export const SEO_STRINGS = {
         "Build a music artist analytics dashboard with Simple Table in React. A react-table for tracking followers, popularity, playlist reach, and artist metrics using a responsive datagrid.",
       keywords:
         "simple-table, react-table, react-grid, data-grid, datagrid, data table, music analytics, artist dashboard, spotify analytics, music metrics, responsive table",
+    },
+    crm: {
+      title: "CRM Leads Management with Simple Table",
+      description:
+        "Build a CRM leads management dashboard with Simple Table in React. A react-table for tracking contacts, signals, AI scoring, and lead status using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, crm table, leads management, sales leads, contact management, responsive table",
     },
   },
   liveUpdates: {

@@ -3,7 +3,15 @@ import { readFileSync } from "fs";
 import { join } from "path";
 
 // Valid data types
-const VALID_TYPES = ["infrastructure", "billing", "hr", "manufacturing", "sales", "music"] as const;
+const VALID_TYPES = [
+  "infrastructure",
+  "billing",
+  "hr",
+  "manufacturing",
+  "sales",
+  "music",
+  "crm",
+] as const;
 type DataType = (typeof VALID_TYPES)[number];
 
 // Default row counts for each type
@@ -14,6 +22,7 @@ const DEFAULT_ROW_COUNTS: Record<DataType, number> = {
   manufacturing: 50,
   sales: 50,
   music: 50,
+  crm: 800,
 };
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ type: string }> }) {

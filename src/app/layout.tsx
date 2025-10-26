@@ -1,6 +1,6 @@
 // Do not f***ing add a use client to this file. It will break SEO metadata
 import { Analytics } from "../components/Analytics";
-import { Nunito, Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
@@ -12,11 +12,6 @@ config.autoAddCss = false;
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["200", "300", "400", "500", "600", "700", "800", "900", "1000"],
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {

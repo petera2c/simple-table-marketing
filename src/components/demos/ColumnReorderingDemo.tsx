@@ -5,10 +5,16 @@ import "simple-table-core/styles.css";
 // Define headers for the demo
 const initialHeaders: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
-  { accessor: "name", label: "Name", width: 120, type: "string" },
+  { accessor: "name", label: "Name", width: "1fr", type: "string" },
   { accessor: "age", label: "Age", width: 80, align: "right", type: "number" },
   { accessor: "role", label: "Role", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "department", disableReorder: true, label: "Department", width: 150, type: "string" },
+  {
+    accessor: "department",
+    disableReorder: true,
+    label: "Department",
+    width: "1fr",
+    type: "string",
+  },
 ];
 
 // Sample data
