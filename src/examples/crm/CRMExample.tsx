@@ -19,16 +19,37 @@ const CRMCustomFooter = ({
   hasNextPage,
   hasPrevPage,
   isDark,
-}: FooterRendererProps & { isDark?: boolean }) => {
-  const [pageSize, setPageSize] = useState(rowsPerPage);
+  setRowsPerPage,
+}: FooterRendererProps & { isDark?: boolean; setRowsPerPage: (rowsPerPage: number) => void }) => {
+  // Generate visible page numbers with current page centered
+  const generateVisiblePages = (currentPage: number, totalPages: number): number[] => {
+    const maxVisible = 5;
 
-  const handlePageSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const newSize = parseInt(event.target.value, 10);
-    setPageSize(newSize);
+    if (totalPages <= maxVisible) {
+      // Show all pages if we have fewer than maxVisible
+      return Array.from({ length: totalPages }, (_, i) => i + 1);
+    }
+
+    // Calculate start and end to center current page
+    let start = currentPage - 2;
+    let end = currentPage + 2;
+
+    // Adjust if we're near the beginning
+    if (start < 1) {
+      start = 1;
+      end = Math.min(maxVisible, totalPages);
+    }
+
+    // Adjust if we're near the end
+    if (end > totalPages) {
+      end = totalPages;
+      start = Math.max(1, totalPages - maxVisible + 1);
+    }
+
+    return Array.from({ length: end - start + 1 }, (_, i) => start + i);
   };
 
-  // Generate visible page numbers (show first 4 pages max)
-  const visiblePages = Array.from({ length: Math.min(totalPages, 4) }, (_, i) => i + 1);
+  const visiblePages = generateVisiblePages(currentPage, totalPages);
 
   const colors = isDark
     ? {
@@ -85,8 +106,11 @@ const CRMCustomFooter = ({
           </label>
           <select
             id="itemsPerPage"
-            value={pageSize}
-            onChange={handlePageSizeChange}
+            value={rowsPerPage}
+            onChange={(event) => {
+              setRowsPerPage(parseInt(event.target.value, 10));
+              onPageChange(1);
+            }}
             style={{
               border: `1px solid ${colors.inputBorder}`,
               borderRadius: "6px",
@@ -441,6 +465,7 @@ const CRMExampleComponent = ({
 }) => {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [rowsPerPage, setRowsPerPage] = useState(100);
 
   const isDark = theme === "custom-dark";
 
@@ -502,7 +527,9 @@ const CRMExampleComponent = ({
         columnResizing
         defaultHeaders={getCRMHeaders(isDark)}
         enableRowSelection
-        footerRenderer={(props) => <CRMCustomFooter {...props} isDark={isDark} />}
+        footerRenderer={(props) => (
+          <CRMCustomFooter {...props} isDark={isDark} setRowsPerPage={setRowsPerPage} />
+        )}
         headerHeight={48}
         height={height ? `${height}px` : "70dvh"}
         onCellEdit={handleCellEdit}
@@ -510,7 +537,7 @@ const CRMExampleComponent = ({
         rowHeight={92}
         rowIdAccessor="id"
         rows={data}
-        rowsPerPage={100}
+        rowsPerPage={rowsPerPage}
         shouldPaginate
         theme="custom"
       />

@@ -22,7 +22,7 @@ const DEFAULT_ROW_COUNTS: Record<DataType, number> = {
   manufacturing: 50,
   sales: 50,
   music: 50,
-  crm: 50,
+  crm: 800,
 };
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ type: string }> }) {
