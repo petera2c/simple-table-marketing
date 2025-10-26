@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_5_9: ChangelogEntry = {
+  version: "1.5.9",
+  date: "2025-01-27",
+  title: "Row Numbers with Pagination Fix",
+  description:
+    "Fixed an issue where row numbers were not correctly calculated when pagination was enabled. Row numbers now display the correct sequential numbers based on the current page.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed row numbers calculation with pagination",
+      link: "/docs/row-selection",
+    },
+  ],
+};
+
 export const v1_5_6: ChangelogEntry = {
   version: "1.5.6",
   date: "2025-01-26",
@@ -139,6 +154,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_5_9,
   v1_5_6,
   v1_5_5,
   v1_5_1,
