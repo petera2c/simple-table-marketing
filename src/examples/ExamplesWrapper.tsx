@@ -2,13 +2,15 @@
 import React from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import { useSearchParams } from "next/navigation";
-import { Theme } from "simple-table-core";
+import { ThemeOption } from "@/types/theme";
 
 const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const searchParams = useSearchParams();
   const { theme: websiteMode } = useThemeContext();
-  const theme = (searchParams?.get("theme") as Theme) || websiteMode;
+  const theme = (searchParams?.get("theme") as ThemeOption) || websiteMode;
   const rowCount = parseInt(searchParams?.get("rows") || "50");
+
+  console.log("theme", theme);
 
   return (
     <>

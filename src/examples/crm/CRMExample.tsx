@@ -1,9 +1,9 @@
-import { CRM_HEADERS } from "./crm-headers";
+import { getCRMHeaders } from "./crm-headers";
 import { useEffect, useState } from "react";
 
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
-import { CellChangeProps, FooterRendererProps, Row, SimpleTable } from "simple-table-core";
+import { CellChangeProps, FooterRendererProps, Row, SimpleTable, Theme } from "simple-table-core";
 
 // Custom footer component styled similar to the Angular example
 const CRMCustomFooter = ({
@@ -18,7 +18,8 @@ const CRMCustomFooter = ({
   onPrevPage,
   hasNextPage,
   hasPrevPage,
-}: FooterRendererProps) => {
+  isDark,
+}: FooterRendererProps & { isDark?: boolean }) => {
   const [pageSize, setPageSize] = useState(rowsPerPage);
 
   const handlePageSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -29,6 +30,34 @@ const CRMCustomFooter = ({
   // Generate visible page numbers (show first 4 pages max)
   const visiblePages = Array.from({ length: Math.min(totalPages, 4) }, (_, i) => i + 1);
 
+  const colors = isDark
+    ? {
+        bg: "#0f172a",
+        border: "#334155",
+        text: "#cbd5e1",
+        textBold: "#e2e8f0",
+        inputBg: "#1e293b",
+        inputBorder: "#475569",
+        buttonBg: "#1e293b",
+        buttonBorder: "#475569",
+        buttonText: "#cbd5e1",
+        activeBg: "#334155",
+        activeText: "#ea580c",
+      }
+    : {
+        bg: "white",
+        border: "#e5e7eb",
+        text: "#374151",
+        textBold: "#374151",
+        inputBg: "white",
+        inputBorder: "#d1d5db",
+        buttonBg: "white",
+        buttonBorder: "#d1d5db",
+        buttonText: "#6b7280",
+        activeBg: "#fff7ed",
+        activeText: "#ea580c",
+      };
+
   return (
     <div
       style={{
@@ -36,12 +65,12 @@ const CRMCustomFooter = ({
         alignItems: "center",
         justifyContent: "space-between",
         padding: "12px 16px",
-        borderTop: "1px solid #e5e7eb",
-        backgroundColor: "white",
+        borderTop: `1px solid ${colors.border}`,
+        backgroundColor: colors.bg,
       }}
     >
       {/* Results text */}
-      <p style={{ fontSize: "14px", color: "#374151", margin: 0 }}>
+      <p style={{ fontSize: "14px", color: colors.text, margin: 0 }}>
         Showing <span style={{ fontWeight: "500" }}>{startRow}</span> to{" "}
         <span style={{ fontWeight: "500" }}>{endRow}</span> of{" "}
         <span style={{ fontWeight: "500" }}>{totalRows}</span> results
@@ -51,7 +80,7 @@ const CRMCustomFooter = ({
       <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
         {/* Page size selector */}
         <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-          <label htmlFor="itemsPerPage" style={{ fontSize: "14px", color: "#374151" }}>
+          <label htmlFor="itemsPerPage" style={{ fontSize: "14px", color: colors.text }}>
             Show:
           </label>
           <select
@@ -59,11 +88,12 @@ const CRMCustomFooter = ({
             value={pageSize}
             onChange={handlePageSizeChange}
             style={{
-              border: "1px solid #d1d5db",
+              border: `1px solid ${colors.inputBorder}`,
               borderRadius: "6px",
               padding: "4px 8px",
               fontSize: "14px",
-              backgroundColor: "white",
+              backgroundColor: colors.inputBg,
+              color: colors.text,
               cursor: "pointer",
             }}
           >
@@ -73,7 +103,7 @@ const CRMCustomFooter = ({
             <option value="200">200</option>
             <option value="10000">all</option>
           </select>
-          <span style={{ fontSize: "14px", color: "#374151" }}>per page</span>
+          <span style={{ fontSize: "14px", color: colors.text }}>per page</span>
         </div>
 
         {/* Pagination */}
@@ -94,11 +124,11 @@ const CRMCustomFooter = ({
               padding: "8px",
               borderTopLeftRadius: "6px",
               borderBottomLeftRadius: "6px",
-              border: "1px solid #d1d5db",
-              backgroundColor: "white",
+              border: `1px solid ${colors.buttonBorder}`,
+              backgroundColor: colors.buttonBg,
               fontSize: "14px",
               fontWeight: "500",
-              color: "#6b7280",
+              color: colors.buttonText,
               cursor: hasPrevPage ? "pointer" : "not-allowed",
               opacity: hasPrevPage ? 1 : 0.5,
             }}
@@ -115,11 +145,11 @@ const CRMCustomFooter = ({
                 display: "inline-flex",
                 alignItems: "center",
                 padding: "8px 16px",
-                border: "1px solid #d1d5db",
-                backgroundColor: currentPage === page ? "#fff7ed" : "white",
+                border: `1px solid ${colors.buttonBorder}`,
+                backgroundColor: currentPage === page ? colors.activeBg : colors.buttonBg,
                 fontSize: "14px",
                 fontWeight: "500",
-                color: currentPage === page ? "#ea580c" : "#374151",
+                color: currentPage === page ? colors.activeText : colors.text,
                 cursor: "pointer",
                 marginLeft: "-1px",
               }}
@@ -138,11 +168,11 @@ const CRMCustomFooter = ({
               padding: "8px",
               borderTopRightRadius: "6px",
               borderBottomRightRadius: "6px",
-              border: "1px solid #d1d5db",
-              backgroundColor: "white",
+              border: `1px solid ${colors.buttonBorder}`,
+              backgroundColor: colors.buttonBg,
               fontSize: "14px",
               fontWeight: "500",
-              color: "#6b7280",
+              color: colors.buttonText,
               cursor: hasNextPage ? "pointer" : "not-allowed",
               opacity: hasNextPage ? 1 : 0.5,
               marginLeft: "-1px",
@@ -400,9 +430,22 @@ const BACKUP_CRM_DATA = [
   },
 ];
 
-const CRMExampleComponent = ({ onGridReady }: { onGridReady?: () => void }) => {
+const CRMExampleComponent = ({
+  height,
+  onGridReady,
+  theme = "custom-light",
+}: {
+  height?: number | null;
+  onGridReady?: () => void;
+  theme?: "custom-light" | "custom-dark";
+}) => {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  // Map custom-light to "custom" and custom-dark to "custom-dark"
+  const mappedTheme =
+    theme === "custom-light" ? "custom" : theme === "custom-dark" ? "custom-dark" : "custom";
+  const isDark = theme === "custom-dark";
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -458,21 +501,21 @@ const CRMExampleComponent = ({ onGridReady }: { onGridReady?: () => void }) => {
   return (
     <div className="custom-theme-container">
       <SimpleTable
-        columnResizing
         columnReordering
-        defaultHeaders={CRM_HEADERS}
+        columnResizing
+        defaultHeaders={getCRMHeaders(isDark)}
         enableRowSelection
+        footerRenderer={(props) => <CRMCustomFooter {...props} isDark={isDark} />}
+        headerHeight={48}
+        height={height ? `${height}px` : "70dvh"}
+        onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
+        rowHeight={92}
         rowIdAccessor="id"
         rows={data}
-        rowHeight={92}
-        theme="custom"
-        onCellEdit={handleCellEdit}
-        height="70dvh"
-        headerHeight={48}
-        shouldPaginate
         rowsPerPage={100}
-        footerRenderer={(props) => <CRMCustomFooter {...props} />}
+        shouldPaginate
+        theme={mappedTheme as Theme}
       />
     </div>
   );

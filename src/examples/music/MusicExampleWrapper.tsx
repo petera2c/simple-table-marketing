@@ -33,11 +33,11 @@ const MusicExampleWrapper = ({ height, theme }: MusicExampleWrapperProps) => {
         height={`${containerHeight}px`}
         link={SANDBOX_LIST["examples/music/MusicExample.tsx"].url}
         Preview={() => (
-          <ExamplesWrapper>
-            <div className={inter.className}>
+          <div className={inter.className}>
+            <ExamplesWrapper>
               <MusicExample height={height ? height : `${containerHeight}px`} theme={theme} />
-            </div>
-          </ExamplesWrapper>
+            </ExamplesWrapper>
+          </div>
         )}
       />
     </SearchParamsSuspenseWrapper>

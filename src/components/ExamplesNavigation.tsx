@@ -17,6 +17,7 @@ import ThemeSelector from "@/components/ThemeSelector";
 import { Suspense } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
+import { ThemeOption } from "@/types/theme";
 
 // Define example navigation items
 const examples = [
@@ -87,7 +88,7 @@ function ExamplesNavigationContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
-  const currentTheme = (searchParams?.get("theme") as Theme) || theme;
+  const currentTheme = (searchParams?.get("theme") as ThemeOption) || theme;
   const currentRowCount = parseInt(searchParams?.get("rows") || "50");
 
   // Determine current active example
@@ -101,7 +102,7 @@ function ExamplesNavigationContent() {
     router.push(`${linkPath}?${params.toString()}`);
   };
 
-  const handleThemeChange = (theme: Theme) => {
+  const handleThemeChange = (theme: ThemeOption) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", theme);
     router.push(`${pathname}?${params.toString()}`);
@@ -153,7 +154,17 @@ function ExamplesNavigationContent() {
           <ThemeSelector
             currentTheme={currentTheme}
             setCurrentTheme={handleThemeChange}
-            restrictedThemes={currentExample.id === "crm" ? ["dark", "light"] : undefined}
+            restrictedThemes={
+              currentExample.id === "crm" ? ["custom-dark", "custom-light"] : undefined
+            }
+            themeLabels={
+              currentExample.id === "crm"
+                ? {
+                    "custom-light": "Custom Light",
+                    "custom-dark": "Custom Dark",
+                  }
+                : undefined
+            }
           />
         </div>
       </div>
