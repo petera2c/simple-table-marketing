@@ -117,8 +117,30 @@ export const customFooterRenderersPost: BlogPostMetadata = {
   updatedAt: "2025-10-25",
 };
 
+export const replicatingGojiberryUIPost: BlogPostMetadata = {
+  title:
+    "Replicating Gojiberry's Beautiful UI with Simple Table: The Ultimate Customization Showcase",
+  description:
+    "See how Simple Table perfectly replicates Gojiberry's stunning CRM interface with custom renderers, interactive components, and pixel-perfect design. Proof that Simple Table can handle any design you throw at it.",
+  slug: "replicating-gojiberry-ui-simple-table",
+  tags: [
+    "react",
+    "customization",
+    "ui-replication",
+    "crm",
+    "data-grid",
+    "cell-renderer",
+    "custom-design",
+    "gojiberry",
+    "design-system",
+  ],
+  createdAt: "2025-10-26",
+  updatedAt: "2025-10-26",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  replicatingGojiberryUIPost,
   customFooterRenderersPost,
   mobileCompatibilityReactTablesPost,
   bestReactTableLibraries2025Post,
