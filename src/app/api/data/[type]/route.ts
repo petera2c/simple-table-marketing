@@ -10,7 +10,7 @@ const VALID_TYPES = [
   "manufacturing",
   "sales",
   "music",
-  "leads",
+  "crm",
 ] as const;
 type DataType = (typeof VALID_TYPES)[number];
 
@@ -22,7 +22,7 @@ const DEFAULT_ROW_COUNTS: Record<DataType, number> = {
   manufacturing: 50,
   sales: 50,
   music: 50,
-  leads: 50,
+  crm: 50,
 };
 
 export async function GET(request: NextRequest, { params }: { params: Promise<{ type: string }> }) {

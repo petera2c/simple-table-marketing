@@ -57,9 +57,9 @@ const examples = [
     icon: faMusic,
   },
   {
-    id: "leads",
-    label: "Leads",
-    path: "/examples/leads",
+    id: "crm",
+    label: "CRM",
+    path: "/examples/crm",
     icon: faUserTie,
   },
 ];
@@ -72,7 +72,7 @@ const exampleTitles = {
   billing: "Revenue Recognition",
   sales: "Sales Pipeline",
   music: "Music Artist Analytics",
-  leads: "CRM Leads Management",
+  crm: "CRM Leads Management",
 };
 
 // Row count options
@@ -120,7 +120,7 @@ function ExamplesNavigationContent() {
           {exampleTitles[currentExample.id as keyof typeof exampleTitles]}
         </h1>
         <div className="flex items-center gap-2 flex-wrap">
-          {currentExample.id !== "music" && currentExample.id !== "leads" && (
+          {currentExample.id !== "music" && currentExample.id !== "crm" && (
             <Select
               placeholder="Select row count"
               style={{ width: 150 }}
@@ -150,7 +150,11 @@ function ExamplesNavigationContent() {
             }))}
           />
 
-          <ThemeSelector currentTheme={currentTheme} setCurrentTheme={handleThemeChange} />
+          <ThemeSelector
+            currentTheme={currentTheme}
+            setCurrentTheme={handleThemeChange}
+            restrictedThemes={currentExample.id === "crm" ? ["dark", "light"] : undefined}
+          />
         </div>
       </div>
     </PageWrapper>

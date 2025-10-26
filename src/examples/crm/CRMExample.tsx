@@ -1,16 +1,12 @@
-import { LEADS_HEADERS } from "./leads-headers";
-import { useState } from "react";
+import { CRM_HEADERS } from "./crm-headers";
+import { useEffect, useState } from "react";
 
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
-import { CellChangeProps, FooterRendererProps, Row, SimpleTable, Theme } from "simple-table-core";
-
-export const leadsExampleDefaults = {
-  height: "400px",
-};
+import { CellChangeProps, FooterRendererProps, Row, SimpleTable } from "simple-table-core";
 
 // Custom footer component styled similar to the Angular example
-const LeadsCustomFooter = ({
+const CRMCustomFooter = ({
   currentPage,
   totalPages,
   rowsPerPage,
@@ -28,8 +24,6 @@ const LeadsCustomFooter = ({
   const handlePageSizeChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
     const newSize = parseInt(event.target.value, 10);
     setPageSize(newSize);
-    // Note: In a real implementation, you'd need to pass onRowsPerPageChange callback
-    console.log("Page size changed to:", newSize);
   };
 
   // Generate visible page numbers (show first 4 pages max)
@@ -163,9 +157,9 @@ const LeadsCustomFooter = ({
 };
 
 // Backup data (first 20 rows from leads-data.json)
-const BACKUP_LEADS_DATA = [
+const BACKUP_CRM_DATA = [
   {
-    id: "LEAD-00000",
+    id: "CRM-00000",
     name: "Glenn Lindley",
     title: "Founder and CTO (Chief Taco Officer)",
     company: "Talent IP (In Person)",
@@ -177,7 +171,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00001",
+    id: "CRM-00001",
     name: "Gloria Oppong",
     title: "Co-founder & CEO",
     company: "Cleanster",
@@ -189,7 +183,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00002",
+    id: "CRM-00002",
     name: "Vishal Bhalla",
     title: "CEO & Co-Founder",
     company: "AnalytAIX",
@@ -201,7 +195,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00003",
+    id: "CRM-00003",
     name: "Cyril Delattre",
     title: "Co-founder, CEO",
     company: "Mosala",
@@ -213,7 +207,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00004",
+    id: "CRM-00004",
     name: "Richard Webb",
     title: "Chief Executive Officer & Founder",
     company: "24-7 Press AI Solutions",
@@ -225,7 +219,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00005",
+    id: "CRM-00005",
     name: "Doug Newell",
     title: "Founder & CEO",
     company: "Swarmalytics",
@@ -237,7 +231,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00006",
+    id: "CRM-00006",
     name: "Alan Pendleton",
     title: "CEO and Founder",
     company: "ArenaCX",
@@ -249,7 +243,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00007",
+    id: "CRM-00007",
     name: "Ray Naeini",
     title: "CEO, Chairman",
     company: "OmniSource, Inc.",
@@ -261,7 +255,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00008",
+    id: "CRM-00008",
     name: "Sarah Johnson",
     title: "VP of Engineering",
     company: "TechFlow Solutions",
@@ -273,7 +267,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00009",
+    id: "CRM-00009",
     name: "Michael Williams",
     title: "VP of Sales",
     company: "DataDrive AI",
@@ -285,7 +279,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00010",
+    id: "CRM-00010",
     name: "Jennifer Brown",
     title: "VP of Marketing",
     company: "CloudScale Systems",
@@ -297,7 +291,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00011",
+    id: "CRM-00011",
     name: "David Jones",
     title: "Head of Product",
     company: "NextGen Analytics",
@@ -309,7 +303,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00012",
+    id: "CRM-00012",
     name: "Emily Garcia",
     title: "Head of Engineering",
     company: "InnovateLabs",
@@ -321,7 +315,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00013",
+    id: "CRM-00013",
     name: "James Miller",
     title: "Director of Sales",
     company: "VelocityTech",
@@ -333,7 +327,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00014",
+    id: "CRM-00014",
     name: "Lisa Davis",
     title: "Director of Marketing",
     company: "Quantum Solutions",
@@ -345,7 +339,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00015",
+    id: "CRM-00015",
     name: "Robert Rodriguez",
     title: "Chief Technology Officer",
     company: "PrimeData Corp",
@@ -357,7 +351,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00016",
+    id: "CRM-00016",
     name: "Jessica Martinez",
     title: "Chief Marketing Officer",
     company: "FusionWorks",
@@ -369,7 +363,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00017",
+    id: "CRM-00017",
     name: "William Hernandez",
     title: "Chief Revenue Officer",
     company: "CoreStack Technologies",
@@ -381,7 +375,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: false,
   },
   {
-    id: "LEAD-00018",
+    id: "CRM-00018",
     name: "Amanda Lopez",
     title: "Chief Product Officer",
     company: "AgileOps Inc",
@@ -393,7 +387,7 @@ const BACKUP_LEADS_DATA = [
     linkedin: true,
   },
   {
-    id: "LEAD-00019",
+    id: "CRM-00019",
     name: "Christopher Gonzalez",
     title: "VP of Business Development",
     company: "StreamlineAI",
@@ -406,15 +400,9 @@ const BACKUP_LEADS_DATA = [
   },
 ];
 
-const LeadsExampleComponent = ({
-  onGridReady,
-  theme,
-}: {
-  onGridReady?: () => void;
-  theme?: Theme;
-  height?: number | null;
-}) => {
-  const [data, setData] = useState<Row[]>(BACKUP_LEADS_DATA);
+const CRMExampleComponent = ({ onGridReady }: { onGridReady?: () => void }) => {
+  const [data, setData] = useState<Row[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -430,12 +418,49 @@ const LeadsExampleComponent = ({
     );
   };
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        setIsLoading(true);
+        const isLocal = typeof window !== "undefined" && window.location.hostname === "localhost";
+        const isProduction =
+          typeof window !== "undefined" && window.location.hostname.includes("simple-table.com");
+
+        // Use backup data if not on localhost or production
+        if (!isLocal && !isProduction) {
+          setData(BACKUP_CRM_DATA);
+          setIsLoading(false);
+          return;
+        }
+
+        // Use relative path for local development, full URL for production
+        const baseUrl = isLocal ? "" : "https://www.simple-table.com";
+        const response = await fetch(`${baseUrl}/api/data/crm`);
+        if (!response.ok) {
+          throw new Error("Failed to fetch CRM data");
+        }
+        const crmData = await response.json();
+        setData(crmData);
+      } catch (error) {
+        console.error("Error fetching CRM data:", error);
+        // Fallback to backup data on error
+        setData(BACKUP_CRM_DATA);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  if (isLoading) return <></>;
+
   return (
     <div className="custom-theme-container">
       <SimpleTable
         columnResizing
         columnReordering
-        defaultHeaders={LEADS_HEADERS}
+        defaultHeaders={CRM_HEADERS}
         enableRowSelection
         onGridReady={onGridReady}
         rowIdAccessor="id"
@@ -443,14 +468,14 @@ const LeadsExampleComponent = ({
         rowHeight={92}
         theme="custom"
         onCellEdit={handleCellEdit}
-        height={"70dvh"}
+        height="70dvh"
         headerHeight={48}
         shouldPaginate
         rowsPerPage={100}
-        footerRenderer={(props) => <LeadsCustomFooter {...props} />}
+        footerRenderer={(props) => <CRMCustomFooter {...props} />}
       />
     </div>
   );
 };
 
-export default LeadsExampleComponent;
+export default CRMExampleComponent;

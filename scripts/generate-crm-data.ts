@@ -1,4 +1,4 @@
-// ES Module version of the leads data generator
+// ES Module version of the CRM data generator
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
@@ -6,8 +6,8 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Lead record interface
-interface LeadRecord {
+// CRM record interface
+interface CRMRecord {
   id: string;
   name: string;
   title: string;
@@ -218,8 +218,8 @@ const EMAIL_STATUSES = ["Enrich", "Verified", "Pending", "Bounced"];
 
 const LISTS = ["Leads", "Hot Leads", "Warm Leads", "Cold Leads", "Enterprise", "SMB", "Nurture"];
 
-// Generate a realistic lead record
-function generateLeadRecord(rowId: number): LeadRecord {
+// Generate a realistic CRM record
+function generateCRMRecord(rowId: number): CRMRecord {
   const firstName = FIRST_NAMES[Math.floor(Math.random() * FIRST_NAMES.length)];
   const lastName = LAST_NAMES[Math.floor(Math.random() * LAST_NAMES.length)];
   const name = `${firstName} ${lastName}`;
@@ -263,12 +263,12 @@ function generateLeadRecord(rowId: number): LeadRecord {
 }
 
 // Generate realistic dataset
-function generateLeadsDataset(numRecords: number = 800): LeadRecord[] {
-  const data: LeadRecord[] = [];
+function generateCRMDataset(numRecords: number = 800): CRMRecord[] {
+  const data: CRMRecord[] = [];
 
   for (let i = 0; i < numRecords; i++) {
-    const leadData = generateLeadRecord(i);
-    data.push(leadData);
+    const crmData = generateCRMRecord(i);
+    data.push(crmData);
   }
 
   return data;
@@ -276,11 +276,11 @@ function generateLeadsDataset(numRecords: number = 800): LeadRecord[] {
 
 // Run the generation and save to a file
 async function saveDataToFile(): Promise<void> {
-  console.log("Generating realistic leads dataset...");
-  const data = generateLeadsDataset();
-  console.log(`Generated ${data.length} lead records`);
+  console.log("Generating realistic CRM dataset...");
+  const data = generateCRMDataset();
+  console.log(`Generated ${data.length} CRM records`);
 
-  const filePath = path.join(__dirname, "../public/data/leads-data.json");
+  const filePath = path.join(__dirname, "../public/data/crm-data.json");
   fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
   console.log(`Data saved to ${filePath}`);
 }

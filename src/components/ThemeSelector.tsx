@@ -6,16 +6,20 @@ const THEME_OPTIONS: Theme[] = ["light", "dark", "sky", "violet", "neutral", "fr
 const ThemeSelector = ({
   currentTheme = "light",
   setCurrentTheme,
+  restrictedThemes,
 }: {
   currentTheme?: Theme;
   setCurrentTheme: (theme: Theme) => void;
+  restrictedThemes?: Theme[];
 }) => {
+  const availableThemes = restrictedThemes || THEME_OPTIONS;
+
   return (
     <Select
       placeholder="Select a theme"
       style={{ width: 200 }}
       onChange={(value) => setCurrentTheme(value as Theme)}
-      options={THEME_OPTIONS.map((theme) => ({
+      options={availableThemes.map((theme) => ({
         value: theme,
         label: theme.charAt(0).toUpperCase() + theme.slice(1),
       }))}

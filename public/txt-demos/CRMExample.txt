@@ -1,10 +1,11 @@
 import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
-import { LEADS_HEADERS } from "./leads-headers";
+import { CRM_HEADERS } from "./crm-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
+import "./CustomTheme.css";
 
-// Backup data (first 20 rows from leads-data.json)
-const BACKUP_LEADS_DATA = [
+// Backup data (first 20 rows from crm-data.json)
+const BACKUP_CRM_DATA = [
   {
     id: "LEAD-00000",
     name: "Glenn Lindley",
@@ -247,21 +248,19 @@ const BACKUP_LEADS_DATA = [
   },
 ];
 
-export default function LeadsExample({
+export default function CRMExample({
   height,
   onGridReady,
   theme,
-  rowCount = 50,
 }: {
   height?: number | null;
   onGridReady?: () => void;
   theme?: Theme;
-  rowCount?: number;
 }) {
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Fetch leads data from API
+  // Fetch CRM data from API
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -272,30 +271,30 @@ export default function LeadsExample({
 
         // Use backup data if not on localhost or production
         if (!isLocal && !isProduction) {
-          setData(BACKUP_LEADS_DATA);
+          setData(BACKUP_CRM_DATA);
           setIsLoading(false);
           return;
         }
 
         // Use relative path for local development, full URL for production
         const baseUrl = isLocal ? "" : "https://www.simple-table.com";
-        const response = await fetch(`${baseUrl}/api/data/leads?rowCount=${rowCount}`);
+        const response = await fetch(`${baseUrl}/api/data/crm`);
         if (!response.ok) {
-          throw new Error("Failed to fetch leads data");
+          throw new Error("Failed to fetch CRM data");
         }
-        const leadsData = await response.json();
-        setData(leadsData);
+        const crmData = await response.json();
+        setData(crmData);
       } catch (error) {
-        console.error("Error fetching leads data:", error);
+        console.error("Error fetching CRM data:", error);
         // Fallback to backup data on error
-        setData(BACKUP_LEADS_DATA);
+        setData(BACKUP_CRM_DATA);
       } finally {
         setIsLoading(false);
       }
     };
 
     fetchData();
-  }, [rowCount]);
+  }, []);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -323,7 +322,7 @@ export default function LeadsExample({
           color: "#666",
         }}
       >
-        Loading leads data...
+        Loading CRM data...
       </div>
     );
   }
@@ -332,7 +331,7 @@ export default function LeadsExample({
     <SimpleTable
       columnResizing
       columnReordering
-      defaultHeaders={LEADS_HEADERS}
+      defaultHeaders={CRM_HEADERS}
       editColumns
       onGridReady={onGridReady}
       rowIdAccessor="id"

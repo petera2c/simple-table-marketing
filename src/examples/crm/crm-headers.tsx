@@ -2,7 +2,7 @@ import { useState } from "react";
 import { HeaderObject } from "simple-table-core";
 
 // Custom Email Enrich component
-const EmailEnrich = () => {
+const EmailEnrich = ({ rowId }: { rowId: string }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [email, setEmail] = useState<string | null>(null);
 
@@ -209,7 +209,7 @@ const Tag = ({ children, color }: { children: React.ReactNode; color?: string })
   );
 };
 
-export const LEADS_HEADERS: HeaderObject[] = [
+export const CRM_HEADERS: HeaderObject[] = [
   {
     accessor: "name",
     label: "CONTACT",
@@ -346,8 +346,8 @@ export const LEADS_HEADERS: HeaderObject[] = [
       { label: "Pending", value: "Pending" },
       { label: "Bounced", value: "Bounced" },
     ],
-    cellRenderer: () => {
-      return <EmailEnrich />;
+    cellRenderer: ({ row }) => {
+      return <EmailEnrich rowId={row.id as string} />;
     },
   },
   {

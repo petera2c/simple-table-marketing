@@ -1,6 +1,6 @@
 "use client";
 
-import LeadsExample from "./LeadsExample";
+import CRMExample from "./CRMExample";
 import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
@@ -18,17 +18,17 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 const ROW_HEIGHT = 60;
 
-type LeadsExampleWrapperProps = {
+type CRMExampleWrapperProps = {
   onGridReady?: () => void;
   shouldPaginate?: boolean;
   theme?: Theme;
 };
 
-const LeadsExampleWrapper = ({
+const CRMExampleWrapper = ({
   onGridReady,
   shouldPaginate = true,
   theme,
-}: LeadsExampleWrapperProps) => {
+}: CRMExampleWrapperProps) => {
   const containerHeight = useExampleHeight({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
@@ -37,13 +37,13 @@ const LeadsExampleWrapper = ({
   return (
     <SearchParamsSuspenseWrapper>
       <LivePreview
-        demoCodeFilename="LeadsExample.txt"
+        demoCodeFilename="CRMExample.txt"
         height={`${containerHeight}px`}
-        link={SANDBOX_LIST["examples/leads/LeadsExample.tsx"].url}
+        link={SANDBOX_LIST["examples/crm/CRMExample.tsx"].url}
         Preview={() => (
           <ExamplesWrapper>
             <div className={plusJakartaSans.className}>
-              <LeadsExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
+              <CRMExample height={containerHeight} theme={theme} onGridReady={onGridReady} />
             </div>
           </ExamplesWrapper>
         )}
@@ -52,10 +52,10 @@ const LeadsExampleWrapper = ({
   );
 };
 
-export default function LeadsExampleContainer(props: LeadsExampleWrapperProps) {
+export default function CRMExampleContainer(props: CRMExampleWrapperProps) {
   return (
     <SearchParamsSuspenseWrapper>
-      <LeadsExampleWrapper {...props} />
+      <CRMExampleWrapper {...props} />
     </SearchParamsSuspenseWrapper>
   );
 }
