@@ -11,9 +11,9 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
-export const v1_5_9: ChangelogEntry = {
-  version: "1.5.9",
-  date: "2025-01-27",
+export const v1_6_0: ChangelogEntry = {
+  version: "1.6.0",
+  date: "2025-10-26",
   title: "Row Numbers with Pagination Fix",
   description:
     "Fixed an issue where row numbers were not correctly calculated when pagination was enabled. Row numbers now display the correct sequential numbers based on the current page.",
@@ -28,7 +28,7 @@ export const v1_5_9: ChangelogEntry = {
 
 export const v1_5_6: ChangelogEntry = {
   version: "1.5.6",
-  date: "2025-01-26",
+  date: "2025-10-26",
   title: "Custom Filter Icon",
   description:
     "Customize the filter icon in table headers to match your design system. Use any React component or icon library to replace the default filter icon.",
@@ -43,7 +43,7 @@ export const v1_5_6: ChangelogEntry = {
 
 export const v1_5_5: ChangelogEntry = {
   version: "1.5.5",
-  date: "2025-01-22",
+  date: "2025-10-25",
   title: "Footer Renderer",
   description:
     "Customize your table footer with complete control over its appearance and functionality. Build custom pagination controls, add summary statistics, or create any footer UI that matches your design.",
@@ -154,7 +154,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v1_5_9,
+  v1_6_0,
   v1_5_6,
   v1_5_5,
   v1_5_1,
