@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_5_5: ChangelogEntry = {
+  version: "1.5.5",
+  date: "2025-01-22",
+  title: "Footer Renderer",
+  description:
+    "Customize your table footer with complete control over its appearance and functionality. Build custom pagination controls, add summary statistics, or create any footer UI that matches your design.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added footerRenderer prop to completely customize table footer UI",
+      link: "/docs/footer-renderer",
+    },
+  ],
+};
+
 export const v1_5_1: ChangelogEntry = {
   version: "1.5.1",
   date: "2025-10-19",
@@ -108,7 +123,7 @@ export const v1_4_4: ChangelogEntry = {
 };
 
 // Array of all changelog entries (newest first)
-export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_1, v1_5_0, v1_4_7, v1_4_6, v1_4_4];
+export const CHANGELOG_ENTRIES: ChangelogEntry[] = [v1_5_5, v1_5_1, v1_5_0, v1_4_7, v1_4_6, v1_4_4];
 
 // Helper function to get changelog entry by version
 export const getChangelogByVersion = (version: string): ChangelogEntry | undefined => {
