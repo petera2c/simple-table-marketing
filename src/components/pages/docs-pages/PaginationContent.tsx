@@ -143,6 +143,53 @@ const PaginationContent = () => {
         </ul>
       </motion.div>
 
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Customizing the Footer
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          While Simple Table provides a default pagination footer, you can completely customize its
+          appearance and functionality using the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            footerRenderer
+          </code>{" "}
+          prop. This allows you to:
+        </p>
+        <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+          <li>Match your application&apos;s design system</li>
+          <li>Add custom pagination controls and navigation</li>
+          <li>Display summary statistics or totals</li>
+          <li>Include action buttons or additional functionality</li>
+        </ul>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+            💡 Advanced Customization
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            Learn how to create custom pagination footers with complete control over appearance and
+            behavior. Visit the{" "}
+            <a
+              href="/docs/footer-renderer"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+            >
+              Footer Renderer
+            </a>{" "}
+            documentation for detailed examples and API reference.
+          </p>
+        </div>
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );
