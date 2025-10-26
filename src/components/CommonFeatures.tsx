@@ -924,7 +924,11 @@ export const renderFeatures = (
 // Reusable pricing info
 export const simplePricing = (
   <Space direction="vertical">
-    {FeatureTags.Success("100% Free", "Completely free to use in any project")}
+    {FeatureTags.Success("Free Plan Available", "Free forever for individuals & startups")}
+    {FeatureTags.Success(
+      "Pro Plan: $85/mo",
+      "Enhanced support & priority features ($850/year, ~17% savings)"
+    )}
     {FeatureTags.Success(
       "31 kB (minified + gzipped)",
       "Minimal bundle size for optimal performance"

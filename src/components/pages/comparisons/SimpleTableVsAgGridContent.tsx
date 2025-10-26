@@ -365,29 +365,69 @@ const SimpleVsAgGrid = () => {
           <Text className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-300 mb-4 block">
             ✅ Simple Table Cost (3-Year Projection)
           </Text>
-          <div className="space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                Licensing (unlimited devs):
-              </span>
-              <span className="font-semibold">$0</span>
+          <div className="space-y-4">
+            <div className="space-y-3">
+              <Text className="font-semibold text-gray-700 dark:text-gray-300">
+                Free Plan (Individuals & Startups):
+              </Text>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Licensing (unlimited devs):
+                </span>
+                <span className="font-semibold">$0</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Bundle size impact:
+                </span>
+                <span className="font-semibold">$0</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Training (minimal setup):
+                </span>
+                <span className="font-semibold">~$500</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4 font-bold">
+                <span>Subtotal:</span>
+                <span className="text-green-600 dark:text-green-400">$500</span>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                Bundle size impact:
-              </span>
-              <span className="font-semibold">$0</span>
+
+            <hr className="border-green-300" />
+
+            <div className="space-y-3">
+              <Text className="font-semibold text-gray-700 dark:text-gray-300">
+                Pro Plan (Revenue-Generating Businesses):
+              </Text>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Licensing: $850/year × 3 years:
+                </span>
+                <span className="font-semibold">$2,550</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Bundle size impact:
+                </span>
+                <span className="font-semibold">$0</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
+                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
+                  Training (minimal setup):
+                </span>
+                <span className="font-semibold">~$500</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4 font-bold">
+                <span>Subtotal:</span>
+                <span className="text-green-600 dark:text-green-400">$3,050</span>
+              </div>
             </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                Training (minimal setup):
-              </span>
-              <span className="font-semibold">~$500</span>
-            </div>
+
             <hr className="border-green-300" />
             <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-lg font-bold">
-              <span>Total 3-year cost:</span>
-              <span className="text-green-600 dark:text-green-400">$500</span>
+              <span>Total 3-year cost range:</span>
+              <span className="text-green-600 dark:text-green-400">$500 - $3,050</span>
             </div>
           </div>
         </div>
@@ -424,8 +464,8 @@ const SimpleVsAgGrid = () => {
       </div>
 
       <Text className="text-lg text-center text-gray-700 dark:text-gray-300 font-semibold">
-        💰 <span className="text-green-600 dark:text-green-400">Save $24,885</span> over 3 years
-        while getting 90% of the functionality
+        💰 <span className="text-green-600 dark:text-green-400">Save $22,335 - $24,885</span> over 3
+        years while getting 90% of the functionality
       </Text>
     </>
   );
