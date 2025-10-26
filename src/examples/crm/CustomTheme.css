@@ -1,5 +1,22 @@
 @import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-.custom-theme-container .theme-custom {
+
+.custom-theme-container .st-wrapper {
+  border-radius: 0;
+}
+.custom-theme-container .st-header-label-text {
+  font-size: 12px;
+}
+
+.custom-theme-container * {
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.custom-theme-container .st-header-resize-handle {
+  height: 100%;
+  width: 4px;
+}
+.custom-theme-container.theme-custom-light {
   /* Layout/Structure variables */
   --st-border-radius: 4px;
   --st-cell-padding: 12px;
@@ -87,27 +104,16 @@
   --st-filter-button-disabled-text-color: var(--st-stone-500);
 }
 
-.custom-theme-container .st-wrapper {
+.custom-theme-container.theme-custom-light .st-wrapper {
   background-color: white;
-  border-radius: 0;
-}
-.custom-theme-container .st-header-label-text {
-  font-size: 12px;
 }
 
-.custom-theme-container * {
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-optical-sizing: auto;
-  font-style: normal;
-}
-.custom-theme-container .st-header-resize-handle {
-  height: 100%;
+.custom-theme-container.theme-custom-light .st-header-resize-handle {
   background-color: oklch(96.7% 0.003 264.542);
-  width: 4px;
 }
 
 /* Custom Dark Theme */
-.custom-theme-container .theme-custom-dark {
+.custom-theme-container.theme-custom-dark {
   /* Layout/Structure variables */
   --st-border-radius: 4px;
   --st-cell-padding: 12px;
@@ -194,8 +200,12 @@
   --st-filter-button-disabled-text-color: #64748b;
 }
 
-.custom-theme-container .theme-custom-dark .st-wrapper {
+.custom-theme-container.theme-custom-dark .st-wrapper {
   background-color: #0f172a;
+}
+
+.custom-theme-container.theme-custom-dark .st-header-resize-handle {
+  background-color: #475569;
 }
 
 @keyframes spin {

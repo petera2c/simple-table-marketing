@@ -10,8 +10,6 @@ const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const theme = (searchParams?.get("theme") as ThemeOption) || websiteMode;
   const rowCount = parseInt(searchParams?.get("rows") || "50");
 
-  console.log("theme", theme);
-
   return (
     <>
       {React.isValidElement(children)

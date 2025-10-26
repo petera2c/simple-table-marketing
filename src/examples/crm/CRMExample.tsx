@@ -442,9 +442,6 @@ const CRMExampleComponent = ({
   const [data, setData] = useState<Row[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
-  // Map custom-light to "custom" and custom-dark to "custom-dark"
-  const mappedTheme =
-    theme === "custom-light" ? "custom" : theme === "custom-dark" ? "custom-dark" : "custom";
   const isDark = theme === "custom-dark";
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
@@ -499,7 +496,7 @@ const CRMExampleComponent = ({
   if (isLoading) return <></>;
 
   return (
-    <div className="custom-theme-container">
+    <div className={`custom-theme-container theme-${theme}`}>
       <SimpleTable
         columnReordering
         columnResizing
@@ -515,7 +512,7 @@ const CRMExampleComponent = ({
         rows={data}
         rowsPerPage={100}
         shouldPaginate
-        theme={mappedTheme as Theme}
+        theme="custom"
       />
     </div>
   );

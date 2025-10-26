@@ -14,7 +14,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Theme } from "simple-table-core";
 import ThemeSelector from "@/components/ThemeSelector";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
 import { ThemeOption } from "@/types/theme";
@@ -113,6 +113,22 @@ function ExamplesNavigationContent() {
     params.set("rows", rowCount.toString());
     router.push(`${pathname}?${params.toString()}`);
   };
+
+  // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to the website theme
+  useEffect(() => {
+    if (
+      currentExample.id !== "crm" &&
+      (currentTheme === "custom-light" || currentTheme === "custom-dark")
+    ) {
+      handleThemeChange(theme);
+    } else if (
+      currentExample.id === "crm" &&
+      currentTheme !== "custom-light" &&
+      currentTheme !== "custom-dark"
+    ) {
+      handleThemeChange(theme === "dark" ? "custom-dark" : "custom-light");
+    }
+  }, [currentExample.id, currentTheme, theme]);
 
   return (
     <PageWrapper disableScrollRestoration>

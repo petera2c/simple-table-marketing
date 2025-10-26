@@ -2,8 +2,6 @@ import { STRIPE_PAYMENT_LINKS } from "@/constants/stripe";
 
 export const redirectToCheckout = async (priceId: string, isAnnual: boolean) => {
   try {
-    console.log("Starting Stripe checkout...", { priceId, isAnnual });
-
     const planType = isAnnual ? "annual" : "monthly";
     const paymentLink = STRIPE_PAYMENT_LINKS[planType];
 
@@ -13,8 +11,6 @@ export const redirectToCheckout = async (priceId: string, isAnnual: boolean) => 
       );
       throw new Error(`Payment link not configured for ${planType} plan`);
     }
-
-    console.log("Redirecting to Stripe Payment Link:", paymentLink);
 
     // Redirect to the Payment Link
     window.location.href = paymentLink;
