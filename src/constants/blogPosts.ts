@@ -98,8 +98,28 @@ export const bestReactTableLibraries2025Post: BlogPostMetadata = {
   updatedAt: "2025-10-07",
 };
 
+export const customFooterRenderersPost: BlogPostMetadata = {
+  title: "Custom Footer Renderers: Why Full Control Beats Feature Flags in React Tables",
+  description:
+    "Discover why custom footer renderers are essential for React data grids. Learn how Simple Table's footerRenderer gives you complete control over pagination UI, avoiding the complexity of TanStack's approach and the limitations of rigid feature flags.",
+  slug: "custom-footer-renderers-react-tables",
+  tags: [
+    "react",
+    "footer-renderer",
+    "customization",
+    "pagination",
+    "data-grid",
+    "simple-table",
+    "ui-components",
+    "developer-experience",
+  ],
+  createdAt: "2025-10-25",
+  updatedAt: "2025-10-25",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  customFooterRenderersPost,
   mobileCompatibilityReactTablesPost,
   bestReactTableLibraries2025Post,
   customizingReactTableLookPost,

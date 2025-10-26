@@ -7,6 +7,7 @@ import {
   bestFreeReactDataGridPost,
   customizingReactTableLookPost,
   mobileCompatibilityReactTablesPost,
+  customFooterRenderersPost,
 } from "@/constants/blogPosts";
 
 export const SEO_STRINGS = {
@@ -41,6 +42,22 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
   },
   blogPosts: {
+    customFooterRenderers: {
+      title: customFooterRenderersPost.title,
+      description: customFooterRenderersPost.description,
+      keywords: [
+        "custom footer renderer",
+        "react table footer",
+        "pagination customization",
+        "footer renderer react",
+        "custom pagination",
+        "table footer design",
+        "react data grid footer",
+        "footer UI control",
+        "simple table footer",
+        "tanstack footer comparison",
+      ],
+    },
     mobileCompatibilityReactTables: {
       title: mobileCompatibilityReactTablesPost.title,
       description: mobileCompatibilityReactTablesPost.description,
