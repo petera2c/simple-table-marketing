@@ -130,7 +130,6 @@ const ColumnSelectionDemo = ({
 
   const handleColumnSelect = (header: HeaderObject) => {
     setSelectedColumn(header);
-    console.log("Column selected:", header);
   };
 
   return (

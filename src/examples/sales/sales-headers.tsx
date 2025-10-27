@@ -230,6 +230,7 @@ export const SALES_HEADERS: HeaderObject[] = [
     isSortable: true,
     isEditable: true,
     type: "string",
+    tooltip: "Name of the sales representative",
   },
   {
     accessor: "salesMetrics",
@@ -246,6 +247,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
+        tooltip: "The size of the deal in dollars",
         cellRenderer: ({ row }) => {
           if (row.dealSize === "—") return "—";
           return `$${(row.dealSize as number).toLocaleString("en-US", {
@@ -263,6 +265,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
+        tooltip: "The value of the deal in dollars",
         cellRenderer: ({ row, theme }) => {
           if (row.dealValue === "—") return "—";
           const value = row.dealValue as number;
@@ -294,6 +297,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "center",
         type: "boolean",
+        tooltip: "Whether the deal was won or lost",
         cellRenderer: ({ row }) => {
           if (row.isWon === "—") return "—";
           const isWon = row.isWon as boolean;
@@ -313,11 +317,10 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "center",
         type: "date",
+        tooltip: "The date the deal was closed",
         cellRenderer: ({ row }) => {
           if (!row.closeDate) return "—";
-          if (row.id === "SALE-0") {
-            console.log("row.closeDate", row.closeDate);
-          }
+
           // Parse YYYY-MM-DD format correctly without timezone conversion
           const [year, month, day] = (row.closeDate as string).split("-").map(Number);
           const date = new Date(year, month - 1, day); // month is 0-indexed
@@ -350,6 +353,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
+        tooltip: "The commission earned from the deal in dollars",
         cellRenderer: ({ row, theme }) => {
           if (row.commission === "—") return "—";
           const value = row.commission as number;
@@ -372,6 +376,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
+        tooltip: "The profit margin of the deal",
         cellRenderer: ({ row, theme }) => {
           if (row.profitMargin === "—") return "—";
           const value = row.profitMargin as number;
@@ -415,6 +420,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
+        tooltip: "The profit of the deal in dollars",
         cellRenderer: ({ row, theme }) => {
           if (row.dealProfit === "—") return "—";
           const value = row.dealProfit as number;
@@ -448,6 +454,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "center",
         type: "enum",
+        tooltip: "The category of the deal",
         enumOptions: [
           { label: "Software", value: "Software" },
           { label: "Hardware", value: "Hardware" },

@@ -172,7 +172,6 @@ const ColumnEditingDemo = ({
 
   const handleHeaderEdit = (header: HeaderObject, newLabel: string) => {
     setLastAction(`Renamed column "${header.label}" to: ${newLabel}`);
-    console.log("Header edited:", { header, newLabel });
   };
 
   return (

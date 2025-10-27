@@ -615,12 +615,12 @@ export default function ThemeBuilderContent() {
           {
             key: "oddColumnBackgroundColor",
             type: "color",
-            tooltip: "Background color for odd-numbered columns",
+            tooltip: "Background color for odd-numbered columns (not used in the demo table)",
           },
           {
             key: "evenColumnBackgroundColor",
             type: "color",
-            tooltip: "Background color for even-numbered columns",
+            tooltip: "Background color for even-numbered columns (not used in the demo table)",
           },
         ],
       },
@@ -659,7 +659,7 @@ export default function ThemeBuilderContent() {
           {
             key: "headerHighlightIndicatorColor",
             type: "color",
-            tooltip: "Color for the header highlight indicator line",
+            tooltip: "When a cell is selected, the color of the header",
           },
         ],
       },
@@ -804,17 +804,17 @@ export default function ThemeBuilderContent() {
           {
             key: "checkboxCheckedBackgroundColor",
             type: "color",
-            tooltip: "Background color for checked checkboxes",
+            tooltip: "Background color for checked checkboxes (not used in the demo table)",
           },
           {
             key: "checkboxCheckedBorderColor",
             type: "color",
-            tooltip: "Border color for checked checkboxes",
+            tooltip: "Border color for checked checkboxes (not used in the demo table)",
           },
           {
             key: "checkboxBorderColor",
             type: "color",
-            tooltip: "Border color for unchecked checkboxes",
+            tooltip: "Border color for unchecked checkboxes (not used in the demo table)",
           },
         ],
       },
@@ -848,9 +848,13 @@ export default function ThemeBuilderContent() {
           {
             key: "tooltipBackgroundColor",
             type: "color",
-            tooltip: "Background color for tooltips",
+            tooltip: "Background color for tooltips (column header tooltips)",
           },
-          { key: "tooltipTextColor", type: "color", tooltip: "Text color for tooltips" },
+          {
+            key: "tooltipTextColor",
+            type: "color",
+            tooltip: "Text color for tooltips (column header tooltips)",
+          },
         ],
       },
       {
@@ -884,7 +888,7 @@ export default function ThemeBuilderContent() {
           {
             key: "scrollbarWidth",
             type: "text",
-            tooltip: "Width of the scrollbar (e.g., 'thin', '8px')",
+            tooltip: "Width of the scrollbar (e.g., 'auto', 'thin', 'none')",
           },
         ],
       },
@@ -913,7 +917,7 @@ export default function ThemeBuilderContent() {
           {
             key: "dropdownGroupLabelColor",
             type: "color",
-            tooltip: "Text color for group labels in dropdown menus",
+            tooltip: "Text color for group labels in dropdown menus (not used in the demo table)",
           },
         ],
       },
@@ -925,12 +929,12 @@ export default function ThemeBuilderContent() {
           {
             key: "filterButtonDisabledBackgroundColor",
             type: "color",
-            tooltip: "Background color for disabled filter buttons",
+            tooltip: "Background color for disabled filter buttons (not used in the demo table)",
           },
           {
             key: "filterButtonDisabledTextColor",
             type: "color",
-            tooltip: "Text color for disabled filter buttons",
+            tooltip: "Text color for disabled filter buttons (not used in the demo table)",
           },
         ],
       },
