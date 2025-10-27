@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_6_1: ChangelogEntry = {
+  version: "1.6.1",
+  date: "2025-10-27",
+  title: "Table Footer Pagination Improvements",
+  description:
+    "Enhanced table footer pagination with improved usability, better performance, and more intuitive controls for navigating through large datasets.",
+  changes: [
+    {
+      type: "improvement",
+      description: "Enhanced footer pagination controls for better usability and performance",
+      link: "/docs/pagination",
+    },
+  ],
+};
+
 export const v1_6_0: ChangelogEntry = {
   version: "1.6.0",
   date: "2025-10-26",
@@ -154,6 +169,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_6_1,
   v1_6_0,
   v1_5_6,
   v1_5_5,

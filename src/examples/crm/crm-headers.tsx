@@ -402,6 +402,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
       accessor: "_fit",
       label: "Fit",
       width: 120,
+      align: "center",
       minWidth: 120,
       cellRenderer: () => {
         return <FitButtons isDark={isDark} />;

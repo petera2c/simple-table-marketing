@@ -46,6 +46,7 @@ import { useExampleHeight } from "@/hooks/useExampleHeight";
 import "simple-table-core/styles.css";
 
 const ROW_HEIGHT = 32;
+const HEADER_HEIGHT = 32;
 
 // Function to process the data and add the new fields
 const processData = (rawData: Row[]): (Row & { closeDate: string; category: string })[] => {
@@ -338,6 +339,10 @@ export default function ThemeBuilderContent() {
   // Track user changes that apply to all themes
   const [userChanges, setUserChanges] = useState<Partial<ThemeConfig>>({});
 
+  // Non-CSS variable states (these are props passed directly to the table component)
+  const [rowHeight, setRowHeight] = useState<number>(ROW_HEIGHT);
+  const [headerHeight, setHeaderHeight] = useState<number>(HEADER_HEIGHT);
+
   // The current theme is a combination of the default theme for the current mode + user changes
   const [theme, setTheme] = useState<ThemeConfig>(
     appTheme === "light"
@@ -383,19 +388,39 @@ export default function ThemeBuilderContent() {
     setUserChanges((prev) => ({ ...prev, [key]: newValue }));
   };
 
-  const handleValueChange = (key: keyof ThemeConfig) => (value: string | number | null) => {
-    if (value !== null) {
-      const stringValue = value.toString();
+  const handleValueChange =
+    (key: keyof ThemeConfig | "rowHeight" | "headerHeight") => (value: string | number | null) => {
+      if (value !== null) {
+        // Special handling for non-CSS variable props
+        if (key === "rowHeight") {
+          const numValue = typeof value === "number" ? value : parseInt(value, 10);
+          if (!isNaN(numValue) && numValue > 0) {
+            setRowHeight(numValue);
+          }
+          return;
+        }
 
-      // Store the change in the user changes object
-      setUserChanges((prev) => ({ ...prev, [key]: stringValue }));
-    }
-  };
+        if (key === "headerHeight") {
+          const numValue = typeof value === "number" ? value : parseInt(value, 10);
+          if (!isNaN(numValue) && numValue > 0) {
+            setHeaderHeight(numValue);
+          }
+          return;
+        }
+
+        const stringValue = value.toString();
+
+        // Store the change in the user changes object
+        setUserChanges((prev) => ({ ...prev, [key as keyof ThemeConfig]: stringValue }));
+      }
+    };
 
   const resetTheme = () => {
-    // Clear all user changes and search
+    // Clear all user changes, search, and reset non-CSS props
     setUserChanges({});
     setSearchQuery("");
+    setRowHeight(ROW_HEIGHT);
+    setHeaderHeight(HEADER_HEIGHT);
   };
 
   const generateCSS = (): string => {
@@ -456,8 +481,10 @@ export default function ThemeBuilderContent() {
 
   // Section configurations organized by visual component
   type SectionField = {
-    key: keyof ThemeConfig;
+    key: keyof ThemeConfig | "rowHeight" | "headerHeight"; // Allow non-CSS config keys
     type: "color" | "text";
+    label?: string;
+    tooltip?: string;
   };
 
   type SectionConfig = {
@@ -468,19 +495,56 @@ export default function ThemeBuilderContent() {
   const sectionConfigs: Record<string, SectionConfig[]> = {
     tableStructure: [
       {
+        title: "Table Layout (Non-CSS Props)",
+        fields: [
+          {
+            key: "headerHeight",
+            type: "text",
+            label: "Header Height (px)",
+            tooltip:
+              "Height of the table header in pixels. Note: This is NOT a CSS variable - it's passed as a prop to the table component and used for layout calculations.",
+          },
+          {
+            key: "rowHeight",
+            type: "text",
+            label: "Row Height (px)",
+            tooltip:
+              "Height of each row in pixels. Note: This is NOT a CSS variable - it's passed as a prop to the table component and used for virtualization calculations.",
+          },
+        ],
+      },
+      {
         title: "Borders",
         fields: [
-          { key: "borderColor", type: "color" },
-          { key: "borderRadius", type: "text" },
-          { key: "separatorBorderColor", type: "color" },
-          { key: "lastGroupRowSeparatorBorderColor", type: "color" },
+          { key: "borderColor", type: "color", tooltip: "Main border color for table elements" },
+          { key: "borderRadius", type: "text", tooltip: "Border radius for all table elements" },
+          {
+            key: "separatorBorderColor",
+            type: "color",
+            label: "Group Separator Border",
+            tooltip: "Border color for row group separators (the demo table doesn't use this)",
+          },
+          {
+            key: "lastGroupRowSeparatorBorderColor",
+            type: "color",
+            tooltip:
+              "Border color for the last group row separator (the demo table doesn't use this)",
+          },
         ],
       },
       {
         title: "Spacing",
         fields: [
-          { key: "spacingSmall", type: "text" },
-          { key: "spacingMedium", type: "text" },
+          {
+            key: "spacingSmall",
+            type: "text",
+            tooltip: "Small spacing unit used throughout the table",
+          },
+          {
+            key: "spacingMedium",
+            type: "text",
+            tooltip: "Medium spacing unit used throughout the table",
+          },
         ],
       },
     ],
@@ -488,25 +552,59 @@ export default function ThemeBuilderContent() {
       {
         title: "Row Colors",
         fields: [
-          { key: "oddRowBackgroundColor", type: "color" },
-          { key: "evenRowBackgroundColor", type: "color" },
-          { key: "hoverRowBackgroundColor", type: "color" },
+          {
+            key: "oddRowBackgroundColor",
+            type: "color",
+            tooltip: "Background color for odd-numbered rows",
+          },
+          {
+            key: "evenRowBackgroundColor",
+            type: "color",
+            tooltip: "Background color for even-numbered rows",
+          },
+          {
+            key: "hoverRowBackgroundColor",
+            type: "color",
+            tooltip: "Background color when hovering over a row",
+          },
         ],
       },
       {
         title: "Cell Text & Layout",
         fields: [
-          { key: "cellColor", type: "color" },
-          { key: "cellOddRowColor", type: "color" },
-          { key: "cellPadding", type: "text" },
+          { key: "cellColor", type: "color", tooltip: "Text color for cells in the table" },
+          {
+            key: "cellOddRowColor",
+            type: "color",
+            tooltip: "Text color for cells in odd-numbered rows",
+          },
+          {
+            key: "cellPadding",
+            type: "text",
+            label: "Cell Horizontal Padding",
+            tooltip: "Horizontal padding inside table cells",
+          },
         ],
       },
       {
         title: "Cell Effects",
         fields: [
-          { key: "cellFlashColor", type: "color" },
-          { key: "copyFlashColor", type: "color" },
-          { key: "warningFlashColor", type: "color" },
+          {
+            key: "cellFlashColor",
+            type: "color",
+            tooltip: "Color of the cell when it is flashed from a live update",
+          },
+          {
+            key: "copyFlashColor",
+            type: "color",
+            tooltip: "Color of the cell when it is flashed from a copy operation",
+          },
+          {
+            key: "warningFlashColor",
+            type: "color",
+            tooltip:
+              "Color of the cell when it is flashed from a copy operation on a column that can not be copied",
+          },
         ],
       },
     ],
@@ -514,16 +612,36 @@ export default function ThemeBuilderContent() {
       {
         title: "Column Colors",
         fields: [
-          { key: "oddColumnBackgroundColor", type: "color" },
-          { key: "evenColumnBackgroundColor", type: "color" },
+          {
+            key: "oddColumnBackgroundColor",
+            type: "color",
+            tooltip: "Background color for odd-numbered columns",
+          },
+          {
+            key: "evenColumnBackgroundColor",
+            type: "color",
+            tooltip: "Background color for even-numbered columns",
+          },
         ],
       },
       {
         title: "Column Editor",
         fields: [
-          { key: "columnEditorBackgroundColor", type: "color" },
-          { key: "columnEditorPopoutBackgroundColor", type: "color" },
-          { key: "columnEditorTextColor", type: "color" },
+          {
+            key: "columnEditorBackgroundColor",
+            type: "color",
+            tooltip: "Background color for the column editor panel",
+          },
+          {
+            key: "columnEditorPopoutBackgroundColor",
+            type: "color",
+            tooltip: "Background color for the column editor popout menu",
+          },
+          {
+            key: "columnEditorTextColor",
+            type: "color",
+            tooltip: "Text color in the column editor",
+          },
         ],
       },
     ],
@@ -531,38 +649,80 @@ export default function ThemeBuilderContent() {
       {
         title: "Header Styles",
         fields: [
-          { key: "headerBackgroundColor", type: "color" },
-          { key: "headerLabelColor", type: "color" },
-          { key: "headerIconColor", type: "color" },
-          { key: "headerHighlightIndicatorColor", type: "color" },
+          {
+            key: "headerBackgroundColor",
+            type: "color",
+            tooltip: "Background color for column headers",
+          },
+          { key: "headerLabelColor", type: "color", tooltip: "Text color for header labels" },
+          { key: "headerIconColor", type: "color", tooltip: "Color for icons in column headers" },
+          {
+            key: "headerHighlightIndicatorColor",
+            type: "color",
+            tooltip: "Color for the header highlight indicator line",
+          },
         ],
       },
       {
         title: "Header Selection",
         fields: [
-          { key: "headerSelectedBackgroundColor", type: "color" },
-          { key: "headerSelectedLabelColor", type: "color" },
-          { key: "headerSelectedIconColor", type: "color" },
+          {
+            key: "headerSelectedBackgroundColor",
+            type: "color",
+            tooltip: "Background color when a header is selected",
+          },
+          {
+            key: "headerSelectedLabelColor",
+            type: "color",
+            tooltip: "Text color for selected header labels",
+          },
+          {
+            key: "headerSelectedIconColor",
+            type: "color",
+            tooltip: "Color for icons in selected headers",
+          },
         ],
       },
     ],
     footer: [
       {
         title: "Footer Styles",
-        fields: [{ key: "footerBackgroundColor", type: "color" }],
+        fields: [
+          {
+            key: "footerBackgroundColor",
+            type: "color",
+            tooltip: "Background color for the table footer",
+          },
+        ],
       },
       {
         title: "Pagination",
         fields: [
-          { key: "pageBtnColor", type: "color" },
-          { key: "pageBtnHoverBackgroundColor", type: "color" },
+          {
+            key: "pageBtnColor",
+            type: "color",
+            tooltip: "Text color for pagination page number buttons",
+          },
+          {
+            key: "pageBtnHoverBackgroundColor",
+            type: "color",
+            tooltip: "Background color when hovering over pagination buttons",
+          },
         ],
       },
       {
         title: "Navigation Buttons",
         fields: [
-          { key: "nextPrevBtnColor", type: "color" },
-          { key: "nextPrevBtnDisabledColor", type: "color" },
+          {
+            key: "nextPrevBtnColor",
+            type: "color",
+            tooltip: "Color for next/previous navigation buttons",
+          },
+          {
+            key: "nextPrevBtnDisabledColor",
+            type: "color",
+            tooltip: "Color for disabled next/previous buttons",
+          },
         ],
       },
     ],
@@ -570,23 +730,53 @@ export default function ThemeBuilderContent() {
       {
         title: "Selection Colors",
         fields: [
-          { key: "selectedCellBackgroundColor", type: "color" },
-          { key: "selectedCellColor", type: "color" },
-          { key: "selectedFirstCellBackgroundColor", type: "color" },
-          { key: "selectedFirstCellColor", type: "color" },
-          { key: "selectedRowBackgroundColor", type: "color" },
-          { key: "selectionHighlightIndicatorColor", type: "color" },
+          {
+            key: "selectedCellBackgroundColor",
+            type: "color",
+            tooltip: "Background color for selected cells",
+          },
+          { key: "selectedCellColor", type: "color", tooltip: "Text color for selected cells" },
+          {
+            key: "selectedFirstCellBackgroundColor",
+            type: "color",
+            tooltip: "Background color for the first cell in a selection range",
+          },
+          {
+            key: "selectedFirstCellColor",
+            type: "color",
+            tooltip: "Text color for the first cell in a selection range",
+          },
+          {
+            key: "selectedRowBackgroundColor",
+            type: "color",
+            tooltip: "Background color for selected rows",
+          },
+          {
+            key: "selectionHighlightIndicatorColor",
+            type: "color",
+            tooltip: "Color for the selection highlight indicator line",
+          },
         ],
       },
       {
         title: "Selection Borders",
-        fields: [{ key: "selectedBorderColor", type: "color" }],
+        fields: [
+          {
+            key: "selectedBorderColor",
+            type: "color",
+            tooltip: "Border color around selected cells",
+          },
+        ],
       },
       {
         title: "Editing",
         fields: [
-          { key: "editableCellFocusBorderColor", type: "color" },
-          { key: "editCellShadow", type: "text" },
+          {
+            key: "editableCellFocusBorderColor",
+            type: "color",
+            tooltip: "Border color for focused editable cells",
+          },
+          { key: "editCellShadow", type: "text", tooltip: "Shadow effect for cells in edit mode" },
         ],
       },
     ],
@@ -594,8 +784,16 @@ export default function ThemeBuilderContent() {
       {
         title: "Button States",
         fields: [
-          { key: "buttonHoverBackgroundColor", type: "color" },
-          { key: "buttonActiveBackgroundColor", type: "color" },
+          {
+            key: "buttonHoverBackgroundColor",
+            type: "color",
+            tooltip: "Background color when hovering over buttons",
+          },
+          {
+            key: "buttonActiveBackgroundColor",
+            type: "color",
+            tooltip: "Background color for active/pressed buttons",
+          },
         ],
       },
     ],
@@ -603,9 +801,21 @@ export default function ThemeBuilderContent() {
       {
         title: "Checkbox Styles",
         fields: [
-          { key: "checkboxCheckedBackgroundColor", type: "color" },
-          { key: "checkboxCheckedBorderColor", type: "color" },
-          { key: "checkboxBorderColor", type: "color" },
+          {
+            key: "checkboxCheckedBackgroundColor",
+            type: "color",
+            tooltip: "Background color for checked checkboxes",
+          },
+          {
+            key: "checkboxCheckedBorderColor",
+            type: "color",
+            tooltip: "Border color for checked checkboxes",
+          },
+          {
+            key: "checkboxBorderColor",
+            type: "color",
+            tooltip: "Border color for unchecked checkboxes",
+          },
         ],
       },
     ],
@@ -613,9 +823,21 @@ export default function ThemeBuilderContent() {
       {
         title: "Drag & Resize Styles",
         fields: [
-          { key: "draggingBackgroundColor", type: "color" },
-          { key: "resizeHandleColor", type: "color" },
-          { key: "resizeHandleSelectedColor", type: "color" },
+          {
+            key: "draggingBackgroundColor",
+            type: "color",
+            tooltip: "Background color for columns while being dragged",
+          },
+          {
+            key: "resizeHandleColor",
+            type: "color",
+            tooltip: "Color for the column resize handle",
+          },
+          {
+            key: "resizeHandleSelectedColor",
+            type: "color",
+            tooltip: "Color for the resize handle when actively resizing",
+          },
         ],
       },
     ],
@@ -623,17 +845,25 @@ export default function ThemeBuilderContent() {
       {
         title: "Tooltip Colors",
         fields: [
-          { key: "tooltipBackgroundColor", type: "color" },
-          { key: "tooltipTextColor", type: "color" },
+          {
+            key: "tooltipBackgroundColor",
+            type: "color",
+            tooltip: "Background color for tooltips",
+          },
+          { key: "tooltipTextColor", type: "color", tooltip: "Text color for tooltips" },
         ],
       },
       {
         title: "Tooltip Layout",
         fields: [
-          { key: "tooltipBorderRadius", type: "text" },
-          { key: "tooltipPadding", type: "text" },
-          { key: "tooltipFontSize", type: "text" },
-          { key: "tooltipShadow", type: "text" },
+          {
+            key: "tooltipBorderRadius",
+            type: "text",
+            tooltip: "Border radius for rounded tooltip corners",
+          },
+          { key: "tooltipPadding", type: "text", tooltip: "Padding inside tooltips" },
+          { key: "tooltipFontSize", type: "text", tooltip: "Font size for tooltip text" },
+          { key: "tooltipShadow", type: "text", tooltip: "Shadow effect for tooltips" },
         ],
       },
     ],
@@ -641,9 +871,21 @@ export default function ThemeBuilderContent() {
       {
         title: "Scrollbar Styles",
         fields: [
-          { key: "scrollbarBgColor", type: "color" },
-          { key: "scrollbarThumbColor", type: "color" },
-          { key: "scrollbarWidth", type: "text" },
+          {
+            key: "scrollbarBgColor",
+            type: "color",
+            tooltip: "Background color for the scrollbar track",
+          },
+          {
+            key: "scrollbarThumbColor",
+            type: "color",
+            tooltip: "Color for the scrollbar thumb (draggable part)",
+          },
+          {
+            key: "scrollbarWidth",
+            type: "text",
+            tooltip: "Width of the scrollbar (e.g., 'thin', '8px')",
+          },
         ],
       },
     ],
@@ -651,23 +893,45 @@ export default function ThemeBuilderContent() {
       {
         title: "Datepicker Styles",
         fields: [
-          { key: "datepickerWeekdayColor", type: "color" },
-          { key: "datepickerOtherMonthColor", type: "color" },
+          {
+            key: "datepickerWeekdayColor",
+            type: "color",
+            tooltip: "Text color for weekday labels in the datepicker",
+          },
+          {
+            key: "datepickerOtherMonthColor",
+            type: "color",
+            tooltip: "Text color for dates from other months in the datepicker",
+          },
         ],
       },
     ],
     dropdown: [
       {
         title: "Dropdown Styles",
-        fields: [{ key: "dropdownGroupLabelColor", type: "color" }],
+        fields: [
+          {
+            key: "dropdownGroupLabelColor",
+            type: "color",
+            tooltip: "Text color for group labels in dropdown menus",
+          },
+        ],
       },
     ],
     filter: [
       {
         title: "Filter Button Disabled",
         fields: [
-          { key: "filterButtonDisabledBackgroundColor", type: "color" },
-          { key: "filterButtonDisabledTextColor", type: "color" },
+          {
+            key: "filterButtonDisabledBackgroundColor",
+            type: "color",
+            tooltip: "Background color for disabled filter buttons",
+          },
+          {
+            key: "filterButtonDisabledTextColor",
+            type: "color",
+            tooltip: "Text color for disabled filter buttons",
+          },
         ],
       },
     ],
@@ -752,7 +1016,15 @@ export default function ThemeBuilderContent() {
   // Render a single section config
   const renderSectionConfig = (config: SectionConfig, sectionKey: string) => {
     // Check if any fields in this config have been modified
-    const hasModifications = config.fields.some((field) => userChanges[field.key] !== undefined);
+    const hasModifications = config.fields.some((field) => {
+      if (field.key === "rowHeight") {
+        return rowHeight !== ROW_HEIGHT;
+      }
+      if (field.key === "headerHeight") {
+        return headerHeight !== HEADER_HEIGHT;
+      }
+      return userChanges[field.key as keyof ThemeConfig] !== undefined;
+    });
 
     return (
       <div key={config.title} className="mb-6">
@@ -766,22 +1038,49 @@ export default function ThemeBuilderContent() {
         </div>
         <div className="grid grid-cols-1 gap-y-4">
           {config.fields.map((field, index) => {
+            // Special handling for non-CSS variable props
+            if (field.key === "rowHeight") {
+              return (
+                <ThemeInput
+                  key={index}
+                  label={field.label || shortenLabel(field.key.toString())}
+                  value={rowHeight}
+                  onChange={(value) => handleValueChange(field.key)(value)}
+                  tooltip={field.tooltip}
+                />
+              );
+            }
+            if (field.key === "headerHeight") {
+              return (
+                <ThemeInput
+                  key={index}
+                  label={field.label || shortenLabel(field.key.toString())}
+                  value={headerHeight}
+                  onChange={(value) => handleValueChange(field.key)(value)}
+                  tooltip={field.tooltip}
+                />
+              );
+            }
+
+            // Regular CSS variables
             if (field.type === "color") {
               return (
                 <ThemeColorPicker
                   key={index}
-                  label={shortenLabel(field.key.toString())}
-                  value={theme[field.key].toString()}
-                  onChange={handleColorChange(field.key)}
+                  label={field.label || shortenLabel(field.key.toString())}
+                  value={theme[field.key as keyof ThemeConfig].toString()}
+                  onChange={handleColorChange(field.key as keyof ThemeConfig)}
+                  tooltip={field.tooltip}
                 />
               );
             } else {
               return (
                 <ThemeInput
                   key={index}
-                  label={shortenLabel(field.key.toString())}
-                  value={theme[field.key]}
-                  onChange={(value) => handleValueChange(field.key)(value)}
+                  label={field.label || shortenLabel(field.key.toString())}
+                  value={theme[field.key as keyof ThemeConfig]}
+                  onChange={(value) => handleValueChange(field.key as keyof ThemeConfig)(value)}
+                  tooltip={field.tooltip}
                 />
               );
             }
@@ -860,8 +1159,11 @@ export default function ThemeBuilderContent() {
     </div>
   );
 
-  // Count modifications
-  const modificationCount = Object.keys(userChanges).length;
+  // Count modifications (including non-CSS props if changed)
+  const modificationCount =
+    Object.keys(userChanges).length +
+    (rowHeight !== ROW_HEIGHT ? 1 : 0) +
+    (headerHeight !== HEADER_HEIGHT ? 1 : 0);
 
   // Create footer content
   const footerContent = (
@@ -923,6 +1225,8 @@ export default function ThemeBuilderContent() {
           {UI_STRINGS.themeBuilder.sections.livePreview}
         </h1>
         <SalesExample
+          rowHeight={rowHeight}
+          headerHeight={headerHeight}
           onGridReady={() => {
             setThemeToDocument(theme);
           }}
@@ -932,15 +1236,23 @@ export default function ThemeBuilderContent() {
   );
 }
 
-function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
+function SalesExample({
+  rowHeight,
+  headerHeight,
+  onGridReady,
+}: {
+  rowHeight: number;
+  headerHeight: number;
+  onGridReady?: () => void;
+}) {
   const [data, setData] = useState<(Row & { closeDate: string; category: string })[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const containerHeight = useExampleHeight({
     isUsingPagination: true,
-    rowHeight: ROW_HEIGHT,
+    rowHeight,
   });
-  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / ROW_HEIGHT) : 10;
+  const howManyRowsCanFit = containerHeight ? Math.floor(containerHeight / rowHeight) : 10;
 
   // Fetch sales data from API and process it
   useEffect(() => {
@@ -1004,15 +1316,17 @@ function SalesExample({ onGridReady }: { onGridReady?: () => void }) {
       columnResizing
       defaultHeaders={SALES_HEADERS}
       editColumns
+      headerHeight={headerHeight}
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
+      rowHeight={rowHeight}
       rowIdAccessor="id"
       rows={data}
-      rowHeight={ROW_HEIGHT}
       rowsPerPage={howManyRowsCanFit}
       selectableCells
       shouldPaginate
-      theme={"custom"}
+      theme="custom"
+      useOddEvenRowBackground
     />
   );
 }
