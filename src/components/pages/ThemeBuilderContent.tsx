@@ -836,7 +836,7 @@ export default function ThemeBuilderContent() {
           {
             key: "resizeHandleSelectedColor",
             type: "color",
-            tooltip: "Color for the resize handle when actively resizing",
+            tooltip: "Color for the resize handle when the column has been selected",
           },
         ],
       },
@@ -1327,6 +1327,7 @@ function SalesExample({
       shouldPaginate
       theme="custom"
       useOddEvenRowBackground
+      selectableColumns
     />
   );
 }
