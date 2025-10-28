@@ -11,10 +11,14 @@ const ROOT_PACKAGE_JSON = path.join(__dirname, "../package.json");
  * Trims a JSON array to approximately 5% of its original size while maintaining valid JSON
  * Takes every 20th item to get ~5% of data
  */
-function trimJsonArray(jsonString: string): string {
+function trimJsonArray(jsonString: string, folderName: string): string {
   const data = JSON.parse(jsonString);
   if (!Array.isArray(data)) {
     return jsonString; // If it's not an array, return as-is
+  }
+
+  if (folderName === "music") {
+    return jsonString;
   }
 
   // Take every 20th item to get ~5% of the data
@@ -227,7 +231,7 @@ const publishAllExamples = async (
 
         if (dataFileExists) {
           const dataContent = await fs.readFile(dataFilePath, "utf-8");
-          const trimmedData = trimJsonArray(dataContent);
+          const trimmedData = trimJsonArray(dataContent, folderName);
           // Add to files as a special addition (not localPath/sandboxPath pair)
           filesToInclude.push({
             localPath: dataFilePath,
