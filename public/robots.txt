@@ -35,7 +35,6 @@ Allow: /
 
 # Sitemap location
 Sitemap: https://www.simple-table.com/sitemap.xml
-
 # Disallow admin or private areas if they exist
 Disallow: /admin/
 Disallow: /private/

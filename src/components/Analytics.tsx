@@ -49,6 +49,13 @@ export function Analytics() {
             `,
         }}
       />
+
+      {/* Rybbit analytics */}
+      <Script
+        src="https://app.rybbit.io/api/script.js"
+        data-site-id="1edc281bc84d"
+        strategy="afterInteractive"
+      />
     </>
   );
 }

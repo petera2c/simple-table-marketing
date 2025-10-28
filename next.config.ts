@@ -1,6 +1,10 @@
 import type { NextConfig } from "next";
 import path from "path";
 
+const withBundleAnalyzer = require("@next/bundle-analyzer")({
+  enabled: process.env.ANALYZE === "true",
+});
+
 const config: NextConfig = {
   redirects: async () => {
     return [
@@ -51,4 +55,4 @@ const config: NextConfig = {
   ],
 };
 
-export default config;
+export default withBundleAnalyzer(config);
