@@ -7,6 +7,21 @@ const __dirname = path.dirname(__filename);
 
 const ROOT_PACKAGE_JSON = path.join(__dirname, "../package.json");
 
+/**
+ * Trims a JSON array to approximately 5% of its original size while maintaining valid JSON
+ * Takes every 20th item to get ~5% of data
+ */
+function trimJsonArray(jsonString: string): string {
+  const data = JSON.parse(jsonString);
+  if (!Array.isArray(data)) {
+    return jsonString; // If it's not an array, return as-is
+  }
+
+  // Take every 20th item to get ~5% of the data
+  const trimmed = data.filter((_, index) => index % 20 === 0);
+  return JSON.stringify(trimmed, null, 2);
+}
+
 async function getDependencies() {
   const packageJson = JSON.parse(await fs.readFile(ROOT_PACKAGE_JSON, "utf-8"));
   return {
@@ -88,7 +103,14 @@ root.render(
   // Add supporting files (not App.tsx)
   for (const file of filesToInclude) {
     if (path.resolve(file.localPath) !== path.resolve(appTsxPath)) {
-      let content = await fs.readFile(file.localPath, "utf-8");
+      // Check if file has pre-processed content (like trimmed data files)
+      let content: string;
+      if ((file as any).content) {
+        content = (file as any).content;
+      } else {
+        content = await fs.readFile(file.localPath, "utf-8");
+      }
+
       if (
         file.sandboxPath.endsWith(".tsx") &&
         !/^\s*import\s+React\s+from\s+['"]react['"];?/.test(content)
@@ -168,6 +190,7 @@ const publishAllExamples = async (
   codesandboxListPath: string
 ) => {
   const examplesDir = path.join(__dirname, "../src/examples");
+  const dataDir = path.join(__dirname, "../public/data");
   const exampleFolders = await fs.readdir(examplesDir, { withFileTypes: true });
 
   for (const folder of exampleFolders) {
@@ -184,13 +207,37 @@ const publishAllExamples = async (
 
       const mainFilePath = path.join(folderPath, mainFileName);
 
-      // Include all supporting files except Wrapper.tsx files and data files
+      // Include all supporting files except Wrapper.tsx files
       const filesToInclude = folderFiles
-        .filter((file) => !file.endsWith("Wrapper.tsx") && !file.endsWith(".json"))
+        .filter((file) => !file.endsWith("Wrapper.tsx"))
         .map((file) => ({
           localPath: path.join(folderPath, file),
           sandboxPath: `src/${file}`,
         }));
+
+      // Add trimmed data file from public/data/
+      const dataFileName = `${folderName}-data.json`;
+      const dataFilePath = path.join(dataDir, dataFileName);
+
+      try {
+        const dataFileExists = await fs
+          .access(dataFilePath)
+          .then(() => true)
+          .catch(() => false);
+
+        if (dataFileExists) {
+          const dataContent = await fs.readFile(dataFilePath, "utf-8");
+          const trimmedData = trimJsonArray(dataContent);
+          // Add to files as a special addition (not localPath/sandboxPath pair)
+          filesToInclude.push({
+            localPath: dataFilePath,
+            sandboxPath: `public/data/${dataFileName}`,
+            content: trimmedData, // Special flag to use this content directly
+          } as any);
+        }
+      } catch (error) {
+        console.warn(`Could not find data file for ${folderName}:`, error);
+      }
 
       const sandboxUrl = await publishSandbox(filesToInclude, mainFilePath, mainFileName);
 

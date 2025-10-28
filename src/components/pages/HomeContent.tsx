@@ -266,7 +266,7 @@ export default function HomeContent() {
             </Tooltip>
             <Tooltip title="Sandbox">
               <Button
-                href={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"]?.url || "#"}
+                href={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"].url}
                 icon={<FontAwesomeIcon icon={faBox} />}
                 target="_blank"
               >
