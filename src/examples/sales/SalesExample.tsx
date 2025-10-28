@@ -2,6 +2,7 @@ import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
 import { SALES_HEADERS } from "./sales-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
+import { useSalesData } from "./useSalesData";
 
 export default function SalesExample({
   expandIcon,
@@ -30,50 +31,13 @@ export default function SalesExample({
   sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: fetchedData, isLoading } = useSalesData(rowCount);
+  const [data, setData] = useState(fetchedData);
 
-  const processData = (salesData: any[]) => {
-    const processedData = salesData.map((sale) => {
-      const dealValue = sale.dealSize / sale.profitMargin;
-      const commission = dealValue * 0.1;
-      const dealProfit = sale.dealSize - commission;
-
-      return {
-        ...sale,
-        dealValue: parseFloat(dealValue.toFixed(2)),
-        commission: parseFloat(commission.toFixed(2)),
-        dealProfit: parseFloat(dealProfit.toFixed(2)),
-      };
-    });
-
-    return processedData;
-  };
-
+  // Update local data when fetched data changes
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://www.simple-table.com/api/data/sales?rowCount=${rowCount}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          const processedData = processData(data);
-          setData(processedData);
-        }
-      } catch {
-        const response = await fetch("/data/sales-data.json");
-        const data = await response.json();
-        const processedData = processData(data);
-        setData(processedData);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [rowCount]);
+    setData(fetchedData);
+  }, [fetchedData]);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>

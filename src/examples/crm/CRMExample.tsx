@@ -1,10 +1,11 @@
 import { getCRMHeaders } from "./crm-headers";
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 import { SimpleTable, CellChangeProps, Row, FooterRendererProps } from "simple-table-core";
 
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
 import CRMCustomFooter from "./CRMFooter";
+import { useCRMData } from "./useCRMData";
 
 const CRMExampleComponent = ({
   expandIcon,
@@ -31,11 +32,16 @@ const CRMExampleComponent = ({
   sortUpIcon?: React.ReactNode;
   theme?: "custom-light" | "custom-dark";
 }) => {
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: fetchedData, isLoading } = useCRMData();
+  const [data, setData] = useState(fetchedData);
   const [rowsPerPage, setRowsPerPage] = useState(100);
 
   const isDark = theme === "custom-dark";
+
+  // Update local data when fetched data changes
+  useEffect(() => {
+    setData(fetchedData);
+  }, [fetchedData]);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -50,27 +56,6 @@ const CRMExampleComponent = ({
       })
     );
   };
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch("https://www.simple-table.com/api/data/crm");
-        if (response.ok) {
-          const data = await response.json();
-          setData(data);
-        }
-      } catch {
-        const response = await fetch("/data/crm-data.json");
-        const data = await response.json();
-        setData(data);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, []);
 
   if (isLoading) return <></>;
 

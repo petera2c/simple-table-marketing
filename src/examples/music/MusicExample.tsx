@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
-import { SimpleTable, TableRefType, Theme, Row } from "simple-table-core";
+import { useRef } from "react";
+import { SimpleTable, TableRefType, Theme } from "simple-table-core";
 import { HEADERS } from "./music-headers";
 
 import "simple-table-core/styles.css";
 import "./MusicTheme.css";
+import { useMusicData } from "./useMusicData";
 
 export default function MusicExample({
   expandIcon,
@@ -31,32 +32,7 @@ export default function MusicExample({
   theme?: Theme;
 }) {
   const tableRef = useRef<TableRefType | null>(null);
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  // Fetch music data from API
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://www.simple-table.com/api/data/music?rowCount=${rowCount}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setData(data);
-        }
-      } catch {
-        const response = await fetch("/data/music-data.json");
-        const data = await response.json();
-        setData(data);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [rowCount]);
+  const { data, isLoading } = useMusicData(rowCount);
 
   if (isLoading) {
     return (

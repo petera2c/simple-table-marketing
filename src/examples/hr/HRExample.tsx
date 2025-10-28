@@ -2,6 +2,7 @@ import { SimpleTable, Theme, CellChangeProps, Row } from "simple-table-core";
 import { HEADERS } from "./hr-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
+import { useHRData } from "./useHRData";
 
 export default function HRExample({
   expandIcon,
@@ -30,31 +31,13 @@ export default function HRExample({
   sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const { data: fetchedData, isLoading } = useHRData(rowCount);
+  const [data, setData] = useState(fetchedData);
 
+  // Update local data when fetched data changes
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://www.simple-table.com/api/data/hr?rowCount=${rowCount}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setData(data);
-        }
-      } catch {
-        const response = await fetch("/data/hr-data.json");
-        const data = await response.json();
-        setData(data);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [rowCount]);
+    setData(fetchedData);
+  }, [fetchedData]);
 
   const howManyRowsCanFit = height ? Math.floor(height / rowHeight) : 10;
 

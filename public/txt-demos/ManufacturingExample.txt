@@ -1,7 +1,7 @@
 import { Row, SimpleTable, Theme } from "simple-table-core";
 import { HEADERS } from "./manufacturing-headers";
 import "simple-table-core/styles.css";
-import { useState, useEffect } from "react";
+import { useManufacturingData } from "./useManufacturingData";
 
 export default function ManufacturingExample({
   expandIcon,
@@ -28,31 +28,7 @@ export default function ManufacturingExample({
   sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
-  const [data, setData] = useState<Row[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setIsLoading(true);
-        const response = await fetch(
-          `https://www.simple-table.com/api/data/manufacturing?rowCount=${rowCount}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setData(data);
-        }
-      } catch {
-        const response = await fetch("/data/manufacturing-data.json");
-        const data = await response.json();
-        setData(data);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [rowCount]);
+  const { data, isLoading } = useManufacturingData(rowCount);
 
   if (isLoading) {
     return (
