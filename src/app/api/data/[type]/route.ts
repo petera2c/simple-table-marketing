@@ -57,6 +57,9 @@ export async function GET(request: NextRequest, { params }: { params: Promise<{ 
       // Average: ~10 invoices per account * 3.5 charges per invoice (1-6 range) = 35 charges per account
       const accountCount = Math.max(1, Math.ceil(rowCount / 35));
       slicedData = data.slice(0, accountCount);
+    } else if (dataType === "music") {
+      // Music data only has 50 records, so always send all of them
+      slicedData = data;
     } else {
       slicedData = data.slice(0, rowCount);
     }
