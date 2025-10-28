@@ -21,7 +21,7 @@ export default function SalesExample({
   filterIcon?: React.ReactNode;
   headerCollapseIcon?: React.ReactNode;
   headerExpandIcon?: React.ReactNode;
-  height?: string | number;
+  height?: string | number | null;
   nextIcon?: React.ReactNode;
   onGridReady?: () => void;
   prevIcon?: React.ReactNode;
