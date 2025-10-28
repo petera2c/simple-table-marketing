@@ -272,7 +272,7 @@ export default function SalesExample({
   height,
   onGridReady,
   theme,
-  rowCount = 50,
+  rowCount = 1000,
   expandIcon,
   filterIcon,
   headerCollapseIcon,

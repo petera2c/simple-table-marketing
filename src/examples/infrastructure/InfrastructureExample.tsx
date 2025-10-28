@@ -642,7 +642,7 @@ const UPDATE_CONFIG = {
 export default function InfrastructureExample({
   height,
   theme,
-  rowCount = 50,
+  rowCount = 1000,
   expandIcon,
   filterIcon,
   headerCollapseIcon,

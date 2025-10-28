@@ -547,7 +547,7 @@ export default function MusicExample({
   height,
   nextIcon,
   prevIcon,
-  rowCount = 50,
+  rowCount = 1000,
   sortDownIcon,
   sortUpIcon,
   theme,

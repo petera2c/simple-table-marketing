@@ -350,7 +350,7 @@ export default function HRExample({
   height = 500,
   nextIcon,
   prevIcon,
-  rowCount = 50,
+  rowCount = 1000,
   rowHeight = 48,
   sortDownIcon,
   sortUpIcon,

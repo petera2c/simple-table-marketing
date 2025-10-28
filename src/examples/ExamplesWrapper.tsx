@@ -8,7 +8,7 @@ const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const searchParams = useSearchParams();
   const { theme: websiteMode } = useThemeContext();
   const theme = (searchParams?.get("theme") as ThemeOption) || websiteMode;
-  const rowCount = parseInt(searchParams?.get("rows") || "50");
+  const rowCount = parseInt(searchParams?.get("rows") || "1000");
 
   return (
     <>

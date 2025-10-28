@@ -652,7 +652,7 @@ export default function ManufacturingExample({
   height,
   nextIcon,
   prevIcon,
-  rowCount = 50,
+  rowCount = 1000,
   sortDownIcon,
   sortUpIcon,
   theme,
