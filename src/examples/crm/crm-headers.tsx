@@ -210,7 +210,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "name",
       label: "CONTACT",
-      width: 290,
+      width: "2fr",
       minWidth: 290,
       isSortable: true,
       isEditable: true,
@@ -286,7 +286,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "signal",
       label: "SIGNAL",
-      width: 340,
+      width: "3fr",
       minWidth: 340,
       isSortable: true,
       isEditable: true,
@@ -315,7 +315,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "aiScore",
       label: "AI SCORE",
-      width: 100,
+      width: "1fr",
       minWidth: 100,
       isSortable: true,
       align: "center",
@@ -330,7 +330,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "emailStatus",
       label: "EMAIL",
-      width: 210,
+      width: "1.5fr",
       minWidth: 210,
       isSortable: true,
       align: "center",
@@ -348,7 +348,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "timeAgo",
       label: "IMPORT",
-      width: 100,
+      width: "1fr",
       minWidth: 100,
       isSortable: true,
       align: "center",
@@ -364,7 +364,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "list",
       label: "LIST",
-      width: 160,
+      width: "1.2fr",
       minWidth: 160,
       isSortable: true,
       align: "center",
@@ -401,7 +401,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "_fit",
       label: "Fit",
-      width: 120,
+      width: "1fr",
       align: "center",
       minWidth: 120,
       cellRenderer: () => {
@@ -411,7 +411,7 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
     {
       accessor: "_contactNow",
       label: "",
-      width: 160,
+      width: "1.2fr",
       minWidth: 160,
       cellRenderer: () => {
         return (
