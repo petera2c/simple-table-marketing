@@ -1,6 +1,6 @@
 "use client";
 
-import { Button } from "antd";
+import { Button, Tooltip } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageWrapper from "@/components/PageWrapper";
 import {
@@ -37,6 +37,7 @@ import {
   faCrown,
   faGift,
   faFire,
+  faBox,
 } from "@fortawesome/free-solid-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -50,6 +51,8 @@ import IconLibrarySelector from "@/components/IconLibrarySelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 import { Theme } from "simple-table-core";
+import CodeBlock from "@/components/CodeBlock";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -57,6 +60,7 @@ export default function HomeContent() {
   const { theme: globalTheme } = useThemeContext();
   const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
   const [selectedTheme, setSelectedTheme] = useState<Theme>();
+  const [isCodeVisible, setIsCodeVisible] = useState(false);
   const tableIcons = getTableIcons(iconLibrary);
 
   // FAQ Schema for AI visibility
@@ -244,7 +248,32 @@ export default function HomeContent() {
         </section>
 
         {/* Theme and Icon Library Selectors */}
-        <div className="mb-4 flex justify-end">
+        <div className="mb-4 flex justify-between items-center flex-wrap gap-4">
+          <motion.div
+            className="flex items-center gap-2 flex-wrap"
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.5, delay: 0.65 }}
+          >
+            <Tooltip title={isCodeVisible ? "Show preview" : "Show code"}>
+              <Button
+                className="min-w-[120px]"
+                icon={<FontAwesomeIcon icon={faCode} />}
+                onClick={() => setIsCodeVisible(!isCodeVisible)}
+              >
+                {isCodeVisible ? "Preview" : "Code"}
+              </Button>
+            </Tooltip>
+            <Tooltip title="Sandbox">
+              <Button
+                href={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"].url}
+                icon={<FontAwesomeIcon icon={faBox} />}
+                target="_blank"
+              >
+                CodeSandbox
+              </Button>
+            </Tooltip>
+          </motion.div>
           <div className="flex items-center gap-4 flex-wrap">
             <motion.div
               className="flex items-center gap-2"
@@ -277,13 +306,17 @@ export default function HomeContent() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
         >
-          <Suspense fallback={<div />}>
-            <InfrastructureExample
-              theme={selectedTheme || globalTheme}
-              height={"70dvh"}
-              {...tableIcons}
-            />
-          </Suspense>
+          {isCodeVisible ? (
+            <CodeBlock demoCodeFilename="InfrastructureExample.txt" />
+          ) : (
+            <Suspense fallback={<div />}>
+              <InfrastructureExample
+                theme={selectedTheme || globalTheme}
+                height={"70dvh"}
+                {...tableIcons}
+              />
+            </Suspense>
+          )}
         </motion.section>
 
         {/* Main Features Section */}

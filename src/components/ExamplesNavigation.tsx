@@ -91,7 +91,7 @@ function ExamplesNavigationContent() {
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
   const currentTheme = (searchParams?.get("theme") as ThemeOption) || theme;
-  const currentRowCount = parseInt(searchParams?.get("rows") || "50");
+  const currentRowCount = parseInt(searchParams?.get("rows") || "1000");
   const currentIconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
 
   // Determine current active example

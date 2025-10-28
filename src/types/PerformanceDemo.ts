@@ -6,7 +6,6 @@ export interface PerformanceDemoProps {
   height?: string | number;
   theme?: Theme;
   initialRowCount?: number;
-  defaultShowAllButtons?: boolean;
 
   // Data generation options
   dataCategories?: string[];
