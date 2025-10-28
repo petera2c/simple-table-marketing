@@ -21,6 +21,7 @@ import { useGitHubStars } from "../hooks/useGitHubStars";
 import { useThemeContext } from "../providers/ThemeProvider";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
+import { DEFAULT_EXAMPLE_PATH } from "../constants/global";
 
 // Unified link button component that handles both internal and external links
 interface LinkButtonProps {
@@ -279,7 +280,7 @@ const Header = () => {
     { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
     { href: "/theme-builder", label: "Theme Builder" },
-    { href: `/examples/infrastructure`, label: "Examples", useActivePath: true },
+    { href: DEFAULT_EXAMPLE_PATH, label: "Examples", useActivePath: true },
     { href: "/blog", label: "Blog" },
     { href: "/pricing", label: "Pricing" },
   ];

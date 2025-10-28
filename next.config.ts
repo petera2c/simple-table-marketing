@@ -25,7 +25,7 @@ const config: NextConfig = {
       },
       {
         source: "/examples",
-        destination: "/examples/infrastructure",
+        destination: "/examples/crm",
         permanent: true,
       },
     ];

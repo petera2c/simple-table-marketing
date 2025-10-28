@@ -23,16 +23,16 @@ import { IconLibrary } from "@/utils/getTableIcons";
 // Define example navigation items
 const examples = [
   {
-    id: "infrastructure",
-    label: "Infrastructure",
-    path: "/examples/infrastructure",
-    icon: faServer,
-  },
-  {
     id: "crm",
     label: "CRM",
     path: "/examples/crm",
     icon: faUserTie,
+  },
+  {
+    id: "infrastructure",
+    label: "Infrastructure",
+    path: "/examples/infrastructure",
+    icon: faServer,
   },
   {
     id: "music",

@@ -9,32 +9,26 @@ import {
   faStar,
   faChartLine,
   faDollarSign,
-  faUsers,
   faLightbulb,
   faCog,
   faMobile,
-  faShield,
   faBook,
   faTrophy,
   faExclamationTriangle,
   faThumbsUp,
   faThumbsDown,
-  faArrowRight,
   faSearch,
   faCogs,
   faPalette,
   faLayerGroup,
-  faFileExport,
-  faTree,
-  faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
-import { bestReactTableLibraries2025Post } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
@@ -1061,7 +1055,7 @@ export default function BestReactTableLibraries2025Page() {
         }}
         secondaryButton={{
           text: "View Examples",
-          href: "/examples/infrastructure",
+          href: DEFAULT_EXAMPLE_PATH,
         }}
       />
     </BlogLayout>

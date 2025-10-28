@@ -19,6 +19,7 @@ import { mobileCompatibilityReactTablesPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.mobileCompatibilityReactTables.title,
@@ -515,7 +516,7 @@ export default function MobileTable() {
                       Get Started Now
                     </Button>
                   </Link>
-                  <Link href="/examples/infrastructure">
+                  <Link href={DEFAULT_EXAMPLE_PATH}>
                     <Button size="middle" block>
                       View Mobile Demo
                     </Button>
@@ -537,7 +538,7 @@ export default function MobileTable() {
         }}
         secondaryButton={{
           text: "Explore Examples",
-          href: "/examples/infrastructure",
+          href: DEFAULT_EXAMPLE_PATH,
         }}
       />
     </BlogLayout>

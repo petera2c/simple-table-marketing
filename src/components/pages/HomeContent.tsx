@@ -53,6 +53,7 @@ import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
 import { Theme } from "simple-table-core";
 import CodeBlock from "@/components/CodeBlock";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -156,7 +157,7 @@ export default function HomeContent() {
   };
 
   const handleExamplesClick = () => {
-    router.push("/examples/infrastructure");
+    router.push(DEFAULT_EXAMPLE_PATH);
   };
 
   return (
@@ -1235,7 +1236,7 @@ export default function HomeContent() {
                         includes detailed guides for every feature, interactive live demos you can
                         edit in your browser, real-world{" "}
                         <Link
-                          href="/examples/infrastructure"
+                          href={DEFAULT_EXAMPLE_PATH}
                           className="text-orange-600 dark:text-orange-400 hover:underline cursor-pointer font-medium"
                           onClick={(e) => e.stopPropagation()}
                         >

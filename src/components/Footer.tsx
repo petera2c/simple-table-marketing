@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -70,12 +71,12 @@ export default function Footer() {
             <ul className="space-y-2">
               <li>
                 <Link
-                  href={`/examples/infrastructure?theme=${theme}`}
+                  href={`${DEFAULT_EXAMPLE_PATH}`}
                   className={`text-gray-400 hover:text-white transition-colors ${
-                    isActive("/examples/infrastructure") ? "text-white font-medium" : ""
+                    isActive(DEFAULT_EXAMPLE_PATH) ? "text-white font-medium" : ""
                   }`}
                 >
-                  Infrastructure Dashboard
+                  CRM Dashboard
                 </Link>
               </li>
               <li>

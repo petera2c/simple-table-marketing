@@ -8,6 +8,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTableCells, faArrowLeft, faHome, faBook } from "@fortawesome/free-solid-svg-icons";
 import { useMemo } from "react";
 import PageWrapper from "@/components/PageWrapper";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export default function NotFoundContent() {
   const messageIndex = useMemo(
@@ -105,7 +106,7 @@ export default function NotFoundContent() {
                 whileHover={{ scale: 1.02 }}
               >
                 <FontAwesomeIcon icon={faTableCells} className="text-blue-500" />
-                <Link href="/examples/infrastructure" className="hover:text-blue-600">
+                <Link href={DEFAULT_EXAMPLE_PATH} className="hover:text-blue-600">
                   View Examples
                 </Link>
               </motion.li>

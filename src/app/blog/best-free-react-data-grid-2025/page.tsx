@@ -19,6 +19,7 @@ import { bestFreeReactDataGridPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
+import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
@@ -564,7 +565,7 @@ export default function MyTable() {
                   Quick Start Guide
                 </Button>
               </Link>
-              <Link href="/examples/infrastructure">
+              <Link href={DEFAULT_EXAMPLE_PATH}>
                 <Button size="large" icon={<FontAwesomeIcon icon={faTable} />} block>
                   View Examples
                 </Button>
@@ -613,7 +614,7 @@ export default function MyTable() {
                       Get Started Now
                     </Button>
                   </Link>
-                  <Link href="/examples/infrastructure">
+                  <Link href={DEFAULT_EXAMPLE_PATH}>
                     <Button size="middle" block>
                       Explore Examples
                     </Button>
@@ -635,7 +636,7 @@ export default function MyTable() {
         }}
         secondaryButton={{
           text: "View Examples",
-          href: "/examples/infrastructure",
+          href: DEFAULT_EXAMPLE_PATH,
         }}
       />
     </BlogLayout>
