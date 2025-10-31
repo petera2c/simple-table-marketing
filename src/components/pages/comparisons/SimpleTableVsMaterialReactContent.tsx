@@ -37,8 +37,11 @@ const SimpleTableVsMaterialReactContent = () => {
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
         overhead. It's ideal for projects that need a performant table component without the weight
-        of a full UI framework. With its 31 kB (minified + gzipped) bundle size, it offers a great
-        balance of features and performance.
+        of a full UI framework. With its{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+          31 kB (minified + gzipped)
+        </Link>{" "}
+        bundle size, it offers a great balance of features and performance.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>

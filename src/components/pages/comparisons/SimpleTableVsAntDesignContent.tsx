@@ -12,7 +12,7 @@ const SimpleTableVsAntDesignContent = () => {
       design system—not just individual components. This comprehensive approach brings consistency
       and polished UI elements, but it also means that adding a simple table component requires
       pulling in the{" "}
-      <Link href="https://bundlephobia.com/package/antd" target="_blank">
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
         entire Ant Design ecosystem (448.2 kB minified + gzipped)
       </Link>
       . For many teams, this raises a critical question: is the visual consistency worth the massive
@@ -21,14 +21,17 @@ const SimpleTableVsAntDesignContent = () => {
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      offers a different philosophy entirely. At just 31 kB (minified + gzipped), it delivers more
-      data grid functionality than Ant Design Table while being 240x smaller. But the choice isn't
-      just about file size—it's about architectural decisions that affect your entire application's
-      performance, from initial load times to runtime memory usage. This comparison examines whether
-      you can achieve both design consistency AND performance by choosing Simple Table, even within
-      Ant Design projects. We'll explore styling strategies, bundle optimization techniques, and
-      help you determine whether Ant Design Table's framework integration justifies its massive
-      overhead for your specific use case.
+      offers a different philosophy entirely. At just{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        31 kB (minified + gzipped)
+      </Link>
+      , it delivers more data grid functionality than Ant Design Table while being 240x smaller. But
+      the choice isn't just about file size—it's about architectural decisions that affect your
+      entire application's performance, from initial load times to runtime memory usage. This
+      comparison examines whether you can achieve both design consistency AND performance by
+      choosing Simple Table, even within Ant Design projects. We'll explore styling strategies,
+      bundle optimization techniques, and help you determine whether Ant Design Table's framework
+      integration justifies its massive overhead for your specific use case.
     </>
   );
 
@@ -40,8 +43,11 @@ const SimpleTableVsAntDesignContent = () => {
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
         overhead. It's ideal for projects that need a performant table component without the weight
-        of a full UI framework. With its 31 kB (minified + gzipped) bundle size, it offers a great
-        balance of features and performance.
+        of a full UI framework. With its{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+          31 kB (minified + gzipped)
+        </Link>{" "}
+        bundle size, it offers a great balance of features and performance.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -50,14 +56,14 @@ const SimpleTableVsAntDesignContent = () => {
         is part of the comprehensive Ant Design framework, offering a consistent look and feel with
         other Ant Design components. While it provides basic table functionality, it lacks many
         advanced data grid features that Simple Table offers. It comes with the overhead of the{" "}
-        <Link href="https://bundlephobia.com/package/antd" target="_blank">
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
           full framework (363.8 kB minified + gzipped)
         </Link>{" "}
         and requires additional customization for complex use cases.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need a lightweight, standalone table component with advanced features,{" "}
-        <Link href="https://www.simple-table.com">try Simple Table</Link>. If you're already using
+        <Link className="text-[length:inherit]" href="https://www.simple-table.com">try Simple Table</Link>. If you're already using
         Ant Design and need a basic table with Ant Design styling, the Ant Design Table might be
         sufficient for simpler use cases.
       </Text>
@@ -154,7 +160,7 @@ const SimpleTableVsAntDesignContent = () => {
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
               •{" "}
-              <Link href="https://bundlephobia.com/package/antd" target="_blank" strong>
+              <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank" strong>
                 363.8 kB
               </Link>{" "}
               total bundle size
@@ -183,7 +189,15 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>31 kB (minified + gzipped)</strong> total bundle size
+              •{" "}
+              <Link
+                href="https://bundlephobia.com/package/@simple-table/react-table"
+                target="_blank"
+                strong
+              >
+                31 kB (minified + gzipped)
+              </Link>{" "}
+              total bundle size
             </li>
             <li>
               • <strong>Minimal CDN costs</strong> and fast delivery
@@ -228,7 +242,7 @@ const SimpleTableVsAntDesignContent = () => {
       performanceMetrics={{
         competitor: "Ant Design Table",
         competitorSize: (
-          <Link href="https://bundlephobia.com/package/antd" target="_blank">
+          <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
             363.8 kB (minified + gzipped)
           </Link>
         ),

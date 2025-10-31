@@ -20,8 +20,12 @@ const SimpleTableVsHandsontableContent = () => {
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      presents an interesting alternative. At just 31 kB (minified + gzipped), Simple Table offers
-      core spreadsheet-like functionality without the commercial licensing requirements or{" "}
+      presents an interesting alternative. At just{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        31 kB (minified + gzipped)
+      </Link>
+      , Simple Table offers core spreadsheet-like functionality without the commercial licensing
+      requirements or{" "}
       <a
         href="https://bundlephobia.com/package/handsontable"
         target="_blank"
@@ -74,7 +78,11 @@ const SimpleTableVsHandsontableContent = () => {
           >
             412.4 kB
           </a>{" "}
-          vs 31 kB difference)
+          vs{" "}
+          <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+            31 kB
+          </Link>{" "}
+          difference)
         </Text>
         <Text className="text-base mb-4 block text-inherit">
           • Prefer open-source solutions without licensing restrictions
@@ -133,8 +141,11 @@ const SimpleTableVsHandsontableContent = () => {
           </Text>
           <Text className="text-base text-gray-700 dark:text-gray-300">
             Yes, Simple Table's virtualization can handle millions of rows efficiently, often with
-            better performance than Handsontable due to its lighter architecture. The 31 kB bundle
-            size doesn't compromise on data handling capabilities.
+            better performance than Handsontable due to its lighter architecture. The{" "}
+            <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+              31 kB
+            </Link>{" "}
+            bundle size doesn't compromise on data handling capabilities.
           </Text>
         </div>
 

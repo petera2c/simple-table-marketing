@@ -36,9 +36,12 @@ const SimpleTableVsTanstackContent = () => {
         </Text>{" "}
         provides a complete solution with pre-built UI components, ready to use out of the box. It's
         ideal for projects that need a functional data grid quickly without building UI components
-        from scratch. With a small bundle size (31 kB minified + gzipped) and comprehensive
-        features, it's great for most table needs where you want to focus on your application logic
-        rather than building UI components.
+        from scratch. With a small bundle size (
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+          31 kB minified + gzipped
+        </Link>
+        ) and comprehensive features, it's great for most table needs where you want to focus on
+        your application logic rather than building UI components.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>

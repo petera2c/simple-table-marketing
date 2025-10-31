@@ -2102,6 +2102,10 @@ video {
   line-height: 1rem;
 }
 
+.text-\[length\:inherit\] {
+  font-size: inherit;
+}
+
 .font-bold {
   font-weight: 700;
 }
