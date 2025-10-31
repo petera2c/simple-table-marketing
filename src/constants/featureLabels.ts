@@ -273,10 +273,6 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
     label: "TypeScript Support",
     tooltip: "Full TypeScript support with strong typing",
   },
-  developerEasySetup: {
-    label: "Easy Setup",
-    tooltip: "Minimal configuration required",
-  },
 
   // Undo/Redo Features
   undoRedo: {

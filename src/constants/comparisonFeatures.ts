@@ -96,9 +96,6 @@ export const ALL_FEATURES = [
 
   // Developer Experience Features
   "developerTypeScriptSupport",
-  "developerEasySetup",
-  "developerReadyToUseComponents",
-  "developerLearningCurve",
 
   // Undo/Redo Features
   "undoRedo",
@@ -193,9 +190,6 @@ export const simpleTableFeatures: FeatureMapping = {
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
-  developerEasySetup: "free",
-  developerReadyToUseComponents: "free",
-  developerLearningCurve: "free",
 
   // Undo/Redo Features
   undoRedo: "in-development",
@@ -393,9 +387,6 @@ export const antDesignFeatures: FeatureMapping = {
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
-  developerEasySetup: "free",
-  developerReadyToUseComponents: "free",
-  developerLearningCurve: "free",
 
   // Undo/Redo Features
   undoRedo: "not-available",
@@ -501,9 +492,6 @@ export const handsontableFeatures: FeatureMapping = {
 
   // Developer Experience Features
   developerTypeScriptSupport: "paid",
-  developerEasySetup: "paid",
-  developerReadyToUseComponents: "paid",
-  developerLearningCurve: "paid",
 
   // Undo/Redo Features
   undoRedo: "paid",
@@ -611,9 +599,6 @@ export const materialReactFeatures: FeatureMapping = {
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
-  developerEasySetup: "free",
-  developerReadyToUseComponents: "free",
-  developerLearningCurve: "free",
 
   // Undo/Redo Features
   undoRedo: "not-available",
@@ -725,9 +710,6 @@ export const tanstackFeatures: FeatureMapping = {
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
-  developerEasySetup: "free",
-  developerReadyToUseComponents: "not-available",
-  developerLearningCurve: "free",
 
   // Undo/Redo Features
   undoRedo: "not-available",
