@@ -38,11 +38,14 @@ import {
   faGift,
   faFire,
   faBox,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { useIsMobile } from "@/hooks/useIsMobile";
+import { useGitHubStars } from "@/hooks/useGitHubStars";
 import React, { Suspense, useState } from "react";
 import InfrastructureExample from "@/examples/infrastructure/InfrastructureExample";
 import { useThemeContext } from "@/providers/ThemeProvider";
@@ -59,6 +62,7 @@ export default function HomeContent() {
   const isMobile = useIsMobile();
   const router = useRouter();
   const { theme: globalTheme } = useThemeContext();
+  const { stars, isLoading } = useGitHubStars("petera2c", "simple-table");
   const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
   const [selectedTheme, setSelectedTheme] = useState<Theme>();
   const [isCodeVisible, setIsCodeVisible] = useState(false);
@@ -173,6 +177,27 @@ export default function HomeContent() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
+            {/* GitHub Star Button */}
+            <motion.div
+              className="flex justify-center mb-6"
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <Button
+                href="https://github.com/petera2c/simple-table"
+                target="_blank"
+                rel="noopener noreferrer"
+                icon={<FontAwesomeIcon icon={faGithub} />}
+                className="rounded-full px-2 py-3"
+                size="small"
+              >
+                <span className="font-medium">Star us!</span>
+                <FontAwesomeIcon icon={faStar} className="text-yellow-400" />
+                <span className="text-sm font-semibold">{stars || ""}</span>
+              </Button>
+            </motion.div>
+
             <motion.h1
               className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4"
               initial={{ opacity: 0, y: -20 }}
@@ -204,7 +229,7 @@ export default function HomeContent() {
             </motion.p>
 
             {/* Limited Time Promo Badge (Hidden on Mobile) */}
-            <Link href="/pricing">
+            {/* <Link href="/pricing">
               <motion.div
                 className="hidden lg:flex absolute -top-2 right-0 items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl cursor-pointer hover:scale-105 transition-transform group"
                 initial={{ opacity: 0, x: 20, rotate: 0 }}
@@ -218,7 +243,7 @@ export default function HomeContent() {
                 </div>
                 <FontAwesomeIcon icon={faCrown} className="text-lg" />
               </motion.div>
-            </Link>
+            </Link> */}
 
             <motion.div
               className={`${isMobile ? "flex flex-col gap-4" : "flex justify-center gap-4"}`}
