@@ -1,291 +1,37 @@
 "use client";
 import React from "react";
-import { Typography, Space } from "antd";
+import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
-import {
-  FeatureIcons,
-  FeatureStatus,
-  FeatureTags,
-  renderFeatures,
-  simplePricing,
-} from "../../CommonFeatures";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleTableVsAntDesignContent = () => {
-  const columns = [
-    {
-      title: "Feature",
-      dataIndex: "feature",
-      key: "feature",
-      width: "25%",
-    },
-    {
-      title: "Simple Table",
-      dataIndex: "simpleTable",
-      key: "simpleTable",
-      width: "37.5%",
-    },
-    {
-      title: "Ant Design Table",
-      dataIndex: "antDesign",
-      key: "antDesign",
-      width: "37.5%",
-    },
-  ];
-
-  const data = [
-    {
-      key: "quick-start",
-      feature: FeatureIcons.QuickStart,
-      simpleTable: FeatureStatus.Available("Single package, minimal setup"),
-      antDesign: FeatureStatus.Available("Requires Ant Design core setup"),
-    },
-    {
-      key: "virtualization",
-      feature: FeatureIcons.Virtualization,
-      simpleTable: FeatureStatus.Available("Built-in virtualization for millions of rows"),
-      antDesign: FeatureStatus.Available("Requires additional rc-virtual-list package"),
-    },
-    {
-      key: "infinite-scroll",
-      feature: FeatureIcons.RowFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Infinite Scroll",
-            "Scroll to the bottom of the table to load more data"
-          )}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Infinite Scroll", "Built-in support for infinite scroll")}
-        </Space>
-      ),
-    },
-    {
-      key: "column-features",
-      feature: FeatureIcons.ColumnFeatures,
-      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
-      antDesign: renderFeatures("columnFeatures", "antDesign"),
-    },
-    {
-      key: "row-features",
-      feature: FeatureIcons.RowFeatures,
-      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
-      antDesign: renderFeatures("rowFeatures", "antDesign"),
-    },
-    {
-      key: "cell-features",
-      feature: FeatureIcons.CellFeatures,
-      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
-      antDesign: renderFeatures("cellFeatures", "antDesign"),
-    },
-    {
-      key: "spreadsheet-features",
-      feature: (
-        <Space>
-          <span>Spreadsheet Features</span>
-        </Space>
-      ),
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Processing("Basic Formulas", "Coming soon to Simple Table")}
-          {FeatureTags.Success("Data Binding", "Two-way data binding with React state")}
-          {FeatureTags.Error("Context Menu", "Not available in Simple Table")}
-          {FeatureTags.Error("Comments", "Not available in Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Formulas", "No formula support")}
-          {FeatureTags.Error("Data Binding", "No built-in two-way data binding")}
-          {FeatureTags.Error("Context Menu", "No built-in context menu")}
-          {FeatureTags.Error("Comments", "No built-in comment functionality")}
-        </Space>
-      ),
-    },
-    {
-      key: "filtering",
-      feature: (
-        <Space>
-          <span>Filtering</span>
-        </Space>
-      ),
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Column Filters", "Filter individual columns")}
-          {FeatureTags.Processing("Global Search", "Coming soon to Simple Table")}
-          {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Success("Faceted Filters", "Multiple filter modes and options")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Column Filters", "Basic column filters")}
-          {FeatureTags.Success("Global Search", "Search across all columns")}
-          {FeatureTags.Success("Custom Filters", "Define custom filter functions")}
-          {FeatureTags.Error("Faceted Filters", "No built-in support for faceted filters")}
-        </Space>
-      ),
-    },
-    {
-      key: "pagination",
-      feature: (
-        <Space>
-          <span>Pagination</span>
-        </Space>
-      ),
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Client-side", "Built-in pagination with customizable controls")}
-          {FeatureTags.Success("Server-side", "Support for controlled pagination")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Client-side", "Built-in pagination with Ant Design controls")}
-          {FeatureTags.Success("Server-side", "Support for controlled pagination")}
-        </Space>
-      ),
-    },
-    {
-      key: "advanced-data-features",
-      feature: FeatureIcons.AdvancedDataFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Value Getters/Setters", "Custom functions to get/set cell values")}
-          {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
-          {FeatureTags.Error("Pivot Tables", "Not available in Simple Table")}
-          {FeatureTags.Error("Row Spanning", "Not available in Simple Table")}
-          {FeatureTags.Error("Master/Detail Views", "Not available in Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Value Getters/Setters", "No built-in data accessor functions")}
-          {FeatureTags.Error("Cell Range Selection", "Not supported")}
-          {FeatureTags.Error("Pivot Tables", "Not supported")}
-          {FeatureTags.Success("Row Spanning", "Basic row span support through rowSpan property")}
-          {FeatureTags.Error("Master/Detail Views", "No built-in master/detail support")}
-        </Space>
-      ),
-    },
-    {
-      key: "advanced-ui-features",
-      feature: FeatureIcons.AdvancedUIFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Context Menu", "Not available in Simple Table")}
-          {FeatureTags.Error("Status Bar", "Not available in Simple Table")}
-          {FeatureTags.Processing("Column Menu", "Coming soon to Simple Table")}
-          {FeatureTags.Processing("Full Width Rows", "Coming soon to Simple Table")}
-          {FeatureTags.Processing("Advanced Tooltips", "Coming soon to Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Context Menu", "Not built-in, requires additional components")}
-          {FeatureTags.Error("Status Bar", "Not built-in, requires custom implementation")}
-          {FeatureTags.Error("Column Menu", "No built-in column menu")}
-          {FeatureTags.Error("Full Width Rows", "Limited support through colSpan")}
-          {FeatureTags.Success(
-            "Advanced Tooltips",
-            "Integration with Ant Design Tooltip components"
-          )}
-        </Space>
-      ),
-    },
-    {
-      key: "integration-features",
-      feature: FeatureIcons.IntegrationFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Processing("Excel Export/Import", "Coming soon to Simple Table")}
-          {FeatureTags.Success(
-            "CSV Export",
-            "Export table data to CSV format with one method call"
-          )}
-          {FeatureTags.Success("Clipboard Operations", "Copy/paste data to/from clipboard")}
-          {FeatureTags.Success("Advanced Keyboard Navigation", "Support for keyboard navigation")}
-          {FeatureTags.Processing("Accessibility Features", "Coming soon to Simple Table")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Excel Export/Import", "No built-in export/import functionality")}
-          {FeatureTags.Error("CSV Export/Import", "No built-in export/import functionality")}
-          {FeatureTags.Error("Clipboard Operations", "No built-in clipboard functionality")}
-          {FeatureTags.Error("Advanced Keyboard Navigation", "Limited keyboard support")}
-          {FeatureTags.Success("Accessibility Features", "Basic accessibility support")}
-        </Space>
-      ),
-    },
-    {
-      key: "theming",
-      feature: FeatureIcons.Customization,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Multiple Themes",
-            "Support for light and dark themes with easy customization"
-          )}
-          {FeatureTags.Success("Custom Icons", "Replace default icons with custom ones")}
-          {FeatureTags.Success(
-            "Full Theme Control",
-            "Complete control over styling through CSS variables"
-          )}
-          {FeatureTags.Success("Responsive", "Mobile-friendly by default")}
-        </Space>
-      ),
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Ant Design Theme", "Full Ant Design theming system")}
-          {FeatureTags.Success("Custom Icons", "Replace default icons with custom ones")}
-          {FeatureTags.Success(
-            "Theme Provider",
-            "Complete control through Ant Design's theming system"
-          )}
-          {FeatureTags.Success("Responsive", "Mobile-friendly with responsive configurations")}
-        </Space>
-      ),
-    },
-    {
-      key: "pricing",
-      feature: FeatureIcons.PricingSize,
-      simpleTable: simplePricing,
-      antDesign: (
-        <Space direction="vertical">
-          {FeatureTags.Success("MIT License", "Free to use with MIT license")}
-          {FeatureTags.Warning(
-            "~250 kB (minified + gzipped)",
-            "Entire Ant Design component library required"
-          )}
-        </Space>
-      ),
-    },
-  ];
-
   const introText = (
     <>
       When you choose Ant Design for your React project, you're making a commitment to an entire
       design system—not just individual components. This comprehensive approach brings consistency
       and polished UI elements, but it also means that adding a simple table component requires
-      pulling in the entire Ant Design ecosystem (~250 kB minified + gzipped). For many teams, this
-      raises a critical question: is the visual consistency worth the massive bundle size impact,
-      especially when the table component itself lacks many advanced data grid features?{" "}
+      pulling in the{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
+        entire Ant Design ecosystem (448.2 kB minified + gzipped)
+      </Link>
+      . For many teams, this raises a critical question: is the visual consistency worth the massive
+      bundle size impact, especially when the table component itself lacks many advanced data grid
+      features?{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      offers a different philosophy entirely. At just 31 kB (minified + gzipped), it delivers more
-      data grid functionality than Ant Design Table while being 240x smaller. But the choice isn't
-      just about file size—it's about architectural decisions that affect your entire application's
-      performance, from initial load times to runtime memory usage. This comparison examines whether
-      you can achieve both design consistency AND performance by choosing Simple Table, even within
-      Ant Design projects. We'll explore styling strategies, bundle optimization techniques, and
-      help you determine whether Ant Design Table's framework integration justifies its massive
-      overhead for your specific use case.
+      offers a different philosophy entirely. At just{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        31 kB (minified + gzipped)
+      </Link>
+      , it delivers more data grid functionality than Ant Design Table while being 240x smaller. But
+      the choice isn't just about file size—it's about architectural decisions that affect your
+      entire application's performance, from initial load times to runtime memory usage. This
+      comparison examines whether you can achieve both design consistency AND performance by
+      choosing Simple Table, even within Ant Design projects. We'll explore styling strategies,
+      bundle optimization techniques, and help you determine whether Ant Design Table's framework
+      integration justifies its massive overhead for your specific use case.
     </>
   );
 
@@ -297,8 +43,11 @@ const SimpleTableVsAntDesignContent = () => {
         </Text>{" "}
         is a lightweight, standalone data grid that provides essential features with minimal
         overhead. It's ideal for projects that need a performant table component without the weight
-        of a full UI framework. With its 31 kB (minified + gzipped) bundle size, it offers a great
-        balance of features and performance.
+        of a full UI framework. With its{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+          31 kB (minified + gzipped)
+        </Link>{" "}
+        bundle size, it offers a great balance of features and performance.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -306,19 +55,17 @@ const SimpleTableVsAntDesignContent = () => {
         </Text>{" "}
         is part of the comprehensive Ant Design framework, offering a consistent look and feel with
         other Ant Design components. While it provides basic table functionality, it lacks many
-        advanced data grid features that Simple Table offers. It comes with the overhead of the full
-        framework (~100 kB) and requires additional customization for complex use cases.
+        advanced data grid features that Simple Table offers. It comes with the overhead of the{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
+          full framework (363.8 kB minified + gzipped)
+        </Link>{" "}
+        and requires additional customization for complex use cases.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need a lightweight, standalone table component with advanced features,{" "}
-        <a
-          href="https://www.simple-table.com"
-          className="text-blue-600 hover:underline dark:text-blue-400"
-        >
-          try Simple Table
-        </a>
-        . If you're already using Ant Design and need a basic table with Ant Design styling, the Ant
-        Design Table might be sufficient for simpler use cases.
+        <Link className="text-[length:inherit]" href="https://www.simple-table.com">try Simple Table</Link>. If you're already using
+        Ant Design and need a basic table with Ant Design styling, the Ant Design Table might be
+        sufficient for simpler use cases.
       </Text>
     </>
   );
@@ -366,10 +113,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.12 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  1.3 seconds
+                  1.9 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +1.2s slower
+                  +1.8s slower
                 </td>
               </tr>
               <tr className="bg-gray-50 dark:bg-gray-800">
@@ -380,10 +127,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.008 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  0.08 seconds
+                  0.12 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +0.07s slower
+                  +0.11s slower
                 </td>
               </tr>
               <tr>
@@ -394,10 +141,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.002 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  0.02 seconds
+                  0.029 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +0.02s slower
+                  +0.027s slower
                 </td>
               </tr>
             </tbody>
@@ -412,13 +159,17 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>~250 kB</strong> total bundle size
+              •{" "}
+              <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank" strong>
+                363.8 kB
+              </Link>{" "}
+              total bundle size
             </li>
             <li>
               • <strong>$2,400+/year</strong> extra CDN costs
             </li>
             <li>
-              • <strong>1.2 seconds</strong> extra load time on 3G
+              • <strong>1.9 seconds</strong> extra load time on 3G
             </li>
             <li>
               • <strong>Higher bounce rate</strong> due to slow loads
@@ -438,7 +189,15 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>31 kB (minified + gzipped)</strong> total bundle size
+              •{" "}
+              <Link
+                href="https://bundlephobia.com/package/@simple-table/react-table"
+                target="_blank"
+                strong
+              >
+                31 kB (minified + gzipped)
+              </Link>{" "}
+              total bundle size
             </li>
             <li>
               • <strong>Minimal CDN costs</strong> and fast delivery
@@ -467,7 +226,7 @@ const SimpleTableVsAntDesignContent = () => {
           You can style Simple Table to match Ant Design's visual language using CSS variables,
           getting the best of both worlds: Ant Design's design consistency for your forms and
           layouts, plus Simple Table's performance and advanced features for data grids. This hybrid
-          approach can reduce your bundle size by ~220 kB while improving functionality.
+          approach can reduce your bundle size by ~332 kB while improving functionality.
         </Text>
       </div>
     </>
@@ -478,10 +237,15 @@ const SimpleTableVsAntDesignContent = () => {
       title="Simple Table vs. Ant Design Table"
       subtitle="A comprehensive comparison of lightweight vs full-featured React data grid solutions"
       introText={introText}
-      featureTable={{ columns, data }}
+      competitorName="Ant Design Table"
+      competitorPackage="antDesign"
       performanceMetrics={{
         competitor: "Ant Design Table",
-        competitorSize: "~250 kB (minified + gzipped)",
+        competitorSize: (
+          <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/antd" target="_blank">
+            363.8 kB (minified + gzipped)
+          </Link>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={bundleImpactAnalysis}

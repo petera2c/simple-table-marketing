@@ -1,276 +1,11 @@
 "use client";
 import React from "react";
-import { Typography, Space, Card } from "antd";
+import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
-import {
-  FeatureIcons,
-  FeatureStatus,
-  FeatureTags,
-  renderFeatures,
-  simplePricing,
-} from "../../CommonFeatures";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleVsAgGrid = () => {
-  const columns = [
-    {
-      title: "Feature",
-      dataIndex: "feature",
-      key: "feature",
-      width: "25%",
-    },
-    {
-      title: "Simple Table",
-      dataIndex: "simpleTable",
-      key: "simpleTable",
-      width: "37.5%",
-    },
-    {
-      title: "AG Grid",
-      dataIndex: "agGrid",
-      key: "agGrid",
-      width: "37.5%",
-    },
-  ];
-
-  const data = [
-    {
-      key: "quick-start",
-      feature: FeatureIcons.QuickStart,
-      simpleTable: FeatureStatus.Available("Easy npm install and minimal setup"),
-      agGrid: FeatureStatus.Available(
-        "Simple setup, but requires module registration for optimal use"
-      ),
-    },
-    {
-      key: "virtualization",
-      feature: FeatureIcons.Virtualization,
-      simpleTable: FeatureStatus.Available(
-        "Supports millions of rows with advanced row virtualization"
-      ),
-      agGrid: FeatureStatus.Available("Supports millions of rows with advanced row virtualization"),
-    },
-    {
-      key: "infinite-scroll",
-      feature: FeatureIcons.RowFeatures,
-      simpleTable: FeatureStatus.Available("Built-in support with customizable loading states"),
-      agGrid: FeatureStatus.Paid("Available in Enterprise version (Server-Side Row Model)"),
-    },
-    {
-      key: "column-features",
-      feature: FeatureIcons.ColumnFeatures,
-      simpleTable: renderFeatures("columnFeatures", "simpleTable"),
-      agGrid: renderFeatures("columnFeatures", "agGrid"),
-    },
-    {
-      key: "row-features",
-      feature: FeatureIcons.RowFeatures,
-      simpleTable: renderFeatures("rowFeatures", "simpleTable"),
-      agGrid: renderFeatures("rowFeatures", "agGrid"),
-    },
-    {
-      key: "cell-features",
-      feature: FeatureIcons.CellFeatures,
-      simpleTable: renderFeatures("cellFeatures", "simpleTable"),
-      agGrid: renderFeatures("cellFeatures", "agGrid"),
-    },
-    {
-      key: "customization",
-      feature: FeatureIcons.Customization,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Success(
-            "Multiple Themes",
-            "Support for light and dark themes with easy customization"
-          )}
-          {FeatureTags.Success("Custom Icons", "Replace default icons with custom ones")}
-          {FeatureTags.Success(
-            "Full Theme Control",
-            "Complete control over styling through CSS variables"
-          )}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Success("Multiple Themes", "Built-in themes with customization options")}
-          {FeatureTags.Success("Custom Icons", "Replace default icons with custom ones")}
-          {FeatureTags.Success("CSS/SCSS Customization", "Style customization through CSS/SCSS")}
-        </Space>
-      ),
-    },
-    {
-      key: "enterprise-features",
-      feature: FeatureIcons.EnterpriseFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Error(
-            "Pivot Tables",
-            "Create pivot tables for data analysis (not available)"
-          )}
-          {FeatureTags.Success("Tree Data", "Display hierarchical data in a tree structure")}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Pivot Tables (Enterprise)",
-            "Create pivot tables for data analysis (Enterprise only)"
-          )}
-          {FeatureTags.Warning(
-            "Tree Data (Enterprise)",
-            "Display hierarchical data in a tree structure (Enterprise only)"
-          )}
-        </Space>
-      ),
-    },
-    {
-      key: "pricing",
-      feature: FeatureIcons.PricingSize,
-      simpleTable: simplePricing,
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Community (free) / Enterprise ($999/license)",
-            "Free community version or paid enterprise version at $999/license"
-          )}
-          {FeatureTags.Warning(
-            "Bundle size: ~600 kB (minified + gzipped)",
-            "Community version; Enterprise adds more"
-          )}
-        </Space>
-      ),
-    },
-    {
-      key: "advanced-data",
-      feature: FeatureIcons.AdvancedDataFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Error(
-            "Master/Detail Views",
-            "Display master-detail relationships between rows (not available)"
-          )}
-          {FeatureTags.Error("Row Spanning", "Span cells across multiple rows (not available)")}
-
-          {FeatureTags.Success(
-            "Value Getters/Setters",
-            "Custom functions to get and set cell values"
-          )}
-          {FeatureTags.Success("Cell Range Selection", "Select multiple cells in a range")}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Master/Detail Views (Enterprise)",
-            "Display master-detail relationships between rows (Enterprise only)"
-          )}
-          {FeatureTags.Warning(
-            "Row Spanning (Enterprise)",
-            "Span cells across multiple rows (Enterprise only)"
-          )}
-          {FeatureTags.Success(
-            "Value Getters/Setters",
-            "Custom functions to get and set cell values"
-          )}
-          {FeatureTags.Warning(
-            "Cell Range Selection (Enterprise)",
-            "Select multiple cells in a range (Enterprise only)"
-          )}
-        </Space>
-      ),
-    },
-    {
-      key: "advanced-ui",
-      feature: FeatureIcons.AdvancedUIFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Error("Context Menu", "Right-click context menu (not available)")}
-          {FeatureTags.Error(
-            "Status Bar",
-            "Status bar showing selected rows and other info (not available)"
-          )}
-          {FeatureTags.Processing(
-            "Column Menu (Coming Soon)",
-            "Column menu for filtering, sorting, and more (coming soon)"
-          )}
-          {FeatureTags.Processing(
-            "Full Width Rows (Coming Soon)",
-            "Rows that span the full width of the table (coming soon)"
-          )}
-          {FeatureTags.Error(
-            "Advanced Tooltips",
-            "Advanced tooltips with rich content (not available)"
-          )}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Context Menu (Enterprise)",
-            "Right-click context menu (Enterprise only)"
-          )}
-          {FeatureTags.Warning(
-            "Status Bar (Enterprise)",
-            "Status bar showing selected rows and other info (Enterprise only)"
-          )}
-          {FeatureTags.Success("Column Menu", "Column menu for filtering, sorting, and more")}
-          {FeatureTags.Success("Full Width Rows", "Rows that span the full width of the table")}
-          {FeatureTags.Warning(
-            "Advanced Tooltips (Enterprise)",
-            "Advanced tooltips with rich content (Enterprise only)"
-          )}
-        </Space>
-      ),
-    },
-    {
-      key: "integration",
-      feature: FeatureIcons.IntegrationFeatures,
-      simpleTable: (
-        <Space direction="vertical">
-          {FeatureTags.Processing(
-            "Excel Export/Import (Coming Soon)",
-            "Export and import data in Excel format (coming soon)"
-          )}
-          {FeatureTags.Success(
-            "CSV Export",
-            "Export table data to CSV format with one method call"
-          )}
-          {FeatureTags.Success("Clipboard Operations", "Copy and paste data to/from clipboard")}
-          {FeatureTags.Success(
-            "Advanced Keyboard Navigation",
-            "Advanced keyboard navigation and shortcuts"
-          )}
-          {FeatureTags.Processing(
-            "Accessibility Features (Coming Soon)",
-            "ARIA attributes and keyboard navigation (coming soon)"
-          )}
-        </Space>
-      ),
-      agGrid: (
-        <Space direction="vertical">
-          {FeatureTags.Warning(
-            "Excel Export/Import (Enterprise)",
-            "Export and import data in Excel format (Enterprise only)"
-          )}
-          {FeatureTags.Success("CSV Export/Import", "Export and import data in CSV format")}
-          {FeatureTags.Warning(
-            "Clipboard Operations (Enterprise)",
-            "Copy and paste data to/from clipboard (Enterprise only)"
-          )}
-          {FeatureTags.Success(
-            "Advanced Keyboard Navigation",
-            "Advanced keyboard navigation and shortcuts"
-          )}
-          {FeatureTags.Warning(
-            "Accessibility Features (Enterprise)",
-            "ARIA attributes and keyboard navigation (Enterprise only)"
-          )}
-        </Space>
-      ),
-    },
-  ];
-
   const introText = (
     <>
       In the enterprise data grid landscape, AG Grid has established itself as the go-to solution
@@ -283,13 +18,24 @@ const SimpleVsAgGrid = () => {
         Simple Table
       </Text>{" "}
       presents a compelling alternative for teams seeking enterprise-grade performance without
-      enterprise-grade pricing. At 31 kB compared to AG Grid's ~600 kB (minified + gzipped), Simple
-      Table delivers blazing-fast performance with core data grid features that rival AG Grid's
-      Community edition—and surpass many of its Enterprise capabilities—all while remaining
-      completely free. This comparison examines whether you can achieve your data grid goals without
-      the complexity, licensing costs, and bundle overhead that AG Grid Enterprise demands. We'll
-      break down the true cost of ownership and help you determine if Simple Table can deliver the
-      enterprise-level functionality your application needs.
+      enterprise-grade pricing. At{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        31 kB
+      </Link>{" "}
+      compared to AG Grid Community's{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+        298.2 kB
+      </Link>{" "}
+      (or{" "}
+      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+        529.1 kB total
+      </Link>{" "}
+      with Enterprise, minified + gzipped), Simple Table delivers blazing-fast performance with core
+      data grid features that rival AG Grid's Community edition—and surpass many of its Enterprise
+      capabilities—all while remaining completely free. This comparison examines whether you can
+      achieve your data grid goals without the complexity, licensing costs, and bundle overhead that
+      AG Grid Enterprise demands. We'll break down the true cost of ownership and help you determine
+      if Simple Table can deliver the enterprise-level functionality your application needs.
     </>
   );
 
@@ -300,25 +46,33 @@ const SimpleVsAgGrid = () => {
           Simple Table
         </Text>{" "}
         is a lightweight, free alternative to AG Grid, offering essential features like
-        virtualization, infinite scroll, and column filters, with a smaller bundle size (31 kB
-        minified + gzipped). It's ideal for projects needing a simple, performant data grid without
-        the overhead of enterprise features.
+        virtualization, infinite scroll, and column filters, with a smaller bundle size (
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+          31 kB minified + gzipped
+        </Link>
+        ). It's ideal for projects needing a simple, performant data grid without the overhead of
+        enterprise features.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
           AG Grid
         </Text>{" "}
-        is a feature-rich data grid with advanced capabilities like pivot tables and tree data, but
-        many of these are locked behind the Enterprise version ($999/license). It has a larger
-        bundle size and a steeper learning curve, making it better suited for complex,
-        enterprise-level applications.
+        is a feature-rich data grid with advanced capabilities. The{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+          Community edition
+        </Link>{" "}
+        is 298.2 kB (minified + gzipped), but many advanced features like pivot tables and tree data
+        require the{" "}
+        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+          Enterprise edition
+        </Link>{" "}
+        (additional 230.9 kB, totaling 529.1 kB) at $999/developer/year. The combined bundle size
+        and steeper learning curve make it better suited for complex, enterprise-level applications.
       </Text>
       <Text className="text-lg block text-inherit">
         If you're looking for a free, lightweight solution with solid features,{" "}
-        <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
-          try Simple Table
-        </a>
-        . For enterprise needs, AG Grid might be worth the investment.
+        <Link className="text-[length:inherit]" href="https://www.simple-table.com">try Simple Table</Link>. For enterprise needs, AG
+        Grid might be worth the investment.
       </Text>
     </>
   );
@@ -475,10 +229,22 @@ const SimpleVsAgGrid = () => {
       title="Simple Table vs. AG Grid"
       subtitle="A comprehensive comparison of two popular React data grid solutions"
       introText={introText}
-      featureTable={{ columns, data }}
+      competitorName="AG Grid"
+      competitorPackage="agGrid"
       performanceMetrics={{
         competitor: "AG Grid",
-        competitorSize: "~600 kB (minified + gzipped)",
+        competitorSize: (
+          <>
+            <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+              298.2 kB Community
+            </Link>
+            {" + "}
+            <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+              230.9 kB Enterprise
+            </Link>
+            {" = 529.1 kB total (minified + gzipped)"}
+          </>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={enterpriseROISection}
