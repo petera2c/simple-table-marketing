@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleTableVsAntDesignContent = () => {
   const introText = (
@@ -11,9 +11,13 @@ const SimpleTableVsAntDesignContent = () => {
       When you choose Ant Design for your React project, you're making a commitment to an entire
       design system—not just individual components. This comprehensive approach brings consistency
       and polished UI elements, but it also means that adding a simple table component requires
-      pulling in the entire Ant Design ecosystem (~250 kB minified + gzipped). For many teams, this
-      raises a critical question: is the visual consistency worth the massive bundle size impact,
-      especially when the table component itself lacks many advanced data grid features?{" "}
+      pulling in the{" "}
+      <Link href="https://bundlephobia.com/package/antd" target="_blank">
+        entire Ant Design ecosystem (448.2 kB minified + gzipped)
+      </Link>
+      . For many teams, this raises a critical question: is the visual consistency worth the massive
+      bundle size impact, especially when the table component itself lacks many advanced data grid
+      features?{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
@@ -45,19 +49,17 @@ const SimpleTableVsAntDesignContent = () => {
         </Text>{" "}
         is part of the comprehensive Ant Design framework, offering a consistent look and feel with
         other Ant Design components. While it provides basic table functionality, it lacks many
-        advanced data grid features that Simple Table offers. It comes with the overhead of the full
-        framework (~100 kB) and requires additional customization for complex use cases.
+        advanced data grid features that Simple Table offers. It comes with the overhead of the{" "}
+        <Link href="https://bundlephobia.com/package/antd" target="_blank">
+          full framework (363.8 kB minified + gzipped)
+        </Link>{" "}
+        and requires additional customization for complex use cases.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need a lightweight, standalone table component with advanced features,{" "}
-        <a
-          href="https://www.simple-table.com"
-          className="text-blue-600 hover:underline dark:text-blue-400"
-        >
-          try Simple Table
-        </a>
-        . If you're already using Ant Design and need a basic table with Ant Design styling, the Ant
-        Design Table might be sufficient for simpler use cases.
+        <Link href="https://www.simple-table.com">try Simple Table</Link>. If you're already using
+        Ant Design and need a basic table with Ant Design styling, the Ant Design Table might be
+        sufficient for simpler use cases.
       </Text>
     </>
   );
@@ -105,10 +107,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.12 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  1.3 seconds
+                  1.9 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +1.2s slower
+                  +1.8s slower
                 </td>
               </tr>
               <tr className="bg-gray-50 dark:bg-gray-800">
@@ -119,10 +121,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.008 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  0.08 seconds
+                  0.12 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +0.07s slower
+                  +0.11s slower
                 </td>
               </tr>
               <tr>
@@ -133,10 +135,10 @@ const SimpleTableVsAntDesignContent = () => {
                   0.002 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center text-red-600 text-sm sm:text-base">
-                  0.02 seconds
+                  0.029 seconds
                 </td>
                 <td className="border border-gray-300 dark:border-gray-600 p-2 sm:p-3 text-center font-semibold text-sm sm:text-base">
-                  +0.02s slower
+                  +0.027s slower
                 </td>
               </tr>
             </tbody>
@@ -151,13 +153,17 @@ const SimpleTableVsAntDesignContent = () => {
           </Text>
           <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
             <li>
-              • <strong>~250 kB</strong> total bundle size
+              •{" "}
+              <Link href="https://bundlephobia.com/package/antd" target="_blank" strong>
+                363.8 kB
+              </Link>{" "}
+              total bundle size
             </li>
             <li>
               • <strong>$2,400+/year</strong> extra CDN costs
             </li>
             <li>
-              • <strong>1.2 seconds</strong> extra load time on 3G
+              • <strong>1.9 seconds</strong> extra load time on 3G
             </li>
             <li>
               • <strong>Higher bounce rate</strong> due to slow loads
@@ -206,7 +212,7 @@ const SimpleTableVsAntDesignContent = () => {
           You can style Simple Table to match Ant Design's visual language using CSS variables,
           getting the best of both worlds: Ant Design's design consistency for your forms and
           layouts, plus Simple Table's performance and advanced features for data grids. This hybrid
-          approach can reduce your bundle size by ~220 kB while improving functionality.
+          approach can reduce your bundle size by ~332 kB while improving functionality.
         </Text>
       </div>
     </>
@@ -221,7 +227,11 @@ const SimpleTableVsAntDesignContent = () => {
       competitorPackage="antDesign"
       performanceMetrics={{
         competitor: "Ant Design Table",
-        competitorSize: "~250 kB (minified + gzipped)",
+        competitorSize: (
+          <Link href="https://bundlephobia.com/package/antd" target="_blank">
+            363.8 kB (minified + gzipped)
+          </Link>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={bundleImpactAnalysis}

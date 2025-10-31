@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleTableVsHandsontableContent = () => {
   const introText = (
@@ -21,9 +21,17 @@ const SimpleTableVsHandsontableContent = () => {
         Simple Table
       </Text>{" "}
       presents an interesting alternative. At just 31 kB (minified + gzipped), Simple Table offers
-      core spreadsheet-like functionality without the commercial licensing requirements or massive
-      bundle size. This comparison explores whether Simple Table can meet your spreadsheet needs
-      without the enterprise complexity and cost of Handsontable.
+      core spreadsheet-like functionality without the commercial licensing requirements or{" "}
+      <a
+        href="https://bundlephobia.com/package/handsontable"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="text-blue-600 dark:text-blue-400 hover:underline"
+      >
+        massive bundle size (325.8 kB)
+      </a>
+      . This comparison explores whether Simple Table can meet your spreadsheet needs without the
+      enterprise complexity and cost of Handsontable.
     </>
   );
 
@@ -57,7 +65,16 @@ const SimpleTableVsHandsontableContent = () => {
           • Need cell editing and basic spreadsheet interactions
         </Text>
         <Text className="text-base mb-2 block text-inherit">
-          • Want to keep bundle size minimal (~600 kB vs 31 kB difference)
+          • Want to keep bundle size minimal (
+          <a
+            href="https://bundlephobia.com/package/handsontable"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            412.4 kB
+          </a>{" "}
+          vs 31 kB difference)
         </Text>
         <Text className="text-base mb-4 block text-inherit">
           • Prefer open-source solutions without licensing restrictions
@@ -78,8 +95,16 @@ const SimpleTableVsHandsontableContent = () => {
         </Text>{" "}
         is a full-featured spreadsheet component with Excel-like capabilities, including advanced
         formulas, cell merging, and comprehensive import/export features. However, these features
-        come at the cost of a larger bundle size and require a commercial license starting at
-        $590/year for production use.
+        come at the cost of a{" "}
+        <a
+          href="https://bundlephobia.com/package/handsontable"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          larger bundle size (412.4 kB minified + gzipped)
+        </a>{" "}
+        and require a commercial license starting at $590/year for production use.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need basic spreadsheet functionality with a small footprint,{" "}
@@ -158,7 +183,16 @@ const SimpleTableVsHandsontableContent = () => {
       competitorPackage="handsontable"
       performanceMetrics={{
         competitor: "Handsontable",
-        competitorSize: "~600 kB (minified + gzipped)",
+        competitorSize: (
+          <a
+            href="https://bundlephobia.com/package/handsontable"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            412.4 kB (minified + gzipped)
+          </a>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={faqSection}

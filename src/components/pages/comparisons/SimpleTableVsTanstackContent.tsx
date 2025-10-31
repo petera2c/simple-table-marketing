@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleTableVsTanstackContent = () => {
   const introText = (
@@ -44,10 +44,19 @@ const SimpleTableVsTanstackContent = () => {
         <Text className="text-lg text-inherit" strong>
           TanStack Table
         </Text>{" "}
-        is a headless library that gives you complete control over your table's UI. It provides
-        hooks and utilities to handle table logic, but you'll need to build all UI components
-        yourself. It's perfect for projects that require highly customized tables and have the
-        resources to build custom UI components from scratch.
+        is a headless library (
+        <a
+          href="https://bundlephobia.com/package/@tanstack/react-table"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          14.6 kB minified + gzipped
+        </a>
+        ) that gives you complete control over your table's UI. It provides hooks and utilities to
+        handle table logic, but you'll need to build all UI components yourself. It's perfect for
+        projects that require highly customized tables and have the resources to build custom UI
+        components from scratch.
       </Text>
       <Text className="text-lg block text-inherit">
         Choose{" "}
@@ -157,7 +166,19 @@ function MyApp() {
       competitorPackage="tanstack"
       performanceMetrics={{
         competitor: "TanStack Table",
-        competitorSize: "~50 kB (minified + gzipped) + custom UI",
+        competitorSize: (
+          <>
+            <a
+              href="https://bundlephobia.com/package/@tanstack/react-table"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-600 hover:underline"
+            >
+              36.1 kB (minified + gzipped)
+            </a>
+            {" + custom UI implementation"}
+          </>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={codeComparisonSection}

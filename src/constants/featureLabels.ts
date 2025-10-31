@@ -277,14 +277,6 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
     label: "Easy Setup",
     tooltip: "Minimal configuration required",
   },
-  developerReadyToUseComponents: {
-    label: "Ready-to-use Components",
-    tooltip: "No need to build UI from scratch",
-  },
-  developerLearningCurve: {
-    label: "Learning Curve",
-    tooltip: "Ease of getting started and learning",
-  },
 
   // Undo/Redo Features
   undoRedo: {

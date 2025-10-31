@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleTableVsMaterialReactContent = () => {
   const introText = (
@@ -42,12 +42,20 @@ const SimpleTableVsMaterialReactContent = () => {
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
-          Material-UI Table
+          Material React Table
         </Text>{" "}
-        is part of the comprehensive Material Design framework, offering a consistent look and feel
-        with other Material-UI components. It's perfect for projects already using Material-UI, but
-        comes with the overhead of the full framework and lacks some advanced data grid features
-        found in dedicated solutions.
+        is built on top of TanStack Table and provides Material-UI styling out of the box. It offers
+        advanced data grid features with{" "}
+        <a
+          href="https://bundlephobia.com/package/material-react-table"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          141.9 kB (minified + gzipped)
+        </a>
+        , making it a middle-ground option between Simple Table's minimal footprint and
+        full-featured enterprise solutions.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need a lightweight, standalone table component with advanced data grid features,{" "}
@@ -213,8 +221,17 @@ function MyDataGrid() {
       competitorName="Material-UI Table"
       competitorPackage="materialReact"
       performanceMetrics={{
-        competitor: "Material-UI Table",
-        competitorSize: "~150 kB (minified + gzipped)",
+        competitor: "Material React Table",
+        competitorSize: (
+          <a
+            href="https://bundlephobia.com/package/material-react-table"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            141.9 kB (minified + gzipped)
+          </a>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={materialDesignIntegration}

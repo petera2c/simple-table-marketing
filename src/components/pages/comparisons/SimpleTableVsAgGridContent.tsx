@@ -3,7 +3,7 @@ import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
 
-const { Text, Title } = Typography;
+const { Text, Title, Link } = Typography;
 
 const SimpleVsAgGrid = () => {
   const introText = (
@@ -18,13 +18,20 @@ const SimpleVsAgGrid = () => {
         Simple Table
       </Text>{" "}
       presents a compelling alternative for teams seeking enterprise-grade performance without
-      enterprise-grade pricing. At 31 kB compared to AG Grid's ~600 kB (minified + gzipped), Simple
-      Table delivers blazing-fast performance with core data grid features that rival AG Grid's
-      Community edition—and surpass many of its Enterprise capabilities—all while remaining
-      completely free. This comparison examines whether you can achieve your data grid goals without
-      the complexity, licensing costs, and bundle overhead that AG Grid Enterprise demands. We'll
-      break down the true cost of ownership and help you determine if Simple Table can deliver the
-      enterprise-level functionality your application needs.
+      enterprise-grade pricing. At 31 kB compared to AG Grid Community's{" "}
+      <Link href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+        298.2 kB
+      </Link>{" "}
+      (or{" "}
+      <Link href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+        529.1 kB total
+      </Link>{" "}
+      with Enterprise, minified + gzipped), Simple Table delivers blazing-fast performance with core
+      data grid features that rival AG Grid's Community edition—and surpass many of its Enterprise
+      capabilities—all while remaining completely free. This comparison examines whether you can
+      achieve your data grid goals without the complexity, licensing costs, and bundle overhead that
+      AG Grid Enterprise demands. We'll break down the true cost of ownership and help you determine
+      if Simple Table can deliver the enterprise-level functionality your application needs.
     </>
   );
 
@@ -43,17 +50,22 @@ const SimpleVsAgGrid = () => {
         <Text className="text-lg text-inherit" strong>
           AG Grid
         </Text>{" "}
-        is a feature-rich data grid with advanced capabilities like pivot tables and tree data, but
-        many of these are locked behind the Enterprise version ($999/license). It has a larger
-        bundle size and a steeper learning curve, making it better suited for complex,
-        enterprise-level applications.
+        is a feature-rich data grid with advanced capabilities. The{" "}
+        <Link href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+          Community edition
+        </Link>{" "}
+        is 298.2 kB (minified + gzipped), but many advanced features like pivot tables and tree data
+        require the{" "}
+        <Link href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+          Enterprise edition
+        </Link>{" "}
+        (additional 230.9 kB, totaling 529.1 kB) at $999/developer/year. The combined bundle size
+        and steeper learning curve make it better suited for complex, enterprise-level applications.
       </Text>
       <Text className="text-lg block text-inherit">
         If you're looking for a free, lightweight solution with solid features,{" "}
-        <a href="https://www.simple-table.com" className="text-blue-600 hover:underline">
-          try Simple Table
-        </a>
-        . For enterprise needs, AG Grid might be worth the investment.
+        <Link href="https://www.simple-table.com">try Simple Table</Link>. For enterprise needs, AG
+        Grid might be worth the investment.
       </Text>
     </>
   );
@@ -214,7 +226,18 @@ const SimpleVsAgGrid = () => {
       competitorPackage="agGrid"
       performanceMetrics={{
         competitor: "AG Grid",
-        competitorSize: "~600 kB (minified + gzipped)",
+        competitorSize: (
+          <>
+            <Link href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+              298.2 kB Community
+            </Link>
+            {" + "}
+            <Link href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+              230.9 kB Enterprise
+            </Link>
+            {" = 529.1 kB total (minified + gzipped)"}
+          </>
+        ),
       }}
       summaryContent={summaryContent}
       faqSection={enterpriseROISection}

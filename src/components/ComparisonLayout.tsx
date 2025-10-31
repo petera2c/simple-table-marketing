@@ -1,5 +1,5 @@
 import React, { ReactNode, useState, useEffect, useMemo } from "react";
-import { Typography, Table, Space, Card, Button, Tooltip } from "antd";
+import { Typography, Table, Space, Card, Button, Tooltip, Alert } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
 import PageWrapper from "@/components/PageWrapper";
@@ -7,11 +7,11 @@ import { ALL_FEATURES, getFeatureStatus } from "@/constants/comparisonFeatures";
 import { FEATURE_LABELS } from "@/constants/featureLabels";
 import { FeatureStatusBadge } from "@/components/CommonFeatures";
 
-const { Title, Paragraph, Text } = Typography;
+const { Title, Paragraph, Text, Link } = Typography;
 
 interface PerformanceMetricsProps {
   competitor: string;
-  competitorSize: string;
+  competitorSize: string | ReactNode;
 }
 
 interface ComparisonLayoutProps {
@@ -140,6 +140,24 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
             {introText}
           </Paragraph>
         </div>
+
+        {/* AI Disclaimer */}
+        <Alert
+          message="AI-Assisted Content"
+          description={
+            <Text>
+              This comparison guide was created with AI assistance. While we strive for accuracy, if
+              you notice any incorrect information, please{" "}
+              <Link href="mailto:peter@peteryng.com" strong>
+                contact us
+              </Link>{" "}
+              so we can correct it promptly.
+            </Text>
+          }
+          type="info"
+          showIcon
+          className="mb-8"
+        />
 
         {/* Comparison Table */}
         <Card
