@@ -34,7 +34,7 @@ export function Analytics() {
       {/* Tawk.to Live Chat */}
       <Script
         id="tawk-to-script"
-        strategy="lazyOnload"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
                 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -54,6 +54,13 @@ export function Analytics() {
       <Script
         src="https://app.rybbit.io/api/script.js"
         data-site-id="1edc281bc84d"
+        strategy="afterInteractive"
+      />
+
+      <Script
+        src="https://analytics.ahrefs.com/analytics.js"
+        data-key="fVZfdX8inZYBS5lrBdLNJQ"
+        async
         strategy="afterInteractive"
       />
     </>
