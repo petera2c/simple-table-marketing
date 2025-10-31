@@ -2046,6 +2046,14 @@ video {
   padding-top: 12dvh;
 }
 
+.pt-\[7dvh\] {
+  padding-top: 7dvh;
+}
+
+.pt-\[6dvh\] {
+  padding-top: 6dvh;
+}
+
 .text-left {
   text-align: left;
 }

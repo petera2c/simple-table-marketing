@@ -168,7 +168,7 @@ export default function HomeContent() {
     <PageWrapper>
       <AIVisibilityEnhancer pageType="home" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[10dvh]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-12 pt-[6dvh]">
         {/* Hero section */}
         <section className="relative pb-12">
           <motion.div
