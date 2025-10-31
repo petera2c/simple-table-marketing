@@ -927,6 +927,10 @@ video {
   height: 100vh;
 }
 
+.h-7 {
+  height: 1.75rem;
+}
+
 .max-h-\[64vh\] {
   max-height: 64vh;
 }
@@ -990,6 +994,10 @@ video {
 
 .w-full {
   width: 100%;
+}
+
+.w-7 {
+  width: 1.75rem;
 }
 
 .min-w-\[120px\] {
@@ -1123,6 +1131,10 @@ video {
   cursor: pointer;
 }
 
+.cursor-help {
+  cursor: help;
+}
+
 .select-none {
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -1225,6 +1237,10 @@ video {
 
 .gap-8 {
   gap: 2rem;
+}
+
+.gap-1\.5 {
+  gap: 0.375rem;
 }
 
 .gap-y-4 {
@@ -1680,6 +1696,11 @@ video {
   background-color: rgb(254 252 232 / var(--tw-bg-opacity, 1));
 }
 
+.bg-yellow-500 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(234 179 8 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2107,6 +2128,10 @@ video {
 
 .leading-relaxed {
   line-height: 1.625;
+}
+
+.leading-tight {
+  line-height: 1.25;
 }
 
 .tracking-wide {
@@ -2714,6 +2739,11 @@ body {
 .hover\:text-white:hover {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-gray-600:hover {
+  --tw-text-opacity: 1;
+  color: rgb(75 85 99 / var(--tw-text-opacity, 1));
 }
 
 .hover\:underline:hover {
@@ -3391,6 +3421,11 @@ body {
   color: rgb(96 165 250 / var(--tw-text-opacity, 1));
 }
 
+.dark\:hover\:text-gray-300:hover:is(.dark *) {
+  --tw-text-opacity: 1;
+  color: rgb(209 213 219 / var(--tw-text-opacity, 1));
+}
+
 .group:hover .dark\:group-hover\:text-blue-400:is(.dark *) {
   --tw-text-opacity: 1;
   color: rgb(96 165 250 / var(--tw-text-opacity, 1));
@@ -3654,4 +3689,49 @@ body {
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
+}
+
+.\[\&_\.ant-table-tbody_td\]\:px-2 .ant-table-tbody td {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.\[\&_\.ant-table-tbody_td\]\:px-1\.5 .ant-table-tbody td {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+
+.\[\&_\.ant-table-tbody_td\]\:py-1\.5 .ant-table-tbody td {
+  padding-top: 0.375rem;
+  padding-bottom: 0.375rem;
+}
+
+.\[\&_\.ant-table-tbody_td\]\:text-sm .ant-table-tbody td {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+.\[\&_\.ant-table-tbody_td\]\:text-xs .ant-table-tbody td {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+.\[\&_\.ant-table-thead_th\]\:px-2 .ant-table-thead th {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.\[\&_\.ant-table-thead_th\]\:px-1\.5 .ant-table-thead th {
+  padding-left: 0.375rem;
+  padding-right: 0.375rem;
+}
+
+.\[\&_\.ant-table-thead_th\]\:py-2 .ant-table-thead th {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.\[\&_\.ant-table-thead_th\]\:text-xs .ant-table-thead th {
+  font-size: 0.75rem;
+  line-height: 1rem;
 }
