@@ -106,10 +106,8 @@ export const ALL_FEATURES = [
 
 // Feature mappings for Simple Table
 export const simpleTableFeatures: FeatureMapping = {
-  quickStart: "free",
   virtualization: "free",
   infiniteScroll: "free",
-  componentType: "free",
 
   // Column Features
   columnResizing: "free",
@@ -193,9 +191,6 @@ export const simpleTableFeatures: FeatureMapping = {
 
   // Undo/Redo Features
   undoRedo: "in-development",
-
-  // Pricing
-  pricing: "free",
 };
 
 // Feature mappings for AG Grid
@@ -205,10 +200,8 @@ export const simpleTableFeatures: FeatureMapping = {
 // - rowGrouping -> "Row Grouping" (Enterprise)
 // - rowExpansion -> "Master Detail" (Enterprise)
 export const agGridFeatures: FeatureMapping = {
-  quickStart: "free",
   virtualization: "free", // AG Grid: "Row Virtualization"
   infiniteScroll: "paid", // AG Grid: "Infinite Row Model"
-  componentType: "free",
 
   // Column Features
   columnResizing: "free",
@@ -303,10 +296,8 @@ export const agGridFeatures: FeatureMapping = {
 // - cellHighlighting -> via "rowClassName" or "onRow" props
 // - cellCustomRenderers -> "render" function in column definition
 export const antDesignFeatures: FeatureMapping = {
-  quickStart: "free",
   virtualization: "free", // Ant Design: "Virtual Scroll"
   infiniteScroll: "not-available",
-  componentType: "free",
 
   // Column Features
   columnResizing: "free", // Ant Design: "resizable" prop
@@ -390,9 +381,6 @@ export const antDesignFeatures: FeatureMapping = {
 
   // Undo/Redo Features
   undoRedo: "not-available",
-
-  // Pricing
-  pricing: "free",
 };
 
 // Feature mappings for Handsontable
@@ -408,10 +396,8 @@ export const antDesignFeatures: FeatureMapping = {
 // - spreadsheetFormulas -> "Formulas" plugin
 // - spreadsheetComments -> "Comments" plugin
 export const handsontableFeatures: FeatureMapping = {
-  quickStart: "paid",
   virtualization: "paid", // Handsontable: Built-in performance optimization
   infiniteScroll: "not-available",
-  componentType: "paid",
 
   // Column Features
   columnResizing: "paid", // Handsontable: "Manual Column Resize"
@@ -495,9 +481,6 @@ export const handsontableFeatures: FeatureMapping = {
 
   // Undo/Redo Features
   undoRedo: "paid",
-
-  // Pricing
-  pricing: "paid",
 };
 
 // Feature mappings for Material React Table (MRT)
@@ -515,10 +498,8 @@ export const handsontableFeatures: FeatureMapping = {
 // - rowExpansion -> "Detail Panels" or "Expanding"
 // - cellHighlighting -> via "muiTableBodyCellProps" styling
 export const materialReactFeatures: FeatureMapping = {
-  quickStart: "free",
   virtualization: "free", // MRT: "enableRowVirtualization"
   infiniteScroll: "free", // MRT: Works with virtualization
-  componentType: "free",
 
   // Column Features
   columnResizing: "free", // MRT: "enableColumnResizing"
@@ -602,9 +583,6 @@ export const materialReactFeatures: FeatureMapping = {
 
   // Undo/Redo Features
   undoRedo: "not-available",
-
-  // Pricing
-  pricing: "free",
 };
 
 // Feature mappings for TanStack Table
@@ -626,10 +604,8 @@ export const materialReactFeatures: FeatureMapping = {
 // - rowExpansion -> "Expanding" API
 // - cellCustomRenderers -> "cell" render function in column definition
 export const tanstackFeatures: FeatureMapping = {
-  quickStart: "free",
   virtualization: "free", // TanStack: Use @tanstack/react-virtual separately
   infiniteScroll: "not-available",
-  componentType: "free", // Headless library
 
   // Column Features
   columnResizing: "free", // TanStack: "Column Sizing" API
@@ -713,9 +689,6 @@ export const tanstackFeatures: FeatureMapping = {
 
   // Undo/Redo Features
   undoRedo: "not-available",
-
-  // Pricing
-  pricing: "free",
 };
 
 // Map of all table packages to their feature mappings

@@ -37,7 +37,11 @@ const SimpleTableVsTanstackContent = () => {
         provides a complete solution with pre-built UI components, ready to use out of the box. It's
         ideal for projects that need a functional data grid quickly without building UI components
         from scratch. With a small bundle size (
-        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        <Link
+          className="text-[length:inherit]"
+          href="https://bundlephobia.com/package/@simple-table/react-table"
+          target="_blank"
+        >
           31 kB minified + gzipped
         </Link>
         ) and comprehensive features, it's great for most table needs where you want to focus on
@@ -75,91 +79,6 @@ const SimpleTableVsTanstackContent = () => {
     </>
   );
 
-  const codeComparisonSection = (
-    <>
-      <Title level={2} className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-        Setup Comparison: Ready-to-Use vs Headless
-      </Title>
-
-      <div className="space-y-6 md:space-y-0 md:grid md:grid-cols-2 gap-6 mb-6">
-        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
-          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
-            Simple Table (5 minutes to working table)
-          </Text>
-          <div className="overflow-x-auto">
-            <pre className="text-xs sm:text-sm bg-gray-900 text-green-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
-              {`import { SimpleTable } from 'simple-table-core';
-import 'simple-table-core/styles.css';
-
-function MyApp() {
-  const headers = [
-    { accessor: 'name', label: 'Name', width: '1fr' },
-    { accessor: 'age', label: 'Age', width: 100 },
-    { accessor: 'city', label: 'City', width: 150 }
-  ];
-  
-  const data = [
-    { id: 1, name: 'John', age: 30, city: 'NYC' },
-    { id: 2, name: 'Jane', age: 25, city: 'LA' }
-  ];
-
-  return (
-    <SimpleTable 
-      defaultHeaders={headers}
-      rows={data}
-      rowIdAccessor="id"
-      editColumns
-      selectableCells
-    />
-  );
-}`}
-            </pre>
-          </div>
-        </div>
-
-        <div className="bg-gray-50 dark:bg-gray-800 p-3 sm:p-4 rounded-lg">
-          <Text className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white mb-3 block">
-            TanStack Table (2-3 days to working table)
-          </Text>
-          <div className="overflow-x-auto">
-            <pre className="text-xs sm:text-sm bg-gray-900 text-blue-400 p-2 sm:p-3 rounded whitespace-pre min-w-[300px]">
-              {`import { useReactTable, getCoreRowModel } from '@tanstack/react-table';
-
-function MyApp() {
-  const columns = [ /* define columns */ ];
-  const data = [ /* your data */ ];
-  
-  const table = useReactTable({
-    data, columns,
-    getCoreRowModel: getCoreRowModel(),
-    // Configure all features manually
-  });
-
-  return (
-    <div>
-      {/* Build entire table UI yourself */}
-      {/* Headers, rows, cells, styling */}
-      {/* Filtering UI, pagination UI */}
-      {/* Loading states, error handling */}
-    </div>
-  );
-}`}
-            </pre>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-yellow-50 dark:bg-yellow-900/20 p-4 rounded-lg border border-yellow-200 dark:border-yellow-800 mb-4">
-        <Text className="text-base text-gray-700 dark:text-gray-300">
-          <strong>Time Investment:</strong> Simple Table gets you a production-ready table
-          immediately, while TanStack Table requires building all UI components, styling, and
-          interaction patterns from scratch. The code above represents about 5 minutes vs 2-3 days
-          of development time.
-        </Text>
-      </div>
-    </>
-  );
-
   return (
     <ComparisonLayout
       title="Simple Table vs. TanStack Table"
@@ -177,14 +96,13 @@ function MyApp() {
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              36.1 kB (minified + gzipped)
+              14.6 kB (minified + gzipped)
             </a>
             {" + custom UI implementation"}
           </>
         ),
       }}
       summaryContent={summaryContent}
-      faqSection={codeComparisonSection}
     />
   );
 };

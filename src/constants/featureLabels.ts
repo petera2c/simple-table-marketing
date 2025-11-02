@@ -3,10 +3,6 @@
  */
 export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> = {
   // Core Features
-  quickStart: {
-    label: "Quick Start",
-    tooltip: "Easy npm install and minimal setup",
-  },
   virtualization: {
     label: "Virtualization",
     tooltip: "Supports millions of rows with advanced row virtualization",
@@ -14,10 +10,6 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
   infiniteScroll: {
     label: "Infinite Scroll",
     tooltip: "Scroll to the bottom of the table to load more data",
-  },
-  componentType: {
-    label: "Component Type",
-    tooltip: "Ready-to-use solution vs headless library",
   },
 
   // Column Features
@@ -278,11 +270,5 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
   undoRedo: {
     label: "Undo/Redo",
     tooltip: "Excel-like history management",
-  },
-
-  // Pricing
-  pricing: {
-    label: "Pricing",
-    tooltip: "Pricing and licensing information",
   },
 };
