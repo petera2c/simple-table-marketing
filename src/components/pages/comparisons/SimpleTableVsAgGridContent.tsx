@@ -19,15 +19,27 @@ const SimpleVsAgGrid = () => {
       </Text>{" "}
       presents a compelling alternative for teams seeking enterprise-grade performance without
       enterprise-grade pricing. At{" "}
-      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+      <Link
+        className="text-[length:inherit]"
+        href="https://bundlephobia.com/package/@simple-table/react-table"
+        target="_blank"
+      >
         31 kB
       </Link>{" "}
       compared to AG Grid Community's{" "}
-      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+      <Link
+        className="text-[length:inherit]"
+        href="https://bundlephobia.com/package/ag-grid-community"
+        target="_blank"
+      >
         298.2 kB
       </Link>{" "}
       (or{" "}
-      <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+      <Link
+        className="text-[length:inherit]"
+        href="https://bundlephobia.com/package/ag-grid-enterprise"
+        target="_blank"
+      >
         529.1 kB total
       </Link>{" "}
       with Enterprise, minified + gzipped), Simple Table delivers blazing-fast performance with core
@@ -47,7 +59,11 @@ const SimpleVsAgGrid = () => {
         </Text>{" "}
         is a lightweight, free alternative to AG Grid, offering essential features like
         virtualization, infinite scroll, and column filters, with a smaller bundle size (
-        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/@simple-table/react-table" target="_blank">
+        <Link
+          className="text-[length:inherit]"
+          href="https://bundlephobia.com/package/@simple-table/react-table"
+          target="_blank"
+        >
           31 kB minified + gzipped
         </Link>
         ). It's ideal for projects needing a simple, performant data grid without the overhead of
@@ -58,12 +74,20 @@ const SimpleVsAgGrid = () => {
           AG Grid
         </Text>{" "}
         is a feature-rich data grid with advanced capabilities. The{" "}
-        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+        <Link
+          className="text-[length:inherit]"
+          href="https://bundlephobia.com/package/ag-grid-community"
+          target="_blank"
+        >
           Community edition
         </Link>{" "}
         is 298.2 kB (minified + gzipped), but many advanced features like pivot tables and tree data
         require the{" "}
-        <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+        <Link
+          className="text-[length:inherit]"
+          href="https://bundlephobia.com/package/ag-grid-enterprise"
+          target="_blank"
+        >
           Enterprise edition
         </Link>{" "}
         (additional 230.9 kB, totaling 529.1 kB) at $999/developer/year. The combined bundle size
@@ -71,155 +95,10 @@ const SimpleVsAgGrid = () => {
       </Text>
       <Text className="text-lg block text-inherit">
         If you're looking for a free, lightweight solution with solid features,{" "}
-        <Link className="text-[length:inherit]" href="https://www.simple-table.com">try Simple Table</Link>. For enterprise needs, AG
-        Grid might be worth the investment.
-      </Text>
-    </>
-  );
-
-  const enterpriseROISection = (
-    <>
-      <Title level={2} className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-        Enterprise ROI Calculator: AG Grid vs Simple Table
-      </Title>
-
-      <div className="space-y-6 mb-6">
-        <div className="bg-red-50 dark:bg-red-900/20 p-4 sm:p-6 rounded-lg border border-red-200 dark:border-red-800">
-          <Text className="text-lg sm:text-xl font-bold text-red-700 dark:text-red-300 mb-4 block">
-            💸 AG Grid Enterprise Cost (3-Year Projection)
-          </Text>
-          <div className="space-y-3">
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                5 developers × $999/year:
-              </span>
-              <span className="font-semibold">$14,985</span>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                Bundle size impact (CDN costs):
-              </span>
-              <span className="font-semibold">~$2,400</span>
-            </div>
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0">
-              <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                Training/onboarding time:
-              </span>
-              <span className="font-semibold">~$8,000</span>
-            </div>
-            <hr className="border-red-300" />
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-lg font-bold">
-              <span>Total 3-year cost:</span>
-              <span className="text-red-600 dark:text-red-400">$25,385</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-green-50 dark:bg-green-900/20 p-4 sm:p-6 rounded-lg border border-green-200 dark:border-green-800">
-          <Text className="text-lg sm:text-xl font-bold text-green-700 dark:text-green-300 mb-4 block">
-            ✅ Simple Table Cost (3-Year Projection)
-          </Text>
-          <div className="space-y-4">
-            <div className="space-y-3">
-              <Text className="font-semibold text-gray-700 dark:text-gray-300">
-                Free Plan (Individuals & Startups):
-              </Text>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Licensing (unlimited devs):
-                </span>
-                <span className="font-semibold">$0</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Bundle size impact:
-                </span>
-                <span className="font-semibold">$0</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Training (minimal setup):
-                </span>
-                <span className="font-semibold">~$500</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4 font-bold">
-                <span>Subtotal:</span>
-                <span className="text-green-600 dark:text-green-400">$500</span>
-              </div>
-            </div>
-
-            <hr className="border-green-300" />
-
-            <div className="space-y-3">
-              <Text className="font-semibold text-gray-700 dark:text-gray-300">
-                Pro Plan (Revenue-Generating Businesses):
-              </Text>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Licensing: $850/year × 3 years:
-                </span>
-                <span className="font-semibold">$2,550</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Bundle size impact:
-                </span>
-                <span className="font-semibold">$0</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4">
-                <span className="text-gray-700 dark:text-gray-300 text-sm sm:text-base">
-                  Training (minimal setup):
-                </span>
-                <span className="font-semibold">~$500</span>
-              </div>
-              <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 pl-4 font-bold">
-                <span>Subtotal:</span>
-                <span className="text-green-600 dark:text-green-400">$3,050</span>
-              </div>
-            </div>
-
-            <hr className="border-green-300" />
-            <div className="flex flex-col sm:flex-row sm:justify-between gap-1 sm:gap-0 text-lg font-bold">
-              <span>Total 3-year cost range:</span>
-              <span className="text-green-600 dark:text-green-400">$500 - $3,050</span>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg border border-blue-200 dark:border-blue-800 mb-6">
-        <Text className="text-lg font-semibold text-blue-700 dark:text-blue-300 mb-2 block">
-          💡 Enterprise Feature Reality Check
-        </Text>
-        <div className="grid md:grid-cols-2 gap-4 text-sm text-gray-700 dark:text-gray-300">
-          <div>
-            <p>
-              <strong>Most teams need:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>Virtualization ✅ Simple Table</li>
-              <li>Column management ✅ Simple Table</li>
-              <li>Cell editing ✅ Simple Table</li>
-              <li>Sorting & filtering ✅ Simple Table</li>
-            </ul>
-          </div>
-          <div>
-            <p>
-              <strong>AG Grid Enterprise extras:</strong>
-            </p>
-            <ul className="list-disc list-inside space-y-1">
-              <li>Pivot tables (niche use case)</li>
-              <li>Server-side row model (overkill)</li>
-              <li>Advanced context menu (minor UX)</li>
-              <li>Excel export (can use libraries)</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <Text className="text-lg text-center text-gray-700 dark:text-gray-300 font-semibold">
-        💰 <span className="text-green-600 dark:text-green-400">Save $22,335 - $24,885</span> over 3
-        years while getting 90% of the functionality
+        <Link className="text-[length:inherit]" href="https://www.simple-table.com">
+          try Simple Table
+        </Link>
+        . For enterprise needs, AG Grid might be worth the investment.
       </Text>
     </>
   );
@@ -235,11 +114,19 @@ const SimpleVsAgGrid = () => {
         competitor: "AG Grid",
         competitorSize: (
           <>
-            <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-community" target="_blank">
+            <Link
+              className="text-[length:inherit]"
+              href="https://bundlephobia.com/package/ag-grid-community"
+              target="_blank"
+            >
               298.2 kB Community
             </Link>
             {" + "}
-            <Link className="text-[length:inherit]" href="https://bundlephobia.com/package/ag-grid-enterprise" target="_blank">
+            <Link
+              className="text-[length:inherit]"
+              href="https://bundlephobia.com/package/ag-grid-enterprise"
+              target="_blank"
+            >
               230.9 kB Enterprise
             </Link>
             {" = 529.1 kB total (minified + gzipped)"}
@@ -247,7 +134,6 @@ const SimpleVsAgGrid = () => {
         ),
       }}
       summaryContent={summaryContent}
-      faqSection={enterpriseROISection}
     />
   );
 };

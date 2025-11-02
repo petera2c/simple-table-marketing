@@ -136,67 +136,6 @@ const SimpleTableVsHandsontableContent = () => {
     </>
   );
 
-  const faqSection = (
-    <>
-      <Title level={2} className="text-2xl font-semibold text-gray-900 dark:text-white mb-4">
-        Frequently Asked Questions
-      </Title>
-
-      <div className="space-y-6">
-        <div>
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-2 block">
-            Q: Can Simple Table handle the same data volume as Handsontable?
-          </Text>
-          <Text className="text-base text-gray-700 dark:text-gray-300">
-            Yes, Simple Table's virtualization can handle millions of rows efficiently, often with
-            better performance than Handsontable due to its lighter architecture. The{" "}
-            <Link
-              className="text-[length:inherit]"
-              href="https://bundlephobia.com/package/@simple-table/react-table"
-              target="_blank"
-            >
-              31 kB
-            </Link>{" "}
-            bundle size doesn't compromise on data handling capabilities.
-          </Text>
-        </div>
-
-        <div>
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-2 block">
-            Q: What happens to my Handsontable licensing if I switch to Simple Table?
-          </Text>
-          <Text className="text-base text-gray-700 dark:text-gray-300">
-            Simple Table uses the MIT license, so you can eliminate ongoing licensing costs
-            entirely. However, you'll need to rebuild any custom Excel-like formulas as Simple Table
-            focuses on data grid functionality rather than spreadsheet calculations.
-          </Text>
-        </div>
-
-        <div>
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-2 block">
-            Q: How difficult is it to migrate from Handsontable to Simple Table?
-          </Text>
-          <Text className="text-base text-gray-700 dark:text-gray-300">
-            The migration complexity depends on how many Handsontable-specific features you're
-            using. Basic cell editing, sorting, and filtering translate easily. Excel-like formulas
-            and advanced spreadsheet features would need alternative implementations.
-          </Text>
-        </div>
-
-        <div>
-          <Text className="text-lg font-semibold text-gray-900 dark:text-white mb-2 block">
-            Q: Does Simple Table support Excel import/export like Handsontable?
-          </Text>
-          <Text className="text-base text-gray-700 dark:text-gray-300">
-            Excel import/export is coming soon to Simple Table. Currently, you can implement
-            clipboard operations for data transfer. For immediate Excel functionality, consider
-            combining Simple Table with libraries like SheetJS.
-          </Text>
-        </div>
-      </div>
-    </>
-  );
-
   return (
     <ComparisonLayout
       title="Simple Table vs. Handsontable"
@@ -218,7 +157,6 @@ const SimpleTableVsHandsontableContent = () => {
         ),
       }}
       summaryContent={summaryContent}
-      faqSection={faqSection}
     />
   );
 };

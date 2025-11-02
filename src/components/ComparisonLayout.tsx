@@ -22,7 +22,6 @@ interface ComparisonLayoutProps {
   competitorPackage: string; // Package key like "agGrid"
   performanceMetrics: PerformanceMetricsProps;
   summaryContent: ReactNode;
-  faqSection?: ReactNode;
 }
 
 const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
@@ -33,7 +32,6 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
   competitorPackage,
   performanceMetrics,
   summaryContent,
-  faqSection,
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -271,16 +269,6 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
             {summaryContent}
           </Paragraph>
         </Card>
-
-        {/* FAQ Section (optional) */}
-        {faqSection && (
-          <Card
-            className="mb-8 shadow-sm dark:bg-gray-800 dark:border-gray-700"
-            styles={isMobile ? { body: { padding: "12px 8px" } } : undefined}
-          >
-            {faqSection}
-          </Card>
-        )}
 
         {/* Feature Requests */}
         <Card
