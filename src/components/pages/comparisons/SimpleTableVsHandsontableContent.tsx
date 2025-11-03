@@ -23,7 +23,7 @@ const SimpleTableVsHandsontableContent = () => {
       presents an interesting alternative. At just{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/@simple-table/react-table"
+        href="https://bundlephobia.com/package/simple-table-core"
         target="_blank"
       >
         31 kB (minified + gzipped)
@@ -85,7 +85,7 @@ const SimpleTableVsHandsontableContent = () => {
           vs{" "}
           <Link
             className="text-[length:inherit]"
-            href="https://bundlephobia.com/package/@simple-table/react-table"
+            href="https://bundlephobia.com/package/simple-table-core"
             target="_blank"
           >
             31 kB

@@ -132,18 +132,9 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
     tooltip: "Cell comments and annotations",
   },
 
-  // Filtering Features
-  filteringColumnFilters: {
-    label: "Column Filters",
-    tooltip: "Filter individual columns",
-  },
   filteringGlobalSearch: {
     label: "Global Search",
     tooltip: "Search across all columns",
-  },
-  filteringCustomFilters: {
-    label: "Custom Filters",
-    tooltip: "Define custom filter functions",
   },
   filteringFacetedFilters: {
     label: "Faceted Filters",
@@ -250,14 +241,6 @@ export const FEATURE_LABELS: Record<string, { label: string; tooltip: string }> 
   themingCustomIcons: {
     label: "Custom Icons",
     tooltip: "Replace default icons with custom ones",
-  },
-  themingFullThemeControl: {
-    label: "Full Theme Control",
-    tooltip: "Complete control over styling through CSS variables",
-  },
-  themingResponsive: {
-    label: "Responsive",
-    tooltip: "Mobile-friendly by default",
   },
 
   // Developer Experience Features

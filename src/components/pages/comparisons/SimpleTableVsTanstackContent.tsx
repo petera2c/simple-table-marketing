@@ -39,7 +39,7 @@ const SimpleTableVsTanstackContent = () => {
         from scratch. With a small bundle size (
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/@simple-table/react-table"
+          href="https://bundlephobia.com/package/simple-table-core"
           target="_blank"
         >
           31 kB minified + gzipped

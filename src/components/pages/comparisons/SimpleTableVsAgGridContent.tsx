@@ -21,7 +21,7 @@ const SimpleVsAgGrid = () => {
       enterprise-grade pricing. At{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/@simple-table/react-table"
+        href="https://bundlephobia.com/package/simple-table-core"
         target="_blank"
       >
         31 kB
@@ -61,7 +61,7 @@ const SimpleVsAgGrid = () => {
         virtualization, infinite scroll, and column filters, with a smaller bundle size (
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/@simple-table/react-table"
+          href="https://bundlephobia.com/package/simple-table-core"
           target="_blank"
         >
           31 kB minified + gzipped

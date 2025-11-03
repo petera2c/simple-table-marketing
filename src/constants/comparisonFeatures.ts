@@ -12,10 +12,8 @@ export interface FeatureMapping {
 // Comprehensive list of all features across all comparison pages
 export const ALL_FEATURES = [
   // Core Features
-  "quickStart",
   "virtualization",
   "infiniteScroll",
-  "componentType",
 
   // Column Features
   "columnResizing",
@@ -54,9 +52,7 @@ export const ALL_FEATURES = [
   "spreadsheetComments",
 
   // Filtering Features
-  "filteringColumnFilters",
   "filteringGlobalSearch",
-  "filteringCustomFilters",
   "filteringFacetedFilters",
 
   // Pagination Features
@@ -91,17 +87,12 @@ export const ALL_FEATURES = [
   // Theming Features
   "themingMultipleThemes",
   "themingCustomIcons",
-  "themingFullThemeControl",
-  "themingResponsive",
 
   // Developer Experience Features
   "developerTypeScriptSupport",
 
   // Undo/Redo Features
   "undoRedo",
-
-  // Pricing & Bundle Size
-  "pricing",
 ] as const;
 
 // Feature mappings for Simple Table
@@ -146,9 +137,7 @@ export const simpleTableFeatures: FeatureMapping = {
   spreadsheetComments: "not-available",
 
   // Filtering Features
-  filteringColumnFilters: "free",
   filteringGlobalSearch: "in-development",
-  filteringCustomFilters: "free",
   filteringFacetedFilters: "free",
 
   // Pagination Features
@@ -183,8 +172,6 @@ export const simpleTableFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "free",
   themingCustomIcons: "free",
-  themingFullThemeControl: "free",
-  themingResponsive: "free",
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
@@ -240,9 +227,7 @@ export const agGridFeatures: FeatureMapping = {
   spreadsheetComments: "not-available",
 
   // Filtering Features
-  filteringColumnFilters: "free",
   filteringGlobalSearch: "free", // AG Grid: "Quick Filter"
-  filteringCustomFilters: "free", // AG Grid: "Custom Filter"
   filteringFacetedFilters: "paid", // AG Grid: "Set Filter" (Enterprise)
 
   // Pagination Features
@@ -277,8 +262,6 @@ export const agGridFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "free",
   themingCustomIcons: "free",
-  themingFullThemeControl: "free",
-  themingResponsive: "free",
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
@@ -336,9 +319,7 @@ export const antDesignFeatures: FeatureMapping = {
   spreadsheetComments: "not-available",
 
   // Filtering Features
-  filteringColumnFilters: "free",
   filteringGlobalSearch: "free",
-  filteringCustomFilters: "free",
   filteringFacetedFilters: "not-available",
 
   // Pagination Features
@@ -373,8 +354,6 @@ export const antDesignFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "free",
   themingCustomIcons: "free",
-  themingFullThemeControl: "free",
-  themingResponsive: "free",
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
@@ -436,9 +415,7 @@ export const handsontableFeatures: FeatureMapping = {
   spreadsheetComments: "paid", // Handsontable: "Comments" plugin
 
   // Filtering Features
-  filteringColumnFilters: "paid",
   filteringGlobalSearch: "not-available",
-  filteringCustomFilters: "paid",
   filteringFacetedFilters: "not-available",
 
   // Pagination Features
@@ -473,8 +450,6 @@ export const handsontableFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "not-available",
   themingCustomIcons: "not-available",
-  themingFullThemeControl: "paid",
-  themingResponsive: "paid",
 
   // Developer Experience Features
   developerTypeScriptSupport: "paid",
@@ -538,9 +513,7 @@ export const materialReactFeatures: FeatureMapping = {
   spreadsheetComments: "not-available",
 
   // Filtering Features
-  filteringColumnFilters: "free",
   filteringGlobalSearch: "free",
-  filteringCustomFilters: "free",
   filteringFacetedFilters: "free",
 
   // Pagination Features
@@ -575,8 +548,6 @@ export const materialReactFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "free",
   themingCustomIcons: "free",
-  themingFullThemeControl: "free",
-  themingResponsive: "free",
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",
@@ -644,9 +615,7 @@ export const tanstackFeatures: FeatureMapping = {
   spreadsheetComments: "not-available",
 
   // Filtering Features
-  filteringColumnFilters: "free",
   filteringGlobalSearch: "free",
-  filteringCustomFilters: "free",
   filteringFacetedFilters: "free",
 
   // Pagination Features
@@ -681,8 +650,6 @@ export const tanstackFeatures: FeatureMapping = {
   // Theming Features
   themingMultipleThemes: "not-available",
   themingCustomIcons: "not-available",
-  themingFullThemeControl: "not-available",
-  themingResponsive: "not-available",
 
   // Developer Experience Features
   developerTypeScriptSupport: "free",

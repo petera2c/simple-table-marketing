@@ -28,7 +28,7 @@ const SimpleTableVsAntDesignContent = () => {
       offers a different philosophy entirely. At just{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/@simple-table/react-table"
+        href="https://bundlephobia.com/package/simple-table-core"
         target="_blank"
       >
         31 kB (minified + gzipped)
@@ -54,7 +54,7 @@ const SimpleTableVsAntDesignContent = () => {
         of a full UI framework. With its{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/@simple-table/react-table"
+          href="https://bundlephobia.com/package/simple-table-core"
           target="_blank"
         >
           31 kB (minified + gzipped)

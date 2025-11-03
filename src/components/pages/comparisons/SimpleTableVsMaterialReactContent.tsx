@@ -40,7 +40,7 @@ const SimpleTableVsMaterialReactContent = () => {
         of a full UI framework. With its{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/@simple-table/react-table"
+          href="https://bundlephobia.com/package/simple-table-core"
           target="_blank"
         >
           31 kB (minified + gzipped)

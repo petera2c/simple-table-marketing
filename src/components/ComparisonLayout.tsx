@@ -241,7 +241,15 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
                 {
                   key: "bundle-size",
                   metric: "Bundle Size",
-                  simpleTable: "31 kB (minified + gzipped)",
+                  simpleTable: (
+                    <Link
+                      className="text-[length:inherit]"
+                      href="https://bundlephobia.com/package/simple-table-core"
+                      target="_blank"
+                    >
+                      31 kB (minified + gzipped)
+                    </Link>
+                  ),
                   competitor: performanceMetrics.competitorSize,
                 },
               ]}
