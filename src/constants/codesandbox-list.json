@@ -1,158 +1,162 @@
 {
   "AggregateFunctionsDemo.tsx": {
-    "id": "wxxvl6",
-    "url": "https://codesandbox.io/s/wxxvl6"
+    "id": "vpgxk7",
+    "url": "https://codesandbox.io/s/vpgxk7"
   },
   "CSVExportDemo.tsx": {
-    "id": "xv8495",
-    "url": "https://codesandbox.io/s/xv8495"
+    "id": "yn82xh",
+    "url": "https://codesandbox.io/s/yn82xh"
   },
   "CellClickingDemo.tsx": {
-    "id": "5f4szs",
-    "url": "https://codesandbox.io/s/5f4szs"
+    "id": "8l9gkr",
+    "url": "https://codesandbox.io/s/8l9gkr"
   },
   "CellEditingDemo.tsx": {
-    "id": "p65xjr",
-    "url": "https://codesandbox.io/s/p65xjr"
+    "id": "st6nyy",
+    "url": "https://codesandbox.io/s/st6nyy"
   },
   "CellHighlightingDemo.tsx": {
-    "id": "dhzt8p",
-    "url": "https://codesandbox.io/s/dhzt8p"
+    "id": "qxnppv",
+    "url": "https://codesandbox.io/s/qxnppv"
   },
   "CellRendererDemo.tsx": {
-    "id": "y782rc",
-    "url": "https://codesandbox.io/s/y782rc"
+    "id": "46khvk",
+    "url": "https://codesandbox.io/s/46khvk"
   },
   "CollapsibleColumnsDemo.tsx": {
-    "id": "d9vylm",
-    "url": "https://codesandbox.io/s/d9vylm"
+    "id": "ywmz8k",
+    "url": "https://codesandbox.io/s/ywmz8k"
   },
   "ColumnAlignmentDemo.tsx": {
-    "id": "cjm7wq",
-    "url": "https://codesandbox.io/s/cjm7wq"
+    "id": "fy7hdc",
+    "url": "https://codesandbox.io/s/fy7hdc"
   },
   "ColumnEditingDemo.tsx": {
-    "id": "ylzp4q",
-    "url": "https://codesandbox.io/s/ylzp4q"
+    "id": "thqtvc",
+    "url": "https://codesandbox.io/s/thqtvc"
   },
   "ColumnFilteringDemo.tsx": {
-    "id": "924qq9",
-    "url": "https://codesandbox.io/s/924qq9"
+    "id": "zcrlmf",
+    "url": "https://codesandbox.io/s/zcrlmf"
   },
   "ColumnPinningDemo.tsx": {
-    "id": "5xy4qc",
-    "url": "https://codesandbox.io/s/5xy4qc"
+    "id": "y4ptw4",
+    "url": "https://codesandbox.io/s/y4ptw4"
   },
   "ColumnReorderingDemo.tsx": {
-    "id": "cx95sd",
-    "url": "https://codesandbox.io/s/cx95sd"
+    "id": "fh74tt",
+    "url": "https://codesandbox.io/s/fh74tt"
   },
   "ColumnResizingDemo.tsx": {
-    "id": "3r7n5f",
-    "url": "https://codesandbox.io/s/3r7n5f"
+    "id": "4zst3p",
+    "url": "https://codesandbox.io/s/4zst3p"
+  },
+  "ColumnWidthDemo.tsx": {
+    "id": "jkn257",
+    "url": "https://codesandbox.io/s/jkn257"
   },
   "ColumnSelectionDemo.tsx": {
-    "id": "87h7d4",
-    "url": "https://codesandbox.io/s/87h7d4"
+    "id": "z433y4",
+    "url": "https://codesandbox.io/s/z433y4"
   },
   "ColumnSortingDemo.tsx": {
-    "id": "cr9vqh",
-    "url": "https://codesandbox.io/s/cr9vqh"
+    "id": "hgnzqm",
+    "url": "https://codesandbox.io/s/hgnzqm"
   },
   "ColumnVisibilityDemo.tsx": {
-    "id": "jkcdnl",
-    "url": "https://codesandbox.io/s/jkcdnl"
+    "id": "nm6nlz",
+    "url": "https://codesandbox.io/s/nm6nlz"
   },
   "CustomIconsDemo.tsx": {
-    "id": "d87slr",
-    "url": "https://codesandbox.io/s/d87slr"
+    "id": "nddvqy",
+    "url": "https://codesandbox.io/s/nddvqy"
   },
   "ExternalFilterDemo.tsx": {
-    "id": "ztsp6d",
-    "url": "https://codesandbox.io/s/ztsp6d"
+    "id": "3py92c",
+    "url": "https://codesandbox.io/s/3py92c"
   },
   "ExternalSortDemo.tsx": {
-    "id": "8dz8yk",
-    "url": "https://codesandbox.io/s/8dz8yk"
+    "id": "9znlsv",
+    "url": "https://codesandbox.io/s/9znlsv"
   },
   "FooterRendererDemo.tsx": {
-    "id": "3kfypf",
-    "url": "https://codesandbox.io/s/3kfypf"
+    "id": "mmp6v2",
+    "url": "https://codesandbox.io/s/mmp6v2"
   },
   "HeaderRendererDemo.tsx": {
-    "id": "nwvq4c",
-    "url": "https://codesandbox.io/s/nwvq4c"
+    "id": "4kjkq9",
+    "url": "https://codesandbox.io/s/4kjkq9"
   },
   "InfiniteScrollDemo.tsx": {
-    "id": "cr5z3w",
-    "url": "https://codesandbox.io/s/cr5z3w"
+    "id": "sw4fy2",
+    "url": "https://codesandbox.io/s/sw4fy2"
   },
   "LiveUpdateDemo.tsx": {
-    "id": "hrjwdr",
-    "url": "https://codesandbox.io/s/hrjwdr"
+    "id": "9whrw9",
+    "url": "https://codesandbox.io/s/9whrw9"
   },
   "NestedHeadersDemo.tsx": {
-    "id": "zqv554",
-    "url": "https://codesandbox.io/s/zqv554"
+    "id": "4qp8zv",
+    "url": "https://codesandbox.io/s/4qp8zv"
   },
   "PaginationDemo.tsx": {
-    "id": "5kf2js",
-    "url": "https://codesandbox.io/s/5kf2js"
+    "id": "t4jf6v",
+    "url": "https://codesandbox.io/s/t4jf6v"
   },
   "QuickStartDemo.tsx": {
-    "id": "zgkrps",
-    "url": "https://codesandbox.io/s/zgkrps"
+    "id": "jkxj86",
+    "url": "https://codesandbox.io/s/jkxj86"
   },
   "RowGroupingDemo.tsx": {
-    "id": "2jdvcx",
-    "url": "https://codesandbox.io/s/2jdvcx"
+    "id": "qrcddy",
+    "url": "https://codesandbox.io/s/qrcddy"
   },
   "RowHeightDemo.tsx": {
-    "id": "v7kxjf",
-    "url": "https://codesandbox.io/s/v7kxjf"
+    "id": "kn37z6",
+    "url": "https://codesandbox.io/s/kn37z6"
   },
   "RowSelectionDemo.tsx": {
-    "id": "9qklw5",
-    "url": "https://codesandbox.io/s/9qklw5"
+    "id": "jzphwg",
+    "url": "https://codesandbox.io/s/jzphwg"
   },
   "ThemesDemo.tsx": {
-    "id": "p7f63d",
-    "url": "https://codesandbox.io/s/p7f63d"
+    "id": "tx6rpr",
+    "url": "https://codesandbox.io/s/tx6rpr"
   },
   "TooltipDemo.tsx": {
-    "id": "vnsqm3",
-    "url": "https://codesandbox.io/s/vnsqm3"
+    "id": "6ysqnt",
+    "url": "https://codesandbox.io/s/6ysqnt"
   },
   "src/CustomThemeDemo.tsx": {
-    "id": "jl5fvs",
-    "url": "https://codesandbox.io/s/jl5fvs"
+    "id": "zk727v",
+    "url": "https://codesandbox.io/s/zk727v"
   },
   "examples/billing/BillingExample.tsx": {
-    "id": "6vwtq5",
-    "url": "https://codesandbox.io/s/6vwtq5"
+    "id": "pzp49f",
+    "url": "https://codesandbox.io/s/pzp49f"
   },
   "examples/crm/CRMExample.tsx": {
-    "id": "nlmjx8",
-    "url": "https://codesandbox.io/s/nlmjx8"
+    "id": "smnmr3",
+    "url": "https://codesandbox.io/s/smnmr3"
   },
   "examples/hr/HRExample.tsx": {
-    "id": "8d6gzk",
-    "url": "https://codesandbox.io/s/8d6gzk"
+    "id": "km42sd",
+    "url": "https://codesandbox.io/s/km42sd"
   },
   "examples/infrastructure/InfrastructureExample.tsx": {
-    "id": "4hg9zc",
-    "url": "https://codesandbox.io/s/4hg9zc"
+    "id": "wf4sc4",
+    "url": "https://codesandbox.io/s/wf4sc4"
   },
   "examples/manufacturing/ManufacturingExample.tsx": {
-    "id": "wtvwg7",
-    "url": "https://codesandbox.io/s/wtvwg7"
+    "id": "r9tkv5",
+    "url": "https://codesandbox.io/s/r9tkv5"
   },
   "examples/music/MusicExample.tsx": {
-    "id": "pljq9s",
-    "url": "https://codesandbox.io/s/pljq9s"
+    "id": "l8gfm6",
+    "url": "https://codesandbox.io/s/l8gfm6"
   },
   "examples/sales/SalesExample.tsx": {
-    "id": "482d2c",
-    "url": "https://codesandbox.io/s/482d2c"
+    "id": "9k5zqz",
+    "url": "https://codesandbox.io/s/9k5zqz"
   }
 }

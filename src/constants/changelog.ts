@@ -11,6 +11,26 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_6_6: ChangelogEntry = {
+  version: "1.6.6",
+  date: "2025-11-09",
+  title: "Cell Selection and Scroll Improvements",
+  description:
+    "Enhanced cell selection styling and improved scrolling behavior while drag selecting cells for a smoother user experience.",
+  changes: [
+    {
+      type: "improvement",
+      description: "Improved cell selection style for better visual feedback",
+      link: "/docs/cell-selection",
+    },
+    {
+      type: "improvement",
+      description: "Enhanced scroll behavior while drag selecting cells",
+      link: "/docs/cell-selection",
+    },
+  ],
+};
+
 export const v1_6_1: ChangelogEntry = {
   version: "1.6.1",
   date: "2025-10-27",
@@ -169,6 +189,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_6_6,
   v1_6_1,
   v1_6_0,
   v1_5_6,

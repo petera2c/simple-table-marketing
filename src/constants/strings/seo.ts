@@ -274,6 +274,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, column resizing, table layout, typescript table, responsive table",
   },
+  columnWidth: {
+    title: "Column Auto-Sizing in Simple Table React Grid",
+    description:
+      "Auto-size columns in your react-table with Simple Table. Use '1fr' for flexible column widths that adapt to available space in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, column width, auto-sizing, flexible columns, responsive width, 1fr, column layout, typescript table, responsive table, adaptive columns",
+  },
   columnSorting: {
     title: "Column Sorting with Simple Table React Grid",
     description:

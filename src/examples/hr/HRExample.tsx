@@ -73,28 +73,26 @@ export default function HRExample({
   }
 
   return (
-    <div style={{ display: "flex" }}>
-      <SimpleTable
-        columnReordering
-        columnResizing
-        defaultHeaders={HEADERS}
-        expandIcon={expandIcon}
-        filterIcon={filterIcon}
-        headerCollapseIcon={headerCollapseIcon}
-        headerExpandIcon={headerExpandIcon}
-        nextIcon={nextIcon}
-        onCellEdit={handleCellEdit}
-        prevIcon={prevIcon}
-        rowHeight={rowHeight}
-        rowIdAccessor="id"
-        rows={data}
-        rowsPerPage={howManyRowsCanFit}
-        selectableCells
-        shouldPaginate
-        sortDownIcon={sortDownIcon}
-        sortUpIcon={sortUpIcon}
-        theme={theme}
-      />
-    </div>
+    <SimpleTable
+      columnReordering
+      columnResizing
+      defaultHeaders={HEADERS}
+      expandIcon={expandIcon}
+      filterIcon={filterIcon}
+      headerCollapseIcon={headerCollapseIcon}
+      headerExpandIcon={headerExpandIcon}
+      nextIcon={nextIcon}
+      onCellEdit={handleCellEdit}
+      prevIcon={prevIcon}
+      rowHeight={rowHeight}
+      rowIdAccessor="id"
+      rows={data}
+      rowsPerPage={howManyRowsCanFit}
+      selectableCells
+      shouldPaginate
+      sortDownIcon={sortDownIcon}
+      sortUpIcon={sortUpIcon}
+      theme={theme}
+    />
   );
 }

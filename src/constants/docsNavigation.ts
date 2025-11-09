@@ -31,6 +31,7 @@ import {
   faMousePointer,
   faFolderMinus,
   faCommentAlt,
+  faRulerHorizontal,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -66,6 +67,12 @@ export const docSections: DocSection[] = [
     label: "Column Features",
     icon: faColumns,
     subsections: [
+      {
+        id: "column-width",
+        label: "Column Auto-Sizing",
+        path: "/docs/column-width",
+        icon: faRulerHorizontal,
+      },
       {
         id: "column-resizing",
         label: "Column Resizing",
