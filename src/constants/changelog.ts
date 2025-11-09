@@ -11,6 +11,20 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_6_7: ChangelogEntry = {
+  version: "1.6.7",
+  date: "2025-11-09",
+  title: "Bundle Size Improvements",
+  description:
+    "Optimized bundle size to reduce the overall package footprint and improve loading performance.",
+  changes: [
+    {
+      type: "improvement",
+      description: "Reduced bundle size for improved loading performance",
+    },
+  ],
+};
+
 export const v1_6_6: ChangelogEntry = {
   version: "1.6.6",
   date: "2025-11-09",
@@ -189,6 +203,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_6_7,
   v1_6_6,
   v1_6_1,
   v1_6_0,
