@@ -57,7 +57,7 @@
     "react-dom": "^19.1.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
-    "simple-table-core": "^1.6.7",
+    "simple-table-core": "^1.6.8",
     "source-map-explorer": "^2.5.3"
   },
   "devDependencies": {
