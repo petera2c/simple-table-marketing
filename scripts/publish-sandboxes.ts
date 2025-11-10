@@ -72,7 +72,7 @@ const root = createRoot(rootElement);
 
 root.render(
   <StrictMode>
-    <div style={{ fontFamily: "Nunito" }}>
+    <div style={{ fontFamily: "nunito, system-ui" }}>
       <App />
     </div>
   </StrictMode>

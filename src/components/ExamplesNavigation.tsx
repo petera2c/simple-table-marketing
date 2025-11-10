@@ -102,6 +102,25 @@ function ExamplesNavigationContent() {
   const handleLinkClick = (linkPath: string) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
 
+    // Determine the target example from the link path
+    const targetExample = examples.find((example) => linkPath.includes(example.id));
+
+    if (targetExample) {
+      // Adjust theme before navigation to prevent flicker
+      if (targetExample.id === "crm") {
+        // CRM example needs custom themes
+        if (currentTheme !== "custom-light" && currentTheme !== "custom-dark") {
+          const newTheme = theme === "dark" ? "custom-dark" : "custom-light";
+          params.set("theme", newTheme);
+        }
+      } else {
+        // Non-CRM examples should not use custom themes
+        if (currentTheme === "custom-light" || currentTheme === "custom-dark") {
+          params.set("theme", theme);
+        }
+      }
+    }
+
     router.push(`${linkPath}?${params.toString()}`);
   };
 
@@ -124,6 +143,7 @@ function ExamplesNavigationContent() {
   };
 
   // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to the website theme
+  // This effect now only runs on direct navigation (e.g., browser back/forward, direct URL access)
   useEffect(() => {
     if (
       currentExample.id !== "crm" &&
@@ -137,7 +157,8 @@ function ExamplesNavigationContent() {
     ) {
       handleThemeChange(theme === "dark" ? "custom-dark" : "custom-light");
     }
-  }, [currentExample.id, currentTheme, theme]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentExample.id]);
 
   return (
     <PageWrapper disableScrollRestoration>
