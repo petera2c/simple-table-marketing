@@ -1,0 +1,799 @@
+[
+  {
+    "id": "aggregate-functions",
+    "path": "/docs/aggregate-functions",
+    "title": "Aggregate Functions in Simple Table React Grid",
+    "description": "Add aggregate functions to your react-table with Simple Table. Sum, count, average, and more in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "aggregate functions",
+      "table aggregation",
+      "typescript table",
+      "data summary"
+    ],
+    "content": "Aggregate functions are configured by adding the\n          \n            aggregation\n          \n          property to column headers. When data is grouped using row grouping, these functions\n          automatically calculate summary values for each group level. Calculates the total of all numeric values in a group. }`}\n              \n              \n                Perfect for totaling budgets, employee counts, or any cumulative metrics. Computes the arithmetic mean of all values in a group. }`}\n              \n              \n                Ideal for ratings, performance scores, or any metric where the mean is meaningful. Counts the number of non-null values in a group. }`}\n              \n              \n                Useful for counting projects, tasks, or any discrete items within groups. Finds the minimum or maximum value in a group. }\n// or\n\n}`}\n              \n              \n                Great for finding ranges, extremes, or boundary values in your data. For complex scenarios, you can define custom aggregation functions and parse string\n              values before aggregation. Combine aggregations with custom cell renderers to format results appropriately Use parseValue when your source data contains formatted strings like currencies Aggregations work at every level of row grouping, providing hierarchical summaries Custom aggregation functions receive all values in the group as an array HeaderObject.aggregation Configuration object for aggregation functions that automatically calculate summary values for grouped data. Supports built-in types (sum, average, count, min, max) and custom functions. /docs/api-reference#aggregation-config // Sum aggregation - totals all numeric values\n{\n  accessor: , \n  aggregation: { type: }\n}\n\n// Average aggregation - computes arithmetic mean\n{\n  accessor: }\n}\n\n// Count aggregation - counts non-null values\n{\n  accessor: }\n}\n\n// Min/Max aggregation - finds extremes\n{\n  accessor: }\n}\n\n// Custom aggregation with value parsing\n{\n  accessor: , \n  aggregation: {\n    type: + val.toLocaleString()\n  }\n}\n\n// Custom function aggregation\n{\n  accessor: flex items-center gap-3 mb-6 p-2 bg-purple-100 rounded-lg text-purple-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Aggregate functions are configured by adding the{ >\n            aggregation\n          </code>{ >\n                <code>{ }\n}\n// or\n{\n  aggregation: { type: font-semibold text-gray-800 dark:text-white mb-2 text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto {\n  aggregation: {\n    type: ));\n      return isNaN(numericValue) ? 0 : numericValue;\n    }\n  }\n} bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm font-bold text-gray-800 dark:text-white mb-2 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300",
+    "section": "Row Features",
+    "headings": [
+      "Aggregate Functions",
+      "Sum Aggregation",
+      "Average Aggregation",
+      "Count Aggregation",
+      "Min/Max Aggregation",
+      "Advanced: Custom Aggregation & Value Parsing",
+      "💡 Pro Tips"
+    ]
+  },
+  {
+    "id": "api-reference",
+    "path": "/docs/api-reference",
+    "title": "Simple Table API Reference: React Grid Props",
+    "description": "Complete API reference for Simple Table props and HeaderObject configuration. All react-table props for datagrids and data tables with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "simple-table-core",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "api reference",
+      "props reference",
+      "typescript table",
+      "documentation"
+    ],
+    "content": ",\n    required: false,\n    description: ;    // TypeScript error - doesn ,\n  },\n  {\n    key: string | number | boolean | undefined | null | string[] | number[] | Record<string, any>[] },\n  { id: 2, name: aggregation: {\n  type: // Sum all values\n}\naggregation: {\n  type: // Custom function\n} // Pin to left side\npinned: // Pin to right side columneditorposition ColumnEditorPosition Position options for the column editor panel. Record<string, CellValue | Row[]> ,\n  age: 30,\n  status: ,\n  // Nested rows for hierarchical data\n  children: [\n    { id: 2, name: , parentId: 1 }\n  ]\n} string | number | boolean | date | enum | other // For numeric columns ,\n    required: true,\n    description: + val.toLocaleString() props.row // { id: 1, name: props.isSelected // true or false props.selectedRows // Set([ { values: [18, 65] } // for between filter , width: 80 },\n  { accessor: , age: 30 },\n  { id: 2, name: externalFilterHandling Flag to let consumer handle filter logic completely. externalSortHandling When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop. , filters);\n  // Make API call with filter parameters\n  // filters is an object where keys are unique filter IDs\n  // and values are FilterCondition objects\n}} );\n    // Make API call with sort parameters\n  }\n}} serverSidePagination Flag to disable internal pagination slicing. When true, the table expects you to provide pre-paginated data via the rows prop and handle pagination externally. ,\n  backgroundColor: useOddColumnBackground Flag for using alternating column background colors. useHoverRowBackground Flag for using hover row background highlighting. useOddEvenRowBackground Flag for using odd/even row background colors. onRowSelectionChange Callback function triggered when row selection changes. #row-selection-change-props , { row, isSelected, selectedRows });\n}} ) {\n    openDetailModal(row);\n  }\n}} , newValue);\n  // Update your data\n  updateRowData(row.id, accessor, newValue);\n}} , header.label);\n  console.log( , header.accessor);\n  console.log( , header.type);\n  // Handle column selection - show column menu, apply operations, etc.\n}} , newHeaders);\n  // Update your headers state with the new order\n  setHeaders(newHeaders);\n}} #footer-renderer-props selectionColumnWidth Width of the selection column (defaults to 42). columnEditorPosition Position of the column editor panel when editColumns is enabled. );\n  // Perform any initialization logic\n}} );\n  // Custom pagination logic\n}} MutableRefObject<TableRefType | null> });\n\n// Update cell data programmatically\ntableRef.current?.updateData({\n  accessor: ,\n  rowIndex: 0,\n  newValue: width: 100        // 100px\nwidth: // 150px  \nwidth: // For numeric data\ntype: // For date data\ntype: // For true/false data\ntype: // For enum data\ntype: // For custom content (buttons, etc.)\ntype: minWidth: 80\nminWidth: disableReorder: true children: [\n  { accessor: , width: 100 },\n  { accessor: enumOptions: [\n  { value: }}>\n    {row[accessor]}\n  </span>\n) (only visible when collapsed), (only visible when expanded), or (visible in both states). Default is // Only visible when parent is collapsed\nshowWhen: // Only visible when parent is expanded (default)\nshowWhen: // Always visible regardless of parent state Current retail price in USD Date in YYYY-MM-DD format Average customer rating (1-5 stars) sales-report-2024.csv props.currentPage // 1, 2, 3, etc. props.startRow // 1, 11, 21, etc. props.endRow // 10, 20, 30, etc. props.totalRows // 100, 250, etc. props.totalPages // 5, 10, etc. props.rowsPerPage // 10, 25, 50, etc. props.hasPrevPage // true or false props.hasNextPage // true or false props.prevIcon // Custom icon component props.nextIcon // Custom icon component #export-to-csv-props // Export with default filename\ntableRef.current?.exportToCSV();\n\n// Export with custom filename\ntableRef.current?.exportToCSV({ \n  filename: )[0];\ntableRef.current?.exportToCSV({ \n  filename: \\ // Update a single cell\ntableRef.current?.updateData({\n  accessor: ,\n  rowIndex: 2,\n  newValue: 29.99\n});\n\n// Update based on condition\nif (stockLow) {\n  tableRef.current?.updateData({\n    accessor: ,\n    rowIndex: 5,\n    newValue: row-selection-change-props RowSelectionChangeProps footer-renderer-props",
+    "section": "Getting Started",
+    "headings": [
+      "API Reference"
+    ]
+  },
+  {
+    "id": "csv-export",
+    "path": "/docs/csv-export",
+    "title": "CSV Export with Simple Table React Grid",
+    "description": "Export your react-table data to CSV with Simple Table. One-click CSV download from your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "csv export",
+      "export to csv",
+      "download csv",
+      "table export",
+      "typescript table",
+      "data export"
+    ],
+    "content": "To enable CSV export in your table, follow these steps: The exported CSV includes all visible columns and respects active filters/sorting. Default\n          filename is\n          table-export.csv\n          . Customize with\n          \n            )`}\n          \n          . Create a table reference - Create a ref using\n            \n              useRef\n            \n            and pass it to the\n            \n              tableRef\n            \n            prop Add an export button - Create a button or trigger that calls the export\n            method Call exportToCSV() - Invoke\n            \n              tableRef.current?.exportToCSV()\n            \n            to download the CSV file ,\n    required: true,\n    description: React.RefObject<TableRefType> ,\n    required: false,\n    description: // Default filename\ntableRef.current?.exportToCSV();\n\n// Custom filename\ntableRef.current?.exportToCSV({ filename: >\n          tableRef\n        </code>{ >\n          exportToCSV()\n        </code>{ >\n          <li>\n            <strong>Create a table reference</strong> - Create a ref using{ >\n              useRef\n            </code>{ }\n            and pass it to the{ >\n              tableRef\n            </code>{ }\n            prop\n          </li>\n          <li>\n            <strong>Add an export button</strong> - Create a button or trigger that calls the export\n            method\n          </li>\n          <li>\n            <strong>Call exportToCSV()</strong> - Invoke{ >\n              tableRef.current?.exportToCSV()\n            </code>{ >\n          The exported CSV includes all visible columns and respects active filters/sorting. Default\n          filename is{ >table-export.csv</code>\n          . Customize with{ exportToCSV({ filename:",
+    "section": "Advanced Features",
+    "headings": [
+      "CSV Export (beta)"
+    ]
+  },
+  {
+    "id": "cell-clicking",
+    "path": "/docs/cell-clicking",
+    "title": "Cell Clicking Events in Simple Table React Grid",
+    "description": "Handle cell click events in your react-table with Simple Table. Add interactive cell behavior to your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "cell clicking",
+      "cell events",
+      "interactive table",
+      "cell interactions",
+      "typescript table",
+      "onclick handlers"
+    ],
+    "content": ",\n    required: false,\n    description: /docs/api-reference#cell-click-props , {\n    column: props.accessor,\n    value: props.value,\n    row: props.row,\n    position: [props.rowIndex, props.colIndex]\n  });\n  \n  // Different actions based on column\n  switch (props.accessor) {\n    case :\n      // Navigate to user profile\n      router.push(\\ );\n      break;\n    case :\n      // Toggle status\n      toggleStatus(props.row.id);\n      break;\n    case flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg",
+    "section": "Cell Features",
+    "headings": [
+      "Cell Clicking"
+    ]
+  },
+  {
+    "id": "cell-editing",
+    "path": "/docs/cell-editing",
+    "title": "Cell Editing with Simple Table React Grid",
+    "description": "Enable cell editing in your react-table with Simple Table. Add inline editing to your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "cell editing",
+      "editable table",
+      "typescript table",
+      "interactive table"
+    ],
+    "content": "To enable cell editing in Simple Table, you need to: Simple Table includes built-in copy-paste functionality that works seamlessly with cell\n            editing: When pasting data, only columns marked with\n              \n                isEditable: true\n              \n              will accept the pasted values. This ensures data integrity and prevents accidental\n              modification of read-only columns like IDs or calculated fields. Add the\n            \n              isEditable: true\n            \n            property to the columns you want to make editable Provide an\n            \n              onCellEdit\n            \n            handler to manage the data updates Users can copy data from any selected cells using keyboard shortcuts (Ctrl+C/⌘+C) Data can be pasted from external sources like spreadsheets or other applications Important: Pasting is only allowed into columns that have\n              \n                isEditable: true Non-editable columns will be skipped during paste operations HeaderObject.isEditable Makes a column editable, allowing users to modify cell values directly within the table interface. , \n  isEditable: true \n} ,\n    required: false,\n    description: /docs/api-reference#union-types // String editor (default text input)\n{ \n  accessor: ,\n  isEditable: true \n}\n\n// Number editor (numeric input with validation)\n{ \n  accessor: ,\n  isEditable: true \n}\n\n// Boolean editor (checkbox)\n{ \n  accessor: ,\n  isEditable: true \n}\n\n// Date editor (date picker)\n{ \n  accessor: ,\n  isEditable: true \n}\n\n// Enum editor (dropdown with options)\n{ \n  accessor: ,\n  isEditable: true,\n  enumOptions: [\n    { label: ,\n  },\n  {\n    key: /docs/api-reference#cell-change-props , props.accessor);\n  console.log( , props.newValue);\n  console.log( flex items-center gap-3 mb-6 p-2 bg-purple-100 rounded-lg text-purple-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          <li>\n            Add the{ >\n              isEditable: true\n            </code>{ }\n            property to the columns you want to make editable\n          </li>\n          <li>\n            Provide an{ >\n              onCellEdit\n            </code>{ >\n            <li>\n              Users can copy data from any selected cells using keyboard shortcuts (Ctrl+C/⌘+C)\n            </li>\n            <li>\n              Data can be pasted from external sources like spreadsheets or other applications\n            </li>\n            <li>\n              <strong>Important:</strong> Pasting is only allowed into columns that have{ >\n              When pasting data, only columns marked with{ >\n                isEditable: true\n              </code>{",
+    "section": "Cell Features",
+    "headings": [
+      "Cell Editing"
+    ]
+  },
+  {
+    "id": "cell-highlighting",
+    "path": "/docs/cell-highlighting",
+    "title": "Cell Highlighting in Simple Table React Grid",
+    "description": "Highlight cells in your react-table with Simple Table. Add selection to your datagrid or data table for better data analysis.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "cell highlighting",
+      "table selection",
+      "typescript table",
+      "data analysis"
+    ],
+    "content": "Enable cell selection by adding the\n          \n            selectableCells\n          \n          and\n          \n            selectableColumns\n          \n          props to your SimpleTable component. This enables users to select individual cells and\n          entire columns. When selection is enabled, users can: Cell selection supports powerful keyboard shortcuts for efficient navigation and\n          selection: Cell highlighting works seamlessly with Simple Table's built-in copy-paste functionality: When pasting data into your table, only columns marked with\n            \n              isEditable: true\n            \n            will accept the pasted values. Non-editable columns will be automatically skipped during\n            paste operations, ensuring data integrity and preventing accidental modification of\n            read-only fields like IDs or calculated values. Combine cell highlighting with column editing capabilities to create powerful data entry\n            workflows. Users can select ranges, copy from spreadsheets, and paste directly into\n            editable columns for efficient bulk data operations. Click on individual cells to select them Click on column headers to select entire columns Use keyboard shortcuts (Ctrl+C/⌘+C) to copy selected data Paste the data into spreadsheet applications Copy selected cells or ranges to the clipboard using Ctrl+C/⌘+C Paste data from external sources using Ctrl+V/⌘+V Data formatting is preserved when copying between tables and spreadsheet applications Multi-cell selection enables efficient bulk copy operations ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Enable cell selection by adding the{ >\n            selectableCells\n          </code>{ >\n            selectableColumns\n          </code>{ >\n          Cell highlighting works seamlessly with Simple Table list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 mb-4 bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6 font-bold text-gray-800 dark:text-white mb-2 text-gray-700 dark:text-gray-300 >\n              isEditable: true\n            </code>{",
+    "section": "Cell Features",
+    "headings": [
+      "Cell Highlighting"
+    ]
+  },
+  {
+    "id": "cell-renderer",
+    "path": "/docs/cell-renderer",
+    "title": "Custom Cell Renderers with Simple Table",
+    "description": "Create custom cell renderers for your react-table with Simple Table. Display rich content in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "cell renderer",
+      "custom table cells",
+      "typescript table",
+      "data visualization"
+    ],
+    "content": "Each column in your table can have its own\n          \n            cellRenderer\n          \n          function. This function receives information about the cell and returns either a ReactNode\n          or a string to be rendered in the cell. Use the\n            \n              row\n            \n            parameter to access any data from the current row, not just the current cell. This\n            allows you to create renderers that depend on multiple column values. The\n          \n            row\n          \n          parameter passed to your cell renderer is a flat object containing all the row's data: To access a specific cell value, use\n          \n            row[accessor]\n          \n          directly. The row object is flat and contains all the data for that row. Your\n          \n            cellRenderer\n          \n          function should return one of the following: String: A simple text value to display in the cell\n            \n              return \"Hello, world!\"; ReactNode: A React component for custom rendering\n            \n              \n                return &lt;div className=\"flex items-center\"&gt;&lt;span\n                className=\"mr-2\"&gt;⭐&lt;/span&gt; Custom Content&lt;/div&gt;; Each column can have its own unique renderer Columns without a cellRenderer will display their values as plain text Avoid expensive operations in cell renderers as they run frequently Consider memoizing complex components to improve performance HeaderObject.cellRenderer Custom function to render cell content. Receives cell information and returns either a ReactNode or string for display. }>\n        {status}\n      </span>\n    );\n  }\n} ,\n    required: true,\n    description: ,\n  },\n  {\n    key: /docs/api-reference#union-types \\${cellValue} - \\${otherValue}\\ >\n          Each column in your table can have its own{ >\n            cellRenderer\n          </code>{ >\n            Use the{ >\n              row\n            </code>{ >\n            row\n          </code>{ }\n          parameter passed to your cell renderer is a flat object containing all the row bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)] ,\n  dealSize: 15000,\n  isWon: true,\n  category: ],           // string array\n  teamMembers: [                          // object array\n    { name: >\n          To access a specific cell value, use{ >\n            row[accessor]\n          </code>{",
+    "section": "Cell Features",
+    "headings": [
+      "Cell Renderer",
+      "Cell Renderer Parameters",
+      "💡 Pro Tip",
+      "Important Notes"
+    ]
+  },
+  {
+    "id": "collapsible-columns",
+    "path": "/docs/collapsible-columns",
+    "title": "Collapsible Columns in Simple Table React Grid",
+    "description": "Create collapsible column groups in your react application with Simple Table. Organize complex data with expandable/collapsible headers in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "collapsible columns",
+      "column groups",
+      "expandable headers",
+      "nested columns",
+      "typescript table",
+      "space optimization"
+    ],
+    "content": "Collapsible columns are created by adding the\n          \n            collapsible: true\n          \n          property to a parent column with\n          \n            children\n          \n          columns. Users can click the arrow icon in the header to collapse the column group. Collapsible columns support different behaviors when collapsed: Control when child columns are visible using the\n              showWhen\n              attribute: showWhen: \"parentExpanded\" showWhen: \"parentCollapsed\" showWhen: \"always\" ,\n    required: false,\n    description: ,\n      collapsible: true,\n      children: [\n        { accessor: },\n        { accessor: }\n      ]\n    }\n  ]}\n  // ... other props\n/> (only visible when collapsed), (only visible when expanded), or (visible in both states). ,\n  collapsible: true,\n  children: [\n    {\n      accessor: // Visible in both states\n    },\n    {\n      accessor: // Only when collapsed\n    },\n    {\n      accessor: // Only when expanded\n    }\n  ]\n} />}\n  // ... other props\n/> flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Collapsible columns are created by adding the{ >\n            collapsible: true\n          </code>{ }\n          property to a parent column with{ >\n            children\n          </code>{ >\n              Control when child columns are visible using the{ >\n                    showWhen:",
+    "section": "Column Features",
+    "headings": [
+      "Collapsible Columns",
+      "Visibility Control"
+    ]
+  },
+  {
+    "id": "column-alignment",
+    "path": "/docs/column-alignment",
+    "title": "Column Alignment in Simple Table React Grid",
+    "description": "Align columns in your react-table with Simple Table. Ensure perfect layouts for your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column alignment",
+      "table layout",
+      "typescript table",
+      "responsive table"
+    ],
+    "content": "Control column alignment by setting the align property in your header\n          definitions: Consider these guidelines for optimal column alignment: Left-align text content such as names, descriptions, and other textual data for easier\n              reading. Right-align numbers, currencies, and percentages to make decimal points align\n              vertically. Match the header alignment with its column content for consistency. Center-align status badges, icons, and other indicator elements to create visual\n              focus. ,\n    required: false,\n    description: /docs/api-reference#union-types // Left alignment (default)\n{ \n  accessor: }\n\n// Center alignment for status indicators\n{ \n  accessor: }\n\n// Right alignment for numeric values\n{ \n  accessor:",
+    "section": "Column Features",
+    "headings": [
+      "Column Alignment",
+      "Text Content",
+      "Numeric Values",
+      "Headers",
+      "Status Indicators"
+    ]
+  },
+  {
+    "id": "column-editing",
+    "path": "/docs/column-editing",
+    "title": "Column Editing with Simple Table React Grid",
+    "description": "Edit columns dynamically in your react-table with Simple Table. Add, rename, and modify columns in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column editing",
+      "editable headers",
+      "dynamic columns",
+      "typescript table",
+      "table customization"
+    ],
+    "content": "To enable column editing in Simple Table, you can use several approaches: Enable column selection with\n            \n              selectableColumns=\n            \n            (required for column editing to work) Enable header editing with\n            \n              enableHeaderEditing= Provide an\n            \n              onHeaderEdit\n            \n            callback to handle header changes Use\n            \n              headerRenderer\n            \n            to add custom controls like \"Add Column\" buttons Manage column state dynamically to add or remove columns ,\n    required: true,\n    description: ,\n    required: false,\n    description: HeaderObject.headerRenderer Custom renderer for column headers. Can be used to add buttons, dropdowns, or other interactive elements to column headers. React.ComponentType<HeaderRendererProps> flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          <li>\n            <strong>Enable column selection</strong> with{ }\n            (required for column editing to work)\n          </li>\n          <li>\n            Enable header editing with{ >\n              onHeaderEdit\n            </code>{ }\n            callback to handle header changes\n          </li>\n          <li>\n            Use{ >\n              headerRenderer\n            </code>{ }\n            to add custom controls like",
+    "section": "Column Features",
+    "headings": [
+      "Column Editing"
+    ]
+  },
+  {
+    "id": "column-filtering",
+    "path": "/docs/column-filtering",
+    "title": "Column Filtering with Simple Table React Grid",
+    "description": "Add powerful filtering to your react-table with Simple Table. Smart filters for text, numbers, dates, and dropdowns in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column filtering",
+      "table filtering",
+      "data filtering",
+      "typescript table",
+      "search table"
+    ],
+    "content": "Column filtering is enabled by adding the\n          \n            filterable: true\n          \n          property to individual column headers. Each column can be independently configured for\n          filtering based on its data type. For advanced use cases, you can handle filtering externally - perfect for server-side\n          filtering, API integration, or custom filtering logic. This demo shows how to manage\n          filtering completely outside the table component with diverse data types and locations. External filtering provides two key benefits: For enum columns with more than 10 options, Simple Table automatically provides a search\n          input to help users quickly find and select the desired enum values. This improves\n          usability when dealing with large sets of enum options. API Integration: Use\n            \n              onFilterChange\n            \n            to trigger server-side filtering while keeping the table's UI filter controls. Complete Control: Use\n            \n              externalFilterHandling=\n            \n            to disable all internal filtering and provide your own pre-filtered data. HeaderObject.filterable Enable filtering for a specific column. Each column can be independently configured for filtering based on its data type. Simple Table provides intelligent filtering with different operators for each data type. // String column with filtering (8 operators)\n{ \n  accessor: ,\n  filterable: true \n}\n\n// Number column with filtering (10 operators)\n{ \n  accessor: ,\n  filterable: true \n}\n\n// Date column with filtering (8 operators)\n{ \n  accessor: ,\n  filterable: true \n}\n\n// Boolean column with filtering (3 operators)\n{ \n  accessor: ,\n  filterable: true \n}\n\n// Enum column with filtering (4 operators)\n// When more than 10 options, search input appears automatically\n{ \n  accessor: ,\n  filterable: true,\n  enumOptions: [\n    { label: ,\n    required: false,\n    description: /docs/api-reference#table-filter-state , filters);\n  // Make API call with filter parameters\n  // filters is an object where keys are unique filter IDs\n  // and values are FilterCondition objects\n}} externalFilterHandling When true, completely disables internal filtering logic. The table will not filter data internally - you must provide pre-filtered data via the rows prop. flex items-center gap-3 mb-6 p-2 bg-green-100 rounded-lg text-green-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Column filtering is enabled by adding the{ >\n            filterable: true\n          </code>{ >\n          <li>\n            <strong>API Integration:</strong> Use{ >\n              onFilterChange\n            </code>{ }\n            to trigger server-side filtering while keeping the table",
+    "section": "Column Features",
+    "headings": [
+      "Column Filtering"
+    ]
+  },
+  {
+    "id": "column-pinning",
+    "path": "/docs/column-pinning",
+    "title": "Column Pinning with Simple Table React Grid",
+    "description": "Pin columns in your react-table with Simple Table. Keep key data visible in your datagrid or data table while scrolling.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column pinning",
+      "sticky columns",
+      "typescript table",
+      "table navigation"
+    ],
+    "content": "To pin columns, simply add the\n          \n            pinned\n          \n          property to your header objects: ,\n    required: false,\n    description: /docs/api-reference#union-types // Pin to left side\n{ \n  accessor: ,\n  width: 80\n}\n\n// Pin to right side\n{ \n  accessor: >\n          To pin columns, simply add the{ >\n            pinned\n          </code>{",
+    "section": "Column Features",
+    "headings": [
+      "Column Pinning"
+    ]
+  },
+  {
+    "id": "column-reordering",
+    "path": "/docs/column-reordering",
+    "title": "Column Reordering in Simple Table React Grid",
+    "description": "Reorder columns in your react-table with Simple Table. Enable drag-and-drop in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column reordering",
+      "table customization",
+      "typescript table",
+      "user personalization"
+    ],
+    "content": "Column reordering is enabled by adding the\n          \n            columnReordering\n          \n          prop to the SimpleTable component. Users can drag and drop column headers to rearrange\n          them. The\n            \n              onColumnOrderChange\n            \n            callback is useful for saving user preferences. You can store the new column order in\n            localStorage or in your backend to persist the user's preferred layout across sessions. Column reordering works seamlessly with other Simple Table features. You can combine it\n          with column resizing, column visibility, and pinned columns to create a highly\n          customizable table experience. When using column reordering with pinned columns, pinned columns will remain in their\n            respective pinned areas (left or right) but can be reordered within those areas. ,\n    required: false,\n    description: , newHeaders);\n    // Save to localStorage or backend\n    localStorage.setItem( , JSON.stringify(newHeaders));\n  }}\n  // ... other props\n/> HeaderObject.disableReorder Prevents specific columns from being reordered. Set this on individual header objects to lock them in place. // This column cannot be reordered\n{ \n  accessor: , \n  disableReorder: true \n}\n\n// This column can be reordered normally\n{ \n  accessor: >\n          Column reordering is enabled by adding the{ >\n            columnReordering\n          </code>{ >\n              onColumnOrderChange\n            </code>{ }\n            callback is useful for saving user preferences. You can store the new column order in\n            localStorage or in your backend to persist the user text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 mb-4 bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm font-bold text-gray-800 dark:text-white mb-2 text-gray-700 dark:text-gray-300",
+    "section": "Column Features",
+    "headings": [
+      "Column Reordering",
+      "Tip",
+      "Best Practice"
+    ]
+  },
+  {
+    "id": "column-resizing",
+    "path": "/docs/column-resizing",
+    "title": "Column Resizing in Simple Table React Grid",
+    "description": "Resize columns in your react-table with Simple Table. Enable smooth drag-to-resize in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column resizing",
+      "table layout",
+      "typescript table",
+      "responsive table"
+    ],
+    "content": "Column resizing is enabled by adding the\n          \n            columnResizing\n          \n          prop to the SimpleTable component. Users can resize columns by dragging the column\n          dividers in the header row. ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Column resizing is enabled by adding the{ >\n            columnResizing\n          </code>{",
+    "section": "Column Features",
+    "headings": [
+      "Column Resizing"
+    ]
+  },
+  {
+    "id": "column-selection",
+    "path": "/docs/column-selection",
+    "title": "Column Selection in Simple Table React Grid",
+    "description": "Enable column selection in your react-table with Simple Table. Click to select columns in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column selection",
+      "selectable columns",
+      "interactive table",
+      "typescript table",
+      "column interaction"
+    ],
+    "content": "To enable column selection in Simple Table, you need to: Set the\n            \n              selectableColumns\n            \n            prop to\n            \n              true Provide an\n            \n              onColumnSelect\n            \n            callback function to handle selection events ,\n    required: false,\n    description: , header.label);\n  console.log( , header.accessor);\n  console.log( flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          <li>\n            Set the{ >\n              selectableColumns\n            </code>{ }\n            prop to{ >\n              true\n            </code>\n          </li>\n          <li>\n            Provide an{ >\n              onColumnSelect\n            </code>{",
+    "section": "Column Features",
+    "headings": [
+      "Column Selection"
+    ]
+  },
+  {
+    "id": "column-sorting",
+    "path": "/docs/column-sorting",
+    "title": "Column Sorting with Simple Table React Grid",
+    "description": "Sort columns in your react-table with Simple Table. Add powerful sorting to your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column sorting",
+      "table sorting",
+      "typescript table",
+      "data management"
+    ],
+    "content": "To enable sorting for a column, add the\n          \n            isSortable: true\n          \n          property to your column definition. For advanced use cases, you can handle sorting externally - perfect for server-side\n          sorting, API integration, or custom sorting logic. This demo shows how to manage sorting\n          completely outside the table component. External sorting provides two key benefits: API Integration: Use\n            \n              onSortChange\n            \n            to trigger server-side sorting while keeping the table's UI sorting indicators. Complete Control: Use\n            \n              externalSortHandling=\n            \n            to disable all internal sorting and provide your own pre-sorted data. HeaderObject.isSortable Enables sorting functionality for the column. When true, users can click the column header to sort data. , \n  isSortable: true \n} ,\n    required: false,\n    description: /docs/api-reference#sort-config );\n    // Make API call with sort parameters\n  }\n}} externalSortHandling When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop. flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          To enable sorting for a column, add the{ >\n            isSortable: true\n          </code>{ >\n          <li>\n            <strong>API Integration:</strong> Use{ >\n              onSortChange\n            </code>{ }\n            to trigger server-side sorting while keeping the table",
+    "section": "Column Features",
+    "headings": [
+      "Column Sorting"
+    ]
+  },
+  {
+    "id": "column-visibility",
+    "path": "/docs/column-visibility",
+    "title": "Column Visibility in Simple Table React Grid",
+    "description": "Control column visibility in your react-table with Simple Table. Show or hide columns in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column visibility",
+      "table customization",
+      "typescript table",
+      "data focus"
+    ],
+    "content": "Column visibility can be controlled using the\n          \n            hide\n          \n          property in the header objects and the\n          \n            editColumns\n          \n          prop on the SimpleTable component. ,\n    required: false,\n    description: // Hidden by default\n{ \n  accessor: , \n  hide: true \n}\n\n// Visible by default (default behavior)\n{ \n  accessor: ,\n  },\n  {\n    key: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          Column visibility can be controlled using the{ >\n            hide\n          </code>{ }\n          property in the header objects and the{ >\n            editColumns\n          </code>{",
+    "section": "Column Features",
+    "headings": [
+      "Column Visibility"
+    ]
+  },
+  {
+    "id": "column-width",
+    "path": "/docs/column-width",
+    "title": "Column Auto-Sizing in Simple Table React Grid",
+    "description": "Auto-size columns in your react-table with Simple Table. Use '1fr' for flexible column widths that adapt to available space in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "column width",
+      "auto-sizing",
+      "flexible columns",
+      "responsive width",
+      "1fr",
+      "column layout",
+      "typescript table",
+      "responsive table",
+      "adaptive columns"
+    ],
+    "content": "The width\n          property is required for every column and accepts two types of values: When you set\n          width: \"1fr\",\n          the column becomes flexible and shares the available space with other auto-sizing columns: If your table is 1000px wide with: Columns B and C each get: (1000px - 100px - 150px) / 2 = 375px each Auto-sizing columns automatically adapt when: Auto-sizing works great with column resizing! When users manually resize a column, the\n            other auto-sizing columns automatically adjust to fill or use the freed space. Try it in\n            the demo above by enabling column resizing. The table calculates total available space after subtracting all fixed-width columns Remaining space is divided equally among all columns with\n              \n                width: \"1fr\" Each auto-sizing column gets an equal share of the available space The\n              \n                minWidth\n              \n              property ensures columns don't shrink below a specified size Column A:\n              \n                width: 100\n              \n              (fixed) Column B:\n              \n                width: \"1fr\"\n              \n              (auto) Column C:\n              \n                width: \"1fr\"\n              \n              (auto) Column D:\n              \n                width: 150\n              \n              (fixed) The table container is resized Columns are hidden or shown Columns are reordered The viewport size changes ,\n    required: true,\n    description: for auto-sizing columns that share available space proportionally. /docs/api-reference#header-object // Fixed width in pixels\n{ \n  accessor: , \n  width: 60 \n}\n\n// Auto-sizing with ,\n  },\n  {\n    key: HeaderObject.minWidth Sets the minimum width constraint for auto-sizing columns (those using ). Prevents columns from becoming too narrow when space is limited. // Auto-sizing column with minimum width\n{ \n  accessor: ,\n  minWidth: 200  // Won >\n          When you set{ >\n            <li>\n              The table calculates total available space after subtracting all fixed-width columns\n            </li>\n            <li>\n              Remaining space is divided equally among all columns with{ >\n                width: </code>\n            </li>\n            <li>Each auto-sizing column gets an equal share of the available space</li>\n            <li>\n              The{ >\n                minWidth\n              </code>{ }\n              property ensures columns don bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-4 rounded-lg font-semibold text-gray-800 dark:text-white mb-2 text-gray-700 dark:text-gray-300 mb-2 list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2 >\n                width: 100\n              </code>{ }\n              (fixed)\n            </li>\n            <li>\n              Column B:{ </code>{ }\n              (auto)\n            </li>\n            <li>\n              Column C:{ }\n              (auto)\n            </li>\n            <li>\n              Column D:{ >\n                width: 150\n              </code>{",
+    "section": "Column Features",
+    "headings": [
+      "Column Auto-Sizing",
+      "How \"1fr\" Works",
+      "Example Calculation",
+      "Pro Tip"
+    ]
+  },
+  {
+    "id": "custom-icons",
+    "path": "/docs/custom-icons",
+    "title": "Custom Icons in Simple Table React Grid",
+    "description": "Add custom icons to your react-table with Simple Table. Personalize your datagrid or data table with TypeScript support and responsive design.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "custom icons",
+      "table customization",
+      "typescript table",
+      "ui design"
+    ],
+    "content": "To customize the icons in Simple Table, pass your custom icon components to the respective\n          props. You can use any icon library like Font Awesome, Material Icons, or your own custom\n          SVG icons. Keep icon sizes consistent for a polished look Use colors that match your application's theme Ensure icons are clear and intuitive for their purpose For row grouping, choose expandIcon that clearly indicate the expand/collapse state Consider using the same icon family throughout your application Test your icons for visibility against different background colors ,\n    required: false,\n    description: />}\n  // ... other props\n/> flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          <li>Keep icon sizes consistent for a polished look</li>\n          <li>Use colors that match your application",
+    "section": "Customization",
+    "headings": [
+      "Custom Icons"
+    ]
+  },
+  {
+    "id": "custom-theme",
+    "path": "/docs/custom-theme",
+    "title": "Custom Themes for Simple Table React Grid",
+    "description": "Create custom themes for your react-table with Simple Table. Style your datagrid or data table with TypeScript support and responsive design.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "custom theme",
+      "table styling",
+      "typescript table",
+      "responsive design"
+    ],
+    "content": "To create a custom theme for Simple Table, follow these steps: Here are the CSS variables used to create the custom theme in the demo above: Create a CSS file with your theme variables using the\n            \n              .theme-custom\n            \n            class Import the CSS file into your application Apply the theme by passing\n            \n              theme=\"custom\"\n            \n            to the SimpleTable component Use the\n              \n                .theme-custom\n              \n              class to define your custom theme Define CSS variables with the\n              \n                --st-\n              \n              prefix Customize colors, spacing, fonts, and transitions Use direct hex values or color variables for consistent styling Test your theme with different features like column resizing and cell selection ,\n    required: false,\n    description: to apply your custom CSS theme. Requires a corresponding CSS file with .theme-custom class and CSS variables. /docs/api-reference#union-types // ... other props\n/>\n\n// With custom CSS file containing:\n// .theme-custom {\n//   --st-primary-color: #your-color;\n//   --st-background-color: #your-bg;\n//   /* ... other CSS variables */\n// } flex items-center gap-3 mb-6 p-2 bg-green-100 rounded-lg text-green-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          <li>\n            Create a CSS file with your theme variables using the{ >\n              .theme-custom\n            </code>{ }\n            class\n          </li>\n          <li>Import the CSS file into your application</li>\n          <li>\n            Apply the theme by passing{ </code>{ >\n            <li>\n              Use the{ >\n                .theme-custom\n              </code>{ }\n              class to define your custom theme\n            </li>\n            <li>\n              Define CSS variables with the{ >\n                --st-\n              </code>{ custom-theme/CustomTheme.txt",
+    "section": "Customization",
+    "headings": [
+      "Custom Theme",
+      "Theme Variable Tips"
+    ]
+  },
+  {
+    "id": "footer-renderer",
+    "path": "/docs/footer-renderer",
+    "title": "Custom Footer Renderers with Simple Table",
+    "description": "Create custom footer renderers for your react-table with Simple Table. Build custom pagination controls and footer UI for your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "footer renderer",
+      "custom footer",
+      "table footer",
+      "pagination footer",
+      "typescript table",
+      "footer customization"
+    ],
+    "content": "The\n          \n            footerRenderer\n          \n          prop accepts a function that receives pagination state and navigation handlers, returning\n          a custom ReactNode to display in the footer area. This completely replaces the default\n          footer. Use the\n            \n              hasPrevPage\n            \n            and\n            \n              hasNextPage\n            \n            properties to properly disable navigation buttons when users reach the first or last\n            page. This provides better UX feedback and prevents unnecessary navigation attempts. Footer renderers are ideal for various scenarios: Custom pagination styles - Match your application&apos;s design system\n            with branded pagination controls Summary statistics - Display totals, averages, or other aggregated\n            metrics alongside pagination Row info display - Show detailed information about visible rows and\n            total dataset size Action buttons - Add export, refresh, or other bulk action buttons in\n            the footer area Advanced navigation - Implement jump-to-page inputs, page size\n            selectors, or other custom navigation controls The footer renderer completely replaces the default footer when provided Page numbers are 1-based (first page is 1, not 0) The\n              \n                onNextPage\n              \n              function is async and returns a Promise Make sure to handle the\n              \n                hasPrevPage\n              \n              and\n              \n                hasNextPage\n              \n              flags to disable navigation when appropriate ,\n    required: false,\n    description: ,\n    required: true,\n    description: flex items-center gap-3 mb-6 p-2 bg-indigo-100 rounded-lg text-indigo-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white >\n            footerRenderer\n          </code>{ >\n            Use the{ >\n              hasPrevPage\n            </code>{ >\n              hasNextPage\n            </code>{ >\n            <li>The footer renderer completely replaces the default footer when provided</li>\n            <li>Page numbers are 1-based (first page is 1, not 0)</li>\n            <li>\n              The{ >\n                onNextPage\n              </code>{ }\n              function is async and returns a Promise\n            </li>\n            <li>\n              Make sure to handle the{ >\n                hasPrevPage\n              </code>{ }\n              and{ >\n                hasNextPage\n              </code>{",
+    "section": "Advanced Features",
+    "headings": [
+      "Footer Renderer",
+      "💡 Pro Tip",
+      "Important Notes"
+    ]
+  },
+  {
+    "id": "header-renderer",
+    "path": "/docs/header-renderer",
+    "title": "Custom Header Renderers with Simple Table",
+    "description": "Create custom header renderers for your react-table with Simple Table. Style column headers with custom designs, icons, and interactive elements.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "header renderer",
+      "custom headers",
+      "table headers",
+      "typescript table",
+      "header customization"
+    ],
+    "content": "Each column in your table can have its own\n          \n            headerRenderer\n          \n          function. This function receives information about the header and returns either a\n          ReactNode or a string to be rendered in the header cell. Use the\n            \n              header\n            \n            parameter to access all column configuration properties, including label, width,\n            sortable status, and more. This allows you to create dynamic headers that adapt based on\n            column settings. HeaderObject.headerRenderer Custom function to render header content. Receives header information and returns either a ReactNode or string for display. , \n        padding: ,\n        borderRadius: }}>\n        🌟 {header.label}\n      </div>\n    );\n  }\n} ,\n    required: true,\n    description: /docs/api-reference#union-types ,\n  },\n  {\n    key: /docs/api-reference#header-object , etc.\n  console.log(header.width); // 150, , etc.\n  return <div>{header.label}</div>;\n} flex items-center gap-3 mb-6 p-2 bg-purple-100 rounded-lg text-purple-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white >\n          Each column in your table can have its own{ >\n            headerRenderer\n          </code>{ >\n            Use the{ >\n              header\n            </code>{",
+    "section": "Advanced Features",
+    "headings": [
+      "Header Renderer",
+      "Header Renderer Parameters",
+      "💡 Pro Tip"
+    ]
+  },
+  {
+    "id": "infinite-scroll",
+    "path": "/docs/infinite-scroll",
+    "title": "Infinite Scroll with Simple Table React Grid",
+    "description": "Add infinite scroll to your react-table with Simple Table. Load more data on scroll in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "infinite scroll",
+      "load more data",
+      "lazy loading",
+      "typescript table",
+      "large datasets"
+    ],
+    "content": "To enable infinite scroll in your table, follow these steps: SimpleTable's infinite scroll implementation: Set a fixed height - Use the\n            \n              height\n            \n            prop to create a scrollable container Implement the callback - Create an\n            \n              onLoadMore\n            \n            function that fetches additional data Update state - Append new data to your existing rows array Scroll Detection - Monitors scroll position within the table container Threshold Triggering - Calls\n            \n              onLoadMore\n            \n            when user scrolls near the bottom (typically 100px before the end) Debouncing - Prevents multiple simultaneous requests by debouncing the\n            scroll event Smooth Integration - New data is seamlessly appended to the existing\n            table ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-purple-100 rounded-lg text-purple-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white >\n          <li>\n            <strong>Set a fixed height</strong> - Use the{ >\n              height\n            </code>{ }\n            prop to create a scrollable container\n          </li>\n          <li>\n            <strong>Implement the callback</strong> - Create an{ >\n              onLoadMore\n            </code>{ >\n          SimpleTable list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300 mb-6",
+    "section": "Advanced Features",
+    "headings": [
+      "Infinite Scroll"
+    ]
+  },
+  {
+    "id": "installation",
+    "path": "/docs/installation",
+    "title": "Install Simple Table: React Data Grid Setup",
+    "description": "Install Simple Table in your React app in minutes. A 16 kB react-table for datagrids and data tables with TypeScript support and npm setup.",
+    "keywords": [
+      "simple-table",
+      "simple-table-core",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "installation",
+      "npm setup",
+      "typescript table"
+    ],
+    "content": "Simple Table requires the following peer dependencies: React 16.8+ (Hooks support) ${TECHNICAL_STRINGS.installation.npm} ${TECHNICAL_STRINGS.installation.yarn} ${TECHNICAL_STRINGS.installation.pnpm}",
+    "section": "Getting Started",
+    "headings": [
+      "Installation"
+    ]
+  },
+  {
+    "id": "live-update",
+    "path": "/docs/live-update",
+    "title": "Simple Table Documentation",
+    "description": "Documentation for Simple Table React Grid",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "documentation"
+    ],
+    "content": "To enable live updates in your table, follow these steps: The\n          \n            TableRefType\n          \n          provides methods to interact with the table. Currently, it offers the\n          \n            updateData\n          \n          method: When\n          \n            cellUpdateFlash\n          \n          is enabled, cells will momentarily highlight when their value changes, providing a subtle\n          visual cue to users: Live updates are particularly valuable in these scenarios: Create a table reference - Create a ref using\n            \n              useRef\n            \n            and pass it to the\n            \n              tableRef\n            \n            prop Enable flash animation - Set the\n            \n              cellUpdateFlash\n            \n            prop to\n            \n              true\n            \n            to enable visual feedback on cell updates Update data - Call\n            \n              tableRef.current.updateData()\n            \n            with the appropriate parameters to update specific cells When updating cells, remember to also update your local state to keep it in sync with\n              the table The flash effect is subtle by design to avoid distracting users with too much motion Updates are best used for small, incremental changes rather than complete table\n              refreshes Financial dashboards - Display real-time stock price changes and trades Inventory management - Show live updates as items are purchased or\n            restocked Analytics dashboards - Present data metrics that update as new\n            information arrives Sports statistics - Display live game scores and player statistics IoT monitoring - Show sensor readings that update in real-time ,\n    required: false,\n    description: React.RefObject<TableRefType> ,\n    required: true,\n    description: tableRef.current?.updateData({\n  accessor: ,\n  rowIndex: 2,\n  newValue: 29.99\n}); ,\n  rowIndex: 0,  // First row\n  newValue: ,\n  },\n  {\n    key: // Update with string\ntableRef.current?.updateData({\n  accessor: ,\n  rowIndex: 1,\n  newValue: });\n\n// Update with number\ntableRef.current?.updateData({\n  accessor: ,\n  rowIndex: 3,\n  newValue: 42\n}); flex items-center gap-3 mb-6 p-2 bg-indigo-100 rounded-lg text-indigo-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white >\n          tableRef\n        </code>{ >\n          updateData\n        </code>{ }\n        API, you can update individual cells with smooth visual feedback through the{ >\n          cellUpdateFlash\n        </code>{ >\n          <li>\n            <strong>Create a table reference</strong> - Create a ref using{ >\n              useRef\n            </code>\n            and pass it to the{ >\n              tableRef\n            </code>{ }\n            prop\n          </li>\n          <li>\n            <strong>Enable flash animation</strong> - Set the{ >\n              cellUpdateFlash\n            </code>{ }\n            prop to{ >\n              true\n            </code>{ }\n            to enable visual feedback on cell updates\n          </li>\n          <li>\n            <strong>Update data</strong> - Call{ >\n            TableRefType\n          </code>{ }\n          provides methods to interact with the table. Currently, it offers the{ >\n            updateData\n          </code>{ ,\n    rowIndex: 0,\n    newValue: 25.99\n  });\n  \n  // Update third row\n  tableRef.current?.updateData({\n    accessor: , \n    rowIndex: 2,\n    newValue: >\n            cellUpdateFlash\n          </code>{ bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6 font-bold text-gray-800 dark:text-white mb-2 list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300 text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 mb-4 list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300 mb-6",
+    "section": "Documentation",
+    "headings": [
+      "Live Updates",
+      "Important Notes"
+    ]
+  },
+  {
+    "id": "nested-headers",
+    "path": "/docs/nested-headers",
+    "title": "Nested Headers in Simple Table React Grid",
+    "description": "Add nested headers to your react-table with Simple Table. Organize complex data in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "nested headers",
+      "table structure",
+      "typescript table",
+      "data hierarchy"
+    ],
+    "content": "To create nested headers, add a\n          \n            children\n          \n          array to your parent header object, containing the child column definitions: Parent headers serve as container columns and typically don't display cell data Child columns can have all the same properties as regular columns (sorting, filtering,\n              custom renderers, etc.) You can have multiple levels of nesting by adding children to child columns Width of the parent column will automatically adjust to fit all child columns Grouped Data Categories: Organize related columns like \"Personal\n            Information\", \"Contact Details\", etc. Time-based Data: Group columns by time periods (Q1, Q2, Q3, Q4) with\n            child columns for specific metrics Financial Reports: Group columns for \"Revenue\", \"Expenses\", \"Profit\"\n            with subcategories Test Scores: As shown in the example, group different subject scores\n            under a single parent HeaderObject.children Array of child column definitions that will be grouped under this parent header. Creates a hierarchical column structure. /docs/api-reference#header-object // Parent header with child columns\n{\n  label: ,\n  children: [\n    { \n      accessor: , \n      width: 80,\n      type: },\n    { \n      accessor: >\n          To create nested headers, add a{ >\n            children\n          </code>{ >\n            <li>Parent headers serve as container columns and typically don text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300 Personal\n            Information , etc.\n          </li>\n          <li>\n            <strong>Time-based Data:</strong> Group columns by time periods (Q1, Q2, Q3, Q4) with\n            child columns for specific metrics\n          </li>\n          <li>\n            <strong>Financial Reports:</strong> Group columns for",
+    "section": "Column Features",
+    "headings": [
+      "Nested Headers",
+      "Key Points About Nested Headers"
+    ]
+  },
+  {
+    "id": "pagination",
+    "path": "/docs/pagination",
+    "title": "Pagination with Simple Table React Data Grid",
+    "description": "Add pagination to your react-table with Simple Table. Manage large datasets in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "pagination",
+      "large datasets",
+      "typescript table",
+      "data navigation"
+    ],
+    "content": "To enable pagination in Simple Table, you need to add the\n          \n            shouldPaginate\n          \n          prop to your SimpleTable component. This will automatically handle pagination of your\n          data. When pagination is enabled, Simple Table provides: For large datasets, you can implement server-side pagination where data is fetched from\n          the server one page at a time. This improves performance by only loading the data needed\n          for the current page. To enable server-side pagination, use these props: When using server-side pagination, make sure to update your\n            \n              rows\n            \n            prop with the new page data inside your\n            \n              onPageChange\n            \n            callback. The table will display whatever data you provide in the\n            \n              rows\n            \n            prop. When pagination is enabled without a specified height, the table will automatically\n            adjust to show all rows on the current page with visible overflow (no internal\n            scrolling). This provides a cleaner user experience for paginated data. While Simple Table provides a default pagination footer, you can completely customize its\n          appearance and functionality using the\n          \n            footerRenderer\n          \n          prop. This allows you to: Learn how to create custom pagination footers with complete control over appearance and\n            behavior. Visit the\n            \n              Footer Renderer\n            \n            documentation for detailed examples and API reference. Automatic page navigation controls Page size selection Current page indicator Total pages display serverSidePagination=\"}\n            \n            - Disables internal pagination slicing totalRowCount=\"}\n            \n            - Total rows available on the server onPageChange=`}\n            \n            - Callback to fetch data for the new page Match your application&apos;s design system Add custom pagination controls and navigation Display summary statistics or totals Include action buttons or additional functionality ,\n    required: false,\n    description: serverSidePagination Flag to disable internal pagination slicing. When true, the table expects you to provide pre-paginated data via the rows prop. flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          To enable pagination in Simple Table, you need to add the{ >\n            shouldPaginate\n          </code>{ }\n            </code>{ >\n            When using server-side pagination, make sure to update your{ >\n              rows\n            </code>{ }\n            prop with the new page data inside your{ >\n              onPageChange\n            </code>{ }\n            callback. The table will display whatever data you provide in the{ >\n          While Simple Table provides a default pagination footer, you can completely customize its\n          appearance and functionality using the{ >\n            footerRenderer\n          </code>{ >\n            Learn how to create custom pagination footers with complete control over appearance and\n            behavior. Visit the{ >\n              Footer Renderer\n            </a>{",
+    "section": "Advanced Features",
+    "headings": [
+      "Pagination",
+      "💡 Advanced Customization"
+    ]
+  },
+  {
+    "id": "quick-start",
+    "path": "/docs/quick-start",
+    "title": "Quick Start with Simple Table React Grid",
+    "description": "Get started with Simple Table in React in 5 minutes. A 16 kB react-table for datagrids and data tables with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "simple-table-core",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "quick start",
+      "typescript table",
+      "setup guide"
+    ],
+    "content": "Simple Table automatically handles the styling of alternating rows, borders, and hover\n          states. You can customize these later with themes, but the defaults look great out of the\n          box! ,\n    required: true,\n    description: /docs/api-reference#header-object ,\n  },\n  {\n    key: /docs/api-reference#union-types , age: 30 },\n  { id: 2, name: // If your data has an ,\n    required: false,\n    description: ,\n  backgroundColor:",
+    "section": "Getting Started",
+    "headings": [
+      "Quick Start",
+      "Pro Tip"
+    ]
+  },
+  {
+    "id": "row-grouping",
+    "path": "/docs/row-grouping",
+    "title": "Row Grouping in Simple Table React Grid",
+    "description": "Group rows in your react-table with Simple Table. Organize hierarchical data in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "row grouping",
+      "hierarchical data",
+      "typescript table",
+      "data organization"
+    ],
+    "content": "To enable row grouping in Simple Table, you need to: Your data should be structured as flat objects with nested arrays for hierarchical\n          relationships. Each level of the hierarchy is defined by an array property containing\n          child objects: The\n          \n            rowGrouping\n          \n          prop determines how many levels of hierarchy to display. Here are different\n          configurations: Companies can expand to show divisions, but departments remain hidden. Full hierarchy with companies containing divisions containing departments. Shows only top-level items (companies) as a flat list. The array order in\n            \n              rowGrouping\n            \n            defines the hierarchy depth.\n            \n              [\"divisions\", \"departments\"]\n            \n            means divisions are level 1 and departments are level 2 under each division. Add the\n            \n              expandable: true\n            \n            property to the column you want to use for grouping Structure your data with nested arrays containing child objects Use the\n            \n              rowGrouping\n            \n            prop to specify which array properties define the hierarchy Add\n            \n              expandAll\n            \n            to specify if all grouped rows are expanded by default on table load Intuitive data structure: Nested arrays naturally represent\n              hierarchical relationships Flexible grouping: Support for multiple levels of nesting (companies\n              → divisions → departments) Clean API: No complex wrapper objects or metadata required Type-safe: Works seamlessly with TypeScript for better development\n              experience HeaderObject.expandable Makes a column expandable for grouping. This allows users to expand/collapse hierarchical data in that column. , \n  expandable: true \n} ,\n    required: false,\n    description: ]}\n  // ... other props\n/> flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg flex flex-col gap-4 mb-8 >\n          <li>\n            Add the{ >\n              expandable: true\n            </code>{ }\n            property to the column you want to use for grouping\n          </li>\n          <li>Structure your data with nested arrays containing child objects</li>\n          <li>\n            Use the{ >\n              rowGrouping\n            </code>{ }\n            prop to specify which array properties define the hierarchy\n          </li>\n\n          <li>\n            Add{ >\n              expandAll\n            </code>{ >\n            rowGrouping\n          </code>{ >\n            The array order in{ }\n            defines the hierarchy depth.{ ]\n            </code>{",
+    "section": "Row Features",
+    "headings": [
+      "Row Grouping",
+      "Benefits of This Approach",
+      "💡 Pro Tip"
+    ]
+  },
+  {
+    "id": "row-height",
+    "path": "/docs/row-height",
+    "title": "Row Height in Simple Table React Grid",
+    "description": "Adjust row height in your react-table with Simple Table. Customize your datagrid or data table with TypeScript support and responsive design.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "row height",
+      "table layout",
+      "typescript table",
+      "responsive table"
+    ],
+    "content": "You can specify the height of rows in a Simple Table using the\n          \n            rowHeight\n          \n          property. This property accepts a numeric value representing the height in pixels. ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          You can specify the height of rows in a Simple Table using the{ >\n            rowHeight\n          </code>{",
+    "section": "Row Features",
+    "headings": [
+      "Row Height"
+    ]
+  },
+  {
+    "id": "row-selection",
+    "path": "/docs/row-selection",
+    "title": "Row Selection in Simple Table React Grid",
+    "description": "Add row selection to your react-table with Simple Table. Enable bulk operations and multi-row interactions in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "row selection",
+      "multi-select",
+      "bulk operations",
+      "checkbox selection",
+      "typescript table",
+      "interactive table"
+    ],
+    "content": "Enable row selection by adding the\n          \n            enableRowSelection\n          \n          prop to your SimpleTable component. This adds checkboxes to each row and the header for\n          easy selection management. When row selection is enabled, users can: Use the\n          \n            onRowSelectionChange\n          \n          callback to respond to selection changes and implement your business logic: ) => \\`);\n  } else \\`);\n  }\n  \n  // Convert Set to Array for further processing\n  const selectedRowsArray = Array.from(selectedRows);\n  console.log(\\`Total selected: \\$\\`);\n  \n  // Implement your business logic here\n  handleBulkOperations(selectedRowsArray);\n};`}\n          \n        \n      \n\n      \n      \n        Common Use Cases\n      \n\n      \n        \n          Row selection is essential for many interactive table scenarios: The\n            \n              selectedRows\n            \n            parameter uses a Set for optimal performance when dealing with large datasets. Convert\n            to an Array only when needed for your specific operations. Row selection checkboxes are fully accessible with proper ARIA labels and keyboard\n            navigation support. Users can navigate using Tab/Shift+Tab and select/deselect using\n            Space or Enter keys. Click individual row checkboxes to select/deselect specific rows Click the header checkbox to select or deselect all rows at once Use keyboard navigation to interact with checkboxes Maintain selection state during sorting, filtering, and pagination Bulk Operations: Delete, update, or process multiple records\n            simultaneously Data Export: Allow users to select specific rows for export to CSV,\n            Excel, or other formats Batch Actions: Apply actions like status changes, category assignments,\n            or approvals to multiple items Comparison Views: Select multiple items to compare their properties\n            side-by-side Workflow Management: Move selected items through different stages of a\n            process ,\n    required: false,\n    description: onRowSelectionChange Callback function triggered when row selection changes. Receives information about the selected row and current selection state. , { row, isSelected, selectedRows });\n  }}\n  // ... other props\n/> ,\n    required: true,\n    description: props.row // { id: 1, name: ,\n  },\n  {\n    key: props.isSelected // true or false props.selectedRows // Set([ >\n          Enable row selection by adding the{ >\n            enableRowSelection\n          </code>{ >\n          Use the{ >\n            onRowSelectionChange\n          </code>{ >\n            <code>{ Selected: \\${row.name}\\ Deselected: \\${row.name}\\ Total selected: \\${selectedRowsArray.length}\\ >\n              selectedRows\n            </code>{",
+    "section": "Row Features",
+    "headings": [
+      "Row Selection"
+    ]
+  },
+  {
+    "id": "themes",
+    "path": "/docs/themes",
+    "title": "Themes for Simple Table React Data Grid",
+    "description": "Explore themes for your react-table with Simple Table. Style your datagrid or data table with light, dark, or custom themes using TypeScript.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "table themes",
+      "table styling",
+      "typescript table",
+      "responsive design"
+    ],
+    "content": "To apply a theme to Simple Table, simply pass the\n          \n            theme\n          \n          prop with one of the available theme options: In addition to themes, Simple Table provides several boolean flags that control specific\n          aspects of table appearance: You can use these flags together with any theme to control the visual presentation of your\n          table: When creating custom themes, you can customize the colors used for these styling\n            features using CSS variables like\n            \n              --st-hover-row-background-color\n            \n            and\n            \n              --st-odd-row-background-color\n            \n            . See the\n            \n              Custom Theme\n            \n            documentation for details. ,\n    required: false,\n    description: /docs/api-reference#union-types // ... other props\n/> useHoverRowBackground Enables a background color change when hovering over a row. This provides better visual feedback for users when interacting with the table. useOddEvenRowBackground Applies alternating background colors to odd and even rows. This makes it easier to distinguish between adjacent rows, especially in tables with many columns. useOddColumnBackground Applies alternating background colors to odd and even columns. This can help differentiate between adjacent columns in tables with many columns or narrow columns. >\n          To apply a theme to Simple Table, simply pass the{ >\n            theme\n          </code>{ simple-table-core/styles.css bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6 font-bold text-gray-800 dark:text-white mb-2 text-gray-700 dark:text-gray-300 >\n              --st-hover-row-background-color\n            </code>{ >\n              --st-odd-row-background-color\n            </code>\n            . See the{ >\n              Custom Theme\n            </a>{",
+    "section": "Customization",
+    "headings": [
+      "Themes",
+      "Tip"
+    ]
+  },
+  {
+    "id": "tooltip",
+    "path": "/docs/tooltip",
+    "title": "Simple Table Documentation",
+    "description": "Documentation for Simple Table React Grid",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "documentation"
+    ],
+    "content": "To add a tooltip to a column header, simply include the\n          \n            tooltip\n          \n          property in your column definition. The tooltip will appear when users hover over the\n          column header. HeaderObject.tooltip Tooltip text that appears when hovering over the column header. Provides helpful context about the column Current retail price in USD >\n          To add a tooltip to a column header, simply include the{ >\n            tooltip\n          </code>{",
+    "section": "Documentation",
+    "headings": [
+      "Tooltips"
+    ]
+  }
+]
