@@ -36,6 +36,49 @@ const PAGINATION_PROPS: PropInfo[] = [
 />`,
   },
   {
+    key: "onPageChange",
+    name: "onPageChange",
+    required: false,
+    description:
+      "Callback function triggered when page changes. Useful for server-side pagination to fetch data for the new page.",
+    type: "(page: number) => void | Promise<void>",
+    example: `<SimpleTable
+  shouldPaginate={true}
+  onPageChange={async (page) => {
+    const data = await fetchPageData(page);
+    setRows(data);
+  }}
+  // ... other props
+/>`,
+  },
+  {
+    key: "serverSidePagination",
+    name: "serverSidePagination",
+    required: false,
+    description:
+      "Flag to disable internal pagination slicing. When true, the table expects you to provide pre-paginated data via the rows prop.",
+    type: "boolean",
+    example: `<SimpleTable
+  shouldPaginate={true}
+  serverSidePagination={true}
+  // ... other props
+/>`,
+  },
+  {
+    key: "totalRowCount",
+    name: "totalRowCount",
+    required: false,
+    description:
+      "Total number of rows available on the server (for server-side pagination). Used to calculate total pages.",
+    type: "number",
+    example: `<SimpleTable
+  shouldPaginate={true}
+  serverSidePagination={true}
+  totalRowCount={1000}
+  // ... other props
+/>`,
+  },
+  {
     key: "onNextPage",
     name: "onNextPage",
     required: false,
@@ -149,13 +192,87 @@ const PaginationContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
       >
-        Customizing the Footer
+        Server-Side Pagination
       </motion.h2>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          For large datasets, you can implement server-side pagination where data is fetched from
+          the server one page at a time. This improves performance by only loading the data needed
+          for the current page.
+        </p>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          To enable server-side pagination, use these props:
+        </p>
+
+        <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
+          <li>
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              serverSidePagination={"{true}"}
+            </code>{" "}
+            - Disables internal pagination slicing
+          </li>
+          <li>
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              totalRowCount={"{number}"}
+            </code>{" "}
+            - Total rows available on the server
+          </li>
+          <li>
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              onPageChange={`(page) => {...}`}
+            </code>{" "}
+            - Callback to fetch data for the new page
+          </li>
+        </ul>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">Pro Tip</h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            When using server-side pagination, make sure to update your{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              rows
+            </code>{" "}
+            prop with the new page data inside your{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              onPageChange
+            </code>{" "}
+            callback. The table will display whatever data you provide in the{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              rows
+            </code>{" "}
+            prop.
+          </p>
+        </div>
+
+        <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">Overflow Behavior</h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            When pagination is enabled without a specified height, the table will automatically
+            adjust to show all rows on the current page with visible overflow (no internal
+            scrolling). This provides a cleaner user experience for paginated data.
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
+      >
+        Customizing the Footer
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.0 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           While Simple Table provides a default pagination footer, you can completely customize its

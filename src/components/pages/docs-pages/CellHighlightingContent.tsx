@@ -137,6 +137,73 @@ const CellHighlightingContent = () => {
         </ul>
       </motion.div>
 
+      {/* Keyboard Navigation Section */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
+      >
+        Keyboard Navigation
+      </motion.h2>
+
+      <motion.div
+        className="mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.66 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Cell selection supports powerful keyboard shortcuts for efficient navigation and
+          selection:
+        </p>
+        <div className="space-y-3">
+          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
+            <div className="grid grid-cols-[auto,1fr] gap-x-4 gap-y-3">
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Shift + Arrow Keys
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">
+                Extend selection in the direction of the arrow
+              </div>
+
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Ctrl/⌘ + A
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">Select all cells</div>
+
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Ctrl/⌘ + Shift + Arrow Keys
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">
+                Extend selection to edge of data region
+              </div>
+
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Home / End
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">
+                Navigate to first/last column in current row
+              </div>
+
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Ctrl/⌘ + Home / End
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">
+                Navigate to first/last cell in table
+              </div>
+
+              <div className="font-mono text-sm bg-gray-200 dark:bg-gray-700 px-2 py-1 rounded text-gray-800 dark:text-gray-200">
+                Page Up / Page Down
+              </div>
+              <div className="text-gray-700 dark:text-gray-300">
+                Navigate up/down by visible page
+              </div>
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       {/* Copy-Paste Integration Section */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"

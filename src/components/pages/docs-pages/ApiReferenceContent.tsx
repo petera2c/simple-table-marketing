@@ -520,6 +520,37 @@ rowHeight={48}`,
     example: `rowsPerPage={25}`,
   },
   {
+    key: "onPageChange",
+    name: "onPageChange",
+    required: false,
+    description:
+      "Callback function triggered when page changes. Useful for server-side pagination to fetch data for the new page.",
+    type: "(page: number) => void | Promise<void>",
+    example: `onPageChange={async (page) => {
+  console.log('Loading page:', page);
+  const newData = await fetchPageData(page);
+  setRows(newData);
+}}`,
+  },
+  {
+    key: "serverSidePagination",
+    name: "serverSidePagination",
+    required: false,
+    description:
+      "Flag to disable internal pagination slicing. When true, the table expects you to provide pre-paginated data via the rows prop and handle pagination externally.",
+    type: "boolean",
+    example: `serverSidePagination={true}`,
+  },
+  {
+    key: "totalRowCount",
+    name: "totalRowCount",
+    required: false,
+    description:
+      "Total number of rows available on the server (for server-side pagination). Used to calculate total pages and display correct pagination information.",
+    type: "number",
+    example: `totalRowCount={1000} // When showing 25 rows per page`,
+  },
+  {
     key: "selectableCells",
     name: "selectableCells",
     required: false,

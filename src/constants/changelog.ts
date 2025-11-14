@@ -11,6 +11,39 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_7_0: ChangelogEntry = {
+  version: "1.7.0",
+  date: "2025-11-13",
+  title: "Server-Side Pagination and Enhanced Cell Selection",
+  description:
+    "Major update adding server-side pagination support and keyboard navigation for cell selection. Improved cell selection scrolling behavior and pagination overflow handling.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added server-side pagination support with new props: onPageChange, serverSidePagination, and totalRowCount",
+      link: "/docs/pagination",
+    },
+    {
+      type: "feature",
+      description:
+        "Enable cell selection using keyboard shortcuts (Shift + Arrow keys, Ctrl/Cmd + A, etc.)",
+      link: "/docs/cell-highlighting",
+    },
+    {
+      type: "improvement",
+      description: "Improved cell selection while scrolling for a smoother experience",
+      link: "/docs/cell-highlighting",
+    },
+    {
+      type: "improvement",
+      description:
+        "Pagination now shows overflow visible when no height is specified, eliminating unnecessary scrolling",
+      link: "/docs/pagination",
+    },
+  ],
+};
+
 export const v1_6_7: ChangelogEntry = {
   version: "1.6.7",
   date: "2025-11-09",
@@ -203,6 +236,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_7_0,
   v1_6_7,
   v1_6_6,
   v1_6_1,
