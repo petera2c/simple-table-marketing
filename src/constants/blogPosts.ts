@@ -109,8 +109,52 @@ export const replicatingGojiberryUIPost: BlogPostMetadata = {
   updatedAt: "2025-10-26",
 };
 
+export const agGridAlternativesPost: BlogPostMetadata = {
+  title: "AG Grid Alternatives: 7 Best Free React Data Grids (2025)",
+  description:
+    "Looking for an AG Grid alternative? Discover 7 powerful, free React data grids that deliver enterprise features without the enterprise price tag or vendor lock-in.",
+  slug: "ag-grid-alternatives-free-react-data-grids",
+  tags: ["react", "alternatives", "comparison", "ag-grid"],
+  createdAt: "2025-11-15",
+  updatedAt: "2025-11-15",
+};
+
+export const bundleSizeComparisonPost: BlogPostMetadata = {
+  title: "React Data Grid Bundle Size Showdown: Finding the Lightest Solution (2025)",
+  description:
+    "When memory footprint is critical, which free React data grid has the lightest bundle size? Comprehensive bundle size comparison of TanStack Table, AG Grid, Simple Table, and more.",
+  slug: "react-data-grid-bundle-size-comparison",
+  tags: ["react", "performance", "bundle-size", "comparison"],
+  createdAt: "2025-11-15",
+  updatedAt: "2025-11-15",
+};
+
+export const tanstackVsAgGridPost: BlogPostMetadata = {
+  title: "TanStack Table vs AG Grid: Complete Comparison (2025)",
+  description:
+    "TanStack Table or AG Grid? We break down features, performance, pricing, and developer experience to help you choose the right React data grid for your project.",
+  slug: "tanstack-table-vs-ag-grid-comparison",
+  tags: ["react", "comparison", "tanstack-table", "ag-grid"],
+  createdAt: "2025-11-15",
+  updatedAt: "2025-11-15",
+};
+
+export const handsontableAlternativesPost: BlogPostMetadata = {
+  title: "Handsontable Alternatives: Best Free Options for React (2025)",
+  description:
+    "Looking for Handsontable alternatives? Discover powerful, free React data grids that deliver spreadsheet-like features without the restrictive license or $1,000+ price tag.",
+  slug: "handsontable-alternatives-free-react",
+  tags: ["react", "alternatives", "comparison", "handsontable"],
+  createdAt: "2025-11-15",
+  updatedAt: "2025-11-15",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  handsontableAlternativesPost,
+  tanstackVsAgGridPost,
+  bundleSizeComparisonPost,
+  agGridAlternativesPost,
   replicatingGojiberryUIPost,
   customFooterRenderersPost,
   mobileCompatibilityReactTablesPost,
