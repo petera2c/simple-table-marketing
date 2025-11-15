@@ -29,6 +29,11 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import {
+  SIMPLE_TABLE_INFO,
+  MATERIAL_REACT_TABLE_INFO,
+  TANSTACK_TABLE_INFO,
+} from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
@@ -289,11 +294,11 @@ export default function BestReactTableLibraries2025Page() {
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
               In a sea of configurable behemoths, Simple Table stands out by being unapologetically
-              straightforward—yet surprisingly capable. It's a compact powerhouse (hello, &lt;3KB
-              bundle) that bootstraps interactive grids with minimal fuss, letting you focus on app
-              logic over table trivia. Whether you're wiring up a quick dashboard or scaling to
-              enterprise feeds, it delivers buttery performance and intuitive tweaks without the
-              usual setup tax.
+              straightforward—yet surprisingly capable. It's a compact powerhouse (just{" "}
+              {SIMPLE_TABLE_INFO.bundleSizeMinGzip}) that bootstraps interactive grids with minimal
+              fuss, letting you focus on app logic over table trivia. Whether you're wiring up a
+              quick dashboard or scaling to enterprise feeds, it delivers buttery performance and
+              intuitive tweaks without the usual setup tax.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -529,8 +534,8 @@ export default function BestReactTableLibraries2025Page() {
                       className="text-green-500 mt-1 flex-shrink-0"
                     />
                     <span>
-                      <strong>Edit empire:</strong> Cell formulas, drag-fills, and validations rival
-                      spreadsheets.
+                      <strong>Edit empire:</strong> Inline editing, drag-fills, and validations
+                      rival spreadsheets.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -667,17 +672,18 @@ export default function BestReactTableLibraries2025Page() {
           </div>
         </section>
 
-        {/* MUI X DataGrid Section */}
-        <section id="mui-datagrid">
+        {/* Material React Table Section */}
+        <section id="material-react-table">
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
             <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
               <FontAwesomeIcon icon={faPalette} className="text-indigo-500" />
-              5. MUI X DataGrid (Material-UI Tables)
+              5. Material React Table
             </h3>
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-              MUI's DataGrid is the polished pro for Material Design devotees—responsive, themed,
-              and feature-stuffed without straying from the ecosystem.
+              Material React Table (MRT) combines TanStack Table's power with Material-UI's polish—a
+              best-of-both-worlds solution for Material Design projects needing advanced data grid
+              features.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -693,8 +699,8 @@ export default function BestReactTableLibraries2025Page() {
                       className="text-green-500 mt-1 flex-shrink-0"
                     />
                     <span>
-                      <strong>Themed harmony:</strong> Slots right into MUI's ripple effects and
-                      densities.
+                      <strong>Themed harmony:</strong> Material-UI styling out of the box with MUI's
+                      ripple effects and densities.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -703,8 +709,8 @@ export default function BestReactTableLibraries2025Page() {
                       className="text-green-500 mt-1 flex-shrink-0"
                     />
                     <span>
-                      <strong>Filter finesse:</strong> Date ranges, operators, and quick-search in
-                      one.
+                      <strong>Filter finesse:</strong> Built on TanStack Table, so you get powerful
+                      filtering with column-specific modes.
                     </span>
                   </li>
                   <li className="flex items-start gap-2">
@@ -713,7 +719,8 @@ export default function BestReactTableLibraries2025Page() {
                       className="text-green-500 mt-1 flex-shrink-0"
                     />
                     <span>
-                      <strong>Density dial:</strong> Compact, standard, or comfy rows on demand.
+                      <strong>TanStack foundation:</strong> Leverages TanStack Table's headless
+                      capabilities with pre-built MUI components.
                     </span>
                   </li>
                 </ul>
@@ -730,14 +737,21 @@ export default function BestReactTableLibraries2025Page() {
                       icon={faExclamationTriangle}
                       className="text-red-500 mt-1 flex-shrink-0"
                     />
-                    <span>MUI marriage required; outsiders face style surgery.</span>
+                    <span>
+                      Requires Material-UI as a dependency; adds weight if you're not already using
+                      MUI.
+                    </span>
                   </li>
                   <li className="flex items-start gap-2">
                     <FontAwesomeIcon
                       icon={faExclamationTriangle}
                       className="text-red-500 mt-1 flex-shrink-0"
                     />
-                    <span>Pro tiers unlock gems like Excel export—budget accordingly.</span>
+                    <span>
+                      Larger bundle than TanStack Table alone due to MUI components (
+                      {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip} vs{" "}
+                      {TANSTACK_TABLE_INFO.bundleSizeMinGzip}).
+                    </span>
                   </li>
                 </ul>
               </div>
@@ -749,7 +763,8 @@ export default function BestReactTableLibraries2025Page() {
                 <span className="font-medium text-indigo-800 dark:text-indigo-200">Prime For</span>
               </div>
               <p className="text-indigo-700 dark:text-indigo-300">
-                Design systems where consistency is king, like SaaS dashboards.
+                Projects already using Material-UI that need advanced data grid features with
+                consistent Material Design styling.
               </p>
             </div>
           </div>

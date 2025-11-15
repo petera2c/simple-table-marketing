@@ -2,8 +2,9 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import { SIMPLE_TABLE_INFO, TANSTACK_TABLE_INFO } from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleTableVsTanstackContent = () => {
   const introText = (
@@ -39,10 +40,10 @@ const SimpleTableVsTanstackContent = () => {
         from scratch. With a small bundle size (
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/simple-table-core"
+          href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          31 kB minified + gzipped
+          {SIMPLE_TABLE_INFO.bundleSizeMinGzip} minified + gzipped
         </Link>
         ) and comprehensive features, it's great for most table needs where you want to focus on
         your application logic rather than building UI components.
@@ -53,12 +54,12 @@ const SimpleTableVsTanstackContent = () => {
         </Text>{" "}
         is a headless library (
         <a
-          href="https://bundlephobia.com/package/@tanstack/react-table"
+          href={TANSTACK_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          14.6 kB minified + gzipped
+          {TANSTACK_TABLE_INFO.bundleSizeMinGzip} minified + gzipped
         </a>
         ) that gives you complete control over your table's UI. It provides hooks and utilities to
         handle table logic, but you'll need to build all UI components yourself. It's perfect for
@@ -91,12 +92,12 @@ const SimpleTableVsTanstackContent = () => {
         competitorSize: (
           <>
             <a
-              href="https://bundlephobia.com/package/@tanstack/react-table"
+              href={TANSTACK_TABLE_INFO.bundlePhobiaUrl}
               target="_blank"
               rel="noopener noreferrer"
               className="text-blue-600 hover:underline"
             >
-              14.6 kB (minified + gzipped)
+              {TANSTACK_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
             </a>
             {" + custom UI implementation"}
           </>

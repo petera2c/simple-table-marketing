@@ -658,6 +658,192 @@ export const tanstackFeatures: FeatureMapping = {
   undoRedo: "not-available",
 };
 
+// Feature mappings for Syncfusion DataGrid
+// Note: Syncfusion is a commercial component suite with free community license
+// for companies with less than $1M USD in annual revenue
+// Naming notes:
+// - virtualization -> Built-in virtual scrolling
+// - columnReordering -> "allowReordering"
+// - columnResizing -> "allowResizing"
+// - columnPinning -> "frozenColumns" and "frozenRows"
+// - rowGrouping -> "allowGrouping"
+// - cellEditing -> "editSettings"
+export const syncfusionFeatures: FeatureMapping = {
+  virtualization: "paid", // Syncfusion: Virtual scrolling
+  infiniteScroll: "paid", // Syncfusion: Infinite scrolling mode
+
+  // Column Features
+  columnResizing: "paid", // Syncfusion: "allowResizing"
+  columnReordering: "paid", // Syncfusion: "allowReordering"
+  columnVisibility: "paid", // Syncfusion: "showColumnChooser"
+  columnPinning: "paid", // Syncfusion: "frozenColumns"
+  columnAlignment: "paid", // Syncfusion: "textAlign" in column definition
+  columnSorting: "paid", // Syncfusion: "allowSorting"
+  columnFiltering: "paid", // Syncfusion: "allowFiltering"
+  columnAdvancedFiltering: "paid", // Syncfusion: Advanced filter UI
+  columnNestedHeaders: "paid", // Syncfusion: "columns" with nested structure
+  columnAggregationFunctions: "paid", // Syncfusion: "aggregates"
+  columnSelection: "paid", // Syncfusion: Column selection mode
+  columnCollapsible: "paid", // Syncfusion: Column groups
+  columnEditing: "paid", // Syncfusion: Inline column editing
+
+  // Row Features
+  rowSelection: "paid", // Syncfusion: "selectionSettings"
+  rowGrouping: "paid", // Syncfusion: "allowGrouping"
+  rowAdjustableHeight: "paid", // Syncfusion: "rowHeight" and "allowRowDragAndDrop"
+  rowExpansion: "paid", // Syncfusion: Detail template
+
+  // Cell Features
+  cellEditing: "paid", // Syncfusion: "editSettings"
+  cellHighlighting: "paid", // Syncfusion: "selectionSettings.cellSelectionMode"
+  cellClicking: "paid", // Syncfusion: "cellSelected" event
+  cellCustomRenderers: "paid", // Syncfusion: Template support
+  cellLiveUpdates: "paid", // Syncfusion: Data binding with notifications
+  cellFormatting: "paid", // Syncfusion: "format" in column definition
+  cellValidation: "paid", // Syncfusion: Edit validation rules
+
+  // Spreadsheet Features
+  spreadsheetFormulas: "not-available",
+  spreadsheetDataBinding: "paid",
+  spreadsheetContextMenu: "paid", // Syncfusion: Context menu support
+  spreadsheetComments: "not-available",
+
+  // Filtering Features
+  filteringGlobalSearch: "paid", // Syncfusion: Search functionality
+  filteringFacetedFilters: "paid", // Syncfusion: Filter menu with checkboxes
+
+  // Pagination Features
+  paginationClientSide: "paid", // Syncfusion: "allowPaging"
+  paginationServerSide: "paid", // Syncfusion: Remote data with paging
+  paginationCursorBased: "not-available",
+
+  // Advanced Data Features
+  advancedValueGettersSetters: "paid",
+  advancedCellRangeSelection: "paid", // Syncfusion: Cell range selection
+  advancedPivotTables: "not-available", // Separate Pivot Grid component
+  advancedTreeData: "paid", // Syncfusion: "treeColumnIndex"
+  advancedRowSpanning: "paid", // Syncfusion: Row spanning support
+  advancedMasterDetailViews: "paid", // Syncfusion: Detail template
+
+  // Advanced UI Features
+  uiContextMenu: "paid", // Syncfusion: Context menu
+  uiStatusBar: "not-available",
+  uiColumnMenu: "paid", // Syncfusion: Column menu
+  uiFullWidthRows: "paid",
+  uiAdvancedTooltips: "paid", // Syncfusion: Tooltip support
+
+  // Integration Features
+  integrationExcelExport: "paid", // Syncfusion: "allowExcelExport"
+  integrationExcelImport: "not-available",
+  integrationCsvExport: "paid", // Syncfusion: CSV export
+  integrationCsvImport: "not-available",
+  integrationClipboardOperations: "paid",
+  integrationKeyboardNavigation: "paid",
+  integrationAccessibility: "paid",
+
+  // Theming Features
+  themingMultipleThemes: "paid", // Syncfusion: Multiple built-in themes
+  themingCustomIcons: "paid",
+
+  // Developer Experience Features
+  developerTypeScriptSupport: "paid",
+
+  // Undo/Redo Features
+  undoRedo: "not-available",
+};
+
+// Feature mappings for Tabulator
+// Note: Tabulator is a free, open-source library with extensive features
+// Naming notes:
+// - virtualization -> Built-in virtual DOM rendering
+// - columnReordering -> "movableColumns"
+// - columnResizing -> "resizableColumns"
+// - columnPinning -> "frozen" columns
+// - cellEditing -> "editor" in column definition
+export const tabulatorFeatures: FeatureMapping = {
+  virtualization: "free", // Tabulator: Virtual DOM for large datasets
+  infiniteScroll: "free", // Tabulator: Progressive loading
+
+  // Column Features
+  columnResizing: "free", // Tabulator: "resizableColumns"
+  columnReordering: "free", // Tabulator: "movableColumns"
+  columnVisibility: "free", // Tabulator: "hideColumn" / "showColumn"
+  columnPinning: "free", // Tabulator: "frozen" columns
+  columnAlignment: "free", // Tabulator: "hozAlign" / "vertAlign"
+  columnSorting: "free", // Tabulator: Built-in sorting
+  columnFiltering: "free", // Tabulator: Header filters
+  columnAdvancedFiltering: "free", // Tabulator: Custom filter functions
+  columnNestedHeaders: "free", // Tabulator: Column groups
+  columnAggregationFunctions: "free", // Tabulator: Column calculations
+  columnSelection: "not-available",
+  columnCollapsible: "free", // Tabulator: Toggle column groups
+  columnEditing: "not-available",
+
+  // Row Features
+  rowSelection: "free", // Tabulator: "selectable" rows
+  rowGrouping: "free", // Tabulator: "groupBy"
+  rowAdjustableHeight: "free", // Tabulator: "resizableRows"
+  rowExpansion: "free", // Tabulator: Nested data expansion
+
+  // Cell Features
+  cellEditing: "free", // Tabulator: "editor" in column definition
+  cellHighlighting: "free", // Tabulator: Cell Range Selection module
+  cellClicking: "free", // Tabulator: "cellClick" event
+  cellCustomRenderers: "free", // Tabulator: "formatter" function
+  cellLiveUpdates: "free", // Tabulator: "updateData" / "updateRow"
+  cellFormatting: "free", // Tabulator: "formatter" function
+  cellValidation: "free", // Tabulator: "validator" in column definition
+
+  // Spreadsheet Features
+  spreadsheetFormulas: "not-available",
+  spreadsheetDataBinding: "free",
+  spreadsheetContextMenu: "free", // Tabulator: Menus, Popups & Alerts
+  spreadsheetComments: "not-available",
+
+  // Filtering Features
+  filteringGlobalSearch: "free", // Tabulator: "setFilter" for global search
+  filteringFacetedFilters: "not-available",
+
+  // Pagination Features
+  paginationClientSide: "free", // Tabulator: Built-in pagination
+  paginationServerSide: "free", // Tabulator: Remote pagination
+  paginationCursorBased: "not-available",
+
+  // Advanced Data Features
+  advancedValueGettersSetters: "free", // Tabulator: "mutator" / "accessor"
+  advancedCellRangeSelection: "free", // Tabulator: Cell Range Selection module
+  advancedPivotTables: "not-available",
+  advancedTreeData: "free", // Tabulator: Tree Structure support
+  advancedRowSpanning: "not-available",
+  advancedMasterDetailViews: "not-available",
+
+  // Advanced UI Features
+  uiContextMenu: "free",
+  uiStatusBar: "not-available",
+  uiColumnMenu: "free", // Tabulator: Header menu
+  uiFullWidthRows: "not-available",
+  uiAdvancedTooltips: "free", // Tabulator: Tooltip support
+
+  // Integration Features
+  integrationExcelExport: "free", // Tabulator: Download module supports XLSX
+  integrationExcelImport: "not-available",
+  integrationCsvExport: "free", // Tabulator: Download module
+  integrationCsvImport: "not-available",
+  integrationClipboardOperations: "free", // Tabulator: Clipboard module
+  integrationKeyboardNavigation: "free", // Tabulator: Navigation & Keybindings
+  integrationAccessibility: "free", // Tabulator: Accessibility module
+
+  // Theming Features
+  themingMultipleThemes: "free", // Tabulator: Multiple built-in themes
+  themingCustomIcons: "not-available",
+
+  // Developer Experience Features
+  developerTypeScriptSupport: "free", // Tabulator: TypeScript definitions available
+
+  // Undo/Redo Features
+  undoRedo: "free", // Tabulator: Interaction History module
+};
+
 // Map of all table packages to their feature mappings
 export const tablePackageFeatures: Record<string, FeatureMapping> = {
   simpleTable: simpleTableFeatures,
@@ -666,6 +852,8 @@ export const tablePackageFeatures: Record<string, FeatureMapping> = {
   handsontable: handsontableFeatures,
   materialReact: materialReactFeatures,
   tanstack: tanstackFeatures,
+  syncfusion: syncfusionFeatures,
+  tabulator: tabulatorFeatures,
 };
 
 // Helper function to get feature status for a package

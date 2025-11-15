@@ -2,30 +2,34 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import { SIMPLE_TABLE_INFO, MATERIAL_REACT_TABLE_INFO } from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleTableVsMaterialReactContent = () => {
   const introText = (
     <>
-      Material Design represents Google's comprehensive design philosophy, emphasizing clean
-      aesthetics, meaningful motion, and consistent user experiences across platforms. When building
-      React applications that follow Material Design principles, developers often turn to
-      Material-UI (now MUI) for its faithful implementation of Google's design language. However,
-      this devotion to design consistency can sometimes come at the cost of functionality,
-      particularly when it comes to data tables. Material-UI's Table component prioritizes visual
-      harmony over advanced data grid capabilities, leaving developers to choose between aesthetic
-      consistency and feature completeness.{" "}
+      When building React applications that require both Material Design aesthetics and advanced
+      data grid functionality, developers often evaluate{" "}
+      <Text className="text-lg text-inherit" strong>
+        Material React Table
+      </Text>{" "}
+      (MRT)—a popular library that combines TanStack Table's powerful features with Material-UI's
+      polished components. While Material React Table offers an excellent solution for teams already
+      invested in the Material-UI ecosystem, it comes with the overhead of requiring Material-UI as
+      a dependency and a larger bundle size compared to standalone alternatives.{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
-      challenges this false dichotomy. While it doesn't come with Material Design styling out of the
-      box, its flexible theming system allows you to achieve Material Design compliance without
-      sacrificing the advanced features your users need. This comparison explores whether you can
-      maintain Material Design's visual excellence while gaining enterprise-level data grid
-      functionality. We'll examine theming strategies, accessibility compliance, and design system
-      integration to help you determine if Simple Table can deliver both the aesthetics your
-      designers demand and the functionality your users deserve.
+      offers a compelling alternative for teams seeking advanced data grid features without the
+      Material-UI dependency. At just {SIMPLE_TABLE_INFO.bundleSizeMinGzip} compared to Material
+      React Table's {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip}, Simple Table delivers comparable
+      functionality with a significantly lighter footprint. While it doesn't come with Material
+      Design styling out of the box, its flexible theming system makes it possible to achieve
+      Material Design aesthetics if desired. This comparison examines the trade-offs between
+      Material React Table's pre-built MUI integration and Simple Table's lightweight,
+      framework-agnostic approach to help you determine which solution best fits your project's
+      needs.
     </>
   );
 
@@ -40,10 +44,10 @@ const SimpleTableVsMaterialReactContent = () => {
         of a full UI framework. With its{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/simple-table-core"
+          href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          31 kB (minified + gzipped)
+          {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
         </Link>{" "}
         bundle size, it offers a great balance of features and performance.
       </Text>
@@ -54,47 +58,48 @@ const SimpleTableVsMaterialReactContent = () => {
         is built on top of TanStack Table and provides Material-UI styling out of the box. It offers
         advanced data grid features with{" "}
         <a
-          href="https://bundlephobia.com/package/material-react-table"
+          href={MATERIAL_REACT_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          58.3 kB (minified + gzipped)
+          {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
         </a>
         , making it a middle-ground option between Simple Table's minimal footprint and
         full-featured enterprise solutions.
       </Text>
       <Text className="text-lg block text-inherit">
-        If you need a lightweight, standalone table component with advanced data grid features,{" "}
+        If you need a lightweight, framework-agnostic table with advanced features and don't require
+        Material-UI styling,{" "}
         <a
           href="https://www.simple-table.com"
           className="text-blue-600 hover:underline dark:text-blue-400"
         >
           try Simple Table
         </a>
-        . If you're already using Material-UI and want consistent styling with basic table
-        functionality, Material-UI Table might be the better choice.
+        . If you're already heavily invested in the Material-UI ecosystem and want seamless MUI
+        integration with TanStack Table's power, Material React Table is an excellent choice.
       </Text>
     </>
   );
 
   return (
     <ComparisonLayout
-      title="Simple Table vs. Material-UI Table"
-      subtitle="A comprehensive comparison of lightweight vs full-featured React data grid solutions"
+      title="Simple Table vs. Material React Table"
+      subtitle="Comparing framework-agnostic efficiency with Material-UI integration"
       introText={introText}
-      competitorName="Material-UI Table"
+      competitorName="Material React Table"
       competitorPackage="materialReact"
       performanceMetrics={{
         competitor: "Material React Table",
         competitorSize: (
           <a
-            href="https://bundlephobia.com/package/material-react-table"
+            href={MATERIAL_REACT_TABLE_INFO.bundlePhobiaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
           >
-            58.3 kB (minified + gzipped)
+            {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
           </a>
         ),
       }}
