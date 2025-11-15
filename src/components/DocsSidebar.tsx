@@ -8,6 +8,7 @@ import ConfigurableSidebar from "./ConfigurableSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { docSections, getSubsectionIconMap } from "@/constants/docsNavigation";
+import DocsSearch from "./DocsSearch";
 
 // Get icons mapping from shared config
 const subsectionIcons = getSubsectionIconMap();
@@ -34,7 +35,10 @@ export default function DocsSidebar() {
     }));
   };
 
-  // Create the sidebar content
+  // Search bar in header (non-scrolling)
+  const docsHeaderContent = <DocsSearch placeholder="Search docs..." />;
+
+  // Scrollable sidebar content
   const docsSidebarContent = (
     <div>
       {docSections.map((section, index) => (
@@ -77,6 +81,7 @@ export default function DocsSidebar() {
       config={{
         title: "Documentation",
         icon: faCode,
+        headerContent: docsHeaderContent,
         sidebarContent: docsSidebarContent,
       }}
     />
