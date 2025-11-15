@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Fuse from "fuse.js";
 import { useRouter } from "next/navigation";
 import { Input, Empty, Tag } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { docsSearchIndex, type SearchableDoc } from "@/constants/docsSearchIndex";
 import PageWrapper from "./PageWrapper";
+import { useClickOutside } from "@/hooks/useClickOutside";
 
 interface DocsSearchProps {
   placeholder?: string;
@@ -21,6 +22,7 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
   const [query, setQuery] = useState("");
   const [selectedIndex, setSelectedIndex] = useState(0);
   const [isOpen, setIsOpen] = useState(false);
+  const searchContainerRef = useRef<HTMLDivElement>(null);
 
   // Configure Fuse.js for fuzzy search
   const fuse = useMemo(() => {
@@ -92,6 +94,14 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
     setSelectedIndex(0);
   }, [query]);
 
+  // Handle click outside to clear search
+  const handleClickOutside = useCallback(() => {
+    setIsOpen(false);
+    setQuery("");
+  }, []);
+
+  useClickOutside(searchContainerRef, handleClickOutside);
+
   const navigateToDoc = (doc: SearchableDoc) => {
     router.push(doc.path);
     setIsOpen(false);
@@ -110,7 +120,7 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
 
   return (
     <PageWrapper disableScrollRestoration>
-      <div className="relative w-full">
+      <div className="relative w-full" ref={searchContainerRef}>
         <Input
           prefix={<SearchOutlined />}
           placeholder={placeholder}
