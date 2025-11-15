@@ -2,8 +2,9 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import { SIMPLE_TABLE_INFO, MATERIAL_REACT_TABLE_INFO } from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleTableVsMaterialReactContent = () => {
   const introText = (
@@ -40,10 +41,10 @@ const SimpleTableVsMaterialReactContent = () => {
         of a full UI framework. With its{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/simple-table-core"
+          href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          31 kB (minified + gzipped)
+          {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
         </Link>{" "}
         bundle size, it offers a great balance of features and performance.
       </Text>
@@ -54,12 +55,12 @@ const SimpleTableVsMaterialReactContent = () => {
         is built on top of TanStack Table and provides Material-UI styling out of the box. It offers
         advanced data grid features with{" "}
         <a
-          href="https://bundlephobia.com/package/material-react-table"
+          href={MATERIAL_REACT_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          58.3 kB (minified + gzipped)
+          {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
         </a>
         , making it a middle-ground option between Simple Table's minimal footprint and
         full-featured enterprise solutions.
@@ -89,12 +90,12 @@ const SimpleTableVsMaterialReactContent = () => {
         competitor: "Material React Table",
         competitorSize: (
           <a
-            href="https://bundlephobia.com/package/material-react-table"
+            href={MATERIAL_REACT_TABLE_INFO.bundlePhobiaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
           >
-            58.3 kB (minified + gzipped)
+            {MATERIAL_REACT_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
           </a>
         ),
       }}

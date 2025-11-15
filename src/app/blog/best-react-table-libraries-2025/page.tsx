@@ -29,6 +29,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
@@ -289,11 +290,11 @@ export default function BestReactTableLibraries2025Page() {
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
               In a sea of configurable behemoths, Simple Table stands out by being unapologetically
-              straightforward—yet surprisingly capable. It's a compact powerhouse (hello, &lt;3KB
-              bundle) that bootstraps interactive grids with minimal fuss, letting you focus on app
-              logic over table trivia. Whether you're wiring up a quick dashboard or scaling to
-              enterprise feeds, it delivers buttery performance and intuitive tweaks without the
-              usual setup tax.
+              straightforward—yet surprisingly capable. It's a compact powerhouse (just{" "}
+              {SIMPLE_TABLE_INFO.bundleSizeMinGzip}) that bootstraps interactive grids with minimal
+              fuss, letting you focus on app logic over table trivia. Whether you're wiring up a
+              quick dashboard or scaling to enterprise feeds, it delivers buttery performance and
+              intuitive tweaks without the usual setup tax.
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">

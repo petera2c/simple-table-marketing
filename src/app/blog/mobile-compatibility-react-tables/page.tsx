@@ -20,6 +20,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.mobileCompatibilityReactTables.title,
@@ -367,9 +368,9 @@ export default function MobileCompatibilityReactTablesPage() {
                   Optimized Performance
                 </h4>
                 <p className="text-gray-700 dark:text-gray-300">
-                  At just 31kb, Simple Table loads instantly even on slower mobile connections.
-                  Virtual scrolling and efficient rendering ensure smooth performance, even with
-                  thousands of rows on mid-range mobile devices.
+                  At just {SIMPLE_TABLE_INFO.bundleSizeMinGzip}, Simple Table loads instantly even
+                  on slower mobile connections. Virtual scrolling and efficient rendering ensure
+                  smooth performance, even with thousands of rows on mid-range mobile devices.
                 </p>
               </div>
 

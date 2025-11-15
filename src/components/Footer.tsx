@@ -171,6 +171,26 @@ export default function Footer() {
                   Simple Table vs Ant Design
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-syncfusion"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsSyncfusion") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Simple Table vs Syncfusion
+                </Link>
+              </li>
+              <li>
+                <Link
+                  href="/comparisons/simple-table-vs-tabulator"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/comparisons/SimpleTableVsTabulator") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Simple Table vs Tabulator
+                </Link>
+              </li>
             </ul>
           </div>
 

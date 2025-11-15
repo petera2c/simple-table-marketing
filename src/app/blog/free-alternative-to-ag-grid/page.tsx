@@ -6,6 +6,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import { freeAlternativeToAgGridPost } from "@/constants/blogPosts";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
+import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.freeAlternativeToAgGrid.title,
@@ -155,7 +156,8 @@ export default function FreeAlternativeToAgGridPage() {
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 So, I decided to build my own solution:{" "}
                 <span className="font-bold text-blue-600 dark:text-blue-400">Simple Table</span>, a
-                lightweight (31 kb) React data grid that's free for everyone.
+                lightweight ({SIMPLE_TABLE_INFO.bundleSizeMinGzip}) React data grid that's free for
+                everyone.
               </p>
 
               <p className="mb-2 text-gray-700 dark:text-gray-300">
@@ -183,8 +185,9 @@ export default function FreeAlternativeToAgGridPage() {
                   </span>
                 </div>
                 <p className="text-green-700 dark:text-green-300">
-                  At just 31 kb and completely free, Simple Table is designed to be accessible for
-                  developers like me who can't afford pricey Enterprise licenses.
+                  At just {SIMPLE_TABLE_INFO.bundleSizeMinGzip} and completely free, Simple Table is
+                  designed to be accessible for developers like me who can't afford pricey
+                  Enterprise licenses.
                 </p>
               </div>
             </div>

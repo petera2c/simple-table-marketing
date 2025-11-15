@@ -2,8 +2,15 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import {
+  SIMPLE_TABLE_INFO,
+  AG_GRID_COMMUNITY_INFO,
+  AG_GRID_ENTERPRISE_INFO,
+  AG_GRID_TOTAL_SIZE,
+  getPricingString,
+} from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleVsAgGrid = () => {
   const introText = (
@@ -21,29 +28,29 @@ const SimpleVsAgGrid = () => {
       enterprise-grade pricing. At{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/simple-table-core"
+        href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        31 kB
+        {SIMPLE_TABLE_INFO.bundleSizeMinGzip}
       </Link>{" "}
       compared to AG Grid Community's{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/ag-grid-community"
+        href={AG_GRID_COMMUNITY_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        298.2 kB
+        {AG_GRID_COMMUNITY_INFO.bundleSizeMinGzip}
       </Link>{" "}
-      (or{" "}
+      (or {AG_GRID_TOTAL_SIZE} total with{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/ag-grid-enterprise"
+        href={AG_GRID_ENTERPRISE_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        529.1 kB total
-      </Link>{" "}
-      with Enterprise, minified + gzipped), Simple Table delivers blazing-fast performance with core
-      data grid features that rival AG Grid's Community edition—and surpass many of its Enterprise
+        Enterprise
+      </Link>
+      , minified + gzipped), Simple Table delivers blazing-fast performance with core data grid
+      features that rival AG Grid's Community edition—and surpass many of its Enterprise
       capabilities—all while remaining completely free. This comparison examines whether you can
       achieve your data grid goals without the complexity, licensing costs, and bundle overhead that
       AG Grid Enterprise demands. We'll break down the true cost of ownership and help you determine
@@ -61,10 +68,10 @@ const SimpleVsAgGrid = () => {
         virtualization, infinite scroll, and column filters, with a smaller bundle size (
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/simple-table-core"
+          href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          31 kB minified + gzipped
+          {SIMPLE_TABLE_INFO.bundleSizeMinGzip} minified + gzipped
         </Link>
         ). It's ideal for projects needing a simple, performant data grid without the overhead of
         enterprise features.
@@ -76,22 +83,23 @@ const SimpleVsAgGrid = () => {
         is a feature-rich data grid with advanced capabilities. The{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/ag-grid-community"
+          href={AG_GRID_COMMUNITY_INFO.bundlePhobiaUrl}
           target="_blank"
         >
           Community edition
         </Link>{" "}
-        is 298.2 kB (minified + gzipped), but many advanced features like pivot tables and tree data
-        require the{" "}
+        is {AG_GRID_COMMUNITY_INFO.bundleSizeMinGzip} (minified + gzipped), but many advanced
+        features like pivot tables and tree data require the{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/ag-grid-enterprise"
+          href={AG_GRID_ENTERPRISE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
           Enterprise edition
         </Link>{" "}
-        (additional 230.9 kB, totaling 529.1 kB) at $999/developer/year. The combined bundle size
-        and steeper learning curve make it better suited for complex, enterprise-level applications.
+        (additional {AG_GRID_ENTERPRISE_INFO.bundleSizeMinGzip}, totaling {AG_GRID_TOTAL_SIZE}) at{" "}
+        {getPricingString(AG_GRID_ENTERPRISE_INFO)}. The combined bundle size and steeper learning
+        curve make it better suited for complex, enterprise-level applications.
       </Text>
       <Text className="text-lg block text-inherit">
         If you're looking for a free, lightweight solution with solid features,{" "}
@@ -116,20 +124,21 @@ const SimpleVsAgGrid = () => {
           <>
             <Link
               className="text-[length:inherit]"
-              href="https://bundlephobia.com/package/ag-grid-community"
+              href={AG_GRID_COMMUNITY_INFO.bundlePhobiaUrl}
               target="_blank"
             >
-              298.2 kB Community
+              {AG_GRID_COMMUNITY_INFO.bundleSizeMinGzip} Community
             </Link>
             {" + "}
             <Link
               className="text-[length:inherit]"
-              href="https://bundlephobia.com/package/ag-grid-enterprise"
+              href={AG_GRID_ENTERPRISE_INFO.bundlePhobiaUrl}
               target="_blank"
             >
-              230.9 kB Enterprise
+              {AG_GRID_ENTERPRISE_INFO.bundleSizeMinGzip} Enterprise
             </Link>
-            {" = 529.1 kB total (minified + gzipped)"}
+            {" = "}
+            {AG_GRID_TOTAL_SIZE} total (minified + gzipped)
           </>
         ),
       }}

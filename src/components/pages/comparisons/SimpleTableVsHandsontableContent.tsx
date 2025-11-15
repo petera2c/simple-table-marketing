@@ -2,8 +2,9 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import { SIMPLE_TABLE_INFO, HANDSONTABLE_INFO, getPricingString } from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleTableVsHandsontableContent = () => {
   const introText = (
@@ -23,20 +24,20 @@ const SimpleTableVsHandsontableContent = () => {
       presents an interesting alternative. At just{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/simple-table-core"
+        href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        31 kB (minified + gzipped)
+        {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
       </Link>
       , Simple Table offers core spreadsheet-like functionality without the commercial licensing
       requirements or{" "}
       <a
-        href="https://bundlephobia.com/package/handsontable"
+        href={HANDSONTABLE_INFO.bundlePhobiaUrl}
         target="_blank"
         rel="noopener noreferrer"
         className="text-blue-600 dark:text-blue-400 hover:underline"
       >
-        massive bundle size (325.8 kB)
+        massive bundle size ({HANDSONTABLE_INFO.bundleSizeMinGzip})
       </a>
       . This comparison explores whether Simple Table can meet your spreadsheet needs without the
       enterprise complexity and cost of Handsontable.
@@ -75,20 +76,20 @@ const SimpleTableVsHandsontableContent = () => {
         <Text className="text-base mb-2 block text-inherit">
           • Want to keep bundle size minimal (
           <a
-            href="https://bundlephobia.com/package/handsontable"
+            href={HANDSONTABLE_INFO.bundlePhobiaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 dark:text-blue-400 hover:underline"
           >
-            325.8 kB
+            {HANDSONTABLE_INFO.bundleSizeMinGzip}
           </a>{" "}
           vs{" "}
           <Link
             className="text-[length:inherit]"
-            href="https://bundlephobia.com/package/simple-table-core"
+            href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
             target="_blank"
           >
-            31 kB
+            {SIMPLE_TABLE_INFO.bundleSizeMinGzip}
           </Link>{" "}
           difference)
         </Text>
@@ -113,14 +114,15 @@ const SimpleTableVsHandsontableContent = () => {
         formulas, cell merging, and comprehensive import/export features. However, these features
         come at the cost of a{" "}
         <a
-          href="https://bundlephobia.com/package/handsontable"
+          href={HANDSONTABLE_INFO.bundlePhobiaUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          larger bundle size (325.8 kB minified + gzipped)
+          larger bundle size ({HANDSONTABLE_INFO.bundleSizeMinGzip} minified + gzipped)
         </a>{" "}
-        and require a commercial license starting at $590/year for production use.
+        and require a commercial license at {getPricingString(HANDSONTABLE_INFO)} for production
+        use.
       </Text>
       <Text className="text-lg block text-inherit">
         If you need basic spreadsheet functionality with a small footprint,{" "}
@@ -147,12 +149,12 @@ const SimpleTableVsHandsontableContent = () => {
         competitor: "Handsontable",
         competitorSize: (
           <a
-            href="https://bundlephobia.com/package/handsontable"
+            href={HANDSONTABLE_INFO.bundlePhobiaUrl}
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
           >
-            325.8 kB (minified + gzipped)
+            {HANDSONTABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
           </a>
         ),
       }}

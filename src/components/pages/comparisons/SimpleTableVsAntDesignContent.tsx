@@ -2,8 +2,9 @@
 import React from "react";
 import { Typography } from "antd";
 import ComparisonLayout from "../../ComparisonLayout";
+import { SIMPLE_TABLE_INFO, ANT_DESIGN_TABLE_INFO } from "@/constants/packageInfo";
 
-const { Text, Title, Link } = Typography;
+const { Text, Link } = Typography;
 
 const SimpleTableVsAntDesignContent = () => {
   const introText = (
@@ -14,10 +15,10 @@ const SimpleTableVsAntDesignContent = () => {
       pulling in the{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/antd"
+        href={ANT_DESIGN_TABLE_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        entire Ant Design ecosystem (448.2 kB minified + gzipped)
+        entire Ant Design ecosystem ({ANT_DESIGN_TABLE_INFO.bundleSizeMinGzip} minified + gzipped)
       </Link>
       . For many teams, this raises a critical question: is the visual consistency worth the massive
       bundle size impact, especially when the table component itself lacks many advanced data grid
@@ -28,12 +29,12 @@ const SimpleTableVsAntDesignContent = () => {
       offers a different philosophy entirely. At just{" "}
       <Link
         className="text-[length:inherit]"
-        href="https://bundlephobia.com/package/simple-table-core"
+        href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
         target="_blank"
       >
-        31 kB (minified + gzipped)
+        {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
       </Link>
-      , it delivers more data grid functionality than Ant Design Table while being 240x smaller. But
+      , it delivers more data grid functionality than Ant Design Table while being much smaller. But
       the choice isn't just about file size—it's about architectural decisions that affect your
       entire application's performance, from initial load times to runtime memory usage. This
       comparison examines whether you can achieve both design consistency AND performance by
@@ -54,10 +55,10 @@ const SimpleTableVsAntDesignContent = () => {
         of a full UI framework. With its{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/simple-table-core"
+          href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          31 kB (minified + gzipped)
+          {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
         </Link>{" "}
         bundle size, it offers a great balance of features and performance.
       </Text>
@@ -70,10 +71,10 @@ const SimpleTableVsAntDesignContent = () => {
         advanced data grid features that Simple Table offers. It comes with the overhead of the{" "}
         <Link
           className="text-[length:inherit]"
-          href="https://bundlephobia.com/package/antd"
+          href={ANT_DESIGN_TABLE_INFO.bundlePhobiaUrl}
           target="_blank"
         >
-          full framework (363.8 kB minified + gzipped)
+          full framework ({ANT_DESIGN_TABLE_INFO.bundleSizeMinGzip} minified + gzipped)
         </Link>{" "}
         and requires additional customization for complex use cases.
       </Text>
@@ -100,10 +101,10 @@ const SimpleTableVsAntDesignContent = () => {
         competitorSize: (
           <Link
             className="text-[length:inherit]"
-            href="https://bundlephobia.com/package/antd"
+            href={ANT_DESIGN_TABLE_INFO.bundlePhobiaUrl}
             target="_blank"
           >
-            363.8 kB (minified + gzipped)
+            {ANT_DESIGN_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
           </Link>
         ),
       }}
