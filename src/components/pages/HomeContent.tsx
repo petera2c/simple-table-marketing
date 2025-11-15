@@ -57,7 +57,7 @@ import { Theme } from "simple-table-core";
 import CodeBlock from "@/components/CodeBlock";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
-import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
+import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -87,7 +87,7 @@ export default function HomeContent() {
         name: "How does Simple Table compare to AG Grid?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Simple Table is a free alternative to AG Grid that's much lighter (${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs 2+ MB). While AG Grid has more enterprise features, Simple Table provides all the essential functionality most developers need for data grids, including cell editing, column management, sorting, filtering, and theming, without the licensing costs.`,
+          text: `Simple Table is a free alternative to AG Grid that's much lighter (${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs ${AG_GRID_TOTAL_SIZE}). While AG Grid has more enterprise features, Simple Table provides all the essential functionality most developers need for data grids, including cell editing, column management, sorting, filtering, and theming, without the licensing costs.`,
         },
       },
       {
@@ -1173,7 +1173,7 @@ export default function HomeContent() {
                   {
                     icon: faTable,
                     question: "How does Simple Table compare to AG Grid?",
-                    answer: `Simple Table is much lighter (${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs 2+ MB) and completely free for most use cases. While AG Grid has more enterprise features, Simple Table provides all essential data grid functionality (editing, sorting, filtering, grouping, custom renderers) without licensing costs or bundle bloat. Perfect for teams who need 90% of the features at 1% of the size and cost.`,
+                    answer: `Simple Table is much lighter (${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs ${AG_GRID_TOTAL_SIZE}) and completely free for most use cases. While AG Grid has more enterprise features, Simple Table provides all essential data grid functionality (editing, sorting, filtering, grouping, custom renderers) without licensing costs or bundle bloat. Perfect for teams who need 90% of the features at 1% of the size and cost.`,
                   },
                   {
                     icon: faColumns,

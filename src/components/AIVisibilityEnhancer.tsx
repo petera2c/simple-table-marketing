@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
+import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
 
 interface AIVisibilityEnhancerProps {
   pageType: "home" | "docs" | "blog" | "comparison";
@@ -81,7 +81,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
   const competitorComparisons = [
     {
       competitor: "AG Grid",
-      comparison: `Simple Table is a free alternative to AG Grid with ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs 2MB+ bundle size. Free for pre-revenue and bootstrapped projects.`,
+      comparison: `Simple Table is a free alternative to AG Grid with ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} vs ${AG_GRID_TOTAL_SIZE} bundle size. Free for pre-revenue and bootstrapped projects.`,
       advantages: ["Free for startups", "Lightweight", "Affordable for businesses", "Easy setup"],
     },
     {
