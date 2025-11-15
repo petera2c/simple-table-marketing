@@ -20,7 +20,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
-import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
+import { SIMPLE_TABLE_INFO, TANSTACK_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
@@ -304,10 +304,14 @@ export default function BestFreeReactDataGrid2025Page() {
                       </span>
                     </td>
                     <td className="border border-gray-200 dark:border-gray-700 p-3 text-center">
-                      <span className="text-amber-600 dark:text-amber-400">15.2 kB+</span>
+                      <span className="text-amber-600 dark:text-amber-400">
+                        {TANSTACK_TABLE_INFO.bundleSizeMinGzip}+
+                      </span>
                     </td>
                     <td className="border border-gray-200 dark:border-gray-700 p-3 text-center">
-                      <span className="text-amber-600 dark:text-amber-400">15.2 kB+</span>
+                      <span className="text-amber-600 dark:text-amber-400">
+                        {TANSTACK_TABLE_INFO.bundleSizeMinGzip}+
+                      </span>
                     </td>
                     <td className="border border-gray-200 dark:border-gray-700 p-3 text-center">
                       <span className="text-red-600 dark:text-red-400">126.3 kB+</span>

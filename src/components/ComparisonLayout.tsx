@@ -6,6 +6,7 @@ import PageWrapper from "@/components/PageWrapper";
 import { ALL_FEATURES, getFeatureStatus } from "@/constants/comparisonFeatures";
 import { FEATURE_LABELS } from "@/constants/featureLabels";
 import { FeatureStatusBadge } from "@/components/CommonFeatures";
+import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 const { Title, Paragraph, Text, Link } = Typography;
 
@@ -244,10 +245,10 @@ const ComparisonLayout: React.FC<ComparisonLayoutProps> = ({
                   simpleTable: (
                     <Link
                       className="text-[length:inherit]"
-                      href="https://bundlephobia.com/package/simple-table-core"
+                      href={SIMPLE_TABLE_INFO.bundlePhobiaUrl}
                       target="_blank"
                     >
-                      31 kB (minified + gzipped)
+                      {SIMPLE_TABLE_INFO.bundleSizeMinGzip} (minified + gzipped)
                     </Link>
                   ),
                   competitor: performanceMetrics.competitorSize,
