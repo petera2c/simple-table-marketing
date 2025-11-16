@@ -16,8 +16,6 @@ import {
 } from "@/constants/blogPosts";
 import {
   SIMPLE_TABLE_INFO,
-  AG_GRID_COMMUNITY_INFO,
-  AG_GRID_ENTERPRISE_INFO,
   TANSTACK_TABLE_INFO,
   HANDSONTABLE_INFO,
   MATERIAL_REACT_TABLE_INFO,
@@ -519,6 +517,13 @@ export const SEO_STRINGS = {
         "Build a CRM leads management dashboard with Simple Table in React. A react-table for tracking contacts, signals, AI scoring, and lead status using a responsive datagrid.",
       keywords:
         "simple-table, react-table, react-grid, data-grid, datagrid, data table, crm table, leads management, sales leads, contact management, responsive table",
+    },
+    spreadsheet: {
+      title: "Spreadsheet Table with Cell Editing & Formulas",
+      description:
+        "Build an Excel-like spreadsheet with Simple Table in React. A react-table with cell editing, keyboard navigation, copy-paste, and spreadsheet capabilities using a responsive datagrid.",
+      keywords:
+        "simple-table, react-table, react-grid, data-grid, datagrid, data table, spreadsheet table, excel-like table, cell editing, keyboard navigation, copy-paste, responsive table",
     },
   },
   liveUpdates: {

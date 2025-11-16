@@ -198,21 +198,6 @@ export const v1_4_7: ChangelogEntry = {
   ],
 };
 
-export const v1_4_6: ChangelogEntry = {
-  version: "1.4.6",
-  date: "2025-10-19",
-  title: "New Frost Theme",
-  description:
-    "Introducing a fresh, modern Frost theme with cool blue tones and improved visual aesthetics.",
-  changes: [
-    {
-      type: "feature",
-      description: "Added new Frost theme with cool blue tones and modern design",
-      link: "/docs/themes",
-    },
-  ],
-};
-
 export const v1_4_4: ChangelogEntry = {
   version: "1.4.4",
   date: "2025-10-15",
@@ -246,7 +231,6 @@ export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
   v1_5_1,
   v1_5_0,
   v1_4_7,
-  v1_4_6,
   v1_4_4,
 ];
 

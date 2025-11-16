@@ -109,6 +109,16 @@ export default function Footer() {
                   Billing
                 </Link>
               </li>
+              <li>
+                <Link
+                  href="/examples/spreadsheet"
+                  className={`text-gray-400 hover:text-white transition-colors ${
+                    isActive("/examples/spreadsheet") ? "text-white font-medium" : ""
+                  }`}
+                >
+                  Spreadsheet
+                </Link>
+              </li>
             </ul>
           </div>
 

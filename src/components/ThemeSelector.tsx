@@ -2,7 +2,7 @@ import { Select } from "antd";
 import { ThemeOption } from "@/types/theme";
 import { Theme } from "simple-table-core";
 
-const THEME_OPTIONS: Theme[] = ["light", "dark", "sky", "violet", "neutral", "frost"];
+const THEME_OPTIONS: Theme[] = ["light", "dark", "sky", "violet", "neutral"];
 
 const ThemeSelector = ({
   currentTheme = "light",

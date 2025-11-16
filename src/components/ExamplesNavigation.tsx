@@ -11,6 +11,7 @@ import {
   faServer,
   faMusic,
   faUserTie,
+  faTable,
 } from "@fortawesome/free-solid-svg-icons";
 import ThemeSelector from "@/components/ThemeSelector";
 import { Suspense, useEffect } from "react";
@@ -65,6 +66,12 @@ const examples = [
     path: "/examples/sales",
     icon: faChartLine,
   },
+  {
+    id: "spreadsheet",
+    label: "Spreadsheet",
+    path: "/examples/spreadsheet",
+    icon: faTable,
+  },
 ];
 
 // Title mapping for each example
@@ -76,6 +83,7 @@ const exampleTitles = {
   sales: "Sales Pipeline",
   music: "Music Artist Analytics",
   crm: "CRM Leads Management",
+  spreadsheet: "Spreadsheet Example",
 };
 
 // Row count options

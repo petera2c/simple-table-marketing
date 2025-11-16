@@ -24,7 +24,7 @@ const THEME_PROPS: PropInfo[] = [
       "Built-in theme option for styling the table. Choose from predefined themes to quickly customize your table's appearance.",
     type: "Theme",
     link: "/docs/api-reference#union-types",
-    enumValues: ["light", "dark", "sky", "violet", "neutral", "frost"],
+    enumValues: ["light", "dark", "sky", "violet", "neutral"],
     example: `<SimpleTable
   theme="dark"
   // ... other props
@@ -97,8 +97,7 @@ export default function ThemesContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Simple Table includes several beautiful built-in themes to match your application's visual
-        design. Choose from Light, Dark, Sky, Violet, Neutral, or the new Frost theme with modern
-        cool blue tones.
+        design. Choose from Light, Dark, Sky, Violet, or Neutral themes.
       </motion.p>
 
       <motion.div
