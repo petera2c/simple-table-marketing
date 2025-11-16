@@ -2,12 +2,12 @@
 
 /* Reduce font size in table cells */
 .spreadsheet-container .st-cell-content {
-  font-size: 12px !important;
+  font-size: 13px !important;
 }
 
 /* Reduce font size in headers */
 .spreadsheet-container .st-header-label {
-  font-size: 12px !important;
+  font-size: 13px !important;
   font-weight: 500 !important;
 }
 
@@ -24,4 +24,11 @@
 
 .spreadsheet-container .st-header-resize-handle {
   height: 10px !important;
+}
+
+.spreadsheet-container .st-checkbox-custom {
+  min-height: 14px !important;
+  min-width: 14px !important;
+  max-height: 14px !important;
+  max-width: 14px !important;
 }

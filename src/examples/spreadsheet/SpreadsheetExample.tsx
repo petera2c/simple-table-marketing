@@ -85,7 +85,6 @@ const SpreadsheetExampleComponent = ({
             </button>
           </div>
         ),
-        cellRenderer: () => <div />,
       },
     ];
   }, [additionalColumns]);
@@ -190,7 +189,7 @@ const SpreadsheetExampleComponent = ({
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
         prevIcon={prevIcon}
-        rowHeight={18}
+        rowHeight={22}
         rowIdAccessor="id"
         rows={data}
         selectableCells
