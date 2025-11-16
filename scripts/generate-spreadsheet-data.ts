@@ -6,6 +6,8 @@ import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+const ROW_COUNT = 10000;
+
 export interface SpreadsheetRow {
   id: number;
   principal: number;
@@ -18,10 +20,10 @@ export interface SpreadsheetRow {
 }
 
 // Generate realistic loan/investment calculation data
-const generateSpreadsheetData = (count: number): SpreadsheetRow[] => {
+const generateSpreadsheetData = (): SpreadsheetRow[] => {
   const data: SpreadsheetRow[] = [];
 
-  for (let i = 0; i < count; i++) {
+  for (let i = 0; i < ROW_COUNT; i++) {
     // Generate principal between $10,000 and $500,000
     const principal = Math.floor(Math.random() * 490000) + 10000;
 
@@ -70,7 +72,7 @@ const generateSpreadsheetData = (count: number): SpreadsheetRow[] => {
 // Run the generation and save to a file
 async function saveDataToFile(): Promise<void> {
   console.log("Generating realistic spreadsheet dataset...");
-  const data = generateSpreadsheetData(100);
+  const data = generateSpreadsheetData();
   console.log(`Generated ${data.length} spreadsheet rows`);
 
   const filePath = path.join(__dirname, "../public/data/spreadsheet-data.json");
