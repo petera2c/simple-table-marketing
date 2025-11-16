@@ -316,6 +316,11 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/examples/spreadsheet</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/legal/eula</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

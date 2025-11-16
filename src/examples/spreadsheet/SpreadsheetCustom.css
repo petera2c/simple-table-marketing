@@ -2,12 +2,12 @@
 
 /* Reduce font size in table cells */
 .spreadsheet-container .st-cell-content {
-  font-size: 13px !important;
+  font-size: 12px !important;
 }
 
 /* Reduce font size in headers */
 .spreadsheet-container .st-header-label {
-  font-size: 13px !important;
+  font-size: 12px !important;
   font-weight: 500 !important;
 }
 

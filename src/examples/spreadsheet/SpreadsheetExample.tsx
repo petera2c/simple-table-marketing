@@ -190,7 +190,7 @@ const SpreadsheetExampleComponent = ({
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
         prevIcon={prevIcon}
-        rowHeight={24}
+        rowHeight={18}
         rowIdAccessor="id"
         rows={data}
         selectableCells
