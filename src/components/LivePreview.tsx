@@ -23,7 +23,7 @@ const LivePreview = ({
 
   return (
     <PageWrapper>
-      <div className="flex flex-col gap-4 w-full flex-grow">
+      <div className="flex flex-col gap-2 w-full flex-grow">
         <div style={{ height }}>
           {isCodeVisible ? (
             <CodeBlock className={`h-full`} demoCodeFilename={demoCodeFilename} />
