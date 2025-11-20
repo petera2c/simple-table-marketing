@@ -32,6 +32,7 @@ import {
   faFolderMinus,
   faCommentAlt,
   faRulerHorizontal,
+  faSpinner,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -202,6 +203,7 @@ export const docSections: DocSection[] = [
         icon: faCode,
       },
       { id: "pagination", label: "Pagination", path: "/docs/pagination", icon: faPager },
+      { id: "loading-state", label: "Loading State", path: "/docs/loading-state", icon: faSpinner },
       { id: "live-updates", label: "Live Updates", path: "/docs/live-updates", icon: faBolt },
       {
         id: "infinite-scroll",

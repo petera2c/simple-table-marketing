@@ -92,6 +92,27 @@ const PAGINATION_PROPS: PropInfo[] = [
   // ... other props
 />`,
   },
+  {
+    key: "isLoading",
+    name: "isLoading",
+    required: false,
+    description:
+      "Display skeleton loaders while fetching page data. Particularly useful with server-side pagination to show loading state during page transitions.",
+    type: "boolean",
+    example: `const [isLoading, setIsLoading] = useState(false);
+
+<SimpleTable
+  shouldPaginate={true}
+  isLoading={isLoading}
+  onPageChange={async (page) => {
+    setIsLoading(true);
+    const data = await fetchPageData(page);
+    setRows(data);
+    setIsLoading(false);
+  }}
+  // ... other props
+/>`,
+  },
 ];
 
 const PaginationContent = () => {
@@ -247,6 +268,27 @@ const PaginationContent = () => {
               rows
             </code>{" "}
             prop.
+          </p>
+        </div>
+
+        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            💡 Loading States with Pagination
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            Combine pagination with the{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              isLoading
+            </code>{" "}
+            prop to show skeleton loaders while fetching new page data. This provides better user
+            feedback during page transitions. See the{" "}
+            <a
+              href="/docs/loading-state"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+            >
+              Loading State
+            </a>{" "}
+            documentation for more details.
           </p>
         </div>
 

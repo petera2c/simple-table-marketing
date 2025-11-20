@@ -540,6 +540,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, infinite scroll, load more data, lazy loading, typescript table, large datasets",
   },
+  loadingState: {
+    title: "Loading State with Simple Table React Grid",
+    description:
+      "Add loading skeleton states to your react-table with Simple Table. Display skeleton loaders while fetching data in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, loading state, skeleton loader, loading spinner, data fetching, async loading, typescript table, user feedback",
+  },
   csvExport: {
     title: "CSV Export with Simple Table React Grid",
     description:

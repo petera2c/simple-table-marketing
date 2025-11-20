@@ -575,6 +575,29 @@ rowHeight={48}`,
     example: `shouldPaginate={true}`,
   },
   {
+    key: "isLoading",
+    name: "isLoading",
+    required: false,
+    description:
+      "When set to true, all table cells will render skeleton loaders instead of actual data. Provides visual feedback while data is being fetched from the server.",
+    type: "boolean",
+    example: `const [isLoading, setIsLoading] = useState(true);
+
+// Fetch data
+useEffect(() => {
+  fetchData().then(data => {
+    setRows(data);
+    setIsLoading(false);
+  });
+}, []);
+
+<SimpleTable
+  isLoading={isLoading}
+  rows={rows}
+  // ... other props
+/>`,
+  },
+  {
     key: "theme",
     name: "theme",
     required: false,

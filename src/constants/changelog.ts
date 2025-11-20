@@ -11,6 +11,37 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_7_5: ChangelogEntry = {
+  version: "1.7.5",
+  date: "2025-11-19",
+  title: "Loading State with Skeleton Loaders",
+  description:
+    "Added built-in loading state support with skeleton loaders for all table cells. Perfect for showing visual feedback during data fetching, pagination, and async operations.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added isLoading prop to display skeleton loaders while data is being fetched",
+      link: "/docs/loading-state",
+    },
+    {
+      type: "feature",
+      description:
+        "New CSS variable --st-loading-skeleton-bg-color for customizing skeleton appearance",
+      link: "/docs/custom-theme",
+    },
+    {
+      type: "feature",
+      description: "New st-loading-skeleton CSS class for advanced styling customization",
+      link: "/docs/loading-state",
+    },
+    {
+      type: "improvement",
+      description: "Enhanced pagination demo to showcase loading states during page transitions",
+      link: "/docs/pagination",
+    },
+  ],
+};
+
 export const v1_7_0: ChangelogEntry = {
   version: "1.7.0",
   date: "2025-11-13",
@@ -221,6 +252,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_7_5,
   v1_7_0,
   v1_6_7,
   v1_6_6,

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-const ROWS_PER_PAGE = 7;
+const ROWS_PER_PAGE = 9;
 const HEADERS: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", minWidth: 100, type: "string" },
@@ -418,20 +418,24 @@ const ROWS = [
 const PaginationDemo = ({ theme }: { theme?: Theme }) => {
   // Only hold the current page data, not all data
   const [rows, setRows] = useState(ROWS.slice(0, ROWS_PER_PAGE));
+  const [isLoading, setIsLoading] = useState(false);
 
   // Handler for next page data fetch
   const onNextPage = async (pageIndex: number) => {
     const startIndex = pageIndex * ROWS_PER_PAGE;
     const endIndex = startIndex + ROWS_PER_PAGE;
 
-    await new Promise((resolve) => setTimeout(resolve, 100));
+    setIsLoading(true);
+    await new Promise((resolve) => setTimeout(resolve, 800));
     const newPageData = ROWS.slice(startIndex, endIndex);
 
     if (newPageData.length === 0 || rows.length > startIndex) {
+      setIsLoading(false);
       return false;
     }
 
     setRows((prevRows) => [...prevRows, ...newPageData]);
+    setIsLoading(false);
     return true;
   };
 
@@ -439,6 +443,7 @@ const PaginationDemo = ({ theme }: { theme?: Theme }) => {
     <SimpleTable
       defaultHeaders={HEADERS}
       height="auto"
+      isLoading={isLoading}
       onNextPage={onNextPage}
       rowIdAccessor="id"
       rows={rows}
