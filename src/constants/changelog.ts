@@ -11,6 +11,20 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_7_6: ChangelogEntry = {
+  version: "1.7.6",
+  date: "2025-11-19",
+  title: "Nested Data Accessor Support",
+  description:
+    "Added support for nested data accessors, allowing you to access deeply nested object properties directly in column definitions using dot notation like 'latest.rank'.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed nested data accessors (e.g., accessor: 'latest.rank') to work correctly",
+    },
+  ],
+};
+
 export const v1_7_5: ChangelogEntry = {
   version: "1.7.5",
   date: "2025-11-19",
@@ -252,6 +266,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_7_6,
   v1_7_5,
   v1_7_0,
   v1_6_7,

@@ -15,12 +15,17 @@ const UNION_TYPE_DEFINITIONS: PropInfo[] = [
     key: "accessor",
     name: "Accessor",
     required: false,
-    description: "Valid property key that exists in the Row type. Used to safely access row data.",
+    description:
+      "Valid property key that exists in the Row type. Used to safely access row data. Supports nested properties using dot notation (v1.7.6+).",
     type: "keyof Row",
     example: `// If your Row type has properties: id, name, age, status
 const accessor: Accessor = "name";     // Valid - exists in Row
 const accessor2: Accessor = "age";     // Valid - exists in Row
-// const invalid: Accessor = "xyz";    // TypeScript error - doesn't exist in Row`,
+// const invalid: Accessor = "xyz";    // TypeScript error - doesn't exist in Row
+
+// Nested data accessor (v1.7.6+)
+const nested: Accessor = "latest.rank";           // Access nested property
+const deepNested: Accessor = "user.profile.name"; // Access deeply nested property`,
   },
   {
     key: "cellvalue",
@@ -897,10 +902,14 @@ const HEADER_OBJECT_PROPS: PropInfo[] = [
     key: "accessor",
     name: "accessor",
     required: true,
-    description: "The key to access data in your row objects. Must match a property in your data.",
+    description:
+      "The key to access data in your row objects. Must match a property in your data. Supports nested properties using dot notation (e.g., 'user.profile.name' or 'latest.rank').",
     type: "Accessor",
     link: "#union-types",
-    example: `{ accessor: "firstName" }`,
+    example: `{ accessor: "firstName" }
+// Nested data accessor (v1.7.6+)
+{ accessor: "latest.rank" }
+{ accessor: "user.profile.email" }`,
   },
   {
     key: "label",
