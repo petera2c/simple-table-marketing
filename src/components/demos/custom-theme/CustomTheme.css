@@ -85,6 +85,10 @@
   /* Filter button disabled colors */
   --st-filter-button-disabled-background-color: var(--st-stone-300);
   --st-filter-button-disabled-text-color: var(--st-stone-500);
+
+  /* Collapsible column colors */
+  --st-sub-header-background-color: var(--st-violet-500);
+  --st-sub-cell-background-color: var(--st-amber-75);
 }
 
 /* Custom styles for table headers */

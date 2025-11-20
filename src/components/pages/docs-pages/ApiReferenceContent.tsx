@@ -91,8 +91,8 @@ columnEditorPosition="right"`,
     name: "Row",
     required: false,
     description:
-      "Data object representing a single table row. Can contain cell values or nested row arrays for hierarchical data.",
-    type: "Record<string, CellValue | Row[]>",
+      "Data object representing a single table row. Can contain cell values, nested row arrays for hierarchical data, or any additional properties.",
+    type: "Record<string, CellValue | Row[] | Record<string, any>>",
     example: `const row: Row = {
   id: 1,
   name: "John Doe",
@@ -101,7 +101,12 @@ columnEditorPosition="right"`,
   // Nested rows for hierarchical data
   children: [
     { id: 2, name: "Child Row", parentId: 1 }
-  ]
+  ],
+  // Additional custom properties
+  metadata: {
+    lastModified: "2024-01-01",
+    category: "active"
+  }
 }`,
   },
   {
@@ -1109,6 +1114,30 @@ showWhen: "always"           // Always visible regardless of parent state`,
     example: `tooltip: "Current retail price in USD"
 tooltip: "Date in YYYY-MM-DD format"
 tooltip: "Average customer rating (1-5 stars)"`,
+  },
+  {
+    key: "singleRowChildren",
+    name: "singleRowChildren",
+    required: false,
+    description:
+      "When true, displays the parent header and child headers horizontally in the same row (side-by-side) instead of the default nested structure where parent appears above children. This makes the parent header appear as a regular column that can collapse its sibling columns, rather than looking like a group header. Only applies to collapsible columns.",
+    type: "boolean",
+    example: `{
+  accessor: "userInfo",
+  label: "User Info",
+  collapsible: true,
+  singleRowChildren: true,  // Parent header appears beside children
+  children: [
+    { accessor: "firstName", label: "First Name", width: 100 },
+    { accessor: "lastName", label: "Last Name", width: 100 },
+    { accessor: "email", label: "Email", width: 200 }
+  ]
+}
+// With singleRowChildren: true
+//   Headers: [User Info] [First Name] [Last Name] [Email] (all in one row)
+// With singleRowChildren: false (default nested)
+//   Headers:     [User Info spanning full width]
+//           [First Name] [Last Name] [Email] (children below parent)`,
   },
 ];
 

@@ -158,6 +158,7 @@ export default function CustomThemeContent() {
 
         <CodeBlock className="mb-0" demoCodeFilename="custom-theme/CustomTheme.txt" />
       </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );
