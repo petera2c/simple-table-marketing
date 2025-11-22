@@ -1,7 +1,7 @@
 {
   "examples/spreadsheet/SpreadsheetExample.tsx": {
-    "id": "4fr8kv",
-    "url": "https://codesandbox.io/s/4fr8kv"
+    "id": "fq7gvs",
+    "url": "https://codesandbox.io/s/fq7gvs"
   },
   "AggregateFunctionsDemo.tsx": {
     "id": "r3xw6r",
@@ -148,31 +148,35 @@
     "url": "https://codesandbox.io/s/jj3jst"
   },
   "examples/billing/BillingExample.tsx": {
-    "id": "p5dg7g",
-    "url": "https://codesandbox.io/s/p5dg7g"
+    "id": "3q2y5y",
+    "url": "https://codesandbox.io/s/3q2y5y"
   },
   "examples/crm/CRMExample.tsx": {
-    "id": "ywtpy6",
-    "url": "https://codesandbox.io/s/ywtpy6"
+    "id": "pxms9w",
+    "url": "https://codesandbox.io/s/pxms9w"
   },
   "examples/hr/HRExample.tsx": {
-    "id": "z3qxt8",
-    "url": "https://codesandbox.io/s/z3qxt8"
+    "id": "wnrstw",
+    "url": "https://codesandbox.io/s/wnrstw"
   },
   "examples/infrastructure/InfrastructureExample.tsx": {
-    "id": "ntd2rd",
-    "url": "https://codesandbox.io/s/ntd2rd"
+    "id": "pdwyy9",
+    "url": "https://codesandbox.io/s/pdwyy9"
   },
   "examples/manufacturing/ManufacturingExample.tsx": {
-    "id": "cj32hk",
-    "url": "https://codesandbox.io/s/cj32hk"
+    "id": "2mddkv",
+    "url": "https://codesandbox.io/s/2mddkv"
   },
   "examples/music/MusicExample.tsx": {
-    "id": "hm2cgw",
-    "url": "https://codesandbox.io/s/hm2cgw"
+    "id": "hjyv2t",
+    "url": "https://codesandbox.io/s/hjyv2t"
   },
   "examples/sales/SalesExample.tsx": {
-    "id": "sxyc9v",
-    "url": "https://codesandbox.io/s/sxyc9v"
+    "id": "ggfrr5",
+    "url": "https://codesandbox.io/s/ggfrr5"
+  },
+  "ValueFormatterDemo.tsx": {
+    "id": "gtcyh6",
+    "url": "https://codesandbox.io/s/gtcyh6"
   }
 }

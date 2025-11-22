@@ -7,6 +7,9 @@ import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import CodeBlock from "@/components/CodeBlock";
+import LivePreview from "@/components/LivePreview";
+import ValueFormatterDemo from "@/components/demos/ValueFormatterDemo";
+import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const VALUE_FORMATTER_PROPS: PropInfo[] = [
   {
@@ -103,6 +106,21 @@ const ValueFormatterContent = () => {
           <FontAwesomeIcon icon={faCode} className="text-blue-600 text-2xl" />
         </div>
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Value Formatter</h1>
+      </motion.div>
+
+      {/* Demo Section */}
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+      >
+        <LivePreview
+          demoCodeFilename="ValueFormatterDemo.txt"
+          height="400px"
+          link={(SANDBOX_LIST as any)["ValueFormatterDemo.tsx"]?.url || "#"}
+          Preview={ValueFormatterDemo}
+        />
       </motion.div>
 
       <motion.p
