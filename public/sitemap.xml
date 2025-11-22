@@ -16,6 +16,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/ag-grid-pricing-license-breakdown-2025</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/best-free-react-data-grid-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -56,6 +61,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/mit-licensed-react-tables-accessibility-keyboard-navigation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/mobile-compatibility-react-tables</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -77,6 +87,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/tanstack-table-vs-ag-grid-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/tanstack-table-vs-simple-table-headless-batteries-included</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

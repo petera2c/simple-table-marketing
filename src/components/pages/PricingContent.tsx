@@ -97,7 +97,7 @@ const PricingContent: React.FC = () => {
       iconColor: "text-blue-500",
       borderColor: "border-blue-200 dark:border-blue-800",
       backgroundColor: "bg-blue-50 dark:bg-blue-950",
-      specialOffer: "50% off - Only 3 spots left out of 10! Use code: 50_OFF",
+      specialOffer: "50% off - Only 3 spots left! Use code: 50_OFF",
     },
   ];
 

@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "type": "module",
   "scripts": {
-    "dev": "npm run open-browser && next dev",
+    "dev": "npm run open-browser && next dev --turbopack",
     "open-browser": "open http://localhost:3000",
     "postinstall": "npm run generate-all-data",
     "build": "next build",

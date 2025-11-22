@@ -149,8 +149,41 @@ export const handsontableAlternativesPost: BlogPostMetadata = {
   updatedAt: "2025-11-15",
 };
 
+export const agGridPricing2025Post: BlogPostMetadata = {
+  title: "AG Grid Pricing & License Breakdown 2025: What You Actually Pay",
+  description:
+    "Complete breakdown of AG Grid's 2025 pricing: from $999/dev/year to enterprise costs. Understand hidden fees, licensing terms, and free alternatives that could save you $25K+.",
+  slug: "ag-grid-pricing-license-breakdown-2025",
+  tags: ["react", "ag-grid", "pricing", "comparison"],
+  createdAt: "2025-11-22",
+  updatedAt: "2025-11-22",
+};
+
+export const tanstackVsSimpleTablePost: BlogPostMetadata = {
+  title: "TanStack Table vs Simple Table: When to Choose Headless vs Batteries-Included",
+  description:
+    "Should you build your own UI with TanStack Table or get started instantly with Simple Table? Real code comparisons, bundle sizes, and decision criteria for headless vs batteries-included approaches.",
+  slug: "tanstack-table-vs-simple-table-headless-batteries-included",
+  tags: ["react", "comparison", "tanstack-table", "architecture"],
+  createdAt: "2025-11-22",
+  updatedAt: "2025-11-22",
+};
+
+export const mitLicensedAccessibilityPost: BlogPostMetadata = {
+  title: "MIT-Licensed React Tables: Accessibility & Keyboard Navigation Comparison",
+  description:
+    "Which free React data grids actually work for keyboard users and screen readers? Comprehensive WCAG 2.1 comparison of accessibility features across MIT-licensed table libraries.",
+  slug: "mit-licensed-react-tables-accessibility-keyboard-navigation",
+  tags: ["react", "accessibility", "keyboard-navigation", "wcag"],
+  createdAt: "2025-11-22",
+  updatedAt: "2025-11-22",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  mitLicensedAccessibilityPost,
+  tanstackVsSimpleTablePost,
+  agGridPricing2025Post,
   handsontableAlternativesPost,
   tanstackVsAgGridPost,
   bundleSizeComparisonPost,
