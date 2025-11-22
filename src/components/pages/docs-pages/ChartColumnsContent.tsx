@@ -121,7 +121,7 @@ const ChartColumnsContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.15 }}
       >
-        <h3 className="font-bold text-gray-800 dark:text-white mb-2">✨ New in v1.8.0</h3>
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">✨ New in v1.8.1</h3>
         <p className="text-gray-700 dark:text-gray-300">
           Chart columns are a powerful new feature that lets you visualize numeric array data
           inline, with smart copy/paste functionality that works seamlessly with spreadsheet
