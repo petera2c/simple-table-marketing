@@ -232,6 +232,52 @@ const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
+const VALUE_FORMATTER_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being formatted",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "price"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, price: 1234.56, currency: "USD" }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value to be formatted",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // 1234.56`,
+  },
+];
+
 const CELL_CLICK_PROPS_PROPS: PropInfo[] = [
   {
     key: "accessor",
@@ -1066,13 +1112,26 @@ minWidth: "100px"`,
     key: "cellRenderer",
     name: "cellRenderer",
     required: false,
-    description: "Custom render function for cell content.",
+    description:
+      "Custom render function for cell content. Use this for React components, custom styling, or interactive elements. For simple text formatting (currency, dates), use valueFormatter instead for better performance.",
     type: "({ accessor, colIndex, row, theme }: { accessor: Accessor; colIndex: number; row: Row; theme: Theme; }) => ReactNode | string",
     example: `cellRenderer: ({ accessor, colIndex, row, theme }) => (
   <span style={{ color: 'blue' }}>
     {row[accessor]}
   </span>
 )`,
+  },
+  {
+    key: "valueFormatter",
+    name: "valueFormatter",
+    required: false,
+    description:
+      "Function to format the cell value for display without affecting the underlying data. Returns a string or number. Use this for currency, dates, percentages, and other simple text formatting. For React components or custom styling, use cellRenderer instead.",
+    type: "(props: ValueFormatterProps) => string | number",
+    link: "/docs/value-formatter",
+    example: `valueFormatter: ({ value }) => {
+  return \`$\${(value as number).toFixed(2)}\`;
+}`,
   },
   {
     key: "headerRenderer",
@@ -1454,6 +1513,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-change-props">
         <PropTable props={CELL_CHANGE_PROPS_PROPS} title="CellChangeProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="value-formatter-props">
+        <PropTable props={VALUE_FORMATTER_PROPS_PROPS} title="ValueFormatterProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-click-props">

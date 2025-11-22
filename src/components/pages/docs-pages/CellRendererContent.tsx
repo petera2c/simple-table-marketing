@@ -17,7 +17,7 @@ const CELL_RENDERER_PROPS: PropInfo[] = [
     name: "HeaderObject.cellRenderer",
     required: false,
     description:
-      "Custom function to render cell content. Receives cell information and returns either a ReactNode or string for display.",
+      "Custom function to render cell content with React components. Receives cell information and returns either a ReactNode or string for display. For simple text formatting (currency, dates, percentages), use valueFormatter instead for better performance.",
     type: "(params: CellRendererParams) => ReactNode | string",
     example: `{
   accessor: "status",
@@ -116,6 +116,29 @@ const CellRendererContent = () => {
         can now render complex data structures like tag lists, team member arrays, and nested object
         data.
       </motion.p>
+
+      <motion.div
+        className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 When to Use</h3>
+        <p className="text-gray-700 dark:text-gray-300">
+          For simple text formatting (currency, dates, percentages), consider using{" "}
+          <a
+            href="/docs/value-formatter"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            valueFormatter
+          </a>{" "}
+          instead. It's more performant and easier to implement. Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            cellRenderer
+          </code>{" "}
+          when you need React components, custom styling, or interactive elements.
+        </p>
+      </motion.div>
 
       {/* Basic Usage Section */}
       <motion.h2
@@ -273,6 +296,16 @@ type CellValue = string | number | boolean | undefined | null | string[] | numbe
             <li>Columns without a cellRenderer will display their values as plain text</li>
             <li>Avoid expensive operations in cell renderers as they run frequently</li>
             <li>Consider memoizing complex components to improve performance</li>
+            <li>
+              For simple text formatting, use{" "}
+              <a
+                href="/docs/value-formatter"
+                className="text-blue-600 dark:text-blue-400 hover:underline"
+              >
+                valueFormatter
+              </a>{" "}
+              instead for better performance
+            </li>
           </ul>
         </div>
       </motion.div>

@@ -11,6 +11,28 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_7_9: ChangelogEntry = {
+  version: "1.7.9",
+  date: "2024-11-22",
+  title: "Value Formatter Support",
+  description:
+    "Added valueFormatter attribute to HeaderObject for simple cell value formatting. This provides a more performant and streamlined way to format cell values for display (currency, dates, percentages) without using cellRenderer.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added valueFormatter attribute to HeaderObject for formatting cell values without React components",
+      link: "/docs/value-formatter",
+    },
+    {
+      type: "improvement",
+      description:
+        "Updated documentation to clarify when to use valueFormatter vs cellRenderer for optimal performance",
+      link: "/docs/cell-renderer",
+    },
+  ],
+};
+
 export const v1_7_6: ChangelogEntry = {
   version: "1.7.6",
   date: "2025-11-19",
@@ -266,6 +288,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_7_9,
   v1_7_6,
   v1_7_5,
   v1_7_0,

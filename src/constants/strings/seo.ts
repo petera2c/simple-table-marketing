@@ -365,6 +365,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, cell renderer, custom table cells, typescript table, data visualization",
   },
+  valueFormatter: {
+    title: "Value Formatter - Simple Table for React",
+    description:
+      "Format cell values for display in your React table with Simple Table's valueFormatter. Currency, dates, percentages, and more with TypeScript support.",
+    keywords:
+      "simple-table, react-table, value formatter, cell formatting, currency formatting, date formatting, percentage formatting, data-grid, datagrid, typescript table",
+  },
   cellClicking: {
     title: "Cell Clicking Events in Simple Table React Grid",
     description:

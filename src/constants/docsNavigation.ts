@@ -178,6 +178,12 @@ export const docSections: DocSection[] = [
       },
       { id: "cell-renderer", label: "Cell Renderer", path: "/docs/cell-renderer", icon: faCode },
       {
+        id: "value-formatter",
+        label: "Value Formatter",
+        path: "/docs/value-formatter",
+        icon: faPaintBrush,
+      },
+      {
         id: "cell-clicking",
         label: "Cell Clicking",
         path: "/docs/cell-clicking",

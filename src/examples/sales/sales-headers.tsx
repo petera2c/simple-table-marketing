@@ -248,9 +248,9 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         tooltip: "The size of the deal in dollars",
-        cellRenderer: ({ row }) => {
-          if (row.dealSize === "—") return "—";
-          return `$${(row.dealSize as number).toLocaleString("en-US", {
+        valueFormatter: ({ value }) => {
+          if (value === "—") return "—";
+          return `$${(value as number).toLocaleString("en-US", {
             minimumFractionDigits: 2,
             maximumFractionDigits: 2,
           })}`;
@@ -318,21 +318,17 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "center",
         type: "date",
         tooltip: "The date the deal was closed",
-        cellRenderer: ({ row }) => {
-          if (!row.closeDate) return "—";
+        valueFormatter: ({ value }) => {
+          if (!value) return "—";
 
           // Parse YYYY-MM-DD format correctly without timezone conversion
-          const [year, month, day] = (row.closeDate as string).split("-").map(Number);
+          const [year, month, day] = (value as string).split("-").map(Number);
           const date = new Date(year, month - 1, day); // month is 0-indexed
-          return (
-            <div className="flex items-center justify-center">
-              {date.toLocaleDateString("en-US", {
-                month: "short",
-                day: "numeric",
-                year: "numeric",
-              })}
-            </div>
-          );
+          return date.toLocaleDateString("en-US", {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          });
         },
       },
     ],
