@@ -11,8 +11,8 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
-export const v1_8_0: ChangelogEntry = {
-  version: "1.8.0",
+export const v1_8_1: ChangelogEntry = {
+  version: "1.8.1",
   date: "2025-11-22",
   title: "Chart Column Types - Visualize Data Inline",
   description:
@@ -321,7 +321,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v1_8_0,
+  v1_8_1,
   v1_7_9,
   v1_7_6,
   v1_7_5,

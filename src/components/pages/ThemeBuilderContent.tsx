@@ -26,6 +26,7 @@ import {
   faCaretDown,
   faFilter,
   faRectangleList,
+  faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import { UI_STRINGS } from "@/constants/strings/ui";
 import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
@@ -133,6 +134,8 @@ interface ThemeConfig {
   headerSelectedIconColor: string;
   headerHighlightIndicatorColor: string;
   selectionHighlightIndicatorColor: string;
+  chartColor: string;
+  chartFillColor: string;
 }
 
 const lightThemeDefaults: ThemeConfig = {
@@ -199,6 +202,10 @@ const lightThemeDefaults: ThemeConfig = {
   // Highlight indicator colors
   headerHighlightIndicatorColor: "#cbd5e1", // slate-300
   selectionHighlightIndicatorColor: "#cbd5e1", // slate-300
+
+  // Chart colors
+  chartColor: "#93c5fd", // blue-300
+  chartFillColor: "#93c5fd", // blue-300
 
   // Navigation button colors
   nextPrevBtnColor: "#475569", // slate-600
@@ -293,6 +300,10 @@ const darkThemeDefaults: ThemeConfig = {
   headerHighlightIndicatorColor: "#475569", // slate-600
   selectionHighlightIndicatorColor: "#475569", // slate-600
 
+  // Chart colors
+  chartColor: "#60a5fa", // blue-400
+  chartFillColor: "#60a5fa", // blue-400
+
   // Navigation button colors
   nextPrevBtnColor: "#94a3b8", // slate-400
   nextPrevBtnDisabledColor: "#64748b", // slate-500
@@ -365,6 +376,7 @@ export default function ThemeBuilderContent() {
     datepicker: false,
     dropdown: false,
     filter: false,
+    charts: false,
   });
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -476,6 +488,7 @@ export default function ThemeBuilderContent() {
       datepicker: newState,
       dropdown: newState,
       filter: newState,
+      charts: newState,
     });
   };
 
@@ -939,6 +952,23 @@ export default function ThemeBuilderContent() {
         ],
       },
     ],
+    charts: [
+      {
+        title: "Chart Colors",
+        fields: [
+          {
+            key: "chartColor",
+            type: "color",
+            tooltip: "Default color for chart lines and bars (lineAreaChart and barChart columns)",
+          },
+          {
+            key: "chartFillColor",
+            type: "color",
+            tooltip: "Default fill color for area charts (lineAreaChart columns)",
+          },
+        ],
+      },
+    ],
   };
 
   // Shorten label names
@@ -1015,6 +1045,7 @@ export default function ThemeBuilderContent() {
     datepicker: { title: "Datepicker", icon: faCalendar },
     dropdown: { title: "Dropdown", icon: faCaretDown },
     filter: { title: "Filter", icon: faFilter },
+    charts: { title: "Charts", icon: faChartLine },
   };
 
   // Render a single section config

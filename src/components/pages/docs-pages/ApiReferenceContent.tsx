@@ -78,6 +78,33 @@ aggregation: {
 pinned: "right"  // Pin to right side`,
   },
   {
+    key: "chartoptions",
+    name: "ChartOptions",
+    required: false,
+    description:
+      "Configuration object for customizing chart column appearance and behavior. Use with lineAreaChart and barChart column types.",
+    type: "object",
+    example: `interface ChartOptions {
+  min?: number;        // Custom minimum value for chart scaling
+  max?: number;        // Custom maximum value for chart scaling
+  width?: number;      // Custom chart width (default: 100)
+  height?: number;     // Custom chart height (default: 30)
+  color?: string;      // Custom chart color (overrides theme color)
+  fillColor?: string;  // Custom fill color for area charts
+  fillOpacity?: number; // Fill opacity for area charts (default: 0.2)
+  strokeWidth?: number; // Line stroke width (default: 2)
+  gap?: number;        // Gap between bars in bar charts (default: 2)
+}
+
+// Example usage
+chartOptions: {
+  min: 0,
+  max: 100,
+  color: "#3b82f6",
+  height: 35
+}`,
+  },
+  {
     key: "columneditorposition",
     name: "ColumnEditorPosition",
     required: false,
@@ -1031,6 +1058,26 @@ type: "lineAreaChart"  // For inline line/area charts (array data)
 type: "barChart"       // For inline bar charts (array data)
 type: "other"    // For custom content (buttons, etc.)
 type: "string"   // Default`,
+  },
+  {
+    key: "chartOptions",
+    name: "chartOptions",
+    required: false,
+    description:
+      "Customization options for chart columns (lineAreaChart and barChart). Configure dimensions, colors, scaling, stroke width, and other visual properties. See the chart-options section for detailed options.",
+    type: "ChartOptions",
+    link: "#chart-options",
+    example: `chartOptions: {
+  min: 0,           // Custom minimum value for scaling
+  max: 100,         // Custom maximum value for scaling
+  width: 120,       // Chart width in pixels (default: 100)
+  height: 35,       // Chart height in pixels (default: 30)
+  color: "#3b82f6", // Custom chart color (overrides theme)
+  fillColor: "#93c5fd",    // Fill color for area charts
+  fillOpacity: 0.3,        // Fill opacity (default: 0.2)
+  strokeWidth: 2,          // Line thickness (default: 2)
+  gap: 3                   // Gap between bars (default: 2)
+}`,
   },
   {
     key: "minWidth",

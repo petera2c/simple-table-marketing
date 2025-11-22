@@ -46,6 +46,44 @@ const CHART_COLUMN_PROPS: PropInfo[] = [
   tooltip: "Revenue by quarter"
 }`,
   },
+  {
+    key: "chartOptions",
+    name: "HeaderObject.chartOptions",
+    required: false,
+    description:
+      "Customize the appearance and behavior of chart columns (lineAreaChart and barChart). Configure dimensions, colors, scaling, and rendering options.",
+    type: "ChartOptions",
+    link: "/docs/api-reference#chart-options",
+    example: `{
+  accessor: "cpuHistory",
+  label: "CPU Usage",
+  type: "lineAreaChart",
+  width: 150,
+  chartOptions: {
+    min: 0,
+    max: 100,
+    width: 120,
+    height: 35,
+    color: "#3b82f6",
+    fillColor: "#93c5fd",
+    fillOpacity: 0.3,
+    strokeWidth: 2
+  }
+}
+
+// Bar chart with custom styling
+{
+  accessor: "quarterlyData",
+  label: "Quarterly",
+  type: "barChart",
+  width: 140,
+  chartOptions: {
+    color: "#10b981",
+    gap: 3,
+    height: 40
+  }
+}`,
+  },
 ];
 
 const ChartColumnsContent = () => {
@@ -452,12 +490,153 @@ useEffect(() => {
         </p>
       </motion.div>
 
-      {/* Best Practices Section */}
+      {/* Customization Section */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 mt-8 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Chart Customization
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.75 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            chartOptions
+          </code>{" "}
+          property to customize the appearance and behavior of your chart columns. You can control
+          dimensions, colors, scaling, and other visual aspects.
+        </p>
+
+        <CodeBlock
+          language="typescript"
+          code={`// Line/area chart with custom options
+{
+  accessor: "cpuHistory",
+  label: "CPU Usage",
+  type: "lineAreaChart",
+  width: 150,
+  chartOptions: {
+    min: 0,           // Minimum value for scaling
+    max: 100,         // Maximum value for scaling
+    width: 120,       // Chart width in pixels
+    height: 35,       // Chart height in pixels
+    color: "#3b82f6", // Line color (overrides theme)
+    fillColor: "#93c5fd",     // Area fill color
+    fillOpacity: 0.3,         // Fill opacity (0-1)
+    strokeWidth: 2            // Line thickness
+  }
+}
+
+// Bar chart with custom options
+{
+  accessor: "quarterlyRevenue",
+  label: "Quarterly",
+  type: "barChart",
+  width: 140,
+  chartOptions: {
+    min: 0,           // Minimum value for scaling
+    max: 100000,      // Maximum value for scaling
+    width: 120,       // Chart width in pixels
+    height: 40,       // Chart height in pixels
+    color: "#10b981", // Bar color (overrides theme)
+    gap: 3            // Gap between bars in pixels
+  }
+}`}
+        />
+
+        <div className="mt-4 space-y-3">
+          <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Available Options</h4>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                min
+              </code>{" "}
+              - Custom minimum value for chart scaling
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                max
+              </code>{" "}
+              - Custom maximum value for chart scaling
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                width
+              </code>{" "}
+              - Custom chart width in pixels (default: 100)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                height
+              </code>{" "}
+              - Custom chart height in pixels (default: 30)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                color
+              </code>{" "}
+              - Custom chart color (overrides theme color)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                fillColor
+              </code>{" "}
+              - Custom fill color for area charts (overrides theme color)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                fillOpacity
+              </code>{" "}
+              - Fill opacity for area charts (default: 0.2)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                strokeWidth
+              </code>{" "}
+              - Line stroke width (default: 2)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                gap
+              </code>{" "}
+              - Gap between bars in bar charts (default: 2)
+            </li>
+          </ul>
+        </div>
+
+        <div className="mt-4 bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Theme Colors</h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            Charts use theme-specific colors by default. You can override them with custom colors in{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              chartOptions
+            </code>
+            . The default theme colors are controlled by{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              --st-chart-color
+            </code>{" "}
+            and{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              --st-chart-fill-color
+            </code>{" "}
+            CSS variables.
+          </p>
+        </div>
+      </motion.div>
+
+      {/* Best Practices Section */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 mt-8 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         Best Practices
       </motion.h2>
@@ -465,7 +644,7 @@ useEffect(() => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.75 }}
+        transition={{ duration: 0.5, delay: 0.85 }}
       >
         <ul className="list-disc pl-5 space-y-3 text-gray-700 dark:text-gray-300">
           <li>
@@ -507,7 +686,7 @@ useEffect(() => {
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 mt-8 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
       >
         API Reference
       </motion.h2>
@@ -515,7 +694,7 @@ useEffect(() => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.85 }}
+        transition={{ duration: 0.5, delay: 0.95 }}
       >
         <PropTable props={CHART_COLUMN_PROPS} title="Chart Column Properties" />
       </motion.div>
@@ -524,7 +703,7 @@ useEffect(() => {
         className="mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
+        transition={{ duration: 0.5, delay: 1.0 }}
       >
         <DocNavigationButtons />
       </motion.div>
