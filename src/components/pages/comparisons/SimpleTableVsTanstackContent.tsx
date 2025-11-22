@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Typography } from "antd";
+import NextLink from "next/link";
 import ComparisonLayout from "../../ComparisonLayout";
 import { SIMPLE_TABLE_INFO, TANSTACK_TABLE_INFO } from "@/constants/packageInfo";
 
@@ -25,7 +26,14 @@ const SimpleTableVsTanstackContent = () => {
       in minutes rather than weeks. This comparison examines both approaches: the flexibility and
       control of building everything yourself versus the speed and convenience of a
       batteries-included solution. We'll help you determine which approach aligns better with your
-      project timeline, team expertise, and design requirements.
+      project timeline, team expertise, and design requirements. For a deeper dive, read our{" "}
+      <NextLink
+        href="/blog/tanstack-table-vs-simple-table-headless-batteries-included"
+        className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+      >
+        headless vs batteries-included comparison
+      </NextLink>
+      .
     </>
   );
 
@@ -66,7 +74,7 @@ const SimpleTableVsTanstackContent = () => {
         projects that require highly customized tables and have the resources to build custom UI
         components from scratch.
       </Text>
-      <Text className="text-lg block text-inherit">
+      <Text className="text-lg block text-inherit mb-4">
         Choose{" "}
         <a
           href="https://www.simple-table.com"
@@ -76,6 +84,29 @@ const SimpleTableVsTanstackContent = () => {
         </a>{" "}
         if you want a ready-to-use solution with minimal setup. Choose TanStack Table if you need
         complete UI flexibility and have the time and resources to build custom components.
+      </Text>
+      <Text className="text-base block text-inherit">
+        <strong>Related reading:</strong>{" "}
+        <NextLink
+          href="/blog/tanstack-table-vs-simple-table-headless-batteries-included"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Detailed headless vs batteries-included guide
+        </NextLink>
+        {" • "}
+        <NextLink
+          href="/blog/tanstack-table-vs-ag-grid-comparison"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          TanStack vs AG Grid
+        </NextLink>
+        {" • "}
+        <NextLink
+          href="/blog/best-react-table-libraries-2025"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Best React table libraries
+        </NextLink>
       </Text>
     </>
   );

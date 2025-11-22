@@ -105,7 +105,14 @@ export default function AgGridAlternativesPage() {
                 virtually any data grid use case. It's well-documented, actively maintained, and
                 trusted by thousands of companies. However, advanced features like row grouping,
                 aggregation, and Excel export require an Enterprise license starting at $999 per
-                developer annually.
+                developer annually. See our{" "}
+                <Link
+                  href="/blog/ag-grid-pricing-license-breakdown-2025"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  complete AG Grid pricing breakdown
+                </Link>{" "}
+                for details.
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
@@ -162,7 +169,14 @@ export default function AgGridAlternativesPage() {
                   </div>
                   <p className="text-gray-700 dark:text-gray-300 text-sm">
                     AG Grid Community is {AG_GRID_COMMUNITY_INFO.bundleSizeMinGzip}. Many
-                    alternatives are significantly smaller and faster.
+                    alternatives are significantly smaller and faster. See our{" "}
+                    <Link
+                      href="/blog/react-data-grid-bundle-size-comparison"
+                      className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                    >
+                      bundle size comparison
+                    </Link>
+                    .
                   </p>
                 </div>
 

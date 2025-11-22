@@ -110,7 +110,14 @@ export default function BestReactTableLibraries2025Page() {
                 the sharpest React table libraries I've vetted (and battled) in real projects. We'll
                 unpack their strengths, gotchas, and sweet spots, so you can skip the
                 trial-and-error grind. Expect a mix of heavy hitters for enterprise beasts and lean
-                picks for agile sprints.
+                picks for agile sprints. Looking for{" "}
+                <Link
+                  href="/blog/ag-grid-alternatives-free-react-data-grids"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  AG Grid alternatives
+                </Link>
+                ? We've got you covered.
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">

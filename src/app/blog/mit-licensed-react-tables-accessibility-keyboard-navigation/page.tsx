@@ -20,6 +20,7 @@ import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.mitLicensedAccessibility.title,
@@ -86,8 +87,14 @@ export default function AccessibilityComparisonPage() {
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 Accessibility isn't optional—it's a legal requirement in many jurisdictions (ADA,
-                WCAG 2.1 AA, Section 508) and a moral imperative. Yet when comparing React data
-                grids, accessibility is often the last thing developers consider. Most comparison
+                WCAG 2.1 AA, Section 508) and a moral imperative. Yet when{" "}
+                <Link
+                  href="/blog/best-react-table-libraries-2025"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  comparing React data grids
+                </Link>
+                , accessibility is often the last thing developers consider. Most comparison
                 articles focus on features, bundle size, and pricing, while ignoring the question:{" "}
                 <strong>"Can everyone actually use this?"</strong>
               </p>
@@ -646,7 +653,14 @@ export default function AccessibilityComparisonPage() {
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 TanStack Table's "you build everything" philosophy sounds empowering, but it creates
                 a serious accessibility problem: <strong>most developers won't</strong> build
-                accessible UI from scratch.
+                accessible UI from scratch. Read more in our{" "}
+                <Link
+                  href="/blog/tanstack-table-vs-simple-table-headless-batteries-included"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  headless vs batteries-included comparison
+                </Link>
+                .
               </p>
 
               <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4 mb-4">
@@ -871,7 +885,7 @@ export default function AccessibilityComparisonPage() {
               <p className="text-gray-700 dark:text-gray-300 mb-4">
                 Simple Table achieves perfect scores in automated accessibility testing:
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm mb-4">
                 <div className="bg-white dark:bg-gray-800 rounded p-4 border border-green-300 dark:border-green-700">
                   <div className="font-bold text-gray-900 dark:text-gray-100 mb-1">Lighthouse</div>
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400">100</div>
@@ -891,6 +905,23 @@ export default function AccessibilityComparisonPage() {
                   <div className="text-3xl font-bold text-green-600 dark:text-green-400">✓</div>
                   <div className="text-xs text-gray-600 dark:text-gray-400">WCAG 2.1 AAA</div>
                 </div>
+              </div>
+              <div className="text-sm text-gray-700 dark:text-gray-300">
+                Try it yourself with{" "}
+                <Link
+                  href="/docs/keyboard-navigation"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  keyboard navigation
+                </Link>{" "}
+                or explore{" "}
+                <Link
+                  href="/blog/mobile-compatibility-react-tables"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  mobile accessibility features
+                </Link>
+                .
               </div>
             </div>
           </div>
@@ -946,11 +977,31 @@ export default function AccessibilityComparisonPage() {
                   provide good baseline accessibility. TanStack requires you to build it yourself,
                   which few teams do well.
                 </p>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
                   <strong>For most teams:</strong> Simple Table offers the best combination of
                   accessibility, performance, and ease of use. It's accessible by default, MIT
                   licensed, and requires zero accessibility expertise to use correctly.
                 </p>
+                <div className="flex gap-3 flex-wrap text-sm">
+                  <Link
+                    href="/comparisons/simple-table-vs-tanstack"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Compare with TanStack Table
+                  </Link>
+                  <Link
+                    href="/blog/react-data-grid-bundle-size-comparison"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Bundle size comparison
+                  </Link>
+                  <Link
+                    href="/docs/themes"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Accessible themes
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -967,7 +1018,7 @@ export default function AccessibilityComparisonPage() {
         }}
         secondaryButton={{
           text: "Test Keyboard Navigation Live",
-          href: "/docs/cell-highlighting",
+          href: "/docs/keyboard-navigation",
         }}
       />
     </BlogLayout>

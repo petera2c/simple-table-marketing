@@ -96,7 +96,14 @@ export default function AgGridPricingPage() {
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 In this comprehensive guide, we'll break down AG Grid's 2025 pricing structure,
                 reveal the actual costs you'll pay, and help you determine whether it's the right
-                investment for your team—or if there are better alternatives.
+                investment for your team—or if there are{" "}
+                <Link
+                  href="/blog/ag-grid-alternatives-free-react-data-grids"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  better free alternatives
+                </Link>
+                .
               </p>
 
               <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-700 rounded-lg p-4 mt-6">
@@ -112,6 +119,16 @@ export default function AgGridPricingPage() {
                       <li>• 5-Developer Team: $4,995/year ($416/month)</li>
                       <li>• 10-Developer Team: $9,990/year ($832/month)</li>
                       <li>• Enterprise (unlimited): Custom pricing (typically $20K-$50K+/year)</li>
+                      <li className="pt-2 border-t border-amber-300 dark:border-amber-700">
+                        💡{" "}
+                        <Link
+                          href="/blog/ag-grid-alternatives-free-react-data-grids"
+                          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                        >
+                          See 7 free alternatives
+                        </Link>{" "}
+                        that could save you $25K+
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -706,7 +723,7 @@ export default function AgGridPricingPage() {
                     Get Started Free
                   </Link>
                   <Link
-                    href="/comparisons/ag-grid-vs-simple-table"
+                    href="/comparisons/simple-table-vs-ag-grid"
                     className="inline-block px-6 py-3 bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-700 text-gray-900 dark:text-gray-100 border border-gray-300 dark:border-gray-600 rounded-lg font-semibold transition-colors"
                   >
                     Compare Features
@@ -727,7 +744,14 @@ export default function AgGridPricingPage() {
 
                 <p className="text-gray-700 dark:text-gray-300 mb-3">
                   Headless table library with powerful features but requires you to build the UI
-                  yourself. Great if you need complete control over rendering.
+                  yourself. Great if you need complete control over rendering.{" "}
+                  <Link
+                    href="/blog/tanstack-table-vs-simple-table-headless-batteries-included"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    Compare TanStack vs Simple Table
+                  </Link>
+                  .
                 </p>
 
                 <div className="grid grid-cols-2 gap-4 text-sm">
@@ -747,6 +771,14 @@ export default function AgGridPricingPage() {
                     <span className="text-amber-600 dark:text-amber-400">△</span> Steeper learning
                     curve
                   </div>
+                </div>
+                <div className="mt-3 pt-3 border-t border-gray-300 dark:border-gray-600">
+                  <Link
+                    href="/comparisons/simple-table-vs-tanstack"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                  >
+                    View detailed comparison →
+                  </Link>
                 </div>
               </div>
 
@@ -791,7 +823,14 @@ export default function AgGridPricingPage() {
                 <FontAwesomeIcon icon={faLightbulb} className="text-blue-500 mr-2" />
                 <strong>Pro tip:</strong> Most teams don't need AG Grid's enterprise features. Start
                 with a free alternative and only upgrade if you hit a specific limitation. You can
-                always migrate later if needed—but you probably won't.
+                always migrate later if needed—but you probably won't. Read our{" "}
+                <Link
+                  href="/blog/ag-grid-alternatives-free-react-data-grids"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  complete guide to AG Grid alternatives
+                </Link>
+                .
               </p>
             </div>
           </div>
@@ -864,12 +903,32 @@ export default function AgGridPricingPage() {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3">
                   Bottom Line: Start Free, Upgrade Only If Necessary
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300">
+                <p className="text-gray-700 dark:text-gray-300 mb-3">
                   For <strong>90% of React applications</strong>, a free alternative like Simple
                   Table provides everything you need. Start there, save thousands, and only consider
                   AG Grid Enterprise if you hit a specific feature wall. Your CFO (and your team)
                   will thank you.
                 </p>
+                <div className="flex gap-3 mt-4 flex-wrap">
+                  <Link
+                    href="/comparisons/simple-table-vs-ag-grid"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Detailed feature comparison
+                  </Link>
+                  <Link
+                    href="/blog/best-react-table-libraries-2025"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Best React table libraries 2025
+                  </Link>
+                  <Link
+                    href="/blog/react-data-grid-bundle-size-comparison"
+                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    → Bundle size comparison
+                  </Link>
+                </div>
               </div>
             </div>
           </div>

@@ -21,6 +21,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { SIMPLE_TABLE_INFO, TANSTACK_TABLE_INFO } from "@/constants/packageInfo";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.tanstackVsSimpleTable.title,
@@ -94,7 +95,14 @@ export default function TanStackVsSimpleTablePage() {
                 TypeScript support (both have generous free tiers). But they serve different needs
                 and come with very different development experiences. Choosing the wrong approach
                 can cost you weeks of development time or lock you into an architecture that doesn't
-                fit your needs.
+                fit your needs. For a broader overview, check out our guide to{" "}
+                <Link
+                  href="/blog/best-react-table-libraries-2025"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  the best React table libraries in 2025
+                </Link>
+                .
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
@@ -472,7 +480,14 @@ export function SimpleTableExample({ data, columns }) {
                 TanStack Table's core is lighter, but when you add the UI code you need to write,
                 plus virtualization libraries and styling, your total bundle is often larger than
                 Simple Table's complete package. Simple Table is optimized as a single, cohesive
-                bundle with tree-shaking.
+                bundle with tree-shaking. See our{" "}
+                <Link
+                  href="/blog/react-data-grid-bundle-size-comparison"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  comprehensive bundle size comparison
+                </Link>{" "}
+                for detailed analysis.
               </p>
             </div>
           </div>
@@ -839,7 +854,7 @@ export function SimpleTableExample({ data, columns }) {
                   <FontAwesomeIcon icon={faLightbulb} className="text-purple-500" />
                   The Real Question
                 </h3>
-                <p className="text-sm text-gray-700 dark:text-gray-300">
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
                   Ask yourself:{" "}
                   <strong>
                     "Do I need to customize the UI structure itself, or just
@@ -849,6 +864,22 @@ export function SimpleTableExample({ data, columns }) {
                   <br />
                   • If structure: TanStack gives you JSX control
                   <br />• If styling/content: Simple Table's renderers + CSS variables are faster
+                </p>
+                <p className="text-sm text-gray-700 dark:text-gray-300">
+                  Learn more:{" "}
+                  <Link
+                    href="/blog/customizing-react-table-look-simple-table-themes"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    Customizing React tables with themes
+                  </Link>{" "}
+                  |{" "}
+                  <Link
+                    href="/docs/custom-renderers"
+                    className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                  >
+                    Custom renderers docs
+                  </Link>
                 </p>
               </div>
             </div>
@@ -1035,6 +1066,31 @@ export function SimpleTableExample({ data, columns }) {
                   <strong>Tip:</strong> You can always migrate from Simple Table to TanStack later
                   if you hit a wall. But you probably won't.
                 </p>
+                <div className="mt-4 pt-4 border-t border-blue-300 dark:border-blue-700">
+                  <p className="text-sm font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                    Related Reading:
+                  </p>
+                  <div className="flex gap-4 flex-wrap text-sm">
+                    <Link
+                      href="/comparisons/simple-table-vs-tanstack"
+                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      → Detailed comparison
+                    </Link>
+                    <Link
+                      href="/blog/tanstack-table-vs-ag-grid-comparison"
+                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      → TanStack vs AG Grid
+                    </Link>
+                    <Link
+                      href="/docs/installation"
+                      className="text-blue-600 dark:text-blue-400 hover:underline"
+                    >
+                      → Get started with Simple Table
+                    </Link>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

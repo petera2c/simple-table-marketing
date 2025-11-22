@@ -17,25 +17,6 @@ export default function Footer() {
 
   return (
     <footer className="bg-gray-900 dark:bg-gray-950 text-white">
-      {/* Hidden promotional links for SEO purposes */}
-      <div className="fixed -bottom-[400px] left-0 opacity-0 pointer-events-none">
-        <a href="https://www.superlaun.ch/products/875" target="_blank" rel="noopener">
-          <img
-            src="https://www.superlaun.ch/badge.png"
-            alt="Featured on Super Launch"
-            width="300"
-            height="300"
-          />
-        </a>
-        <a href="https://findly.tools/simple-table?utm_source=simple-table" target="_blank">
-          <img
-            src="https://findly.tools/badges/findly-tools-badge-light.svg"
-            alt="Featured on findly.tools"
-            width="150"
-          />
-        </a>
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-[1fr_1fr_1.5fr_1fr_1fr_1fr] gap-8">
           {/* Documentation */}

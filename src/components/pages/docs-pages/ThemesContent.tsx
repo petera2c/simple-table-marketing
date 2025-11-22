@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPalette } from "@fortawesome/free-solid-svg-icons";
+import Link from "next/link";
 import ThemesDemo from "@/components/demos/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
@@ -97,7 +98,20 @@ export default function ThemesContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Simple Table includes several beautiful built-in themes to match your application's visual
-        design. Choose from Light, Dark, Sky, Violet, or Neutral themes.
+        design. Choose from Light, Dark, Sky, Violet, or Neutral themes. Learn more about{" "}
+        <Link
+          href="/blog/customizing-react-table-look-simple-table-themes"
+          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+        >
+          customizing your React table
+        </Link>{" "}
+        or explore{" "}
+        <Link
+          href="/docs/custom-theme"
+          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+        >
+          creating custom themes
+        </Link>.
       </motion.p>
 
       <motion.div

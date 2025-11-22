@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { Typography } from "antd";
+import NextLink from "next/link";
 import ComparisonLayout from "../../ComparisonLayout";
 import {
   SIMPLE_TABLE_INFO,
@@ -54,7 +55,22 @@ const SimpleVsAgGrid = () => {
       capabilities—all while remaining completely free. This comparison examines whether you can
       achieve your data grid goals without the complexity, licensing costs, and bundle overhead that
       AG Grid Enterprise demands. We'll break down the true cost of ownership and help you determine
-      if Simple Table can deliver the enterprise-level functionality your application needs.
+      if Simple Table can deliver the enterprise-level functionality your application needs. For a
+      detailed pricing breakdown, see our{" "}
+      <NextLink
+        href="/blog/ag-grid-pricing-license-breakdown-2025"
+        className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+      >
+        AG Grid pricing guide
+      </NextLink>
+      . Looking for more options? Check out our{" "}
+      <NextLink
+        href="/blog/ag-grid-alternatives-free-react-data-grids"
+        className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+      >
+        7 best free AG Grid alternatives
+      </NextLink>
+      .
     </>
   );
 
@@ -101,12 +117,35 @@ const SimpleVsAgGrid = () => {
         {getPricingString(AG_GRID_ENTERPRISE_INFO)}. The combined bundle size and steeper learning
         curve make it better suited for complex, enterprise-level applications.
       </Text>
-      <Text className="text-lg block text-inherit">
+      <Text className="text-lg block text-inherit mb-4">
         If you're looking for a free, lightweight solution with solid features,{" "}
         <Link className="text-[length:inherit]" href="https://www.simple-table.com">
           try Simple Table
         </Link>
         . For enterprise needs, AG Grid might be worth the investment.
+      </Text>
+      <Text className="text-base block text-inherit">
+        <strong>Related reading:</strong>{" "}
+        <NextLink
+          href="/blog/ag-grid-pricing-license-breakdown-2025"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          AG Grid pricing breakdown
+        </NextLink>
+        {" • "}
+        <NextLink
+          href="/blog/best-react-table-libraries-2025"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Best React table libraries 2025
+        </NextLink>
+        {" • "}
+        <NextLink
+          href="/blog/react-data-grid-bundle-size-comparison"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          Bundle size comparison
+        </NextLink>
       </Text>
     </>
   );
