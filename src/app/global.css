@@ -3137,6 +3137,10 @@ body {
   background-color: rgb(113 63 18 / 0.3);
 }
 
+.dark\:bg-purple-900\/30:is(.dark *) {
+  background-color: rgb(88 28 135 / 0.3);
+}
+
 .dark\:from-amber-900\/20:is(.dark *) {
   --tw-gradient-from: rgb(120 53 15 / 0.2) var(--tw-gradient-from-position);
   --tw-gradient-to: rgb(120 53 15 / 0) var(--tw-gradient-to-position);

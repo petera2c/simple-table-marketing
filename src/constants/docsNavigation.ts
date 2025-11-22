@@ -33,6 +33,7 @@ import {
   faCommentAlt,
   faRulerHorizontal,
   faSpinner,
+  faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -182,6 +183,12 @@ export const docSections: DocSection[] = [
         label: "Value Formatter",
         path: "/docs/value-formatter",
         icon: faPaintBrush,
+      },
+      {
+        id: "chart-columns",
+        label: "Chart Columns",
+        path: "/docs/chart-columns",
+        icon: faChartLine,
       },
       {
         id: "cell-clicking",

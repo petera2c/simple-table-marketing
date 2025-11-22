@@ -11,6 +11,39 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_8_0: ChangelogEntry = {
+  version: "1.8.0",
+  date: "2025-11-22",
+  title: "Chart Column Types - Visualize Data Inline",
+  description:
+    "Added built-in chart column types (lineAreaChart and barChart) to visualize array data directly in table cells. Includes smart copy/paste functionality that formats chart data as comma-separated values for seamless integration with spreadsheets.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added lineAreaChart and barChart column types for inline data visualization",
+      link: "/docs/chart-columns",
+    },
+    {
+      type: "feature",
+      description:
+        "Smart copy/paste for chart columns: arrays format as comma-separated values (e.g., '10, 15, 12, 18, 25')",
+      link: "/docs/chart-columns",
+    },
+    {
+      type: "feature",
+      description:
+        "Chart cells can be pasted with comma-separated values that automatically parse to number arrays",
+      link: "/docs/chart-columns",
+    },
+    {
+      type: "improvement",
+      description:
+        "Enhanced Infrastructure example with live-updating CPU history chart visualization",
+      link: "/examples/infrastructure",
+    },
+  ],
+};
+
 export const v1_7_9: ChangelogEntry = {
   version: "1.7.9",
   date: "2024-11-22",
@@ -288,6 +321,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_0,
   v1_7_9,
   v1_7_6,
   v1_7_5,

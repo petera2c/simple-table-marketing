@@ -78,12 +78,24 @@ export function useServerMetricsUpdates(tableRef: RefObject<TableRefType>, data:
           if (typeof currentCpu === "number") {
             const cpuChange = (Math.random() - 0.5) * 8; // -4% to +4%
             const newCpu = Math.min(100, Math.max(0, currentCpu + cpuChange));
+            const newCpuRounded = Math.round(newCpu * 10) / 10;
 
             tableRef.current?.updateData({
               accessor: "cpuUsage",
               rowIndex: actualRowIndex,
-              newValue: Math.round(newCpu * 10) / 10,
+              newValue: newCpuRounded,
             });
+
+            // Update CPU history chart (add new value, remove oldest to maintain length)
+            const currentHistory = server.cpuHistory as number[];
+            if (Array.isArray(currentHistory) && currentHistory.length > 0) {
+              const updatedHistory = [...currentHistory.slice(1), newCpuRounded];
+              tableRef.current?.updateData({
+                accessor: "cpuHistory",
+                rowIndex: actualRowIndex,
+                newValue: updatedHistory,
+              });
+            }
           }
 
           // Update Memory usage (slower changes)

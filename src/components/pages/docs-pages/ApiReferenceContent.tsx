@@ -113,9 +113,12 @@ columnEditorPosition="right"`,
     key: "type",
     name: "HeaderObject.type",
     required: false,
-    description: "Data type for proper formatting and sorting behavior.",
-    type: "string | number | boolean | date | enum | other",
-    example: `type: "number"   // For numeric columns`,
+    description:
+      "Data type for proper formatting and sorting behavior. Includes chart types for visualizing array data inline.",
+    type: "string | number | boolean | date | enum | lineAreaChart | barChart | other",
+    example: `type: "number"   // For numeric columns
+type: "lineAreaChart"  // For inline line/area charts
+type: "barChart"       // For inline bar charts`,
   },
 ];
 
@@ -1006,14 +1009,26 @@ width: "1fr"      // Flexible`,
     key: "type",
     name: "type",
     required: false,
-    description: "Data type for proper formatting and sorting behavior.",
+    description:
+      "Data type for proper formatting and sorting behavior. Chart types render array data as inline visualizations.",
     type: "enum",
     link: "#union-types",
-    enumValues: ["string", "number", "boolean", "date", "enum", "other"],
+    enumValues: [
+      "string",
+      "number",
+      "boolean",
+      "date",
+      "enum",
+      "lineAreaChart",
+      "barChart",
+      "other",
+    ],
     example: `type: "number"   // For numeric data
 type: "date"     // For date data
 type: "boolean"  // For true/false data
 type: "enum"     // For enum data
+type: "lineAreaChart"  // For inline line/area charts (array data)
+type: "barChart"       // For inline bar charts (array data)
 type: "other"    // For custom content (buttons, etc.)
 type: "string"   // Default`,
   },

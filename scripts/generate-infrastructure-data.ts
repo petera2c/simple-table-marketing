@@ -138,6 +138,18 @@ const generateInfrastructureData = (): Row[] => {
     const usedStorage = Math.round(((totalStorage * diskUsage) / 100) * 100) / 100;
     const availableStorage = Math.round((totalStorage - usedStorage) * 100) / 100;
 
+    // Generate CPU history for the last 30 data points (for chart visualization)
+    const cpuHistory: number[] = [];
+    let historicalCpu = cpuUsage;
+    for (let j = 0; j < 30; j++) {
+      // Generate realistic fluctuations around the current CPU value
+      const change = (Math.random() - 0.5) * 15;
+      historicalCpu = Math.min(100, Math.max(0, historicalCpu + change));
+      cpuHistory.push(Math.round(historicalCpu * 10) / 10);
+    }
+    // Reverse so most recent is at the end
+    cpuHistory.reverse();
+
     rows.push({
       id: serverId,
       serverId,
@@ -164,6 +176,7 @@ const generateInfrastructureData = (): Row[] => {
       totalStorage,
       usedStorage,
       availableStorage,
+      cpuHistory,
     });
   }
 

@@ -34,9 +34,20 @@ export const HEADERS: HeaderObject[] = [
   {
     accessor: "performance",
     label: "Performance Metrics",
-    width: 540,
+    width: 690,
     isSortable: false,
     children: [
+      {
+        accessor: "cpuHistory",
+        label: "CPU History",
+        width: 150,
+        isSortable: false,
+        filterable: false,
+        isEditable: false,
+        align: "center",
+        type: "lineAreaChart",
+        tooltip: "CPU usage over the last 30 intervals",
+      },
       {
         accessor: "cpuUsage",
         label: "CPU %",
