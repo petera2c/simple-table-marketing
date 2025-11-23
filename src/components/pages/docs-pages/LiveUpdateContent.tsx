@@ -298,6 +298,78 @@ const updatePrices = () => {
         </div>
       </motion.div>
 
+      {/* Updating Charts Section */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 mt-8 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.85 }}
+      >
+        Live Updates with Charts
+      </motion.h2>
+
+      <motion.div
+        className="mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.87 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Chart columns work seamlessly with live updates. You can update chart data in real-time
+          while maintaining a fixed array length by adding new values and removing old ones. The
+          demo above shows this in action with Stock Trend (line chart) and Sales Trend (bar chart)
+          columns.
+        </p>
+
+        <CodeBlock
+          className="mb-4"
+          code={`// Example: Update chart with new data point
+const updateStockHistory = (rowIndex: number, newStock: number) => {
+  // Get current history
+  const currentHistory = data[rowIndex].stockHistory as number[];
+  
+  // Add new value and remove oldest (keep array length constant)
+  const updatedHistory = [...currentHistory.slice(1), newStock];
+  
+  // Update the table
+  tableRef.current?.updateData({
+    accessor: "stockHistory",
+    rowIndex: rowIndex,
+    newValue: updatedHistory,
+  });
+};
+
+// Update both stock value and chart
+tableRef.current?.updateData({
+  accessor: "stock",
+  rowIndex: 0,
+  newValue: 150,
+});
+
+updateStockHistory(0, 150); // Add to chart`}
+        />
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tip</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            Use custom{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              chartOptions
+            </code>{" "}
+            colors (like green for stock and orange for sales) to make charts stand out against
+            theme backgrounds. This is especially important for themes with blue row backgrounds
+            where default blue chart colors would blend in. See the{" "}
+            <a
+              href="/docs/chart-columns"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Chart Columns documentation
+            </a>{" "}
+            for more details.
+          </p>
+        </div>
+      </motion.div>
+
       {/* Real-world Use Cases */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
