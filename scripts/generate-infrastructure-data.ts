@@ -9,41 +9,32 @@ const __dirname = path.dirname(__filename);
 
 // Datacenter locations
 const DATACENTERS = [
-  { id: "US-EAST-1", name: "N. Virginia", region: "US East" },
-  { id: "US-EAST-2", name: "Ohio", region: "US East" },
-  { id: "US-WEST-1", name: "N. California", region: "US West" },
-  { id: "US-WEST-2", name: "Oregon", region: "US West" },
-  { id: "EU-WEST-1", name: "Ireland", region: "Europe" },
-  { id: "EU-CENTRAL-1", name: "Frankfurt", region: "Europe" },
-  { id: "AP-SOUTHEAST-1", name: "Singapore", region: "Asia Pacific" },
-  { id: "AP-NORTHEAST-1", name: "Tokyo", region: "Asia Pacific" },
-  { id: "AP-SOUTH-1", name: "Mumbai", region: "Asia Pacific" },
-  { id: "SA-EAST-1", name: "São Paulo", region: "South America" },
+  { name: "N. Virginia" },
+  { name: "Ohio" },
+  { name: "N. California" },
+  { name: "Oregon" },
+  { name: "Ireland" },
+  { name: "Frankfurt" },
+  { name: "Singapore" },
+  { name: "Tokyo" },
+  { name: "Mumbai" },
+  { name: "São Paulo" },
 ];
 
 // Server types
 const SERVER_TYPES = [
-  { type: "web", name: "Web Server", baseLoad: 45, baseCpu: 35, baseMemory: 60 },
-  { type: "api", name: "API Server", baseLoad: 65, baseCpu: 50, baseMemory: 55 },
-  { type: "database", name: "Database", baseLoad: 75, baseCpu: 60, baseMemory: 80 },
-  { type: "cache", name: "Cache Server", baseLoad: 40, baseCpu: 30, baseMemory: 70 },
-  { type: "worker", name: "Background Worker", baseLoad: 55, baseCpu: 45, baseMemory: 50 },
-  { type: "loadbalancer", name: "Load Balancer", baseLoad: 50, baseCpu: 25, baseMemory: 35 },
-  { type: "storage", name: "Storage Server", baseLoad: 60, baseCpu: 40, baseMemory: 45 },
-  { type: "ml", name: "ML Compute", baseLoad: 85, baseCpu: 80, baseMemory: 75 },
+  { name: "Web Server", baseCpu: 35, baseMemory: 60 },
+  { name: "API Server", baseCpu: 50, baseMemory: 55 },
+  { name: "Database", baseCpu: 60, baseMemory: 80 },
+  { name: "Cache Server", baseCpu: 30, baseMemory: 70 },
+  { name: "Background Worker", baseCpu: 45, baseMemory: 50 },
+  { name: "Load Balancer", baseCpu: 25, baseMemory: 35 },
+  { name: "Storage Server", baseCpu: 40, baseMemory: 45 },
+  { name: "ML Compute", baseCpu: 80, baseMemory: 75 },
 ];
 
 // Server status options
 const STATUS_OPTIONS = ["online", "warning", "critical", "maintenance", "offline"];
-
-// Operating systems
-const OS_OPTIONS = [
-  "Ubuntu 22.04",
-  "CentOS 8",
-  "Amazon Linux 2",
-  "Windows Server 2022",
-  "Debian 11",
-];
 
 // Generate realistic infrastructure monitoring data
 const generateInfrastructureData = (): Row[] => {
@@ -58,9 +49,7 @@ const generateInfrastructureData = (): Row[] => {
     const serverType = SERVER_TYPES[Math.floor(Math.random() * SERVER_TYPES.length)];
 
     // Generate server ID
-    const serverId = `${datacenter.id}-${serverType.type}-${(i % 10000)
-      .toString()
-      .padStart(4, "0")}`;
+    const serverId = `SERVER-${(i % 10000).toString().padStart(4, "0")}`;
 
     // CPU usage - based on server type with variation
     const cpuUsage = Math.min(
@@ -77,32 +66,8 @@ const generateInfrastructureData = (): Row[] => {
     // Disk usage - random but realistic
     const diskUsage = Math.round((20 + Math.random() * 70) * 10) / 10;
 
-    // Network traffic (MB/s)
-    const networkIn = Math.round(Math.random() * 500 * 100) / 100;
-    const networkOut = Math.round(Math.random() * 300 * 100) / 100;
-
-    // Active connections
-    const activeConnections = Math.floor(Math.random() * 5000);
-
-    // Requests per second
-    const requestsPerSec = Math.floor(Math.random() * 10000);
-
     // Response time (ms)
     const responseTime = Math.round((10 + Math.random() * 500) * 10) / 10;
-
-    // Uptime (days) - most servers have good uptime
-    let uptime;
-    const uptimeRandom = Math.random();
-    if (uptimeRandom < 0.7) {
-      // 70% have great uptime (30-365 days)
-      uptime = Math.floor(30 + Math.random() * 335);
-    } else if (uptimeRandom < 0.9) {
-      // 20% have moderate uptime (7-30 days)
-      uptime = Math.floor(7 + Math.random() * 23);
-    } else {
-      // 10% recently restarted (0-7 days)
-      uptime = Math.floor(Math.random() * 7);
-    }
 
     // Determine status based on metrics
     let status;
@@ -123,12 +88,6 @@ const generateInfrastructureData = (): Row[] => {
         : status === "warning"
         ? Math.floor(Math.random() * 3)
         : 0;
-
-    // Is monitored
-    const isMonitored = Math.random() < 0.95; // 95% are monitored
-
-    // OS
-    const os = OS_OPTIONS[Math.floor(Math.random() * OS_OPTIONS.length)];
 
     // Last ping timestamp - recent
     const lastPing = new Date(Date.now() - Math.random() * 300000); // Within last 5 minutes
@@ -154,24 +113,12 @@ const generateInfrastructureData = (): Row[] => {
       id: serverId,
       serverId,
       serverName: `${datacenter.name} ${serverType.name} ${(i % 100) + 1}`,
-      datacenter: datacenter.id,
-      datacenterName: datacenter.name,
-      region: datacenter.region,
-      serverType: serverType.type,
-      serverTypeName: serverType.name,
       status,
       cpuUsage,
       memoryUsage,
       diskUsage,
-      networkIn,
-      networkOut,
-      activeConnections,
-      requestsPerSec,
       responseTime,
-      uptime,
       activeAlerts,
-      isMonitored,
-      os,
       lastPing: lastPing.toISOString(),
       totalStorage,
       usedStorage,
