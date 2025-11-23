@@ -11,6 +11,25 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_8_2: ChangelogEntry = {
+  version: "1.8.2",
+  date: "2025-11-23",
+  title: "Chart Width and Virtualization Performance",
+  description:
+    "Enhanced chart column rendering with improved width handling and significantly faster virtualization performance for smoother scrolling through large datasets.",
+  changes: [
+    {
+      type: "improvement",
+      description: "Improved chart width calculations for better responsive behavior",
+      link: "/docs/chart-columns",
+    },
+    {
+      type: "improvement",
+      description: "Optimized virtualization engine for faster rendering and smoother scrolling",
+    },
+  ],
+};
+
 export const v1_8_1: ChangelogEntry = {
   version: "1.8.1",
   date: "2025-11-22",
@@ -321,6 +340,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_2,
   v1_8_1,
   v1_7_9,
   v1_7_6,
