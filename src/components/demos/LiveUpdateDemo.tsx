@@ -61,12 +61,13 @@ const generateStockHistory = (currentStock: number, length = 20) => {
   return history;
 };
 
-const generateSalesHistory = (currentSales: number, length = 12) => {
+const generateSalesHistory = (_currentSales: number, length = 12) => {
   const history = [];
-  const avgSalesPerUpdate = currentSales / 50; // Estimate
+  // Generate realistic bar chart data matching live update behavior
+  // Each bar represents sales in a 2-second period
   for (let i = 0; i < length; i++) {
-    const variation = Math.random() * avgSalesPerUpdate;
-    history.push(Math.round(variation));
+    const salesInPeriod = Math.floor(Math.random() * 4); // 0-3 sales per period
+    history.push(salesInPeriod);
   }
   return history;
 };
@@ -193,103 +194,180 @@ const LiveUpdateDemo = ({
   // Keep a local copy of the data to update
   const tableRef = useRef<TableRefType | null>(null);
 
-  // Set up intervals for automatic updates
+  // Set up intervals for automatic updates (like Infrastructure example)
   useEffect(() => {
     // Keep a copy of the current data in memory for calculations
     const currentData = JSON.parse(JSON.stringify(initialData));
+    const timerMap = new Map<string | number, NodeJS.Timeout>();
+    // Track sales in the current period for each product
+    const currentPeriodSales = new Map<string | number, number>();
+    let isActive = true;
 
-    // Update price at regular intervals
-    const priceInterval = setInterval(() => {
-      if (tableRef.current) {
-        // Pick a random row to update
-        const rowIndex = Math.floor(Math.random() * currentData.length);
+    // Configuration for individual product update timers
+    const UPDATE_CONFIG = {
+      minInterval: 300, // 0.3 seconds
+      maxInterval: 1000, // 1 second
+    };
 
-        // Generate a new price (±5% from current)
-        const currentPrice = currentData[rowIndex].price;
-        const randomFactor = 0.95 + Math.random() * 0.1; // between -5% and +5%
-        const newPrice = parseFloat((currentPrice * randomFactor).toFixed(2));
+    // Function to create an update timer for a specific row
+    const createRowTimer = (rowId: string | number) => {
+      const scheduleUpdate = () => {
+        if (!isActive) return;
 
-        // Update our local copy
-        currentData[rowIndex].price = newPrice;
+        // Random interval for this specific update
+        const interval =
+          UPDATE_CONFIG.minInterval +
+          Math.random() * (UPDATE_CONFIG.maxInterval - UPDATE_CONFIG.minInterval);
 
-        // Update the table with flash animation
-        tableRef.current.updateData({
-          accessor: "price",
-          rowIndex,
-          newValue: newPrice,
-        });
-      }
-    }, 500); // Update every 2 seconds
+        const timerId = setTimeout(() => {
+          if (!isActive || !tableRef.current) return;
 
-    // Simulate sales activity (stock/sales updates)
-    const salesInterval = setInterval(() => {
-      if (tableRef.current) {
-        // Pick a random row that has stock
-        const availableRows = currentData
-          .map((row: (typeof initialData)[0], index: number) => ({
-            index,
-            stock: row.stock,
-          }))
-          .filter((item: { index: number; stock: number }) => item.stock > 0);
+          // Find the current row in data
+          const actualRowIndex = currentData.findIndex(
+            (row: (typeof initialData)[0]) => row.id === rowId
+          );
+          if (actualRowIndex === -1) {
+            return;
+          }
 
-        if (availableRows.length > 0) {
-          const randomItem = availableRows[Math.floor(Math.random() * availableRows.length)];
-          const rowIndex = randomItem.index;
+          const product = currentData[actualRowIndex];
 
-          // Decrease stock by 1
-          const newStock = currentData[rowIndex].stock - 1;
-          currentData[rowIndex].stock = newStock;
+          // Update price (±5% from current)
+          const currentPrice = product.price as number;
+          if (typeof currentPrice === "number") {
+            const randomFactor = 0.95 + Math.random() * 0.1;
+            const newPrice = parseFloat((currentPrice * randomFactor).toFixed(2));
 
-          // Update stock in the table
-          tableRef.current.updateData({
-            accessor: "stock",
-            rowIndex,
-            newValue: newStock,
-          });
+            currentData[actualRowIndex].price = newPrice;
 
-          // Update stock history chart (keep fixed length)
-          const currentStockHistory = currentData[rowIndex].stockHistory as number[];
-          if (Array.isArray(currentStockHistory) && currentStockHistory.length > 0) {
-            const updatedStockHistory = [...currentStockHistory.slice(1), newStock];
-            currentData[rowIndex].stockHistory = updatedStockHistory;
-            tableRef.current.updateData({
-              accessor: "stockHistory",
-              rowIndex,
-              newValue: updatedStockHistory,
+            tableRef.current?.updateData({
+              accessor: "price",
+              rowIndex: actualRowIndex,
+              newValue: newPrice,
             });
           }
 
-          // Increase sales
-          const newSales = currentData[rowIndex].sales + 1;
-          currentData[rowIndex].sales = newSales;
+          // Update stock (small fluctuations)
+          const currentStock = product.stock as number;
+          if (typeof currentStock === "number") {
+            const stockChange = Math.floor((Math.random() - 0.5) * 6); // -3 to +3
+            const newStock = Math.max(0, currentStock + stockChange);
 
-          // Update sales in the table
-          tableRef.current.updateData({
-            accessor: "sales",
-            rowIndex,
-            newValue: newSales,
-          });
+            currentData[actualRowIndex].stock = newStock;
 
-          // Update sales history chart (keep fixed length, increment last bar)
-          const currentSalesHistory = currentData[rowIndex].salesHistory as number[];
-          if (Array.isArray(currentSalesHistory) && currentSalesHistory.length > 0) {
-            const updatedSalesHistory = [...currentSalesHistory];
-            updatedSalesHistory[updatedSalesHistory.length - 1] += 1;
-            currentData[rowIndex].salesHistory = updatedSalesHistory;
-            tableRef.current.updateData({
-              accessor: "salesHistory",
-              rowIndex,
-              newValue: updatedSalesHistory,
+            tableRef.current?.updateData({
+              accessor: "stock",
+              rowIndex: actualRowIndex,
+              newValue: newStock,
             });
+
+            // Update stock history chart
+            const currentStockHistory = product.stockHistory as number[];
+            if (Array.isArray(currentStockHistory) && currentStockHistory.length > 0) {
+              const updatedStockHistory = [...currentStockHistory.slice(1), newStock];
+              currentData[actualRowIndex].stockHistory = updatedStockHistory;
+              tableRef.current?.updateData({
+                accessor: "stockHistory",
+                rowIndex: actualRowIndex,
+                newValue: updatedStockHistory,
+              });
+            }
           }
+
+          // Update sales (60% chance)
+          if (Math.random() < 0.6) {
+            const currentSales = product.sales as number;
+            if (typeof currentSales === "number") {
+              const salesIncrement = Math.floor(Math.random() * 3) + 1; // 1-3 sales
+              const newSales = currentSales + salesIncrement;
+
+              currentData[actualRowIndex].sales = newSales;
+
+              tableRef.current?.updateData({
+                accessor: "sales",
+                rowIndex: actualRowIndex,
+                newValue: newSales,
+              });
+
+              // Track sales for the current period (for the bar chart)
+              const currentPeriodCount = currentPeriodSales.get(rowId) || 0;
+              currentPeriodSales.set(rowId, currentPeriodCount + salesIncrement);
+            }
+          }
+
+          // Schedule the next update for this row
+          scheduleUpdate();
+        }, interval);
+
+        timerMap.set(rowId, timerId);
+      };
+
+      scheduleUpdate();
+    };
+
+    // Function to sync timers with visible rows
+    const syncTimers = () => {
+      if (!tableRef.current) return;
+
+      const visibleRows = tableRef.current.getVisibleRows();
+      const visibleRowIds = new Set(visibleRows.map((vr) => vr.row.id as string | number));
+
+      // Remove timers for rows that are no longer visible
+      timerMap.forEach((timerId, rowId) => {
+        if (!visibleRowIds.has(rowId)) {
+          clearTimeout(timerId);
+          timerMap.delete(rowId);
         }
-      }
-    }, 5000); // Update every 5 seconds
+      });
+
+      // Create timers for newly visible rows
+      visibleRows.forEach((visibleRow) => {
+        const rowId = visibleRow.row.id as string | number;
+        if (!timerMap.has(rowId)) {
+          createRowTimer(rowId);
+        }
+      });
+    };
+
+    // Periodically rotate sales history (shift to new bar)
+    const salesRotateInterval = setInterval(() => {
+      if (!tableRef.current || !isActive) return;
+
+      currentData.forEach((row: (typeof initialData)[0], rowIndex: number) => {
+        const currentSalesHistory = row.salesHistory as number[];
+        if (Array.isArray(currentSalesHistory) && currentSalesHistory.length > 0) {
+          // Get the sales count for this period (default to 0 if no sales)
+          const rowId = row.id as string | number;
+          const salesInPeriod = currentPeriodSales.get(rowId) || 0;
+
+          // Rotate: remove first bar and add new bar with the period's sales
+          const updatedSalesHistory = [...currentSalesHistory.slice(1), salesInPeriod];
+          currentData[rowIndex].salesHistory = updatedSalesHistory;
+          tableRef.current?.updateData({
+            accessor: "salesHistory",
+            rowIndex,
+            newValue: updatedSalesHistory,
+          });
+
+          // Reset the period counter for this product
+          currentPeriodSales.set(rowId, 0);
+        }
+      });
+    }, 2000); // Rotate every 2 seconds
+
+    // Initial sync
+    syncTimers();
+
+    // Set up interval to periodically check for visible row changes
+    const syncInterval = setInterval(syncTimers, 500);
 
     // Clean up intervals on unmount
     return () => {
-      clearInterval(priceInterval);
-      clearInterval(salesInterval);
+      isActive = false;
+      clearInterval(syncInterval);
+      clearInterval(salesRotateInterval);
+      timerMap.forEach((timerId) => clearTimeout(timerId));
+      timerMap.clear();
     };
   }, []);
 
@@ -299,7 +377,6 @@ const LiveUpdateDemo = ({
       rowIdAccessor="id"
       rows={initialData}
       tableRef={tableRef}
-      cellUpdateFlash={true}
       height={height}
       theme={theme}
     />
