@@ -22,6 +22,7 @@ import { useThemeContext } from "../providers/ThemeProvider";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { DEFAULT_EXAMPLE_PATH } from "../constants/global";
+import PageWrapper from "./PageWrapper";
 
 // Unified link button component that handles both internal and external links
 interface LinkButtonProps {
@@ -288,7 +289,7 @@ const Header = () => {
   const externalLinks = [{ href: TECHNICAL_STRINGS.links.npm, label: "NPM", icon: faNpm }];
 
   return (
-    <>
+    <PageWrapper disableScrollRestoration>
       <header
         ref={headerRef}
         className="backdrop-blur-md bg-white/80 dark:bg-gray-900/90 shadow-sm sticky top-0 z-50"
@@ -391,7 +392,7 @@ const Header = () => {
           )}
         </nav>
       </header>
-    </>
+    </PageWrapper>
   );
 };
 

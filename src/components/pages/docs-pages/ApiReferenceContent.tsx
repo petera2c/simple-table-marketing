@@ -262,7 +262,7 @@ const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
-const VALUE_FORMATTER_PROPS_PROPS: PropInfo[] = [
+const VALUE_FORMATTER_PROPS: PropInfo[] = [
   {
     key: "accessor",
     name: "accessor",
@@ -305,6 +305,118 @@ const VALUE_FORMATTER_PROPS_PROPS: PropInfo[] = [
     type: "CellValue",
     link: "#union-types",
     example: `props.value // 1234.56`,
+  },
+];
+
+const VALUE_GETTER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for which the value is being extracted",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "metadata"`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object to extract the value from",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, metadata: { level: 3 } }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+];
+
+const COMPARATOR_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "rowA",
+    name: "rowA",
+    required: true,
+    description: "The first row object to compare",
+    type: "Row",
+    link: "#union-types",
+    example: `props.rowA // { id: 1, priority: 1, score: 95 }`,
+  },
+  {
+    key: "rowB",
+    name: "rowB",
+    required: true,
+    description: "The second row object to compare",
+    type: "Row",
+    link: "#union-types",
+    example: `props.rowB // { id: 2, priority: 2, score: 87 }`,
+  },
+  {
+    key: "direction",
+    name: "direction",
+    required: true,
+    description: "The sort direction",
+    type: '"ascending" | "descending"',
+    example: `props.direction // "ascending"`,
+  },
+];
+
+const EXPORT_VALUE_PROPS_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being exported",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "department"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 3`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, department: "engineering" }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "engineering"`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description: "The formatted cell value (if valueFormatter is defined)",
+    type: "string | number | undefined",
+    example: `props.formattedValue // "Engineering"`,
   },
 ];
 
@@ -1190,10 +1302,91 @@ minWidth: "100px"`,
     description:
       "Function to format the cell value for display without affecting the underlying data. Returns a string or number. Use this for currency, dates, percentages, and other simple text formatting. For React components or custom styling, use cellRenderer instead.",
     type: "(props: ValueFormatterProps) => string | number",
-    link: "/docs/value-formatter",
+    link: "#value-formatter-props",
     example: `valueFormatter: ({ value }) => {
   return \`$\${(value as number).toFixed(2)}\`;
 }`,
+  },
+  {
+    key: "valueGetter",
+    name: "valueGetter",
+    required: false,
+    description:
+      "Function to extract or compute values dynamically for sorting operations. Useful when the displayed value differs from the sorting value, or when sorting by nested properties. The extracted value is used for sorting while the display value (from valueFormatter or cellRenderer) remains unchanged.",
+    type: "(props: ValueGetterProps) => CellValue",
+    link: "#value-getter-props",
+    example: `// Extract nested value for sorting
+valueGetter: ({ row }) => row.metadata?.seniorityLevel || 0,
+valueFormatter: ({ row }) => {
+  const level = row.metadata?.seniorityLevel || 0;
+  return ["Intern", "Junior", "Mid", "Senior", "Lead"][level];
+}
+
+// Priority-based sorting
+valueGetter: ({ row }) => {
+  const priorityMap = { "Hot": 1, "Warm": 2, "Cold": 3 };
+  return priorityMap[row.status] || 999;
+}`,
+  },
+  {
+    key: "comparator",
+    name: "comparator",
+    required: false,
+    description:
+      "Custom sorting function with full control over the sorting logic. Receives both row objects and sort direction, allowing complex multi-field sorting, metadata access, or domain-specific rules. Takes precedence over valueGetter and default sorting.",
+    type: "(props: ComparatorProps) => number",
+    link: "#comparator-props",
+    example: `// Multi-field sorting
+comparator: ({ rowA, rowB, direction }) => {
+  // Sort by priority first
+  if (rowA.priority !== rowB.priority) {
+    return direction === "ascending" 
+      ? rowA.priority - rowB.priority 
+      : rowB.priority - rowA.priority;
+  }
+  // Then by performance score
+  return rowB.metadata.score - rowA.metadata.score;
+}`,
+  },
+  {
+    key: "useFormattedValueForClipboard",
+    name: "useFormattedValueForClipboard",
+    required: false,
+    description:
+      "When true, cells copy the formatted value (from valueFormatter) when users press Ctrl+C/Cmd+C. When false (default), cells copy the raw underlying data. Useful for copying currency with $ symbols, percentages with %, or formatted dates.",
+    type: "boolean",
+    example: `{
+  accessor: "salary",
+  valueFormatter: ({ value }) => \`$\${value.toLocaleString()}\`,
+  useFormattedValueForClipboard: true  // Copies "$85,000"
+}`,
+  },
+  {
+    key: "useFormattedValueForCSV",
+    name: "useFormattedValueForCSV",
+    required: false,
+    description:
+      "When true, CSV exports use the formatted value from valueFormatter instead of raw data. Perfect for human-readable reports. Note: exportValueGetter takes precedence if provided.",
+    type: "boolean",
+    example: `{
+  accessor: "completionRate",
+  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
+  useFormattedValueForCSV: true  // CSV shows "92.5%"
+}`,
+  },
+  {
+    key: "exportValueGetter",
+    name: "exportValueGetter",
+    required: false,
+    description:
+      "Custom function to provide completely different values specifically for CSV export. Takes highest priority over useFormattedValueForCSV. Ideal for adding codes, identifiers, or transforming data for spreadsheet compatibility.",
+    type: "(props: ExportValueProps) => string | number",
+    link: "#export-value-props",
+    example: `exportValueGetter: ({ value }) => {
+  const codes = { engineering: "ENG", sales: "SLS" };
+  return \`\${capitalize(value)} (\${codes[value]})\`;
+}
+// CSV exports: "Engineering (ENG)"`,
   },
   {
     key: "headerRenderer",
@@ -1578,7 +1771,19 @@ const ApiReferenceContent = () => {
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="value-formatter-props">
-        <PropTable props={VALUE_FORMATTER_PROPS_PROPS} title="ValueFormatterProps" />
+        <PropTable props={VALUE_FORMATTER_PROPS} title="ValueFormatterProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="value-getter-props">
+        <PropTable props={VALUE_GETTER_PROPS} title="ValueGetterProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="comparator-props">
+        <PropTable props={COMPARATOR_PROPS_PROPS} title="ComparatorProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-value-props">
+        <PropTable props={EXPORT_VALUE_PROPS_PROPS} title="ExportValueProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-click-props">

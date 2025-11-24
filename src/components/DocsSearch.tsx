@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect, useRef, useCallback } from "react";
 import Fuse from "fuse.js";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 import { Input, Empty, Tag } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { docsSearchIndex, type SearchableDoc } from "@/constants/docsSearchIndex";
@@ -102,7 +103,12 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
 
   useClickOutside(searchContainerRef, handleClickOutside);
 
-  const navigateToDoc = (doc: SearchableDoc) => {
+  const navigateToDoc = (doc: SearchableDoc, e?: React.MouseEvent) => {
+    // If command/ctrl key is pressed, let the browser handle opening in new tab
+    if (e && (e.metaKey || e.ctrlKey)) {
+      return;
+    }
+
     router.push(doc.path);
     setIsOpen(false);
     setQuery("");
@@ -137,11 +143,12 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
           <div className="absolute top-full mt-2 w-full min-w-[400px] bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg shadow-xl max-h-96 overflow-y-auto z-[9999]">
             {searchResults.length > 0 ? (
               searchResults.map((result, index) => (
-                <div
+                <Link
                   key={result.doc.id}
-                  onClick={() => navigateToDoc(result.doc)}
+                  href={result.doc.path}
+                  onClick={(e) => navigateToDoc(result.doc, e)}
                   onMouseEnter={() => setSelectedIndex(index)}
-                  className={`px-4 py-3 border-b border-gray-100 dark:border-gray-700 cursor-pointer transition-colors ${
+                  className={`block px-4 py-3 border-b border-gray-100 dark:border-gray-700 cursor-pointer transition-colors ${
                     index === selectedIndex
                       ? "bg-blue-50 dark:bg-blue-900/30"
                       : "hover:bg-gray-50 dark:hover:bg-gray-700"
@@ -156,7 +163,7 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
                   <div className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
                     {result.doc.description}
                   </div>
-                </div>
+                </Link>
               ))
             ) : (
               <div className="p-4">
