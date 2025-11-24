@@ -11,6 +11,21 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_8_5: ChangelogEntry = {
+  version: "1.8.5",
+  date: "2025-11-24",
+  title: "Virtual scrolling performance improvements",
+  description:
+    "Enhanced virtual scrolling performance with improved memory usage and faster rendering of large datasets.",
+  changes: [
+    {
+      type: "improvement",
+      description:
+        "Improved virtual scrolling performance with improved memory usage and faster rendering of large datasets.",
+    },
+  ],
+};
+
 export const v1_8_4: ChangelogEntry = {
   version: "1.8.4",
   date: "2025-11-24",
