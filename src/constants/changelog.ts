@@ -406,6 +406,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_5,
   v1_8_4,
   v1_8_2,
   v1_8_1,

@@ -229,23 +229,6 @@ export default function HomeContent() {
               Table, and Handsontable.
             </motion.p>
 
-            {/* Limited Time Promo Badge (Hidden on Mobile) */}
-            {/* <Link href="/pricing">
-              <motion.div
-                className="hidden lg:flex absolute -top-2 right-0 items-center gap-2 bg-gradient-to-r from-red-600 to-orange-600 text-white px-4 py-2 rounded-lg shadow-xl cursor-pointer hover:scale-105 transition-transform group"
-                initial={{ opacity: 0, x: 20, rotate: 0 }}
-                animate={{ opacity: 1, x: 0, rotate: 2 }}
-                transition={{ duration: 0.6, delay: 0.8 }}
-              >
-                <FontAwesomeIcon icon={faFire} className="text-lg animate-pulse" />
-                <div className="text-center">
-                  <div className="font-bold text-sm uppercase tracking-wide">50% OFF PRO</div>
-                  <div className="text-xs">Only 3 spots left!</div>
-                </div>
-                <FontAwesomeIcon icon={faCrown} className="text-lg" />
-              </motion.div>
-            </Link> */}
-
             <motion.div
               className={`${isMobile ? "flex flex-col gap-4" : "flex justify-center gap-4"}`}
               initial={{ opacity: 0, y: 20 }}
