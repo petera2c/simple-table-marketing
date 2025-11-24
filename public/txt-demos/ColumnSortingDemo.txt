@@ -2,12 +2,37 @@ import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 100, isSortable: true, type: "number" },
-  { accessor: "name", label: "Name", width: 200, isSortable: true, type: "string" },
-  { accessor: "age", label: "Age", width: 100, isSortable: true, type: "number" },
+  { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
+  { accessor: "name", label: "Name", width: 180, isSortable: true, type: "string" },
+  { accessor: "age", label: "Age", width: 80, isSortable: true, type: "number" },
   { accessor: "role", label: "Role", width: 200, isSortable: true, type: "string" },
-  { accessor: "department", label: "Department", width: 200, isSortable: true, type: "string" },
-  { accessor: "startDate", label: "Start Date", width: 200, isSortable: true, type: "string" },
+  {
+    accessor: "department",
+    label: "Department",
+    width: 180,
+    isSortable: true,
+    type: "string",
+    valueFormatter: ({ value }) => {
+      return (value as string).charAt(0).toUpperCase() + (value as string).slice(1);
+    },
+  },
+  {
+    accessor: "startDate",
+    label: "Start Date",
+    width: 140,
+    isSortable: true,
+    type: "date",
+    valueFormatter: ({ value }) => {
+      if (typeof value === "string") {
+        return new Date(value).toLocaleDateString("en-US", {
+          year: "numeric",
+          month: "short",
+          day: "numeric",
+        });
+      }
+      return String(value);
+    },
+  },
 ];
 
 // Sample data
