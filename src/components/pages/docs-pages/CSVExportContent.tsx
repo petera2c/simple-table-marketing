@@ -148,6 +148,114 @@ const CSVExportContent = () => {
         </p>
       </motion.div>
 
+      {/* Formatting CSV Exports */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        Formatting CSV Exports
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Control how column values appear in CSV exports using three powerful options. By default,
+          CSV exports use raw data values.
+        </p>
+
+        <div className="space-y-6">
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-5 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+              1. Use Formatted Values (useFormattedValueForCSV)
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Export the same formatted values that are displayed in the table. Perfect when you
+              want CSV exports to match what users see on screen.
+            </p>
+            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+              <CodeBlock
+                code={`{
+  accessor: "salary",
+  label: "Annual Salary",
+  valueFormatter: ({ value }) => \`$\${(value / 1000).toFixed(0)}K\`,
+  useFormattedValueForCSV: true
+}
+
+// Table displays: "$85K"
+// CSV exports: "$85K"
+// Without flag: CSV would export 85000`}
+              />
+            </div>
+          </div>
+
+          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-5 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+              2. Custom Export Values (exportValueGetter)
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Provide completely different values specifically for CSV export. Takes highest
+              priority. Ideal for adding codes, identifiers, or transforming data for spreadsheet
+              compatibility.
+            </p>
+            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+              <CodeBlock
+                code={`{
+  accessor: "completionRate",
+  label: "Completion Rate",
+  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
+  exportValueGetter: ({ value }) => {
+    // Round to whole percentage for CSV
+    return \`\${Math.round(value * 100)}%\`;
+  }
+}
+
+// Table displays: "92.5%"
+// CSV exports: "93%"
+// Raw value: 0.925`}
+              />
+            </div>
+          </div>
+
+          <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 p-5 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+              3. Adding Context to Exports
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Use exportValueGetter to add department codes, identifiers, or additional context for
+              better data clarity:
+            </p>
+            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+              <CodeBlock
+                code={`{
+  accessor: "department",
+  label: "Department",
+  valueFormatter: ({ value }) => capitalize(value),
+  exportValueGetter: ({ value }) => {
+    const codes = {
+      engineering: "ENG",
+      product: "PRD",
+      sales: "SLS",
+      marketing: "MKT"
+    };
+    const code = codes[value] || "OTH";
+    return \`\${capitalize(value)} (\${code})\`;
+  }
+}
+
+// Table displays: "Engineering"
+// CSV exports: "Engineering (ENG)"`}
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );

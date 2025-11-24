@@ -26,6 +26,8 @@ const headers: HeaderObject[] = [
         maximumFractionDigits: 2,
       })}`;
     },
+    useFormattedValueForClipboard: true, // Copies "$125,000.00"
+    useFormattedValueForCSV: true, // CSV exports formatted value
   },
   {
     accessor: "joinDate",
@@ -49,6 +51,11 @@ const headers: HeaderObject[] = [
     valueFormatter: ({ value }) => {
       return `${((value as number) * 100).toFixed(1)}%`;
     },
+    useFormattedValueForClipboard: true, // Copies "94.5%"
+    exportValueGetter: ({ value }) => {
+      // CSV exports rounded percentage
+      return `${Math.round((value as number) * 100)}%`;
+    },
   },
   {
     accessor: "balance",
@@ -69,6 +76,20 @@ const headers: HeaderObject[] = [
     type: "string",
     valueFormatter: ({ value }) => {
       return (value as string).toUpperCase();
+    },
+    exportValueGetter: ({ value }) => {
+      // Add department code for CSV
+      const codes: Record<string, string> = {
+        engineering: "ENG",
+        marketing: "MKT",
+        sales: "SLS",
+        product: "PRD",
+        design: "DSN",
+        operations: "OPS",
+      };
+      const str = (value as string).toLowerCase();
+      const code = codes[str] || "OTH";
+      return `${(value as string).toUpperCase()} (${code})`;
     },
   },
 ];

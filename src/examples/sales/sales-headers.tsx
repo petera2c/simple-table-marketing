@@ -255,6 +255,8 @@ export const SALES_HEADERS: HeaderObject[] = [
             maximumFractionDigits: 2,
           })}`;
         },
+        useFormattedValueForClipboard: true, // Copy formatted currency
+        useFormattedValueForCSV: true, // Export formatted currency
       },
       {
         accessor: "dealValue",
@@ -406,6 +408,16 @@ export const SALES_HEADERS: HeaderObject[] = [
             </div>
           );
         },
+        valueFormatter: ({ value }) => {
+          if (value === "—") return "—";
+          return `${((value as number) * 100).toFixed(1)}%`;
+        },
+        useFormattedValueForClipboard: true, // Copy as "45.5%"
+        exportValueGetter: ({ value }) => {
+          if (value === "—") return "—";
+          // Export rounded percentage for CSV
+          return `${Math.round((value as number) * 100)}%`;
+        },
       },
       {
         accessor: "dealProfit",
@@ -459,6 +471,19 @@ export const SALES_HEADERS: HeaderObject[] = [
           { label: "Training", value: "Training" },
           { label: "Support", value: "Support" },
         ],
+        // Sort by typical deal value/priority: Software > Consulting > Services > Hardware > Training > Support
+        valueGetter: ({ row }) => {
+          const category = row.category as string;
+          const priorityMap: Record<string, number> = {
+            Software: 1,
+            Consulting: 2,
+            Services: 3,
+            Hardware: 4,
+            Training: 5,
+            Support: 6,
+          };
+          return priorityMap[category] || 999;
+        },
       },
     ],
   },

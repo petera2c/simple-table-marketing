@@ -227,7 +227,7 @@ export const HEADERS: HeaderObject[] = [
       {
         accessor: "responseTime",
         label: "Response (ms)",
-        width: 170,
+        width: 120,
         isSortable: true,
         filterable: true,
         isEditable: true,
@@ -310,6 +310,18 @@ export const HEADERS: HeaderObject[] = [
       { label: "Maintenance", value: "maintenance" },
       { label: "Offline", value: "offline" },
     ],
+    // Sort by severity: critical > offline > warning > maintenance > online
+    valueGetter: ({ row }) => {
+      const status = row.status as string;
+      const severityMap: Record<string, number> = {
+        critical: 1,
+        offline: 2,
+        warning: 3,
+        maintenance: 4,
+        online: 5,
+      };
+      return severityMap[status] || 999;
+    },
     cellRenderer: ({ row, theme }) => {
       const status = row.status as string;
 
@@ -336,49 +348,73 @@ export const HEADERS: HeaderObject[] = [
         switch (theme) {
           case "dark":
             return {
-              online: { color: "#4ade80", backgroundColor: "rgba(20, 83, 45, 0.3)" },
-              warning: { color: "#fbbf24", backgroundColor: "rgba(146, 64, 14, 0.3)" },
-              critical: { color: "#f87171", backgroundColor: "rgba(127, 29, 29, 0.3)" },
-              maintenance: { color: "#60a5fa", backgroundColor: "rgba(30, 58, 138, 0.3)" },
-              offline: { color: "#9ca3af", backgroundColor: "rgba(55, 65, 81, 0.3)" },
-              unknown: { color: "#9ca3af", backgroundColor: "rgba(55, 65, 81, 0.3)" },
+              online: {
+                color: "#6ee7b7",
+                backgroundColor: "rgba(6, 78, 59, 0.4)",
+                fontWeight: "600",
+              },
+              warning: {
+                color: "#fcd34d",
+                backgroundColor: "rgba(120, 53, 15, 0.4)",
+                fontWeight: "600",
+              },
+              critical: {
+                color: "#fca5a5",
+                backgroundColor: "rgba(127, 29, 29, 0.4)",
+                fontWeight: "600",
+              },
+              maintenance: {
+                color: "#93c5fd",
+                backgroundColor: "rgba(30, 58, 138, 0.4)",
+                fontWeight: "600",
+              },
+              offline: {
+                color: "#d1d5db",
+                backgroundColor: "rgba(55, 65, 81, 0.4)",
+                fontWeight: "600",
+              },
+              unknown: {
+                color: "#d1d5db",
+                backgroundColor: "rgba(55, 65, 81, 0.4)",
+                fontWeight: "600",
+              },
             }[type];
           case "sky":
             return {
-              online: { color: "#059669", backgroundColor: "#ecfdf5" },
-              warning: { color: "#d97706", backgroundColor: "#fffbeb" },
-              critical: { color: "#dc2626", backgroundColor: "#fef2f2" },
-              maintenance: { color: "#0284c7", backgroundColor: "#e0f2fe" },
-              offline: { color: "#475569", backgroundColor: "#f8fafc" },
-              unknown: { color: "#475569", backgroundColor: "#f8fafc" },
+              online: { color: "#059669", backgroundColor: "#ecfdf5", fontWeight: "600" },
+              warning: { color: "#d97706", backgroundColor: "#fffbeb", fontWeight: "600" },
+              critical: { color: "#dc2626", backgroundColor: "#fef2f2", fontWeight: "600" },
+              maintenance: { color: "#0284c7", backgroundColor: "#e0f2fe", fontWeight: "600" },
+              offline: { color: "#475569", backgroundColor: "#f8fafc", fontWeight: "600" },
+              unknown: { color: "#475569", backgroundColor: "#f8fafc", fontWeight: "600" },
             }[type];
           case "violet":
             return {
-              online: { color: "#0891b2", backgroundColor: "#ecfeff" },
-              warning: { color: "#d97706", backgroundColor: "#fffbeb" },
-              critical: { color: "#db2777", backgroundColor: "#fdf2f8" },
-              maintenance: { color: "#7c3aed", backgroundColor: "#ede9fe" },
-              offline: { color: "#9333ea", backgroundColor: "#faf5ff" },
-              unknown: { color: "#9333ea", backgroundColor: "#faf5ff" },
+              online: { color: "#0891b2", backgroundColor: "#ecfeff", fontWeight: "600" },
+              warning: { color: "#d97706", backgroundColor: "#fffbeb", fontWeight: "600" },
+              critical: { color: "#db2777", backgroundColor: "#fdf2f8", fontWeight: "600" },
+              maintenance: { color: "#7c3aed", backgroundColor: "#ede9fe", fontWeight: "600" },
+              offline: { color: "#9333ea", backgroundColor: "#faf5ff", fontWeight: "600" },
+              unknown: { color: "#9333ea", backgroundColor: "#faf5ff", fontWeight: "600" },
             }[type];
           case "neutral":
             return {
-              online: { color: "#57534e", backgroundColor: "#f5f5f4" },
-              warning: { color: "#78716c", backgroundColor: "#fafaf9" },
-              critical: { color: "#57534e", backgroundColor: "#f5f5f4" },
-              maintenance: { color: "#78716c", backgroundColor: "#fafaf9" },
-              offline: { color: "#a8a29e", backgroundColor: "#fafaf9" },
-              unknown: { color: "#a8a29e", backgroundColor: "#fafaf9" },
+              online: { color: "#57534e", backgroundColor: "#f5f5f4", fontWeight: "600" },
+              warning: { color: "#78716c", backgroundColor: "#fafaf9", fontWeight: "600" },
+              critical: { color: "#57534e", backgroundColor: "#f5f5f4", fontWeight: "600" },
+              maintenance: { color: "#78716c", backgroundColor: "#fafaf9", fontWeight: "600" },
+              offline: { color: "#a8a29e", backgroundColor: "#fafaf9", fontWeight: "600" },
+              unknown: { color: "#a8a29e", backgroundColor: "#fafaf9", fontWeight: "600" },
             }[type];
           case "light":
           default:
             return {
-              online: { color: "#16a34a", backgroundColor: "#f0fdf4" },
-              warning: { color: "#d97706", backgroundColor: "#fffbeb" },
-              critical: { color: "#dc2626", backgroundColor: "#fef2f2" },
-              maintenance: { color: "#2563eb", backgroundColor: "#eff6ff" },
-              offline: { color: "#4b5563", backgroundColor: "#f9fafb" },
-              unknown: { color: "#4b5563", backgroundColor: "#f9fafb" },
+              online: { color: "#16a34a", backgroundColor: "#f0fdf4", fontWeight: "600" },
+              warning: { color: "#d97706", backgroundColor: "#fffbeb", fontWeight: "600" },
+              critical: { color: "#dc2626", backgroundColor: "#fef2f2", fontWeight: "600" },
+              maintenance: { color: "#2563eb", backgroundColor: "#eff6ff", fontWeight: "600" },
+              offline: { color: "#4b5563", backgroundColor: "#f9fafb", fontWeight: "600" },
+              unknown: { color: "#4b5563", backgroundColor: "#f9fafb", fontWeight: "600" },
             }[type];
         }
       };
@@ -389,11 +425,10 @@ export const HEADERS: HeaderObject[] = [
       return (
         <div
           style={{
+            ...styles,
             padding: "4px 8px",
             borderRadius: "4px",
-            fontWeight: "600",
             fontSize: "0.75rem",
-            ...styles,
           }}
         >
           {displayText}

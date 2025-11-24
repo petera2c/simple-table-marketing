@@ -25,6 +25,46 @@ const COLUMN_SORTING_PROPS: PropInfo[] = [
   isSortable: true 
 }`,
   },
+  {
+    key: "comparator",
+    name: "HeaderObject.comparator",
+    required: false,
+    description:
+      "Custom sorting function based on row-level metadata or complex logic. Receives full row objects and sort direction, allowing you to sort by multiple fields, nested properties, or domain-specific rules.",
+    type: "(props: ComparatorProps) => number",
+    link: "/docs/api-reference#comparator-props",
+    example: `{
+  accessor: "priority",
+  label: "Priority",
+  comparator: ({ rowA, rowB, direction }) => {
+    // Sort by priority first, then by performance score
+    if (rowA.priority !== rowB.priority) {
+      return direction === "ascending" 
+        ? rowA.priority - rowB.priority 
+        : rowB.priority - rowA.priority;
+    }
+    return rowB.metadata.score - rowA.metadata.score;
+  }
+}`,
+  },
+  {
+    key: "valueGetter",
+    name: "HeaderObject.valueGetter",
+    required: false,
+    description:
+      "Function to extract values from nested objects or compute values dynamically for sorting operations. Useful when the displayed value differs from the sorting value, or when sorting by deeply nested properties.",
+    type: "(props: ValueGetterProps) => CellValue",
+    link: "/docs/api-reference#value-getter-props",
+    example: `{
+  accessor: "metadata",
+  label: "Seniority Level",
+  valueGetter: ({ row }) => row.metadata?.seniorityLevel || 0,
+  valueFormatter: ({ row }) => {
+    const level = row.metadata?.seniorityLevel || 0;
+    return ["Intern", "Junior", "Mid", "Senior", "Lead"][level];
+  }
+}`,
+  },
 ];
 
 const EXTERNAL_SORTING_PROPS: PropInfo[] = [
@@ -123,7 +163,83 @@ const ColumnSortingContent = () => {
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.45 }}
+      >
+        Advanced Sorting
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          For complex sorting scenarios, Simple Table provides two powerful options:
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
+          Custom Comparator
+        </h3>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            comparator
+          </code>{" "}
+          when you need to sort based on multiple fields, row metadata, or custom business logic:
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Use Cases</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>
+              Sort by multiple fields with priority (e.g., priority level + performance score)
+            </li>
+            <li>Access metadata or related fields not directly in the column</li>
+            <li>Implement domain-specific sorting rules (e.g., custom status ordering)</li>
+            <li>Sort by computed values derived from multiple row properties</li>
+          </ul>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">Value Getter</h3>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            valueGetter
+          </code>{" "}
+          to extract nested values or compute values for sorting, especially when displaying
+          formatted text:
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Use Cases</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Sort by nested/computed values while displaying formatted text</li>
+            <li>Access deeply nested properties (e.g., row.metadata.seniorityLevel)</li>
+            <li>Calculate derived values for sorting operations</li>
+            <li>Combine with valueFormatter to separate sorting logic from display</li>
+          </ul>
+        </div>
+
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            🎯 Comparator vs ValueGetter
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            Use <strong>comparator</strong> when you need full control over the sorting logic with
+            access to both rows. Use <strong>valueGetter</strong> when you want the default sorting
+            behavior but need to extract or compute the value first.
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
       >
         External Sorting
       </motion.h2>

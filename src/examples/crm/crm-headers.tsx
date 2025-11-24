@@ -378,6 +378,20 @@ export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
         { label: "SMB", value: "SMB" },
         { label: "Nurture", value: "Nurture" },
       ],
+      // Custom sorting by priority (Hot > Warm > Enterprise > Leads > SMB > Cold > Nurture)
+      valueGetter: ({ row }) => {
+        const list = row.list as string;
+        const priorityMap: Record<string, number> = {
+          "Hot Leads": 1,
+          "Warm Leads": 2,
+          Enterprise: 3,
+          Leads: 4,
+          SMB: 5,
+          "Cold Leads": 6,
+          Nurture: 7,
+        };
+        return priorityMap[list] || 999;
+      },
       cellRenderer: ({ row }) => {
         const listName = row.list as string;
 
