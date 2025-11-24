@@ -56,15 +56,9 @@ const PricingContent: React.FC = () => {
       description:
         "Perfect for fun projects, bootstrapped startups, and pre-revenue companies. Unlimited users per product license.",
       features: [
-        { text: "Full Simple Table library access", included: true, highlight: true },
-        { text: "Unlimited users per product", included: true, highlight: true },
-        { text: "No per-engineer pricing", included: true, highlight: true },
-        { text: "All core features (sorting, filtering, editing)", included: true },
-        { text: "Built-in themes & TypeScript support", included: true },
-        { text: "MIT License & commercial use", included: true },
-        { text: "Community support", included: true },
-        { text: "Priority support", included: false },
-        { text: "Direct developer access", included: false },
+        { text: "Full library access", included: true, highlight: true },
+        { text: "All features included", included: true, highlight: true },
+        { text: "Community support", included: true, highlight: true },
       ],
       cta: "Get Started Free",
       ctaVariant: "default",
@@ -72,6 +66,7 @@ const PricingContent: React.FC = () => {
       iconColor: "text-green-500",
       borderColor: "border-green-200 dark:border-green-800",
       backgroundColor: "bg-green-50 dark:bg-green-950",
+      specialOffer: "",
     },
     {
       name: "PRO",
@@ -82,13 +77,9 @@ const PricingContent: React.FC = () => {
       description:
         "Enhanced support and priority access to new features. Unlimited users per product license.",
       features: [
-        { text: "Everything in FREE", included: true, highlight: true },
         { text: "Priority email & Discord support", included: true, highlight: true },
-        { text: "Direct developer access", included: true },
-        { text: "Feature request prioritization", included: true },
-        { text: "Early access to new features", included: true },
-        { text: "Custom implementation guidance", included: true },
-        { text: "30-day money-back guarantee", included: true, highlight: true },
+        { text: "Direct developer access", included: true, highlight: true },
+        { text: "Feature request prioritization", included: true, highlight: true },
       ],
       cta: "Start Pro Plan",
       ctaVariant: "primary",
@@ -231,7 +222,6 @@ const PricingContent: React.FC = () => {
                 plan.borderColor
               } ${plan.popular ? "scale-105 shadow-2xl" : ""}`}
               variants={itemVariants}
-              whileHover={{ scale: plan.popular ? 1.05 : 1.02, transition: { duration: 0.2 } }}
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -271,11 +261,9 @@ const PricingContent: React.FC = () => {
                   )}
                   <span className="text-gray-600 dark:text-gray-400">/{plan.billingCycle}</span>
                 </div>
-                {plan.specialOffer && (
-                  <p className="text-sm text-red-600 dark:text-red-400 font-medium mt-2">
-                    {plan.specialOffer}
-                  </p>
-                )}
+                <p className="text-sm text-red-600 dark:text-red-400 font-medium mt-2 min-h-[20px]">
+                  {plan.specialOffer}
+                </p>
               </div>
 
               <p className="text-sm text-gray-600 dark:text-gray-300 mb-4">{plan.description}</p>
