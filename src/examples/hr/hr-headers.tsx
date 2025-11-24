@@ -391,6 +391,14 @@ export const HEADERS: HeaderObject[] = [
         </div>
       );
     },
+    valueFormatter: ({ value }) => {
+      return `${value}/100`;
+    },
+    useFormattedValueForClipboard: true, // Copy as "85/100"
+    exportValueGetter: ({ value }) => {
+      // Export as percentage for CSV
+      return `${value}%`;
+    },
   },
   {
     accessor: "department",
@@ -494,6 +502,11 @@ export const HEADERS: HeaderObject[] = [
         <span style={{ color: colors.gray }}>{`$${(row.salary as number).toLocaleString()}`}</span>
       );
     },
+    useFormattedValueForClipboard: true, // Copy formatted salary with $
+    useFormattedValueForCSV: true, // Export formatted salary
+    valueFormatter: ({ value }) => {
+      return `$${(value as number).toLocaleString()}`;
+    },
   },
   {
     accessor: "status",
@@ -511,6 +524,18 @@ export const HEADERS: HeaderObject[] = [
       { label: "Contract", value: "Contract" },
       { label: "Terminated", value: "Terminated" },
     ],
+    // Sort by HR priority: Terminated > Probation > Contract > On Leave > Active
+    valueGetter: ({ row }) => {
+      const status = row.status as string;
+      const priorityMap: Record<string, number> = {
+        Terminated: 1,
+        Probation: 2,
+        Contract: 3,
+        "On Leave": 4,
+        Active: 5,
+      };
+      return priorityMap[status] || 999;
+    },
     cellRenderer: ({ row, theme }) => {
       if (!row.status) return "";
 

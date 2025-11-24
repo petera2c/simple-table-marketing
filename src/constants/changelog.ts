@@ -11,6 +11,57 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_8_4: ChangelogEntry = {
+  version: "1.8.4",
+  date: "2025-11-24",
+  title: "Advanced Sorting, Custom Clipboard & CSV Export",
+  description:
+    "Enhanced column configuration with powerful new options for custom sorting logic, clipboard formatting, and CSV export customization—giving you complete control over how data is sorted, copied, and exported.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added comparator attribute to HeaderObject for custom sorting based on row-level metadata or complex logic",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "feature",
+      description:
+        "Added valueGetter attribute to extract values from nested objects or compute values dynamically for sorting",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "feature",
+      description:
+        "Added useFormattedValueForClipboard attribute to control whether cells copy formatted values (with symbols, formatting) or raw data",
+      link: "/docs/value-formatter",
+    },
+    {
+      type: "feature",
+      description:
+        "Added useFormattedValueForCSV attribute to use formatted values in CSV exports instead of raw data",
+      link: "/docs/csv-export",
+    },
+    {
+      type: "feature",
+      description:
+        "Added exportValueGetter attribute to provide completely custom values for CSV export, different from both raw and formatted display values",
+      link: "/docs/csv-export",
+    },
+    {
+      type: "feature",
+      description:
+        "Exported new TypeScript types: Comparator, ValueGetter, ExportValueGetter with full IntelliSense support",
+    },
+    {
+      type: "improvement",
+      description:
+        "Enhanced HR and Sales examples to showcase new clipboard and CSV formatting capabilities",
+      link: "/examples/hr",
+    },
+  ],
+};
+
 export const v1_8_2: ChangelogEntry = {
   version: "1.8.2",
   date: "2025-11-23",
@@ -340,6 +391,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_4,
   v1_8_2,
   v1_8_1,
   v1_7_9,

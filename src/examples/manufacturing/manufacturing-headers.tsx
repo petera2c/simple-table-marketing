@@ -171,25 +171,74 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "string",
-    cellRenderer: ({ row }) => {
+    // Sort by operational priority: Unplanned Downtime > Idle > Setup > Scheduled Maintenance > Running
+    valueGetter: ({ row }) => {
+      const hasChildren = row.stations && Array.isArray(row.stations);
+      if (hasChildren) return 999; // Parent rows sort last
+
+      const status = row.status as string;
+      const priorityMap: Record<string, number> = {
+        "Unplanned Downtime": 1,
+        Idle: 2,
+        Setup: 3,
+        "Scheduled Maintenance": 4,
+        Running: 5,
+      };
+      return priorityMap[status] || 999;
+    },
+    cellRenderer: ({ row, theme }) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 
       const status = row.status as string;
-      const colorMap: Record<string, string> = {
-        Running: "green",
-        "Scheduled Maintenance": "blue",
-        "Unplanned Downtime": "red",
-        Idle: "orange",
-        Setup: "purple",
+
+      // Theme-aware color mapping with improved dark theme visibility
+      const getStatusColors = (status: string, theme?: string) => {
+        const isDark = theme === "dark";
+
+        const colorMaps = {
+          Running: isDark
+            ? { bg: "rgba(6, 78, 59, 0.4)", text: "#6ee7b7" }
+            : { bg: "#f6ffed", text: "#2a6a0d" },
+          "Scheduled Maintenance": isDark
+            ? { bg: "rgba(30, 58, 138, 0.4)", text: "#93c5fd" }
+            : { bg: "#e6f7ff", text: "#0050b3" },
+          "Unplanned Downtime": isDark
+            ? { bg: "rgba(127, 29, 29, 0.4)", text: "#fca5a5" }
+            : { bg: "#fff1f0", text: "#a8071a" },
+          Idle: isDark
+            ? { bg: "rgba(120, 53, 15, 0.4)", text: "#fcd34d" }
+            : { bg: "#fff7e6", text: "#ad4e00" },
+          Setup: isDark
+            ? { bg: "rgba(88, 28, 135, 0.4)", text: "#c4b5fd" }
+            : { bg: "#f9f0ff", text: "#391085" },
+        };
+
+        return (
+          colorMaps[status as keyof typeof colorMaps] ||
+          (isDark
+            ? { bg: "rgba(55, 65, 81, 0.4)", text: "#d1d5db" }
+            : { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" })
+        );
       };
 
-      const statusColor = colorMap[status] || "default";
+      const colors = getStatusColors(status, theme);
 
       return (
-        <Tag color={statusColor} className="px-2 py-1">
+        <span
+          style={{
+            backgroundColor: colors.bg,
+            color: colors.text,
+            padding: "4px 12px",
+            fontSize: "12px",
+            lineHeight: "20px",
+            borderRadius: "4px",
+            display: "inline-block",
+            fontWeight: "600",
+          }}
+        >
           {status}
-        </Tag>
+        </span>
       );
     },
   },

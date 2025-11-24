@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { SimpleTable, HeaderObject, Theme, TableRefType } from "simple-table-core";
 import "simple-table-core/styles.css";
 
-// Define headers
+// Define headers with new CSV formatting features
 const headers: HeaderObject[] = [
   { accessor: "sku", label: "SKU", width: 100, isSortable: true, type: "string" },
   {
@@ -13,11 +13,57 @@ const headers: HeaderObject[] = [
     isSortable: true,
     type: "string",
   },
-  { accessor: "category", label: "Category", width: 130, isSortable: true, type: "string" },
-  { accessor: "price", label: "Price", width: 100, isSortable: true, type: "number" },
+  {
+    accessor: "category",
+    label: "Category",
+    width: 130,
+    isSortable: true,
+    type: "string",
+    valueFormatter: ({ value }) => {
+      return (value as string).charAt(0).toUpperCase() + (value as string).slice(1);
+    },
+    // Add category code in CSV export
+    exportValueGetter: ({ value }) => {
+      const codes: Record<string, string> = {
+        electronics: "ELEC",
+        furniture: "FURN",
+        stationery: "STAT",
+        appliances: "APPL",
+      };
+      const str = value as string;
+      const code = codes[str.toLowerCase()] || "OTH";
+      return `${str.charAt(0).toUpperCase() + str.slice(1)} (${code})`;
+    },
+  },
+  {
+    accessor: "price",
+    label: "Price",
+    width: 100,
+    isSortable: true,
+    type: "number",
+    valueFormatter: ({ value }) => {
+      return `$${(value as number).toFixed(2)}`;
+    },
+    useFormattedValueForCSV: true, // Export formatted price
+    useFormattedValueForClipboard: true, // Copy formatted price
+  },
   { accessor: "stock", label: "In Stock", width: 100, isSortable: true, type: "number" },
   { accessor: "sold", label: "Units Sold", width: 110, isSortable: true, type: "number" },
-  { accessor: "revenue", label: "Revenue", width: 120, isSortable: true, type: "number" },
+  {
+    accessor: "revenue",
+    label: "Revenue",
+    width: 120,
+    isSortable: true,
+    type: "number",
+    valueFormatter: ({ value }) => {
+      return `$${(value as number).toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      })}`;
+    },
+    useFormattedValueForCSV: true, // Export formatted revenue
+    useFormattedValueForClipboard: true, // Copy formatted revenue
+  },
 ];
 
 // Sample sales data

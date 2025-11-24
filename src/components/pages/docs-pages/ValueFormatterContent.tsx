@@ -19,12 +19,59 @@ const VALUE_FORMATTER_PROPS: PropInfo[] = [
     description:
       "Function to format the cell value for display without affecting the underlying data. Returns a string or number that will be displayed in the cell. Useful for currency, dates, percentages, and other formatted text.",
     type: "(props: ValueFormatterProps) => string | number",
+    link: "/docs/api-reference#value-formatter-props",
     example: `{
   accessor: "price",
   label: "Price",
   valueFormatter: ({ value }) => {
     return \`$\${(value as number).toFixed(2)}\`;
   }
+}`,
+  },
+  {
+    key: "useFormattedValueForClipboard",
+    name: "HeaderObject.useFormattedValueForClipboard",
+    required: false,
+    description:
+      "When true, cells copy the formatted value (with symbols, formatting) when users press Ctrl+C/Cmd+C. When false (default), cells copy the raw underlying data. Useful for copying currency with $ symbols, percentages with %, or formatted dates.",
+    type: "boolean",
+    example: `{
+  accessor: "salary",
+  label: "Salary",
+  valueFormatter: ({ value }) => \`$\${value.toLocaleString()}\`,
+  useFormattedValueForClipboard: true  // Copies "$85,000" instead of 85000
+}`,
+  },
+  {
+    key: "useFormattedValueForCSV",
+    name: "HeaderObject.useFormattedValueForCSV",
+    required: false,
+    description:
+      "When true, CSV exports use the formatted value from valueFormatter instead of raw data. Perfect for human-readable reports and spreadsheets. Note: exportValueGetter takes precedence if provided.",
+    type: "boolean",
+    example: `{
+  accessor: "completionRate",
+  label: "Completion Rate",
+  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
+  useFormattedValueForCSV: true  // CSV shows "92.5%" instead of 0.925
+}`,
+  },
+  {
+    key: "exportValueGetter",
+    name: "HeaderObject.exportValueGetter",
+    required: false,
+    description:
+      "Custom function to provide completely different values for CSV export. Takes precedence over useFormattedValueForCSV. Useful for adding codes, identifiers, or transforming data specifically for spreadsheet compatibility.",
+    type: "(props: ExportValueProps) => string | number",
+    link: "/docs/api-reference#export-value-props",
+    example: `{
+  accessor: "department",
+  label: "Department",
+  valueFormatter: ({ value }) => capitalize(value),
+  exportValueGetter: ({ value }) => {
+    const codes = { engineering: "ENG", sales: "SLS" };
+    return \`\${capitalize(value)} (\${codes[value]})\`;
+  }  // CSV exports: "Engineering (ENG)"
 }`,
   },
 ];
@@ -332,12 +379,126 @@ const ValueFormatterContent = () => {
         </div>
       </motion.div>
 
-      {/* When to Use Value Formatter vs Cell Renderer */}
+      {/* Clipboard and CSV Formatting */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Clipboard and CSV Formatting
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.75 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Control how formatted values are copied to clipboard and exported to CSV files. By
+          default, both clipboard copy and CSV export use raw data values.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
+          Formatted Clipboard Copy
+        </h3>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            useFormattedValueForClipboard
+          </code>{" "}
+          to copy formatted values when users press Ctrl+C or Cmd+C:
+        </p>
+
+        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+          <CodeBlock
+            code={`{
+  accessor: "salary",
+  label: "Salary",
+  valueFormatter: ({ value }) => \`$\${(value as number).toLocaleString()}\`,
+  useFormattedValueForClipboard: true
+}
+
+// User copies cell: Gets "$85,000" instead of 85000
+// Perfect for pasting into reports or presentations`}
+          />
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
+          CSV Export Formatting
+        </h3>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Control CSV export values with two options:
+        </p>
+
+        <div className="space-y-4 mb-6">
+          <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-4 rounded-lg">
+            <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+              Option 1: useFormattedValueForCSV
+            </h4>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Use the same formatted value from valueFormatter:
+            </p>
+            <div className="bg-gray-800 text-white p-3 rounded-md overflow-x-auto">
+              <CodeBlock
+                code={`{
+  accessor: "margin",
+  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
+  useFormattedValueForCSV: true
+}
+// CSV exports: "92.5%" instead of 0.925`}
+              />
+            </div>
+          </div>
+
+          <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-4 rounded-lg">
+            <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+              Option 2: exportValueGetter (Higher Priority)
+            </h4>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Provide completely custom values for CSV export:
+            </p>
+            <div className="bg-gray-800 text-white p-3 rounded-md overflow-x-auto">
+              <CodeBlock
+                code={`{
+  accessor: "department",
+  valueFormatter: ({ value }) => capitalize(value),
+  exportValueGetter: ({ value }) => {
+    const codes = { engineering: "ENG", sales: "SLS" };
+    return \`\${capitalize(value)} (\${codes[value]})\`;
+  }
+}
+// Display: "Engineering"
+// CSV exports: "Engineering (ENG)"`}
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">Priority System</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>
+              <strong>Clipboard:</strong> useFormattedValueForClipboard + valueFormatter → Chart
+              formatting (comma-separated) → Raw value
+            </li>
+            <li>
+              <strong>CSV Export:</strong> exportValueGetter → useFormattedValueForCSV +
+              valueFormatter → Raw value
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+
+      {/* When to Use Value Formatter vs Cell Renderer */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         When to Use Value Formatter vs Cell Renderer
       </motion.h2>
@@ -346,7 +507,7 @@ const ValueFormatterContent = () => {
         className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 0.85 }}
       >
         <div className="grid md:grid-cols-2 gap-6 mb-6">
           <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-6 rounded-lg">
@@ -431,7 +592,7 @@ const ValueFormatterContent = () => {
         className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.0 }}
+        transition={{ duration: 0.5, delay: 0.95 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Here's the same formatting task using both approaches:
