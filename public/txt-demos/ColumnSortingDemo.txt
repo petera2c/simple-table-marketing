@@ -146,6 +146,8 @@ const ColumnSortingDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       height={height}
+      initialSortColumn="age"
+      initialSortDirection="descending"
       rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       theme={theme}

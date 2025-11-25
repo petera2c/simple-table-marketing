@@ -429,6 +429,7 @@ const headers: HeaderObject[] = [
     label: "Quarterly Sales",
     width: 500,
     collapsible: true,
+    collapseDefault: true, // Start collapsed - users can expand for details
     children: [
       {
         accessor: "totalSales",
@@ -489,6 +490,7 @@ const headers: HeaderObject[] = [
     label: "Monthly Performance",
     width: 800,
     collapsible: true,
+    collapseDefault: true, // Start collapsed - too many columns otherwise
     children: [
       {
         accessor: "avgMonthly",
@@ -639,6 +641,7 @@ const headers: HeaderObject[] = [
     label: "Product Categories",
     width: 450,
     collapsible: true,
+    collapseDefault: true, // Start collapsed for cleaner initial view
     children: [
       {
         accessor: "topCategory",
