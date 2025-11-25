@@ -72,6 +72,55 @@ const CELL_RENDERER_PARAMS_PROPS: PropInfo[] = [
   return \`\${cellValue} - \${otherValue}\`;
 }`,
   },
+  {
+    key: "theme",
+    name: "theme",
+    required: true,
+    description:
+      "The current theme of the table. Use this to render content that adapts to the table's theme (e.g., different colors or icons for light/dark modes).",
+    type: "Theme",
+    link: "/docs/api-reference#union-types",
+    example: `// In cellRenderer function
+({ value, theme }) => {
+  return (
+    <span style={{ color: theme === 'dark' ? 'white' : 'black' }}>
+      {value}
+    </span>
+  );
+}`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description:
+      "The raw cell value from the data (same as row[accessor]). Convenient shorthand for accessing the current cell's value without indexing the row object.",
+    type: "CellValue",
+    link: "/docs/api-reference#union-types",
+    example: `// In cellRenderer function
+({ value }) => {
+  // Same as: row[accessor]
+  return value ? \`$\${value}\` : "N/A";
+}`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description:
+      "The formatted cell value if a valueFormatter is defined for this column, otherwise undefined. Use this to access the formatted display value in your cellRenderer.",
+    type: "string | number | undefined",
+    example: `// In cellRenderer function with valueFormatter
+({ value, formattedValue }) => {
+  // value: 1234.56 (raw)
+  // formattedValue: "$1,234.56" (formatted)
+  return (
+    <div className="font-bold">
+      {formattedValue || value}
+    </div>
+  );
+}`,
+  },
 ];
 
 const CellRendererContent = () => {
@@ -174,15 +223,36 @@ const CellRendererContent = () => {
         <PropTable props={CELL_RENDERER_PARAMS_PROPS} title="CellRendererParams Interface" />
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tip</h3>
-          <p className="text-gray-700 dark:text-gray-300">
-            Use the{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              row
-            </code>{" "}
-            parameter to access any data from the current row, not just the current cell. This
-            allows you to create renderers that depend on multiple column values.
-          </p>
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tips</h3>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>
+              Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                value
+              </code>{" "}
+              for quick access to the current cell's raw value (same as{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                row[accessor]
+              </code>
+              )
+            </li>
+            <li>
+              Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                formattedValue
+              </code>{" "}
+              to access the valueFormatter output if one is defined, making it easy to wrap
+              formatted text in custom components
+            </li>
+            <li>
+              Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                row
+              </code>{" "}
+              to access any data from the current row, not just the current cell - perfect for
+              renderers that depend on multiple column values
+            </li>
+          </ul>
         </div>
       </motion.div>
 

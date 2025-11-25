@@ -35,6 +35,24 @@ const COLLAPSIBLE_COLUMNS_PROPS: PropInfo[] = [
 />`,
   },
   {
+    key: "collapseDefault",
+    name: "collapseDefault",
+    required: false,
+    description:
+      "When true, the collapsible column starts in a collapsed state on initial load. Only applies to columns with collapsible: true. Perfect for showing summary data first while keeping details available.",
+    type: "boolean",
+    example: `{
+  accessor: "details",
+  label: "Detailed Info",
+  collapsible: true,
+  collapseDefault: true,  // Starts collapsed
+  children: [
+    { accessor: "detail1", label: "Detail 1" },
+    { accessor: "detail2", label: "Detail 2" }
+  ]
+}`,
+  },
+  {
     key: "singleRowChildren",
     name: "singleRowChildren",
     required: false,
@@ -352,6 +370,38 @@ const CollapsibleColumnsContent = () => {
               <code className="text-sm text-gray-800 dark:text-gray-200">
                 --st-sub-cell-background-color
               </code>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-3 rounded border border-gray-200 dark:border-gray-600">
+              <code className="text-sm text-gray-800 dark:text-gray-200">
+                --st-sub-cell-hover-background-color
+              </code>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                New in v1.8.6: Controls hover state for sub-cells
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-3 rounded border border-gray-200 dark:border-gray-600">
+              <code className="text-sm text-gray-800 dark:text-gray-200">
+                --st-dragging-sub-header-background-color
+              </code>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                New in v1.8.6: Controls background color when dragging sub-headers
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-3 rounded border border-gray-200 dark:border-gray-600">
+              <code className="text-sm text-gray-800 dark:text-gray-200">
+                --st-selected-sub-cell-background-color
+              </code>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                New in v1.8.6: Controls background color for selected sub-cells
+              </p>
+            </div>
+            <div className="bg-white dark:bg-gray-700 p-3 rounded border border-gray-200 dark:border-gray-600">
+              <code className="text-sm text-gray-800 dark:text-gray-200">
+                --st-selected-sub-cell-color
+              </code>
+              <p className="text-xs text-gray-600 dark:text-gray-400 mt-1">
+                New in v1.8.6: Controls text color for selected sub-cells
+              </p>
             </div>
           </div>
         </div>

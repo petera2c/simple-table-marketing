@@ -10,6 +10,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import CodeBlock from "@/components/CodeBlock";
 
 const COLUMN_SORTING_PROPS: PropInfo[] = [
   {
@@ -68,6 +69,24 @@ const COLUMN_SORTING_PROPS: PropInfo[] = [
 ];
 
 const EXTERNAL_SORTING_PROPS: PropInfo[] = [
+  {
+    key: "initialSortColumn",
+    name: "initialSortColumn",
+    required: false,
+    description:
+      "Sets the column to sort by on initial table load. Provide the accessor of the column you want to sort by default.",
+    type: "string",
+    example: `initialSortColumn="revenue"`,
+  },
+  {
+    key: "initialSortDirection",
+    name: "initialSortDirection",
+    required: false,
+    description:
+      "Sets the sort direction for the initial sort. Defaults to 'ascending' if not specified.",
+    type: '"ascending" | "descending"',
+    example: `initialSortDirection="descending"`,
+  },
   {
     key: "onSortChange",
     name: "onSortChange",
@@ -241,7 +260,7 @@ const ColumnSortingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.55 }}
       >
-        External Sorting
+        Initial Sort State
       </motion.h2>
 
       <motion.div
@@ -249,6 +268,62 @@ const ColumnSortingContent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Set the table to load with a default sort applied using{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            initialSortColumn
+          </code>{" "}
+          and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            initialSortDirection
+          </code>
+          . This is perfect for showing users the most relevant data first, like sorting by date
+          (newest first) or revenue (highest first).
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Use Cases</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Sort by date to show newest records first</li>
+            <li>Sort by revenue/sales to highlight top performers</li>
+            <li>Sort by priority or status to show critical items first</li>
+            <li>Provide a consistent, predictable initial view for users</li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+          <CodeBlock
+            code={`<SimpleTable
+  defaultHeaders={headers}
+  rows={data}
+  initialSortColumn="revenue"        // Sort by revenue column
+  initialSortDirection="descending"  // Show highest revenue first
+  // ... other props
+/>`}
+          />
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          The table will load with the sort applied, and users can still change the sort by clicking
+          column headers.
+        </p>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
+      >
+        External Sorting
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           For advanced use cases, you can handle sorting externally - perfect for server-side

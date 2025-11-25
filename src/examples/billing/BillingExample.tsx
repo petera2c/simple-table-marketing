@@ -60,6 +60,8 @@ export default function BillingExample({
       headerCollapseIcon={headerCollapseIcon}
       headerExpandIcon={headerExpandIcon}
       height={height ? `${height}px` : "70dvh"}
+      initialSortColumn="amount" // Show highest amounts first
+      initialSortDirection="descending"
       nextIcon={nextIcon}
       onGridReady={onGridReady}
       prevIcon={prevIcon}

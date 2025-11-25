@@ -151,12 +151,98 @@ export default function CustomThemeContent() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.8 }}
+        className="mb-8"
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Here are the CSS variables used to create the custom theme in the demo above:
         </p>
 
         <CodeBlock className="mb-0" demoCodeFilename="custom-theme/CustomTheme.txt" />
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.85 }}
+      >
+        New in v1.8.6: Sub-Column Styling
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Version 1.8.6 introduces dedicated CSS variables for styling sub-columns (child columns
+          within collapsible column groups). These variables give you fine-grained control over the
+          appearance of nested column structures.
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+            New Sub-Column CSS Variables
+          </h3>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-sub-cell-hover-background-color
+              </code>{" "}
+              - Background color when hovering over sub-cells
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-dragging-sub-header-background-color
+              </code>{" "}
+              - Background color when dragging sub-headers
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-selected-sub-cell-background-color
+              </code>{" "}
+              - Background color for selected sub-cells
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-selected-sub-cell-color
+              </code>{" "}
+              - Text color for selected sub-cells
+            </li>
+          </ul>
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          These variables complement the existing sub-column variables:
+        </p>
+
+        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mb-6">
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-sub-header-background-color
+              </code>{" "}
+              - Background color for sub-column headers
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                --st-sub-cell-background-color
+              </code>{" "}
+              - Background color for sub-column cells
+            </li>
+          </ul>
+        </div>
+
+        <p className="text-gray-700 dark:text-gray-300">
+          See the{" "}
+          <a
+            href="/docs/collapsible-columns"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            Collapsible Columns
+          </a>{" "}
+          documentation for more details on using these variables.
+        </p>
       </motion.div>
 
       <DocNavigationButtons />

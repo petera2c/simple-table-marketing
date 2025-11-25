@@ -11,6 +11,58 @@ export interface ChangelogEntry {
 }
 
 // Individual changelog entries
+export const v1_8_6: ChangelogEntry = {
+  version: "1.8.6",
+  date: "2025-11-25",
+  title: "Initial Sort, Column Visibility Control & Enhanced Cell Renderer",
+  description:
+    "Added powerful new features for controlling initial sort state, column visibility in tables vs exports, and enhanced cell renderer props. Includes improved sub-column styling and auto-format behavior for better developer experience.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added initialSortColumn and initialSortDirection props to set default sorting on table load",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "feature",
+      description:
+        "Added collapseDefault attribute to start collapsible/expandable columns in collapsed state",
+      link: "/docs/collapsible-columns",
+    },
+    {
+      type: "feature",
+      description:
+        "Added excludeFromRender to hide columns from table while keeping them in CSV exports (perfect for ID columns)",
+      link: "/docs/csv-export",
+    },
+    {
+      type: "feature",
+      description:
+        "Added excludeFromCsv to hide columns from CSV exports while showing in table (perfect for action buttons)",
+      link: "/docs/csv-export",
+    },
+    {
+      type: "feature",
+      description:
+        "Enhanced CellRendererProps with value and formattedValue props for easier custom rendering",
+      link: "/docs/cell-renderer",
+    },
+    {
+      type: "improvement",
+      description:
+        "useFormattedValueForClipboard and useFormattedValueForCSV now default to true when valueFormatter exists (reduces boilerplate)",
+      link: "/docs/value-formatter",
+    },
+    {
+      type: "improvement",
+      description:
+        "Added distinct CSS variables for sub-column hover (--st-sub-cell-hover-background-color), dragging sub-headers (--st-dragging-sub-header-background-color), and selected sub-cells (--st-selected-sub-cell-background-color, --st-selected-sub-cell-color)",
+      link: "/docs/custom-theme",
+    },
+  ],
+};
+
 export const v1_8_5: ChangelogEntry = {
   version: "1.8.5",
   date: "2025-11-24",
@@ -406,6 +458,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_6,
   v1_8_5,
   v1_8_4,
   v1_8_2,

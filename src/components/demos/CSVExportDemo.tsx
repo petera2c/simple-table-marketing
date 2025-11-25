@@ -4,6 +4,13 @@ import "simple-table-core/styles.css";
 
 // Define headers with new CSV formatting features
 const headers: HeaderObject[] = [
+  {
+    accessor: "id",
+    label: "Internal ID",
+    width: 80,
+    type: "string",
+    excludeFromRender: true, // Hide from table, but include in CSV exports
+  },
   { accessor: "sku", label: "SKU", width: 100, isSortable: true, type: "string" },
   {
     accessor: "product",
@@ -64,11 +71,26 @@ const headers: HeaderObject[] = [
     useFormattedValueForCSV: true, // Export formatted revenue
     useFormattedValueForClipboard: true, // Copy formatted revenue
   },
+  {
+    accessor: "actions",
+    label: "Actions",
+    width: 100,
+    type: "string",
+    excludeFromCsv: true, // Hide from CSV exports (action buttons not useful in exports)
+    cellRenderer: () => {
+      return (
+        <button className="px-3 py-1 bg-gray-200 dark:bg-gray-700 rounded hover:bg-gray-300 dark:hover:bg-gray-900 text-sm">
+          View
+        </button>
+      );
+    },
+  },
 ];
 
 // Sample sales data
 const SALES_DATA = [
   {
+    id: "db-1001",
     sku: "PRD-1001",
     product: "Wireless Keyboard",
     category: "Electronics",
@@ -76,8 +98,10 @@ const SALES_DATA = [
     stock: 145,
     sold: 234,
     revenue: 11697.66,
+    actions: "",
   },
   {
+    id: "db-1002",
     sku: "PRD-1002",
     product: "Ergonomic Mouse",
     category: "Electronics",
@@ -85,8 +109,10 @@ const SALES_DATA = [
     stock: 89,
     sold: 456,
     revenue: 13675.44,
+    actions: "",
   },
   {
+    id: "db-1003",
     sku: "PRD-1003",
     product: "USB-C Hub",
     category: "Electronics",
@@ -94,8 +120,10 @@ const SALES_DATA = [
     stock: 234,
     sold: 178,
     revenue: 7118.22,
+    actions: "",
   },
   {
+    id: "db-2001",
     sku: "PRD-2001",
     product: "Standing Desk",
     category: "Furniture",
@@ -103,8 +131,10 @@ const SALES_DATA = [
     stock: 23,
     sold: 67,
     revenue: 26799.33,
+    actions: "",
   },
   {
+    id: "db-2002",
     sku: "PRD-2002",
     product: "Office Chair",
     category: "Furniture",
@@ -112,8 +142,10 @@ const SALES_DATA = [
     stock: 56,
     sold: 123,
     revenue: 30748.77,
+    actions: "",
   },
   {
+    id: "db-2003",
     sku: "PRD-2003",
     product: "Monitor Stand",
     category: "Furniture",
@@ -121,8 +153,10 @@ const SALES_DATA = [
     stock: 167,
     sold: 89,
     revenue: 7119.11,
+    actions: "",
   },
   {
+    id: "db-3001",
     sku: "PRD-3001",
     product: "Notebook Set",
     category: "Stationery",
@@ -130,8 +164,10 @@ const SALES_DATA = [
     stock: 445,
     sold: 678,
     revenue: 8807.22,
+    actions: "",
   },
   {
+    id: "db-3002",
     sku: "PRD-3002",
     product: "Pen Collection",
     category: "Stationery",
@@ -139,8 +175,10 @@ const SALES_DATA = [
     stock: 312,
     sold: 534,
     revenue: 10674.66,
+    actions: "",
   },
   {
+    id: "db-3003",
     sku: "PRD-3003",
     product: "Desk Organizer",
     category: "Stationery",
@@ -148,8 +186,10 @@ const SALES_DATA = [
     stock: 198,
     sold: 289,
     revenue: 7222.11,
+    actions: "",
   },
   {
+    id: "db-4001",
     sku: "PRD-4001",
     product: "Coffee Maker",
     category: "Appliances",
@@ -157,8 +197,10 @@ const SALES_DATA = [
     stock: 78,
     sold: 156,
     revenue: 14038.44,
+    actions: "",
   },
   {
+    id: "db-4002",
     sku: "PRD-4002",
     product: "Electric Kettle",
     category: "Appliances",
@@ -166,8 +208,10 @@ const SALES_DATA = [
     stock: 134,
     sold: 267,
     revenue: 9342.33,
+    actions: "",
   },
   {
+    id: "db-4003",
     sku: "PRD-4003",
     product: "Desk Lamp LED",
     category: "Appliances",
@@ -175,6 +219,7 @@ const SALES_DATA = [
     stock: 201,
     sold: 198,
     revenue: 8908.02,
+    actions: "",
   },
 ];
 
