@@ -33,13 +33,14 @@ const VALUE_FORMATTER_PROPS: PropInfo[] = [
     name: "HeaderObject.useFormattedValueForClipboard",
     required: false,
     description:
-      "When true, cells copy the formatted value (with symbols, formatting) when users press Ctrl+C/Cmd+C. When false (default), cells copy the raw underlying data. Useful for copying currency with $ symbols, percentages with %, or formatted dates.",
+      "When true, cells copy the formatted value (with symbols, formatting) when users press Ctrl+C/Cmd+C. Defaults to true when valueFormatter exists (v1.8.6+), or false if no valueFormatter. Useful for copying currency with $ symbols, percentages with %, or formatted dates.",
     type: "boolean",
     example: `{
   accessor: "salary",
   label: "Salary",
   valueFormatter: ({ value }) => \`$\${value.toLocaleString()}\`,
-  useFormattedValueForClipboard: true  // Copies "$85,000" instead of 85000
+  // useFormattedValueForClipboard: true  // Defaults to true since v1.8.6
+  // Set to false to override: useFormattedValueForClipboard: false
 }`,
   },
   {
@@ -47,13 +48,14 @@ const VALUE_FORMATTER_PROPS: PropInfo[] = [
     name: "HeaderObject.useFormattedValueForCSV",
     required: false,
     description:
-      "When true, CSV exports use the formatted value from valueFormatter instead of raw data. Perfect for human-readable reports and spreadsheets. Note: exportValueGetter takes precedence if provided.",
+      "When true, CSV exports use the formatted value from valueFormatter instead of raw data. Defaults to true when valueFormatter exists (v1.8.6+), or false if no valueFormatter. Perfect for human-readable reports and spreadsheets. Note: exportValueGetter takes precedence if provided.",
     type: "boolean",
     example: `{
   accessor: "completionRate",
   label: "Completion Rate",
   valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
-  useFormattedValueForCSV: true  // CSV shows "92.5%" instead of 0.925
+  // useFormattedValueForCSV: true  // Defaults to true since v1.8.6
+  // Set to false to override: useFormattedValueForCSV: false
 }`,
   },
   {
@@ -396,20 +398,64 @@ const ValueFormatterContent = () => {
         transition={{ duration: 0.5, delay: 0.75 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Control how formatted values are copied to clipboard and exported to CSV files. By
-          default, both clipboard copy and CSV export use raw data values.
+          Control how formatted values are copied to clipboard and exported to CSV files. Starting
+          in v1.8.6, both{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            useFormattedValueForClipboard
+          </code>{" "}
+          and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            useFormattedValueForCSV
+          </code>{" "}
+          default to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            true
+          </code>{" "}
+          when a{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            valueFormatter
+          </code>{" "}
+          exists, reducing boilerplate code.
         </p>
+
+        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+            ✨ Auto-Default Behavior (v1.8.6+)
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            When you define a{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              valueFormatter
+            </code>
+            , formatted values are automatically used for clipboard copy and CSV exports. You no
+            longer need to explicitly set these flags to{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              true
+            </code>
+            !
+          </p>
+          <p className="text-gray-700 dark:text-gray-300 text-sm">
+            <strong>To use raw values:</strong> Explicitly set{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              useFormattedValueForClipboard: false
+            </code>{" "}
+            or{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              useFormattedValueForCSV: false
+            </code>
+          </p>
+        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4">
           Formatted Clipboard Copy
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use{" "}
+          With a{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            useFormattedValueForClipboard
-          </code>{" "}
-          to copy formatted values when users press Ctrl+C or Cmd+C:
+            valueFormatter
+          </code>
+          , formatted values are automatically copied when users press Ctrl+C or Cmd+C:
         </p>
 
         <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
@@ -417,12 +463,15 @@ const ValueFormatterContent = () => {
             code={`{
   accessor: "salary",
   label: "Salary",
-  valueFormatter: ({ value }) => \`$\${(value as number).toLocaleString()}\`,
-  useFormattedValueForClipboard: true
+  valueFormatter: ({ value }) => \`$\${(value as number).toLocaleString()}\`
+  // useFormattedValueForClipboard: true (automatically defaults to true)
 }
 
 // User copies cell: Gets "$85,000" instead of 85000
-// Perfect for pasting into reports or presentations`}
+// Perfect for pasting into reports or presentations
+
+// To copy raw values instead, explicitly set to false:
+// useFormattedValueForClipboard: false`}
           />
         </div>
 
@@ -437,19 +486,22 @@ const ValueFormatterContent = () => {
         <div className="space-y-4 mb-6">
           <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-4 rounded-lg">
             <h4 className="font-bold text-gray-800 dark:text-white mb-2">
-              Option 1: useFormattedValueForCSV
+              Option 1: Automatic Formatting (v1.8.6+)
             </h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
-              Use the same formatted value from valueFormatter:
+              When a valueFormatter is defined, CSV exports automatically use the formatted value:
             </p>
             <div className="bg-gray-800 text-white p-3 rounded-md overflow-x-auto">
               <CodeBlock
                 code={`{
   accessor: "margin",
-  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
-  useFormattedValueForCSV: true
+  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`
+  // useFormattedValueForCSV: true (automatically defaults to true)
 }
-// CSV exports: "92.5%" instead of 0.925`}
+// CSV exports: "92.5%" instead of 0.925
+
+// To export raw values, explicitly set to false:
+// useFormattedValueForCSV: false`}
               />
             </div>
           </div>

@@ -26,6 +26,7 @@ import {
   faCaretDown,
   faFilter,
   faRectangleList,
+  faColumns,
   faChartLine,
 } from "@fortawesome/free-solid-svg-icons";
 import { UI_STRINGS } from "@/constants/strings/ui";
@@ -134,6 +135,12 @@ interface ThemeConfig {
   headerSelectedIconColor: string;
   headerHighlightIndicatorColor: string;
   selectionHighlightIndicatorColor: string;
+  subHeaderBackgroundColor: string;
+  subCellBackgroundColor: string;
+  subCellHoverBackgroundColor: string;
+  draggingSubHeaderBackgroundColor: string;
+  selectedSubCellBackgroundColor: string;
+  selectedSubCellColor: string;
   chartColor: string;
   chartFillColor: string;
 }
@@ -202,6 +209,14 @@ const lightThemeDefaults: ThemeConfig = {
   // Highlight indicator colors
   headerHighlightIndicatorColor: "#cbd5e1", // slate-300
   selectionHighlightIndicatorColor: "#cbd5e1", // slate-300
+
+  // Collapsible column colors
+  subHeaderBackgroundColor: "#cbd5e1", // slate-300
+  subCellBackgroundColor: "#f8fafc", // slate-50
+  subCellHoverBackgroundColor: "#f1f5f9", // slate-100
+  draggingSubHeaderBackgroundColor: "#e2e8f0", // slate-200
+  selectedSubCellBackgroundColor: "#dbeafe", // blue-100
+  selectedSubCellColor: "#0f172a", // slate-900
 
   // Chart colors
   chartColor: "#93c5fd", // blue-300
@@ -300,6 +315,14 @@ const darkThemeDefaults: ThemeConfig = {
   headerHighlightIndicatorColor: "#475569", // slate-600
   selectionHighlightIndicatorColor: "#475569", // slate-600
 
+  // Collapsible column colors
+  subHeaderBackgroundColor: "#475569", // slate-600
+  subCellBackgroundColor: "#1e293b", // slate-800
+  subCellHoverBackgroundColor: "#334155", // slate-700
+  draggingSubHeaderBackgroundColor: "#334155", // slate-700
+  selectedSubCellBackgroundColor: "#1e3a8a", // blue-900
+  selectedSubCellColor: "#f8fafc", // slate-50
+
   // Chart colors
   chartColor: "#60a5fa", // blue-400
   chartFillColor: "#60a5fa", // blue-400
@@ -376,6 +399,7 @@ export default function ThemeBuilderContent() {
     datepicker: false,
     dropdown: false,
     filter: false,
+    collapsibleColumns: false,
     charts: false,
   });
 
@@ -488,6 +512,7 @@ export default function ThemeBuilderContent() {
       datepicker: newState,
       dropdown: newState,
       filter: newState,
+      collapsibleColumns: newState,
       charts: newState,
     });
   };
@@ -952,6 +977,43 @@ export default function ThemeBuilderContent() {
         ],
       },
     ],
+    collapsibleColumns: [
+      {
+        title: "Collapsible Column Colors",
+        fields: [
+          {
+            key: "subHeaderBackgroundColor",
+            type: "color",
+            tooltip: "Background color for sub-headers in collapsible columns",
+          },
+          {
+            key: "subCellBackgroundColor",
+            type: "color",
+            tooltip: "Background color for sub-cells in collapsible columns",
+          },
+          {
+            key: "subCellHoverBackgroundColor",
+            type: "color",
+            tooltip: "Background color for sub-cells on hover (new in v1.8.6)",
+          },
+          {
+            key: "draggingSubHeaderBackgroundColor",
+            type: "color",
+            tooltip: "Background color for sub-headers while dragging (new in v1.8.6)",
+          },
+          {
+            key: "selectedSubCellBackgroundColor",
+            type: "color",
+            tooltip: "Background color for selected sub-cells (new in v1.8.6)",
+          },
+          {
+            key: "selectedSubCellColor",
+            type: "color",
+            tooltip: "Text color for selected sub-cells (new in v1.8.6)",
+          },
+        ],
+      },
+    ],
     charts: [
       {
         title: "Chart Colors",
@@ -1045,6 +1107,7 @@ export default function ThemeBuilderContent() {
     datepicker: { title: "Datepicker", icon: faCalendar },
     dropdown: { title: "Dropdown", icon: faCaretDown },
     filter: { title: "Filter", icon: faFilter },
+    collapsibleColumns: { title: "Collapsible Columns", icon: faColumns },
     charts: { title: "Charts", icon: faChartLine },
   };
 

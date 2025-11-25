@@ -39,6 +39,35 @@ tableRef.current?.exportToCSV();
 // Custom filename
 tableRef.current?.exportToCSV({ filename: "report.csv" });`,
   },
+  {
+    key: "excludeFromRender",
+    name: "HeaderObject.excludeFromRender",
+    required: false,
+    description:
+      "When true, hides the column from the table display while keeping it in CSV exports. Perfect for internal IDs, database keys, or technical fields that shouldn't clutter the UI but are needed in exports.",
+    type: "boolean",
+    example: `{
+  accessor: "internalId",
+  label: "Internal ID",
+  type: "string",
+  excludeFromRender: true  // Hidden in table, included in CSV
+}`,
+  },
+  {
+    key: "excludeFromCsv",
+    name: "HeaderObject.excludeFromCsv",
+    required: false,
+    description:
+      "When true, shows the column in the table but excludes it from CSV exports. Perfect for action buttons, interactive elements, or UI-only columns that don't make sense in exported data.",
+    type: "boolean",
+    example: `{
+  accessor: "actions",
+  label: "Actions",
+  type: "string",
+  excludeFromCsv: true,  // Visible in table, excluded from CSV
+  cellRenderer: () => <button>View</button>
+}`,
+  },
 ];
 
 const CSVExportContent = () => {
@@ -153,7 +182,7 @@ const CSVExportContent = () => {
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
       >
         Formatting CSV Exports
       </motion.h2>
@@ -162,7 +191,7 @@ const CSVExportContent = () => {
         className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.55 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Control how column values appear in CSV exports using three powerful options. By default,

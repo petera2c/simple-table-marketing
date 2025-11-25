@@ -337,7 +337,7 @@ const VALUE_GETTER_PROPS: PropInfo[] = [
   },
 ];
 
-const COMPARATOR_PROPS_PROPS: PropInfo[] = [
+const COMPARATOR_PROPS: PropInfo[] = [
   {
     key: "rowA",
     name: "rowA",
@@ -363,6 +363,62 @@ const COMPARATOR_PROPS_PROPS: PropInfo[] = [
     description: "The sort direction",
     type: '"ascending" | "descending"',
     example: `props.direction // "ascending"`,
+  },
+];
+
+const CELL_RENDERER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being rendered",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "name"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John Doe", status: "active" }`,
+  },
+  {
+    key: "theme",
+    name: "theme",
+    required: true,
+    description: "Current theme of the table",
+    type: "Theme",
+    link: "#union-types",
+    example: `props.theme // "dark"`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "John Doe"`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description:
+      "The formatted cell value (output from valueFormatter if defined). Use this for display purposes when you need both raw and formatted values.",
+    type: "string | number | boolean | null | undefined",
+    example: `props.formattedValue // "$1,234.56" (when valueFormatter formats the raw value)`,
   },
 ];
 
@@ -648,6 +704,26 @@ rowHeight={48}`,
       "When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop.",
     type: "boolean",
     example: `externalSortHandling={true}`,
+  },
+  {
+    key: "initialSortColumn",
+    name: "initialSortColumn",
+    required: false,
+    description:
+      "Sets the column to sort by on initial table load. Provide the accessor of the column you want to sort by default. Works with both internal and external sorting.",
+    type: "string",
+    example: `initialSortColumn="revenue"
+initialSortColumn="createdAt"`,
+  },
+  {
+    key: "initialSortDirection",
+    name: "initialSortDirection",
+    required: false,
+    description:
+      "Sets the sort direction for the initial sort. Defaults to 'ascending' if not specified. Only applies when initialSortColumn is also set.",
+    type: '"ascending" | "descending"',
+    example: `initialSortDirection="descending"
+initialSortDirection="ascending"`,
   },
   {
     key: "hideFooter",
@@ -1287,12 +1363,21 @@ minWidth: "100px"`,
     name: "cellRenderer",
     required: false,
     description:
-      "Custom render function for cell content. Use this for React components, custom styling, or interactive elements. For simple text formatting (currency, dates), use valueFormatter instead for better performance.",
-    type: "({ accessor, colIndex, row, theme }: { accessor: Accessor; colIndex: number; row: Row; theme: Theme; }) => ReactNode | string",
-    example: `cellRenderer: ({ accessor, colIndex, row, theme }) => (
-  <span style={{ color: 'blue' }}>
-    {row[accessor]}
+      "Custom render function for cell content. Receives both raw and formatted values for flexible rendering. Use this for React components, custom styling, or interactive elements. For simple text formatting (currency, dates), use valueFormatter instead for better performance.",
+    type: "({ accessor, colIndex, row, theme, value, formattedValue }: CellRendererProps) => ReactNode | string",
+    example: `// Simple example using raw value
+cellRenderer: ({ value, theme }) => (
+  <span style={{ color: theme === 'dark' ? 'white' : 'blue' }}>
+    {value}
   </span>
+)
+
+// Using formatted value from valueFormatter
+cellRenderer: ({ value, formattedValue }) => (
+  <div>
+    <div className="text-sm">{formattedValue}</div>
+    <div className="text-xs text-gray-500">Raw: {value}</div>
+  </div>
 )`,
   },
   {
@@ -1452,6 +1537,53 @@ tooltip: "Average customer rating (1-5 stars)"`,
 // With singleRowChildren: false (default nested)
 //   Headers:     [User Info spanning full width]
 //           [First Name] [Last Name] [Email] (children below parent)`,
+  },
+  {
+    key: "collapseDefault",
+    name: "collapseDefault",
+    required: false,
+    description:
+      "When true, this column starts collapsed on initial render. Only applies to columns with collapsible set to true. Useful for showing a compact view by default.",
+    type: "boolean",
+    example: `{
+  accessor: "details",
+  label: "Details",
+  collapsible: true,
+  collapseDefault: true,  // Starts collapsed
+  children: [
+    { accessor: "description", label: "Description", width: 200 },
+    { accessor: "notes", label: "Notes", width: 200 }
+  ]
+}`,
+  },
+  {
+    key: "excludeFromRender",
+    name: "excludeFromRender",
+    required: false,
+    description:
+      "When true, excludes this column from the rendered table. The column data is still available for CSV export. Useful for ID columns or metadata that should be exported but not displayed.",
+    type: "boolean",
+    example: `{
+  accessor: "id",
+  label: "ID",
+  width: 80,
+  excludeFromRender: true,  // Hidden from table, included in CSV
+}`,
+  },
+  {
+    key: "excludeFromCsv",
+    name: "excludeFromCsv",
+    required: false,
+    description:
+      "When true, excludes this column from CSV exports. The column is still displayed in the table. Useful for sensitive data or UI-only columns that shouldn't be exported.",
+    type: "boolean",
+    example: `{
+  accessor: "actions",
+  label: "Actions",
+  width: 100,
+  excludeFromCsv: true,  // Shown in table, excluded from CSV
+  cellRenderer: ({ row }) => <ActionButtons row={row} />
+}`,
   },
 ];
 
@@ -1779,7 +1911,11 @@ const ApiReferenceContent = () => {
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="comparator-props">
-        <PropTable props={COMPARATOR_PROPS_PROPS} title="ComparatorProps" />
+        <PropTable props={COMPARATOR_PROPS} title="ComparatorProps" />
+      </div>
+
+      <div id="cell-renderer-props">
+        <PropTable props={CELL_RENDERER_PROPS} title="CellRendererProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-value-props">

@@ -89,6 +89,10 @@
   /* Collapsible column colors */
   --st-sub-header-background-color: var(--st-violet-500);
   --st-sub-cell-background-color: var(--st-amber-75);
+  --st-sub-cell-hover-background-color: var(--st-amber-100);
+  --st-dragging-sub-header-background-color: var(--st-violet-300);
+  --st-selected-sub-cell-background-color: var(--st-violet-100);
+  --st-selected-sub-cell-color: var(--st-violet-900);
 
   /* Chart colors */
   --st-chart-color: var(--st-violet-500);
