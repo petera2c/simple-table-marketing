@@ -6,9 +6,9 @@ export function Analytics() {
       {/* Google Analytics */}
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=G-HS01JZP3DM`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
-      <Script id="google-analytics" strategy="afterInteractive">
+      <Script id="google-analytics" strategy="lazyOnload">
         {`
           window.dataLayer = window.dataLayer || [];
           function gtag(){dataLayer.push(arguments);}
@@ -18,7 +18,7 @@ export function Analytics() {
       </Script>
 
       {/* Hotjar */}
-      <Script id="hotjar" strategy="afterInteractive">
+      <Script id="hotjar" strategy="lazyOnload">
         {`
           (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -34,7 +34,7 @@ export function Analytics() {
       {/* Tawk.to Live Chat */}
       <Script
         id="tawk-to-script"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
                 var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
@@ -48,20 +48,6 @@ export function Analytics() {
               })();
             `,
         }}
-      />
-
-      {/* Rybbit analytics */}
-      <Script
-        src="https://app.rybbit.io/api/script.js"
-        data-site-id="1edc281bc84d"
-        strategy="afterInteractive"
-      />
-
-      <Script
-        src="https://analytics.ahrefs.com/analytics.js"
-        data-key="fVZfdX8inZYBS5lrBdLNJQ"
-        async
-        strategy="afterInteractive"
       />
     </>
   );
