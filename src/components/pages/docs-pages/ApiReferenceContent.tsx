@@ -204,7 +204,7 @@ const AGGREGATION_CONFIG_PROPS: PropInfo[] = [
   },
 ];
 
-const ROW_SELECTION_CHANGE_PROPS_PROPS: PropInfo[] = [
+const ROW_SELECTION_CHANGE_PROPS: PropInfo[] = [
   {
     key: "row",
     name: "row",
@@ -232,7 +232,7 @@ const ROW_SELECTION_CHANGE_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
-const CELL_CHANGE_PROPS_PROPS: PropInfo[] = [
+const CELL_CHANGE_PROPS: PropInfo[] = [
   {
     key: "accessor",
     name: "accessor",
@@ -422,7 +422,7 @@ const CELL_RENDERER_PROPS: PropInfo[] = [
   },
 ];
 
-const EXPORT_VALUE_PROPS_PROPS: PropInfo[] = [
+const EXPORT_VALUE_PROPS: PropInfo[] = [
   {
     key: "accessor",
     name: "accessor",
@@ -476,7 +476,7 @@ const EXPORT_VALUE_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
-const CELL_CLICK_PROPS_PROPS: PropInfo[] = [
+const CELL_CLICK_PROPS: PropInfo[] = [
   {
     key: "accessor",
     name: "accessor",
@@ -527,6 +527,77 @@ const CELL_CLICK_PROPS_PROPS: PropInfo[] = [
     type: "CellValue",
     link: "#union-types",
     example: `props.value // "John Doe"`,
+  },
+];
+
+const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that is being expanded or collapsed",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: "DEPT-1", name: "Engineering", teams: [] }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The index of the row in the current table view (0-based)",
+    type: "number",
+    example: `props.rowIndex // 2`,
+  },
+  {
+    key: "depth",
+    name: "depth",
+    required: true,
+    description:
+      "The depth level of the row in the hierarchy (0 = top level, 1 = first nested level, etc.)",
+    type: "number",
+    example: `props.depth // 0 (top-level row) or 1 (nested row)`,
+  },
+  {
+    key: "event",
+    name: "event",
+    required: true,
+    description: "The original mouse click event that triggered the expand/collapse action",
+    type: "MouseEvent",
+    example: `props.event // MouseEvent object`,
+  },
+  {
+    key: "rowId",
+    name: "rowId",
+    required: true,
+    description: "The unique identifier for the row (from rowIdAccessor)",
+    type: "string | number",
+    example: `props.rowId // "DEPT-1" or 123`,
+  },
+  {
+    key: "groupingKey",
+    name: "groupingKey",
+    required: false,
+    description:
+      "The property name that contains the children rows for this grouping level. Corresponds to the current level in the rowGrouping array.",
+    type: "string",
+    example: `props.groupingKey // "teams" or "employees"
+// When rowGrouping={["teams", "employees"]}:
+// - depth 0 rows have groupingKey "teams"
+// - depth 1 rows have groupingKey "employees"`,
+  },
+  {
+    key: "isExpanded",
+    name: "isExpanded",
+    required: true,
+    description:
+      "Boolean indicating whether the row is being expanded (true) or collapsed (false). Use this to determine whether to fetch data.",
+    type: "boolean",
+    example: `if (props.isExpanded) {
+  // Row is expanding - fetch children data
+  fetchChildrenData(props.rowId);
+} else {
+  // Row is collapsing - no action needed
+}`,
   },
 ];
 
@@ -784,6 +855,28 @@ initialSortDirection="ascending"`,
     description: "Array of property names that define row grouping hierarchy.",
     type: "string[]",
     example: `rowGrouping={["department", "team"]}`,
+  },
+  {
+    key: "onRowGroupExpand",
+    name: "onRowGroupExpand",
+    required: false,
+    description:
+      "Callback function triggered when a grouped row is expanded or collapsed. Provides detailed information about the row, depth level, and grouping context. Perfect for implementing lazy-loading of hierarchical data.",
+    type: "(props: OnRowGroupExpandProps) => void",
+    link: "#on-row-group-expand-props",
+    example: `onRowGroupExpand={async ({ row, rowId, depth, groupingKey, isExpanded }) => {
+  // Only fetch when expanding
+  if (!isExpanded) return;
+  
+  // Don't fetch if data already exists
+  if (groupingKey && row[groupingKey]?.length > 0) return;
+
+  // Lazy-load children data based on depth
+  if (depth === 0 && groupingKey === "teams") {
+    const teams = await fetchTeams(rowId);
+    updateRowData(rowId, "teams", teams);
+  }
+}}`,
   },
   {
     key: "rowsPerPage",
@@ -1623,7 +1716,7 @@ const TABLE_FILTER_STATE_PROPS: PropInfo[] = [
   },
 ];
 
-const EXPORT_TO_CSV_PROPS_PROPS: PropInfo[] = [
+const EXPORT_TO_CSV_PROPS: PropInfo[] = [
   {
     key: "filename",
     name: "filename",
@@ -1635,7 +1728,7 @@ const EXPORT_TO_CSV_PROPS_PROPS: PropInfo[] = [
   },
 ];
 
-const FOOTER_RENDERER_PROPS_PROPS: PropInfo[] = [
+const FOOTER_RENDERER_PROPS: PropInfo[] = [
   {
     key: "currentPage",
     name: "currentPage",
@@ -1895,11 +1988,11 @@ const ApiReferenceContent = () => {
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="row-selection-change-props">
-        <PropTable props={ROW_SELECTION_CHANGE_PROPS_PROPS} title="RowSelectionChangeProps" />
+        <PropTable props={ROW_SELECTION_CHANGE_PROPS} title="RowSelectionChangeProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-change-props">
-        <PropTable props={CELL_CHANGE_PROPS_PROPS} title="CellChangeProps" />
+        <PropTable props={CELL_CHANGE_PROPS} title="CellChangeProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="value-formatter-props">
@@ -1919,11 +2012,15 @@ const ApiReferenceContent = () => {
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-value-props">
-        <PropTable props={EXPORT_VALUE_PROPS_PROPS} title="ExportValueProps" />
+        <PropTable props={EXPORT_VALUE_PROPS} title="ExportValueProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-click-props">
-        <PropTable props={CELL_CLICK_PROPS_PROPS} title="CellClickProps" />
+        <PropTable props={CELL_CLICK_PROPS} title="CellClickProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="on-row-group-expand-props">
+        <PropTable props={ON_ROW_GROUP_EXPAND_PROPS} title="OnRowGroupExpandProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filter-condition">
@@ -1947,11 +2044,11 @@ const ApiReferenceContent = () => {
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-to-csv-props">
-        <PropTable props={EXPORT_TO_CSV_PROPS_PROPS} title="ExportToCSVProps" />
+        <PropTable props={EXPORT_TO_CSV_PROPS} title="ExportToCSVProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="footer-renderer-props">
-        <PropTable props={FOOTER_RENDERER_PROPS_PROPS} title="FooterRendererProps" />
+        <PropTable props={FOOTER_RENDERER_PROPS} title="FooterRendererProps" />
       </div>
 
       <DocNavigationButtons />

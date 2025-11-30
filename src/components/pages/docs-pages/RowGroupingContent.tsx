@@ -8,10 +8,10 @@ import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
-import CodeBlock from "@/components/CodeBlock";
 import { Button } from "antd";
 import { useState } from "react";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import OrganizationHierarchyExample from "@/examples/organization-hierarchy/OrganizationHierarchyExample";
 
 const ROW_GROUPING_PROPS: PropInfo[] = [
   {
@@ -55,6 +55,24 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     type: "boolean",
     example: `<SimpleTable
   expandAll={true}  // Default: all groups expanded
+  // ... other props
+/>`,
+  },
+  {
+    key: "onRowGroupExpand",
+    name: "onRowGroupExpand",
+    required: false,
+    description:
+      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information about the row, depth level, and grouping key. Perfect for lazy-loading hierarchical data on demand.",
+    type: "(props: OnRowGroupExpandProps) => void",
+    link: "/docs/api-reference#on-row-group-expand-props",
+    example: `<SimpleTable
+  onRowGroupExpand={({ row, rowId, depth, groupingKey, isExpanded }) => {
+    if (isExpanded && !row[groupingKey]) {
+      // Fetch children data for this row
+      fetchChildrenData(rowId, groupingKey);
+    }
+  }}
   // ... other props
 />`,
   },
@@ -115,7 +133,6 @@ const RowGroupingContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -154,134 +171,41 @@ const RowGroupingContent = () => {
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.9 }}
       >
-        Data Structure
-      </motion.h2>
-
-      <motion.div
-        className="mb-8"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
-      >
-        <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Your data should be structured as flat objects with nested arrays for hierarchical
-          relationships. Each level of the hierarchy is defined by an array property containing
-          child objects:
-        </p>
-
-        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mt-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
-            Benefits of This Approach
-          </h3>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <strong>Intuitive data structure:</strong> Nested arrays naturally represent
-              hierarchical relationships
-            </li>
-            <li>
-              <strong>Flexible grouping:</strong> Support for multiple levels of nesting (companies
-              → divisions → departments)
-            </li>
-            <li>
-              <strong>Clean API:</strong> No complex wrapper objects or metadata required
-            </li>
-            <li>
-              <strong>Type-safe:</strong> Works seamlessly with TypeScript for better development
-              experience
-            </li>
-          </ul>
-        </div>
-      </motion.div>
-
-      <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.7 }}
-      >
-        Row Grouping Examples
+        Dynamic Row Loading
       </motion.h2>
 
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.8 }}
+        transition={{ duration: 0.5, delay: 1.0 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The{" "}
+          Use the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            rowGrouping
+            onRowGroupExpand
           </code>{" "}
-          prop determines how many levels of hierarchy to display. Here are different
-          configurations:
+          callback to load nested data on-demand. This example demonstrates a three-level hierarchy
+          (Projects → Milestones → Tasks) where child rows are fetched from an API only when their
+          parent is expanded.
         </p>
 
-        <div className="space-y-6">
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h4 className="font-bold text-gray-800 dark:text-white mb-2">Single Level Grouping</h4>
-            <CodeBlock
-              code={`// Show only companies and their divisions (2 levels)
-<SimpleTable
-  rowGrouping={["divisions"]}
-  rowIdAccessor="id"
-  rows={rows}
-/>`}
-            />
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-              Companies can expand to show divisions, but departments remain hidden.
-            </p>
-          </div>
+        <p className="text-gray-700 dark:text-gray-300 mb-6">
+          This approach is ideal for large datasets where loading all nested levels upfront would
+          impact performance. The table only loads the top-level rows initially, then fetches deeper
+          levels as users explore the hierarchy.
+        </p>
 
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h4 className="font-bold text-gray-800 dark:text-white mb-2">Multi-Level Grouping</h4>
-            <CodeBlock
-              code={`// Show all three levels: companies → divisions → departments
-<SimpleTable
-  rowGrouping={["divisions", "departments"]}
-  rowIdAccessor="id"
-  rows={rows}
-/>`}
-            />
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-              Full hierarchy with companies containing divisions containing departments.
-            </p>
-          </div>
-
-          <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-            <h4 className="font-bold text-gray-800 dark:text-white mb-2">No Grouping</h4>
-            <CodeBlock
-              code={`// Flat table with no hierarchy
-<SimpleTable
-  // No rowGrouping prop
-  rowIdAccessor="id"
-  rows={rows}
-/>`}
-            />
-            <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-              Shows only top-level items (companies) as a flat list.
-            </p>
-          </div>
-        </div>
-
-        <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mt-6">
-          <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tip</h3>
-          <p className="text-gray-700 dark:text-gray-300">
-            The array order in{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              rowGrouping
-            </code>{" "}
-            defines the hierarchy depth.{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              ["divisions", "departments"]
-            </code>{" "}
-            means divisions are level 1 and departments are level 2 under each division.
-          </p>
-        </div>
+        <LivePreview
+          demoCodeFilename="OrganizationHierarchyExample.txt"
+          height="400px"
+          link={SANDBOX_LIST["OrganizationHierarchyExample.tsx"].url}
+          Preview={(props) => <OrganizationHierarchyExample {...props} />}
+        />
       </motion.div>
 
       <DocNavigationButtons />
