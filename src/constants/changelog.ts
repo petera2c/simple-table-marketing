@@ -10,6 +10,34 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_8_9: ChangelogEntry = {
+  version: "1.8.9",
+  date: "2025-11-29",
+  title: "Dynamic Row Loading with onRowGroupExpand",
+  description:
+    "Added powerful callback for lazy-loading hierarchical data on-demand. Perfect for large datasets where loading all nested levels upfront would impact performance.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added onRowGroupExpand callback prop for handling row expand/collapse events with detailed context",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "OnRowGroupExpandProps interface provides row, depth, groupingKey, and isExpanded for flexible data loading",
+      link: "/docs/api-reference#on-row-group-expand-props",
+    },
+    {
+      type: "improvement",
+      description:
+        "Enhanced row grouping documentation with lazy-loading patterns and best practices",
+      link: "/docs/row-grouping",
+    },
+  ],
+};
+
 export const v1_8_8: ChangelogEntry = {
   version: "1.8.8",
   date: "2025-11-28",
@@ -470,6 +498,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_8_9,
   v1_8_8,
   v1_8_6,
   v1_8_5,
