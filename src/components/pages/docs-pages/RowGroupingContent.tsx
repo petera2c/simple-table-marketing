@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import RowGroupingDemo from "@/components/demos/RowGroupingDemo";
+import DynamicRowLoadingDemo from "@/components/demos/DynamicRowLoadingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -11,7 +12,6 @@ import LivePreview from "@/components/LivePreview";
 import { Button } from "antd";
 import { useState } from "react";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import OrganizationHierarchyExample from "@/examples/organization-hierarchy/OrganizationHierarchyExample";
 
 const ROW_GROUPING_PROPS: PropInfo[] = [
   {
@@ -196,10 +196,10 @@ const RowGroupingContent = () => {
         </div>
 
         <LivePreview
-          demoCodeFilename="OrganizationHierarchyExample.txt"
+          demoCodeFilename="DynamicRowLoadingDemo.txt"
           height="400px"
-          link={SANDBOX_LIST["OrganizationHierarchyExample.tsx"].url}
-          Preview={(props) => <OrganizationHierarchyExample {...props} />}
+          link={SANDBOX_LIST["DynamicRowLoadingDemo.tsx"].url}
+          Preview={(props) => <DynamicRowLoadingDemo {...props} />}
         />
       </motion.div>
 

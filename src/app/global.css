@@ -676,6 +676,10 @@ video {
   z-index: 9999;
 }
 
+.m-0 {
+  margin: 0px;
+}
+
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -811,6 +815,10 @@ video {
 
 .mt-auto {
   margin-top: auto;
+}
+
+.mb-5 {
+  margin-bottom: 1.25rem;
 }
 
 .line-clamp-2 {
@@ -2458,6 +2466,11 @@ video {
 .text-yellow-800 {
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity, 1));
+}
+
+.text-blue-900 {
+  --tw-text-opacity: 1;
+  color: rgb(30 58 138 / var(--tw-text-opacity, 1));
 }
 
 .underline {
