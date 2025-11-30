@@ -34,15 +34,15 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     description:
       "Array of property names that define the hierarchy levels. The order determines the nesting depth (first element is level 1, second is level 2, etc.).",
     type: "string[]",
-    example: `// Single level: companies → divisions
+    example: `// Single level: projects → tasks
 <SimpleTable
-  rowGrouping={["divisions"]}
+  rowGrouping={["tasks"]}
   // ... other props
 />
 
-// Multi-level: companies → divisions → departments  
+// Multi-level: projects → milestones → tasks  
 <SimpleTable
-  rowGrouping={["divisions", "departments"]}
+  rowGrouping={["milestones", "tasks"]}
   // ... other props
 />`,
   },
@@ -54,7 +54,7 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
       "When true, all grouped rows are expanded by default on table load. When false, rows start collapsed.",
     type: "boolean",
     example: `<SimpleTable
-  expandAll={true}  // Default: all groups expanded
+  expandAll={false}  // Start with all rows collapsed
   // ... other props
 />`,
   },
@@ -129,63 +129,54 @@ const RowGroupingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Basic Row Grouping
+        Basic Setup
       </motion.h2>
 
       <motion.div
+        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          To enable row grouping in Simple Table, you need to:
+          To enable row grouping, add the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            expandable: true
+          </code>{" "}
+          property to your column header, structure your data with nested arrays, and specify the
+          grouping hierarchy.
         </p>
 
-        <ol className="list-decimal pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-4">
-          <li>
-            Add the{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              expandable: true
-            </code>{" "}
-            property to the column you want to use for grouping
-          </li>
-          <li>Structure your data with nested arrays containing child objects</li>
-          <li>
-            Use the{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              rowGrouping
-            </code>{" "}
-            prop to specify which array properties define the hierarchy
-          </li>
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Use Cases</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Organize teams by department and show individual members</li>
+            <li>Display projects with their milestones and tasks</li>
+            <li>Show product categories with subcategories and items</li>
+            <li>Group transactions by account, invoice, and line items</li>
+          </ul>
+        </div>
 
-          <li>
-            Add{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              expandAll
-            </code>{" "}
-            to specify if all grouped rows are expanded by default on table load
-          </li>
-        </ol>
-
-        <PropTable props={ROW_GROUPING_PROPS} title="Row Grouping Properties" />
+        <PropTable props={ROW_GROUPING_PROPS} title="Row Grouping Configuration" />
       </motion.div>
 
       <motion.h2
-        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-8"
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
       >
         Dynamic Row Loading
       </motion.h2>
 
       <motion.div
+        className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 1.0 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use the{" "}
+          For large datasets, use the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             onRowGroupExpand
           </code>{" "}
@@ -194,11 +185,15 @@ const RowGroupingContent = () => {
           parent is expanded.
         </p>
 
-        <p className="text-gray-700 dark:text-gray-300 mb-6">
-          This approach is ideal for large datasets where loading all nested levels upfront would
-          impact performance. The table only loads the top-level rows initially, then fetches deeper
-          levels as users explore the hierarchy.
-        </p>
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Benefits</h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Faster initial load - only top-level rows are fetched</li>
+            <li>Reduced memory usage - child data loaded as needed</li>
+            <li>Better performance with large hierarchical datasets</li>
+            <li>Seamless integration with server-side APIs</li>
+          </ul>
+        </div>
 
         <LivePreview
           demoCodeFilename="OrganizationHierarchyExample.txt"
