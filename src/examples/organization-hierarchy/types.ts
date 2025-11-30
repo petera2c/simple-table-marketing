@@ -1,43 +1,40 @@
 import { Row } from "simple-table-core";
 
-export interface Project extends Row {
+export interface Department extends Row {
   id: string;
   name: string;
-  type: "project";
-  client: string;
-  status: string;
-  startDate: string;
-  dueDate: string;
-  lead: string;
-  budget: string;
-  location: string;
-  milestones?: Milestone[];
+  type: "department";
+  employeeCount?: number;
+  budget?: string;
+  manager?: string;
+  location?: string;
+  status?: string;
+  teams?: Team[];
   _loading?: boolean;
   _error?: string | null;
 }
 
-export interface Milestone extends Row {
+export interface Team extends Row {
   id: string;
   name: string;
-  type: "milestone";
-  status: string;
-  startDate: string;
-  dueDate: string;
-  tasks?: Task[];
+  type: "team";
+  employeeCount?: number;
+  budget?: string;
+  lead?: string;
+  location?: string;
+  status?: string;
+  employees?: Employee[];
   _loading?: boolean;
   _error?: string | null;
 }
 
-export interface Task extends Row {
+export interface Employee extends Row {
   id: string;
   name: string;
-  type: "task";
-  assignee: string;
-  status: string;
-  priority: string;
+  type: "employee";
+  role: string;
+  salary: string;
+  email: string;
   startDate: string;
-  dueDate: string;
-  hoursEstimated: number;
-  hoursActual: number;
-  completionPercentage: number;
+  status: string;
 }

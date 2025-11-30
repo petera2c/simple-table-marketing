@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { Project } from "./types";
+import { Department } from "./types";
 
 export function useOrganizationData() {
-  const [data, setData] = useState<Project[]>([]);
+  const [data, setData] = useState<Department[]>([]);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {

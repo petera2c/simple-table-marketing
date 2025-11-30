@@ -1,54 +1,18 @@
 import { useState, useCallback } from "react";
-import { SimpleTable, Theme, OnRowGroupExpandProps, Row } from "simple-table-core";
+import { SimpleTable, Theme, OnRowGroupExpandProps } from "simple-table-core";
 import "simple-table-core/styles.css";
 import { HEADERS } from "./organization-headers";
 import { useOrganizationData } from "./useOrganizationData";
-
-// Type definitions
-interface Department extends Row {
-  id: string;
-  name: string;
-  type: "department";
-  employeeCount?: number;
-  budget?: string;
-  manager?: string;
-  location?: string;
-  status?: string;
-  teams?: Team[];
-  _loading?: boolean;
-  _error?: string | null;
-}
-
-interface Team extends Row {
-  id: string;
-  name: string;
-  type: "team";
-  employeeCount?: number;
-  budget?: string;
-  lead?: string;
-  location?: string;
-  status?: string;
-  employees?: Employee[];
-  _loading?: boolean;
-  _error?: string | null;
-}
-
-interface Employee extends Row {
-  id: string;
-  name: string;
-  type: "employee";
-  role: string;
-  salary: string;
-  email: string;
-  startDate: string;
-  status: string;
-}
+import { Department, Team, Employee } from "./types";
 
 // Simulated API delay
 const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
 
 // Simulated API: Fetch teams for a department
-const fetchTeamsForDepartment = async (departmentId: string, departmentName: string): Promise<Team[]> => {
+const fetchTeamsForDepartment = async (
+  departmentId: string,
+  departmentName: string
+): Promise<Team[]> => {
   await delay(1200); // Simulate network delay
 
   // Simulated realistic team data based on department
@@ -233,7 +197,9 @@ const generateRandomName = (): string => {
     "Martin",
     "Lee",
   ];
-  return `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${lastNames[Math.floor(Math.random() * lastNames.length)]}`;
+  return `${firstNames[Math.floor(Math.random() * firstNames.length)]} ${
+    lastNames[Math.floor(Math.random() * lastNames.length)]
+  }`;
 };
 
 // Helper function to get roles for a specific team
@@ -314,13 +280,9 @@ const getRolesForTeam = (teamName: string): string[] => {
     ],
   };
 
-  return roleMap[teamName] || [
-    "Manager",
-    "Senior Specialist",
-    "Specialist",
-    "Coordinator",
-    "Analyst",
-  ];
+  return (
+    roleMap[teamName] || ["Manager", "Senior Specialist", "Specialist", "Coordinator", "Analyst"]
+  );
 };
 
 // Helper to update row children (nested data)
@@ -387,13 +349,13 @@ export default function OrganizationHierarchyDemo({
   // Update rows when data is loaded
   useState(() => {
     if (initialDepartments && initialDepartments.length > 0) {
-      setRows(initialDepartments as Department[]);
+      setRows(initialDepartments);
     }
   });
 
   // Update when initialDepartments changes
   if (initialDepartments && rows.length === 0 && !isLoading) {
-    setRows(initialDepartments as Department[]);
+    setRows(initialDepartments);
   }
 
   const handleRowExpand = useCallback(
@@ -468,4 +430,3 @@ export default function OrganizationHierarchyDemo({
     />
   );
 }
-
