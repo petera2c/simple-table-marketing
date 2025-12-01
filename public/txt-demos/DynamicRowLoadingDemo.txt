@@ -414,7 +414,17 @@ const DynamicRowLoadingDemo = ({
   const [rows, setRows] = useState<Region[]>(() => generateInitialRegions());
 
   const handleRowExpand = useCallback(
-    async ({ row, rowId, depth, groupingKey, isExpanded }: OnRowGroupExpandProps) => {
+    async ({
+      row,
+      rowId,
+      depth,
+      groupingKey,
+      isExpanded,
+      setLoading,
+      setError,
+      setEmpty,
+      rowIndexPath,
+    }: OnRowGroupExpandProps) => {
       // Don't fetch if collapsing
       if (!isExpanded) {
         return;
@@ -425,18 +435,64 @@ const DynamicRowLoadingDemo = ({
         return;
       }
 
-      if (depth === 0 && groupingKey === "stores") {
-        // Fetch stores from "API"
-        const stores = await fetchStoresForRegion(String(rowId));
+      try {
+        if (depth === 0 && groupingKey === "stores") {
+          // Set loading state using the helper
+          setLoading(true);
 
-        // Update with fetched data
-        setRows((prevRows) => updateRowChildren(prevRows, String(rowId), "stores", stores));
-      } else if (depth === 1 && groupingKey === "products") {
-        // Fetch products from "API"
-        const products = await fetchProductsForStore(String(rowId));
+          // Fetch stores from "API"
+          const stores = await fetchStoresForRegion(String(rowId));
 
-        // Update with fetched data
-        setRows((prevRows) => updateRowChildren(prevRows, String(rowId), "products", products));
+          // Clear loading state
+          setLoading(false);
+
+          // Show empty state if no stores
+          if (stores.length === 0) {
+            setEmpty(true, "No stores found for this region");
+            return;
+          }
+
+          // Update nested data using rowIndexPath
+          // rowIndexPath = [0] means rows[0]
+          setRows((prevRows) => {
+            const newRows = [...prevRows];
+            const regionIndex = rowIndexPath[0] as number;
+            newRows[regionIndex].stores = stores;
+            return newRows;
+          });
+        } else if (depth === 1 && groupingKey === "products") {
+          // Set loading state
+          setLoading(true);
+
+          // Fetch products from "API"
+          const products = await fetchProductsForStore(String(rowId));
+
+          // Clear loading state
+          setLoading(false);
+
+          // Show empty state if no products
+          if (products.length === 0) {
+            setEmpty(true, "No products found for this store");
+            return;
+          }
+
+          // Update nested data using rowIndexPath
+          // rowIndexPath = [0, 'stores', 1] means rows[0].stores[1]
+          setRows((prevRows) => {
+            const newRows = [...prevRows];
+            const regionIndex = rowIndexPath[0] as number;
+            const storeIndex = rowIndexPath[2] as number;
+            const region = newRows[regionIndex];
+            if (region.stores && region.stores[storeIndex]) {
+              region.stores[storeIndex].products = products;
+            }
+            return newRows;
+          });
+        }
+      } catch (error) {
+        console.error("❌ Error fetching data:", error);
+        setLoading(false);
+        setError(error instanceof Error ? error.message : "Failed to load data");
       }
     },
     []
@@ -456,6 +512,9 @@ const DynamicRowLoadingDemo = ({
       selectableCells
       theme={theme}
       useOddEvenRowBackground
+      loadingStateRenderer={<div style={{ paddingLeft: "16px" }}>Loading...</div>}
+      errorStateRenderer={<div style={{ paddingLeft: "16px" }}>Error loading data</div>}
+      emptyStateRenderer={<div style={{ paddingLeft: "16px" }}>No data found</div>}
     />
   );
 };

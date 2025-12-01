@@ -63,18 +63,100 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     name: "onRowGroupExpand",
     required: false,
     description:
-      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information about the row, depth level, and grouping key. Perfect for lazy-loading hierarchical data on demand.",
+      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information including helper functions for managing loading, error, and empty states. The rowIndexPath array provides a direct path to update nested data. Perfect for lazy-loading hierarchical data on demand.",
     type: "(props: OnRowGroupExpandProps) => void",
     link: "/docs/api-reference#on-row-group-expand-props",
     example: `<SimpleTable
-  onRowGroupExpand={({ row, rowId, depth, groupingKey, isExpanded }) => {
-    if (isExpanded && !row[groupingKey]) {
-      // Fetch children data for this row
-      fetchChildrenData(rowId, groupingKey);
+  onRowGroupExpand={async ({ 
+    row, 
+    rowId, 
+    depth, 
+    groupingKey, 
+    isExpanded,
+    setLoading,
+    setError,
+    setEmpty,
+    rowIndexPath 
+  }) => {
+    if (!isExpanded) return;
+    
+    // Set loading state
+    setLoading(true);
+    
+    try {
+      const children = await fetchChildrenData(rowId, groupingKey);
+      setLoading(false);
+      
+      if (children.length === 0) {
+        setEmpty(true, "No data available");
+        return;
+      }
+      
+      // Update using rowIndexPath
+      // e.g., [0, 'teams', 1] = rows[0].teams[1]
+      setRows(prev => {
+        const newRows = [...prev];
+        newRows[rowIndexPath[0]][groupingKey] = children;
+        return newRows;
+      });
+    } catch (error) {
+      setLoading(false);
+      setError(error.message);
     }
   }}
   // ... other props
 />`,
+  },
+  {
+    key: "loadingStateRenderer",
+    name: "loadingStateRenderer",
+    required: false,
+    description:
+      "Custom content to render when a row is in loading state (set via setLoading helper in onRowGroupExpand). Can be a string or React component.",
+    type: "string | ReactNode",
+    example: `// Simple string
+loadingStateRenderer="Loading..."
+
+// Or React component
+loadingStateRenderer={
+  <div className="flex items-center gap-2">
+    <Spinner /> Loading...
+  </div>
+}`,
+  },
+  {
+    key: "errorStateRenderer",
+    name: "errorStateRenderer",
+    required: false,
+    description:
+      "Custom content to render when a row has an error state (set via setError helper in onRowGroupExpand). Can be a string or React component.",
+    type: "string | ReactNode",
+    example: `// Simple string
+errorStateRenderer="Failed to load data"
+
+// Or React component
+errorStateRenderer={
+  <div className="text-red-500">
+    Failed to load data
+  </div>
+}`,
+  },
+  {
+    key: "emptyStateRenderer",
+    name: "emptyStateRenderer",
+    required: false,
+    description:
+      "Custom content to render when a row has no children data (set via setEmpty helper in onRowGroupExpand). Can be a string or React component.",
+    type: "string | ReactNode",
+    example: `// Simple string
+emptyStateRenderer="No data found"
+
+// Or React component
+emptyStateRenderer={
+  <div className="text-gray-500">
+    No data found
+  </div>
+}`,
   },
 ];
 
@@ -181,8 +263,24 @@ const RowGroupingContent = () => {
             onRowGroupExpand
           </code>{" "}
           callback to load nested data on-demand. This example demonstrates a three-level hierarchy
-          (Projects → Milestones → Tasks) where child rows are fetched from an API only when their
-          parent is expanded.
+          (Regions → Stores → Products) where child rows are fetched from an API only when their
+          parent is expanded. The callback provides powerful helper functions like{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            setLoading
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            setError
+          </code>
+          , and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            setEmpty
+          </code>{" "}
+          for state management, plus{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowIndexPath
+          </code>{" "}
+          for easy nested data updates.
         </p>
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
@@ -192,6 +290,8 @@ const RowGroupingContent = () => {
             <li>Reduced memory usage - child data loaded as needed</li>
             <li>Better performance with large hierarchical datasets</li>
             <li>Seamless integration with server-side APIs</li>
+            <li>Built-in state management with setLoading, setError, and setEmpty helpers</li>
+            <li>Simple nested data updates using rowIndexPath array</li>
           </ul>
         </div>
 

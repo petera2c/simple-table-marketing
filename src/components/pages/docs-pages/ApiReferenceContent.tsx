@@ -541,14 +541,6 @@ const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
     example: `props.row // { id: "DEPT-1", name: "Engineering", teams: [] }`,
   },
   {
-    key: "rowIndex",
-    name: "rowIndex",
-    required: true,
-    description: "The index of the row in the current table view (0-based)",
-    type: "number",
-    example: `props.rowIndex // 2`,
-  },
-  {
     key: "depth",
     name: "depth",
     required: true,
@@ -598,6 +590,99 @@ const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
 } else {
   // Row is collapsing - no action needed
 }`,
+  },
+  {
+    key: "rowIndexPath",
+    name: "rowIndexPath",
+    required: true,
+    description:
+      "Array path through the nested data structure to reach this row. Each element is either a number (array index) or string (property name). Use this to directly navigate and update nested data without complex traversal logic.",
+    type: "(string | number)[]",
+    example: `// For rows[0]
+props.rowIndexPath // [0]
+
+// For rows[0].teams[1]
+props.rowIndexPath // [0, "teams", 1]
+
+// For rows[2].stores[3].products[0]
+props.rowIndexPath // [2, "stores", 3, "products", 0]
+
+// Usage: Direct nested data update
+setRows(prevRows => {
+  const newRows = [...prevRows];
+  // Access: rows[0].teams[1]
+  newRows[rowIndexPath[0]][rowIndexPath[1]][rowIndexPath[2]].children = data;
+  return newRows;
+});`,
+  },
+  {
+    key: "groupingKeys",
+    name: "groupingKeys",
+    required: true,
+    description:
+      "Array of all grouping keys from the hierarchy (from the rowGrouping prop). Provides context about the complete hierarchy structure.",
+    type: "string[]",
+    example: `// When rowGrouping={["teams", "employees"]}
+props.groupingKeys // ["teams", "employees"]
+
+// Can be used to determine hierarchy depth
+const isLastLevel = props.depth === props.groupingKeys.length - 1;`,
+  },
+  {
+    key: "setLoading",
+    name: "setLoading",
+    required: true,
+    description:
+      "Helper function to set the loading state for this specific row. When true, displays the loadingStateRenderer component. Call with false to clear the loading state.",
+    type: "(loading: boolean) => void",
+    example: `// Show loading state
+props.setLoading(true);
+
+try {
+  const data = await fetchData();
+  props.setLoading(false); // Clear loading
+  // Update your data...
+} catch (error) {
+  props.setLoading(false);
+  props.setError(error.message);
+}`,
+  },
+  {
+    key: "setError",
+    name: "setError",
+    required: true,
+    description:
+      "Helper function to set an error state for this specific row. Pass an error message string to display the errorStateRenderer component, or null to clear the error state.",
+    type: "(error: string | null) => void",
+    example: `try {
+  const data = await fetchData();
+} catch (error) {
+  // Show error state
+  props.setError(error.message);
+  // Or show a custom message
+  props.setError("Failed to load children");
+}
+
+// Clear error state
+props.setError(null);`,
+  },
+  {
+    key: "setEmpty",
+    name: "setEmpty",
+    required: true,
+    description:
+      "Helper function to set an empty state for this specific row. When true, displays the emptyStateRenderer component. Optionally provide a custom message as the second parameter.",
+    type: "(isEmpty: boolean, message?: string) => void",
+    example: `const data = await fetchData();
+
+if (data.length === 0) {
+  // Show empty state
+  props.setEmpty(true, "No items found");
+  return;
+}
+
+// If we have data, ensure empty state is cleared
+props.setEmpty(false);`,
   },
 ];
 
@@ -861,22 +946,104 @@ initialSortDirection="ascending"`,
     name: "onRowGroupExpand",
     required: false,
     description:
-      "Callback function triggered when a grouped row is expanded or collapsed. Provides detailed information about the row, depth level, and grouping context. Perfect for implementing lazy-loading of hierarchical data.",
+      "Callback function triggered when a grouped row is expanded or collapsed. Provides detailed information about the row, depth level, and grouping context, plus helper functions for managing loading, error, and empty states. The rowIndexPath array provides a direct path to update nested data. Perfect for implementing lazy-loading of hierarchical data with built-in state management.",
     type: "(props: OnRowGroupExpandProps) => void",
     link: "#on-row-group-expand-props",
-    example: `onRowGroupExpand={async ({ row, rowId, depth, groupingKey, isExpanded }) => {
+    example: `onRowGroupExpand={async ({ 
+  row, 
+  rowId, 
+  depth, 
+  groupingKey, 
+  isExpanded,
+  setLoading,
+  setError,
+  setEmpty,
+  rowIndexPath
+}) => {
   // Only fetch when expanding
   if (!isExpanded) return;
   
   // Don't fetch if data already exists
   if (groupingKey && row[groupingKey]?.length > 0) return;
 
-  // Lazy-load children data based on depth
-  if (depth === 0 && groupingKey === "teams") {
+  try {
+    // Show loading state
+    setLoading(true);
+    
+    // Lazy-load children data
     const teams = await fetchTeams(rowId);
-    updateRowData(rowId, "teams", teams);
+    setLoading(false);
+    
+    // Handle empty results
+    if (teams.length === 0) {
+      setEmpty(true, "No teams found");
+      return;
+    }
+    
+    // Update using rowIndexPath
+    // e.g., [0, "stores", 1] = rows[0].stores[1]
+    setRows(prev => {
+      const newRows = [...prev];
+      newRows[rowIndexPath[0]][groupingKey] = teams;
+      return newRows;
+    });
+  } catch (error) {
+    setLoading(false);
+    setError(error.message);
   }
 }}`,
+  },
+  {
+    key: "loadingStateRenderer",
+    name: "loadingStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row is in loading state (set via setLoading in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children while data is being fetched.",
+    type: "string | ReactNode",
+    example: `// Simple string
+loadingStateRenderer="Loading..."
+
+// Or React component
+loadingStateRenderer={
+  <div className="flex items-center gap-2 p-2">
+    <Spinner size="sm" />
+    <span>Loading data...</span>
+  </div>
+}`,
+  },
+  {
+    key: "errorStateRenderer",
+    name: "errorStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row has an error state (set via setError in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children when data fetching fails.",
+    type: "string | ReactNode",
+    example: `// Simple string
+errorStateRenderer="Failed to load data"
+
+// Or React component
+errorStateRenderer={
+  <div className="text-red-600 p-2">
+    ⚠️ Failed to load data
+  </div>
+}`,
+  },
+  {
+    key: "emptyStateRenderer",
+    name: "emptyStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row has no children data (set via setEmpty in onRowGroupExpand). Can be a simple string or React component. Shown when data fetch succeeds but returns zero results.",
+    type: "string | ReactNode",
+    example: `// Simple string
+emptyStateRenderer="No items to display"
+
+// Or React component
+emptyStateRenderer={
+  <div className="text-gray-500 italic p-2">
+    No items to display
+  </div>
+}`,
   },
   {
     key: "rowsPerPage",

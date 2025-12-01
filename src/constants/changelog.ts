@@ -10,6 +10,52 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_0: ChangelogEntry = {
+  version: "1.9.0",
+  date: "2025-12-01",
+  title: "Enhanced Dynamic Row Loading with State Management",
+  description:
+    "Major improvements to dynamic row loading for hierarchical data. Added powerful state management helpers for loading, error, and empty states, plus rowIndexPath for simplified nested data updates. Enhanced OnRowGroupExpandProps with new helper functions and metadata for seamless lazy-loading of large hierarchical datasets.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added setLoading, setError, and setEmpty helper functions to OnRowGroupExpandProps for managing row-level states during async data fetching",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added rowIndexPath to OnRowGroupExpandProps - provides array path to navigate nested data structure (e.g., [0, 'teams', 1] for rows[0].teams[1])",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added groupingKeys array to OnRowGroupExpandProps - provides all grouping keys from the hierarchy for better context awareness",
+      link: "/docs/api-reference#on-row-group-expand-props",
+    },
+    {
+      type: "feature",
+      description:
+        "Added loadingStateRenderer, errorStateRenderer, and emptyStateRenderer props for customizing state displays during dynamic loading",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "improvement",
+      description:
+        "Enhanced dynamic row loading example with comprehensive three-level hierarchy (Departments → Teams → Employees) showcasing state management",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "improvement",
+      description:
+        "Improved OnRowGroupExpandProps documentation with detailed examples of rowIndexPath usage for direct nested data updates",
+      link: "/docs/api-reference#on-row-group-expand-props",
+    },
+  ],
+};
+
 export const v1_8_9: ChangelogEntry = {
   version: "1.8.9",
   date: "2025-11-29",
@@ -498,6 +544,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_0,
   v1_8_9,
   v1_8_8,
   v1_8_6,
