@@ -179,8 +179,63 @@ export const mitLicensedAccessibilityPost: BlogPostMetadata = {
   updatedAt: "2025-11-22",
 };
 
+export const columnPinningTutorialPost: BlogPostMetadata = {
+  title: "React Grid Column Pinning: Implementation Guide & Best Practices",
+  description:
+    "Keep critical columns visible while users scroll through wide datasets. Learn how to implement column pinning in React data grids with practical examples and implementation patterns.",
+  slug: "react-grid-column-pinning-tutorial",
+  tags: ["react", "column-pinning", "tutorial", "best-practices"],
+  createdAt: "2025-12-01",
+  updatedAt: "2025-12-01",
+};
+
+export const customIconsReactGridsPost: BlogPostMetadata = {
+  title: "Custom Icons in React Data Grids: Complete Tutorial",
+  description:
+    "Match your data grid icons to your design system. Learn how to customize sort, filter, pagination, and expand/collapse icons in React tables with Font Awesome, Lucide, or custom SVGs.",
+  slug: "custom-icons-react-data-grids",
+  tags: ["react", "custom-icons", "branding", "ui-customization"],
+  createdAt: "2025-12-01",
+  updatedAt: "2025-12-01",
+};
+
+export const reactGridFilteringPost: BlogPostMetadata = {
+  title: "React Grid Filtering: Client-Side vs Server-Side Implementation",
+  description:
+    "Build powerful filtering in React data grids—from simple text search to advanced multi-column filters. Learn when to use client-side vs server-side filtering with implementation examples.",
+  slug: "react-grid-filtering-implementation",
+  tags: ["react", "filtering", "search", "tutorial"],
+  createdAt: "2025-12-01",
+  updatedAt: "2025-12-01",
+};
+
+export const antDesignTableVsSimpleTablePost: BlogPostMetadata = {
+  title: "Ant Design Table vs Simple Table: Component Library vs Lightweight Grid",
+  description:
+    "Ant Design Table comes with the Ant Design ecosystem. Simple Table is standalone and lightweight. Compare bundle size, features, styling flexibility, and when to use each for your React app.",
+  slug: "ant-design-table-vs-simple-table",
+  tags: ["react", "comparison", "ant-design", "component-library"],
+  createdAt: "2025-12-01",
+  updatedAt: "2025-12-01",
+};
+
+export const reactTreeDataHierarchicalPost: BlogPostMetadata = {
+  title: "Tree Data in React Tables: The Complete Guide to Hierarchical Data Display",
+  description:
+    "Display organization charts, project hierarchies, and nested data structures in React tables. Learn how to implement tree data with expandable rows, lazy loading, and performance optimization.",
+  slug: "react-tree-data-hierarchical-tables",
+  tags: ["react", "tree-data", "hierarchical", "row-grouping", "tutorial"],
+  createdAt: "2025-12-01",
+  updatedAt: "2025-12-01",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  reactTreeDataHierarchicalPost,
+  antDesignTableVsSimpleTablePost,
+  reactGridFilteringPost,
+  customIconsReactGridsPost,
+  columnPinningTutorialPost,
   mitLicensedAccessibilityPost,
   tanstackVsSimpleTablePost,
   agGridPricing2025Post,

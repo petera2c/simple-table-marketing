@@ -21,6 +21,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/ant-design-table-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/best-free-react-data-grid-2025</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -32,6 +37,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/custom-footer-renderers-react-tables</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/custom-icons-react-data-grids</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -77,6 +87,21 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/react-data-grid-bundle-size-comparison</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/react-grid-column-pinning-tutorial</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/react-grid-filtering-implementation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/react-tree-data-hierarchical-tables</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
