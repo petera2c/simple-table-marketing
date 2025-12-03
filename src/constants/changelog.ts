@@ -10,8 +10,8 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v1_9_1: ChangelogEntry = {
-  version: "1.9.1",
+export const v1_9_2: ChangelogEntry = {
+  version: "1.9.2",
   date: "2025-12-03",
   title: "Clipboard Headers, CSV Headers Control & Table Empty State",
   description:
@@ -572,7 +572,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v1_9_1,
+  v1_9_2,
   v1_9_0,
   v1_8_9,
   v1_8_8,
