@@ -35,6 +35,19 @@ const CELL_HIGHLIGHTING_PROPS: PropInfo[] = [
   // ... other props
 />`,
   },
+  {
+    key: "copyHeadersToClipboard",
+    name: "copyHeadersToClipboard",
+    required: false,
+    description:
+      "When true, includes column headers as the first row when copying selected cells to clipboard. Defaults to false.",
+    type: "boolean",
+    example: `<SimpleTable
+  selectableCells={true}
+  copyHeadersToClipboard={true}  // Include headers when copying
+  // ... other props
+/>`,
+  },
 ];
 
 const CellHighlightingContent = () => {

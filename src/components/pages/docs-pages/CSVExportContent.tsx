@@ -40,6 +40,18 @@ tableRef.current?.exportToCSV();
 tableRef.current?.exportToCSV({ filename: "report.csv" });`,
   },
   {
+    key: "includeHeadersInCSVExport",
+    name: "includeHeadersInCSVExport",
+    required: false,
+    description:
+      "When true, includes column headers as the first row in CSV exports. Defaults to true.",
+    type: "boolean",
+    example: `<SimpleTable
+  includeHeadersInCSVExport={false}  // Export data without headers
+  // ... other props
+/>`,
+  },
+  {
     key: "excludeFromRender",
     name: "HeaderObject.excludeFromRender",
     required: false,

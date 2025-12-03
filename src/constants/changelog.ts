@@ -10,6 +10,34 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_1: ChangelogEntry = {
+  version: "1.9.1",
+  date: "2025-12-03",
+  title: "Clipboard Headers, CSV Headers Control & Table Empty State",
+  description:
+    "New options for controlling header inclusion when copying to clipboard and exporting to CSV, plus a customizable empty state renderer for when the table has no data to display.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added copyHeadersToClipboard prop to include column headers when copying selected cells to clipboard",
+      link: "/docs/cell-highlighting",
+    },
+    {
+      type: "feature",
+      description:
+        "Added includeHeadersInCSVExport prop to control whether headers are included in CSV exports (defaults to true)",
+      link: "/docs/csv-export",
+    },
+    {
+      type: "feature",
+      description:
+        "Added tableEmptyStateRenderer prop to customize the display when the table has no rows (e.g., after filtering or with no data)",
+      link: "/docs/loading-state",
+    },
+  ],
+};
+
 export const v1_9_0: ChangelogEntry = {
   version: "1.9.0",
   date: "2025-12-01",
@@ -544,6 +572,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_1,
   v1_9_0,
   v1_8_9,
   v1_8_8,

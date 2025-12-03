@@ -1093,6 +1093,15 @@ emptyStateRenderer={
     example: `selectableCells={true}`,
   },
   {
+    key: "copyHeadersToClipboard",
+    name: "copyHeadersToClipboard",
+    required: false,
+    description:
+      "When true, includes column headers as the first row when copying selected cells to clipboard. Defaults to false.",
+    type: "boolean",
+    example: `copyHeadersToClipboard={true}`,
+  },
+  {
     key: "selectableColumns",
     name: "selectableColumns",
     required: false,
@@ -1423,6 +1432,33 @@ tableRef.current?.updateData({
   rowIndex: 0,
   newValue: "active"
 });`,
+  },
+  {
+    key: "includeHeadersInCSVExport",
+    name: "includeHeadersInCSVExport",
+    required: false,
+    description:
+      "When true, includes column headers as the first row in CSV exports. Defaults to true.",
+    type: "boolean",
+    example: `includeHeadersInCSVExport={false} // Export data without headers`,
+  },
+  {
+    key: "tableEmptyStateRenderer",
+    name: "tableEmptyStateRenderer",
+    required: false,
+    description:
+      "Custom content to display in the table body when there are no rows to display. This can occur when filters return no results or when no data is provided. Can be a simple string or React component.",
+    type: "string | ReactNode",
+    example: `// Simple string
+tableEmptyStateRenderer="No data available"
+
+// Or React component
+tableEmptyStateRenderer={
+  <div className="flex flex-col items-center p-8">
+    <span className="text-gray-500">No results found</span>
+    <button onClick={clearFilters}>Clear filters</button>
+  </div>
+}`,
   },
 ];
 

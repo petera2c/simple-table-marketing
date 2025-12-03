@@ -3330,6 +3330,10 @@ body {
   --tw-gradient-to: rgb(124 45 18 / 0.2) var(--tw-gradient-to-position);
 }
 
+.dark\:to-orange-900\/30:is(.dark *) {
+  --tw-gradient-to: rgb(124 45 18 / 0.3) var(--tw-gradient-to-position);
+}
+
 .dark\:to-pink-900:is(.dark *) {
   --tw-gradient-to: #831843 var(--tw-gradient-to-position);
 }
@@ -3360,10 +3364,6 @@ body {
 
 .dark\:to-teal-900:is(.dark *) {
   --tw-gradient-to: #134e4a var(--tw-gradient-to-position);
-}
-
-.dark\:to-orange-900\/30:is(.dark *) {
-  --tw-gradient-to: rgb(124 45 18 / 0.3) var(--tw-gradient-to-position);
 }
 
 .dark\:to-teal-900\/30:is(.dark *) {
