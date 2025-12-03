@@ -143,7 +143,7 @@ const TableHeightDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const [selectedHeight, setSelectedHeight] = useState<string>("300px");
+  const [selectedHeight, setSelectedHeight] = useState<string>("400px");
 
   return (
     <div className="space-y-4">
@@ -177,16 +177,6 @@ const TableHeightDemo = ({
           }`}
         >
           400px
-        </button>
-        <button
-          onClick={() => setSelectedHeight("50vh")}
-          className={`px-3 py-1.5 rounded text-sm font-medium transition-colors ${
-            selectedHeight === "50vh"
-              ? "bg-blue-600 text-white"
-              : "bg-gray-200 text-gray-700 hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-300"
-          }`}
-        >
-          50vh
         </button>
       </div>
       <div className="text-sm text-gray-600 dark:text-gray-400">
