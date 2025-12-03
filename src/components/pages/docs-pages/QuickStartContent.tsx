@@ -56,8 +56,10 @@ rowIdAccessor="employeeId"`,
     key: "height",
     name: "height",
     required: false,
-    description: "Height of the table container. Can be any valid CSS height value.",
+    description:
+      "Height of the table container. When specified, Simple Table handles vertical scrolling internally with a fixed header. When omitted, the table expands to fit all rows and overflows the parent container. Most applications should specify a height.",
     type: "string",
+    link: "/docs/table-height",
     example: `height="400px"
 height="50vh"
 height="100%"`,
@@ -152,6 +154,41 @@ const QuickStartContent = () => {
       </motion.h2>
 
       <PropTable props={TABLE_PROPS} title="Main Component Props" />
+
+      <motion.div
+        className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg shadow-sm mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.35 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+          Understanding the Height Prop
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-2">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            height
+          </code>{" "}
+          prop determines how Simple Table handles vertical scrolling:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
+          <li>
+            <strong>With height:</strong> The table has a fixed height and handles scrolling
+            internally. The header stays visible while scrolling through rows.
+          </li>
+          <li>
+            <strong>Without height:</strong> The table expands to show all rows and overflows its
+            parent container. Use this when you want the parent or page to handle scrolling.
+          </li>
+        </ul>
+        <p className="text-gray-700 dark:text-gray-300">
+          For most applications, specifying a height is recommended. Learn more in the{" "}
+          <a href="/docs/table-height" className="text-blue-600 dark:text-blue-400 hover:underline">
+            Table Height documentation
+          </a>
+          .
+        </p>
+      </motion.div>
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"

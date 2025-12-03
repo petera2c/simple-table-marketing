@@ -623,6 +623,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, row height, table layout, typescript table, responsive table",
   },
+  tableHeight: {
+    title: "Table Height in Simple Table React Grid",
+    description:
+      "Control table height and scrolling behavior in your react-table with Simple Table. Learn when to specify height for internal scroll handling vs letting the table overflow its parent container.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, table height, scroll container, overflow, typescript table, responsive table, fixed height table",
+  },
   themes: {
     title: "Themes for Simple Table React Data Grid",
     description:
