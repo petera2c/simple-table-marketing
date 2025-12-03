@@ -709,6 +709,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, loading state, skeleton loader, loading spinner, data fetching, async loading, typescript table, user feedback",
   },
+  emptyState: {
+    title: "Empty State with Simple Table React Grid",
+    description:
+      "Customize the empty state display in your react-table with Simple Table. Show helpful messages when no data is available or filters return no results.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, empty state, no data, no results, empty table, typescript table, user feedback",
+  },
   csvExport: {
     title: "CSV Export with Simple Table React Grid",
     description:

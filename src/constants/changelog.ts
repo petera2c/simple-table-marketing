@@ -33,7 +33,7 @@ export const v1_9_1: ChangelogEntry = {
       type: "feature",
       description:
         "Added tableEmptyStateRenderer prop to customize the display when the table has no rows (e.g., after filtering or with no data)",
-      link: "/docs/loading-state",
+      link: "/docs/empty-state",
     },
   ],
 };
