@@ -723,13 +723,9 @@ tableRef.current?.updateData({
     name: "tableEmptyStateRenderer",
     required: false,
     description:
-      "Custom content to display in the table body when there are no rows to display. This can occur when filters return no results or when no data is provided. Can be a simple string or React component.",
-    type: "string | ReactNode",
-    example: `// Simple string
-tableEmptyStateRenderer="No data available"
-
-// Or React component
-tableEmptyStateRenderer={
+      "Custom content to display in the table body when there are no rows to display. This can occur when filters return no results or when no data is provided.",
+    type: "ReactNode",
+    example: `tableEmptyStateRenderer={
   <div className="flex flex-col items-center p-8">
     <span className="text-gray-500">No results found</span>
     <button onClick={clearFilters}>Clear filters</button>
