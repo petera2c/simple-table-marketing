@@ -9,6 +9,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import { FOOTER_RENDERER_PROPS as FOOTER_RENDERER_PARAMS_PROPS } from "@/constants/propDefinitions";
 
 const FOOTER_RENDERER_PROPS: PropInfo[] = [
   {
@@ -30,148 +31,7 @@ const FOOTER_RENDERER_PROPS: PropInfo[] = [
   },
 ];
 
-const FOOTER_RENDERER_PARAMS_PROPS: PropInfo[] = [
-  {
-    key: "currentPage",
-    name: "currentPage",
-    required: true,
-    description: "The current page number (1-based index).",
-    type: "number",
-    example: `({ currentPage }) => {
-  console.log(currentPage); // 1, 2, 3, etc.
-}`,
-  },
-  {
-    key: "startRow",
-    name: "startRow",
-    required: true,
-    description: "The starting row number for the current page (1-based index).",
-    type: "number",
-    example: `({ startRow }) => {
-  console.log(startRow); // 1, 11, 21, etc.
-}`,
-  },
-  {
-    key: "endRow",
-    name: "endRow",
-    required: true,
-    description: "The ending row number for the current page (1-based index).",
-    type: "number",
-    example: `({ endRow }) => {
-  console.log(endRow); // 10, 20, 30, etc.
-}`,
-  },
-  {
-    key: "totalRows",
-    name: "totalRows",
-    required: true,
-    description: "The total number of rows in the table.",
-    type: "number",
-    example: `({ totalRows }) => {
-  console.log(totalRows); // 100, 250, etc.
-}`,
-  },
-  {
-    key: "totalPages",
-    name: "totalPages",
-    required: true,
-    description: "The total number of pages based on rowsPerPage.",
-    type: "number",
-    example: `({ totalPages }) => {
-  console.log(totalPages); // 5, 10, etc.
-}`,
-  },
-  {
-    key: "rowsPerPage",
-    name: "rowsPerPage",
-    required: true,
-    description: "The number of rows displayed per page.",
-    type: "number",
-    example: `({ rowsPerPage }) => {
-  console.log(rowsPerPage); // 10, 25, 50, etc.
-}`,
-  },
-  {
-    key: "hasPrevPage",
-    name: "hasPrevPage",
-    required: true,
-    description: "Boolean indicating if there is a previous page available.",
-    type: "boolean",
-    example: `({ hasPrevPage }) => {
-  console.log(hasPrevPage); // true or false
-}`,
-  },
-  {
-    key: "hasNextPage",
-    name: "hasNextPage",
-    required: true,
-    description: "Boolean indicating if there is a next page available.",
-    type: "boolean",
-    example: `({ hasNextPage }) => {
-  console.log(hasNextPage); // true or false
-}`,
-  },
-  {
-    key: "onPrevPage",
-    name: "onPrevPage",
-    required: true,
-    description: "Function to navigate to the previous page.",
-    type: "() => void",
-    example: `({ onPrevPage, hasPrevPage }) => (
-  <button onClick={onPrevPage} disabled={!hasPrevPage}>
-    Previous
-  </button>
-)`,
-  },
-  {
-    key: "onNextPage",
-    name: "onNextPage",
-    required: true,
-    description: "Async function to navigate to the next page.",
-    type: "() => Promise<void>",
-    example: `({ onNextPage, hasNextPage }) => (
-  <button onClick={onNextPage} disabled={!hasNextPage}>
-    Next
-  </button>
-)`,
-  },
-  {
-    key: "onPageChange",
-    name: "onPageChange",
-    required: true,
-    description: "Function to navigate to a specific page number.",
-    type: "(page: number) => void",
-    example: `({ onPageChange, totalPages }) => (
-  <>
-    {Array.from({ length: totalPages }, (_, i) => i + 1).map(page => (
-      <button key={page} onClick={() => onPageChange(page)}>
-        {page}
-      </button>
-    ))}
-  </>
-)`,
-  },
-  {
-    key: "prevIcon",
-    name: "prevIcon",
-    required: false,
-    description: "Optional custom icon for the previous page button (if using default footer).",
-    type: "ReactNode",
-    example: `({ prevIcon }) => {
-  console.log(prevIcon); // Custom icon component
-}`,
-  },
-  {
-    key: "nextIcon",
-    name: "nextIcon",
-    required: false,
-    description: "Optional custom icon for the next page button (if using default footer).",
-    type: "ReactNode",
-    example: `({ nextIcon }) => {
-  console.log(nextIcon); // Custom icon component
-}`,
-  },
-];
+// Note: FOOTER_RENDERER_PARAMS_PROPS is imported from @/constants/propDefinitions
 
 const FooterRendererContent = () => {
   return (

@@ -10,6 +10,7 @@ import CodeBlock from "@/components/CodeBlock";
 import LivePreview from "@/components/LivePreview";
 import ValueFormatterDemo from "@/components/demos/ValueFormatterDemo";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import { VALUE_FORMATTER_PROPS as VALUE_FORMATTER_PARAMS_PROPS } from "@/constants/propDefinitions";
 
 const VALUE_FORMATTER_PROPS: PropInfo[] = [
   {
@@ -74,70 +75,6 @@ const VALUE_FORMATTER_PROPS: PropInfo[] = [
     const codes = { engineering: "ENG", sales: "SLS" };
     return \`\${capitalize(value)} (\${codes[value]})\`;
   }  // CSV exports: "Engineering (ENG)"
-}`,
-  },
-];
-
-const VALUE_FORMATTER_PARAMS_PROPS: PropInfo[] = [
-  {
-    key: "accessor",
-    name: "accessor",
-    required: true,
-    description: "The column accessor string identifying which column this cell belongs to.",
-    type: "Accessor",
-    link: "/docs/api-reference#union-types",
-    example: `// In valueFormatter function
-({ accessor }) => {
-  console.log(accessor); // "price", "quantity", etc.
-}`,
-  },
-  {
-    key: "colIndex",
-    name: "colIndex",
-    required: true,
-    description: "The zero-based index of the column within the table.",
-    type: "number",
-    example: `// In valueFormatter function
-({ colIndex }) => {
-  console.log(colIndex); // 0, 1, 2, etc.
-}`,
-  },
-  {
-    key: "row",
-    name: "row",
-    required: true,
-    description:
-      "The complete row object containing all data for this row. Access cell values using row[accessor].",
-    type: "Row",
-    link: "/docs/api-reference#union-types",
-    example: `// In valueFormatter function
-({ row, accessor }) => {
-  const cellValue = row[accessor];
-  const currency = row["currency"];
-  return \`\${currency}\${cellValue}\`;
-}`,
-  },
-  {
-    key: "rowIndex",
-    name: "rowIndex",
-    required: true,
-    description: "The zero-based index of the row within the table.",
-    type: "number",
-    example: `// In valueFormatter function
-({ rowIndex }) => {
-  console.log(rowIndex); // 0, 1, 2, etc.
-}`,
-  },
-  {
-    key: "value",
-    name: "value",
-    required: true,
-    description: "The raw cell value from the data.",
-    type: "CellValue",
-    link: "/docs/api-reference#union-types",
-    example: `// In valueFormatter function
-({ value }) => {
-  return \`$\${(value as number).toFixed(2)}\`;
 }`,
   },
 ];

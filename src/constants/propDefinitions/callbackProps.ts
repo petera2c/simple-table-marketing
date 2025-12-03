@@ -1,0 +1,483 @@
+import type { PropInfo } from "./types";
+
+export const ROW_SELECTION_CHANGE_PROPS: PropInfo[] = [
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that was selected or deselected",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+  {
+    key: "isSelected",
+    name: "isSelected",
+    required: true,
+    description: "Boolean indicating whether the row was selected (true) or deselected (false)",
+    type: "boolean",
+    example: `props.isSelected // true or false`,
+  },
+  {
+    key: "selectedRows",
+    name: "selectedRows",
+    required: true,
+    description: "Set containing the IDs of all currently selected rows",
+    type: "Set<string>",
+    example: `props.selectedRows // Set(['1', '3', '5'])`,
+  },
+];
+
+export const CELL_CHANGE_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key that was edited",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "firstName"`,
+  },
+  {
+    key: "newValue",
+    name: "newValue",
+    required: true,
+    description: "The new value after editing",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.newValue // "John Doe"`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that was edited",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+];
+
+export const VALUE_FORMATTER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being formatted",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "price"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, price: 1234.56, currency: "USD" }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value to be formatted",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // 1234.56`,
+  },
+];
+
+export const VALUE_GETTER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for which the value is being extracted",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "metadata"`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object to extract the value from",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, metadata: { level: 3 } }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+];
+
+export const COMPARATOR_PROPS: PropInfo[] = [
+  {
+    key: "rowA",
+    name: "rowA",
+    required: true,
+    description: "The first row object to compare",
+    type: "Row",
+    link: "#union-types",
+    example: `props.rowA // { id: 1, priority: 1, score: 95 }`,
+  },
+  {
+    key: "rowB",
+    name: "rowB",
+    required: true,
+    description: "The second row object to compare",
+    type: "Row",
+    link: "#union-types",
+    example: `props.rowB // { id: 2, priority: 2, score: 87 }`,
+  },
+  {
+    key: "direction",
+    name: "direction",
+    required: true,
+    description: "The sort direction",
+    type: '"ascending" | "descending"',
+    example: `props.direction // "ascending"`,
+  },
+];
+
+export const CELL_RENDERER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being rendered",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "name"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John Doe", status: "active" }`,
+  },
+  {
+    key: "theme",
+    name: "theme",
+    required: true,
+    description: "Current theme of the table",
+    type: "Theme",
+    link: "#union-types",
+    example: `props.theme // "dark"`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "John Doe"`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description:
+      "The formatted cell value (output from valueFormatter if defined). Use this for display purposes when you need both raw and formatted values.",
+    type: "string | number | boolean | null | undefined",
+    example: `props.formattedValue // "$1,234.56" (when valueFormatter formats the raw value)`,
+  },
+];
+
+export const EXPORT_VALUE_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key for the cell being exported",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "department"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index (0-based)",
+    type: "number",
+    example: `props.colIndex // 3`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing all data for this row",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, department: "engineering" }`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The raw cell value",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "engineering"`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description: "The formatted cell value (if valueFormatter is defined)",
+    type: "string | number | undefined",
+    example: `props.formattedValue // "Engineering"`,
+  },
+];
+
+export const CELL_CLICK_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key of the clicked cell",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "firstName"`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The column index of the clicked cell (0-based)",
+    type: "number",
+    example: `props.colIndex // 2`,
+  },
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object containing the clicked cell",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: 1, name: "John", age: 30 }`,
+  },
+  {
+    key: "rowId",
+    name: "rowId",
+    required: true,
+    description: "The unique identifier of the row containing the clicked cell",
+    type: "RowId",
+    example: `props.rowId // "user-123"`,
+  },
+  {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index of the clicked cell (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "value",
+    name: "value",
+    required: true,
+    description: "The value of the clicked cell",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.value // "John Doe"`,
+  },
+];
+
+export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The complete row object that is being expanded or collapsed",
+    type: "Row",
+    link: "#union-types",
+    example: `props.row // { id: "DEPT-1", name: "Engineering", teams: [] }`,
+  },
+  {
+    key: "depth",
+    name: "depth",
+    required: true,
+    description:
+      "The depth level of the row in the hierarchy (0 = top level, 1 = first nested level, etc.)",
+    type: "number",
+    example: `props.depth // 0 (top-level row) or 1 (nested row)`,
+  },
+  {
+    key: "event",
+    name: "event",
+    required: true,
+    description: "The original mouse click event that triggered the expand/collapse action",
+    type: "MouseEvent",
+    example: `props.event // MouseEvent object`,
+  },
+  {
+    key: "rowId",
+    name: "rowId",
+    required: true,
+    description: "The unique identifier for the row (from rowIdAccessor)",
+    type: "string | number",
+    example: `props.rowId // "DEPT-1" or 123`,
+  },
+  {
+    key: "groupingKey",
+    name: "groupingKey",
+    required: false,
+    description:
+      "The property name that contains the children rows for this grouping level. Corresponds to the current level in the rowGrouping array.",
+    type: "string",
+    example: `props.groupingKey // "teams" or "employees"
+// When rowGrouping={["teams", "employees"]}:
+// - depth 0 rows have groupingKey "teams"
+// - depth 1 rows have groupingKey "employees"`,
+  },
+  {
+    key: "isExpanded",
+    name: "isExpanded",
+    required: true,
+    description:
+      "Boolean indicating whether the row is being expanded (true) or collapsed (false). Use this to determine whether to fetch data.",
+    type: "boolean",
+    example: `if (props.isExpanded) {
+  // Row is expanding - fetch children data
+  fetchChildrenData(props.rowId);
+} else {
+  // Row is collapsing - no action needed
+}`,
+  },
+  {
+    key: "rowIndexPath",
+    name: "rowIndexPath",
+    required: true,
+    description:
+      "Array path through the nested data structure to reach this row. Each element is either a number (array index) or string (property name). Use this to directly navigate and update nested data without complex traversal logic.",
+    type: "(string | number)[]",
+    example: `// For rows[0]
+props.rowIndexPath // [0]
+
+// For rows[0].teams[1]
+props.rowIndexPath // [0, "teams", 1]
+
+// For rows[2].stores[3].products[0]
+props.rowIndexPath // [2, "stores", 3, "products", 0]
+
+// Usage: Direct nested data update
+setRows(prevRows => {
+  const newRows = [...prevRows];
+  // Access: rows[0].teams[1]
+  newRows[rowIndexPath[0]][rowIndexPath[1]][rowIndexPath[2]].children = data;
+  return newRows;
+});`,
+  },
+  {
+    key: "groupingKeys",
+    name: "groupingKeys",
+    required: true,
+    description:
+      "Array of all grouping keys from the hierarchy (from the rowGrouping prop). Provides context about the complete hierarchy structure.",
+    type: "string[]",
+    example: `// When rowGrouping={["teams", "employees"]}
+props.groupingKeys // ["teams", "employees"]
+
+// Can be used to determine hierarchy depth
+const isLastLevel = props.depth === props.groupingKeys.length - 1;`,
+  },
+  {
+    key: "setLoading",
+    name: "setLoading",
+    required: true,
+    description:
+      "Helper function to set the loading state for this specific row. When true, displays the loadingStateRenderer component. Call with false to clear the loading state.",
+    type: "(loading: boolean) => void",
+    example: `// Show loading state
+props.setLoading(true);
+
+try {
+  const data = await fetchData();
+  props.setLoading(false); // Clear loading
+  // Update your data...
+} catch (error) {
+  props.setLoading(false);
+  props.setError(error.message);
+}`,
+  },
+  {
+    key: "setError",
+    name: "setError",
+    required: true,
+    description:
+      "Helper function to set an error state for this specific row. Pass an error message string to display the errorStateRenderer component, or null to clear the error state.",
+    type: "(error: string | null) => void",
+    example: `try {
+  const data = await fetchData();
+} catch (error) {
+  // Show error state
+  props.setError(error.message);
+  // Or show a custom message
+  props.setError("Failed to load children");
+}
+
+// Clear error state
+props.setError(null);`,
+  },
+  {
+    key: "setEmpty",
+    name: "setEmpty",
+    required: true,
+    description:
+      "Helper function to set an empty state for this specific row. When true, displays the emptyStateRenderer component. Optionally provide a custom message as the second parameter.",
+    type: "(isEmpty: boolean, message?: string) => void",
+    example: `const data = await fetchData();
+
+if (data.length === 0) {
+  // Show empty state
+  props.setEmpty(true, "No items found");
+  return;
+}
+
+// If we have data, ensure empty state is cleared
+props.setEmpty(false);`,
+  },
+];

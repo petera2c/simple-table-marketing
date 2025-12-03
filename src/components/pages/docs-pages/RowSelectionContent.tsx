@@ -9,6 +9,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import { ROW_SELECTION_CHANGE_PROPS } from "@/constants/propDefinitions";
 
 const ROW_SELECTION_PROPS: PropInfo[] = [
   {
@@ -36,34 +37,6 @@ const ROW_SELECTION_PROPS: PropInfo[] = [
   }}
   // ... other props
 />`,
-  },
-];
-
-const ROW_SELECTION_CHANGE_PROPS: PropInfo[] = [
-  {
-    key: "row",
-    name: "row",
-    required: true,
-    description: "The complete row object that was selected or deselected",
-    type: "Row",
-    link: "#union-types",
-    example: `props.row // { id: 1, name: "John", age: 30 }`,
-  },
-  {
-    key: "isSelected",
-    name: "isSelected",
-    required: true,
-    description: "Boolean indicating whether the row was selected (true) or deselected (false)",
-    type: "boolean",
-    example: `props.isSelected // true or false`,
-  },
-  {
-    key: "selectedRows",
-    name: "selectedRows",
-    required: true,
-    description: "Set containing the IDs of all currently selected rows",
-    type: "Set<string>",
-    example: `props.selectedRows // Set(['1', '3', '5'])`,
   },
 ];
 

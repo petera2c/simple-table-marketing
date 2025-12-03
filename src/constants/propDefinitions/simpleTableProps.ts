@@ -1,0 +1,739 @@
+import type { PropInfo } from "./types";
+
+export const SIMPLE_TABLE_PROPS: PropInfo[] = [
+  {
+    key: "defaultHeaders",
+    name: "defaultHeaders",
+    required: true,
+    description: "Array of column definitions that specify the structure of your table.",
+    type: "HeaderObject[]",
+    link: "#header-object",
+    example: `const headers = [
+  { accessor: "id", label: "ID", width: 80 },
+  { accessor: "name", label: "Name", width: "1fr" }
+];`,
+  },
+  {
+    key: "rows",
+    name: "rows",
+    required: true,
+    description: "Array of data objects to display in the table. Each object represents a row.",
+    type: "Row[]",
+    link: "#union-types",
+    example: `const data = [
+  { id: 1, name: "John Doe", age: 30 },
+  { id: 2, name: "Jane Smith", age: 25 }
+];`,
+  },
+  {
+    key: "rowIdAccessor",
+    name: "rowIdAccessor",
+    required: true,
+    description:
+      "Property name to use as row ID. This is crucial for proper row tracking, selection, and updates.",
+    type: "Accessor",
+    link: "#union-types",
+    example: `rowIdAccessor="id"
+// or
+rowIdAccessor="employeeId"`,
+  },
+  {
+    key: "height",
+    name: "height",
+    required: false,
+    description: "Height of the table container.",
+    type: "string",
+    example: `height="400px"
+height="50vh"`,
+  },
+  {
+    key: "rowHeight",
+    name: "rowHeight",
+    required: false,
+    description: "Height of each individual row in pixels.",
+    type: "number",
+    example: `rowHeight={32}
+rowHeight={48}`,
+  },
+  {
+    key: "allowAnimations",
+    name: "allowAnimations",
+    required: false,
+    description:
+      "Beta feature! This feature is not yet fully tested and may not work as expected. Use at your own risk. Flag for allowing animations throughout the table.",
+    type: "boolean",
+    example: `allowAnimations={true}`,
+  },
+  {
+    key: "cellUpdateFlash",
+    name: "cellUpdateFlash",
+    required: false,
+    description: "Flag for flash animation after cell update.",
+    type: "boolean",
+    example: `cellUpdateFlash={true}`,
+  },
+  {
+    key: "columnReordering",
+    name: "columnReordering",
+    required: false,
+    description: "Enable column reordering by drag and drop.",
+    type: "boolean",
+    example: `columnReordering={true}`,
+  },
+  {
+    key: "columnResizing",
+    name: "columnResizing",
+    required: false,
+    description: "Enable column resizing functionality.",
+    type: "boolean",
+    example: `columnResizing={true}`,
+  },
+  {
+    key: "editColumns",
+    name: "editColumns",
+    required: false,
+    description: "Flag for column editing via column editor panel.",
+    type: "boolean",
+    example: `editColumns={true}`,
+  },
+  {
+    key: "editColumnsInitOpen",
+    name: "editColumnsInitOpen",
+    required: false,
+    description: "Flag for opening the column editor when the table is loaded.",
+    type: "boolean",
+    example: `editColumnsInitOpen={true}`,
+  },
+  {
+    key: "expandAll",
+    name: "expandAll",
+    required: false,
+    description: "Flag for expanding all rows by default (for grouped rows).",
+    type: "boolean",
+    example: `expandAll={true}`,
+  },
+  {
+    key: "expandIcon",
+    name: "expandIcon",
+    required: false,
+    description: "Icon for expandable rows (will rotate on expand/collapse).",
+    type: "ReactNode",
+    example: `expandIcon={<ChevronIcon />}`,
+  },
+  {
+    key: "externalFilterHandling",
+    name: "externalFilterHandling",
+    required: false,
+    description: "Flag to let consumer handle filter logic completely.",
+    type: "boolean",
+    example: `externalFilterHandling={true}`,
+  },
+  {
+    key: "externalSortHandling",
+    name: "externalSortHandling",
+    required: false,
+    description:
+      "When true, completely disables internal sorting logic. The table will not sort data internally - you must provide pre-sorted data via the rows prop.",
+    type: "boolean",
+    example: `externalSortHandling={true}`,
+  },
+  {
+    key: "initialSortColumn",
+    name: "initialSortColumn",
+    required: false,
+    description:
+      "Sets the column to sort by on initial table load. Provide the accessor of the column you want to sort by default. Works with both internal and external sorting.",
+    type: "string",
+    example: `initialSortColumn="revenue"
+initialSortColumn="createdAt"`,
+  },
+  {
+    key: "initialSortDirection",
+    name: "initialSortDirection",
+    required: false,
+    description:
+      "Sets the sort direction for the initial sort. Defaults to 'ascending' if not specified. Only applies when initialSortColumn is also set.",
+    type: '"ascending" | "descending"',
+    example: `initialSortDirection="descending"
+initialSortDirection="ascending"`,
+  },
+  {
+    key: "hideFooter",
+    name: "hideFooter",
+    required: false,
+    description: "Flag for hiding the table footer.",
+    type: "boolean",
+    example: `hideFooter={true}`,
+  },
+  {
+    key: "onFilterChange",
+    name: "onFilterChange",
+    required: false,
+    description:
+      "Callback function triggered when filter configuration changes. Receives the current filter state with all active filters.",
+    type: "(filters: TableFilterState) => void",
+    example: `onFilterChange={(filters) => {
+  console.log('Active filters:', filters);
+  // Make API call with filter parameters
+  // filters is an object where keys are unique filter IDs
+  // and values are FilterCondition objects
+}}`,
+  },
+  {
+    key: "onLoadMore",
+    name: "onLoadMore",
+    required: false,
+    description:
+      "Callback function triggered when user scrolls near the bottom of the table to load more data. Useful for implementing infinite scrolling or paginated data loading.",
+    type: "() => void",
+    example: `onLoadMore={() => {
+  console.log('Loading more data...');
+  // Fetch additional data from API
+  // Append new rows to existing data
+  fetchMoreData().then(newRows => {
+    setRows(prevRows => [...prevRows, ...newRows]);
+  });
+}}`,
+  },
+  {
+    key: "onSortChange",
+    name: "onSortChange",
+    required: false,
+    description:
+      "Callback function triggered when sort configuration changes. Receives the current sort configuration or null if no sorting is applied.",
+    type: "(sort: SortConfig | null) => void",
+    example: `onSortChange={(sortConfig) => {
+  if (sortConfig) {
+    console.log(\`Sorting by \${sortConfig.key.accessor} (\${sortConfig.direction})\`);
+    // Make API call with sort parameters
+  }
+}}`,
+  },
+  {
+    key: "rowGrouping",
+    name: "rowGrouping",
+    required: false,
+    description: "Array of property names that define row grouping hierarchy.",
+    type: "string[]",
+    example: `rowGrouping={["department", "team"]}`,
+  },
+  {
+    key: "onRowGroupExpand",
+    name: "onRowGroupExpand",
+    required: false,
+    description:
+      "Callback function triggered when a grouped row is expanded or collapsed. Provides detailed information about the row, depth level, and grouping context, plus helper functions for managing loading, error, and empty states. The rowIndexPath array provides a direct path to update nested data. Perfect for implementing lazy-loading of hierarchical data with built-in state management.",
+    type: "(props: OnRowGroupExpandProps) => void",
+    link: "#on-row-group-expand-props",
+    example: `onRowGroupExpand={async ({ 
+  row, 
+  rowId, 
+  depth, 
+  groupingKey, 
+  isExpanded,
+  setLoading,
+  setError,
+  setEmpty,
+  rowIndexPath
+}) => {
+  // Only fetch when expanding
+  if (!isExpanded) return;
+  
+  // Don't fetch if data already exists
+  if (groupingKey && row[groupingKey]?.length > 0) return;
+
+  try {
+    // Show loading state
+    setLoading(true);
+    
+    // Lazy-load children data
+    const teams = await fetchTeams(rowId);
+    setLoading(false);
+    
+    // Handle empty results
+    if (teams.length === 0) {
+      setEmpty(true, "No teams found");
+      return;
+    }
+    
+    // Update using rowIndexPath
+    // e.g., [0, "stores", 1] = rows[0].stores[1]
+    setRows(prev => {
+      const newRows = [...prev];
+      newRows[rowIndexPath[0]][groupingKey] = teams;
+      return newRows;
+    });
+  } catch (error) {
+    setLoading(false);
+    setError(error.message);
+  }
+}}`,
+  },
+  {
+    key: "loadingStateRenderer",
+    name: "loadingStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row is in loading state (set via setLoading in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children while data is being fetched.",
+    type: "string | ReactNode",
+    example: `// Simple string
+loadingStateRenderer="Loading..."
+
+// Or React component
+loadingStateRenderer={
+  <div className="flex items-center gap-2 p-2">
+    <Spinner size="sm" />
+    <span>Loading data...</span>
+  </div>
+}`,
+  },
+  {
+    key: "errorStateRenderer",
+    name: "errorStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row has an error state (set via setError in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children when data fetching fails.",
+    type: "string | ReactNode",
+    example: `// Simple string
+errorStateRenderer="Failed to load data"
+
+// Or React component
+errorStateRenderer={
+  <div className="text-red-600 p-2">
+    ⚠️ Failed to load data
+  </div>
+}`,
+  },
+  {
+    key: "emptyStateRenderer",
+    name: "emptyStateRenderer",
+    required: false,
+    description:
+      "Custom content to display when a row has no children data (set via setEmpty in onRowGroupExpand). Can be a simple string or React component. Shown when data fetch succeeds but returns zero results.",
+    type: "string | ReactNode",
+    example: `// Simple string
+emptyStateRenderer="No items to display"
+
+// Or React component
+emptyStateRenderer={
+  <div className="text-gray-500 italic p-2">
+    No items to display
+  </div>
+}`,
+  },
+  {
+    key: "rowsPerPage",
+    name: "rowsPerPage",
+    required: false,
+    description: "Number of rows per page for pagination.",
+    type: "number",
+    example: `rowsPerPage={25}`,
+  },
+  {
+    key: "onPageChange",
+    name: "onPageChange",
+    required: false,
+    description:
+      "Callback function triggered when page changes. Useful for server-side pagination to fetch data for the new page.",
+    type: "(page: number) => void | Promise<void>",
+    example: `onPageChange={async (page) => {
+  console.log('Loading page:', page);
+  const newData = await fetchPageData(page);
+  setRows(newData);
+}}`,
+  },
+  {
+    key: "serverSidePagination",
+    name: "serverSidePagination",
+    required: false,
+    description:
+      "Flag to disable internal pagination slicing. When true, the table expects you to provide pre-paginated data via the rows prop and handle pagination externally.",
+    type: "boolean",
+    example: `serverSidePagination={true}`,
+  },
+  {
+    key: "totalRowCount",
+    name: "totalRowCount",
+    required: false,
+    description:
+      "Total number of rows available on the server (for server-side pagination). Used to calculate total pages and display correct pagination information.",
+    type: "number",
+    example: `totalRowCount={1000} // When showing 25 rows per page`,
+  },
+  {
+    key: "selectableCells",
+    name: "selectableCells",
+    required: false,
+    description: "Enable cell selection functionality.",
+    type: "boolean",
+    example: `selectableCells={true}`,
+  },
+  {
+    key: "copyHeadersToClipboard",
+    name: "copyHeadersToClipboard",
+    required: false,
+    description:
+      "When true, includes column headers as the first row when copying selected cells to clipboard. Defaults to false.",
+    type: "boolean",
+    example: `copyHeadersToClipboard={true}`,
+  },
+  {
+    key: "selectableColumns",
+    name: "selectableColumns",
+    required: false,
+    description: "Flag for selectable column headers.",
+    type: "boolean",
+    example: `selectableColumns={true}`,
+  },
+  {
+    key: "shouldPaginate",
+    name: "shouldPaginate",
+    required: false,
+    description: "Flag for enabling pagination.",
+    type: "boolean",
+    example: `shouldPaginate={true}`,
+  },
+  {
+    key: "isLoading",
+    name: "isLoading",
+    required: false,
+    description:
+      "When set to true, all table cells will render skeleton loaders instead of actual data. Provides visual feedback while data is being fetched from the server.",
+    type: "boolean",
+    example: `const [isLoading, setIsLoading] = useState(true);
+
+// Fetch data
+useEffect(() => {
+  fetchData().then(data => {
+    setRows(data);
+    setIsLoading(false);
+  });
+}, []);
+
+<SimpleTable
+  isLoading={isLoading}
+  rows={rows}
+  // ... other props
+/>`,
+  },
+  {
+    key: "theme",
+    name: "theme",
+    required: false,
+    description: "Theme configuration for the table styling.",
+    type: "Theme",
+    link: "#union-types",
+    example: `theme={{
+  primaryColor: "#1890ff",
+  backgroundColor: "#ffffff"
+}}`,
+  },
+  {
+    key: "useOddColumnBackground",
+    name: "useOddColumnBackground",
+    required: false,
+    description: "Flag for using alternating column background colors.",
+    type: "boolean",
+    example: `useOddColumnBackground={true}`,
+  },
+  {
+    key: "useHoverRowBackground",
+    name: "useHoverRowBackground",
+    required: false,
+    description: "Flag for using hover row background highlighting.",
+    type: "boolean",
+    example: `useHoverRowBackground={true}`,
+  },
+  {
+    key: "useOddEvenRowBackground",
+    name: "useOddEvenRowBackground",
+    required: false,
+    description: "Flag for using odd/even row background colors.",
+    type: "boolean",
+    example: `useOddEvenRowBackground={true}`,
+  },
+  {
+    key: "enableRowSelection",
+    name: "enableRowSelection",
+    required: false,
+    description: "Enable row selection functionality with checkboxes.",
+    type: "boolean",
+    example: `enableRowSelection={true}`,
+  },
+  {
+    key: "onRowSelectionChange",
+    name: "onRowSelectionChange",
+    required: false,
+    description: "Callback function triggered when row selection changes.",
+    type: "(props: RowSelectionChangeProps) => void",
+    link: "#row-selection-change-props",
+    example: `onRowSelectionChange={({ row, isSelected, selectedRows }) => {
+  console.log('Selection changed:', { row, isSelected, selectedRows });
+}}`,
+  },
+  {
+    key: "onCellClick",
+    name: "onCellClick",
+    required: false,
+    description:
+      "Callback function triggered when a cell is clicked. Provides detailed information about the clicked cell including its position, value, and containing row.",
+    type: "(props: CellClickProps) => void",
+    link: "#cell-click-props",
+    example: `onCellClick={({ accessor, colIndex, row, rowId, rowIndex, value }) => {
+  console.log(\`Clicked cell \${accessor} in row \${rowIndex}:\`, value);
+  // Handle cell click - open modal, navigate, etc.
+  if (accessor === 'details') {
+    openDetailModal(row);
+  }
+}}`,
+  },
+  {
+    key: "onCellEdit",
+    name: "onCellEdit",
+    required: false,
+    description:
+      "Callback function triggered when a cell is edited. Provides the edited cell information including the new value, row, and column accessor.",
+    type: "(props: CellChangeProps) => void",
+    link: "#cell-change-props",
+    example: `onCellEdit={({ accessor, newValue, row }) => {
+  console.log(\`Cell \${accessor} edited to:\`, newValue);
+  // Update your data
+  updateRowData(row.id, accessor, newValue);
+}}`,
+  },
+  {
+    key: "onColumnSelect",
+    name: "onColumnSelect",
+    required: false,
+    description:
+      "Callback when a column is selected/clicked. Provides the complete HeaderObject of the selected column.",
+    type: "(header: HeaderObject) => void",
+    link: "#header-object",
+    example: `onColumnSelect={(header) => {
+  console.log('Column selected:', header.label);
+  console.log('Column accessor:', header.accessor);
+  console.log('Column type:', header.type);
+  // Handle column selection - show column menu, apply operations, etc.
+}}`,
+  },
+  {
+    key: "enableHeaderEditing",
+    name: "enableHeaderEditing",
+    required: false,
+    description: "Flag for enabling header label editing when clicking already active headers.",
+    type: "boolean",
+    example: `enableHeaderEditing={true}`,
+  },
+  {
+    key: "onHeaderEdit",
+    name: "onHeaderEdit",
+    required: false,
+    description:
+      "Callback when a header is edited. Receives the HeaderObject and the new label value.",
+    type: "(header: HeaderObject, newLabel: string) => void",
+    link: "#header-object",
+    example: `onHeaderEdit={(header, newLabel) => {
+  console.log('Header edited:', { header, newLabel });
+  // Update your headers state
+  setHeaders(prev => prev.map(h => 
+    h.accessor === header.accessor 
+      ? { ...h, label: newLabel }
+      : h
+  ));
+}}`,
+  },
+  {
+    key: "onColumnOrderChange",
+    name: "onColumnOrderChange",
+    required: false,
+    description:
+      "Callback when column order changes (through drag and drop reordering). Receives the new headers array in the updated order.",
+    type: "(newHeaders: HeaderObject[]) => void",
+    link: "#header-object",
+    example: `onColumnOrderChange={(newHeaders) => {
+  console.log('Column order changed:', newHeaders);
+  // Update your headers state with the new order
+  setHeaders(newHeaders);
+}}`,
+  },
+  {
+    key: "columnBorders",
+    name: "columnBorders",
+    required: false,
+    description: "Flag for showing column borders.",
+    type: "boolean",
+    example: `columnBorders={true}`,
+  },
+  {
+    key: "headerDropdown",
+    name: "headerDropdown",
+    required: false,
+    description: "Custom dropdown component for headers.",
+    type: "HeaderDropdown",
+    example: `headerDropdown={({ accessor, colIndex, header, isOpen, onClose, position }) => (
+  isOpen ? <CustomDropdown header={header} position={position} onClose={onClose} /> : null
+)}`,
+  },
+  {
+    key: "footerRenderer",
+    name: "footerRenderer",
+    required: false,
+    description:
+      "Custom function to render the table footer. Receives pagination state and navigation handlers, allowing complete customization of footer appearance and behavior.",
+    type: "(params: FooterRendererProps) => ReactNode",
+    link: "#footer-renderer-props",
+    example: `footerRenderer={({ currentPage, totalPages, startRow, endRow, totalRows, onPrevPage, onNextPage }) => (
+  <div style={{ padding: '16px', display: 'flex', justifyContent: 'space-between' }}>
+    <span>Showing {startRow}-{endRow} of {totalRows}</span>
+    <div>
+      <button onClick={onPrevPage}>Previous</button>
+      <span>Page {currentPage} of {totalPages}</span>
+      <button onClick={onNextPage}>Next</button>
+    </div>
+  </div>
+)}`,
+  },
+  {
+    key: "rowButtons",
+    name: "rowButtons",
+    required: false,
+    description: "Array of buttons to show in each row.",
+    type: "RowButton[]",
+    example: `rowButtons={[
+  ({ row }) => <button onClick={() => editRow(row)}>Edit</button>,
+  ({ row }) => <button onClick={() => deleteRow(row)}>Delete</button>
+]}`,
+  },
+  {
+    key: "selectionColumnWidth",
+    name: "selectionColumnWidth",
+    required: false,
+    description: "Width of the selection column (defaults to 42).",
+    type: "number",
+    example: `selectionColumnWidth={60}`,
+  },
+  {
+    key: "headerExpandIcon",
+    name: "headerExpandIcon",
+    required: false,
+    description:
+      "Custom icon component for the expand state of collapsible column headers. Shows when a column group can be expanded to reveal child columns.",
+    type: "ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
+
+headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} />}`,
+  },
+  {
+    key: "headerCollapseIcon",
+    name: "headerCollapseIcon",
+    required: false,
+    description:
+      "Custom icon component for the collapse state of collapsible column headers. Shows when a column group can be collapsed to hide child columns.",
+    type: "ReactNode",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+
+headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} />}`,
+  },
+  {
+    key: "className",
+    name: "className",
+    required: false,
+    description: "CSS class name to apply to the table container element.",
+    type: "string",
+    example: `className="my-custom-table"`,
+  },
+  {
+    key: "columnEditorPosition",
+    name: "columnEditorPosition",
+    required: false,
+    description: "Position of the column editor panel when editColumns is enabled.",
+    type: "ColumnEditorPosition",
+    link: "#union-types",
+    example: `columnEditorPosition="left"
+columnEditorPosition="right"`,
+  },
+  {
+    key: "columnEditorText",
+    name: "columnEditorText",
+    required: false,
+    description: "Custom text label for the column editor panel.",
+    type: "string",
+    example: `columnEditorText="Customize Columns"`,
+  },
+  {
+    key: "onGridReady",
+    name: "onGridReady",
+    required: false,
+    description: "Callback function triggered when the table grid is fully initialized and ready.",
+    type: "() => void",
+    example: `onGridReady={() => {
+  console.log('Table is ready!');
+  // Perform any initialization logic
+}}`,
+  },
+  {
+    key: "onNextPage",
+    name: "onNextPage",
+    required: false,
+    description: "Custom handler for pagination next page action.",
+    type: "OnNextPage",
+    example: `onNextPage={(currentPage, totalPages) => {
+  console.log(\`Going to page \${currentPage + 1} of \${totalPages}\`);
+  // Custom pagination logic
+}}`,
+  },
+  {
+    key: "tableRef",
+    name: "tableRef",
+    required: false,
+    description:
+      "React ref object to access table methods and state programmatically. Provides access to methods like exportToCSV and updateData.",
+    type: "MutableRefObject<TableRefType | null>",
+    link: "#table-ref-type",
+    example: `const tableRef = useRef(null);
+
+<SimpleTable
+  tableRef={tableRef}
+  // ... other props
+/>
+
+// Export table data to CSV
+tableRef.current?.exportToCSV({ filename: "data.csv" });
+
+// Update cell data programmatically
+tableRef.current?.updateData({
+  accessor: "status",
+  rowIndex: 0,
+  newValue: "active"
+});`,
+  },
+  {
+    key: "includeHeadersInCSVExport",
+    name: "includeHeadersInCSVExport",
+    required: false,
+    description:
+      "When true, includes column headers as the first row in CSV exports. Defaults to true.",
+    type: "boolean",
+    example: `includeHeadersInCSVExport={false} // Export data without headers`,
+  },
+  {
+    key: "tableEmptyStateRenderer",
+    name: "tableEmptyStateRenderer",
+    required: false,
+    description:
+      "Custom content to display in the table body when there are no rows to display. This can occur when filters return no results or when no data is provided. Can be a simple string or React component.",
+    type: "string | ReactNode",
+    example: `// Simple string
+tableEmptyStateRenderer="No data available"
+
+// Or React component
+tableEmptyStateRenderer={
+  <div className="flex flex-col items-center p-8">
+    <span className="text-gray-500">No results found</span>
+    <button onClick={clearFilters}>Clear filters</button>
+  </div>
+}`,
+  },
+];

@@ -10,6 +10,7 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import CodeBlock from "@/components/CodeBlock";
+import { CELL_RENDERER_PROPS as CELL_RENDERER_PARAMS_PROPS } from "@/constants/propDefinitions";
 
 const CELL_RENDERER_PROPS: PropInfo[] = [
   {
@@ -34,94 +35,8 @@ const CELL_RENDERER_PROPS: PropInfo[] = [
   },
 ];
 
-const CELL_RENDERER_PARAMS_PROPS: PropInfo[] = [
-  {
-    key: "accessor",
-    name: "accessor",
-    required: true,
-    description: "The column accessor string identifying which column this cell belongs to.",
-    type: "string",
-    example: `// In cellRenderer function
-({ accessor }) => {
-  console.log(accessor); // "firstName", "salary", etc.
-}`,
-  },
-  {
-    key: "colIndex",
-    name: "colIndex",
-    required: true,
-    description: "The zero-based index of the column within the table.",
-    type: "number",
-    example: `// In cellRenderer function
-({ colIndex }) => {
-  console.log(colIndex); // 0, 1, 2, etc.
-}`,
-  },
-  {
-    key: "row",
-    name: "row",
-    required: true,
-    description:
-      "The complete row object containing all data for this row. Access cell values using row[accessor].",
-    type: "Row",
-    link: "/docs/api-reference#union-types",
-    example: `// In cellRenderer function
-({ row, accessor }) => {
-  const cellValue = row[accessor];
-  const otherValue = row["otherColumn"];
-  return \`\${cellValue} - \${otherValue}\`;
-}`,
-  },
-  {
-    key: "theme",
-    name: "theme",
-    required: true,
-    description:
-      "The current theme of the table. Use this to render content that adapts to the table's theme (e.g., different colors or icons for light/dark modes).",
-    type: "Theme",
-    link: "/docs/api-reference#union-types",
-    example: `// In cellRenderer function
-({ value, theme }) => {
-  return (
-    <span style={{ color: theme === 'dark' ? 'white' : 'black' }}>
-      {value}
-    </span>
-  );
-}`,
-  },
-  {
-    key: "value",
-    name: "value",
-    required: true,
-    description:
-      "The raw cell value from the data (same as row[accessor]). Convenient shorthand for accessing the current cell's value without indexing the row object.",
-    type: "CellValue",
-    link: "/docs/api-reference#union-types",
-    example: `// In cellRenderer function
-({ value }) => {
-  // Same as: row[accessor]
-  return value ? \`$\${value}\` : "N/A";
-}`,
-  },
-  {
-    key: "formattedValue",
-    name: "formattedValue",
-    required: false,
-    description:
-      "The formatted cell value if a valueFormatter is defined for this column, otherwise undefined. Use this to access the formatted display value in your cellRenderer.",
-    type: "string | number | undefined",
-    example: `// In cellRenderer function with valueFormatter
-({ value, formattedValue }) => {
-  // value: 1234.56 (raw)
-  // formattedValue: "$1,234.56" (formatted)
-  return (
-    <div className="font-bold">
-      {formattedValue || value}
-    </div>
-  );
-}`,
-  },
-];
+// Note: CELL_RENDERER_PARAMS_PROPS is imported from @/constants/propDefinitions
+// and contains: accessor, colIndex, row, theme, value, formattedValue
 
 const CellRendererContent = () => {
   return (
