@@ -10,6 +10,26 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_3: ChangelogEntry = {
+  version: "1.9.3",
+  date: "2025-12-04",
+  title: "Bug fixes and improvements",
+  description: "Bug fixes and improvements.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Horizontal scrollbar showing up when it shouldn't",
+    },
+    {
+      type: "bugfix",
+      description: "Filter input on click on mobile sometimes closes the filter dropdown",
+    },
+    {
+      type: "bugfix",
+      description: "Height undefined should not use virtualization",
+    },
+  ],
+};
 export const v1_9_2: ChangelogEntry = {
   version: "1.9.2",
   date: "2025-12-03",
@@ -572,6 +592,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_3,
   v1_9_2,
   v1_9_0,
   v1_8_9,
