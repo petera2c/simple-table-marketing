@@ -153,12 +153,40 @@ export const COMPARATOR_PROPS: PropInfo[] = [
     example: `props.rowB // { id: 2, priority: 2, score: 87 }`,
   },
   {
+    key: "valueA",
+    name: "valueA",
+    required: true,
+    description: "The raw cell value from rowA for the current column being sorted",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.valueA // 95 (the value of rowA for this column)`,
+  },
+  {
+    key: "valueB",
+    name: "valueB",
+    required: true,
+    description: "The raw cell value from rowB for the current column being sorted",
+    type: "CellValue",
+    link: "#union-types",
+    example: `props.valueB // 87 (the value of rowB for this column)`,
+  },
+  {
     key: "direction",
     name: "direction",
     required: true,
     description: "The sort direction",
     type: '"ascending" | "descending"',
     example: `props.direction // "ascending"`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description:
+      "The formatted cell value (output from valueFormatter if defined). Available for both rowA and rowB. Useful when you need to compare formatted values or access both raw and formatted data in your comparison logic.",
+    type: "string | number | string[] | number[] | undefined",
+    example: `// Access formatted values if valueFormatter is defined
+props.formattedValue // Could be "$1,234.56" if valueFormatter formats currency`,
   },
 ];
 

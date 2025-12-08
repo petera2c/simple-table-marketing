@@ -274,9 +274,10 @@ initialSortDirection="ascending"`,
     name: "loadingStateRenderer",
     required: false,
     description:
-      "Custom content to display when a row is in loading state (set via setLoading in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children while data is being fetched.",
+      "Custom content to display when a row is in loading state (set via setLoading in onRowGroupExpand). Can be a simple string or React component. Shown in place of row children while data is being fetched. If not provided, a default skeleton loading animation will be displayed automatically.",
     type: "string | ReactNode",
-    example: `// Simple string
+    example: `// If undefined, shows default skeleton loader
+// Simple string
 loadingStateRenderer="Loading..."
 
 // Or React component
@@ -320,6 +321,29 @@ emptyStateRenderer={
     No items to display
   </div>
 }`,
+  },
+  {
+    key: "canExpandRowGroup",
+    name: "canExpandRowGroup",
+    required: false,
+    description:
+      "Callback function to conditionally control whether a specific row group can be expanded. Return true to allow expansion, false to disable it. Useful for implementing permission-based access, hiding empty groups, or preventing expansion based on business logic.",
+    type: "(row: Row) => boolean",
+    link: "#union-types",
+    example: `// Prevent expansion of empty groups
+canExpandRowGroup={(row) => {
+  return row.children && row.children.length > 0;
+}}
+
+// Permission-based expansion
+canExpandRowGroup={(row) => {
+  return user.role === 'admin' || row.isPublic;
+}}
+
+// Disable expansion for specific status
+canExpandRowGroup={(row) => {
+  return row.status !== 'archived';
+}}`,
   },
   {
     key: "rowsPerPage",

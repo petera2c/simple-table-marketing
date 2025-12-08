@@ -232,14 +232,44 @@ const CSVExportDemo = ({
 }) => {
   const tableRef = useRef<TableRefType>(null);
 
+  const handleGetTableInfo = () => {
+    const allRows = tableRef.current?.getAllRows();
+    const headers = tableRef.current?.getHeaders();
+
+    // Extract raw data from TableRow objects
+    const totalRevenue =
+      allRows?.reduce((sum, tableRow) => {
+        return sum + ((tableRow.row.revenue as number) || 0);
+      }, 0) || 0;
+
+    alert(
+      `Table Info:\n\n` +
+        `Total Rows: ${allRows?.length || 0}\n` +
+        `Total Columns: ${headers?.length || 0}\n` +
+        `Column Names: ${headers?.map((h) => h.label).join(", ") || "N/A"}\n\n` +
+        `Total Revenue: $${totalRevenue.toLocaleString("en-US", {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2,
+        })}`
+    );
+  };
+
   return (
     <div className="space-y-4">
-      <button
-        onClick={() => tableRef.current?.exportToCSV()}
-        className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
-      >
-        Export to CSV
-      </button>
+      <div className="flex gap-2">
+        <button
+          onClick={() => tableRef.current?.exportToCSV()}
+          className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors font-medium"
+        >
+          Export to CSV
+        </button>
+        <button
+          onClick={handleGetTableInfo}
+          className="px-4 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition-colors font-medium"
+        >
+          Get Table Info
+        </button>
+      </div>
       <SimpleTable
         defaultHeaders={headers}
         editColumns

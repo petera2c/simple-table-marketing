@@ -6,16 +6,20 @@ export const UNION_TYPE_DEFINITIONS: PropInfo[] = [
     name: "Accessor",
     required: false,
     description:
-      "Valid property key that exists in the Row type. Used to safely access row data. Supports nested properties using dot notation (v1.7.6+).",
-    type: "keyof Row",
-    example: `// If your Row type has properties: id, name, age, status
+      "Valid property key that exists in the Row type. Used to safely access row data. Supports nested properties using dot notation (v1.7.6+) and array indices (v1.9.4+).",
+    type: "keyof Row | string",
+    example: `// Simple accessor
 const accessor: Accessor = "name";     // Valid - exists in Row
 const accessor2: Accessor = "age";     // Valid - exists in Row
-// const invalid: Accessor = "xyz";    // TypeScript error - doesn't exist in Row
 
 // Nested data accessor (v1.7.6+)
 const nested: Accessor = "latest.rank";           // Access nested property
-const deepNested: Accessor = "user.profile.name"; // Access deeply nested property`,
+const deepNested: Accessor = "user.profile.name"; // Access deeply nested property
+
+// Array index accessor (v1.9.4+)
+const arrayAccess: Accessor = "albums[0].title";  // Access array element with nested property
+const simpleArray: Accessor = "awards[0]";        // Access first element of array
+const releaseDate: Accessor = "releaseDate[0]";   // Access first element of releaseDate array`,
   },
   {
     key: "cellvalue",

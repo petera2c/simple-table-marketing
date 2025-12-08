@@ -74,9 +74,17 @@ const EXTERNAL_SORTING_PROPS: PropInfo[] = [
     name: "initialSortColumn",
     required: false,
     description:
-      "Sets the column to sort by on initial table load. Provide the accessor of the column you want to sort by default.",
+      "Sets the column to sort by on initial table load. Provide the accessor of the column you want to sort by default. Supports simple accessors, nested paths (dot notation), and array indices (v1.9.4+).",
     type: "string",
-    example: `initialSortColumn="revenue"`,
+    example: `// Simple accessor
+initialSortColumn="revenue"
+
+// Nested accessor
+initialSortColumn="user.profile.name"
+
+// Array index accessor (v1.9.4+)
+initialSortColumn="awards[0]"
+initialSortColumn="albums[0].title"`,
   },
   {
     key: "initialSortDirection",
@@ -174,6 +182,34 @@ const ColumnSortingContent = () => {
           </code>{" "}
           property to your column definition.
         </p>
+
+        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            ✨ New in v1.9.4: Array Index Support
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Accessors now support nested array paths using bracket notation. This allows you to sort
+            by specific array elements without writing custom logic.
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">awards[0]</code> -
+              Sort by first award
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                albums[0].title
+              </code>{" "}
+              - Sort by first album's title
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                releaseDate[0]
+              </code>{" "}
+              - Sort by first release date
+            </li>
+          </ul>
+        </div>
 
         <PropTable props={COLUMN_SORTING_PROPS} title="Column Sorting Configuration" />
       </motion.div>

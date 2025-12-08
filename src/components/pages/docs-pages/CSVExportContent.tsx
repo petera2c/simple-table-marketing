@@ -31,9 +31,9 @@ const CSV_EXPORT_PROPS: PropInfo[] = [
     name: "exportToCSV",
     required: false,
     description:
-      "Method to export table data to CSV format. Call via tableRef.current?.exportToCSV(). Optionally pass a filename parameter.",
+      "Method to export table data to CSV format. Exports ALL data including all pages when pagination is enabled (fixed in v1.9.4). Call via tableRef.current?.exportToCSV(). Optionally pass a filename parameter.",
     type: "(props?: { filename?: string }) => void",
-    example: `// Default filename
+    example: `// Default filename - exports all data
 tableRef.current?.exportToCSV();
 
 // Custom filename
@@ -177,6 +177,17 @@ const CSVExportContent = () => {
 
         <PropTable props={CSV_EXPORT_PROPS} title="CSV Export Configuration" />
 
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mt-4 mb-4">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">✨ Full Data Export</h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            The{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">exportToCSV()</code>{" "}
+            method now exports <strong>all data</strong> from your table, including all pages when
+            pagination is enabled. Previously, only the current page was exported - this has been
+            fixed in version 1.9.4.
+          </p>
+        </div>
+
         <p className="text-gray-700 dark:text-gray-300 mt-4">
           The exported CSV includes all visible columns and respects active filters/sorting. Default
           filename is{" "}
@@ -291,6 +302,89 @@ const CSVExportContent = () => {
 
 // Table displays: "Engineering"
 // CSV exports: "Engineering (ENG)"`}
+              />
+            </div>
+          </div>
+        </div>
+      </motion.div>
+
+      {/* New Table API Methods Section */}
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Accessing Table Data
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.75 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          New in v1.9.4: The table ref now provides powerful methods to access all table data and
+          configuration programmatically. Try clicking the <strong>"Get Table Info"</strong> button
+          in the demo above!
+        </p>
+
+        <div className="space-y-4">
+          <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 p-5 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+              getAllRows() - Access Complete Dataset
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Returns all rows as{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRow[]</code>{" "}
+              objects, flattened and including nested/grouped rows. Each TableRow contains the raw
+              data in the{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">row</code> property
+              plus metadata like depth, position, and rowPath. Perfect for analytics, batch
+              operations, or custom exports.
+            </p>
+            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+              <CodeBlock
+                code={`// Calculate total revenue from all rows
+const allRows = tableRef.current?.getAllRows();
+const totalRevenue = allRows?.reduce((sum, tableRow) => 
+  sum + (tableRow.row.revenue || 0), 0
+);
+
+// Access row metadata
+allRows?.forEach(tableRow => {
+  console.log(\`Depth: \${tableRow.depth}, Position: \${tableRow.position}\`);
+  console.log("Data:", tableRow.row);
+});
+
+// Export raw data to custom format
+const allRows = tableRef.current?.getAllRows();
+const rawData = allRows?.map(tableRow => tableRow.row);
+const jsonData = JSON.stringify(rawData, null, 2);
+downloadFile(jsonData, "data.json");`}
+              />
+            </div>
+          </div>
+
+          <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-700 p-5 rounded-lg">
+            <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+              getHeaders() - Access Column Configuration
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-3">
+              Returns the table's current header/column definitions. Useful for dynamic table
+              manipulation or building custom UI controls.
+            </p>
+            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+              <CodeBlock
+                code={`// Get all column names
+const headers = tableRef.current?.getHeaders();
+const columnNames = headers?.map(h => h.label);
+console.log("Columns:", columnNames);
+
+// Validate configuration
+const sortableColumns = headers?.filter(h => h.isSortable);
+console.log(\`\${sortableColumns.length} sortable columns\`);`}
               />
             </div>
           </div>

@@ -10,6 +10,70 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_4: ChangelogEntry = {
+  version: "1.9.4",
+  date: "2025-12-08",
+  title: "Enhanced Row Grouping, Table API Methods & Nested Array Support",
+  description:
+    "Added powerful new features including conditional row expansion control, new table API methods for data access, default loading skeletons for dynamic row groups, enhanced CSV export, and nested array accessor support for more flexible data handling.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added canExpandRowGroup callback prop to conditionally control which row groups can be expanded",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added getAllRows() method to TableRefType for retrieving all flattened rows including nested/grouped data",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Added getHeaders() method to TableRefType for retrieving the table's current header/column definitions",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Default skeleton loading state now appears automatically for dynamic row groups when no custom loadingStateRenderer is defined",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Accessor type now supports nested array paths (e.g., 'albums[0].title' or 'awards[0]') for accessing array data",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "feature",
+      description:
+        "initialSortColumn now supports nested array paths (e.g., initialSortColumn='awards[0]')",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "improvement",
+      description:
+        "ValueFormatter return type extended to support string[] and number[] for array formatting",
+      link: "/docs/value-formatter",
+    },
+    {
+      type: "improvement",
+      description:
+        "ComparatorProps enhanced with valueA, valueB, and formattedValue properties for more flexible sorting logic",
+      link: "/docs/api-reference#comparator-props",
+    },
+    {
+      type: "bugfix",
+      description:
+        "CSV export with pagination now exports all data instead of only the current page",
+      link: "/docs/csv-export",
+    },
+  ],
+};
+
 export const v1_9_3: ChangelogEntry = {
   version: "1.9.3",
   date: "2025-12-04",
@@ -592,6 +656,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_4,
   v1_9_3,
   v1_9_2,
   v1_9_0,

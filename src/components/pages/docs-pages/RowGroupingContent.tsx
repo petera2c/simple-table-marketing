@@ -112,9 +112,10 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     name: "loadingStateRenderer",
     required: false,
     description:
-      "Custom content to render when a row is in loading state (set via setLoading helper in onRowGroupExpand). Can be a string or React component.",
+      "Custom content to render when a row is in loading state (set via setLoading helper in onRowGroupExpand). Can be a string or React component. If not provided, a default skeleton loading state will be shown automatically.",
     type: "string | ReactNode",
-    example: `// Simple string
+    example: `// If undefined, shows default skeleton loader
+// Simple string
 loadingStateRenderer="Loading..."
 
 // Or React component
@@ -157,6 +158,29 @@ emptyStateRenderer={
     No data found
   </div>
 }`,
+  },
+  {
+    key: "canExpandRowGroup",
+    name: "canExpandRowGroup",
+    required: false,
+    description:
+      "Function to conditionally control whether a specific row group can be expanded. Return true to allow expansion, false to disable it. Useful for permission-based access, hiding empty groups, or business logic-based restrictions.",
+    type: "(row: Row) => boolean",
+    example: `// Prevent expansion of empty groups
+<SimpleTable
+  canExpandRowGroup={(row) => {
+    return row.teams && row.teams.length > 0;
+  }}
+  // ... other props
+/>
+
+// Permission-based expansion
+<SimpleTable
+  canExpandRowGroup={(row) => {
+    return currentUser.role === 'admin' || row.isPublic;
+  }}
+  // ... other props
+/>`,
   },
 ];
 

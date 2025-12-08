@@ -219,11 +219,20 @@ cellRenderer: ({ value, formattedValue }) => (
     name: "valueFormatter",
     required: false,
     description:
-      "Function to format the cell value for display without affecting the underlying data. Returns a string or number. Use this for currency, dates, percentages, and other simple text formatting. For React components or custom styling, use cellRenderer instead.",
-    type: "(props: ValueFormatterProps) => string | number",
+      "Function to format the cell value for display without affecting the underlying data. Returns a string, number, or arrays of strings/numbers (v1.9.4+). Use this for currency, dates, percentages, and other simple text formatting. For React components or custom styling, use cellRenderer instead.",
+    type: "(props: ValueFormatterProps) => string | number | string[] | number[]",
     link: "#value-formatter-props",
-    example: `valueFormatter: ({ value }) => {
+    example: `// Simple formatting
+valueFormatter: ({ value }) => {
   return \`$\${(value as number).toFixed(2)}\`;
+}
+
+// Array formatting (v1.9.4+)
+valueFormatter: ({ value }) => {
+  if (Array.isArray(value)) {
+    return value.map(v => \`$\${v.toFixed(2)}\`);
+  }
+  return value;
 }`,
   },
   {
