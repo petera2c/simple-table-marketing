@@ -19,8 +19,12 @@ export const v1_9_5: ChangelogEntry = {
   changes: [
     {
       type: "bugfix",
+<<<<<<< HEAD
       description:
         "Fixed bug with nested data that had the same ID as the parent row",
+=======
+      description: "Fixed bug with nested data that had the same ID as the parent row",
+>>>>>>> 61099fd (New version)
     },
   ],
 };
