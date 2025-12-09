@@ -10,6 +10,21 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_5: ChangelogEntry = {
+  version: "1.9.5",
+  date: "2025-12-09",
+  title: "Nested Data ID Conflict Fix",
+  description:
+    "Fixed a bug where nested/child rows with the same ID as their parent row would cause rendering and state management issues.",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed bug with nested data that had the same ID as the parent row",
+    },
+  ],
+};
+
 export const v1_9_4: ChangelogEntry = {
   version: "1.9.4",
   date: "2025-12-08",
@@ -656,6 +671,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_5,
   v1_9_4,
   v1_9_3,
   v1_9_2,
