@@ -218,6 +218,30 @@ export const CELL_RENDERER_PROPS: PropInfo[] = [
     example: `props.row // { id: 1, name: "John Doe", status: "active" }`,
   },
   {
+    key: "rowIndex",
+    name: "rowIndex",
+    required: true,
+    description: "The row index (0-based)",
+    type: "number",
+    example: `props.rowIndex // 5`,
+  },
+  {
+    key: "rowPath",
+    name: "rowPath",
+    required: false,
+    description:
+      "Array path through the nested data structure to reach this row. Each element is either a number (array index) or string (property name). Useful for accessing nested/hierarchical data.",
+    type: "(string | number)[]",
+    example: `// For rows[0]
+props.rowPath // [0]
+
+// For rows[0].teams[1]
+props.rowPath // [0, "teams", 1]
+
+// For rows[2].departments[3].employees[0]
+props.rowPath // [2, "departments", 3, "employees", 0]`,
+  },
+  {
     key: "theme",
     name: "theme",
     required: true,
@@ -241,7 +265,7 @@ export const CELL_RENDERER_PROPS: PropInfo[] = [
     required: false,
     description:
       "The formatted cell value (output from valueFormatter if defined). Use this for display purposes when you need both raw and formatted values.",
-    type: "string | number | boolean | null | undefined",
+    type: "string | number | string[] | number[] | boolean | null | undefined",
     example: `props.formattedValue // "$1,234.56" (when valueFormatter formats the raw value)`,
   },
 ];

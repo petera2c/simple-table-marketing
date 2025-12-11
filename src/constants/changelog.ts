@@ -10,6 +10,34 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_7: ChangelogEntry = {
+  version: "1.9.7",
+  date: "2025-12-11",
+  title: "Enhanced CellRendererProps & Hovered Cell Styling",
+  description:
+    "Enhanced CellRendererProps interface with rowPath for nested data access and added 'hovered' CSS class to cells for custom hover styling.",
+  changes: [
+    {
+      type: "improvement",
+      description:
+        "Enhanced CellRendererProps with rowPath property to access the path through nested data structures",
+      link: "/docs/api-reference#cell-renderer-props",
+    },
+    {
+      type: "improvement",
+      description:
+        "Updated CellRendererProps.formattedValue to support string[], number[], and boolean types for more flexible formatting",
+      link: "/docs/api-reference#cell-renderer-props",
+    },
+    {
+      type: "feature",
+      description:
+        "Added 'hovered' CSS class to cells, enabling custom hover state styling via CSS",
+      link: "/docs/custom-theme",
+    },
+  ],
+};
+
 export const v1_9_5: ChangelogEntry = {
   version: "1.9.5",
   date: "2025-12-09",
@@ -670,6 +698,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_7,
   v1_9_5,
   v1_9_4,
   v1_9_3,

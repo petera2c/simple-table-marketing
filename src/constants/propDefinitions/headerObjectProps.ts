@@ -197,8 +197,8 @@ minWidth: "100px"`,
     name: "cellRenderer",
     required: false,
     description:
-      "Custom render function for cell content. Receives both raw and formatted values for flexible rendering. Use this for React components, custom styling, or interactive elements. For simple text formatting (currency, dates), use valueFormatter instead for better performance.",
-    type: "({ accessor, colIndex, row, theme, value, formattedValue }: CellRendererProps) => ReactNode | string",
+      "Custom render function for cell content. Receives both raw and formatted values, row path for nested data access, and other cell context for flexible rendering. Use this for React components, custom styling, or interactive elements. For simple text formatting (currency, dates), use valueFormatter instead for better performance.",
+    type: "({ accessor, colIndex, row, rowIndex, rowPath, theme, value, formattedValue }: CellRendererProps) => ReactNode | string",
     example: `// Simple example using raw value
 cellRenderer: ({ value, theme }) => (
   <span style={{ color: theme === 'dark' ? 'white' : 'blue' }}>
@@ -211,6 +211,14 @@ cellRenderer: ({ value, formattedValue }) => (
   <div>
     <div className="text-sm">{formattedValue}</div>
     <div className="text-xs text-gray-500">Raw: {value}</div>
+  </div>
+)
+
+// Using rowPath to access nested data (v1.9.7+)
+cellRenderer: ({ row, rowPath, rowIndex }) => (
+  <div>
+    <div>Row: {rowIndex}</div>
+    <div className="text-xs">Path: {rowPath?.join(' > ')}</div>
   </div>
 )`,
   },

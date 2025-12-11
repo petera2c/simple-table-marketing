@@ -167,6 +167,26 @@ const CellRendererContent = () => {
               to access any data from the current row, not just the current cell - perfect for
               renderers that depend on multiple column values
             </li>
+            <li>
+              <span className="text-green-600 dark:text-green-400 font-semibold">
+                New in v1.9.7:
+              </span>{" "}
+              Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                rowPath
+              </code>{" "}
+              to access the path through nested data structures (e.g., [0, "teams", 1] for
+              rows[0].teams[1])
+            </li>
+            <li>
+              <span className="text-green-600 dark:text-green-400 font-semibold">
+                New in v1.9.7:
+              </span>{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                formattedValue
+              </code>{" "}
+              now supports string[], number[], and boolean types for more flexible formatting
+            </li>
           </ul>
         </div>
       </motion.div>
