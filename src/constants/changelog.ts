@@ -10,6 +10,19 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v1_9_8: ChangelogEntry = {
+  version: "1.9.8",
+  date: "2025-12-12",
+  title: "CellRendererProps rowIndex fix",
+  description: "Row index now accounts for pagination",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Row index now accounts for pagination",
+    },
+  ],
+};
+
 export const v1_9_7: ChangelogEntry = {
   version: "1.9.7",
   date: "2025-12-11",
@@ -698,6 +711,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v1_9_8,
   v1_9_7,
   v1_9_5,
   v1_9_4,
