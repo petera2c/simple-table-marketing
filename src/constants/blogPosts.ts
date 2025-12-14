@@ -229,8 +229,30 @@ export const reactTreeDataHierarchicalPost: BlogPostMetadata = {
   updatedAt: "2025-12-01",
 };
 
+export const materialReactTableVsSimpleTablePost: BlogPostMetadata = {
+  title: "Material React Table vs Simple Table: Material-UI Integration vs Lightweight Grid",
+  description:
+    "Compare Material React Table (MRT) with Simple Table. Analyze bundle size, Material-UI integration, TanStack Table foundation, and when to use each React data grid for your project.",
+  slug: "material-react-table-vs-simple-table",
+  tags: ["react", "comparison", "material-ui", "material-react-table"],
+  createdAt: "2025-12-14",
+  updatedAt: "2025-12-14",
+};
+
+export const reactTableRowSelectionPost: BlogPostMetadata = {
+  title: "React Table Row Selection: Multi-Select, Single Select, and Checkbox Implementation",
+  description:
+    "Master row selection in React data grids. Learn how to implement single-select, multi-select with checkboxes, programmatic selection, shift-click ranges, and select-all functionality with real code examples.",
+  slug: "react-table-row-selection-guide",
+  tags: ["react", "row-selection", "tutorial", "features"],
+  createdAt: "2025-12-14",
+  updatedAt: "2025-12-14",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  reactTableRowSelectionPost,
+  materialReactTableVsSimpleTablePost,
   reactTreeDataHierarchicalPost,
   antDesignTableVsSimpleTablePost,
   reactGridFilteringPost,

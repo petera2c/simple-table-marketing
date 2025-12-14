@@ -71,6 +71,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/material-react-table-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/mit-licensed-react-tables-accessibility-keyboard-navigation</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,6 +102,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/react-grid-filtering-implementation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/react-table-row-selection-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
