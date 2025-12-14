@@ -450,7 +450,7 @@ export const v1_8_1: ChangelogEntry = {
 
 export const v1_7_9: ChangelogEntry = {
   version: "1.7.9",
-  date: "2024-11-22",
+  date: "2025-11-22",
   title: "Value Formatter Support",
   description:
     "Added valueFormatter attribute to HeaderObject for simple cell value formatting. This provides a more performant and streamlined way to format cell values for display (currency, dates, percentages) without using cellRenderer.",
