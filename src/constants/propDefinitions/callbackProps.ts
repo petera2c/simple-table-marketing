@@ -175,8 +175,8 @@ export const COMPARATOR_PROPS: PropInfo[] = [
     name: "direction",
     required: true,
     description: "The sort direction",
-    type: '"ascending" | "descending"',
-    example: `props.direction // "ascending"`,
+    type: '"asc" | "desc"',
+    example: `props.direction // "asc"`,
   },
   {
     key: "formattedValue",

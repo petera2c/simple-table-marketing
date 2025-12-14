@@ -16,7 +16,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
     "Column Visibility toggle",
     "Column Pinning (left/right)",
     "Column Alignment (left/center/right)",
-    "Column Sorting (ascending/descending)",
+    "Column Sorting (asc/desc)",
     "Column Filtering (text, number, date)",
     "Row Grouping with expand/collapse",
     "Row Selection (single/multiple)",

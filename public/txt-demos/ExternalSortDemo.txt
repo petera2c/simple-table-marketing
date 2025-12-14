@@ -237,7 +237,7 @@ const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
         comparison = String(aValue).localeCompare(String(bValue));
       }
 
-      return sortConfig.direction === "ascending" ? comparison : -comparison;
+      return sortConfig.direction === "asc" ? comparison : -comparison;
     });
 
     return sorted;

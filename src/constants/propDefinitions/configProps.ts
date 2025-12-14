@@ -187,8 +187,8 @@ export const SORT_CONFIG_PROPS: PropInfo[] = [
     name: "direction",
     required: true,
     description: "The sort direction for the column.",
-    type: '"ascending" | "descending"',
-    example: `direction: "ascending"`,
+    type: '"asc" | "desc"',
+    example: `direction: "asc"`,
   },
 ];
 

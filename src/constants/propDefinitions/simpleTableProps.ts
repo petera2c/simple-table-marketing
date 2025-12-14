@@ -152,10 +152,10 @@ initialSortColumn="createdAt"`,
     name: "initialSortDirection",
     required: false,
     description:
-      "Sets the sort direction for the initial sort. Defaults to 'ascending' if not specified. Only applies when initialSortColumn is also set.",
-    type: '"ascending" | "descending"',
-    example: `initialSortDirection="descending"
-initialSortDirection="ascending"`,
+      "Sets the sort direction for the initial sort. Defaults to 'asc' if not specified. Only applies when initialSortColumn is also set.",
+    type: '"asc" | "desc"',
+    example: `initialSortDirection="desc"
+initialSortDirection="asc"`,
   },
   {
     key: "hideFooter",

@@ -82,7 +82,7 @@ export default function SalesExample({
       headerExpandIcon={headerExpandIcon}
       height={height ? `${height}px` : "70dvh"}
       initialSortColumn="dealValue" // Show highest value deals first
-      initialSortDirection="descending"
+      initialSortDirection="desc"
       nextIcon={nextIcon}
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}

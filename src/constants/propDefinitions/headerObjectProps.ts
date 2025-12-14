@@ -276,7 +276,7 @@ valueGetter: ({ row }) => {
 comparator: ({ rowA, rowB, direction }) => {
   // Sort by priority first
   if (rowA.priority !== rowB.priority) {
-    return direction === "ascending" 
+    return direction === "asc" 
       ? rowA.priority - rowB.priority 
       : rowB.priority - rowA.priority;
   }

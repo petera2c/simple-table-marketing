@@ -40,7 +40,7 @@ const COLUMN_SORTING_PROPS: PropInfo[] = [
   comparator: ({ rowA, rowB, direction }) => {
     // Sort by priority first, then by performance score
     if (rowA.priority !== rowB.priority) {
-      return direction === "ascending" 
+      return direction === "asc" 
         ? rowA.priority - rowB.priority 
         : rowB.priority - rowA.priority;
     }
@@ -91,9 +91,9 @@ initialSortColumn="albums[0].title"`,
     name: "initialSortDirection",
     required: false,
     description:
-      "Sets the sort direction for the initial sort. Defaults to 'ascending' if not specified.",
-    type: '"ascending" | "descending"',
-    example: `initialSortDirection="descending"`,
+      "Sets the sort direction for the initial sort. Defaults to 'asc' if not specified.",
+    type: '"asc" | "desc"',
+    example: `initialSortDirection="desc"`,
   },
   {
     key: "onSortChange",
@@ -334,7 +334,7 @@ const ColumnSortingContent = () => {
   defaultHeaders={headers}
   rows={data}
   initialSortColumn="revenue"        // Sort by revenue column
-  initialSortDirection="descending"  // Show highest revenue first
+  initialSortDirection="desc"  // Show highest revenue first
   // ... other props
 />`}
           />
