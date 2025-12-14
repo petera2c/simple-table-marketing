@@ -23,10 +23,11 @@ export {
   ON_ROW_GROUP_EXPAND_PROPS,
 } from "./callbackProps";
 
-// Config props (aggregation, sort, filter)
+// Config props (aggregation, sort, filter, chart)
 export {
   ENUM_OPTION_PROPS,
   AGGREGATION_CONFIG_PROPS,
+  CHART_OPTIONS_PROPS,
   FILTER_CONDITION_PROPS,
   SORT_CONFIG_PROPS,
   TABLE_FILTER_STATE_PROPS,

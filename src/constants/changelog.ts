@@ -10,6 +10,20 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_1: ChangelogEntry = {
+  version: "2.0.1",
+  date: "2025-12-13",
+  title: "Programmatic Control & Sort Direction Union Type",
+  description: "Added programmatic control and sort direction union type.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added programmatic controls for sorting and filtering",
+      link: "/docs/programmatic-control",
+    },
+  ],
+};
+
 export const v1_9_8: ChangelogEntry = {
   version: "1.9.8",
   date: "2025-12-12",
@@ -711,6 +725,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_1,
   v1_9_8,
   v1_9_7,
   v1_9_5,

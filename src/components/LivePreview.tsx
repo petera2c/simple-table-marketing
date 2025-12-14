@@ -12,11 +12,13 @@ const LivePreview = ({
   height = "auto",
   link,
   Preview,
+  demoHeight,
 }: {
   demoCodeFilename?: string;
   height?: string | number;
   link: string;
   Preview: ({ height, theme }: { height?: string | number; theme?: Theme }) => JSX.Element;
+  demoHeight?: string | number;
 }) => {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const { theme } = useThemeContext();
@@ -28,7 +30,7 @@ const LivePreview = ({
           {isCodeVisible ? (
             <CodeBlock className={`h-full`} demoCodeFilename={demoCodeFilename} />
           ) : (
-            <Preview height={height} theme={theme} />
+            <Preview height={demoHeight || height} theme={theme} />
           )}
         </div>
         <div className="flex justify-end gap-2 w-full shrink-0">

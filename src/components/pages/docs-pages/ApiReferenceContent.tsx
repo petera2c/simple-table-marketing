@@ -25,6 +25,7 @@ import {
   ON_ROW_GROUP_EXPAND_PROPS,
   ENUM_OPTION_PROPS,
   AGGREGATION_CONFIG_PROPS,
+  CHART_OPTIONS_PROPS,
   FILTER_CONDITION_PROPS,
   SORT_CONFIG_PROPS,
   TABLE_FILTER_STATE_PROPS,
@@ -129,6 +130,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="aggregation-config">
         <PropTable props={AGGREGATION_CONFIG_PROPS} title="AggregationConfig" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="chart-options">
+        <PropTable props={CHART_OPTIONS_PROPS} title="ChartOptions" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="row-selection-change-props">

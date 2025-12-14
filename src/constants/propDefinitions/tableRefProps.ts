@@ -123,6 +123,161 @@ console.log("Columns:", columnNames);
 const headers = tableRef.current?.getHeaders();
 const sortableColumns = headers.filter(h => h.isSortable);`,
   },
+  {
+    key: "getSortState",
+    name: "getSortState",
+    required: false,
+    description:
+      "Returns the current sort state of the table. Returns null if no sorting is applied, or a SortColumn object containing the sorted column and direction. Useful for persisting table state, synchronizing with external state management, or implementing custom sort UI.",
+    type: "() => SortColumn | null",
+    link: "#union-types",
+    example: `// Get current sort state
+const sortState = tableRef.current?.getSortState();
+if (sortState) {
+  console.log(\`Sorted by: \${sortState.key.accessor}\`);
+  console.log(\`Direction: \${sortState.direction}\`);
+} else {
+  console.log("No sorting applied");
+}
+
+// Save sort state to localStorage
+const sortState = tableRef.current?.getSortState();
+localStorage.setItem("tableSortState", JSON.stringify(sortState));
+
+// Check if specific column is sorted
+const sortState = tableRef.current?.getSortState();
+const isSortedByName = sortState?.key.accessor === "name";`,
+  },
+  {
+    key: "applySortState",
+    name: "applySortState",
+    required: false,
+    description:
+      "Programmatically applies a sort state to the table. Pass a column accessor and optional direction to sort, or undefined to clear sorting. If direction is omitted, the sort cycles through: asc → desc → removed. This method is async and returns a Promise. Perfect for implementing custom sort controls or coordinating sorting with external data sources.",
+    type: "(props?: { accessor: Accessor; direction?: SortDirection }) => Promise<void>",
+    link: "#union-types",
+    example: `// Cycle through sort states (asc → desc → removed)
+await tableRef.current?.applySortState({ accessor: "name" });
+
+// Apply sort by price descending (explicit)
+await tableRef.current?.applySortState({ accessor: "price", direction: "desc" });
+
+// Apply sort by age ascending (explicit)
+await tableRef.current?.applySortState({ accessor: "age", direction: "asc" });
+
+// Clear all sorting
+await tableRef.current?.applySortState();
+
+// Dynamic sorting based on user selection
+const handleSort = async (column: string, descending: boolean) => {
+  await tableRef.current?.applySortState({
+    accessor: column,
+    direction: descending ? "desc" : "asc",
+  });
+};`,
+  },
+  {
+    key: "getFilterState",
+    name: "getFilterState",
+    required: false,
+    description:
+      "Returns the current filter state of the table as a TableFilterState object. The object contains all active filters keyed by unique filter IDs. Each filter includes the column accessor, operator, and values. Useful for debugging, persisting filter state, or building custom filter UI.",
+    type: "() => TableFilterState",
+    link: "#table-filter-state",
+    example: `// Get current filters
+const filters = tableRef.current?.getFilterState();
+console.log(\`Active filters: \${Object.keys(filters).length}\`);
+
+// Log all filter details
+const filters = tableRef.current?.getFilterState();
+Object.entries(filters).forEach(([id, filter]) => {
+  console.log(\`Filter \${id}: \${filter.accessor} \${filter.operator} \${filter.value}\`);
+});
+
+// Save filters to session storage
+const filters = tableRef.current?.getFilterState();
+sessionStorage.setItem("tableFilters", JSON.stringify(filters));
+
+// Check if specific column is filtered
+const filters = tableRef.current?.getFilterState();
+const hasNameFilter = Object.values(filters).some(f => f.accessor === "name");`,
+  },
+  {
+    key: "applyFilter",
+    name: "applyFilter",
+    required: false,
+    description:
+      "Programmatically applies a filter to a specific column. Accepts a FilterCondition object specifying the column accessor, filter operator, and value(s). This method is async and returns a Promise. Supports all filter operators including equals, contains, greaterThan, between, and more. Perfect for implementing custom filter UI, applying saved filters, or creating filter presets.",
+    type: "(filter: FilterCondition) => Promise<void>",
+    link: "#filter-condition",
+    example: `// Filter by exact value
+await tableRef.current?.applyFilter({
+  accessor: "status",
+  operator: "equals",
+  value: "active"
+});
+
+// Filter by text contains
+await tableRef.current?.applyFilter({
+  accessor: "name",
+  operator: "contains",
+  value: "John"
+});
+
+// Filter by numeric range
+await tableRef.current?.applyFilter({
+  accessor: "age",
+  operator: "between",
+  values: [18, 65]
+});
+
+// Filter by multiple values (in operator)
+await tableRef.current?.applyFilter({
+  accessor: "department",
+  operator: "in",
+  values: ["Sales", "Marketing", "Support"]
+});`,
+  },
+  {
+    key: "clearFilter",
+    name: "clearFilter",
+    required: false,
+    description:
+      "Clears the filter for a specific column identified by its accessor. This method is async and returns a Promise. Only removes filters applied to the specified column, leaving other column filters intact. Useful for implementing 'clear filter' buttons on individual columns or resetting specific filters programmatically.",
+    type: "(accessor: Accessor) => Promise<void>",
+    link: "#union-types",
+    example: `// Clear filter on name column
+await tableRef.current?.clearFilter("name");
+
+// Clear filter on nested accessor
+await tableRef.current?.clearFilter("user.profile.name");
+
+// Clear filter and notify user
+await tableRef.current?.clearFilter("status");
+console.log("Status filter cleared");`,
+  },
+  {
+    key: "clearAllFilters",
+    name: "clearAllFilters",
+    required: false,
+    description:
+      "Clears all active filters from the table at once. This method is async and returns a Promise. Resets the table to show all data without any filtering applied. Perfect for 'reset all filters' buttons or starting fresh with filter state.",
+    type: "() => Promise<void>",
+    example: `// Clear all filters
+await tableRef.current?.clearAllFilters();
+
+// Clear filters and notify
+await tableRef.current?.clearAllFilters();
+console.log("All filters cleared");
+
+// Clear filters before applying new ones
+await tableRef.current?.clearAllFilters();
+await tableRef.current?.applyFilter({
+  accessor: "status",
+  operator: "equals",
+  value: "active"
+});`,
+  },
 ];
 
 export const EXPORT_TO_CSV_PROPS: PropInfo[] = [

@@ -55,6 +55,85 @@ export const AGGREGATION_CONFIG_PROPS: PropInfo[] = [
   },
 ];
 
+export const CHART_OPTIONS_PROPS: PropInfo[] = [
+  {
+    key: "min",
+    name: "min",
+    required: false,
+    description:
+      "Custom minimum value for chart scaling. If not provided, the minimum data value is used.",
+    type: "number",
+    example: `min: 0`,
+  },
+  {
+    key: "max",
+    name: "max",
+    required: false,
+    description:
+      "Custom maximum value for chart scaling. If not provided, the maximum data value is used.",
+    type: "number",
+    example: `max: 100`,
+  },
+  {
+    key: "width",
+    name: "width",
+    required: false,
+    description: "Custom chart width in pixels. Default is 100.",
+    type: "number",
+    example: `width: 120`,
+  },
+  {
+    key: "height",
+    name: "height",
+    required: false,
+    description: "Custom chart height in pixels. Default is 30.",
+    type: "number",
+    example: `height: 35`,
+  },
+  {
+    key: "color",
+    name: "color",
+    required: false,
+    description: "Custom chart color (CSS color value). Overrides the theme color.",
+    type: "string",
+    example: `color: "#3b82f6"`,
+  },
+  {
+    key: "fillColor",
+    name: "fillColor",
+    required: false,
+    description:
+      "Custom fill color for area charts (CSS color value). Only applies to lineAreaChart type. Overrides the theme fill color.",
+    type: "string",
+    example: `fillColor: "#93c5fd"`,
+  },
+  {
+    key: "fillOpacity",
+    name: "fillOpacity",
+    required: false,
+    description:
+      "Fill opacity for area charts. Value between 0 and 1. Default is 0.2. Only applies to lineAreaChart type.",
+    type: "number",
+    example: `fillOpacity: 0.3`,
+  },
+  {
+    key: "strokeWidth",
+    name: "strokeWidth",
+    required: false,
+    description: "Line stroke width in pixels. Default is 2. Only applies to lineAreaChart type.",
+    type: "number",
+    example: `strokeWidth: 2`,
+  },
+  {
+    key: "gap",
+    name: "gap",
+    required: false,
+    description: "Gap between bars in pixels. Default is 2. Only applies to barChart type.",
+    type: "number",
+    example: `gap: 3`,
+  },
+];
+
 export const FILTER_CONDITION_PROPS: PropInfo[] = [
   {
     key: "accessor",

@@ -72,33 +72,6 @@ aggregation: {
 pinned: "right"  // Pin to right side`,
   },
   {
-    key: "chartoptions",
-    name: "ChartOptions",
-    required: false,
-    description:
-      "Configuration object for customizing chart column appearance and behavior. Use with lineAreaChart and barChart column types.",
-    type: "object",
-    example: `interface ChartOptions {
-  min?: number;        // Custom minimum value for chart scaling
-  max?: number;        // Custom maximum value for chart scaling
-  width?: number;      // Custom chart width (default: 100)
-  height?: number;     // Custom chart height (default: 30)
-  color?: string;      // Custom chart color (overrides theme color)
-  fillColor?: string;  // Custom fill color for area charts
-  fillOpacity?: number; // Fill opacity for area charts (default: 0.2)
-  strokeWidth?: number; // Line stroke width (default: 2)
-  gap?: number;        // Gap between bars in bar charts (default: 2)
-}
-
-// Example usage
-chartOptions: {
-  min: 0,
-  max: 100,
-  color: "#3b82f6",
-  height: 35
-}`,
-  },
-  {
     key: "columneditorposition",
     name: "ColumnEditorPosition",
     required: false,
@@ -140,5 +113,43 @@ columnEditorPosition="right"`,
     example: `type: "number"   // For numeric columns
 type: "lineAreaChart"  // For inline line/area charts
 type: "barChart"       // For inline bar charts`,
+  },
+  {
+    key: "sortdirection",
+    name: "SortDirection",
+    required: false,
+    description:
+      "The sort direction for table columns. Used with applySortState() method for programmatic sort control. If direction is omitted from applySortState(), the sort cycles through: asc → desc → removed.",
+    type: '"asc" | "desc"',
+    example: `// Sort ascending (explicit)
+await tableRef.current?.applySortState({ accessor: "name", direction: "asc" });
+
+// Sort descending (explicit)
+await tableRef.current?.applySortState({ accessor: "price", direction: "desc" });
+
+// Cycle through sort states (asc → desc → removed)
+await tableRef.current?.applySortState({ accessor: "name" });`,
+  },
+  {
+    key: "sortcolumn",
+    name: "SortColumn",
+    required: false,
+    description:
+      "Object representing the current sort state of the table. Contains the column being sorted (as a HeaderObject) and the sort direction. Returned by getSortState() method.",
+    type: "{ key: HeaderObject; direction: SortDirection }",
+    link: "#header-object",
+    example: `// The 'key' property is a full HeaderObject, not just the accessor
+interface SortColumn {
+  key: HeaderObject;           // Complete column definition
+  direction: SortDirection;    // "asc" | "desc"
+}
+
+// Example: Get current sort state
+const sortState = tableRef.current?.getSortState();
+if (sortState) {
+  console.log("Sorted column:", sortState.key.label);
+  console.log("Accessor:", sortState.key.accessor);
+  console.log("Direction:", sortState.direction);  // "asc" or "desc"
+}`,
   },
 ];

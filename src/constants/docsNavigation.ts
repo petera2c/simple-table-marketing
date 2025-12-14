@@ -36,6 +36,7 @@ import {
   faChartLine,
   faInbox,
   faUpDown,
+  faGear,
 } from "@fortawesome/free-solid-svg-icons";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 
@@ -233,6 +234,12 @@ export const docSections: DocSection[] = [
         label: "CSV Export (beta)",
         path: "/docs/csv-export",
         icon: faDownload,
+      },
+      {
+        id: "programmatic-control",
+        label: "Programmatic Control",
+        path: "/docs/programmatic-control",
+        icon: faGear,
       },
     ],
   },

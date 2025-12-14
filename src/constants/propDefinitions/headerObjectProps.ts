@@ -86,7 +86,7 @@ type: "string"   // Default`,
     name: "chartOptions",
     required: false,
     description:
-      "Customization options for chart columns (lineAreaChart and barChart). Configure dimensions, colors, scaling, stroke width, and other visual properties. See the chart-options section for detailed options.",
+      "Customization options for chart columns (lineAreaChart and barChart). Configure dimensions, colors, scaling, stroke width, and other visual properties. See the ChartOptions section for all available properties.",
     type: "ChartOptions",
     link: "#chart-options",
     example: `chartOptions: {
