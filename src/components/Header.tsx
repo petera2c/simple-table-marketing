@@ -280,10 +280,11 @@ const Header = () => {
   const navLinks = [
     { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
-    { href: "/theme-builder", label: "Theme Builder" },
     { href: DEFAULT_EXAMPLE_PATH, label: "Examples", useActivePath: true },
-    { href: "/blog", label: "Blog" },
+    { href: "/theme-builder", label: "Theme Builder" },
     { href: "/pricing", label: "Pricing" },
+    { href: "/blog", label: "Blog" },
+    { href: "/changelog", label: "Changelog" },
   ];
 
   const externalLinks = [{ href: TECHNICAL_STRINGS.links.npm, label: "NPM", icon: faNpm }];
