@@ -10,6 +10,27 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_3: ChangelogEntry = {
+  version: "2.0.3",
+  date: "2025-12-16",
+  title: "Pagination Control API",
+  description: "Added programmatic API methods for controlling pagination state.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added getCurrentPage() method to TableRefType for retrieving the current page number",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Added setPage() method to TableRefType for programmatically changing the current page",
+      link: "/docs/api-reference#table-ref-type",
+    },
+  ],
+};
+
 export const v2_0_2: ChangelogEntry = {
   version: "2.0.2",
   date: "2025-12-15",
@@ -738,6 +759,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_3,
   v2_0_2,
   v2_0_1,
   v1_9_8,

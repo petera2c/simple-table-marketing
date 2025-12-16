@@ -79,7 +79,7 @@ const ProgrammaticControlContent = () => {
         <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
           tableRef
         </code>{" "}
-        for programmatic control of sorting and filtering.
+        for programmatic control of sorting, filtering, and pagination.
       </motion.p>
 
       <PropTable
@@ -91,12 +91,14 @@ const ProgrammaticControlContent = () => {
             "applyFilter",
             "clearFilter",
             "clearAllFilters",
+            "getCurrentPage",
+            "setPage",
           ].includes(method.key)
         ).map((method) => ({
           ...method,
           link: method.link ? `/docs/api-reference${method.link}` : undefined,
         }))}
-        title="Sorting and Filtering Methods"
+        title="Sorting, Filtering, and Pagination Methods"
       />
 
       <DocNavigationButtons />

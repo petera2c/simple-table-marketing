@@ -278,6 +278,49 @@ await tableRef.current?.applyFilter({
   value: "active"
 });`,
   },
+  {
+    key: "getCurrentPage",
+    name: "getCurrentPage",
+    required: false,
+    description:
+      "Returns the current page number when pagination is enabled. Page numbers are 1-indexed (first page is 1, not 0). Returns the current page regardless of whether pagination is client-side or server-side. Useful for tracking user navigation, syncing with URL parameters, or building custom pagination UI.",
+    type: "() => number",
+    example: `// Get current page
+const currentPage = tableRef.current?.getCurrentPage();
+console.log(\`Currently on page \${currentPage}\`);
+
+// Sync with URL
+const page = tableRef.current?.getCurrentPage();
+window.history.pushState({}, '', \`?page=\${page}\`);
+
+// Save page state
+const page = tableRef.current?.getCurrentPage();
+localStorage.setItem("lastPage", page.toString());`,
+  },
+  {
+    key: "setPage",
+    name: "setPage",
+    required: false,
+    description:
+      "Programmatically navigates to a specific page when pagination is enabled. Accepts a 1-indexed page number (first page is 1). Works with both client-side and server-side pagination. If the page number is out of range, it will be clamped to valid bounds. Perfect for implementing custom pagination controls, deep linking, or restoring saved pagination state.",
+    type: "(page: number) => void",
+    example: `// Navigate to page 3
+tableRef.current?.setPage(3);
+
+// Go to first page
+tableRef.current?.setPage(1);
+
+// Restore saved page
+const savedPage = localStorage.getItem("lastPage");
+if (savedPage) {
+  tableRef.current?.setPage(parseInt(savedPage));
+}
+
+// Handle URL parameter
+const urlParams = new URLSearchParams(window.location.search);
+const page = parseInt(urlParams.get('page') || '1');
+tableRef.current?.setPage(page);`,
+  },
 ];
 
 export const EXPORT_TO_CSV_PROPS: PropInfo[] = [
