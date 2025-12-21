@@ -14,129 +14,11 @@ const path = require("path");
 // }
 
 const docsContentPath = path.join(__dirname, "../src/components/pages/docs-pages");
-const propDefinitionsPath = path.join(__dirname, "../src/constants/propDefinitions");
-
-/**
- * Extract prop definitions from TypeScript files
- */
-function extractPropDefinitions() {
-  const propData = {};
-
-  try {
-    const propFiles = fs
-      .readdirSync(propDefinitionsPath)
-      .filter((file) => file.endsWith(".ts") && file !== "index.ts" && file !== "types.ts");
-
-    for (const file of propFiles) {
-      const filePath = path.join(propDefinitionsPath, file);
-      const content = fs.readFileSync(filePath, "utf-8");
-
-      // Extract prop array definitions (e.g., SIMPLE_TABLE_PROPS, HEADER_OBJECT_PROPS)
-      const propArrayRegex = /export const (\w+):\s*PropInfo\[\]\s*=\s*\[([\s\S]*?)\n\];/g;
-      let match;
-
-      while ((match = propArrayRegex.exec(content)) !== null) {
-        const arrayName = match[1];
-        const arrayContent = match[2];
-
-        // Extract individual prop objects - split by object boundaries
-        const propObjects = [];
-
-        // Split by },\n  { to get individual objects
-        const objectStrings = arrayContent.split(/\},\s*\{/);
-
-        for (let i = 0; i < objectStrings.length; i++) {
-          let objStr = objectStrings[i];
-
-          // Add back the braces that were removed by split
-          if (i > 0) objStr = "{" + objStr;
-          if (i < objectStrings.length - 1) objStr = objStr + "}";
-
-          // Extract key
-          const keyMatch = objStr.match(/key:\s*["']([^"']+)["']/);
-          if (!keyMatch) continue;
-
-          // Extract name
-          const nameMatch = objStr.match(/name:\s*["']([^"']+)["']/);
-          if (!nameMatch) continue;
-
-          // Extract description (handle multiline)
-          let description = "";
-          const descMatch = objStr.match(/description:\s*["']([^"']+)["']/);
-          const descMultilineMatch = objStr.match(/description:\s*\n\s*["']([^"']+)["']/);
-          const descConcatMatch = objStr.match(
-            /description:\s*\n\s*["']([^"']*?)["']\s*\+\s*\n[\s\S]*?["']([^"']*?)["']/
-          );
-
-          if (descMatch) {
-            description = descMatch[1];
-          } else if (descMultilineMatch) {
-            description = descMultilineMatch[1];
-          } else if (descConcatMatch) {
-            // Handle string concatenation
-            description = descConcatMatch[1] + " " + descConcatMatch[2];
-          } else {
-            // Try to extract any quoted string after description:
-            const anyDescMatch = objStr.match(/description:[\s\S]*?["']([^"']{10,}?)["']/);
-            if (anyDescMatch) {
-              description = anyDescMatch[1];
-            }
-          }
-
-          if (description) {
-            propObjects.push({
-              key: keyMatch[1],
-              name: nameMatch[1],
-              description: description.replace(/\s+/g, " ").trim(),
-            });
-          }
-        }
-
-        if (propObjects.length > 0) {
-          propData[arrayName] = propObjects;
-        }
-      }
-    }
-  } catch (error) {
-    console.error("Error extracting prop definitions:", error);
-  }
-
-  return propData;
-}
-
-/**
- * Extract prop table usage from component
- */
-function extractPropTableContent(componentSource, allPropData) {
-  const propTableContent = [];
-
-  // Find all PropTable usages with their prop arrays
-  const propTableRegex = /<PropTable\s+props=\{([A-Z_]+)\}\s+title=["']([^"']+)["']\s*\/>/g;
-  let match;
-
-  while ((match = propTableRegex.exec(componentSource)) !== null) {
-    const propArrayName = match[1];
-    const tableTitle = match[2];
-
-    if (allPropData[propArrayName]) {
-      // Add table title as a heading
-      propTableContent.push(tableTitle);
-
-      // Add all prop names and descriptions
-      allPropData[propArrayName].forEach((prop) => {
-        propTableContent.push(prop.name);
-        propTableContent.push(prop.description);
-      });
-    }
-  }
-
-  return propTableContent;
-}
 
 /**
  * Extract text content from a React component file
  */
-function extractTextFromComponent(componentPath, allPropData) {
+function extractTextFromComponent(componentPath) {
   try {
     // Read the component file as text
     const componentSource = fs.readFileSync(componentPath, "utf-8");
@@ -198,10 +80,6 @@ function extractTextFromComponent(componentPath, allPropData) {
         paragraphs.push(stringContent);
       }
     }
-
-    // Extract PropTable content
-    const propTableContent = extractPropTableContent(componentSource, allPropData);
-    paragraphs.push(...propTableContent);
 
     const content = paragraphs
       .filter((p, index, self) => self.indexOf(p) === index) // Remove duplicates
@@ -519,13 +397,6 @@ function getSEOMetadata(docId) {
 function generateSearchIndex() {
   console.log("🔍 Generating search index for documentation pages...\n");
 
-  // First, extract all prop definitions
-  console.log("📋 Extracting prop definitions...");
-  const allPropData = extractPropDefinitions();
-  const propArrayCount = Object.keys(allPropData).length;
-  const totalProps = Object.values(allPropData).reduce((sum, props) => sum + props.length, 0);
-  console.log(`   Found ${propArrayCount} prop arrays with ${totalProps} total props\n`);
-
   const searchIndex = [];
   const docsPages = fs.readdirSync(docsContentPath).filter((file) => file.endsWith("Content.tsx"));
 
@@ -542,8 +413,8 @@ function generateSearchIndex() {
 
     console.log(`Processing: ${docId}`);
 
-    // Extract text from component (now includes prop table data)
-    const { headings, content } = extractTextFromComponent(componentPath, allPropData);
+    // Extract text from component
+    const { headings, content } = extractTextFromComponent(componentPath);
 
     // Get SEO metadata
     const { title, description, keywords } = getSEOMetadata(docId);
