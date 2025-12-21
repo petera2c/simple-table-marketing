@@ -79,9 +79,43 @@ const ProgrammaticControlContent = () => {
         <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
           tableRef
         </code>{" "}
-        for programmatic control of sorting, filtering, and pagination.
+        for programmatic control of the table.
       </motion.p>
 
+      {/* Data Manipulation Methods */}
+      <PropTable
+        props={TABLE_REF_TYPE_METHODS.filter((method) =>
+          ["updateData", "setHeaderRename"].includes(method.key)
+        ).map((method) => ({
+          ...method,
+          link: method.link ? `/docs/api-reference${method.link}` : undefined,
+        }))}
+        title="Data Manipulation Methods"
+      />
+
+      {/* Data Access Methods */}
+      <PropTable
+        props={TABLE_REF_TYPE_METHODS.filter((method) =>
+          ["getVisibleRows", "getAllRows", "getHeaders"].includes(method.key)
+        ).map((method) => ({
+          ...method,
+          link: method.link ? `/docs/api-reference${method.link}` : undefined,
+        }))}
+        title="Data Access Methods"
+      />
+
+      {/* Export Methods */}
+      <PropTable
+        props={TABLE_REF_TYPE_METHODS.filter((method) => ["exportToCSV"].includes(method.key)).map(
+          (method) => ({
+            ...method,
+            link: method.link ? `/docs/api-reference${method.link}` : undefined,
+          })
+        )}
+        title="Export Methods"
+      />
+
+      {/* Sorting, Filtering, and Pagination Methods */}
       <PropTable
         props={TABLE_REF_TYPE_METHODS.filter((method) =>
           [

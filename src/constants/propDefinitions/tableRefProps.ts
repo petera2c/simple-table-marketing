@@ -51,13 +51,19 @@ if (stockLow) {
     name: "setHeaderRename",
     required: false,
     description:
-      "Programmatically rename a column header. Useful for dynamic table configurations and internationalization.",
-    type: "(params: { accessor: Accessor; newLabel: string }) => void",
-    example: `// Rename a column header
+      "Programmatically triggers the header rename mode for a specific column. Sets the header cell to editing mode, allowing the user to rename it. The header must have enableHeaderRename enabled.",
+    type: "(params: { accessor: Accessor }) => void",
+    example: `// Trigger header rename mode
 tableRef.current?.setHeaderRename({
-  accessor: "firstName",
-  newLabel: "First Name (Updated)"
-});`,
+  accessor: "firstName"
+});
+
+// Trigger rename from a button
+const handleRenameClick = () => {
+  tableRef.current?.setHeaderRename({
+    accessor: "status"
+  });
+};`,
   },
   {
     key: "getVisibleRows",

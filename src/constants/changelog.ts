@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_4: ChangelogEntry = {
+  version: "2.0.4",
+  date: "2025-12-21",
+  title: "Adaptive Table Height with maxHeight",
+  description:
+    "Added maxHeight prop for adaptive table height that shrinks when there are fewer rows while maintaining virtualization support.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added maxHeight prop to enable adaptive height with virtualization - table shrinks to fit content when there are few rows",
+      link: "/docs/table-height",
+    },
+  ],
+};
+
 export const v2_0_3: ChangelogEntry = {
   version: "2.0.3",
   date: "2025-12-16",
@@ -759,6 +775,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_4,
   v2_0_3,
   v2_0_2,
   v2_0_1,

@@ -17,7 +17,7 @@ const TABLE_HEIGHT_PROPS: PropInfo[] = [
     name: "height",
     required: false,
     description:
-      "Sets the height of the table container. When specified, Simple Table handles vertical scrolling internally. When omitted, the table expands to fit all rows and overflows the parent container.",
+      "Sets the height of the table container. When specified, Simple Table handles vertical scrolling internally. When omitted, the table expands to fit all rows and overflows the parent container. Note: If both height and maxHeight are defined, height will be ignored.",
     type: "string | number",
     example: `// Fixed pixel height
 <SimpleTable
@@ -40,6 +40,31 @@ const TABLE_HEIGHT_PROPS: PropInfo[] = [
 // No height - table overflows parent
 <SimpleTable
   // height prop omitted
+  // ... other props
+/>`,
+  },
+  {
+    key: "maxHeight",
+    name: "maxHeight",
+    required: false,
+    description:
+      "Sets the maximum height of the table container with adaptive behavior. Works the same as height except that it will shrink if there are fewer rows. Enables virtualization while allowing the table to be smaller when content doesn't fill the maximum height. If both height and maxHeight are defined, height will be ignored.",
+    type: "string | number",
+    example: `// Adaptive height up to 600px
+<SimpleTable
+  maxHeight="600px"
+  // ... other props
+/>
+
+// Shrinks with few rows, grows up to 80vh
+<SimpleTable
+  maxHeight="80vh"
+  // ... other props
+/>
+
+// Adaptive with percentage
+<SimpleTable
+  maxHeight="100%"
   // ... other props
 />`,
   },
@@ -70,7 +95,11 @@ export default function TableHeightContent() {
         <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
           height
         </code>{" "}
-        prop controls how Simple Table handles vertical overflow. Understanding this prop is
+        and{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          maxHeight
+        </code>{" "}
+        props control how Simple Table handles vertical overflow. Understanding these props is
         essential for building tables that integrate well with your layout.
       </motion.p>
 
@@ -108,28 +137,45 @@ export default function TableHeightContent() {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             height
           </code>{" "}
-          prop is optional and determines how the table handles vertical space:
+          and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            maxHeight
+          </code>{" "}
+          props are optional and determine how the table handles vertical space:
         </p>
 
         <div className="space-y-4 mb-6">
           <div className="p-4 bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 rounded-r-lg">
             <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-              With height specified (recommended for most cases)
+              With height specified
             </h4>
             <p className="text-gray-700 dark:text-gray-300">
               Simple Table creates a scrollable container at the specified height. The header
               remains fixed while the body scrolls. This is ideal when you have many rows and want
-              to keep the table contained within a specific area of your layout.
+              to keep the table contained within a specific area of your layout. The table will
+              always be the specified height, even if there are few rows.
+            </p>
+          </div>
+
+          <div className="p-4 bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 rounded-r-lg">
+            <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+              With maxHeight specified (adaptive height)
+            </h4>
+            <p className="text-gray-700 dark:text-gray-300">
+              Works the same as height except that the table will shrink if there are fewer rows.
+              This provides adaptive behavior where the table grows up to the maximum height but
+              remains compact when displaying less data. Virtualization is still enabled for
+              performance. If both height and maxHeight are defined, height will be ignored.
             </p>
           </div>
 
           <div className="p-4 bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 rounded-r-lg">
             <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-              Without height (table overflows parent)
+              Without height or maxHeight (table overflows parent)
             </h4>
             <p className="text-gray-700 dark:text-gray-300">
-              When no height is specified, the table expands to show all rows and will overflow its
-              parent container. This is useful when you want to handle scrolling yourself (e.g.,
+              When neither prop is specified, the table expands to show all rows and will overflow
+              its parent container. This is useful when you want to handle scrolling yourself (e.g.,
               page-level scrolling) or when embedding the table in a container that manages its own
               overflow.
             </p>
@@ -137,6 +183,26 @@ export default function TableHeightContent() {
         </div>
 
         <PropTable props={TABLE_HEIGHT_PROPS} title="Height Configuration" />
+
+        <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg">
+          <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+            Advanced: headerHeight and footerHeight
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300 text-sm">
+            The{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              headerHeight
+            </code>{" "}
+            and{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              footerHeight
+            </code>{" "}
+            props are rarely needed and should almost never be used. They are only useful for
+            pagination tables with custom footers where the table needs to know the footer height
+            before rendering to properly calculate when the body will scroll. In most cases, the
+            table handles these calculations automatically.
+          </p>
+        </div>
       </motion.div>
 
       <motion.h2
@@ -158,7 +224,7 @@ export default function TableHeightContent() {
           Fixed Height Table
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Most common use case. The table has a fixed height and handles its own scrolling:
+          The table has a fixed height and handles its own scrolling:
         </p>
         <CodeBlock
           code={`<SimpleTable
@@ -166,6 +232,30 @@ export default function TableHeightContent() {
   rows={data}
   rowIdAccessor="id"
   height="400px"
+/>`}
+          language="tsx"
+        />
+      </motion.div>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
+      >
+        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
+          Adaptive Height Table (maxHeight)
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use maxHeight when you want the table to shrink with fewer rows but grow up to a maximum
+          height. Perfect for tables with variable data amounts:
+        </p>
+        <CodeBlock
+          code={`<SimpleTable
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+  maxHeight="600px"
 />`}
           language="tsx"
         />
@@ -254,12 +344,24 @@ export default function TableHeightContent() {
       >
         <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pro Tip</h3>
         <p className="text-gray-700 dark:text-gray-300">
-          For most applications, specifying a{" "}
+          For most applications, specifying either{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             height
           </code>{" "}
-          is recommended. This ensures consistent layout, enables virtualization for large datasets,
-          and keeps the header visible while scrolling through data.
+          or{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            maxHeight
+          </code>{" "}
+          is recommended. Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            height
+          </code>{" "}
+          for consistent sizing or{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            maxHeight
+          </code>{" "}
+          for adaptive behavior. Both enable virtualization for large datasets and keep the header
+          visible while scrolling through data.
         </p>
       </motion.div>
 

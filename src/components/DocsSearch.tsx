@@ -15,6 +15,91 @@ interface DocsSearchProps {
   autoFocus?: boolean;
 }
 
+/**
+ * Highlights matching text based on Fuse.js match indices
+ */
+const highlightMatches = (
+  text: string,
+  matches: readonly any[] | undefined,
+  fieldName: string
+): React.ReactNode => {
+  if (!matches || matches.length === 0) {
+    return text;
+  }
+
+  // Find matches for this specific field
+  const fieldMatches = matches.filter((match) => match.key === fieldName);
+
+  if (fieldMatches.length === 0) {
+    return text;
+  }
+
+  // Collect all match indices for this field
+  const indices: Array<[number, number]> = [];
+  fieldMatches.forEach((match) => {
+    if (match.indices) {
+      // Filter out very short matches (single characters) to reduce noise
+      const validIndices = match.indices.filter(
+        ([start, end]: [number, number]) => end - start >= 1
+      );
+      indices.push(...validIndices);
+    }
+  });
+
+  if (indices.length === 0) {
+    return text;
+  }
+
+  // Sort indices by start position
+  indices.sort((a, b) => a[0] - b[0]);
+
+  // Merge overlapping or very close indices (within 2 characters)
+  const mergedIndices: Array<[number, number]> = [];
+  let currentRange = indices[0];
+
+  for (let i = 1; i < indices.length; i++) {
+    const [start, end] = indices[i];
+    if (start <= currentRange[1] + 2) {
+      // Overlapping or very close, merge them
+      currentRange = [currentRange[0], Math.max(currentRange[1], end)];
+    } else {
+      mergedIndices.push(currentRange);
+      currentRange = [start, end];
+    }
+  }
+  mergedIndices.push(currentRange);
+
+  // Build the highlighted text
+  const parts: React.ReactNode[] = [];
+  let lastIndex = 0;
+
+  mergedIndices.forEach(([start, end], idx) => {
+    // Add non-highlighted text before this match
+    if (start > lastIndex) {
+      parts.push(text.substring(lastIndex, start));
+    }
+
+    // Add highlighted match with more subtle styling
+    parts.push(
+      <mark
+        key={`highlight-${idx}`}
+        className="bg-yellow-100 dark:bg-yellow-900/40 text-inherit font-semibold rounded px-0.5"
+      >
+        {text.substring(start, end + 1)}
+      </mark>
+    );
+
+    lastIndex = end + 1;
+  });
+
+  // Add remaining text after last match
+  if (lastIndex < text.length) {
+    parts.push(text.substring(lastIndex));
+  }
+
+  return <>{parts}</>;
+};
+
 const DocsSearch: React.FC<DocsSearchProps> = ({
   placeholder = "Search documentation...",
   autoFocus = false,
@@ -35,11 +120,13 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
         { name: "headings", weight: 1.2 },
         { name: "content", weight: 0.5 },
       ],
-      threshold: 0.4,
+      threshold: 0.3, // More strict matching (was 0.4)
       includeScore: true,
       includeMatches: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 3, // Require at least 3 characters to match (was 2)
       ignoreLocation: true,
+      distance: 100, // Limit how far apart matched characters can be
+      findAllMatches: false, // Only find best matches
     });
   }, []);
 
@@ -158,10 +245,10 @@ const DocsSearch: React.FC<DocsSearchProps> = ({
                     {result.doc.section}
                   </Tag>
                   <div className="font-semibold text-gray-900 dark:text-white mb-1">
-                    {result.doc.title}
+                    {highlightMatches(result.doc.title, result.matches, "title")}
                   </div>
                   <div className="text-sm text-gray-600 dark:text-gray-300 line-clamp-2">
-                    {result.doc.description}
+                    {highlightMatches(result.doc.description, result.matches, "description")}
                   </div>
                 </Link>
               ))

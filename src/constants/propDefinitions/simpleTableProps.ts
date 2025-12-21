@@ -41,10 +41,41 @@ rowIdAccessor="employeeId"`,
     key: "height",
     name: "height",
     required: false,
-    description: "Height of the table container.",
-    type: "string",
+    description:
+      "Height of the table container. If both height and maxHeight are defined, height will be ignored.",
+    type: "string | number",
+    link: "/docs/table-height",
     example: `height="400px"
 height="50vh"`,
+  },
+  {
+    key: "maxHeight",
+    name: "maxHeight",
+    required: false,
+    description:
+      "Maximum height of the table container with adaptive behavior. Works the same as height except that it will shrink if there are fewer rows. Enables virtualization while allowing the table to be smaller when content doesn't fill the maximum height. If both height and maxHeight are defined, height will be ignored.",
+    type: "string | number",
+    link: "/docs/table-height",
+    example: `maxHeight="600px"
+maxHeight="80vh"`,
+  },
+  {
+    key: "headerHeight",
+    name: "headerHeight",
+    required: false,
+    description:
+      "Height of the table header in pixels. Rarely used - only needed for advanced height calculations. The table's height calculation is complex and knowing the header height before render helps determine when the body will scroll.",
+    type: "number",
+    example: `headerHeight={40}`,
+  },
+  {
+    key: "footerHeight",
+    name: "footerHeight",
+    required: false,
+    description:
+      "Height of the table footer in pixels. Rarely used - only needed for pagination tables with custom footers. The table's height calculation is complex and knowing the footer height before render helps determine when the body will scroll.",
+    type: "number",
+    example: `footerHeight={48}`,
   },
   {
     key: "rowHeight",

@@ -1806,6 +1806,11 @@ video {
   background-color: rgb(202 138 4 / var(--tw-bg-opacity, 1));
 }
 
+.bg-yellow-200 {
+  --tw-bg-opacity: 1;
+  background-color: rgb(254 240 138 / var(--tw-bg-opacity, 1));
+}
+
 .bg-gradient-to-b {
   background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
 }
@@ -2091,6 +2096,11 @@ video {
 .py-8 {
   padding-top: 2rem;
   padding-bottom: 2rem;
+}
+
+.px-0\.5 {
+  padding-left: 0.125rem;
+  padding-right: 0.125rem;
 }
 
 .pb-12 {
@@ -3223,6 +3233,18 @@ body {
 
 .dark\:bg-yellow-900\/30:is(.dark *) {
   background-color: rgb(113 63 18 / 0.3);
+}
+
+.dark\:bg-gray-800\/50:is(.dark *) {
+  background-color: rgb(31 41 55 / 0.5);
+}
+
+.dark\:bg-yellow-600\/50:is(.dark *) {
+  background-color: rgb(202 138 4 / 0.5);
+}
+
+.dark\:bg-yellow-900\/40:is(.dark *) {
+  background-color: rgb(113 63 18 / 0.4);
 }
 
 .dark\:from-amber-900\/20:is(.dark *) {
