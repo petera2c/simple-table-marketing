@@ -33,11 +33,22 @@ export default function SalesExample({
 }) {
   const { data: fetchedData, isLoading } = useSalesData(rowCount);
   const [data, setData] = useState(fetchedData);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Update local data when fetched data changes
   useEffect(() => {
     setData(fetchedData);
   }, [fetchedData]);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   const handleCellEdit = ({ accessor, newValue, row }: CellChangeProps) => {
     setData((prevData) =>
@@ -72,7 +83,7 @@ export default function SalesExample({
 
   return (
     <SimpleTable
-      autoExpandColumns
+      autoExpandColumns={!isMobile}
       columnResizing
       columnReordering
       defaultHeaders={SALES_HEADERS}

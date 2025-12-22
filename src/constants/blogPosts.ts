@@ -249,8 +249,19 @@ export const reactTableRowSelectionPost: BlogPostMetadata = {
   updatedAt: "2025-12-14",
 };
 
+export const autoExpandColumnsReactTablesPost: BlogPostMetadata = {
+  title: "Auto-Expand Columns in React Tables: The Hidden Complexity Behind Seamless UX",
+  description:
+    "Making table columns automatically fill the screen seems simple—until users resize them. Discover the sophisticated algorithms behind auto-expanding columns and why this 'simple' feature is one of the hardest problems in data grid engineering.",
+  slug: "auto-expand-columns-react-tables",
+  tags: ["react", "column-width", "tutorial", "advanced", "algorithms"],
+  createdAt: "2025-12-22",
+  updatedAt: "2025-12-22",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  autoExpandColumnsReactTablesPost,
   reactTableRowSelectionPost,
   materialReactTableVsSimpleTablePost,
   reactTreeDataHierarchicalPost,

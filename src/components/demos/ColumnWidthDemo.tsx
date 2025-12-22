@@ -1,5 +1,6 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useState, useEffect } from "react";
 
 // Define headers with different width strategies
 const headers: HeaderObject[] = [
@@ -137,9 +138,21 @@ const ColumnWidthDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   return (
     <SimpleTable
-      autoExpandColumns
+      autoExpandColumns={!isMobile}
       columnResizing
       defaultHeaders={headers}
       height={height}

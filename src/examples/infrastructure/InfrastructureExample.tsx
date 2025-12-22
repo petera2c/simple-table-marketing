@@ -1,6 +1,5 @@
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import { SimpleTable, TableRefType, Theme } from "simple-table-core";
-
 import "simple-table-core/styles.css";
 import { HEADERS } from "./infrastructure-headers";
 import { useServerMetricsUpdates } from "./useServerMetricsUpdates";
@@ -33,9 +32,20 @@ export default function InfrastructureExample({
 }) {
   const tableRef = useRef<TableRefType | null>(null);
   const { data, isLoading } = useInfrastructureData(rowCount);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Use the hook for live metrics updates
   useServerMetricsUpdates(tableRef, data);
+
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
 
   if (isLoading) {
     return (
@@ -56,7 +66,7 @@ export default function InfrastructureExample({
 
   return (
     <SimpleTable
-      autoExpandColumns
+      autoExpandColumns={!isMobile}
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
