@@ -93,7 +93,7 @@ const ColumnWidthContent = () => {
         <div className="p-2 bg-blue-100 rounded-lg">
           <FontAwesomeIcon icon={faRulerHorizontal} className="text-blue-600 text-2xl" />
         </div>
-        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Auto-Sizing</h1>
+        <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Width</h1>
       </motion.div>
 
       <motion.p
