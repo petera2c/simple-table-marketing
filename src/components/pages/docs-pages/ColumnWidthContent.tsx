@@ -12,6 +12,21 @@ import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const COLUMN_WIDTH_PROPS: PropInfo[] = [
   {
+    key: "autoExpandColumns",
+    name: "autoExpandColumns",
+    required: false,
+    description:
+      "When enabled on the table, all column widths are scaled proportionally to fill the entire container width. The width property of each column is used as the base for proportional distribution.",
+    type: "boolean",
+    link: "/docs/api-reference#simple-table-props",
+    example: `<SimpleTable
+  autoExpandColumns={true}
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+/>`,
+  },
+  {
     key: "width",
     name: "HeaderObject.width",
     required: true,
@@ -39,7 +54,7 @@ const COLUMN_WIDTH_PROPS: PropInfo[] = [
     name: "HeaderObject.minWidth",
     required: false,
     description:
-      "Sets the minimum width constraint for auto-sizing columns (those using '1fr'). Prevents columns from becoming too narrow when space is limited.",
+      "Sets the minimum width constraint for auto-sizing columns (those using '1fr'). Prevents columns from becoming too narrow when space is limited. Note: When autoExpandColumns is enabled, minWidth is NOT enforced during initial scaling.",
     type: "number",
     example: `// Auto-sizing column with minimum width
 { 
@@ -47,6 +62,21 @@ const COLUMN_WIDTH_PROPS: PropInfo[] = [
   label: "Email Address", 
   width: "1fr",
   minWidth: 200  // Won't shrink below 200px
+}`,
+  },
+  {
+    key: "maxWidth",
+    name: "HeaderObject.maxWidth",
+    required: false,
+    description:
+      "Sets the maximum width constraint for columns. Note: When autoExpandColumns is enabled, maxWidth is NOT enforced - it is completely ignored during proportional scaling.",
+    type: "number",
+    example: `// Column with maximum width
+{ 
+  accessor: "description", 
+  label: "Description", 
+  width: "1fr",
+  maxWidth: 400  // Won't grow beyond 400px
 }`,
   },
 ];
@@ -72,12 +102,13 @@ const ColumnWidthContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Simple Table provides flexible column width options with both fixed widths and auto-sizing
-        capabilities. Use{" "}
+        Simple Table provides flexible column width options including fixed widths, auto-sizing with{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">"1fr"</code>, and
+        proportional scaling with{" "}
         <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">
-          width: "1fr"
-        </code>{" "}
-        for columns that automatically adapt to available space.
+          autoExpandColumns
+        </code>
+        . Choose the approach that best fits your layout needs.
       </motion.p>
 
       <motion.div
@@ -100,7 +131,7 @@ const ColumnWidthContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
       >
-        Width Configuration
+        Auto-Expand Columns
       </motion.h2>
 
       <motion.div
@@ -108,6 +139,64 @@ const ColumnWidthContent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+            autoExpandColumns
+          </code>{" "}
+          prop makes your table columns automatically fill the entire container width by scaling all
+          column widths proportionally:
+        </p>
+
+        <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 p-4 rounded-lg mb-4">
+          <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+            How autoExpandColumns Works
+          </h3>
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2">
+            <li>
+              <strong>width:</strong> Used as the base for proportional scaling. All column widths
+              are multiplied by a scale factor to fill the container.
+            </li>
+            <li>
+              <strong>minWidth:</strong> NOT enforced during initial scaling - columns can be scaled
+              below their minWidth.
+            </li>
+            <li>
+              <strong>maxWidth:</strong> NOT enforced at all - the property is not checked or used
+              in autoExpandColumns mode.
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">When to Use</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            Use{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">
+              autoExpandColumns
+            </code>{" "}
+            when you want your table to always fill its container width with no horizontal
+            scrolling. This is perfect for dashboards, reports, and full-width layouts where the
+            table should adapt to any container size.
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        Width Configuration
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           The <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">width</code>{" "}
@@ -121,7 +210,7 @@ const ColumnWidthContent = () => {
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.5 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
       >
         Understanding Auto-Sizing
       </motion.h2>
@@ -130,7 +219,7 @@ const ColumnWidthContent = () => {
         className="mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           When you set{" "}

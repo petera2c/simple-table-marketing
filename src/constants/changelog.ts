@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_6: ChangelogEntry = {
+  version: "2.0.6",
+  date: "2025-12-22",
+  title: "Auto-Expand Columns with autoExpandColumns",
+  description:
+    "Added autoExpandColumns prop to automatically scale column widths proportionally to fill the table container width. Columns expand or shrink based on their relative width values.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added autoExpandColumns prop to scale all column widths proportionally to fill the container - perfect for responsive tables that adapt to their container size",
+      link: "/docs/column-width",
+    },
+  ],
+};
+
 export const v2_0_4: ChangelogEntry = {
   version: "2.0.4",
   date: "2025-12-21",
@@ -775,6 +791,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_6,
   v2_0_4,
   v2_0_3,
   v2_0_2,

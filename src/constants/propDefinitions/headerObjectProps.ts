@@ -105,10 +105,21 @@ type: "string"   // Default`,
     key: "minWidth",
     name: "minWidth",
     required: false,
-    description: "Minimum width constraint for the column.",
+    description:
+      "Minimum width constraint for the column. Note: When autoExpandColumns is enabled, minWidth is NOT enforced during initial scaling - columns can be scaled below their minWidth.",
     type: "number | string",
     example: `minWidth: 80
 minWidth: "100px"`,
+  },
+  {
+    key: "maxWidth",
+    name: "maxWidth",
+    required: false,
+    description:
+      "Maximum width constraint for the column. Note: When autoExpandColumns is enabled, maxWidth is NOT enforced at all - the property is ignored during proportional scaling.",
+    type: "number | string",
+    example: `maxWidth: 300
+maxWidth: "400px"`,
   },
   {
     key: "isSortable",

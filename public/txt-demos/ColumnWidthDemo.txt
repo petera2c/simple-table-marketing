@@ -139,10 +139,12 @@ const ColumnWidthDemo = ({
 }) => {
   return (
     <SimpleTable
+      autoExpandColumns
+      columnResizing
       defaultHeaders={headers}
+      height={height}
       rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
-      height={height}
       theme={theme}
     />
   );

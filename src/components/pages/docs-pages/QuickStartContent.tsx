@@ -169,7 +169,11 @@ const QuickStartContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             height
           </code>{" "}
-          prop determines how Simple Table handles vertical scrolling:
+          and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            maxHeight
+          </code>{" "}
+          props determine how Simple Table handles vertical scrolling:
         </p>
         <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
           <li>
@@ -177,14 +181,53 @@ const QuickStartContent = () => {
             internally. The header stays visible while scrolling through rows.
           </li>
           <li>
+            <strong>With maxHeight:</strong> Works like height, but the table shrinks if there are
+            fewer rows. Great for adaptive layouts.
+          </li>
+          <li>
             <strong>Without height:</strong> The table expands to show all rows and overflows its
             parent container. Use this when you want the parent or page to handle scrolling.
           </li>
         </ul>
         <p className="text-gray-700 dark:text-gray-300">
-          For most applications, specifying a height is recommended. Learn more in the{" "}
+          For most applications, specifying a height or maxHeight is recommended. Learn more in the{" "}
           <a href="/docs/table-height" className="text-blue-600 dark:text-blue-400 hover:underline">
             Table Height documentation
+          </a>
+          .
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-lg shadow-sm mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">Auto-Expanding Columns</h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-2">
+          By default, Simple Table uses the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            width
+          </code>{" "}
+          values you specify for each column. For tables that should always fill their container
+          width, use the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            autoExpandColumns
+          </code>{" "}
+          prop:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
+          <li>
+            All column widths are automatically scaled proportionally to fill the table container
+          </li>
+          <li>Your width values serve as the basis for proportional distribution</li>
+          <li>Perfect for responsive tables that adapt to different screen sizes</li>
+        </ul>
+        <p className="text-gray-700 dark:text-gray-300">
+          Learn more in the{" "}
+          <a href="/docs/column-width" className="text-blue-600 dark:text-blue-400 hover:underline">
+            Column Width documentation
           </a>
           .
         </p>

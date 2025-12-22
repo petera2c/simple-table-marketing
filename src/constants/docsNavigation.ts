@@ -75,7 +75,7 @@ export const docSections: DocSection[] = [
     subsections: [
       {
         id: "column-width",
-        label: "Column Auto-Sizing",
+        label: "Column Width",
         path: "/docs/column-width",
         icon: faRulerHorizontal,
       },

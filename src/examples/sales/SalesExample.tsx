@@ -72,6 +72,7 @@ export default function SalesExample({
 
   return (
     <SimpleTable
+      autoExpandColumns
       columnResizing
       columnReordering
       defaultHeaders={SALES_HEADERS}

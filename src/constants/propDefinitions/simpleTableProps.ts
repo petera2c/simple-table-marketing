@@ -612,6 +612,25 @@ useEffect(() => {
 }}`,
   },
   {
+    key: "autoExpandColumns",
+    name: "autoExpandColumns",
+    required: false,
+    description:
+      "When true, automatically scales all column widths proportionally to fill the entire table container width. The width property of each column is used as the base for proportional scaling. Note: minWidth is NOT enforced during scaling (columns can shrink below minWidth), and maxWidth is NOT checked at all.",
+    type: "boolean",
+    link: "/docs/column-width",
+    example: `// Columns will scale to fill container
+<SimpleTable
+  autoExpandColumns={true}
+  defaultHeaders={[
+    { accessor: "id", label: "ID", width: 80 },
+    { accessor: "name", label: "Name", width: 200 },
+    { accessor: "email", label: "Email", width: 250 }
+  ]}
+  // ... other props
+/>`,
+  },
+  {
     key: "columnBorders",
     name: "columnBorders",
     required: false,
