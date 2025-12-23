@@ -175,6 +175,7 @@ const SpreadsheetExampleComponent = ({
   return (
     <div className="spreadsheet-container">
       <SimpleTable
+        columnBorders
         columnReordering
         columnResizing
         defaultHeaders={headers}

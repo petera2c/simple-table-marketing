@@ -67,6 +67,18 @@ const THEME_PROPS: PropInfo[] = [
   // ... other props
 />`,
   },
+  {
+    key: "columnBorders",
+    name: "columnBorders",
+    required: false,
+    description:
+      "Displays vertical borders between columns. This provides clear visual separation between columns, which is especially useful for spreadsheet-style tables or tables with many columns.",
+    type: "boolean",
+    example: `<SimpleTable
+  columnBorders={false}  // Default
+  // ... other props
+/>`,
+  },
 ];
 
 export default function ThemesContent() {
@@ -111,7 +123,8 @@ export default function ThemesContent() {
           className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
         >
           creating custom themes
-        </Link>.
+        </Link>
+        .
       </motion.p>
 
       <motion.div
@@ -194,6 +207,7 @@ export default function MyTable() {
       useHoverRowBackground={true}
       useOddEvenRowBackground={true}
       useOddColumnBackground={false}
+      columnBorders={true}
     />
   );
 }`}
