@@ -616,7 +616,7 @@ useEffect(() => {
     name: "autoExpandColumns",
     required: false,
     description:
-      "When true, automatically scales all column widths proportionally to fill the entire table container width. The width property of each column is used as the base for proportional scaling. Note: minWidth is NOT enforced during scaling (columns can shrink below minWidth), and maxWidth is NOT checked at all.",
+      "When true, automatically scales all column widths proportionally to fill the entire table container width. The width property of each column is used as the base for proportional scaling. Note: minWidth is NOT enforced during scaling (columns can shrink below minWidth), and maxWidth is NOT checked at all. Recommended: Set to false on mobile devices (< 768px) as horizontal scrolling provides better UX than cramped columns on small screens.",
     type: "boolean",
     link: "/docs/column-width",
     example: `// Columns will scale to fill container
@@ -627,6 +627,20 @@ useEffect(() => {
     { accessor: "name", label: "Name", width: 200 },
     { accessor: "email", label: "Email", width: 250 }
   ]}
+  // ... other props
+/>
+
+// Responsive: disable on mobile
+const [isMobile, setIsMobile] = useState(false);
+useEffect(() => {
+  const check = () => setIsMobile(window.innerWidth < 768);
+  check();
+  window.addEventListener("resize", check);
+  return () => window.removeEventListener("resize", check);
+}, []);
+
+<SimpleTable
+  autoExpandColumns={!isMobile}
   // ... other props
 />`,
   },

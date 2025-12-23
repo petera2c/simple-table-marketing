@@ -16,7 +16,7 @@ const COLUMN_WIDTH_PROPS: PropInfo[] = [
     name: "autoExpandColumns",
     required: false,
     description:
-      "When enabled on the table, all column widths are scaled proportionally to fill the entire container width. The width property of each column is used as the base for proportional distribution.",
+      "When enabled on the table, all column widths are scaled proportionally to fill the entire container width. The width property of each column is used as the base for proportional distribution. Note: It's recommended to set this to false on mobile devices (< 768px) as horizontal scrolling provides better UX than cramped columns on small screens.",
     type: "boolean",
     link: "/docs/api-reference#simple-table-props",
     example: `<SimpleTable
@@ -169,9 +169,9 @@ const ColumnWidthContent = () => {
           </ul>
         </div>
 
-        <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg">
+        <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg mb-4">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">When to Use</h3>
-          <p className="text-gray-700 dark:text-gray-300">
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
             Use{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">
               autoExpandColumns
@@ -180,6 +180,42 @@ const ColumnWidthContent = () => {
             scrolling. This is perfect for dashboards, reports, and full-width layouts where the
             table should adapt to any container size.
           </p>
+          <p className="text-gray-700 dark:text-gray-300 mt-2">
+            <strong>Note:</strong> On mobile devices, it's recommended to set{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-sm">
+              autoExpandColumns={"{false}"}
+            </code>{" "}
+            as horizontal scrolling typically provides a better user experience than cramped columns
+            on small screens.
+          </p>
+        </div>
+
+        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
+          <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
+            Responsive Implementation
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-3 text-sm">
+            Here's how to conditionally enable auto-expand based on screen size:
+          </p>
+          <pre className="bg-gray-800 text-gray-100 p-3 rounded-lg text-xs overflow-x-auto">
+            <code>{`const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
+<SimpleTable
+  autoExpandColumns={!isMobile}
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+/>`}</code>
+          </pre>
         </div>
       </motion.div>
 

@@ -595,6 +595,37 @@ export default function AutoExpandTable({ data }) {
                 </ul>
               </div>
 
+              <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg mb-6">
+                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                  📱 Mobile Recommendation
+                </h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
+                  It's recommended to not use auto-expand columns on mobile devices. On small
+                  screens, horizontal scrolling often provides a better user experience than
+                  cramped, auto-scaled columns.
+                </p>
+                <CodeBlock
+                  className="mb-0"
+                  code={`const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
+<SimpleTable
+  autoExpandColumns={!isMobile}
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+/>`}
+                />
+              </div>
+
               <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
                 With Pinned Columns
               </h3>
@@ -766,8 +797,9 @@ export default function AutoExpandTable({ data }) {
                       scroll horizontally
                     </li>
                     <li>
-                      • <strong>Mobile-first:</strong> On small screens, horizontal scrolling might
-                      be better than cramped columns
+                      • <strong>Mobile devices:</strong> On small screens (&lt; 768px), horizontal
+                      scrolling provides better UX than cramped columns. Disable autoExpandColumns
+                      on mobile.
                     </li>
                   </ul>
                 </div>
@@ -835,6 +867,44 @@ export default function AutoExpandTable({ data }) {
                     </tr>
                   </tbody>
                 </table>
+              </div>
+
+              <h3 className="text-xl font-semibold mb-4 text-gray-900 dark:text-gray-100">
+                Mobile & Responsive Considerations
+              </h3>
+
+              <div className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg mb-4">
+                <h4 className="font-semibold text-gray-900 dark:text-gray-100 mb-2">
+                  📱 Recommended: Disable on Mobile
+                </h4>
+                <p className="text-sm text-gray-700 dark:text-gray-300 mb-3">
+                  On mobile devices, it's recommended to set{" "}
+                  <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">
+                    autoExpandColumns={false}
+                  </code>
+                  . Small screens benefit more from horizontal scrolling than cramped, auto-scaled
+                  columns. This gives users better control and readability.
+                </p>
+                <CodeBlock
+                  className="mb-0"
+                  code={`const [isMobile, setIsMobile] = useState(false);
+
+useEffect(() => {
+  const checkMobile = () => {
+    setIsMobile(window.innerWidth < 768);
+  };
+  checkMobile();
+  window.addEventListener("resize", checkMobile);
+  return () => window.removeEventListener("resize", checkMobile);
+}, []);
+
+<SimpleTable
+  autoExpandColumns={!isMobile} // Disable on mobile
+  defaultHeaders={headers}
+  rows={data}
+  rowIdAccessor="id"
+/>`}
+                />
               </div>
             </div>
           </div>

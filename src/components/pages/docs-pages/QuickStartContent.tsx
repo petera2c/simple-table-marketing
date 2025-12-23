@@ -223,6 +223,9 @@ const QuickStartContent = () => {
           </li>
           <li>Your width values serve as the basis for proportional distribution</li>
           <li>Perfect for responsive tables that adapt to different screen sizes</li>
+          <li>
+            <strong>Recommended:</strong> Disable on mobile devices (&lt; 768px) for better UX
+          </li>
         </ul>
         <p className="text-gray-700 dark:text-gray-300">
           Learn more in the{" "}
