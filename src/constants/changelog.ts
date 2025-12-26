@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_8: ChangelogEntry = {
+  version: "2.0.8",
+  date: "2025-12-26",
+  title: "Enhanced Header Renderer with Component Control",
+  description:
+    "Added components prop to HeaderRendererProps, giving you complete control over the positioning of sort icons, filter icons, collapse icons, and label content within custom headers.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added components prop to HeaderRendererProps containing sortIcon, filterIcon, collapseIcon, and labelContent - allowing custom positioning of header elements",
+      link: "/docs/header-renderer",
+    },
+  ],
+};
+
 export const v2_0_6: ChangelogEntry = {
   version: "2.0.6",
   date: "2025-12-22",
@@ -791,6 +807,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_8,
   v2_0_6,
   v2_0_4,
   v2_0_3,

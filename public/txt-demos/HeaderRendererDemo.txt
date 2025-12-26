@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme, HeaderRendererProps } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 // Initial astronomical data
@@ -183,9 +183,9 @@ const HeaderRendererDemo = ({
     }
   };
 
-  // Custom header component
+  // Custom header component using the new components prop
   const createHeaderRenderer = (key: string, label: string) => {
-    return ({ header }: { header: HeaderObject }) => {
+    return ({ components, header }: HeaderRendererProps) => {
       const colors = getThemeColors(theme);
 
       return (
@@ -211,7 +211,9 @@ const HeaderRendererDemo = ({
             e.currentTarget.style.transform = "translateY(0)";
           }}
         >
-          <span style={{ display: "flex", alignItems: "center" }}>{label}</span>
+          <span style={{ display: "flex", alignItems: "center" }}>
+            {components?.labelContent || header.label}
+          </span>
           <span
             style={{
               fontSize: "12px",
@@ -256,7 +258,19 @@ const HeaderRendererDemo = ({
         label: "Magnitude",
         width: 120,
         type: "number",
-        headerRenderer: createHeaderRenderer("magnitude", "Magnitude"),
+        isSortable: true,
+        filterable: true,
+        headerRenderer: ({ components }) => {
+          return (
+            <>
+              {components?.labelContent}
+              {components?.sortIcon}
+              {components?.filterIcon}
+              {components?.collapseIcon}
+            </>
+          );
+        },
+        align: "right",
       },
       {
         accessor: "spectralClass",
@@ -278,6 +292,7 @@ const HeaderRendererDemo = ({
 
   return (
     <SimpleTable
+      columnResizing
       defaultHeaders={headers}
       height={height}
       rowIdAccessor="id"

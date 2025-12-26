@@ -21,6 +21,7 @@ export {
   EXPORT_VALUE_PROPS,
   CELL_CLICK_PROPS,
   ON_ROW_GROUP_EXPAND_PROPS,
+  HEADER_RENDERER_PROPS,
 } from "./callbackProps";
 
 // Config props (aggregation, sort, filter, chart)

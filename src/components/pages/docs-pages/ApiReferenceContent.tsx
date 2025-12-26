@@ -23,6 +23,7 @@ import {
   EXPORT_VALUE_PROPS,
   CELL_CLICK_PROPS,
   ON_ROW_GROUP_EXPAND_PROPS,
+  HEADER_RENDERER_PROPS,
   ENUM_OPTION_PROPS,
   AGGREGATION_CONFIG_PROPS,
   CHART_OPTIONS_PROPS,
@@ -170,6 +171,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="on-row-group-expand-props">
         <PropTable props={ON_ROW_GROUP_EXPAND_PROPS} title="OnRowGroupExpandProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="header-renderer-props">
+        <PropTable props={HEADER_RENDERER_PROPS} title="HeaderRendererProps" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filter-condition">

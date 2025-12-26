@@ -378,6 +378,65 @@ export const CELL_CLICK_PROPS: PropInfo[] = [
   },
 ];
 
+export const HEADER_RENDERER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key identifying which column this header belongs to",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "firstName", "salary", etc.`,
+  },
+  {
+    key: "colIndex",
+    name: "colIndex",
+    required: true,
+    description: "The zero-based index of the column within the table",
+    type: "number",
+    example: `props.colIndex // 0, 1, 2, etc.`,
+  },
+  {
+    key: "header",
+    name: "header",
+    required: true,
+    description:
+      "The complete HeaderObject containing all configuration for this column including label, width, and other properties",
+    type: "HeaderObject",
+    link: "#header-object",
+    example: `props.header.label // "Name", "Status", etc.
+props.header.width // 150, "1fr", etc.`,
+  },
+  {
+    key: "components",
+    name: "components",
+    required: false,
+    description:
+      "Object containing pre-rendered header components (sortIcon, filterIcon, collapseIcon, labelContent) that can be positioned anywhere in your custom header renderer. This gives you complete control over the layout and order of header elements.",
+    type: "HeaderRendererComponents",
+    example: `// Custom header with reordered components
+headerRenderer: ({ components }) => (
+  <>
+    {components?.labelContent}
+    {components?.sortIcon}
+    {components?.filterIcon}
+  </>
+)
+
+// Or create your own layout
+headerRenderer: ({ components, header }) => (
+  <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+    <span>{components?.labelContent}</span>
+    <div>
+      {components?.filterIcon}
+      {components?.sortIcon}
+      {components?.collapseIcon}
+    </div>
+  </div>
+)`,
+  },
+];
+
 export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
   {
     key: "row",
