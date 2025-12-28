@@ -1,5 +1,4 @@
 import {
-  bestReactTableLibraries2025Post,
   freeAlternativeToAgGridPost,
   handlingOneMillionRowsPost,
   customizingDataGridsStylingEasyPost,
@@ -9,13 +8,10 @@ import {
   mobileCompatibilityReactTablesPost,
   customFooterRenderersPost,
   replicatingGojiberryUIPost,
-  agGridAlternativesPost,
-  bundleSizeComparisonPost,
   tanstackVsAgGridPost,
   handsontableAlternativesPost,
   agGridPricing2025Post,
   tanstackVsSimpleTablePost,
-  mitLicensedAccessibilityPost,
   materialReactTableVsSimpleTablePost,
   reactTableRowSelectionPost,
   autoExpandColumnsReactTablesPost,
@@ -34,8 +30,8 @@ export const SEO_STRINGS = {
   site: {
     url: "https://www.simple-table.com",
     name: "Simple Table",
-    title: "Simple Table: Lightweight React Data Grid",
-    description: `Simple Table: A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.`,
+    title: "Simple Table: React Table & Data Grid Library | Free Plan Available",
+    description: `Simple Table: A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support. Free plan available! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.`,
     defaultKeywords:
       "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table, ag grid alternative, handsontable alternative, material ui table alternative, free react table, lightweight react grid, best react table library, react table comparison",
     creator: "@simpletable",
@@ -47,17 +43,17 @@ export const SEO_STRINGS = {
     },
   },
   home: {
-    title: "Simple Table: Lightweight React Data Grid",
-    description: `Simple Table: A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support—100% free! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.`,
+    title: "Simple Table: React Table & Data Grid Library | Free Plan Available",
+    description: `Simple Table: A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} React data grid and table. Build responsive datagrids with react-table features like sorting and TypeScript support. Free plan available! Perfect alternative to AG Grid, Handsontable, and Material-UI tables.`,
     keywords:
       "simple-table, simple-table-core, react-table, react-grid, react-spreadsheet, data-grid, datagrid, data table, table, grid, react data grid, react table, typescript table, spreadsheet, spreadsheet-table, ag grid alternative, handsontable alternative, material ui table alternative, free react table, lightweight react grid, best react table library, react table comparison",
   },
   blog: {
-    title: "Simple Table Blog: React Grid Tips",
+    title: "React Table Blog: Tutorials, Comparisons & Best Practices",
     description:
-      "Explore Simple Table tutorials for react-grid and data-grid. Learn to build responsive tables with datagrid features and TypeScript support.",
+      "React table tutorials, library comparisons, and best practices. Learn about Simple Table, AG Grid alternatives, TanStack Table, and building responsive data grids with TypeScript.",
     keywords:
-      "simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization",
+      "react table blog, react table tutorial, simple-table, react-table, react-grid, data-grid, datagrid, react data grid, table, spreadsheet, typescript table, data visualization, ag grid alternative, best react table",
   },
   blogPosts: {
     replicatingGojiberryUI: {
@@ -112,10 +108,14 @@ export const SEO_STRINGS = {
       ],
     },
     bestReactTableLibraries2025: {
-      title: bestReactTableLibraries2025Post.title,
-      description: bestReactTableLibraries2025Post.description,
+      title: "Best React Table Libraries 2025: Complete Comparison Guide",
+      description:
+        "Compare the best React table libraries in 2025: Simple Table, TanStack Table, AG Grid, Material React Table, and more. See features, bundle sizes, pricing, and which one is right for your project.",
       keywords: [
         "best react table libraries",
+        "best react table",
+        "react table",
+        "react table library",
         "react table comparison 2025",
         "tanstack table vs simple table",
         "ag grid vs simple table",
@@ -125,6 +125,7 @@ export const SEO_STRINGS = {
         "react table 2025",
         "data grid comparison",
         "react table pros cons",
+        "best react table library 2025",
       ],
     },
     bestFreeReactDataGrid2025: {
@@ -214,10 +215,13 @@ export const SEO_STRINGS = {
       ],
     },
     agGridAlternatives: {
-      title: agGridAlternativesPost.title,
-      description: agGridAlternativesPost.description,
+      title: "Best AG Grid Alternatives 2025: Free & Affordable React Data Grids",
+      description:
+        "Looking for AG Grid alternatives? Compare the best free and affordable React data grid libraries in 2025. Simple Table, TanStack Table, Tabulator, and more. See features, pricing, and bundle sizes.",
       keywords: [
         "ag grid alternatives",
+        "ag grid alternative",
+        "ag grid alternatives 2025",
         "ag grid alternative free",
         "ag grid open source alternatives",
         "free react data grid",
@@ -229,11 +233,13 @@ export const SEO_STRINGS = {
         "ag grid community alternatives",
         "react table free",
         "lightweight react grid",
+        "ag grid competitors",
       ],
     },
     bundleSizeComparison: {
-      title: bundleSizeComparisonPost.title,
-      description: bundleSizeComparisonPost.description,
+      title: "React Data Grid Bundle Size Comparison 2025: Lightweight Libraries Ranked",
+      description:
+        "Compare bundle sizes of popular React data grid libraries. See which table library is the lightest: Simple Table, TanStack Table, AG Grid, Material React Table, and more. Performance metrics included.",
       keywords: [
         "react data grid bundle size",
         "lightweight react data grid",
@@ -247,6 +253,8 @@ export const SEO_STRINGS = {
         "bundle size comparison",
         "react grid memory footprint",
         "lightweight data grid",
+        "lightest react grid",
+        "free grid with lightest bundle size",
       ],
     },
     tanstackVsAgGrid: {
@@ -322,10 +330,12 @@ export const SEO_STRINGS = {
       ],
     },
     mitLicensedAccessibility: {
-      title: mitLicensedAccessibilityPost.title,
-      description: mitLicensedAccessibilityPost.description,
+      title: "React Table Keyboard Navigation & Accessibility | WCAG 2.1 Compliant",
+      description:
+        "Build accessible React tables with keyboard navigation, screen reader support, and WCAG 2.1 compliance. Compare accessibility features in Simple Table, TanStack Table, and other MIT-licensed grids.",
       keywords: [
         "react table accessibility",
+        "react table keyboard navigation",
         "keyboard navigation react table",
         "accessible data grid",
         "wcag react table",
@@ -653,10 +663,10 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, nested headers, table structure, typescript table, data hierarchy",
   },
   quickStart: {
-    title: "Quick Start with Simple Table React Grid",
-    description: `Get started with Simple Table in React in 5 minutes. A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} react-table for datagrids and data tables with TypeScript support.`,
+    title: "React Table Quick Start: Build Your First Table in 5 Minutes",
+    description: `Get started with Simple Table in React in 5 minutes. A ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} react-table for datagrids and data tables with TypeScript support. Easy setup guide for beginners.`,
     keywords:
-      "simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, quick start, typescript table, setup guide",
+      "react table quick start, react table tutorial, simple-table, simple-table-core, react-table, react-grid, data-grid, datagrid, data table, quick start, typescript table, setup guide, react table getting started",
   },
   apiReference: {
     title: "Simple Table API Reference: React Grid Props",
@@ -781,11 +791,11 @@ export const SEO_STRINGS = {
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, infinite scroll, load more data, lazy loading, typescript table, large datasets",
   },
   loadingState: {
-    title: "Loading State with Simple Table React Grid",
+    title: "React Table Loading State: Skeleton Loaders & Spinners Tutorial",
     description:
-      "Add loading skeleton states to your react-table with Simple Table. Display skeleton loaders while fetching data in your datagrid or data table with TypeScript support.",
+      "Add loading skeleton states to your react-table with Simple Table. Display skeleton loaders while fetching data in your datagrid or data table with TypeScript support. Improve UX with loading indicators.",
     keywords:
-      "simple-table, react-table, react-grid, data-grid, datagrid, data table, loading state, skeleton loader, loading spinner, data fetching, async loading, typescript table, user feedback",
+      "react table loading state, table loading state, simple-table, react-table, react-grid, data-grid, datagrid, data table, loading state, skeleton loader, loading spinner, data fetching, async loading, typescript table, user feedback",
   },
   emptyState: {
     title: "Empty State with Simple Table React Grid",
@@ -831,22 +841,22 @@ export const SEO_STRINGS = {
   },
   comparisons: {
     agGrid: {
-      title: "Simple Table vs AG Grid: React Data Grid Comparison",
-      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with AG Grid. See feature differences, performance metrics, and pricing. Free vs Enterprise React data grid comparison.`,
+      title: "AG Grid Alternative: Simple Table vs AG Grid 2025 | Free & Pro Plans",
+      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with AG Grid. See feature differences, performance metrics, and pricing. Free plan available vs AG Grid's enterprise pricing. Lightweight alternative to AG Grid.`,
       keywords:
-        "simple-table, ag-grid, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, enterprise grid, typescript table, performance comparison",
+        "ag grid alternative, ag grid alternatives, simple-table, ag-grid, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, enterprise grid, typescript table, performance comparison, ag grid vs simple table",
     },
     tanstack: {
-      title: "Simple Table vs TanStack Table: React Data Grid Comparison",
-      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with TanStack Table (${TANSTACK_TABLE_INFO.bundleSizeMinGzip}). See feature differences, performance metrics, and implementation complexity. Headless vs Ready-to-use React data grid comparison.`,
+      title: "TanStack Table vs Simple Table 2025: Headless vs Ready-to-Use React Grid",
+      description: `Compare TanStack Table (${TANSTACK_TABLE_INFO.bundleSizeMinGzip}) with Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}). Headless flexibility vs batteries-included simplicity. See feature differences, implementation complexity, and when to use each React table library.`,
       keywords:
-        "simple-table, tanstack-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, headless table, ready-to-use table, typescript table, performance comparison",
+        "tanstack table vs simple table, tanstack vs simple table, simple-table, tanstack-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, headless table, ready-to-use table, typescript table, performance comparison, tanstack table alternative",
     },
     handsontable: {
-      title: "Simple Table vs Handsontable: React Data Grid Comparison",
-      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with Handsontable (${HANDSONTABLE_INFO.bundleSizeMinGzip}). See feature differences, performance metrics, and pricing. Free vs Commercial React data grid comparison.`,
+      title: "Handsontable Alternative: Simple Table vs Handsontable 2025 | Free Plan",
+      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with Handsontable (${HANDSONTABLE_INFO.bundleSizeMinGzip}). See feature differences, performance metrics, and pricing. Free plan available vs Handsontable's commercial licensing. Affordable alternative to Handsontable.`,
       keywords:
-        "simple-table, handsontable, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, commercial grid, typescript table, performance comparison",
+        "handsontable alternative, handsontable alternatives, handsontable free alternative, simple-table, handsontable, react-table, react-grid, data-grid, datagrid, data table, grid comparison, free grid, commercial grid, typescript table, performance comparison",
     },
     materialReact: {
       title: "Simple Table vs Material React Table: React Data Grid Comparison",
@@ -855,10 +865,10 @@ export const SEO_STRINGS = {
         "simple-table, material-react-table, material-ui, mui-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, tanstack table, typescript table, performance comparison",
     },
     antDesign: {
-      title: "Simple Table vs Ant Design Table: React Data Grid Comparison",
-      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with Ant Design Table (${ANT_DESIGN_TABLE_INFO.bundleSizeMinGzip}). See feature differences, performance metrics, and bundle size. Lightweight vs Component Library React data grid comparison.`,
+      title: "Ant Design Table Alternative: Simple Table vs Ant Design 2025",
+      description: `Compare Simple Table (${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with Ant Design Table (${ANT_DESIGN_TABLE_INFO.bundleSizeMinGzip}). Lightweight standalone grid vs full component library. See bundle size, performance, and styling flexibility differences.`,
       keywords:
-        "simple-table, ant-design, antd-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, lightweight grid, component library, typescript table, performance comparison",
+        "ant design table alternative, antd table alternative, ant design alternative, simple-table, ant-design, antd-table, react-table, react-grid, data-grid, datagrid, data table, grid comparison, lightweight grid, component library, typescript table, performance comparison",
     },
     syncfusion: {
       title: "Simple Table vs Syncfusion DataGrid: React Data Grid Comparison",
@@ -874,11 +884,11 @@ export const SEO_STRINGS = {
     },
   },
   pricing: {
-    title: "Simple Table Pricing: Free React Data Grid",
+    title: "Simple Table Pricing 2025: Free & Pro Plans | AG Grid Alternative",
     description:
-      "Simple Table pricing: FREE plan for individuals and startups, PRO plan for businesses. Get 50% off PRO for first 50 customers. Start building React data grids today!",
+      "Simple Table pricing: FREE plan for individuals and startups, PRO plan for businesses ($85/mo). Transparent pricing with no per-user fees. Better alternative to AG Grid's enterprise pricing.",
     keywords:
-      "simple-table pricing, free react data grid, react table pricing, data grid cost, simple table pro, free table library, react table subscription, data grid plans",
+      "simple-table pricing, free react data grid, react table pricing, data grid cost, simple table pro, free table library, react table subscription, data grid plans, ag grid pricing alternative, ag grid cost comparison",
   },
   changelog: {
     title: "Changelog - Simple Table Updates & Release Notes",
