@@ -156,10 +156,132 @@ const QuickStartContent = () => {
       <PropTable props={TABLE_PROPS} title="Main Component Props" />
 
       <motion.div
-        className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg shadow-sm mb-8"
+        className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 rounded-lg shadow-sm mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.35 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2 flex items-center gap-2">
+          <span className="text-xl">🔑</span> Understanding Accessor and Data Format
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-3">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            accessor
+          </code>{" "}
+          property in your column definitions creates a direct link between your data and what
+          displays in each column. Here&apos;s how it works:
+        </p>
+
+        <div className="mb-3">
+          <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+            How Accessor Maps to Data
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            Each{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              accessor
+            </code>{" "}
+            value must match a property name in your data objects:
+          </p>
+          <CodeBlock
+            code={`// Column definitions with accessors
+const headers = [
+  { accessor: "id", label: "ID", width: 80 },
+  { accessor: "name", label: "Name", width: 150 },
+  { accessor: "age", label: "Age", width: 100 }
+];
+
+// Data objects - property names match the accessors
+const data = [
+  { id: 1, name: "John Doe", age: 30 },
+  { id: 2, name: "Jane Smith", age: 25 }
+];
+
+// The table will display:
+// | ID | Name       | Age |
+// |----|------------|-----|
+// | 1  | John Doe   | 30  |
+// | 2  | Jane Smith | 25  |`}
+            language="typescript"
+          />
+        </div>
+
+        <div className="mb-3">
+          <h4 className="font-semibold text-gray-800 dark:text-white mb-2">Expected Data Format</h4>
+          <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-2 ml-2">
+            <li>
+              <strong>Data must be an array of objects</strong> - Each object represents one row
+            </li>
+            <li>
+              <strong>Property names must match accessors exactly</strong> - Case-sensitive and must
+              be valid JavaScript property names
+            </li>
+            <li>
+              <strong>All rows should have the same structure</strong> - While missing properties
+              won&apos;t break the table, they&apos;ll display as empty cells
+            </li>
+            <li>
+              <strong>Nested properties are supported</strong> - Use dot notation like{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                &quot;user.name&quot;
+              </code>{" "}
+              or{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+                &quot;address.city&quot;
+              </code>
+            </li>
+          </ul>
+        </div>
+
+        <div className="mb-3">
+          <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
+            Example with Nested Data
+          </h4>
+          <CodeBlock
+            code={`const headers = [
+  { accessor: "id", label: "ID", width: 80 },
+  { accessor: "user.name", label: "Name", width: 150 },
+  { accessor: "user.email", label: "Email", width: 200 },
+  { accessor: "address.city", label: "City", width: 120 }
+];
+
+const data = [
+  {
+    id: 1,
+    user: { name: "John Doe", email: "john@example.com" },
+    address: { city: "New York", zip: "10001" }
+  },
+  {
+    id: 2,
+    user: { name: "Jane Smith", email: "jane@example.com" },
+    address: { city: "Los Angeles", zip: "90001" }
+  }
+];`}
+            language="typescript"
+          />
+        </div>
+
+        <div className="bg-white dark:bg-gray-800 p-3 rounded border border-blue-200 dark:border-blue-700">
+          <p className="text-gray-700 dark:text-gray-300 text-sm">
+            <strong>💡 Pro Tip:</strong> The{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              label
+            </code>{" "}
+            property in your column definition is what users see in the header, while{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              accessor
+            </code>{" "}
+            is the technical property name used to retrieve data. They can be completely different!
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.div
+        className="bg-amber-50 dark:bg-amber-900/20 border-l-4 border-amber-500 p-4 rounded-lg shadow-sm mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
       >
         <h3 className="font-bold text-gray-800 dark:text-white mb-2">
           Understanding the Height Prop
@@ -202,7 +324,7 @@ const QuickStartContent = () => {
         className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 rounded-lg shadow-sm mb-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: 0.5, delay: 0.45 }}
       >
         <h3 className="font-bold text-gray-800 dark:text-white mb-2">Auto-Expanding Columns</h3>
         <p className="text-gray-700 dark:text-gray-300 mb-2">
@@ -240,7 +362,7 @@ const QuickStartContent = () => {
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.3 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
       >
         {UI_STRINGS.docs.cssSetup.title}
       </motion.h2>
@@ -249,7 +371,7 @@ const QuickStartContent = () => {
         className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           {UI_STRINGS.docs.cssSetup.description}
@@ -264,7 +386,7 @@ const QuickStartContent = () => {
         className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.9 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
       >
         <h3 className="font-bold text-gray-800 dark:text-white mb-2">Pro Tip</h3>
         <p className="text-gray-700 dark:text-gray-300">

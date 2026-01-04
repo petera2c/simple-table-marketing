@@ -10,6 +10,68 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_0: ChangelogEntry = {
+  version: "2.1.0",
+  date: "2026-01-04",
+  title: "Advanced Row Grouping Control API",
+  description:
+    "Major enhancement to the table API with powerful new methods for programmatic control of row grouping expansion. Control which hierarchy levels are visible with fine-grained depth-based methods, save and restore expansion state, and map between grouping properties and depth levels.",
+  changes: [
+    {
+      type: "feature",
+      description: "Added expandAll() method to expand all rows at all depths in hierarchical data",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description: "Added collapseAll() method to collapse all rows at all depths",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Added expandDepth(depth) method to expand all rows at a specific depth level (0-indexed)",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added collapseDepth(depth) method to collapse all rows at a specific depth level",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added toggleDepth(depth) method to toggle expansion state for a specific depth level",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added setExpandedDepths(depths) method to set which depths are expanded, replacing current state - perfect for restoring saved expansion state",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Added getExpandedDepths() method to retrieve currently expanded depths as a Set - useful for saving expansion state",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Added getGroupingProperty(depth) method to get the grouping property name for a specific depth index",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description:
+        "Added getGroupingDepth(property) method to get the depth index for a specific grouping property name",
+      link: "/docs/api-reference#table-ref-type",
+    },
+  ],
+};
+
 export const v2_0_9: ChangelogEntry = {
   version: "2.0.9",
   date: "2026-01-03",
@@ -832,6 +894,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_0,
   v2_0_9,
   v2_0_8,
   v2_0_6,

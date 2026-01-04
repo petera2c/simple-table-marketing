@@ -135,6 +135,45 @@ const ProgrammaticControlContent = () => {
         title="Sorting, Filtering, and Pagination Methods"
       />
 
+      {/* Row Grouping Control Methods */}
+      <motion.div
+        className="mt-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            🎉 New in v2.1.0: Row Grouping Control
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            Programmatically control row grouping expansion with depth-based methods. Perfect for
+            implementing custom expand/collapse controls, saving expansion state, or creating
+            progressive disclosure patterns.
+          </p>
+        </div>
+
+        <PropTable
+          props={TABLE_REF_TYPE_METHODS.filter((method) =>
+            [
+              "expandAll",
+              "collapseAll",
+              "expandDepth",
+              "collapseDepth",
+              "toggleDepth",
+              "setExpandedDepths",
+              "getExpandedDepths",
+              "getGroupingProperty",
+              "getGroupingDepth",
+            ].includes(method.key)
+          ).map((method) => ({
+            ...method,
+            link: method.link ? `/docs/api-reference${method.link}` : undefined,
+          }))}
+          title="Row Grouping Control Methods (v2.1.0)"
+        />
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );

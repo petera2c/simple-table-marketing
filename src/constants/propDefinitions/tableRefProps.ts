@@ -327,6 +327,207 @@ const urlParams = new URLSearchParams(window.location.search);
 const page = parseInt(urlParams.get('page') || '1');
 tableRef.current?.setPage(page);`,
   },
+  {
+    key: "expandAll",
+    name: "expandAll",
+    required: false,
+    description:
+      "Expands all rows at all depths in the table. When working with hierarchical/grouped data, this will expand every level of the hierarchy, revealing all nested rows. Useful for 'expand all' buttons or when you want to show the complete data structure to users.",
+    type: "() => void",
+    example: `// Expand all rows
+tableRef.current?.expandAll();
+
+// Expand all on button click
+<button onClick={() => tableRef.current?.expandAll()}>
+  Expand All
+</button>
+
+// Expand all after data load
+useEffect(() => {
+  if (showAllData) {
+    tableRef.current?.expandAll();
+  }
+}, [showAllData]);`,
+  },
+  {
+    key: "collapseAll",
+    name: "collapseAll",
+    required: false,
+    description:
+      "Collapses all rows at all depths in the table. When working with hierarchical/grouped data, this will collapse every level of the hierarchy, hiding all nested rows. Perfect for 'collapse all' buttons or resetting the table to a compact view.",
+    type: "() => void",
+    example: `// Collapse all rows
+tableRef.current?.collapseAll();
+
+// Collapse all on button click
+<button onClick={() => tableRef.current?.collapseAll()}>
+  Collapse All
+</button>
+
+// Reset to collapsed state
+const handleReset = () => {
+  tableRef.current?.collapseAll();
+};`,
+  },
+  {
+    key: "expandDepth",
+    name: "expandDepth",
+    required: false,
+    description:
+      "Expands all rows at a specific depth level (0-indexed). Depth 0 represents the top-level rows, depth 1 is the first nested level, depth 2 is the second nested level, and so on. This allows granular control over which hierarchy levels are visible. Useful for showing specific levels of detail without expanding everything.",
+    type: "(depth: number) => void",
+    example: `// Expand only top-level rows (depth 0)
+tableRef.current?.expandDepth(0);
+
+// Expand first nested level (depth 1)
+tableRef.current?.expandDepth(1);
+
+// Show departments and teams, but not employees
+tableRef.current?.expandDepth(0);
+tableRef.current?.expandDepth(1);
+
+// Progressive disclosure
+const handleShowMore = () => {
+  const currentDepth = getCurrentExpandedDepth();
+  tableRef.current?.expandDepth(currentDepth + 1);
+};`,
+  },
+  {
+    key: "collapseDepth",
+    name: "collapseDepth",
+    required: false,
+    description:
+      "Collapses all rows at a specific depth level (0-indexed). Depth 0 represents the top-level rows, depth 1 is the first nested level, and so on. This allows you to selectively hide specific hierarchy levels while keeping others visible. Useful for managing complex hierarchies and controlling information density.",
+    type: "(depth: number) => void",
+    example: `// Collapse all first-level nested rows
+tableRef.current?.collapseDepth(1);
+
+// Hide employee details but keep departments and teams visible
+tableRef.current?.expandDepth(0);
+tableRef.current?.expandDepth(1);
+tableRef.current?.collapseDepth(2);
+
+// Collapse specific level on toggle
+const handleCollapseLevel = (level: number) => {
+  tableRef.current?.collapseDepth(level);
+};`,
+  },
+  {
+    key: "toggleDepth",
+    name: "toggleDepth",
+    required: false,
+    description:
+      "Toggles the expansion state for all rows at a specific depth level (0-indexed). If the depth is currently expanded, it will be collapsed, and vice versa. This provides a convenient way to toggle visibility of an entire hierarchy level without tracking state manually.",
+    type: "(depth: number) => void",
+    example: `// Toggle first nested level
+tableRef.current?.toggleDepth(1);
+
+// Toggle depth on button click
+<button onClick={() => tableRef.current?.toggleDepth(0)}>
+  Toggle Top Level
+</button>
+
+// Toggle multiple depths
+[0, 1, 2].forEach(depth => {
+  tableRef.current?.toggleDepth(depth);
+});`,
+  },
+  {
+    key: "setExpandedDepths",
+    name: "setExpandedDepths",
+    required: false,
+    description:
+      "Sets which depth levels should be expanded, replacing the current expansion state entirely. Accepts a Set of depth numbers (0-indexed). This is useful for restoring saved expansion state, implementing presets, or coordinating expansion across multiple tables. Any depth not in the Set will be collapsed.",
+    type: "(depths: Set<number>) => void",
+    example: `// Expand only depths 0 and 1
+tableRef.current?.setExpandedDepths(new Set([0, 1]));
+
+// Collapse everything
+tableRef.current?.setExpandedDepths(new Set());
+
+// Restore saved state
+const savedDepths = JSON.parse(localStorage.getItem("expandedDepths") || "[]");
+tableRef.current?.setExpandedDepths(new Set(savedDepths));
+
+// Apply preset view
+const presets = {
+  summary: new Set([0]),
+  detailed: new Set([0, 1, 2]),
+  compact: new Set()
+};
+tableRef.current?.setExpandedDepths(presets.detailed);`,
+  },
+  {
+    key: "getExpandedDepths",
+    name: "getExpandedDepths",
+    required: false,
+    description:
+      "Returns a Set containing all currently expanded depth levels (0-indexed). This allows you to inspect which hierarchy levels are currently visible. Useful for saving expansion state, building custom UI controls, or coordinating with other components.",
+    type: "() => Set<number>",
+    example: `// Get currently expanded depths
+const expandedDepths = tableRef.current?.getExpandedDepths();
+console.log("Expanded depths:", Array.from(expandedDepths));
+
+// Save expansion state
+const depths = tableRef.current?.getExpandedDepths();
+localStorage.setItem("expandedDepths", JSON.stringify(Array.from(depths)));
+
+// Check if specific depth is expanded
+const depths = tableRef.current?.getExpandedDepths();
+const isLevel1Expanded = depths.has(1);
+
+// Count expanded levels
+const expandedCount = tableRef.current?.getExpandedDepths().size;`,
+  },
+  {
+    key: "getGroupingProperty",
+    name: "getGroupingProperty",
+    required: false,
+    description:
+      "Returns the grouping property name (accessor) for a specific depth index (0-indexed). This maps depth levels to their corresponding property names in your rowGrouping configuration. Returns undefined if the depth doesn't exist. Useful for understanding the hierarchy structure or building dynamic UI that adapts to the grouping configuration.",
+    type: "(depth: number) => Accessor | undefined",
+    example: `// Get property name for depth 1
+const property = tableRef.current?.getGroupingProperty(1);
+console.log(\`Depth 1 groups by: \${property}\`); // e.g., "teams"
+
+// Build breadcrumb navigation
+const depths = [0, 1, 2];
+const breadcrumbs = depths.map(depth => {
+  const prop = tableRef.current?.getGroupingProperty(depth);
+  return prop ? \`Level \${depth}: \${prop}\` : null;
+}).filter(Boolean);
+
+// Dynamic column headers based on grouping
+const property = tableRef.current?.getGroupingProperty(0);
+const headerLabel = property === "departments" ? "Department" : "Group";`,
+  },
+  {
+    key: "getGroupingDepth",
+    name: "getGroupingDepth",
+    required: false,
+    description:
+      "Returns the depth index (0-indexed) for a specific grouping property name (accessor). This is the inverse of getGroupingProperty - it maps property names to their depth levels in the hierarchy. Returns -1 if the property is not part of the grouping configuration. Useful for programmatically determining which level a property belongs to.",
+    type: "(property: Accessor) => number",
+    example: `// Get depth index for "teams" property
+const depth = tableRef.current?.getGroupingDepth("teams");
+console.log(\`Teams are at depth: \${depth}\`); // e.g., 1
+
+// Check if property is in grouping
+const depth = tableRef.current?.getGroupingDepth("employees");
+if (depth !== -1) {
+  console.log(\`Employees are at depth \${depth}\`);
+} else {
+  console.log("Employees are not part of the grouping");
+}
+
+// Expand up to a specific property
+const targetDepth = tableRef.current?.getGroupingDepth("projects");
+if (targetDepth !== -1) {
+  for (let i = 0; i <= targetDepth; i++) {
+    tableRef.current?.expandDepth(i);
+  }
+}`,
+  },
 ];
 
 export const EXPORT_TO_CSV_PROPS: PropInfo[] = [

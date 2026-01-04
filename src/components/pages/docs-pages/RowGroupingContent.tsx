@@ -216,14 +216,10 @@ const RowGroupingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <div className="flex justify-end">
-          <Button onClick={() => setExpandAll(!expandAll)}>
-            {expandAll ? "Collapse All" : "Expand All"}
-          </Button>
-        </div>
         <LivePreview
           demoCodeFilename="RowGroupingDemo.txt"
-          height="400px"
+          height="500px"
+          demoHeight="428px"
           link={SANDBOX_LIST["RowGroupingDemo.tsx"].url}
           Preview={(props) => <RowGroupingDemo expandAll={expandAll} {...props} />}
         />
@@ -272,7 +268,7 @@ const RowGroupingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        Dynamic Row Loading
+        Programmatic Control
       </motion.h2>
 
       <motion.div
@@ -280,6 +276,88 @@ const RowGroupingContent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Version 2.1.0 introduces powerful programmatic control over row grouping expansion. You
+          can now control which hierarchy levels are expanded or collapsed using the table ref API.
+          These methods give you fine-grained control over the visibility of nested data.
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            🎯 New Table API Methods (v2.1.0)
+          </h4>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">expandAll()</code>{" "}
+              - Expand all rows at all depths
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                collapseAll()
+              </code>{" "}
+              - Collapse all rows at all depths
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                expandDepth(depth)
+              </code>{" "}
+              - Expand all rows at a specific depth (0-indexed)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                collapseDepth(depth)
+              </code>{" "}
+              - Collapse all rows at a specific depth (0-indexed)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                toggleDepth(depth)
+              </code>{" "}
+              - Toggle expansion for a specific depth
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                setExpandedDepths(depths)
+              </code>{" "}
+              - Set which depths are expanded (replaces current state)
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                getExpandedDepths()
+              </code>{" "}
+              - Get currently expanded depths as a Set
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                getGroupingProperty(depth)
+              </code>{" "}
+              - Get the grouping property name for a depth index
+            </li>
+            <li>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                getGroupingDepth(property)
+              </code>{" "}
+              - Get the depth index for a grouping property name
+            </li>
+          </ul>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Dynamic Row Loading
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           For large datasets, use the{" "}
