@@ -10,6 +10,31 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_0_9: ChangelogEntry = {
+  version: "2.0.9",
+  date: "2026-01-03",
+  title: "Comprehensive Accessibility Enhancements",
+  description:
+    "Major accessibility improvements including enhanced screen reader support, improved keyboard navigation with Tab/Shift+Tab for applying and removing filters and other table actions, and extensive ARIA attributes for better assistive technology compatibility.",
+  changes: [
+    {
+      type: "improvement",
+      description:
+        "Enhanced screen reader support with improved announcements for table interactions, cell selection, and data updates",
+    },
+    {
+      type: "improvement",
+      description:
+        "Improved keyboard navigation - Tab and Shift+Tab now properly apply and remove filters, sorting, and other table actions",
+    },
+    {
+      type: "improvement",
+      description:
+        "Added comprehensive ARIA attributes throughout the table for better accessibility compliance and assistive technology support",
+    },
+  ],
+};
+
 export const v2_0_8: ChangelogEntry = {
   version: "2.0.8",
   date: "2025-12-26",
@@ -807,6 +832,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_0_9,
   v2_0_8,
   v2_0_6,
   v2_0_4,
