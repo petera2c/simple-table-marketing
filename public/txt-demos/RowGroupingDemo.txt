@@ -1,4 +1,5 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { useRef } from "react";
+import { SimpleTable, HeaderObject, Theme, TableRefType } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [
@@ -417,16 +418,135 @@ const RowGroupingDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
+  const tableRef = useRef<TableRefType>(null);
+
+  const handleExpandAll = () => {
+    tableRef.current?.expandAll();
+  };
+
+  const handleCollapseAll = () => {
+    tableRef.current?.collapseAll();
+  };
+
+  const handleExpandDivisions = () => {
+    tableRef.current?.collapseAll();
+    tableRef.current?.expandDepth(0);
+  };
+
+  const handleExpandAll2Levels = () => {
+    tableRef.current?.setExpandedDepths(new Set([0, 1]));
+  };
+
+  const handleToggleDivisions = () => {
+    tableRef.current?.toggleDepth(0);
+  };
+
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      expandAll={expandAll}
-      height={height}
-      rowIdAccessor="id"
-      rowGrouping={["divisions", "departments"]}
-      rows={rows}
-      theme={theme}
-    />
+    <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+      <div
+        style={{
+          padding: "12px",
+          display: "flex",
+          gap: "8px",
+          flexWrap: "wrap",
+          alignItems: "center",
+        }}
+      >
+        <span style={{ fontSize: "13px", fontWeight: "600", marginRight: "8px" }}>
+          Control Expansion:
+        </span>
+        <button
+          onClick={handleExpandAll}
+          style={{
+            padding: "6px 12px",
+            background: "#28a745",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: "500",
+          }}
+          title="tableRef.current?.expandAll()"
+        >
+          Expand All
+        </button>
+        <button
+          onClick={handleCollapseAll}
+          style={{
+            padding: "6px 12px",
+            background: "#dc3545",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: "500",
+          }}
+          title="tableRef.current?.collapseAll()"
+        >
+          Collapse All
+        </button>
+        <button
+          onClick={handleExpandDivisions}
+          style={{
+            padding: "6px 12px",
+            background: "#007bff",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: "500",
+          }}
+          title="tableRef.current?.expandDepth(0)"
+        >
+          Only Divisions
+        </button>
+        <button
+          onClick={handleExpandAll2Levels}
+          style={{
+            padding: "6px 12px",
+            background: "#6c757d",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: "500",
+          }}
+          title="tableRef.current?.setExpandedDepths(new Set([0, 1]))"
+        >
+          Divisions + Departments
+        </button>
+        <button
+          onClick={handleToggleDivisions}
+          style={{
+            padding: "6px 12px",
+            background: "#6f42c1",
+            color: "white",
+            border: "none",
+            borderRadius: "4px",
+            cursor: "pointer",
+            fontSize: "12px",
+            fontWeight: "500",
+          }}
+          title="tableRef.current?.toggleDepth(0)"
+        >
+          Toggle Divisions
+        </button>
+      </div>
+      <SimpleTable
+        tableRef={tableRef}
+        defaultHeaders={headers}
+        expandAll={expandAll}
+        height={height}
+        rowIdAccessor="id"
+        rowGrouping={["divisions", "departments"]}
+        rows={rows}
+        theme={theme}
+      />
+    </div>
   );
 };
 
