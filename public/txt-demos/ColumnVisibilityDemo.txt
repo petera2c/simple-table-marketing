@@ -1,11 +1,14 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { useMemo, useCallback } from "react";
 
-// Define all possible headers
-const headers: HeaderObject[] = [
+const STORAGE_KEY = "columnVisibilityDemo";
+
+// Define base headers structure
+const BASE_HEADERS: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
-  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", hide: true, type: "string" },
+  { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
   { accessor: "role", label: "Role", width: 150, type: "string" },
   { accessor: "department", label: "Department", width: 150, type: "string" },
 ];
@@ -117,6 +120,40 @@ const ColumnVisibilityDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
+  // Load saved visibility state from localStorage
+  const getSavedVisibility = useCallback(() => {
+    if (typeof window === "undefined") return {};
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved ? JSON.parse(saved) : {};
+    } catch {
+      return {};
+    }
+  }, []);
+
+  // Memoize headers with saved visibility state applied
+  const headers = useMemo(() => {
+    const savedVisibility = getSavedVisibility();
+
+    return BASE_HEADERS.map((header) => ({
+      ...header,
+      // Apply saved visibility state, defaulting email to hidden if no saved state
+      hide:
+        savedVisibility[header.accessor] === false ||
+        (savedVisibility[header.accessor] === undefined && header.accessor === "email"),
+    }));
+  }, [getSavedVisibility]);
+
+  // Save visibility changes to localStorage
+  const handleVisibilityChange = useCallback((visibilityState: Record<string, boolean>) => {
+    if (typeof window === "undefined") return;
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(visibilityState));
+    } catch (error) {
+      console.error("Failed to save column visibility:", error);
+    }
+  }, []);
+
   return (
     <SimpleTable
       defaultHeaders={headers}
@@ -126,6 +163,7 @@ const ColumnVisibilityDemo = ({
       rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}
+      onColumnVisibilityChange={handleVisibilityChange}
     />
   );
 };
