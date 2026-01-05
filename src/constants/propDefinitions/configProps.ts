@@ -207,3 +207,20 @@ export const TABLE_FILTER_STATE_PROPS: PropInfo[] = [
 }`,
   },
 ];
+
+export const COLUMN_VISIBILITY_STATE_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "[accessor: string]",
+    required: true,
+    description:
+      "Maps column accessor to visibility state. Each key is a column accessor, and the value is a boolean indicating whether the column is visible (true) or hidden (false).",
+    type: "boolean",
+    example: `{
+  "name": true,      // visible
+  "email": true,     // visible
+  "phone": false,    // hidden
+  "id": false        // hidden
+}`,
+  },
+];

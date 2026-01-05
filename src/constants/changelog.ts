@@ -10,6 +10,28 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_4: ChangelogEntry = {
+  version: "2.1.4",
+  date: "2026-01-04",
+  title: "Column Visibility State Callback",
+  description:
+    "Added onColumnVisibilityChange callback prop to track column visibility changes, enabling state persistence and custom visibility management workflows.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added onColumnVisibilityChange callback prop that fires when users show/hide columns, providing the complete visibility state map",
+      link: "/docs/column-visibility",
+    },
+    {
+      type: "improvement",
+      description:
+        "Updated excludeFromRender behavior - columns with excludeFromRender are now also excluded from the column visibility drawer/popout menu",
+      link: "/docs/csv-export",
+    },
+  ],
+};
+
 export const v2_1_3: ChangelogEntry = {
   version: "2.1.3",
   date: "2026-01-04",
@@ -913,6 +935,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_4,
   v2_1_3,
   v2_1_0,
   v2_0_9,

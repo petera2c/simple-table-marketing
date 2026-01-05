@@ -30,6 +30,7 @@ import {
   FILTER_CONDITION_PROPS,
   SORT_CONFIG_PROPS,
   TABLE_FILTER_STATE_PROPS,
+  COLUMN_VISIBILITY_STATE_PROPS,
   TABLE_REF_TYPE_METHODS,
   EXPORT_TO_CSV_PROPS,
   FOOTER_RENDERER_PROPS,
@@ -191,6 +192,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-filter-state">
         <PropTable props={TABLE_FILTER_STATE_PROPS} title="TableFilterState" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="column-visibility-state">
+        <PropTable props={COLUMN_VISIBILITY_STATE_PROPS} title="ColumnVisibilityState" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-ref-type">

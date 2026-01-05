@@ -612,6 +612,25 @@ useEffect(() => {
 }}`,
   },
   {
+    key: "onColumnVisibilityChange",
+    name: "onColumnVisibilityChange",
+    required: false,
+    description:
+      "Callback triggered when column visibility changes (when users show/hide columns through the column editor). Receives a ColumnVisibilityState object mapping each column accessor to its visibility state (true = visible, false = hidden). Perfect for persisting user preferences or syncing visibility state with external storage.",
+    type: "(visibilityState: ColumnVisibilityState) => void",
+    link: "/docs/column-visibility",
+    example: `onColumnVisibilityChange={(visibilityState) => {
+  console.log('Column visibility changed:', visibilityState);
+  // Example: { name: true, email: true, phone: false, id: false }
+  
+  // Save to localStorage
+  localStorage.setItem('tableColumnVisibility', JSON.stringify(visibilityState));
+  
+  // Or sync with your state management
+  setColumnVisibility(visibilityState);
+}}`,
+  },
+  {
     key: "autoExpandColumns",
     name: "autoExpandColumns",
     required: false,

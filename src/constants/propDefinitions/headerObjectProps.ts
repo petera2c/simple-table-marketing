@@ -423,13 +423,13 @@ tooltip: "Average customer rating (1-5 stars)"`,
     name: "excludeFromRender",
     required: false,
     description:
-      "When true, excludes this column from the rendered table. The column data is still available for CSV export. Useful for ID columns or metadata that should be exported but not displayed.",
+      "When true, excludes this column from the rendered table and from the column visibility drawer/popout menu. The column data is still available for CSV export. Useful for ID columns or metadata that should be exported but not displayed or toggled by users.",
     type: "boolean",
     example: `{
   accessor: "id",
   label: "ID",
   width: 80,
-  excludeFromRender: true,  // Hidden from table, included in CSV
+  excludeFromRender: true,  // Hidden from table and visibility menu, included in CSV
 }`,
   },
   {

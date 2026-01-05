@@ -56,6 +56,42 @@ const COLUMN_VISIBILITY_PROPS: PropInfo[] = [
   // ... other props
 />`,
   },
+  {
+    key: "onColumnVisibilityChange",
+    name: "onColumnVisibilityChange",
+    required: false,
+    description:
+      "Callback triggered when column visibility changes. Receives a ColumnVisibilityState object mapping each column accessor to its visibility state (true = visible, false = hidden). Perfect for persisting user preferences or syncing visibility state with external storage.",
+    type: "(visibilityState: ColumnVisibilityState) => void",
+    example: `<SimpleTable
+  editColumns={true}
+  onColumnVisibilityChange={(visibilityState) => {
+    console.log('Visibility changed:', visibilityState);
+    // Example: { name: true, email: true, phone: false }
+    
+    // Save to localStorage
+    localStorage.setItem(
+      'tableColumnVisibility', 
+      JSON.stringify(visibilityState)
+    );
+  }}
+  // ... other props
+/>`,
+  },
+  {
+    key: "excludeFromRender",
+    name: "HeaderObject.excludeFromRender",
+    required: false,
+    description:
+      "When true, excludes the column from both the rendered table and the column visibility drawer. The column is still included in CSV exports. Useful for ID columns or metadata that should be exported but not displayed or toggled by users.",
+    type: "boolean",
+    example: `{
+  accessor: "id",
+  label: "ID",
+  width: 80,
+  excludeFromRender: true  // Hidden from table and visibility menu
+}`,
+  },
 ];
 
 const ColumnVisibilityContent = () => {
