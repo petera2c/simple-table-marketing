@@ -10,8 +10,8 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v2_1_1: ChangelogEntry = {
-  version: "2.1.1",
+export const v2_1_3: ChangelogEntry = {
+  version: "2.1.3",
   date: "2026-01-04",
   title: "Cell Editing Bug Fixes",
   description:
@@ -913,7 +913,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v2_1_1,
+  v2_1_3,
   v2_1_0,
   v2_0_9,
   v2_0_8,
