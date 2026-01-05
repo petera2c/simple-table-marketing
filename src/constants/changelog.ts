@@ -10,6 +10,25 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_1: ChangelogEntry = {
+  version: "2.1.1",
+  date: "2026-01-04",
+  title: "Cell Editing Bug Fixes",
+  description:
+    "Fixed critical bugs in cell editing for enum and datepicker column types, improving data entry reliability and user experience.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed enum cell editing bugs that prevented proper value selection and updates",
+    },
+    {
+      type: "bugfix",
+      description:
+        "Fixed datepicker cell editing bugs that caused incorrect date handling and display issues",
+    },
+  ],
+};
+
 export const v2_1_0: ChangelogEntry = {
   version: "2.1.0",
   date: "2026-01-04",
@@ -894,6 +913,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_1,
   v2_1_0,
   v2_0_9,
   v2_0_8,
