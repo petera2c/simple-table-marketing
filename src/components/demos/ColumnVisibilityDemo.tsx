@@ -18,6 +18,7 @@ const EMPLOYEE_DATA = [
   {
     id: 1,
     name: "Valentino Rosso",
+    email: "valentino.rosso@fashion.com",
     age: 35,
     role: "Creative Director",
     department: "Design",
@@ -26,6 +27,7 @@ const EMPLOYEE_DATA = [
   {
     id: 2,
     name: "Coco Delacroix",
+    email: "coco.delacroix@fashion.com",
     age: 28,
     role: "Fashion Designer",
     department: "Design",
@@ -34,6 +36,7 @@ const EMPLOYEE_DATA = [
   {
     id: 3,
     name: "Armando Silva",
+    email: "armando.silva@fashion.com",
     age: 42,
     role: "Studio Manager",
     department: "Operations",
@@ -42,6 +45,7 @@ const EMPLOYEE_DATA = [
   {
     id: 4,
     name: "Chanel Kumar",
+    email: "chanel.kumar@fashion.com",
     age: 25,
     role: "Pattern Maker",
     department: "Production",
@@ -50,6 +54,7 @@ const EMPLOYEE_DATA = [
   {
     id: 5,
     name: "Versace Chen",
+    email: "versace.chen@fashion.com",
     age: 31,
     role: "Textile Designer",
     department: "Materials",
@@ -58,6 +63,7 @@ const EMPLOYEE_DATA = [
   {
     id: 6,
     name: "Gucci Hassan",
+    email: "gucci.hassan@fashion.com",
     age: 29,
     role: "Sample Coordinator",
     department: "Production",
@@ -66,6 +72,7 @@ const EMPLOYEE_DATA = [
   {
     id: 7,
     name: "Prada Williams",
+    email: "prada.williams@fashion.com",
     age: 33,
     role: "Fashion Stylist",
     department: "Styling",
@@ -74,6 +81,7 @@ const EMPLOYEE_DATA = [
   {
     id: 8,
     name: "Dior Martinez",
+    email: "dior.martinez@fashion.com",
     age: 27,
     role: "Technical Designer",
     department: "Technical",
@@ -82,6 +90,7 @@ const EMPLOYEE_DATA = [
   {
     id: 9,
     name: "Hermès Okafor",
+    email: "hermes.okafor@fashion.com",
     age: 30,
     role: "Color Specialist",
     department: "Design",
@@ -90,6 +99,7 @@ const EMPLOYEE_DATA = [
   {
     id: 10,
     name: "Balenciaga Kim",
+    email: "balenciaga.kim@fashion.com",
     age: 32,
     role: "Fit Specialist",
     department: "Production",
@@ -98,6 +108,7 @@ const EMPLOYEE_DATA = [
   {
     id: 11,
     name: "Yves Thompson",
+    email: "yves.thompson@fashion.com",
     age: 26,
     role: "Trend Researcher",
     department: "Research",
@@ -106,6 +117,7 @@ const EMPLOYEE_DATA = [
   {
     id: 12,
     name: "Givenchy Nakamura",
+    email: "givenchy.nakamura@fashion.com",
     age: 38,
     role: "Production Manager",
     department: "Production",
