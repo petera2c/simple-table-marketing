@@ -79,6 +79,7 @@ const SpreadsheetExampleComponent = ({
                 cursor: "pointer",
                 fontSize: "11px",
                 fontWeight: 500,
+                whiteSpace: "nowrap",
               }}
             >
               + Add Column
