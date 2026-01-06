@@ -189,6 +189,15 @@ initialSortColumn="createdAt"`,
 initialSortDirection="asc"`,
   },
   {
+    key: "hideHeader",
+    name: "hideHeader",
+    required: false,
+    description:
+      "Flag for hiding the table header row. When true, the entire header row will be hidden while maintaining all table functionality including sorting, filtering, and column operations.",
+    type: "boolean",
+    example: `hideHeader={true}`,
+  },
+  {
     key: "hideFooter",
     name: "hideFooter",
     required: false,

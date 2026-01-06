@@ -149,6 +149,30 @@ const HeaderRendererContent = () => {
         with your design.
       </motion.p>
 
+      <motion.div
+        className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Need to Hide Headers?</h3>
+        <p className="text-gray-700 dark:text-gray-300">
+          If you want to hide the entire header row instead of customizing it, use the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            hideHeader
+          </code>{" "}
+          prop on the SimpleTable component. This is useful for creating cleaner data displays or
+          implementing custom header implementations outside the table. See the{" "}
+          <a
+            href="/docs/api-reference"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            API Reference
+          </a>{" "}
+          for more details.
+        </p>
+      </motion.div>
+
       {/* Basic Usage Section */}
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"

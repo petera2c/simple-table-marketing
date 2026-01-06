@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_5: ChangelogEntry = {
+  version: "2.1.5",
+  date: "2026-01-06",
+  title: "Hide Table Header",
+  description:
+    "Added hideHeader prop to completely hide the table header row, useful for creating cleaner data displays or custom header implementations.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added hideHeader prop to hide the entire table header row while maintaining all table functionality",
+      link: "/docs/api-reference",
+    },
+  ],
+};
+
 export const v2_1_4: ChangelogEntry = {
   version: "2.1.4",
   date: "2026-01-04",
@@ -935,6 +951,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_5,
   v2_1_4,
   v2_1_3,
   v2_1_0,
