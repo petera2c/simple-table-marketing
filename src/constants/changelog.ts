@@ -964,6 +964,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_6,
   v2_1_5,
   v2_1_4,
   v2_1_3,
