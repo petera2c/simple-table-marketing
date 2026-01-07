@@ -10,6 +10,19 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_6: ChangelogEntry = {
+  version: "2.1.6",
+  date: "2026-01-06",
+  title: "Bug fixes",
+  description: "Keyboard navigation bug fix",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Keyboard navigation bug fix",
+    },
+  ],
+};
+
 export const v2_1_5: ChangelogEntry = {
   version: "2.1.5",
   date: "2026-01-06",
