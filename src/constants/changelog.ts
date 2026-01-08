@@ -10,6 +10,21 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_1_7: ChangelogEntry = {
+  version: "2.1.7",
+  date: "2026-01-07",
+  title: "Row Grouping Alignment Fix",
+  description:
+    "Fixed alignment issue in row grouping where text in rows would misalign when sibling rows had different child states (some with children, some without).",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed alignment when row grouping and siblings have children but one or more siblings does not have children - the collapse/expand icon won't show but the text in the rows will still align correctly",
+    },
+  ],
+};
+
 export const v2_1_6: ChangelogEntry = {
   version: "2.1.6",
   date: "2026-01-06",
@@ -964,6 +979,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_1_7,
   v2_1_6,
   v2_1_5,
   v2_1_4,
