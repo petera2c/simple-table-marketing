@@ -2,6 +2,7 @@
 import { Analytics } from "../components/Analytics";
 import { Nunito } from "next/font/google";
 import ClientLayout from "../components/ClientLayout";
+import ChunkErrorHandler from "../components/ChunkErrorHandler";
 import { Metadata } from "next";
 import { SEO_STRINGS } from "@/constants/strings/seo";
 
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={nunito.className}>
+        <ChunkErrorHandler />
         <ClientLayout>{children}</ClientLayout>
         <Analytics />
       </body>
