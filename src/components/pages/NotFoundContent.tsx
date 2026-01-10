@@ -9,6 +9,7 @@ import { faTableCells, faArrowLeft, faHome, faBook } from "@fortawesome/free-sol
 import { useMemo } from "react";
 import PageWrapper from "@/components/PageWrapper";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 
 export default function NotFoundContent() {
   const messageIndex = useMemo(
@@ -106,9 +107,9 @@ export default function NotFoundContent() {
                 whileHover={{ scale: 1.02 }}
               >
                 <FontAwesomeIcon icon={faTableCells} className="text-blue-500" />
-                <Link href={DEFAULT_EXAMPLE_PATH} className="hover:text-blue-600">
+                <ExampleLink href={DEFAULT_EXAMPLE_PATH} className="hover:text-blue-600">
                   View Examples
-                </Link>
+                </ExampleLink>
               </motion.li>
             </ul>
           </motion.div>

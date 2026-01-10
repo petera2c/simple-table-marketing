@@ -8,6 +8,7 @@ import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 import PageWrapper from "./PageWrapper";
+import { getExampleUrl } from "@/utils/getExampleUrl";
 
 export default function Footer() {
   const pathname = usePathname();
@@ -54,7 +55,7 @@ export default function Footer() {
               <ul className="space-y-2">
                 <li>
                   <Link
-                    href={`${DEFAULT_EXAMPLE_PATH}`}
+                    href={getExampleUrl(DEFAULT_EXAMPLE_PATH, theme)}
                     className={`text-gray-400 hover:text-white transition-colors ${
                       isActive(DEFAULT_EXAMPLE_PATH) ? "text-white font-medium" : ""
                     }`}
@@ -64,7 +65,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/examples/manufacturing"
+                    href={getExampleUrl("/examples/manufacturing", theme)}
                     className={`text-gray-400 hover:text-white transition-colors ${
                       isActive("/examples/manufacturing") ? "text-white font-medium" : ""
                     }`}
@@ -74,7 +75,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/examples/hr"
+                    href={getExampleUrl("/examples/hr", theme)}
                     className={`text-gray-400 hover:text-white transition-colors ${
                       isActive("/examples/hr") ? "text-white font-medium" : ""
                     }`}
@@ -84,7 +85,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/examples/billing"
+                    href={getExampleUrl("/examples/billing", theme)}
                     className={`text-gray-400 hover:text-white transition-colors ${
                       isActive("/examples/billing") ? "text-white font-medium" : ""
                     }`}
@@ -94,7 +95,7 @@ export default function Footer() {
                 </li>
                 <li>
                   <Link
-                    href="/examples/spreadsheet"
+                    href={getExampleUrl("/examples/spreadsheet", theme)}
                     className={`text-gray-400 hover:text-white transition-colors ${
                       isActive("/examples/spreadsheet") ? "text-white font-medium" : ""
                     }`}

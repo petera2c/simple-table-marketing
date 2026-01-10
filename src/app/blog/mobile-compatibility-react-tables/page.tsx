@@ -20,6 +20,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
@@ -517,11 +518,11 @@ export default function MobileTable() {
                       Get Started Now
                     </Button>
                   </Link>
-                  <Link href={DEFAULT_EXAMPLE_PATH}>
+                  <ExampleLink href={DEFAULT_EXAMPLE_PATH}>
                     <Button size="middle" block>
                       View Mobile Demo
                     </Button>
-                  </Link>
+                  </ExampleLink>
                 </div>
               </div>
             </div>

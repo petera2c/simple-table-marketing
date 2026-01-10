@@ -1,5 +1,9 @@
+"use client";
+
 import React from "react";
 import Link from "next/link";
+import { useThemeContext } from "@/providers/ThemeProvider";
+import { getExampleUrl } from "@/utils/getExampleUrl";
 
 interface CallToActionCardProps {
   title: string;
@@ -22,6 +26,8 @@ export default function CallToActionCard({
   primaryButton,
   secondaryButton,
 }: CallToActionCardProps) {
+  const { theme } = useThemeContext();
+
   const ButtonComponent = ({
     button,
     isPrimary,
@@ -34,10 +40,16 @@ export default function CallToActionCard({
       ? "bg-white text-gray-800 hover:bg-gray-100"
       : "bg-blue-500 hover:bg-blue-600 text-white";
 
+    // Add theme parameter to example URLs
+    let href = button.href;
+    if (!button.external && href.startsWith("/examples/")) {
+      href = getExampleUrl(href, theme);
+    }
+
     if (button.external) {
       return (
         <a
-          href={button.href}
+          href={href}
           target="_blank"
           rel="noopener noreferrer"
           className={`${baseClasses} ${primaryClasses}`}
@@ -48,7 +60,7 @@ export default function CallToActionCard({
     }
 
     return (
-      <Link href={button.href} className={`${baseClasses} ${primaryClasses}`}>
+      <Link href={href} className={`${baseClasses} ${primaryClasses}`}>
         {button.text}
       </Link>
     );

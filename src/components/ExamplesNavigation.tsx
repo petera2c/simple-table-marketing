@@ -135,7 +135,7 @@ function ExamplesNavigationContent() {
   const handleThemeChange = (theme: ThemeOption) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", theme);
-    router.push(`${pathname}?${params.toString()}`);
+    router.replace(`${pathname}?${params.toString()}`);
   };
 
   const handleRowCountChange = (rowCount: number) => {
@@ -153,17 +153,17 @@ function ExamplesNavigationContent() {
   // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to the website theme
   // This effect now only runs on direct navigation (e.g., browser back/forward, direct URL access)
   useEffect(() => {
-    if (
-      currentExample.id !== "crm" &&
-      (currentTheme === "custom-light" || currentTheme === "custom-dark")
-    ) {
-      handleThemeChange(theme);
-    } else if (
-      currentExample.id === "crm" &&
-      currentTheme !== "custom-light" &&
-      currentTheme !== "custom-dark"
-    ) {
-      handleThemeChange(theme === "dark" ? "custom-dark" : "custom-light");
+    // Early return if theme is already correct to prevent unnecessary re-renders
+    if (currentExample.id !== "crm") {
+      if (currentTheme === "custom-light" || currentTheme === "custom-dark") {
+        handleThemeChange(theme);
+      }
+    } else {
+      // CRM example
+      const expectedTheme = theme === "dark" ? "custom-dark" : "custom-light";
+      if (currentTheme !== "custom-light" && currentTheme !== "custom-dark") {
+        handleThemeChange(expectedTheme);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentExample.id]);

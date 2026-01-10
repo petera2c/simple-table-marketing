@@ -25,6 +25,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 import {
   SIMPLE_TABLE_INFO,
   AG_GRID_COMMUNITY_INFO,
@@ -928,11 +929,11 @@ export default function BundleSizeComparisonPage() {
                       Start Building →
                     </Button>
                   </Link>
-                  <Link href={DEFAULT_EXAMPLE_PATH}>
+                  <ExampleLink href={DEFAULT_EXAMPLE_PATH}>
                     <Button size="large" icon={<FontAwesomeIcon icon={faGauge} />}>
                       See Performance Demos
                     </Button>
-                  </Link>
+                  </ExampleLink>
                 </div>
               </div>
             </div>

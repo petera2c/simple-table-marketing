@@ -27,6 +27,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 import {
   SIMPLE_TABLE_INFO,
   HANDSONTABLE_INFO,
@@ -563,11 +564,11 @@ export default function HandsontableAlternativesPage() {
                     Get Started Free →
                   </Button>
                 </Link>
-                <Link href={DEFAULT_EXAMPLE_PATH}>
+                <ExampleLink href={DEFAULT_EXAMPLE_PATH}>
                   <Button size="large" icon={<FontAwesomeIcon icon={faCode} />}>
                     View Live Examples
                   </Button>
-                </Link>
+                </ExampleLink>
               </div>
             </div>
           </div>

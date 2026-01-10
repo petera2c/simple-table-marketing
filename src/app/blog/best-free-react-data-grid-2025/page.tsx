@@ -20,6 +20,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import { Button } from "antd";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 import {
   SIMPLE_TABLE_INFO,
   TANSTACK_TABLE_INFO,
@@ -578,11 +579,11 @@ export default function MyTable() {
                   Quick Start Guide
                 </Button>
               </Link>
-              <Link href={DEFAULT_EXAMPLE_PATH}>
+              <ExampleLink href={DEFAULT_EXAMPLE_PATH}>
                 <Button size="large" icon={<FontAwesomeIcon icon={faTable} />} block>
                   View Examples
                 </Button>
-              </Link>
+              </ExampleLink>
             </div>
           </div>
         </section>
@@ -627,11 +628,11 @@ export default function MyTable() {
                       Get Started Now
                     </Button>
                   </Link>
-                  <Link href={DEFAULT_EXAMPLE_PATH}>
+                  <ExampleLink href={DEFAULT_EXAMPLE_PATH}>
                     <Button size="middle" block>
                       Explore Examples
                     </Button>
-                  </Link>
+                  </ExampleLink>
                 </div>
               </div>
             </div>

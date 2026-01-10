@@ -18,6 +18,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import CodeBlock from "@/components/CodeBlock";
+import ExampleLink from "@/components/ExampleLink";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.replicatingGojiberryUI.title,
@@ -105,12 +106,12 @@ export default function ReplicatingGojiberryUIPage() {
               <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg">
                 <p className="text-gray-700 dark:text-gray-300">
                   <strong>Try it yourself:</strong> Check out our{" "}
-                  <Link
+                  <ExampleLink
                     href="/examples/crm"
                     className="text-blue-600 dark:text-blue-400 underline font-medium"
                   >
                     live CRM example
-                  </Link>{" "}
+                  </ExampleLink>{" "}
                   to see the Gojiberry-inspired table in action, complete with all interactive
                   features.
                 </p>
@@ -641,12 +642,12 @@ export default function ReplicatingGojiberryUIPage() {
                   Don't take our word for it. Experience the Gojiberry-inspired table yourself.
                   Resize columns, enrich emails, toggle buttons, navigate pages—it all works.
                 </p>
-                <Link
+                <ExampleLink
                   href="/examples/crm"
                   className="inline-block bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-medium transition-colors"
                 >
                   View Live CRM Example
-                </Link>
+                </ExampleLink>
               </div>
             </div>
           </div>
@@ -809,12 +810,12 @@ const headers = [
               <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg mb-6">
                 <p className="text-gray-700 dark:text-gray-300 mb-2">
                   <strong>Pro tip:</strong> Check out our{" "}
-                  <Link
+                  <ExampleLink
                     href="/examples/crm"
                     className="text-blue-600 dark:text-blue-400 underline font-medium"
                   >
                     complete CRM example source code
-                  </Link>{" "}
+                  </ExampleLink>{" "}
                   to see how we built the Gojiberry-style table. Feel free to use it as a starting
                   point for your own custom designs!
                 </p>
