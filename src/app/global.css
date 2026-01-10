@@ -576,6 +576,12 @@ video {
   }
 }
 
+@media (min-width: 1140px) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
 @media (min-width: 1280px) {
   .container {
     max-width: 1280px;
@@ -1341,6 +1347,10 @@ video {
 .truncate {
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.whitespace-nowrap {
   white-space: nowrap;
 }
 
@@ -3909,6 +3919,10 @@ body {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
+  .lg\:gap-4 {
+    gap: 1rem;
+  }
+
   .lg\:p-5 {
     padding: 1.25rem;
   }
@@ -3940,7 +3954,25 @@ body {
   }
 }
 
+@media (min-width: 1140px) {
+  .nav\:block {
+    display: block;
+  }
+
+  .nav\:hidden {
+    display: none;
+  }
+}
+
 @media (min-width: 1280px) {
+  .xl\:block {
+    display: block;
+  }
+
+  .xl\:hidden {
+    display: none;
+  }
+
   .xl\:grid-cols-4 {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }

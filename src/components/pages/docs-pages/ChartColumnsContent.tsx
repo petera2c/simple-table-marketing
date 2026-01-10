@@ -10,6 +10,7 @@ import CodeBlock from "@/components/CodeBlock";
 import ChartsDemo from "@/components/demos/ChartsDemo";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
+import ExampleLink from "@/components/ExampleLink";
 
 const CHART_COLUMN_PROPS: PropInfo[] = [
   {
@@ -480,12 +481,12 @@ useEffect(() => {
 
         <p className="text-gray-700 dark:text-gray-300 mt-4">
           Check out the{" "}
-          <a
+          <ExampleLink
             href="/examples/infrastructure"
             className="text-blue-600 dark:text-blue-400 hover:underline"
           >
             Infrastructure Example
-          </a>{" "}
+          </ExampleLink>{" "}
           to see live-updating CPU history charts in action.
         </p>
       </motion.div>

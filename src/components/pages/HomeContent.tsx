@@ -21,6 +21,7 @@ import { Theme } from "simple-table-core";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
+import { getExampleUrl } from "@/utils/getExampleUrl";
 
 // Dynamically import heavy components that are below the fold or conditional
 const CodeBlock = dynamic(() => import("@/components/CodeBlock"), { ssr: false });
@@ -41,7 +42,7 @@ const ComparisonsSection = dynamic(() => import("@/components/sections/Compariso
 export default function HomeContent() {
   const isMobile = useIsMobile();
   const router = useRouter();
-  const { theme: globalTheme } = useThemeContext();
+  const { theme } = useThemeContext();
   const { stars } = useGitHubStars("petera2c", "simple-table");
   const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
   const [selectedTheme, setSelectedTheme] = useState<Theme>();
@@ -141,7 +142,7 @@ export default function HomeContent() {
   };
 
   const handleExamplesClick = () => {
-    router.push(DEFAULT_EXAMPLE_PATH);
+    router.push(getExampleUrl(DEFAULT_EXAMPLE_PATH, theme));
   };
 
   return (
@@ -272,7 +273,7 @@ export default function HomeContent() {
             >
               <span className="text-sm text-gray-600 dark:text-gray-300">Theme:</span>
               <ThemeSelector
-                currentTheme={selectedTheme || globalTheme}
+                currentTheme={selectedTheme || theme}
                 setCurrentTheme={setSelectedTheme}
               />
             </motion.div>
@@ -300,7 +301,7 @@ export default function HomeContent() {
           ) : (
             <Suspense fallback={<div />}>
               <InfrastructureExample
-                theme={selectedTheme || globalTheme}
+                theme={selectedTheme || theme}
                 height={"70dvh"}
                 {...tableIcons}
               />

@@ -24,6 +24,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import ExampleLink from "@/components/ExampleLink";
 
 export default function FAQSection() {
   return (
@@ -293,13 +294,13 @@ export default function FAQSection() {
                     </Link>{" "}
                     includes detailed guides for every feature, interactive live demos you can edit
                     in your browser, real-world{" "}
-                    <Link
+                    <ExampleLink
                       href={DEFAULT_EXAMPLE_PATH}
                       className="text-orange-600 dark:text-orange-400 hover:underline cursor-pointer font-medium"
                       onClick={(e) => e.stopPropagation()}
                     >
                       examples
-                    </Link>{" "}
+                    </ExampleLink>{" "}
                     (billing, HR, infrastructure, manufacturing, sales), code snippets ready to
                     copy-paste, and a complete{" "}
                     <Link

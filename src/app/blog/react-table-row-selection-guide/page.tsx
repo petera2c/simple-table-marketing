@@ -20,6 +20,7 @@ import { SEO_STRINGS } from "@/constants/strings/seo";
 import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import Link from "next/link";
+import ExampleLink from "@/components/ExampleLink";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.reactTableRowSelection.title,
@@ -954,12 +955,12 @@ export default function ReactTableRowSelectionPage() {
                       >
                         → Accessibility Comparison
                       </Link>
-                      <Link
+                      <ExampleLink
                         href="/examples/crm"
                         className="text-blue-600 dark:text-blue-400 hover:underline"
                       >
                         → Live CRM Demo
-                      </Link>
+                      </ExampleLink>
                     </div>
                   </div>
                 </div>
