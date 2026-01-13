@@ -38,6 +38,9 @@ const FAQSection = dynamic(() => import("@/components/sections/FAQSection"), { s
 const ComparisonsSection = dynamic(() => import("@/components/sections/ComparisonsSection"), {
   ssr: true,
 });
+const TrustedBySection = dynamic(() => import("@/components/sections/TrustedBySection"), {
+  ssr: true,
+});
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -308,6 +311,9 @@ export default function HomeContent() {
             </Suspense>
           )}
         </motion.section>
+
+        {/* Trusted By Section */}
+        <TrustedBySection />
 
         {/* Main Features Section */}
         <FeaturesSection />
