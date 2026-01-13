@@ -54,11 +54,12 @@ const PricingContent: React.FC = () => {
       price: "$0",
       billingCycle: "forever",
       description:
-        "Perfect for fun projects, bootstrapped startups, and pre-revenue companies. Unlimited users per product license.",
+        "Perfect for fun projects, bootstrapped startups, and companies with zero revenue. Any revenue requires Pro. Unlimited users per product license.",
       features: [
         { text: "Full library access", included: true, highlight: true },
         { text: "All features included", included: true, highlight: true },
         { text: "Community support", included: true, highlight: true },
+        { text: "MIT License - for zero revenue companies only", included: true, highlight: false },
       ],
       cta: "Get Started Free",
       ctaVariant: "default",
@@ -75,11 +76,12 @@ const PricingContent: React.FC = () => {
       originalPrice: isAnnual ? "$1,020" : undefined,
       billingCycle: isAnnual ? "per year" : "per month",
       description:
-        "Enhanced support and priority access to new features. Unlimited users per product license.",
+        "For companies with any revenue. Enhanced support and priority access to new features. Unlimited users per product license.",
       features: [
         { text: "Priority email & Discord support", included: true, highlight: true },
         { text: "Direct developer access", included: true, highlight: true },
         { text: "Feature request prioritization", included: true, highlight: true },
+        { text: "Commercial EULA - required for revenue-generating companies", included: true, highlight: false },
       ],
       cta: "Start Pro Plan",
       ctaVariant: "primary",
@@ -302,9 +304,64 @@ const PricingContent: React.FC = () => {
                   </div>
                 ))}
               </div>
+
+              <div className="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+                <a
+                  href={plan.name === "FREE" ? "/legal/license" : "/legal/eula"}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                >
+                  View {plan.name === "FREE" ? "MIT License" : "EULA"}
+                </a>
+              </div>
             </motion.div>
           ))}
         </motion.section>
+
+        {/* Important Licensing Information */}
+        <motion.section
+          className="mt-12 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-500 dark:border-yellow-400 p-6 rounded">
+            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">
+              Important: Free License Requirements
+            </h3>
+            <p className="text-gray-700 dark:text-gray-300 mb-2">
+              The <strong>FREE plan</strong> is available only for companies, products, or
+              organizations with <strong>zero revenue</strong>. If your company generates any revenue
+              whatsoever, you must upgrade to the <strong>PRO plan</strong>.
+            </p>
+            <p className="text-gray-700 dark:text-gray-300">
+              For complete licensing terms, please review:
+            </p>
+            <ul className="mt-2 space-y-1">
+              <li>
+                <a
+                  href="/legal/license"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  MIT License
+                </a>{" "}
+                <span className="text-gray-600 dark:text-gray-400">(for FREE plan)</span>
+              </li>
+              <li>
+                <a
+                  href="/legal/eula"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  End-User License Agreement (EULA)
+                </a>{" "}
+                <span className="text-gray-600 dark:text-gray-400">(for PRO plan)</span>
+              </li>
+            </ul>
+          </div>
+        </motion.section>
+
         {/* Existing Customer Billing Management */}
         <motion.section
           className="mt-16 text-center border-t border-gray-200 dark:border-gray-700 pt-12"

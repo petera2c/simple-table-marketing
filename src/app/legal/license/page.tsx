@@ -47,8 +47,20 @@ export default function LicensePage() {
 
             <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 dark:border-blue-400 p-6 rounded">
               <h2 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-                Additional Terms
+                Important: Revenue Requirement
               </h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-3">
+                The MIT License applies <strong>only to companies, products, or organizations with
+                zero revenue</strong>. If your company generates <strong>any revenue whatsoever</strong>,
+                you must obtain a Pro License under our{" "}
+                <a
+                  href="/legal/eula"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  EULA
+                </a>
+                .
+              </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
                 For commercial use by revenue-generating companies and additional Pro features, see
                 the{" "}
@@ -58,7 +70,14 @@ export default function LicensePage() {
                 >
                   EULA
                 </a>{" "}
-                for complete licensing terms.
+                and visit our{" "}
+                <a
+                  href="/pricing"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+                >
+                  pricing page
+                </a>
+                .
               </p>
             </div>
 
@@ -103,10 +122,14 @@ export default function LicensePage() {
               <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
                 Free vs Pro License
               </h2>
+              <p className="text-gray-700 dark:text-gray-300 leading-relaxed mb-4">
+                The core Simple Table library is MIT licensed for free use by companies with
+                <strong> zero revenue only</strong>. Any company, product, or organization that
+                generates revenue must obtain a Pro License.
+              </p>
               <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
-                The core Simple Table library is MIT licensed for free use. For revenue-generating
-                companies and access to Pro features (priority support, early access, custom
-                guidance), please review our{" "}
+                For revenue-generating companies and access to Pro features (priority support, early
+                access, custom guidance), please review our{" "}
                 <a href="/legal/eula" className="text-blue-600 dark:text-blue-400 hover:underline">
                   EULA
                 </a>{" "}

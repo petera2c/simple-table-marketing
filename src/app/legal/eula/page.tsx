@@ -83,8 +83,9 @@ export default function EULAPage() {
             <ul className="space-y-2 text-gray-700 dark:text-gray-300 mb-4">
               <li>
                 <strong>Scope:</strong> Use in one (1) Product for non-commercial purposes or
-                commercial purposes if your company has no revenue (pre-revenue). Unlimited Users
-                per Product.
+                commercial purposes if your company has zero revenue (pre-revenue). If your company,
+                product, or organization generates any revenue whatsoever, you must obtain a Pro
+                License. Unlimited Users per Product.
               </li>
               <li>
                 <strong>Permissions:</strong> Full access to the Simple Table library (sorting,
@@ -97,7 +98,8 @@ export default function EULAPage() {
               </li>
               <li>
                 <strong>Limitations:</strong> No access to Pro features (e.g., priority support,
-                early access). Commercial use is permitted only for pre-revenue companies.
+                early access). Commercial use is permitted only for companies with zero revenue. Any
+                revenue generation requires upgrading to a Pro License.
               </li>
             </ul>
 
@@ -131,6 +133,14 @@ export default function EULAPage() {
                 <strong>Limitations:</strong> Additional Products require separate licenses. You may
                 not redistribute the Software or make it available as a standalone product or
                 service.
+              </li>
+              <li>
+                <strong>Resale and Distribution:</strong> If your Product resells, redistributes, or
+                makes the Software available to third parties in any form (including as part of a
+                white-label solution, SaaS platform, or embedded feature), each of your clients,
+                customers, or end-users who receive access to the Software must obtain their own
+                appropriate license (Free or Pro) from Simple Table Software. Your Pro License does
+                not extend to your downstream clients or customers.
               </li>
             </ul>
 
