@@ -10,6 +10,20 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_2_1: ChangelogEntry = {
+  version: "2.2.1",
+  date: "2026-01-13",
+  title: "Column Re-ordering Bug Fix",
+  description: "Fixed a bug that occurred when re-ordering columns in the table.",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed bug when re-ordering columns that could cause incorrect column positions or rendering issues.",
+    },
+  ],
+};
+
 export const v2_2_0: ChangelogEntry = {
   version: "2.2.0",
   date: "2026-01-13",
@@ -1001,6 +1015,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_2_1,
   v2_2_0,
   v2_1_7,
   v2_1_6,
