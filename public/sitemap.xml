@@ -16,7 +16,7 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/ag-grid-pricing-license-breakdown-2025</loc>
+    <loc>https://www.simple-table.com/blog/ag-grid-pricing-license-breakdown-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -31,12 +31,12 @@
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/best-free-react-data-grid-2025</loc>
+    <loc>https://www.simple-table.com/blog/best-free-react-data-grid-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.simple-table.com/blog/best-react-table-libraries-2025</loc>
+    <loc>https://www.simple-table.com/blog/best-react-table-libraries-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -57,6 +57,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/customizing-react-table-look-simple-table-themes</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/editable-react-data-grids-in-cell-vs-form-editing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -107,6 +112,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/react-grid-filtering-implementation</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/react-table-column-resizing-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

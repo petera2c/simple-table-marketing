@@ -259,8 +259,30 @@ export const autoExpandColumnsReactTablesPost: BlogPostMetadata = {
   updatedAt: "2025-12-22",
 };
 
+export const reactTableColumnResizingGuidePost: BlogPostMetadata = {
+  title: "React Table Column Resizing: Implementation Guide & Best Libraries (2026)",
+  description:
+    "Learn how to implement resizable columns in React tables. Compare Simple Table, TanStack Table, AG Grid, and more. Includes code examples, best practices, and auto-expand integration.",
+  slug: "react-table-column-resizing-guide",
+  tags: ["react", "column-resizing", "tutorial", "comparison", "features"],
+  createdAt: "2026-01-13",
+  updatedAt: "2026-01-13",
+};
+
+export const editableReactDataGridsPost: BlogPostMetadata = {
+  title: "Editable React Data Grids: In-Cell Editing vs Form-Based Editing (2026)",
+  description:
+    "Choosing between in-cell editing and form-based editing can make or break your data grid UX. Discover when to use each approach, how to implement them in React, and why the right choice depends on your users' workflow.",
+  slug: "editable-react-data-grids-in-cell-vs-form-editing",
+  tags: ["react", "cell-editing", "tutorial", "ux", "comparison"],
+  createdAt: "2026-01-13",
+  updatedAt: "2026-01-13",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  editableReactDataGridsPost,
+  reactTableColumnResizingGuidePost,
   autoExpandColumnsReactTablesPost,
   reactTableRowSelectionPost,
   materialReactTableVsSimpleTablePost,
