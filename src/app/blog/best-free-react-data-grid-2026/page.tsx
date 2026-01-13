@@ -28,29 +28,29 @@ import {
 } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
-  title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
-  description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.description,
-  keywords: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.keywords,
+  title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.title,
+  description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.description,
+  keywords: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.keywords,
   openGraph: {
-    title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
-    description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.description,
+    title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.title,
+    description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.description,
     type: "article",
     images: [SEO_STRINGS.site.ogImage],
     siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.title,
-    description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2025.description,
+    title: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.title,
+    description: SEO_STRINGS.blogPosts.bestFreeReactDataGrid2026.description,
     creator: SEO_STRINGS.site.creator,
     images: SEO_STRINGS.site.ogImage.url,
   },
   alternates: {
-    canonical: "/blog/best-free-react-data-grid-2025",
+    canonical: "/blog/best-free-react-data-grid-2026",
   },
 };
 
-export default function BestFreeReactDataGrid2025Page() {
+export default function BestFreeReactDataGrid2026Page() {
   return (
     <BlogLayout>
       {/* Hero Section */}
@@ -74,7 +74,7 @@ export default function BestFreeReactDataGrid2025Page() {
           </span>
           <span className="bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
             <FontAwesomeIcon icon={faRocket} />
-            2025 Ready
+            2026 Ready
           </span>
         </div>
 
@@ -90,12 +90,12 @@ export default function BestFreeReactDataGrid2025Page() {
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
             <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
               <FontAwesomeIcon icon={faStar} className="text-yellow-500" />
-              The Free React Data Grid Landscape in 2025
+              The Free React Data Grid Landscape in 2026
             </h3>
 
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="mb-4 text-gray-700 dark:text-gray-300">
-                As we move through 2025, the React ecosystem continues to evolve rapidly. With new
+                As we move through 2026, the React ecosystem continues to evolve rapidly. With new
                 frameworks, better performance standards, and changing developer expectations,
                 choosing the right data grid library has become more critical than ever. While
                 premium solutions like AG Grid dominate the enterprise market with their hefty price
@@ -105,7 +105,7 @@ export default function BestFreeReactDataGrid2025Page() {
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 After extensively testing and comparing the top free React data grid libraries
-                available in 2025, Simple Table emerges as the clear winner. But what makes it stand
+                available in 2026, Simple Table emerges as the clear winner. But what makes it stand
                 out in such a competitive landscape?
               </p>
 
@@ -137,7 +137,7 @@ export default function BestFreeReactDataGrid2025Page() {
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
               Simple Table doesn't just compete with other free alternatives—it sets a new standard.
-              Here's what makes it the best choice for React developers in 2025:
+              Here's what makes it the best choice for React developers in 2026:
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
@@ -507,7 +507,7 @@ export default function BestFreeReactDataGrid2025Page() {
             </h3>
 
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              Ready to experience the best free React data grid of 2025? Here's how simple it is to
+              Ready to experience the best free React data grid of 2026? Here's how simple it is to
               get started:
             </p>
 
@@ -593,7 +593,7 @@ export default function MyTable() {
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm mb-8">
             <h3 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-xl font-semibold">
               <FontAwesomeIcon icon={faTrophy} className="text-gold-500" />
-              The Verdict: Simple Table Leads 2025
+              The Verdict: Simple Table Leads 2026
             </h3>
 
             <div className="prose prose-gray dark:prose-invert max-w-none">
@@ -619,7 +619,7 @@ export default function MyTable() {
                 </div>
                 <p className="text-blue-700 dark:text-blue-300 mb-3">
                   Don't let inferior data grids slow down your React applications. Make the switch
-                  to Simple Table today and experience what the best free React data grid of 2025
+                  to Simple Table today and experience what the best free React data grid of 2026
                   can do for your projects.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-3">
@@ -642,8 +642,8 @@ export default function MyTable() {
 
       {/* Call to Action */}
       <CallToActionCard
-        title="Ready to try the best free React data grid of 2025?"
-        description="Simple Table is lightweight, powerful, and completely free. Join thousands of developers who've already made the switch from expensive alternatives. Experience the performance and ease of use that makes Simple Table the top choice for React data grids in 2025."
+        title="Ready to try the best free React data grid of 2026?"
+        description="Simple Table is lightweight, powerful, and completely free. Join thousands of developers who've already made the switch from expensive alternatives. Experience the performance and ease of use that makes Simple Table the top choice for React data grids in 2026."
         primaryButton={{
           text: "Get Started Now",
           href: "/docs/installation",

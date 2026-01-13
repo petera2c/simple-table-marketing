@@ -102,7 +102,7 @@ const SimpleTableVsTanstackContent = () => {
         </NextLink>
         {" • "}
         <NextLink
-          href="/blog/best-react-table-libraries-2025"
+          href="/blog/best-react-table-libraries-2026"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
           Best React table libraries

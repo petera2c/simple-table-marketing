@@ -89,7 +89,7 @@ export default function AccessibilityComparisonPage() {
                 Accessibility isn't optional—it's a legal requirement in many jurisdictions (ADA,
                 WCAG 2.1 AA, Section 508) and a moral imperative. Yet when{" "}
                 <Link
-                  href="/blog/best-react-table-libraries-2025"
+                  href="/blog/best-react-table-libraries-2026"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   comparing React data grids

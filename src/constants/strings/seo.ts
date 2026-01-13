@@ -10,7 +10,7 @@ import {
   replicatingGojiberryUIPost,
   tanstackVsAgGridPost,
   handsontableAlternativesPost,
-  agGridPricing2025Post,
+  agGridPricing2026Post,
   tanstackVsSimpleTablePost,
   materialReactTableVsSimpleTablePost,
   reactTableRowSelectionPost,
@@ -107,33 +107,33 @@ export const SEO_STRINGS = {
         "pinned columns mobile",
       ],
     },
-    bestReactTableLibraries2025: {
-      title: "Best React Table Libraries 2025: Complete Comparison Guide",
+    bestReactTableLibraries2026: {
+      title: "Best React Table Libraries 2026: Complete Comparison Guide",
       description:
-        "Compare the best React table libraries in 2025: Simple Table, TanStack Table, AG Grid, Material React Table, and more. See features, bundle sizes, pricing, and which one is right for your project.",
+        "Compare the best React table libraries in 2026: Simple Table, TanStack Table, AG Grid, Material React Table, and more. See features, bundle sizes, pricing, and which one is right for your project.",
       keywords: [
         "best react table libraries",
         "best react table",
         "react table",
         "react table library",
-        "react table comparison 2025",
+        "react table comparison 2026",
         "tanstack table vs simple table",
         "ag grid vs simple table",
         "handsontable vs simple table",
         "react data grid libraries",
         "table library comparison",
-        "react table 2025",
+        "react table 2026",
         "data grid comparison",
         "react table pros cons",
-        "best react table library 2025",
+        "best react table library 2026",
       ],
     },
-    bestFreeReactDataGrid2025: {
+    bestFreeReactDataGrid2026: {
       title: bestFreeReactDataGridPost.title,
       description: bestFreeReactDataGridPost.description,
       keywords: [
         "best free react data grid",
-        "react table 2025",
+        "react table 2026",
         "free data grid comparison",
         "simple table vs ag grid",
         "react grid library",
@@ -293,13 +293,13 @@ export const SEO_STRINGS = {
         "free excel-like table react",
       ],
     },
-    agGridPricing2025: {
-      title: agGridPricing2025Post.title,
-      description: agGridPricing2025Post.description,
+    agGridPricing2026: {
+      title: agGridPricing2026Post.title,
+      description: agGridPricing2026Post.description,
       keywords: [
         "ag grid pricing",
         "ag grid cost",
-        "ag grid pricing 2025",
+        "ag grid pricing 2026",
         "ag grid enterprise cost",
         "ag grid enterprise license cost",
         "ag grid license pricing",

@@ -33,6 +33,22 @@ const config: NextConfig = {
         destination: "/examples/crm",
         permanent: true,
       },
+      // Redirect 2025 blog posts to 2026 versions
+      {
+        source: "/blog/best-free-react-data-grid-2025",
+        destination: "/blog/best-free-react-data-grid-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/best-react-table-libraries-2025",
+        destination: "/blog/best-react-table-libraries-2026",
+        permanent: true,
+      },
+      {
+        source: "/blog/ag-grid-pricing-license-breakdown-2025",
+        destination: "/blog/ag-grid-pricing-license-breakdown-2026",
+        permanent: true,
+      },
     ];
   },
   eslint: {
@@ -68,9 +84,7 @@ const config: NextConfig = {
               name(module: any) {
                 // Group antd and related packages together
                 if (
-                  /[\\/]node_modules[\\/](antd|@ant-design|rc-.*?)[\\/]/.test(
-                    module.context || ""
-                  )
+                  /[\\/]node_modules[\\/](antd|@ant-design|rc-.*?)[\\/]/.test(module.context || "")
                 ) {
                   return "antd-vendor";
                 }

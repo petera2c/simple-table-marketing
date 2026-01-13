@@ -27,25 +27,25 @@ import Link from "next/link";
 import { SIMPLE_TABLE_INFO } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
-  title: SEO_STRINGS.blogPosts.agGridPricing2025.title,
-  description: SEO_STRINGS.blogPosts.agGridPricing2025.description,
-  keywords: SEO_STRINGS.blogPosts.agGridPricing2025.keywords,
+  title: SEO_STRINGS.blogPosts.agGridPricing2026.title,
+  description: SEO_STRINGS.blogPosts.agGridPricing2026.description,
+  keywords: SEO_STRINGS.blogPosts.agGridPricing2026.keywords,
   openGraph: {
-    title: SEO_STRINGS.blogPosts.agGridPricing2025.title,
-    description: SEO_STRINGS.blogPosts.agGridPricing2025.description,
+    title: SEO_STRINGS.blogPosts.agGridPricing2026.title,
+    description: SEO_STRINGS.blogPosts.agGridPricing2026.description,
     type: "article",
     images: [SEO_STRINGS.site.ogImage],
     siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.blogPosts.agGridPricing2025.title,
-    description: SEO_STRINGS.blogPosts.agGridPricing2025.description,
+    title: SEO_STRINGS.blogPosts.agGridPricing2026.title,
+    description: SEO_STRINGS.blogPosts.agGridPricing2026.description,
     creator: SEO_STRINGS.site.creator,
     images: SEO_STRINGS.site.ogImage.url,
   },
   alternates: {
-    canonical: "/blog/ag-grid-pricing-license-breakdown-2025",
+    canonical: "/blog/ag-grid-pricing-license-breakdown-2026",
   },
 };
 
@@ -55,7 +55,7 @@ export default function AgGridPricingPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900 dark:to-orange-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          AG Grid Pricing & License Breakdown 2025: What You Actually Pay
+          AG Grid Pricing & License Breakdown 2026: What You Actually Pay
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -65,7 +65,7 @@ export default function AgGridPricingPage() {
           </span>
           <span className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
             <FontAwesomeIcon icon={faCalculator} />
-            2025 Pricing
+            2026 Pricing
           </span>
           <span className="bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
             <FontAwesomeIcon icon={faShieldAlt} />
@@ -94,7 +94,7 @@ export default function AgGridPricingPage() {
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
-                In this comprehensive guide, we'll break down AG Grid's 2025 pricing structure,
+                In this comprehensive guide, we'll break down AG Grid's 2026 pricing structure,
                 reveal the actual costs you'll pay, and help you determine whether it's the right
                 investment for your team—or if there are{" "}
                 <Link
@@ -295,7 +295,7 @@ export default function AgGridPricingPage() {
             </h2>
 
             <p className="mb-6 text-gray-700 dark:text-gray-300">
-              Let's break down the actual costs for different team sizes. These are 2025 prices
+              Let's break down the actual costs for different team sizes. These are 2026 prices
               based on AG Grid's standard licensing (prices may vary for volume/enterprise deals).
             </p>
 
@@ -917,10 +917,10 @@ export default function AgGridPricingPage() {
                     → Detailed feature comparison
                   </Link>
                   <Link
-                    href="/blog/best-react-table-libraries-2025"
+                    href="/blog/best-react-table-libraries-2026"
                     className="text-sm text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                   >
-                    → Best React table libraries 2025
+                    → Best React table libraries 2026
                   </Link>
                   <Link
                     href="/blog/react-data-grid-bundle-size-comparison"

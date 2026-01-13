@@ -36,35 +36,35 @@ import {
 } from "@/constants/packageInfo";
 
 export const metadata: Metadata = {
-  title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
-  description: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.description,
-  keywords: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.keywords,
+  title: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.title,
+  description: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.description,
+  keywords: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.keywords,
   openGraph: {
-    title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
-    description: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.description,
+    title: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.title,
+    description: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.description,
     type: "article",
     images: [SEO_STRINGS.site.ogImage],
     siteName: SEO_STRINGS.site.name,
   },
   twitter: {
     card: "summary_large_image",
-    title: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.title,
-    description: SEO_STRINGS.blogPosts.bestReactTableLibraries2025.description,
+    title: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.title,
+    description: SEO_STRINGS.blogPosts.bestReactTableLibraries2026.description,
     creator: SEO_STRINGS.site.creator,
     images: SEO_STRINGS.site.ogImage.url,
   },
   alternates: {
-    canonical: "/blog/best-react-table-libraries-2025",
+    canonical: "/blog/best-react-table-libraries-2026",
   },
 };
 
-export default function BestReactTableLibraries2025Page() {
+export default function BestReactTableLibraries2026Page() {
   return (
     <BlogLayout>
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          Top React Table Libraries for 2025: Streamlining Data in Style
+          Top React Table Libraries for 2026: Streamlining Data in Style
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -74,7 +74,7 @@ export default function BestReactTableLibraries2025Page() {
           </span>
           <span className="bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
             <FontAwesomeIcon icon={faChartLine} />
-            2025 Ready
+            2026 Ready
           </span>
           <span className="bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200 px-3 py-1 rounded-full text-sm font-medium flex items-center gap-2">
             <FontAwesomeIcon icon={faCode} />
@@ -1025,7 +1025,7 @@ export default function BestReactTableLibraries2025Page() {
 
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="mb-4 text-gray-700 dark:text-gray-300">
-                React's table scene in 2025? Vibrant, varied, and veto-proof for most pains. Stars,
+                React's table scene in 2026? Vibrant, varied, and veto-proof for most pains. Stars,
                 forks, and fervor guide the way, but test-drive against your spec—what flies in a
                 hackathon flops in prod.
               </p>
@@ -1070,7 +1070,7 @@ export default function BestReactTableLibraries2025Page() {
       {/* Call to Action */}
       <CallToActionCard
         title="Ready to try the best React table library for your project?"
-        description="Simple Table combines the power of enterprise solutions with the simplicity developers love. Join thousands of developers who've already made the switch from complex alternatives. Experience the performance and ease of use that makes Simple Table the top choice for React tables in 2025."
+        description="Simple Table combines the power of enterprise solutions with the simplicity developers love. Join thousands of developers who've already made the switch from complex alternatives. Experience the performance and ease of use that makes Simple Table the top choice for React tables in 2026."
         primaryButton={{
           text: "Get Started Now",
           href: "/",

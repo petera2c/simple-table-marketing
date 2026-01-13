@@ -124,7 +124,7 @@ export default function ReactTableRowSelectionPage() {
                 We'll compare Simple Table's batteries-included implementation with manual
                 approaches. If you're comparing table libraries,{" "}
                 <Link
-                  href="/blog/best-react-table-libraries-2025"
+                  href="/blog/best-react-table-libraries-2026"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   check out our guide to the top React table libraries for 2025

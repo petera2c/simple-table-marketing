@@ -97,7 +97,7 @@ export default function TanStackVsSimpleTablePage() {
                 can cost you weeks of development time or lock you into an architecture that doesn't
                 fit your needs. For a broader overview, check out our guide to{" "}
                 <Link
-                  href="/blog/best-react-table-libraries-2025"
+                  href="/blog/best-react-table-libraries-2026"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   the best React table libraries in 2025

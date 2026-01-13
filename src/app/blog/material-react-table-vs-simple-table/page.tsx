@@ -950,7 +950,7 @@ export default function MaterialReactTableVsSimpleTablePage() {
                 licensed and production-ready—choose based on your constraints, not arbitrary
                 preferences. For more context on choosing the right table library,{" "}
                 <Link
-                  href="/blog/best-free-react-data-grid-2025"
+                  href="/blog/best-free-react-data-grid-2026"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   see our guide to the best free React data grids
@@ -982,7 +982,7 @@ export default function MaterialReactTableVsSimpleTablePage() {
                     → Bundle size comparison
                   </Link>
                   <Link
-                    href="/blog/best-react-table-libraries-2025"
+                    href="/blog/best-react-table-libraries-2026"
                     className="text-blue-600 dark:text-blue-400 hover:underline"
                   >
                     → Top React table libraries

@@ -58,7 +58,7 @@ const SimpleVsAgGrid = () => {
       if Simple Table can deliver the enterprise-level functionality your application needs. For a
       detailed pricing breakdown, see our{" "}
       <NextLink
-        href="/blog/ag-grid-pricing-license-breakdown-2025"
+        href="/blog/ag-grid-pricing-license-breakdown-2026"
         className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
       >
         AG Grid pricing guide
@@ -127,14 +127,14 @@ const SimpleVsAgGrid = () => {
       <Text className="text-base block text-inherit">
         <strong>Related reading:</strong>{" "}
         <NextLink
-          href="/blog/ag-grid-pricing-license-breakdown-2025"
+          href="/blog/ag-grid-pricing-license-breakdown-2026"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
           AG Grid pricing breakdown
         </NextLink>
         {" • "}
         <NextLink
-          href="/blog/best-react-table-libraries-2025"
+          href="/blog/best-react-table-libraries-2026"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
           Best React table libraries 2025

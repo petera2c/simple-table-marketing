@@ -108,7 +108,7 @@ export default function AgGridAlternativesPage() {
                 aggregation, and Excel export require an Enterprise license starting at $999 per
                 developer annually. See our{" "}
                 <Link
-                  href="/blog/ag-grid-pricing-license-breakdown-2025"
+                  href="/blog/ag-grid-pricing-license-breakdown-2026"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   complete AG Grid pricing breakdown

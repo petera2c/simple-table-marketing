@@ -34,7 +34,7 @@ const InstallationContent = () => {
         process and help you set up the library in your React project. Looking for alternatives?
         Check out our{" "}
         <Link
-          href="/blog/best-react-table-libraries-2025"
+          href="/blog/best-react-table-libraries-2026"
           className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
         >
           comparison of the best React table libraries

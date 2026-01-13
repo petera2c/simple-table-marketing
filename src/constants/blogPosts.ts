@@ -49,13 +49,13 @@ export const nestedHeadersReactTablesPost: BlogPostMetadata = {
 };
 
 export const bestFreeReactDataGridPost: BlogPostMetadata = {
-  title: "Best Free React Data Grid: Why Simple Table Stands Out in 2025",
+  title: "Best Free React Data Grid: Why Simple Table Stands Out in 2026",
   description:
-    "Discover why Simple Table is the best free React data grid in 2025. Compare features, performance, and ease of use against popular alternatives like AG Grid, TanStack Table, and Material-UI.",
-  slug: "best-free-react-data-grid-2025",
+    "Discover why Simple Table is the best free React data grid in 2026. Compare features, performance, and ease of use against popular alternatives like AG Grid, TanStack Table, and Material-UI.",
+  slug: "best-free-react-data-grid-2026",
   tags: ["react", "comparison", "alternatives", "best-practices"],
   createdAt: "2025-06-21",
-  updatedAt: "2025-06-21",
+  updatedAt: "2026-01-13",
 };
 
 export const customizingReactTableLookPost: BlogPostMetadata = {
@@ -78,14 +78,14 @@ export const mobileCompatibilityReactTablesPost: BlogPostMetadata = {
   updatedAt: "2025-10-19",
 };
 
-export const bestReactTableLibraries2025Post: BlogPostMetadata = {
-  title: "Top React Table Libraries for 2025: Streamlining Data in Style",
+export const bestReactTableLibraries2026Post: BlogPostMetadata = {
+  title: "Top React Table Libraries for 2026: Streamlining Data in Style",
   description:
-    "Discover the best React table libraries in 2025. Compare Simple Table, TanStack Table, AG Grid, Handsontable, and more. Find the perfect solution for your project with detailed pros, cons, and use cases.",
-  slug: "best-react-table-libraries-2025",
+    "Discover the best React table libraries in 2026. Compare Simple Table, TanStack Table, AG Grid, Handsontable, and more. Find the perfect solution for your project with detailed pros, cons, and use cases.",
+  slug: "best-react-table-libraries-2026",
   tags: ["react", "comparison", "alternatives"],
   createdAt: "2025-10-07",
-  updatedAt: "2025-10-07",
+  updatedAt: "2026-01-13",
 };
 
 export const customFooterRenderersPost: BlogPostMetadata = {
@@ -149,14 +149,14 @@ export const handsontableAlternativesPost: BlogPostMetadata = {
   updatedAt: "2025-11-15",
 };
 
-export const agGridPricing2025Post: BlogPostMetadata = {
-  title: "AG Grid Pricing & License Breakdown 2025: What You Actually Pay",
+export const agGridPricing2026Post: BlogPostMetadata = {
+  title: "AG Grid Pricing & License Breakdown 2026: What You Actually Pay",
   description:
-    "Complete breakdown of AG Grid's 2025 pricing: from $999/dev/year to enterprise costs. Understand hidden fees, licensing terms, and free alternatives that could save you $25K+.",
-  slug: "ag-grid-pricing-license-breakdown-2025",
+    "Complete breakdown of AG Grid's 2026 pricing: from $999/dev/year to enterprise costs. Understand hidden fees, licensing terms, and free alternatives that could save you $25K+.",
+  slug: "ag-grid-pricing-license-breakdown-2026",
   tags: ["react", "ag-grid", "pricing", "comparison"],
   createdAt: "2025-11-22",
-  updatedAt: "2025-11-22",
+  updatedAt: "2026-01-13",
 };
 
 export const tanstackVsSimpleTablePost: BlogPostMetadata = {
@@ -271,7 +271,7 @@ export const BLOG_POSTS: BlogPostMetadata[] = [
   columnPinningTutorialPost,
   mitLicensedAccessibilityPost,
   tanstackVsSimpleTablePost,
-  agGridPricing2025Post,
+  agGridPricing2026Post,
   handsontableAlternativesPost,
   tanstackVsAgGridPost,
   bundleSizeComparisonPost,
@@ -279,7 +279,7 @@ export const BLOG_POSTS: BlogPostMetadata[] = [
   replicatingGojiberryUIPost,
   customFooterRenderersPost,
   mobileCompatibilityReactTablesPost,
-  bestReactTableLibraries2025Post,
+  bestReactTableLibraries2026Post,
   customizingReactTableLookPost,
   bestFreeReactDataGridPost,
   freeAlternativeToAgGridPost,
