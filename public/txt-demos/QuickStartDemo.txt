@@ -130,7 +130,6 @@ const QuickStartDemo = ({
       defaultHeaders={headers}
       editColumns
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       rowHeight={32}
       selectableCells

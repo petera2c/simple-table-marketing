@@ -180,7 +180,6 @@ const ColumnEditingDemo = ({
       enableHeaderEditing={true}
       height={height}
       onHeaderEdit={handleHeaderEdit}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       selectableColumns={true}
       theme={theme}

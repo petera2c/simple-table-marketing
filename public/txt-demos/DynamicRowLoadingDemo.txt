@@ -366,43 +366,6 @@ const fetchProductsForStore = async (storeId: string): Promise<Product[]> => {
   return generateProductsForStore(storeId);
 };
 
-// ============================================================================
-// HELPER FUNCTIONS
-// ============================================================================
-
-const updateRowChildren = (
-  rows: Region[],
-  rowId: string,
-  groupingKey: string,
-  children: Store[] | Product[]
-): Region[] => {
-  return rows.map((row) => {
-    // Check if this is the region we're looking for
-    if (row.id === rowId) {
-      return { ...row, [groupingKey]: children };
-    }
-
-    // Recursively check stores if they exist
-    if (row.stores && Array.isArray(row.stores)) {
-      return {
-        ...row,
-        stores: row.stores.map((store) => {
-          if (store.id === rowId) {
-            return { ...store, [groupingKey]: children };
-          }
-          return store;
-        }),
-      };
-    }
-
-    return row;
-  });
-};
-
-// ============================================================================
-// MAIN COMPONENT
-// ============================================================================
-
 const DynamicRowLoadingDemo = ({
   height = "400px",
   theme,
@@ -416,7 +379,6 @@ const DynamicRowLoadingDemo = ({
   const handleRowExpand = useCallback(
     async ({
       row,
-      rowId,
       depth,
       groupingKey,
       isExpanded,
@@ -441,7 +403,7 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch stores from "API"
-          const stores = await fetchStoresForRegion(String(rowId));
+          const stores = await fetchStoresForRegion(String(row.regionId));
 
           // Clear loading state
           setLoading(false);
@@ -465,7 +427,7 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch products from "API"
-          const products = await fetchProductsForStore(String(rowId));
+          const products = await fetchProductsForStore(String(row.storeId));
 
           // Clear loading state
           setLoading(false);
@@ -507,7 +469,6 @@ const DynamicRowLoadingDemo = ({
       height={height}
       onRowGroupExpand={handleRowExpand}
       rowGrouping={["stores", "products"]}
-      rowIdAccessor="id"
       rows={rows}
       selectableCells
       theme={theme}

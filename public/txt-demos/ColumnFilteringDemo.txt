@@ -221,13 +221,7 @@ const ColumnFilteringDemo = ({
   theme?: Theme;
 }) => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rowIdAccessor="id"
-      rows={EMPLOYEE_DATA}
-      height={height}
-      theme={theme}
-    />
+    <SimpleTable defaultHeaders={headers} rows={EMPLOYEE_DATA} height={height} theme={theme} />
   );
 };
 

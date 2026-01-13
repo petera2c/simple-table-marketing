@@ -121,7 +121,6 @@ const RowHeightDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       rowHeight={32}
       theme={theme}

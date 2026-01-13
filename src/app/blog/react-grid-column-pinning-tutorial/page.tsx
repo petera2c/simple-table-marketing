@@ -408,7 +408,7 @@ export default function CRMTable({ data }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       height="500px"
       theme="light"
     />

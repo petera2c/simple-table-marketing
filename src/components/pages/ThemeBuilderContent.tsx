@@ -1418,7 +1418,6 @@ function SalesExample({
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
       rowHeight={rowHeight}
-      rowIdAccessor="id"
       rows={data}
       rowsPerPage={howManyRowsCanFit}
       selectableCells

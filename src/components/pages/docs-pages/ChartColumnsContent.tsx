@@ -227,7 +227,7 @@ const rows = [
 <SimpleTable
   defaultHeaders={headers}
   rows={rows}
-  rowIdAccessor="id"
+  
 />`}
         />
       </motion.div>

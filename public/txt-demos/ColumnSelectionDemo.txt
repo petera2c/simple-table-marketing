@@ -137,7 +137,6 @@ const ColumnSelectionDemo = ({
       defaultHeaders={headers}
       height={height}
       onColumnSelect={handleColumnSelect}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       selectableColumns={true}
       theme={theme}

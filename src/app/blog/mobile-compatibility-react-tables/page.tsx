@@ -455,7 +455,7 @@ export default function MobileTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
     />
   );
 }`}

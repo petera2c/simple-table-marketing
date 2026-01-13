@@ -38,20 +38,7 @@ const TABLE_PROPS: PropInfo[] = [
   { id: 2, name: "Jane Smith", age: 25 }
 ];`,
   },
-  {
-    key: "rowIdAccessor",
-    name: "rowIdAccessor",
-    required: true,
-    description:
-      "The property name that uniquely identifies each row. This is crucial for proper row tracking, selection, and updates. Without this, the table cannot maintain state correctly.",
-    type: "Accessor",
-    link: "/docs/api-reference#union-types",
-    example: `// If your data has an 'id' field
-rowIdAccessor="id"
 
-// If your data has a different unique field
-rowIdAccessor="employeeId"`,
-  },
   {
     key: "height",
     name: "height",
@@ -141,8 +128,6 @@ const QuickStartContent = () => {
           Preview={QuickStartDemo}
         />
       </motion.div>
-
-      {/* Important rowIdAccessor callout */}
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"

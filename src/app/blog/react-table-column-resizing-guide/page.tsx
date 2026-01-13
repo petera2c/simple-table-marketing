@@ -544,7 +544,7 @@ export default function ResizableTable({ data }) {
       columnResizing={true}  // That's it!
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       height="500px"
     />
   );
@@ -584,7 +584,7 @@ export default function ResizableTable({ data }) {
   autoExpandColumns={true}  // Columns always fill container
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   height="500px"
 />
 
@@ -709,7 +709,7 @@ export default function ResponsiveTable({ data }) {
       autoExpandColumns={!isMobile}  // Disable on mobile
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       height="500px"
     />
   );

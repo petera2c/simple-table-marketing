@@ -215,7 +215,6 @@ const SingleRowChildrenDemo = ({
       selectableCells
       defaultHeaders={headers}
       rows={STUDENT_DATA}
-      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

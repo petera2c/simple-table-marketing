@@ -69,7 +69,6 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     example: `<SimpleTable
   onRowGroupExpand={async ({ 
     row, 
-    rowId, 
     depth, 
     groupingKey, 
     isExpanded,
@@ -84,7 +83,7 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     setLoading(true);
     
     try {
-      const children = await fetchChildrenData(rowId, groupingKey);
+      const children = await fetchChildrenData(row.id, groupingKey);
       setLoading(false);
       
       if (children.length === 0) {

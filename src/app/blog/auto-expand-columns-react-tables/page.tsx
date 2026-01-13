@@ -570,7 +570,7 @@ export default function AutoExpandTable({ data }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       autoExpandColumns={true} // That's it!
       height="500px"
     />
@@ -621,7 +621,7 @@ useEffect(() => {
   autoExpandColumns={!isMobile}
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`}
                 />
               </div>
@@ -683,7 +683,7 @@ useEffect(() => {
 <SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   autoExpandColumns={true}
   height="500px"
 />`}
@@ -723,7 +723,7 @@ useEffect(() => {
                 code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   autoExpandColumns={true}
   isColumnResizable={true} // Enable resizing
   height="500px"
@@ -902,7 +902,7 @@ useEffect(() => {
   autoExpandColumns={!isMobile} // Disable on mobile
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`}
                 />
               </div>

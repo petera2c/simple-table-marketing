@@ -192,7 +192,6 @@ const SpreadsheetExampleComponent = ({
         onGridReady={onGridReady}
         prevIcon={prevIcon}
         rowHeight={22}
-        rowIdAccessor="id"
         rows={data}
         selectableCells
         selectableColumns

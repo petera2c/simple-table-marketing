@@ -193,7 +193,6 @@ const CellEditingDemo = ({
       defaultHeaders={headers}
       height={height}
       onCellEdit={handleCellEdit}
-      rowIdAccessor="id"
       rows={data}
       theme={theme}
     />

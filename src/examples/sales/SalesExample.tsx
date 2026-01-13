@@ -99,7 +99,6 @@ export default function SalesExample({
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
       prevIcon={prevIcon}
-      rowIdAccessor="id"
       rows={data}
       selectableCells
       sortDownIcon={sortDownIcon}

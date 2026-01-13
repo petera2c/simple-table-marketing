@@ -171,7 +171,6 @@ const ColumnVisibilityDemo = ({
       defaultHeaders={headers}
       editColumns
       editColumnsInitOpen
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}

@@ -274,7 +274,6 @@ const CSVExportDemo = ({
         defaultHeaders={headers}
         editColumns
         height={typeof height === "number" ? `${height - 60}px` : height}
-        rowIdAccessor="sku"
         rows={SALES_DATA}
         rowHeight={32}
         selectableCells

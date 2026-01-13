@@ -380,7 +380,6 @@ const CellRendererDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       selectableCells
       theme={theme}

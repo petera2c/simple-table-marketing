@@ -541,7 +541,6 @@ const RowGroupingDemo = ({
         defaultHeaders={headers}
         expandAll={expandAll}
         height={height}
-        rowIdAccessor="id"
         rowGrouping={["divisions", "departments"]}
         rows={rows}
         theme={theme}

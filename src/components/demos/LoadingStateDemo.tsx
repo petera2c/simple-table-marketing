@@ -128,7 +128,6 @@ const LoadingStateDemo = ({ height, theme }: { height?: string | number; theme?:
         defaultHeaders={HEADERS}
         height="380px"
         isLoading={isLoading}
-        rowIdAccessor="id"
         rows={data}
         theme={theme}
       />

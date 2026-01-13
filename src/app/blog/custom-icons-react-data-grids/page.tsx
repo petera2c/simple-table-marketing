@@ -328,7 +328,7 @@ export default function CustomIconTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       height="500px"
       
       // Sorting icons
@@ -385,7 +385,7 @@ export default function CustomSVGTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       sortUpIcon={<SortUpIcon />}
       sortDownIcon={<SortDownIcon />}
       filterIcon={<FilterIcon />}
@@ -415,7 +415,7 @@ export default function LucideIconTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       
       // Lucide icons with custom size and color
       sortUpIcon={<ChevronUp size={16} className="text-indigo-600" />}

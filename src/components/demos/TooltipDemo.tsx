@@ -195,7 +195,6 @@ const TooltipDemo = ({ height = "400px", theme }: { height?: string | number; th
     <SimpleTable
       defaultHeaders={HEADERS}
       rows={EXAMPLE_DATA}
-      rowIdAccessor="id"
       height={height}
       columnResizing
       columnReordering

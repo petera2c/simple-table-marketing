@@ -122,7 +122,6 @@ const ColumnResizingDemo = ({
     <SimpleTable
       columnResizing
       defaultHeaders={headers}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}

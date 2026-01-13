@@ -398,7 +398,6 @@ const FooterRendererDemo = ({
   return (
     <SimpleTable
       defaultHeaders={headers}
-      rowIdAccessor="id"
       rows={initialData}
       shouldPaginate={true}
       rowsPerPage={10}

@@ -148,7 +148,6 @@ const ColumnSortingDemo = ({
       height={height}
       initialSortColumn="age"
       initialSortDirection="desc"
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       theme={theme}
     />

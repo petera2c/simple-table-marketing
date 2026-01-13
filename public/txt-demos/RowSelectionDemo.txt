@@ -274,7 +274,6 @@ const RowSelectionDemo = ({ theme }: { height?: string | number; theme?: Theme }
       <SimpleTable
         defaultHeaders={headers}
         rows={LIBRARY_BOOKS}
-        rowIdAccessor="id"
         enableRowSelection={true}
         onRowSelectionChange={handleRowSelectionChange}
         height="348px"

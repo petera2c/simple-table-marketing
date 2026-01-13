@@ -295,7 +295,6 @@ const ProgrammaticControlDemo = ({
       <SimpleTable
         defaultHeaders={headers}
         rows={PRODUCT_DATA}
-        rowIdAccessor="id"
         tableRef={tableRef}
         height={height}
         theme={theme}

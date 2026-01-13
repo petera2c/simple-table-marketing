@@ -400,7 +400,7 @@ const headers: HeaderObject[] = [
 <SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   rowGrouping={["departments"]} // Array property name for children
 />
 
@@ -408,7 +408,7 @@ const headers: HeaderObject[] = [
 <SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   rowGrouping={["divisions", "departments"]} // Order = nesting depth
 />
 
@@ -416,7 +416,7 @@ const headers: HeaderObject[] = [
 <SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   rowGrouping={["divisions", "departments", "teams"]}
 />`}
               />
@@ -546,7 +546,7 @@ export default function OrgChartTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       rowGrouping={["divisions", "departments"]}
       expandAll={false}
       height="600px"
@@ -607,7 +607,6 @@ export default function LazyTreeTable() {
 
   const handleExpand = async ({
     row,
-    rowId,
     depth,
     groupingKey,
     isExpanded,
@@ -623,8 +622,7 @@ export default function LazyTreeTable() {
     setLoading(true);
 
     try {
-      // Fetch children from API
-      const response = await fetch(\`/api/tree-data?parent=\${rowId}&level=\${groupingKey}\`);
+      const response = await fetch(\`/api/tree-data?parent=\${row.id}&level=\${groupingKey}\`);
       const children = await response.json();
 
       setLoading(false);
@@ -651,7 +649,7 @@ export default function LazyTreeTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       rowGrouping={["stores", "products"]}
       onRowGroupExpand={handleExpand}
       loadingStateRenderer="Loading..."
@@ -913,18 +911,6 @@ rowGrouping={["subaccounts", "transactions"]}
                     Simple Table's virtualization works with tree data. Even if you expand to 5,000
                     visible rows, only ~30 DOM nodes are rendered at any time. Scrolling remains
                     smooth.
-                  </p>
-                </div>
-
-                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
-                  <h4 className="font-semibold mb-2 text-gray-900 dark:text-gray-100">
-                    ✅ Stable Row IDs Are Critical
-                  </h4>
-                  <p className="text-sm text-gray-700 dark:text-gray-300">
-                    Use unique, stable IDs for every row at every level (
-                    <code className="bg-gray-100 dark:bg-gray-700 px-1 rounded">rowIdAccessor</code>
-                    ). This prevents React re-renders when expanding/collapsing and keeps expand
-                    state consistent.
                   </p>
                 </div>
 

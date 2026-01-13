@@ -233,7 +233,6 @@ export default function PerformanceDemo({
               editColumns
               height={height}
               onCellEdit={handleCellEdit}
-              rowIdAccessor="id"
               rows={data}
               selectableCells
               theme={theme}

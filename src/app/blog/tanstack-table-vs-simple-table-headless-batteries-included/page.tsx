@@ -372,7 +372,7 @@ export function SimpleTableExample({ data, columns }) {
     <SimpleTable
       rows={data}
       defaultHeaders={columns}
-      rowIdAccessor="id"
+      
       height={400}
     />
   )

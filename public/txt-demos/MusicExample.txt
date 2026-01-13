@@ -66,7 +66,6 @@ export default function MusicExample({
         nextIcon={nextIcon}
         prevIcon={prevIcon}
         rowHeight={85}
-        rowIdAccessor="id"
         rows={data}
         selectableCells
         sortDownIcon={sortDownIcon}

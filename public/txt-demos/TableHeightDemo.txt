@@ -186,7 +186,6 @@ const TableHeightDemo = ({
       <SimpleTable
         defaultHeaders={headers}
         height={selectedHeight}
-        rowIdAccessor="id"
         rows={EMPLOYEE_DATA}
         theme={theme}
       />

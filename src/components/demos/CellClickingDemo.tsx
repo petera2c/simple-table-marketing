@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme, CellClickProps } from "simple-table-core";
 import "simple-table-core/styles.css";
 
 type ProjectTask = {
@@ -212,7 +212,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }
   const [assigneeFilter, setAssigneeFilter] = useState<string>("");
   const [rows, setRows] = useState<ProjectTask[]>(PROJECT_TASKS);
 
-  const handleCellClick = ({ accessor, colIndex, row, rowId, rowIndex, value }: any) => {
+  const handleCellClick = ({ accessor, colIndex, row, rowIndex, value }: CellClickProps) => {
     const task = row as ProjectTask;
 
     // Different behaviors based on which column was clicked
@@ -436,7 +436,6 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }
         defaultHeaders={headers}
         height={"320px"}
         onCellClick={handleCellClick}
-        rowIdAccessor="id"
         rows={rows}
         theme={theme}
       />

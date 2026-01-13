@@ -495,7 +495,7 @@ function MyTable() {
                 code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   shouldPaginate={true}
   rowsPerPage={10}
   footerRenderer={({
@@ -897,7 +897,7 @@ const MyDataTable = ({ data }) => {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       shouldPaginate={true}
       rowsPerPage={10}
       footerRenderer={({

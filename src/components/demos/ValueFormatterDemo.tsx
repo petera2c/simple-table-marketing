@@ -229,7 +229,6 @@ const ValueFormatterDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       selectableCells
       theme={theme}

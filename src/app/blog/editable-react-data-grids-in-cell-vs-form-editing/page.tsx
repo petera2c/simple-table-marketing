@@ -248,7 +248,7 @@ export default function ProductTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={products}
-      rowIdAccessor="id"
+      
       onCellEdit={handleCellEdit}
       height="600px"
     />
@@ -300,7 +300,7 @@ export default function ProductTable() {
 <SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   onCellEdit={handleCellEdit}
   // Copy-paste works out of the box!
   height="600px"
@@ -556,7 +556,7 @@ export default function EmployeeTable() {
       <SimpleTable
         defaultHeaders={headers}
         rows={employees}
-        rowIdAccessor="id"
+        
         height="600px"
       />
 
@@ -638,7 +638,7 @@ export default function EmployeeTable() {
                   code={`<SimpleTable
   defaultHeaders={headers}
   rows={employees}
-  rowIdAccessor="id"
+  
   onCellClick={({ row }) => {
     // Open edit form when any cell is clicked
     handleEditClick(row);
@@ -939,7 +939,7 @@ export default function EmployeeTable() {
 <SimpleTable
   defaultHeaders={headers}
   rows={products}
-  rowIdAccessor="id"
+  
   onCellEdit={handleQuickEdit} // For in-cell edits
   height="600px"
 />
@@ -1000,7 +1000,7 @@ export default function ResponsiveEditingTable() {
     <SimpleTable
       defaultHeaders={isMobile ? mobileHeaders : desktopHeaders}
       rows={data}
-      rowIdAccessor="id"
+      
       onCellEdit={isMobile ? undefined : handleCellEdit}
       height="600px"
     />
@@ -1143,7 +1143,7 @@ export default function ResponsiveEditingTable() {
   theme="custom"
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`}
                   />
                 </div>

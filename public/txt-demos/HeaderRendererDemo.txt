@@ -295,7 +295,6 @@ const HeaderRendererDemo = ({
       columnResizing
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={starData}
       selectableCells
       theme={theme}

@@ -50,7 +50,6 @@ const EmptyStateDemo = ({
     <SimpleTable
       defaultHeaders={HEADERS}
       height={height}
-      rowIdAccessor="id"
       rows={[]}
       tableEmptyStateRenderer={emptyState}
       theme={theme}

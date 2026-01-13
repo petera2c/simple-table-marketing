@@ -700,7 +700,6 @@ const CollapsibleColumnsDemo = ({
       columnReordering
       defaultHeaders={headers}
       rows={SALES_DATA}
-      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

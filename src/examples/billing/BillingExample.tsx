@@ -66,7 +66,6 @@ export default function BillingExample({
       onGridReady={onGridReady}
       prevIcon={prevIcon}
       rowGrouping={["invoices", "charges"]}
-      rowIdAccessor="id"
       rows={data}
       selectableCells
       sortDownIcon={sortDownIcon}

@@ -77,7 +77,6 @@ export default function InfrastructureExample({
       height={height ? height : "70dvh"}
       nextIcon={nextIcon}
       prevIcon={prevIcon}
-      rowIdAccessor="id"
       rows={data}
       selectableCells
       sortDownIcon={sortDownIcon}

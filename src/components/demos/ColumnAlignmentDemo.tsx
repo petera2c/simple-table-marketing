@@ -114,7 +114,6 @@ const ColumnAlignmentDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       onColumnOrderChange={onColumnOrderChange}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}

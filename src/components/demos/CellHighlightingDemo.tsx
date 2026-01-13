@@ -130,7 +130,6 @@ const CellHighlightingDemo = ({
       defaultHeaders={headers}
       selectableCells
       selectableColumns
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       height={height}
       theme={theme}

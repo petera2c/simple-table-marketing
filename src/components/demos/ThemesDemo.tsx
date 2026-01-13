@@ -100,13 +100,7 @@ const EMPLOYEE_DATA = [
 
 const ThemesDemo = ({ height = "400px", theme }: { height?: string | number; theme: Theme }) => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      height={height}
-      rowIdAccessor="id"
-      rows={EMPLOYEE_DATA}
-      theme={theme}
-    />
+    <SimpleTable defaultHeaders={headers} height={height} rows={EMPLOYEE_DATA} theme={theme} />
   );
 };
 

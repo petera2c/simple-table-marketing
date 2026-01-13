@@ -267,7 +267,7 @@ export default function PerformanceDemo() {
     <SimpleTable
       defaultHeaders={PERFORMANCE_HEADERS}
       rows={data}
-      rowIdAccessor="id"
+      
       height="500px"
       editColumns
       columnResizing

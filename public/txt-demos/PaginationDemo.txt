@@ -445,7 +445,6 @@ const PaginationDemo = ({ theme }: { theme?: Theme }) => {
       height="auto"
       isLoading={isLoading}
       onNextPage={onNextPage}
-      rowIdAccessor="id"
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate

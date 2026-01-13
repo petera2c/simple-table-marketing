@@ -173,7 +173,6 @@ const NestedHeadersDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={rows}
       columnResizing
       theme={theme}

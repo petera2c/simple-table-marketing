@@ -132,7 +132,6 @@ const InfiniteScrollDemo = ({
     <div>
       <SimpleTable
         defaultHeaders={headers}
-        rowIdAccessor="id"
         rows={rows}
         height={height}
         onLoadMore={handleLoadMore}

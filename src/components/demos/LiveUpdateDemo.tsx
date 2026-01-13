@@ -374,7 +374,6 @@ const LiveUpdateDemo = ({
   return (
     <SimpleTable
       defaultHeaders={headers}
-      rowIdAccessor="id"
       rows={initialData}
       tableRef={tableRef}
       height={height}

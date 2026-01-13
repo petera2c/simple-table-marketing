@@ -327,7 +327,7 @@ export default function CustomerTable({ data }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      rowIdAccessor="id"
+      
       height="600px"
       theme="light"
     />
@@ -529,7 +529,7 @@ export default function ServerSideFilterTable() {
       <SimpleTable
         defaultHeaders={headers}
         rows={data}
-        rowIdAccessor="id"
+        
         height="600px"
         onFilterChange={(newFilters) => setFilters(newFilters)}
         externalFilterHandling={true} // Disable client-side filtering

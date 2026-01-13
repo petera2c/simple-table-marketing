@@ -10,6 +10,28 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_2_0: ChangelogEntry = {
+  version: "2.2.0",
+  date: "2026-01-13",
+  title: "Simplified API - Removed rowIdAccessor",
+  description:
+    "Breaking change that simplifies the table API by removing the rowIdAccessor prop and rowId parameter from callbacks. Use the row object directly to access your data's ID fields.",
+  changes: [
+    {
+      type: "breaking",
+      description:
+        "Removed rowIdAccessor prop - Simple Table no longer requires you to specify a unique identifier accessor. This simplifies configuration and reduces boilerplate.",
+      link: "/docs/api-reference",
+    },
+    {
+      type: "breaking",
+      description:
+        "Removed rowId parameter from onRowGroupExpand callback - Use row.id (or any property from your row object) instead of the internal rowId path string.",
+      link: "/docs/row-grouping",
+    },
+  ],
+};
+
 export const v2_1_7: ChangelogEntry = {
   version: "2.1.7",
   date: "2026-01-07",
@@ -979,6 +1001,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_2_0,
   v2_1_7,
   v2_1_6,
   v2_1_5,

@@ -213,7 +213,6 @@ const ChartsDemo = ({ height = "400px", theme }: { height?: string | number; the
       columnResizing
       defaultHeaders={headers}
       rows={CHARTS_DATA}
-      rowIdAccessor="id"
       selectableCells
       height={height}
       theme={theme}

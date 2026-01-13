@@ -379,7 +379,6 @@ const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
       <SimpleTable
         defaultHeaders={headers}
         rows={filteredData} // We provide the pre-filtered data
-        rowIdAccessor="id"
         onFilterChange={handleFilterChange} // Handle filter changes externally
         externalFilterHandling={true} // Disable internal filtering logic
         columnResizing={true}

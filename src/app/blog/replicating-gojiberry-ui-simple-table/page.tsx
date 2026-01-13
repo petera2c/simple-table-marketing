@@ -788,7 +788,7 @@ const headers = [
 <SimpleTable 
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`}
               />
 
@@ -801,7 +801,7 @@ const headers = [
                 code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   shouldPaginate={true}
   footerRenderer={(props) => <MyCustomFooter {...props} />}
 />`}

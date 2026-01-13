@@ -352,14 +352,6 @@ export const CELL_CLICK_PROPS: PropInfo[] = [
     example: `props.row // { id: 1, name: "John", age: 30 }`,
   },
   {
-    key: "rowId",
-    name: "rowId",
-    required: true,
-    description: "The unique identifier of the row containing the clicked cell",
-    type: "RowId",
-    example: `props.rowId // "user-123"`,
-  },
-  {
     key: "rowIndex",
     name: "rowIndex",
     required: true,
@@ -464,14 +456,7 @@ export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
     type: "MouseEvent",
     example: `props.event // MouseEvent object`,
   },
-  {
-    key: "rowId",
-    name: "rowId",
-    required: true,
-    description: "The unique identifier for the row (from rowIdAccessor)",
-    type: "string | number",
-    example: `props.rowId // "DEPT-1" or 123`,
-  },
+
   {
     key: "groupingKey",
     name: "groupingKey",
@@ -493,7 +478,7 @@ export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
     type: "boolean",
     example: `if (props.isExpanded) {
   // Row is expanding - fetch children data
-  fetchChildrenData(props.rowId);
+  fetchChildrenData(props.row.id);
 } else {
   // Row is collapsing - no action needed
 }`,

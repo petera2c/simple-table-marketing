@@ -420,7 +420,7 @@ export default function ReactTableRowSelectionPage() {
       <SimpleTable
         rows={users}
         defaultHeaders={headers}
-        rowIdAccessor="id"
+        
         rowSelection={{
           enabled: true,
           selectedRowIds,
@@ -492,7 +492,7 @@ export default function ReactTableRowSelectionPage() {
       <SimpleTable
         rows={users}
         defaultHeaders={headers}
-        rowIdAccessor="id"
+        
         rowSelection={{
           enabled: true,
           selectedRowIds,
@@ -650,7 +650,7 @@ export default function ReactTableRowSelectionPage() {
                   </p>
                   <p className="text-sm text-gray-700 dark:text-gray-300">
                     Simple Table maintains selection across pagination, filtering, and sorting
-                    automatically. Requires proper rowIdAccessor configuration.
+                    automatically.
                   </p>
                 </div>
               </div>

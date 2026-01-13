@@ -423,7 +423,6 @@ const AggregateFunctionsDemo = ({
       defaultHeaders={headers}
       rows={rows}
       rowGrouping={["categories", "creators"]}
-      rowIdAccessor="id"
       height={height}
       theme={theme}
     />

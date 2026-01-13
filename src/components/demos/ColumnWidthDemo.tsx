@@ -156,7 +156,6 @@ const ColumnWidthDemo = ({
       columnResizing
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       theme={theme}
     />

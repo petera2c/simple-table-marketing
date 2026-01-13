@@ -170,7 +170,6 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
     <SimpleTable
       defaultHeaders={headers}
       height={"auto"}
-      rowIdAccessor="id"
       rows={PRODUCT_DATA}
       rowsPerPage={7}
       shouldPaginate

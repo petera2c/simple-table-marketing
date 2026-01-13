@@ -26,18 +26,6 @@ export const SIMPLE_TABLE_PROPS: PropInfo[] = [
 ];`,
   },
   {
-    key: "rowIdAccessor",
-    name: "rowIdAccessor",
-    required: true,
-    description:
-      "Property name to use as row ID. This is crucial for proper row tracking, selection, and updates.",
-    type: "Accessor",
-    link: "#union-types",
-    example: `rowIdAccessor="id"
-// or
-rowIdAccessor="employeeId"`,
-  },
-  {
     key: "height",
     name: "height",
     required: false,
@@ -267,7 +255,6 @@ initialSortDirection="asc"`,
     link: "#on-row-group-expand-props",
     example: `onRowGroupExpand={async ({ 
   row, 
-  rowId, 
   depth, 
   groupingKey, 
   isExpanded,
@@ -287,7 +274,7 @@ initialSortDirection="asc"`,
     setLoading(true);
     
     // Lazy-load children data
-    const teams = await fetchTeams(rowId);
+    const teams = await fetchTeams(row.id);
     setLoading(false);
     
     // Handle empty results
@@ -543,7 +530,7 @@ useEffect(() => {
       "Callback function triggered when a cell is clicked. Provides detailed information about the clicked cell including its position, value, and containing row.",
     type: "(props: CellClickProps) => void",
     link: "#cell-click-props",
-    example: `onCellClick={({ accessor, colIndex, row, rowId, rowIndex, value }) => {
+    example: `onCellClick={({ accessor, colIndex, row, rowIndex, value }) => {
   console.log(\`Clicked cell \${accessor} in row \${rowIndex}:\`, value);
   // Handle cell click - open modal, navigate, etc.
   if (accessor === 'details') {

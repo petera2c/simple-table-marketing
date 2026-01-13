@@ -23,7 +23,7 @@ const COLUMN_WIDTH_PROPS: PropInfo[] = [
   autoExpandColumns={true}
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`,
   },
   {
@@ -213,7 +213,7 @@ useEffect(() => {
   autoExpandColumns={!isMobile}
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
 />`}</code>
           </pre>
         </div>

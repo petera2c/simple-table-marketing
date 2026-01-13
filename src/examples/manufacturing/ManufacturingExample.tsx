@@ -60,7 +60,6 @@ export default function ManufacturingExample({
       nextIcon={nextIcon}
       prevIcon={prevIcon}
       rowGrouping={["stations"]}
-      rowIdAccessor="id"
       rows={data}
       selectableCells
       sortDownIcon={sortDownIcon}

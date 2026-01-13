@@ -258,7 +258,6 @@ const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
       <SimpleTable
         defaultHeaders={headers}
         rows={sortedData} // We provide the pre-sorted data
-        rowIdAccessor="id"
         onSortChange={setSortConfig} // Handle sort changes externally
         externalSortHandling={true} // Disable internal sorting logic
         columnResizing={true}

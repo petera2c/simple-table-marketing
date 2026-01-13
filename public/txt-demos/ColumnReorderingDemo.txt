@@ -139,7 +139,6 @@ const ColumnReorderingDemo = ({
       columnReordering
       defaultHeaders={headers}
       height={height}
-      rowIdAccessor="id"
       rows={EMPLOYEE_DATA}
       onColumnOrderChange={handleColumnOrderChange}
       theme={theme}

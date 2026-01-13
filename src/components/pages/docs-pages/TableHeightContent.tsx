@@ -230,7 +230,7 @@ export default function TableHeightContent() {
           code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   height="400px"
 />`}
           language="tsx"
@@ -254,7 +254,7 @@ export default function TableHeightContent() {
           code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   maxHeight="600px"
 />`}
           language="tsx"
@@ -277,7 +277,7 @@ export default function TableHeightContent() {
           code={`<SimpleTable
   defaultHeaders={headers}
   rows={data}
-  rowIdAccessor="id"
+  
   height="60vh"
 />`}
           language="tsx"
@@ -302,7 +302,7 @@ export default function TableHeightContent() {
   <SimpleTable
     defaultHeaders={headers}
     rows={data}
-    rowIdAccessor="id"
+    
     height="100%"
   />
 </div>`}
@@ -328,7 +328,7 @@ export default function TableHeightContent() {
   <SimpleTable
     defaultHeaders={headers}
     rows={data}
-    rowIdAccessor="id"
+    
     // No height prop - table overflows parent
   />
 </div>`}

@@ -80,7 +80,6 @@ const CRMExampleComponent = ({
         onGridReady={onGridReady}
         prevIcon={prevIcon}
         rowHeight={92}
-        rowIdAccessor="id"
         rows={data}
         rowsPerPage={rowsPerPage}
         shouldPaginate

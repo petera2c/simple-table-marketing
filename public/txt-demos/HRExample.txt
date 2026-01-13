@@ -85,7 +85,6 @@ export default function HRExample({
       onCellEdit={handleCellEdit}
       prevIcon={prevIcon}
       rowHeight={rowHeight}
-      rowIdAccessor="id"
       rows={data}
       rowsPerPage={howManyRowsCanFit}
       selectableCells
