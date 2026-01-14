@@ -19,6 +19,7 @@ import { Dropdown, Divider } from "antd";
 import type { MenuProps } from "antd";
 import { useIsMobile } from "../hooks/useIsMobile";
 import { useGitHubStars } from "../hooks/useGitHubStars";
+import { useDiscordMembers } from "../hooks/useDiscordMembers";
 import { useThemeContext } from "../providers/ThemeProvider";
 import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
@@ -124,6 +125,38 @@ const GitHubLink = ({
     >
       <FontAwesomeIcon icon={faGithub} style={{ fontSize: "1.5rem" }} />
       {isLoading ? "..." : stars}
+    </button>
+  );
+};
+
+// Discord link component with member count
+const DiscordLink = ({
+  isMobile = false,
+  onMobileClick,
+}: {
+  isMobile?: boolean;
+  onMobileClick?: () => void;
+}) => {
+  const { memberCount, isLoading } = useDiscordMembers("RvKHCfg3PC");
+
+  const handleClick = () => {
+    window.open("https://discord.gg/RvKHCfg3PC", "_blank", "noopener,noreferrer");
+  };
+
+  return (
+    <button
+      onClick={handleClick}
+      className={`flex items-center gap-1 px-2 py-1 border border-gray-300 dark:border-gray-600 rounded-full bg-transparent hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors text-gray-700 dark:text-white text-sm ${
+        isMobile ? "justify-start w-fit" : ""
+      }`}
+    >
+      <FontAwesomeIcon icon={faDiscord} style={{ fontSize: "1.5rem" }} />
+      {!isLoading && memberCount !== null && (
+        <>
+          {memberCount}
+          <span className="w-2 h-2 bg-green-500 rounded-full" aria-label="online" />
+        </>
+      )}
     </button>
   );
 };
@@ -410,6 +443,7 @@ const Header = () => {
 
               <div className="flex items-center gap-3 lg:gap-4">
                 <GitHubLink />
+                <DiscordLink />
                 {externalLinks.map((link) => (
                   <LinkButton key={link.href} {...link} isExternal={true} />
                 ))}
@@ -442,6 +476,7 @@ const Header = () => {
                 <Divider className="my-2" />
 
                 <GitHubLink isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
+                <DiscordLink isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
 
                 {externalLinks.map((link) => (
                   <LinkButton
