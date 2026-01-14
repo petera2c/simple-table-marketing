@@ -41,7 +41,6 @@
     "@mui/icons-material": "^7.3.4",
     "@mui/material": "^7.3.4",
     "@next/bundle-analyzer": "^16.0.0",
-    "@next/swc-darwin-arm64": "^16.1.1",
     "@tanstack/react-query": "^5.72.2",
     "@types/cheerio": "^0.22.35",
     "@types/node": "^20.11.19",
