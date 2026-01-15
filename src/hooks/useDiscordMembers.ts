@@ -21,12 +21,15 @@ export const useDiscordMembers = (inviteCode: string) => {
         setError(null);
 
         // Use the invite API with ?with_counts=true to get member counts
-        const response = await fetch(`https://discord.com/api/v10/invites/${inviteCode}?with_counts=true`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-          },
-        });
+        const response = await fetch(
+          `https://discord.com/api/v10/invites/${inviteCode}?with_counts=true`,
+          {
+            method: "GET",
+            headers: {
+              Accept: "application/json",
+            },
+          }
+        );
 
         if (!response.ok) {
           // If invite API fails, we can't get live count - fail silently
