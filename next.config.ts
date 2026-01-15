@@ -51,9 +51,10 @@ const config: NextConfig = {
       },
     ];
   },
-  eslint: {
-    // Only run ESLint during development, not during build
-    ignoreDuringBuilds: true,
+  // Turbopack is now default in Next.js 16
+  // Set correct root to avoid lockfile confusion
+  turbopack: {
+    root: __dirname,
   },
   webpack: (config, { isServer }) => {
     // Add path aliases to webpack
