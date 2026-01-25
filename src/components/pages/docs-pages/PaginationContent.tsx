@@ -40,7 +40,7 @@ const PAGINATION_PROPS: PropInfo[] = [
     name: "onPageChange",
     required: false,
     description:
-      "Callback function triggered when page changes. Useful for server-side pagination to fetch data for the new page.",
+      "Callback function triggered when page changes, either through user interaction (clicking pagination buttons) or programmatically via tableRef.setPage(). Useful for server-side pagination to fetch data for the new page.",
     type: "(page: number) => void | Promise<void>",
     example: `<SimpleTable
   shouldPaginate={true}
@@ -204,6 +204,11 @@ const PaginationContent = () => {
           <li>Page size selection</li>
           <li>Current page indicator</li>
           <li>Total pages display</li>
+          <li>
+            Smart page number display with first page button - when navigating to far pages, the
+            footer shows the first page with ellipsis (e.g., &quot;1 ... 78 79 80&quot;) for quick
+            access to the beginning
+          </li>
         </ul>
       </motion.div>
 

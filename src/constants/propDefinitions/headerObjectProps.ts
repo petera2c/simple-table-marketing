@@ -130,6 +130,25 @@ maxWidth: "400px"`,
     example: `isSortable: true`,
   },
   {
+    key: "sortingOrder",
+    name: "sortingOrder",
+    required: false,
+    description:
+      "Custom sort order cycle for this column. Defines the sequence of sort states when clicking the column header. Default is ['asc', 'desc', null] which cycles through ascending → descending → no sort. Customize per column based on data type - use ['desc', 'asc', null] for numbers/dates where descending is more common, or ['asc', 'desc'] to prevent removing sort.",
+    type: "Array<'asc' | 'desc' | null>",
+    example: `// Numbers/dates - descending first
+sortingOrder: ['desc', 'asc', null]
+
+// Text - ascending first (default)
+sortingOrder: ['asc', 'desc', null]
+
+// Always keep sort active
+sortingOrder: ['asc', 'desc']
+
+// Start with descending only
+sortingOrder: ['desc', null]`,
+  },
+  {
     key: "filterable",
     name: "filterable",
     required: false,

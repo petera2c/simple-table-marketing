@@ -27,6 +27,37 @@ const COLUMN_SORTING_PROPS: PropInfo[] = [
 }`,
   },
   {
+    key: "sortingOrder",
+    name: "HeaderObject.sortingOrder",
+    required: false,
+    description:
+      "Custom sort order cycle for this column. Defines the sequence of sort states when clicking the column header. Default is ['asc', 'desc', null] which cycles through ascending → descending → no sort. Customize per column based on data type - use ['desc', 'asc', null] for numbers/dates where descending is more common.",
+    type: "Array<'asc' | 'desc' | null>",
+    example: `// Numbers/dates - descending first
+{ 
+  accessor: "revenue", 
+  label: "Revenue", 
+  isSortable: true,
+  sortingOrder: ['desc', 'asc', null]
+}
+
+// Text - ascending first (default)
+{ 
+  accessor: "name", 
+  label: "Name", 
+  isSortable: true,
+  sortingOrder: ['asc', 'desc', null]
+}
+
+// Always keep sort active (no null state)
+{ 
+  accessor: "priority", 
+  label: "Priority", 
+  isSortable: true,
+  sortingOrder: ['asc', 'desc']
+}`,
+  },
+  {
     key: "comparator",
     name: "HeaderObject.comparator",
     required: false,
@@ -212,6 +243,96 @@ const ColumnSortingContent = () => {
         </div>
 
         <PropTable props={COLUMN_SORTING_PROPS} title="Column Sorting Configuration" />
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.43 }}
+      >
+        Custom Sort Order
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.44 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Customize the sort cycle for individual columns using the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            sortingOrder
+          </code>{" "}
+          property. This allows different columns to have different sort behaviors based on their
+          data type and expected user interaction patterns.
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Common Patterns</h4>
+          <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+            <li>
+              <strong>Numbers/Dates:</strong> Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                [&apos;desc&apos;, &apos;asc&apos;, null]
+              </code>{" "}
+              to show highest values or most recent dates first
+            </li>
+            <li>
+              <strong>Text/Names:</strong> Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                [&apos;asc&apos;, &apos;desc&apos;, null]
+              </code>{" "}
+              (default) for alphabetical sorting
+            </li>
+            <li>
+              <strong>Always Sorted:</strong> Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                [&apos;asc&apos;, &apos;desc&apos;]
+              </code>{" "}
+              to prevent removing sort (no null state)
+            </li>
+            <li>
+              <strong>Single Direction:</strong> Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                [&apos;desc&apos;, null]
+              </code>{" "}
+              to toggle between descending and no sort
+            </li>
+          </ul>
+        </div>
+
+        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
+          <CodeBlock
+            code={`const headers = [
+  {
+    accessor: "name",
+    label: "Name",
+    isSortable: true,
+    sortingOrder: ['asc', 'desc', null]  // Text: A-Z first
+  },
+  {
+    accessor: "revenue",
+    label: "Revenue",
+    isSortable: true,
+    sortingOrder: ['desc', 'asc', null]  // Numbers: highest first
+  },
+  {
+    accessor: "date",
+    label: "Date",
+    isSortable: true,
+    sortingOrder: ['desc', 'asc', null]  // Dates: newest first
+  },
+  {
+    accessor: "priority",
+    label: "Priority",
+    isSortable: true,
+    sortingOrder: ['asc', 'desc']  // Always keep sorted
+  }
+];`}
+          />
+        </div>
       </motion.div>
 
       <motion.h2

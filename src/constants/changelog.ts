@@ -10,6 +10,40 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_2_7: ChangelogEntry = {
+  version: "2.2.7",
+  date: "2026-01-25",
+  title: "Custom Sort Order & Pagination Improvements",
+  description:
+    "Enhanced sorting with per-column sort order customization and improved pagination footer with first page button. Also includes breaking changes to tableRef.setPage() API for better consistency.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added sortingOrder property to HeaderObject for customizing the sort cycle per column. Define custom sort sequences like ['desc', 'asc', null] for numbers/dates or ['asc', 'desc', null] for text. This allows different columns to have different sort behaviors based on their data type.",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "feature",
+      description:
+        "Pagination footer now displays first page button with ellipsis when navigating to far pages (e.g., '1 ... 78 79 80'). This provides quick access to the beginning of the dataset without excessive scrolling through page numbers.",
+      link: "/docs/pagination",
+    },
+    {
+      type: "improvement",
+      description:
+        "tableRef.setPage() now triggers onPageChange callback. Programmatic page changes via the table ref API now properly invoke the onPageChange callback, making it consistent with UI-triggered page changes.",
+      link: "/docs/programmatic-control",
+    },
+    {
+      type: "breaking",
+      description:
+        "tableRef.setPage() is now async and returns Promise<void>. Update your code to use await tableRef.current?.setPage(3) for consistency with other async API methods.",
+      link: "/docs/api-reference#table-ref-type",
+    },
+  ],
+};
+
 export const v2_2_6: ChangelogEntry = {
   version: "2.2.6",
   date: "2026-01-24",
@@ -1054,6 +1088,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_2_7,
   v2_2_6,
   v2_2_1,
   v2_2_0,

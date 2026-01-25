@@ -308,24 +308,32 @@ localStorage.setItem("lastPage", page.toString());`,
     name: "setPage",
     required: false,
     description:
-      "Programmatically navigates to a specific page when pagination is enabled. Accepts a 1-indexed page number (first page is 1). Works with both client-side and server-side pagination. If the page number is out of range, it will be clamped to valid bounds. Perfect for implementing custom pagination controls, deep linking, or restoring saved pagination state.",
-    type: "(page: number) => void",
+      "Programmatically navigates to a specific page when pagination is enabled. Accepts a 1-indexed page number (first page is 1). This method is async and returns a Promise. Works with both client-side and server-side pagination. If the page number is out of range, it will be clamped to valid bounds. Triggers the onPageChange callback when the page changes. Perfect for implementing custom pagination controls, deep linking, or restoring saved pagination state.",
+    type: "(page: number) => Promise<void>",
     example: `// Navigate to page 3
-tableRef.current?.setPage(3);
+await tableRef.current?.setPage(3);
 
 // Go to first page
-tableRef.current?.setPage(1);
+await tableRef.current?.setPage(1);
 
 // Restore saved page
 const savedPage = localStorage.getItem("lastPage");
 if (savedPage) {
-  tableRef.current?.setPage(parseInt(savedPage));
+  await tableRef.current?.setPage(parseInt(savedPage));
 }
 
 // Handle URL parameter
 const urlParams = new URLSearchParams(window.location.search);
 const page = parseInt(urlParams.get('page') || '1');
-tableRef.current?.setPage(page);`,
+await tableRef.current?.setPage(page);
+
+// With error handling
+try {
+  await tableRef.current?.setPage(5);
+  console.log('Page changed successfully');
+} catch (error) {
+  console.error('Failed to change page:', error);
+}`,
   },
   {
     key: "expandAll",
