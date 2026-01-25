@@ -204,7 +204,6 @@ const DynamicNestedTablesDemo = ({
 
           setLoading(true);
           const divisions = await fetchDivisionsForCompany(company.id);
-          setLoading(false);
 
           if (divisions.length === 0) {
             setEmpty(true, "No divisions found for this company");
