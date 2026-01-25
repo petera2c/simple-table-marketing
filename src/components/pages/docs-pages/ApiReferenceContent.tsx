@@ -34,6 +34,7 @@ import {
   TABLE_REF_TYPE_METHODS,
   EXPORT_TO_CSV_PROPS,
   FOOTER_RENDERER_PROPS,
+  CUSTOM_THEME_PROPS,
 } from "@/constants/propDefinitions";
 
 const ApiReferenceContent = () => {
@@ -112,6 +113,29 @@ const ApiReferenceContent = () => {
         style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
+        id="custom-theme"
+      >
+        CustomTheme Configuration
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-700 dark:text-gray-300 mb-6"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.66 }}
+      >
+        Custom theme configuration for dimensions and spacing. All properties are optional and will
+        use default values if not specified.
+      </motion.p>
+
+      <PropTable props={CUSTOM_THEME_PROPS} title="CustomTheme Properties" />
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-12"
+        style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.7 }}
       >
         Type Definitions
@@ -158,7 +182,7 @@ const ApiReferenceContent = () => {
         <PropTable props={COMPARATOR_PROPS} title="ComparatorProps" />
       </div>
 
-      <div id="cell-renderer-props">
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="cell-renderer-props">
         <PropTable props={CELL_RENDERER_PROPS} title="CellRendererProps" />
       </div>
 

@@ -40,3 +40,6 @@ export { TABLE_REF_TYPE_METHODS, EXPORT_TO_CSV_PROPS } from "./tableRefProps";
 
 // Footer renderer props
 export { FOOTER_RENDERER_PROPS } from "./footerProps";
+
+// Custom theme props
+export { CUSTOM_THEME_PROPS } from "./customThemeProps";
