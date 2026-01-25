@@ -10,6 +10,40 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_2_5: ChangelogEntry = {
+  version: "2.2.5",
+  date: "2026-01-24",
+  title: "Nested Tables & CustomTheme API Updates",
+  description:
+    "Major feature release adding nested tables with independent column structures at each hierarchy level, dynamic nested table loading support, automatic prop inheritance for consistency, and breaking changes to the customTheme API for better organization.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added nested tables feature that allows each level of row grouping to have its own independent grid structure with completely different columns. Configure via the nestedTable property on expandable HeaderObjects to define custom column layouts for child levels.",
+      link: "/docs/nested-tables",
+    },
+    {
+      type: "feature",
+      description:
+        "Added support for dynamic nested tables with independent onRowGroupExpand handlers at each nesting level. Each nested table can specify its own handler in the nestedTable config, enabling complex lazy-loading patterns with clear, separate logic for each level.",
+      link: "/docs/nested-tables",
+    },
+    {
+      type: "improvement",
+      description:
+        "Nested tables now automatically inherit certain props from the parent table (rows, state renderers, and icon props) for consistency and convenience. This ensures a unified experience across all nesting levels while reducing configuration overhead.",
+      link: "/docs/nested-tables",
+    },
+    {
+      type: "breaking",
+      description:
+        "Moved rowHeight, headerHeight, footerHeight, and selectionColumnWidth props into the customTheme object. Use customTheme={{ rowHeight: 40 }} instead of rowHeight={40}. All properties are optional and will use default values if not specified.",
+      link: "/docs/api-reference",
+    },
+  ],
+};
+
 export const v2_2_1: ChangelogEntry = {
   version: "2.2.1",
   date: "2026-01-13",
@@ -1015,6 +1049,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_2_5,
   v2_2_1,
   v2_2_0,
   v2_1_7,

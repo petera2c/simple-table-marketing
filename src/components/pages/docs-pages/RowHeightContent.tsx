@@ -12,27 +12,33 @@ import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const ROW_HEIGHT_PROPS: PropInfo[] = [
   {
-    key: "rowHeight",
-    name: "rowHeight",
+    key: "customTheme.rowHeight",
+    name: "customTheme.rowHeight",
     required: false,
     description:
-      "Sets the height of all rows in the table. Accepts a numeric value representing pixels.",
+      "Sets the height of all rows in the table. Accepts a numeric value representing pixels. Passed via the customTheme prop.",
     type: "number",
     example: `// Standard row height
 <SimpleTable
-  rowHeight={40}
+  customTheme={{
+    rowHeight: 40,
+  }}
   // ... other props
 />
 
 // Compact rows
 <SimpleTable
-  rowHeight={32}
+  customTheme={{
+    rowHeight: 32,
+  }}
   // ... other props
 />
 
 // Large rows for better readability
 <SimpleTable
-  rowHeight={56}
+  customTheme={{
+    rowHeight: 56,
+  }}
   // ... other props
 />`,
   },
@@ -96,9 +102,13 @@ export default function RowHeightContent() {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           You can specify the height of rows in a Simple Table using the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            rowHeight
+            customTheme.rowHeight
           </code>{" "}
-          property. This property accepts a numeric value representing the height in pixels.
+          property. This property accepts a numeric value representing the height in pixels and is passed via the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            customTheme
+          </code>{" "}
+          prop.
         </p>
 
         <PropTable props={ROW_HEIGHT_PROPS} title="Row Height Configuration" />

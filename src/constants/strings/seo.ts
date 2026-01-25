@@ -17,6 +17,7 @@ import {
   autoExpandColumnsReactTablesPost,
   reactTableColumnResizingGuidePost,
   editableReactDataGridsPost,
+  nestedTablesReactPost,
 } from "@/constants/blogPosts";
 import {
   SIMPLE_TABLE_INFO,
@@ -476,6 +477,32 @@ export const SEO_STRINGS = {
         "responsive table columns react",
       ],
     },
+    nestedTablesReact: {
+      title: nestedTablesReactPost.title,
+      description: nestedTablesReactPost.description,
+      keywords: [
+        "nested tables react",
+        "react nested tables",
+        "hierarchical tables react",
+        "nested grid react",
+        "react table nested columns",
+        "independent grid structures",
+        "nested table configuration",
+        "react table different columns per level",
+        "multi-level tables react",
+        "nested table architecture",
+        "react table row grouping vs nested tables",
+        "hierarchical data display react",
+        "nested tables implementation",
+        "react table nesting levels",
+        "dynamic column structure react",
+        "nested table virtualization",
+        "react table nested headers vs nested tables",
+        "corporate hierarchy tables",
+        "multi-level data grid react",
+        "nested table performance",
+      ],
+    },
     editableReactDataGrids: {
       title: editableReactDataGridsPost.title,
       description: editableReactDataGridsPost.description,
@@ -741,7 +768,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, row grouping, hierarchical data, typescript table, data organization",
   },
-
+  nestedTables: {
+    title: "Nested Tables in Simple Table React Grid",
+    description:
+      "Create nested tables with independent column structures at each level in your react-table with Simple Table. Display hierarchical data with different columns for parent and child rows in your datagrid or data table with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, nested tables, nested grids, hierarchical data, multi-level tables, independent columns, typescript table, data organization",
+  },
   rowSelection: {
     title: "Row Selection in Simple Table React Grid",
     description:

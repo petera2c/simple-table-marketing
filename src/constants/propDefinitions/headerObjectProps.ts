@@ -170,6 +170,35 @@ maxWidth: "400px"`,
     example: `expandable: true`,
   },
   {
+    key: "nestedTable",
+    name: "nestedTable",
+    required: false,
+    description:
+      "Configuration for nested tables that allows each level of row grouping to have its own independent grid structure with different columns and settings. When a row is expanded, its child data is displayed in a completely separate table with its own headers, column configuration, and features. This is different from standard row grouping where all levels share the same columns.",
+    type: "NestedTableConfig",
+    link: "/docs/nested-tables",
+    example: `// Parent level with 9 columns
+{
+  accessor: "companyName",
+  label: "Company",
+  width: 200,
+  expandable: true,
+  nestedTable: {
+    // Child level with 6 different columns
+    defaultHeaders: [
+      { accessor: "divisionId", label: "Division ID", width: 120 },
+      { accessor: "divisionName", label: "Division", width: 200 },
+      { accessor: "revenue", label: "Revenue", width: 120 },
+      { accessor: "profitMargin", label: "Profit Margin", width: 130 },
+      { accessor: "headcount", label: "Headcount", width: 110, type: "number" },
+      { accessor: "location", label: "Location", width: 150 }
+    ],
+    autoExpandColumns: true,
+    enableRowSelection: true
+  }
+}`,
+  },
+  {
     key: "pinned",
     name: "pinned",
     required: false,

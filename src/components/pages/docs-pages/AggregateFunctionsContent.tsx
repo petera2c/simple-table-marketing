@@ -279,6 +279,52 @@ const AggregateFunctionsContent = () => {
         </motion.div>
       </motion.div>
 
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.1 }}
+      >
+        Related Features
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.2 }}
+      >
+        <ul className="list-disc pl-5 space-y-2 text-gray-700 dark:text-gray-300">
+          <li>
+            <a
+              href="/docs/row-grouping"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Row Grouping
+            </a>{" "}
+            - Learn about organizing hierarchical data
+          </li>
+          <li>
+            <a
+              href="/docs/nested-tables"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Nested Tables
+            </a>{" "}
+            - Display different columns at each hierarchy level
+          </li>
+          <li>
+            <a
+              href="/docs/value-formatter"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Value Formatter
+            </a>{" "}
+            - Format aggregated values for display
+          </li>
+        </ul>
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );

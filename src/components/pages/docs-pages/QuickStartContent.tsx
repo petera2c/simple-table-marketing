@@ -52,13 +52,16 @@ height="50vh"
 height="100%"`,
   },
   {
-    key: "rowHeight",
-    name: "rowHeight",
+    key: "customTheme",
+    name: "customTheme",
     required: false,
-    description: "Height of each individual row in pixels.",
-    type: "number",
-    example: `rowHeight={32}  // Default
-rowHeight={48}  // Larger rows`,
+    description: "Custom theme configuration for dimensions and spacing. Only specify the properties you want to customize.",
+    type: "CustomTheme",
+    link: "/docs/api-reference#custom-theme",
+    example: `customTheme={{
+  rowHeight: 32,
+  headerHeight: 32,
+}}`,
   },
   {
     key: "editColumns",

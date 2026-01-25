@@ -61,11 +61,13 @@ export default function MusicExample({
         filterIcon={filterIcon}
         headerCollapseIcon={headerCollapseIcon}
         headerExpandIcon={headerExpandIcon}
-        headerHeight={30}
+        customTheme={{
+          headerHeight: 30,
+          rowHeight: 85,
+        }}
         height={height ? height : "70dvh"}
         nextIcon={nextIcon}
         prevIcon={prevIcon}
-        rowHeight={85}
         rows={data}
         selectableCells
         sortDownIcon={sortDownIcon}

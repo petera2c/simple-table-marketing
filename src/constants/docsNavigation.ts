@@ -161,6 +161,12 @@ export const docSections: DocSection[] = [
       },
       { id: "row-grouping", label: "Row Grouping", path: "/docs/row-grouping", icon: faLayerGroup },
       {
+        id: "nested-tables",
+        label: "Nested Tables",
+        path: "/docs/nested-tables",
+        icon: faLayerGroup,
+      },
+      {
         id: "aggregate-functions",
         label: "Aggregate Functions",
         path: "/docs/aggregate-functions",

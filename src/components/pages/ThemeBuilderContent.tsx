@@ -533,14 +533,14 @@ export default function ThemeBuilderContent() {
   const sectionConfigs: Record<string, SectionConfig[]> = {
     tableStructure: [
       {
-        title: "Table Layout (Non-CSS Props)",
+        title: "Table Layout (customTheme Props)",
         fields: [
           {
             key: "headerHeight",
             type: "text",
             label: "Header Height (px)",
             tooltip:
-              "Height of the table header in pixels. Note: This is NOT a CSS variable - it's passed as a prop to the table component and used for layout calculations.",
+              "Height of the table header in pixels. Note: This is passed via the customTheme prop to the table component and used for layout calculations.",
           },
           {
             key: "rowHeight",
@@ -1414,10 +1414,12 @@ function SalesExample({
       columnResizing
       defaultHeaders={SALES_HEADERS}
       editColumns
-      headerHeight={headerHeight}
+      customTheme={{
+        headerHeight: headerHeight,
+        rowHeight: rowHeight,
+      }}
       onCellEdit={handleCellEdit}
       onGridReady={onGridReady}
-      rowHeight={rowHeight}
       rows={data}
       rowsPerPage={howManyRowsCanFit}
       selectableCells

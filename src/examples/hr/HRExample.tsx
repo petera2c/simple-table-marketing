@@ -84,7 +84,9 @@ export default function HRExample({
       nextIcon={nextIcon}
       onCellEdit={handleCellEdit}
       prevIcon={prevIcon}
-      rowHeight={rowHeight}
+      customTheme={{
+        rowHeight: rowHeight,
+      }}
       rows={data}
       rowsPerPage={howManyRowsCanFit}
       selectableCells

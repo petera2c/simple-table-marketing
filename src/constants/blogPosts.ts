@@ -279,8 +279,19 @@ export const editableReactDataGridsPost: BlogPostMetadata = {
   updatedAt: "2026-01-13",
 };
 
+export const nestedTablesReactPost: BlogPostMetadata = {
+  title: "Nested Tables in React: Beyond Row Grouping with Independent Grid Structures",
+  description:
+    "Discover how nested tables revolutionize hierarchical data display by allowing each level to have completely different columns. Learn the architecture behind Simple Table's nested tables and when to use them over traditional row grouping.",
+  slug: "nested-tables-react-hierarchical-data",
+  tags: ["react", "nested-tables", "hierarchical-data", "tutorial", "advanced"],
+  createdAt: "2026-01-24",
+  updatedAt: "2026-01-24",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  nestedTablesReactPost,
   editableReactDataGridsPost,
   reactTableColumnResizingGuidePost,
   autoExpandColumnsReactTablesPost,

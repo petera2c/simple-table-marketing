@@ -275,7 +275,9 @@ const CSVExportDemo = ({
         editColumns
         height={typeof height === "number" ? `${height - 60}px` : height}
         rows={SALES_DATA}
-        rowHeight={32}
+        customTheme={{
+          rowHeight: 32,
+        }}
         selectableCells
         theme={theme}
         tableRef={tableRef}

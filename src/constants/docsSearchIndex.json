@@ -791,6 +791,40 @@
     ]
   },
   {
+    "id": "nested-tables",
+    "path": "/docs/nested-tables",
+    "title": "Nested Tables in Simple Table React Grid",
+    "description": "Create nested tables with independent column structures at each level in your react-table with Simple Table. Display hierarchical data with different columns for parent and child rows in your datagrid or data table with TypeScript support.",
+    "keywords": [
+      "simple-table",
+      "react-table",
+      "react-grid",
+      "data-grid",
+      "datagrid",
+      "data table",
+      "nested tables",
+      "nested grids",
+      "hierarchical data",
+      "multi-level tables",
+      "independent columns",
+      "typescript table",
+      "data organization"
+    ],
+    "content": "Nested tables allow each level of hierarchical data to have its own independent grid structure with completely different columns, enabling you to display different information at each nesting level. Nested tables extend the row grouping feature by allowing each level of your hierarchy to have its own independent table structure. While row grouping shows child rows with the same columns as the parent, nested tables let you define completely different columns for each level. Row Grouping: All levels share the same column structure. Child rows display the same columns as parent rows. Nested Tables: Each level has its own independent column structure. Parent and child levels can have completely different columns. Companies → Divisions → Teams: Show company overview (9 columns), division metrics (3 columns), and detailed team information (19 columns) Orders → Line Items → Shipments: Display order summary, item details, and tracking information with different data at each level Projects → Milestones → Tasks: Show project overview, milestone progress, and task details with appropriate columns for each level Accounts → Transactions → Line Items: Present account summaries, transaction details, and itemized breakdowns with level-specific columns To enable nested tables, add the nestedTable property to your expandable column's HeaderObject. This property defines the column structure and configuration for the child table that appears when a row is expanded. You must still use the rowGrouping prop to define the hierarchy (e.g., rowGrouping={['divisions', 'teams']}) The expandable property must be set to true on the column Each level can have its own nestedTable configuration for multi-level nesting The demo shows a three-level nested table structure with completely different columns at each level: Level 0: Companies (9 columns) - High-level company overview with industry, headquarters, market cap, CEO, etc. Level 1: Divisions (3 columns) - Simplified division-level metrics focused on financial performance. Level 2: Teams (19 columns) - Detailed team information including manager, budget, headcount, skills, and more. Nested tables support unlimited nesting depth for four, five, or more levels. The data structure for nested tables is the same as row grouping - use nested arrays with property names matching your rowGrouping configuration. Inherited Props: Certain props are automatically inherited from the parent table for consistency: rows data is provided from parent nested array, loadingStateRenderer errorStateRenderer emptyStateRenderer tableEmptyStateRenderer are shared across levels, icon props expandIcon filterIcon sortUpIcon sortDownIcon are consistent across nesting levels. Dynamic Nested Tables: Support dynamic loading at each level using onRowGroupExpand callback. Each nesting level can have its own handler in the nestedTable config enabling complex lazy-loading patterns with independent handlers for each level. Benefits include faster initial load, reduced memory usage, better performance with large datasets, and built-in loading error empty state management. Nested tables are fully-featured SimpleTable instances that can receive most props except inherited ones. Each nested table can be configured independently with its own settings including: Row Selection enableRowSelection, Column Resizing columnResizing, Auto Expand Columns autoExpandColumns, Sorting and Filtering defaultSortConfig enableColumnFiltering, Themes theme customTheme, Cell Renderers cellRenderer valueFormatter headerRenderer, Pagination shouldPaginate pageSize, Callbacks onCellClick onCellChange onRowGroupExpand, and most other SimpleTable props from the API Reference. The nestedTable config accepts most SimpleTable props allowing complete customization at each nesting level.",
+    "section": "Row Features",
+    "headings": [
+      "Nested Tables",
+      "What Are Nested Tables?",
+      "Basic Setup",
+      "Example: Three-Level Hierarchy",
+      "Data Structure",
+      "Inherited Props",
+      "Dynamic Nested Tables",
+      "Combining with Other Features",
+      "Related Features"
+    ]
+  },
+  {
     "id": "row-height",
     "path": "/docs/row-height",
     "title": "Row Height in Simple Table React Grid",
@@ -807,7 +841,7 @@
       "typescript table",
       "responsive table"
     ],
-    "content": "You can specify the height of rows in a Simple Table using the\n          \n            rowHeight\n          \n          property. This property accepts a numeric value representing the height in pixels. ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          You can specify the height of rows in a Simple Table using the{ >\n            rowHeight\n          </code>{",
+    "content": "You can specify the height of rows in a Simple Table using the\n          \n            customTheme.rowHeight\n          \n          property. This property accepts a numeric value representing the height in pixels and is passed via the customTheme prop. ,\n    required: false,\n    description: flex items-center gap-3 mb-6 p-2 bg-blue-100 rounded-lg text-blue-600 text-2xl text-3xl font-bold text-gray-800 dark:text-white text-gray-700 dark:text-gray-300 mb-6 text-lg >\n          You can specify the height of rows in a Simple Table using the{ >\n            customTheme.rowHeight\n          </code>{",
     "section": "Row Features",
     "headings": [
       "Row Height"

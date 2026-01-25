@@ -122,7 +122,9 @@ const RowHeightDemo = ({
       defaultHeaders={headers}
       height={height}
       rows={EMPLOYEE_DATA}
-      rowHeight={32}
+      customTheme={{
+        rowHeight: 32,
+      }}
       theme={theme}
     />
   );

@@ -131,7 +131,9 @@ const QuickStartDemo = ({
       editColumns
       height={height}
       rows={EMPLOYEE_DATA}
-      rowHeight={32}
+      customTheme={{
+        rowHeight: 32,
+      }}
       selectableCells
       theme={theme}
     />
