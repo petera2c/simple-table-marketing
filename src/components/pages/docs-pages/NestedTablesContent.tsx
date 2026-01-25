@@ -10,6 +10,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import Link from "next/link";
 
 const NESTED_TABLE_PROPS: PropInfo[] = [
   {
@@ -71,7 +72,7 @@ const divisionHeaders = [
     description:
       "In addition to defaultHeaders, the nestedTable config accepts most props from the SimpleTable component. This includes autoExpandColumns, enableRowSelection, columnResizing, theme, customTheme, shouldPaginate, pageSize, defaultSortConfig, enableColumnFiltering, onCellClick, onCellChange, onRowGroupExpand, and more. Note: Some props are automatically inherited from the parent table (rows, loadingStateRenderer, errorStateRenderer, emptyStateRenderer, tableEmptyStateRenderer, and icon props) and cannot be overridden in nested tables. Each nested table can be configured independently with its own settings. See the API Reference for the complete list of available props.",
     type: "Most SimpleTable props (excludes inherited props)",
-    link: "/docs/api-reference",
+    link: "/docs/api-reference#simple-table-props",
     example: `nestedTable: {
   defaultHeaders: divisionHeaders,
   
@@ -134,8 +135,8 @@ const NestedTablesContent = () => {
         </p>
         <LivePreview
           demoCodeFilename="NestedTablesDemo.txt"
-          height="600px"
-          demoHeight="528px"
+          height="472px"
+          demoHeight="460px"
           link={SANDBOX_LIST["NestedTablesDemo.tsx"].url}
           Preview={(props) => <NestedTablesDemo {...props} />}
         />
@@ -158,8 +159,8 @@ const NestedTablesContent = () => {
         </p>
         <LivePreview
           demoCodeFilename="DynamicNestedTablesDemo.txt"
-          height="600px"
-          demoHeight="528px"
+          height="472px"
+          demoHeight="460px"
           link={
             SANDBOX_LIST["DynamicNestedTablesDemo.tsx"]?.url ||
             SANDBOX_LIST["NestedTablesDemo.tsx"].url
@@ -178,7 +179,7 @@ const NestedTablesContent = () => {
       </motion.h2>
 
       <motion.div
-        className="mb-8"
+        className="mb-4"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.4 }}
@@ -205,31 +206,6 @@ const NestedTablesContent = () => {
             <li>
               <strong>Nested Tables:</strong> Each level has its own independent column structure.
               Parent and child levels can have completely different columns.
-            </li>
-          </ul>
-        </div>
-
-        <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
-          <h4 className="font-bold text-gray-800 dark:text-white mb-2">💡 Use Cases</h4>
-          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
-            <li>
-              <strong>Companies → Divisions:</strong> Show company overview with division-specific
-              metrics
-            </li>
-            <li>
-              <strong>Orders → Line Items:</strong> Display order summary with detailed item
-              information
-            </li>
-            <li>
-              <strong>Projects → Tasks:</strong> Show project overview with task details and status
-            </li>
-            <li>
-              <strong>Accounts → Transactions:</strong> Present account summaries with transaction
-              history
-            </li>
-            <li>
-              <strong>Products → Variants:</strong> Display product information with
-              variant-specific details like SKU, price, and inventory
             </li>
           </ul>
         </div>
@@ -267,7 +243,7 @@ const NestedTablesContent = () => {
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">rowGrouping</code>{" "}
               prop to define the hierarchy (e.g.,{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                rowGrouping={["divisions"]}
+                {'rowGrouping={["divisions"]}'}
               </code>
               )
             </li>
@@ -324,8 +300,8 @@ const NestedTablesContent = () => {
             Level 1: Divisions (6 columns)
           </h4>
           <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
-            Division-level details including division ID, division name, revenue, profit margin, headcount,
-            and location.
+            Division-level details including division ID, division name, revenue, profit margin,
+            headcount, and location.
           </p>
         </div>
 
@@ -590,7 +566,14 @@ const NestedTablesContent = () => {
             <strong>Themes:</strong> Apply different{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">theme</code> or{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">customTheme</code>{" "}
-            settings to each nested table
+            settings to each nested table (see{" "}
+            <Link
+              href="/docs/custom-theme"
+              className="text-blue-600 dark:text-blue-400 hover:underline"
+            >
+              Custom Theme
+            </Link>
+            )
           </li>
           <li>
             <strong>Cell Renderers:</strong> Use custom{" "}

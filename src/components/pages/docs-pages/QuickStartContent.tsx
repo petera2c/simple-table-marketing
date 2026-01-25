@@ -57,7 +57,7 @@ height="100%"`,
     required: false,
     description: "Custom theme configuration for dimensions and spacing. Only specify the properties you want to customize.",
     type: "CustomTheme",
-    link: "/docs/api-reference#custom-theme",
+    link: "/docs/custom-theme",
     example: `customTheme={{
   rowHeight: 32,
   headerHeight: 32,

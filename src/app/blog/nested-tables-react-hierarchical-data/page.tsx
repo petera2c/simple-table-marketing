@@ -17,6 +17,7 @@ import BlogLayout from "@/components/BlogLayout";
 import CallToActionCard from "@/components/CallToActionCard";
 import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
+import NestedTablesDemoWrapper from "@/components/blog/NestedTablesDemoWrapper";
 
 export const metadata: Metadata = {
   title: SEO_STRINGS.blogPosts.nestedTablesReact.title,
@@ -81,9 +82,10 @@ export default function NestedTablesReactPage() {
               <p className="mb-4 text-gray-700 dark:text-gray-300">
                 You're building a corporate dashboard. The top level shows companies with 9
                 columns—name, industry, CEO, revenue, market cap, and more. When users expand a
-                company, they see divisions with 6 columns—division ID, name, revenue, profit margin,
-                headcount, and location. Expand a division, and you get teams with 19 detailed
-                columns—manager, budget, headcount, skills, certifications, and everything else.
+                company, they see divisions with 6 columns—division ID, name, revenue, profit
+                margin, headcount, and location. Expand a division, and you get teams with 19
+                detailed columns—manager, budget, headcount, skills, certifications, and everything
+                else.
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
@@ -104,6 +106,36 @@ export default function NestedTablesReactPage() {
                 technical challenges they solve, and why implementing them correctly requires
                 sophisticated architecture that most developers never see.
               </p>
+            </div>
+          </div>
+        </section>
+
+        {/* Interactive Demo Section */}
+        <section id="demo">
+          <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
+            <h2 className="mb-4 flex items-center gap-2 text-gray-900 dark:text-gray-100 text-2xl font-semibold">
+              <FontAwesomeIcon icon={faTable} className="text-blue-500" />
+              Interactive Demo: Corporate Hierarchy
+            </h2>
+
+            <div className="prose prose-gray dark:prose-invert max-w-none mb-6">
+              <p className="text-gray-700 dark:text-gray-300">
+                Try expanding companies to see divisions with completely different columns. This
+                interactive demo shows how nested tables allow each level to display exactly the
+                data it needs. For complete implementation details and advanced features, check out
+                the{" "}
+                <Link
+                  href="/docs/nested-tables"
+                  className="text-blue-600 dark:text-blue-400 hover:underline font-medium"
+                >
+                  nested tables documentation
+                </Link>
+                .
+              </p>
+            </div>
+
+            <div className="rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700">
+              <NestedTablesDemoWrapper height="500px" />
             </div>
           </div>
         </section>
@@ -272,10 +304,10 @@ export default function NestedTablesReactPage() {
                   Why This Matters
                 </h4>
                 <p className="text-sm text-gray-700 dark:text-gray-300">
-                  With row grouping, you'd be forced to show all 34 columns at every level (9 + 6 + 19), 
-                  or hide columns conditionally (messy). With nested tables, each level shows exactly the
-                  data it needs—no more, no less. The parent shows strategic overview, children show
-                  tactical details.
+                  With row grouping, you'd be forced to show all 34 columns at every level (9 + 6 +
+                  19), or hide columns conditionally (messy). With nested tables, each level shows
+                  exactly the data it needs—no more, no less. The parent shows strategic overview,
+                  children show tactical details.
                 </p>
               </div>
             </div>

@@ -9,6 +9,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import Link from "next/link";
 
 const ROW_HEIGHT_PROPS: PropInfo[] = [
   {
@@ -112,6 +113,20 @@ export default function RowHeightContent() {
         </p>
 
         <PropTable props={ROW_HEIGHT_PROPS} title="Row Height Configuration" />
+
+        <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mt-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">Learn More</h3>
+          <p className="text-gray-700 dark:text-gray-300">
+            The <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">customTheme</code> prop controls layout dimensions that affect the table's virtualization engine. For a complete guide to all customTheme properties and how they work, see the{" "}
+            <Link
+              href="/docs/custom-theme"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+            >
+              Custom Theme
+            </Link>{" "}
+            documentation.
+          </p>
+        </div>
       </motion.div>
 
       <DocNavigationButtons />

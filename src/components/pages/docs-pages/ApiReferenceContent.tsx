@@ -8,6 +8,7 @@ import { HEADER_HEIGHT } from "@/constants/global";
 import PropTable from "@/components/PropTable";
 import useHashNavigation from "@/hooks/useHashNavigation";
 import PageWrapper from "@/components/PageWrapper";
+import Link from "next/link";
 
 // Import all prop definitions from centralized location
 import {
@@ -66,9 +67,11 @@ const ApiReferenceContent = () => {
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }}
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.3 }}
+        id="simple-table-props"
       >
         SimpleTable Props
       </motion.h2>
@@ -125,8 +128,16 @@ const ApiReferenceContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.66 }}
       >
-        Custom theme configuration for dimensions and spacing. All properties are optional and will
-        use default values if not specified.
+        Custom theme configuration for dimensions and spacing that affect virtualization
+        calculations. All properties are optional and will use default values if not specified. For
+        a comprehensive guide with examples and use cases, see the{" "}
+        <Link
+          href="/docs/custom-theme"
+          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+        >
+          Custom Theme
+        </Link>{" "}
+        documentation.
       </motion.p>
 
       <PropTable props={CUSTOM_THEME_PROPS} title="CustomTheme Properties" />

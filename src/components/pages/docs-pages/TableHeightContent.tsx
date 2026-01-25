@@ -10,6 +10,7 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import CodeBlock from "@/components/CodeBlock";
+import Link from "next/link";
 
 const TABLE_HEIGHT_PROPS: PropInfo[] = [
   {
@@ -204,7 +205,14 @@ export default function TableHeightContent() {
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
               customTheme
             </code>{" "}
-            prop.
+            prop. For more details, see the{" "}
+            <Link
+              href="/docs/custom-theme"
+              className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
+            >
+              Custom Theme
+            </Link>{" "}
+            documentation.
           </p>
         </div>
       </motion.div>

@@ -1,3 +1,4 @@
+"use client";
 import { useMemo } from "react";
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
@@ -220,11 +221,10 @@ const generateSampleData = (count: number = 25) => {
 // Child grid for divisions: 6 columns with detailed metrics
 const divisionHeaders: HeaderObject[] = [
   { accessor: "divisionId", label: "Division ID", width: 120 },
-  { accessor: "divisionName", label: "Division", width: 200 },
   { accessor: "revenue", label: "Revenue", width: 120 },
   { accessor: "profitMargin", label: "Profit Margin", width: 130 },
   { accessor: "headcount", label: "Headcount", width: 110, type: "number" },
-  { accessor: "location", label: "Location", width: 150 },
+  { accessor: "location", label: "Location", width: "1fr" },
 ];
 
 // Parent grid: 9 columns for companies
@@ -236,15 +236,10 @@ const companyHeaders: HeaderObject[] = [
     expandable: true,
     nestedTable: {
       defaultHeaders: divisionHeaders,
-      autoExpandColumns: true,
     },
   },
-  { accessor: "industry", label: "Industry", width: 150 },
-  { accessor: "founded", label: "Founded", width: 100, type: "number" },
-  { accessor: "headquarters", label: "HQ", width: 180 },
   { accessor: "stockSymbol", label: "Symbol", width: 100 },
   { accessor: "marketCap", label: "Market Cap", width: 120 },
-  { accessor: "ceo", label: "CEO", width: 150 },
   { accessor: "revenue", label: "Revenue", width: 120 },
   { accessor: "employees", label: "Employees", width: 120, type: "number" },
 ];
@@ -261,6 +256,7 @@ const NestedTablesDemo = ({
 
   return (
     <SimpleTable
+      autoExpandColumns
       defaultHeaders={companyHeaders}
       rows={sampleData}
       rowGrouping={["divisions"]}

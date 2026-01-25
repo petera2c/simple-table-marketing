@@ -10,8 +10,8 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v2_2_5: ChangelogEntry = {
-  version: "2.2.5",
+export const v2_2_6: ChangelogEntry = {
+  version: "2.2.6",
   date: "2026-01-24",
   title: "Nested Tables & CustomTheme API Updates",
   description:
@@ -39,7 +39,12 @@ export const v2_2_5: ChangelogEntry = {
       type: "breaking",
       description:
         "Moved rowHeight, headerHeight, footerHeight, and selectionColumnWidth props into the customTheme object. Use customTheme={{ rowHeight: 40 }} instead of rowHeight={40}. All properties are optional and will use default values if not specified.",
-      link: "/docs/api-reference",
+      link: "/docs/custom-theme",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed a data flicker when using external sort",
+      link: "/docs/column-sorting",
     },
   ],
 };
@@ -119,7 +124,7 @@ export const v2_1_5: ChangelogEntry = {
       type: "feature",
       description:
         "Added hideHeader prop to hide the entire table header row while maintaining all table functionality",
-      link: "/docs/api-reference",
+      link: "/docs/api-reference#simple-table-props",
     },
   ],
 };
@@ -1049,7 +1054,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v2_2_5,
+  v2_2_6,
   v2_2_1,
   v2_2_0,
   v2_1_7,
