@@ -86,9 +86,61 @@ const divisionTypes = [
   "Data Science",
 ];
 
+const teamTypes = [
+  "Infrastructure",
+  "Security",
+  "Machine Learning",
+  "M&A Advisory",
+  "Frontend Development",
+  "Backend Services",
+  "DevOps",
+  "Quality Assurance",
+  "Product Management",
+  "Data Engineering",
+  "Mobile Development",
+  "Platform",
+  "API Services",
+  "Business Intelligence",
+  "Customer Analytics",
+];
+
+const skills = [
+  "Kubernetes",
+  "Deep Learning",
+  "Financial Modeling",
+  "React",
+  "Python",
+  "Cloud Architecture",
+  "Data Analytics",
+  "Cybersecurity",
+  "Blockchain",
+  "Machine Learning",
+  "DevOps",
+  "Product Strategy",
+  "AWS",
+  "TypeScript",
+];
+
+const awards = [
+  "Best Team 2023",
+  "Innovation Award",
+  "Security Excellence",
+  "Deal of the Year",
+  "Outstanding Performance",
+  "Excellence in Innovation",
+  "Top Performer",
+  "Best in Class",
+  "Industry Leader",
+  "Customer Choice",
+  null,
+  null,
+];
+
 const randomElement = <T,>(arr: T[]): T => arr[Math.floor(Math.random() * arr.length)];
 const randomInt = (min: number, max: number): number =>
   Math.floor(Math.random() * (max - min + 1)) + min;
+const randomFloat = (min: number, max: number, decimals: number = 1): number =>
+  Number((Math.random() * (max - min) + min).toFixed(decimals));
 
 // Generate division data
 const generateDivision = (divisionIndex: number, companyIndex: number) => {
@@ -185,7 +237,6 @@ const companyHeaders: HeaderObject[] = [
     nestedTable: {
       defaultHeaders: divisionHeaders,
       autoExpandColumns: true,
-      enableRowSelection: true,
     },
   },
   { accessor: "industry", label: "Industry", width: 150 },
@@ -216,8 +267,6 @@ const NestedTablesDemo = ({
       expandAll={false}
       columnResizing={true}
       height={height}
-      useOddEvenRowBackground
-      enableRowSelection
       theme={theme}
     />
   );

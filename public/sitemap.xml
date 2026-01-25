@@ -101,6 +101,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/nested-tables-react-hierarchical-data</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/react-data-grid-bundle-size-comparison</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -322,6 +327,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/docs/nested-headers</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/docs/nested-tables</loc>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
