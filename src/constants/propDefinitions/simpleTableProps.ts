@@ -48,31 +48,24 @@ height="50vh"`,
 maxHeight="80vh"`,
   },
   {
-    key: "headerHeight",
-    name: "headerHeight",
+    key: "customTheme",
+    name: "customTheme",
     required: false,
     description:
-      "Height of the table header in pixels. Rarely used - only needed for advanced height calculations. The table's height calculation is complex and knowing the header height before render helps determine when the body will scroll.",
-    type: "number",
-    example: `headerHeight={40}`,
-  },
-  {
-    key: "footerHeight",
-    name: "footerHeight",
-    required: false,
-    description:
-      "Height of the table footer in pixels. Rarely used - only needed for pagination tables with custom footers. The table's height calculation is complex and knowing the footer height before render helps determine when the body will scroll.",
-    type: "number",
-    example: `footerHeight={48}`,
-  },
-  {
-    key: "rowHeight",
-    name: "rowHeight",
-    required: false,
-    description: "Height of each individual row in pixels.",
-    type: "number",
-    example: `rowHeight={32}
-rowHeight={48}`,
+      "Custom theme configuration for dimensions and spacing. Only specify the properties you want to customize - all properties are optional and will use default values if not provided.",
+    type: "CustomTheme",
+    link: "#custom-theme",
+    example: `customTheme={{
+  rowHeight: 40,
+  headerHeight: 48,
+  footerHeight: 60,
+  selectionColumnWidth: 50,
+}}
+
+// Or just customize what you need
+customTheme={{
+  rowHeight: 32,
+}}`,
   },
   {
     key: "allowAnimations",
@@ -706,14 +699,6 @@ useEffect(() => {
   ({ row }) => <button onClick={() => editRow(row)}>Edit</button>,
   ({ row }) => <button onClick={() => deleteRow(row)}>Delete</button>
 ]}`,
-  },
-  {
-    key: "selectionColumnWidth",
-    name: "selectionColumnWidth",
-    required: false,
-    description: "Width of the selection column (defaults to 42).",
-    type: "number",
-    example: `selectionColumnWidth={60}`,
   },
   {
     key: "headerExpandIcon",

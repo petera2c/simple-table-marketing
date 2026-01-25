@@ -383,7 +383,9 @@ const CellRendererDemo = ({
       rows={EMPLOYEE_DATA}
       selectableCells
       theme={theme}
-      rowHeight={48}
+      customTheme={{
+        rowHeight: 48,
+      }}
     />
   );
 };

@@ -73,13 +73,15 @@ const CRMExampleComponent = ({
         )}
         headerCollapseIcon={headerCollapseIcon}
         headerExpandIcon={headerExpandIcon}
-        headerHeight={48}
+        customTheme={{
+          headerHeight: 48,
+          rowHeight: 92,
+        }}
         height={height ? `${height}px` : "70dvh"}
         nextIcon={nextIcon}
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
         prevIcon={prevIcon}
-        rowHeight={92}
         rows={data}
         rowsPerPage={rowsPerPage}
         shouldPaginate

@@ -186,21 +186,25 @@ export default function TableHeightContent() {
 
         <div className="mt-6 p-4 bg-gray-50 dark:bg-gray-800/50 border border-gray-200 dark:border-gray-700 rounded-lg">
           <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
-            Advanced: headerHeight and footerHeight
+            Advanced: customTheme.headerHeight and customTheme.footerHeight
           </h4>
           <p className="text-gray-700 dark:text-gray-300 text-sm">
             The{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              headerHeight
+              customTheme.headerHeight
             </code>{" "}
             and{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              footerHeight
+              customTheme.footerHeight
             </code>{" "}
-            props are rarely needed and should almost never be used. They are only useful for
+            properties are rarely needed and should almost never be used. They are only useful for
             pagination tables with custom footers where the table needs to know the footer height
             before rendering to properly calculate when the body will scroll. In most cases, the
-            table handles these calculations automatically.
+            table handles these calculations automatically. These are passed via the{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              customTheme
+            </code>{" "}
+            prop.
           </p>
         </div>
       </motion.div>

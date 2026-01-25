@@ -258,6 +258,22 @@ const RowGroupingContent = () => {
           </ul>
         </div>
 
+        <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">🎯 Need Different Columns at Each Level?</h4>
+          <p className="text-gray-700 dark:text-gray-300">
+            Row grouping shows child rows with the same columns as parent rows. If you need each
+            level to have its own independent column structure (e.g., companies with 9 columns,
+            divisions with 6 columns, teams with 19 columns), check out{" "}
+            <a
+              href="/docs/nested-tables"
+              className="text-purple-600 dark:text-purple-400 hover:underline font-semibold"
+            >
+              Nested Tables
+            </a>
+            .
+          </p>
+        </div>
+
         <PropTable props={ROW_GROUPING_PROPS} title="Row Grouping Configuration" />
       </motion.div>
 

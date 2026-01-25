@@ -191,7 +191,9 @@ const SpreadsheetExampleComponent = ({
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
         prevIcon={prevIcon}
-        rowHeight={22}
+        customTheme={{
+          rowHeight: 22,
+        }}
         rows={data}
         selectableCells
         selectableColumns
