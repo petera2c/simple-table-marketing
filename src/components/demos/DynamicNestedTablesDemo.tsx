@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useMemo } from "react";
 import { SimpleTable, HeaderObject, Theme, OnRowGroupExpandProps, Row } from "simple-table-core";
 import "simple-table-core/styles.css";
 
@@ -172,15 +172,6 @@ const INITIAL_COMPANIES: Company[] = [
   },
 ];
 
-// Division headers for nested table
-const divisionHeaders: HeaderObject[] = [
-  { accessor: "divisionName", label: "Division", width: 200 },
-  { accessor: "revenue", label: "Revenue", width: 120 },
-  { accessor: "profitMargin", label: "Profit Margin", width: 130 },
-  { accessor: "headcount", label: "Headcount", width: 110, type: "number" },
-  { accessor: "location", label: "Location", width: 180 },
-];
-
 const DynamicNestedTablesDemo = ({
   height = "500px",
   theme,
@@ -239,28 +230,42 @@ const DynamicNestedTablesDemo = ({
     [],
   );
 
+  // Division headers for nested table
+  const divisionHeaders: HeaderObject[] = useMemo(
+    () => [
+      { accessor: "divisionName", label: "Division", width: 200 },
+      { accessor: "revenue", label: "Revenue", width: 120 },
+      { accessor: "profitMargin", label: "Profit Margin", width: 130 },
+      { accessor: "headcount", label: "Headcount", width: 110, type: "number" },
+      { accessor: "location", label: "Location", width: 180 },
+    ],
+    [],
+  );
+
   // Company headers with nested table configuration
-  const companyHeaders: HeaderObject[] = [
-    {
-      accessor: "companyName",
-      label: "Company",
-      width: 200,
-      expandable: true,
-      nestedTable: {
-        defaultHeaders: divisionHeaders,
-        expandAll: false,
-        autoExpandColumns: true,
+  const companyHeaders: HeaderObject[] = useMemo(
+    () => [
+      {
+        accessor: "companyName",
+        label: "Company",
+        width: 200,
+        expandable: true,
+        nestedTable: {
+          defaultHeaders: divisionHeaders,
+          expandAll: false,
+          autoExpandColumns: true,
+        },
       },
-    },
-    { accessor: "industry", label: "Industry", width: 150 },
-    { accessor: "revenue", label: "Revenue", width: 120 },
-    { accessor: "employees", label: "Employees", width: 120, type: "number" },
-  ];
+      { accessor: "industry", label: "Industry", width: 150 },
+      { accessor: "revenue", label: "Revenue", width: 120 },
+      { accessor: "employees", label: "Employees", width: 120, type: "number" },
+    ],
+    [divisionHeaders],
+  );
 
   return (
     <SimpleTable
       autoExpandColumns
-      columnResizing
       defaultHeaders={companyHeaders}
       expandAll={false}
       height={height}
