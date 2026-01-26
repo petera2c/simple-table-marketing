@@ -14,6 +14,11 @@ const config: NextConfig = {
   redirects: async () => {
     return [
       {
+        source: "/docs",
+        destination: "/docs/installation",
+        permanent: true,
+      },
+      {
         source: "/blog/simple-table-vs-ag-grid",
         destination: "/comparisons/simple-table-vs-ag-grid",
         permanent: true,
