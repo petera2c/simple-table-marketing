@@ -6,6 +6,7 @@
 export interface PackageInfo {
   name: string;
   npmPackage: string;
+  version?: string;
   bundleSizeMinGzip: string;
   bundleSizeMinGzipKB: number;
   bundlePhobiaUrl: string;
@@ -24,8 +25,9 @@ export interface PackageInfo {
 export const SIMPLE_TABLE_INFO: PackageInfo = {
   name: "Simple Table",
   npmPackage: "simple-table-core",
-  bundleSizeMinGzip: "39 kB",
-  bundleSizeMinGzipKB: 39,
+  version: "2.2.7",
+  bundleSizeMinGzip: "42 kB",
+  bundleSizeMinGzipKB: 42,
   bundlePhobiaUrl: "https://bundlephobia.com/package/simple-table-core",
   pricing: {
     free: true,

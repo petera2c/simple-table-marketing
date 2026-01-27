@@ -25,12 +25,12 @@ export default function TrustedBySection() {
 
   return (
     <motion.section
-      className="mb-16 py-8"
+      className="mb-8"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.6, delay: 0.5 }}
     >
-      <div className="text-center mb-8">
+      <div className="text-center mb-4">
         <h3 className="text-sm font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">
           Trusted by teams at
         </h3>

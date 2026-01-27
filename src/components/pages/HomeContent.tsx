@@ -41,6 +41,9 @@ const ComparisonsSection = dynamic(() => import("@/components/sections/Compariso
 const TrustedBySection = dynamic(() => import("@/components/sections/TrustedBySection"), {
   ssr: true,
 });
+const FeaturedOnSection = dynamic(() => import("@/components/sections/FeaturedOnSection"), {
+  ssr: true,
+});
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -122,6 +125,51 @@ export default function HomeContent() {
     ],
   };
 
+  // Software Application Schema for better SEO
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Simple Table",
+    applicationCategory: "DeveloperApplication",
+    operatingSystem: "Web Browser",
+    offers: [
+      {
+        "@type": "Offer",
+        name: "Free Plan",
+        price: "0",
+        priceCurrency: "USD",
+        description: "Free for zero-revenue companies and individuals",
+      },
+      {
+        "@type": "Offer",
+        name: "Pro Plan",
+        price: "85",
+        priceCurrency: "USD",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: "85",
+          priceCurrency: "USD",
+          unitText: "MONTH",
+        },
+        description: "For revenue-generating businesses with priority support",
+      },
+    ],
+    description: `Simple Table is a lightweight React data grid and table library that's only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size. Production-ready with 30+ features including cell editing, column management, sorting, filtering, and full TypeScript support.`,
+    url: "https://www.simple-table.com",
+    downloadUrl: "https://www.npmjs.com/package/simple-table-core",
+    softwareVersion: SIMPLE_TABLE_INFO.version,
+    author: {
+      "@type": "Organization",
+      name: "Simple Table",
+      url: "https://www.simple-table.com",
+    },
+    sameAs: [
+      "https://github.com/petera2c/simple-table",
+      "https://www.npmjs.com/package/simple-table-core",
+      "https://github.com/brillout/awesome-react-components",
+    ],
+  };
+
   // Add schemas to head
   React.useEffect(() => {
     const faqScript = document.createElement("script");
@@ -134,11 +182,17 @@ export default function HomeContent() {
     breadcrumbScript.textContent = JSON.stringify(breadcrumbSchema);
     document.head.appendChild(breadcrumbScript);
 
+    const softwareScript = document.createElement("script");
+    softwareScript.type = "application/ld+json";
+    softwareScript.textContent = JSON.stringify(softwareSchema);
+    document.head.appendChild(softwareScript);
+
     return () => {
       document.head.removeChild(faqScript);
       document.head.removeChild(breadcrumbScript);
+      document.head.removeChild(softwareScript);
     };
-  }, [faqSchema, breadcrumbSchema]);
+  }, [faqSchema, breadcrumbSchema, softwareSchema]);
 
   const handleDocumentationClick = () => {
     router.push("/docs/installation");
@@ -314,6 +368,9 @@ export default function HomeContent() {
 
         {/* Trusted By Section */}
         <TrustedBySection />
+
+        {/* Featured On Section */}
+        <FeaturedOnSection />
 
         {/* Main Features Section */}
         <FeaturesSection />
