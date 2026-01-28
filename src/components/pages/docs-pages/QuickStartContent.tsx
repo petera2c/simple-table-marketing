@@ -46,8 +46,8 @@ const TABLE_PROPS: PropInfo[] = [
       "Optional but recommended: Function to generate unique identifiers for each row. Receives detailed context (row, depth, index, paths). Enables stable row identification across sorting and filtering. Highly recommended for tables with row grouping, external sorting, or dynamic data updates.",
     type: "(params: GetRowIdParams) => string | number",
     link: "/docs/api-reference#simple-table-props",
-    example: `getRowId={({ row }) => row.id}
-getRowId={({ row }) => row.uuid}`,
+    example: `getRowId={({ row }) => row.id as string}
+getRowId={({ row }) => row.uuid as string}`,
   },
   {
     key: "height",
@@ -337,7 +337,8 @@ const data = [
         </p>
         <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
           <li>
-            <strong>What it does:</strong> Function that returns a unique identifier from your row data (like{" "}
+            <strong>What it does:</strong> Function that returns a unique identifier from your row
+            data (like{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
               row.id
             </code>{" "}
@@ -359,7 +360,7 @@ const data = [
         <p className="text-gray-700 dark:text-gray-300">
           Example:{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            {"getRowId={({ row }) => row.id}"}
+            {"getRowId={({ row }) => row.id as string}"}
           </code>
         </p>
       </motion.div>

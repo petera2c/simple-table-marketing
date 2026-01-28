@@ -248,7 +248,7 @@ initialSortDirection="asc"`,
     link: "#get-row-id-params",
     example: `// Basic usage with id field
 <SimpleTable
-  getRowId={({ row }) => row.id}
+  getRowId={({ row }) => row.id as string}
   rows={[
     { id: 'REG-1', name: 'Region 1', stores: [...] },
     { id: 'REG-2', name: 'Region 2', stores: [...] }

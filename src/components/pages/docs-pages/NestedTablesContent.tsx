@@ -261,12 +261,10 @@ const NestedTablesContent = () => {
             </li>
             <li>
               <strong>Recommended:</strong> Use{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                getRowId
-              </code>{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">getRowId</code>{" "}
               (e.g.,{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                {"getRowId={({ row }) => row.id}"}
+                {"getRowId={({ row }) => row.id as string}"}
               </code>
               ) for stable row identification, especially with sorting or dynamic data
             </li>

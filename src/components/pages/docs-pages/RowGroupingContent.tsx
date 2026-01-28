@@ -67,7 +67,7 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     type: "(props: OnRowGroupExpandProps) => void",
     link: "/docs/api-reference#on-row-group-expand-props",
     example: `<SimpleTable
-  getRowId={({ row }) => row.id}  // Recommended for stable row identification
+  getRowId={({ row }) => row.id as string}  // Recommended for stable row identification
   onRowGroupExpand={async ({ 
     row, 
     depth, 
@@ -267,8 +267,8 @@ const RowGroupingContent = () => {
           <p className="text-gray-700 dark:text-gray-300 mb-2">
             When using row grouping with external sorting or dynamic data, it's highly recommended
             to provide the{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">getRowId</code>{" "}
-            prop. This ensures stable row identification across data updates:
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">getRowId</code> prop.
+            This ensures stable row identification across data updates:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
             <li>Maintains correct expansion state when data is sorted or filtered</li>
@@ -283,11 +283,11 @@ const RowGroupingContent = () => {
           <p className="text-gray-700 dark:text-gray-300 mt-2">
             Example:{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-              {"getRowId={({ row }) => row.id}"}
+              {"getRowId={({ row }) => row.id as string}"}
             </code>{" "}
             or{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-              {"getRowId={({ row }) => row.uuid}"}
+              {"getRowId={({ row }) => row.uuid as string}"}
             </code>
           </p>
         </div>

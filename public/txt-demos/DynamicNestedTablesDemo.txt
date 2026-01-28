@@ -273,7 +273,7 @@ const DynamicNestedTablesDemo = ({
       expandAll={false}
       height={height}
       rowGrouping={["divisions"]}
-      getRowId={({ row }) => row.id}
+      getRowId={({ row }) => row.id as string}
       rows={rows}
       onRowGroupExpand={handleCompanyExpand}
       theme={theme}

@@ -20,7 +20,7 @@ export const v2_2_9: ChangelogEntry = {
     {
       type: "feature",
       description:
-        "getRowId function.getRowId={({ row }) => row.id}. The getRowId function receives: row, depth, index, rowPath, rowIndexPath, and groupingKey for more flexible ID generation.",
+        "getRowId function.getRowId={({ row }) => row.id as string}. The getRowId function receives: row, depth, index, rowPath, rowIndexPath, and groupingKey for more flexible ID generation.",
       link: "/docs/quick-start",
     },
     {

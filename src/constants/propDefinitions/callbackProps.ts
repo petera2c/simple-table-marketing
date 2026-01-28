@@ -521,7 +521,7 @@ setRows(prevRows => {
     description:
       "Array containing ID-based path through the hierarchy (only available when getRowId prop is provided). Contains the actual ID values from your data, providing stable identification that persists across sorting and filtering. Much more reliable than index-based paths for dynamic data.",
     type: "(string | number)[]",
-    example: `// When getRowId={({ row }) => row.id} is set:
+    example: `// When getRowId={({ row }) => row.id as string} is set:
 // For rows[0] with id='REG-1'
 props.rowIdPath // ['REG-1']
 
