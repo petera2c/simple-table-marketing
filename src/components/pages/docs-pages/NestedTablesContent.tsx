@@ -262,11 +262,11 @@ const NestedTablesContent = () => {
             <li>
               <strong>Recommended:</strong> Use{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                rowIdAccessor
+                getRowId
               </code>{" "}
               (e.g.,{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                rowIdAccessor="id"
+                {"getRowId={({ row }) => row.id}"}
               </code>
               ) for stable row identification, especially with sorting or dynamic data
             </li>

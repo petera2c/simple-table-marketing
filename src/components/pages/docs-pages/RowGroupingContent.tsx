@@ -63,11 +63,11 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     name: "onRowGroupExpand",
     required: false,
     description:
-      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information including helper functions for managing loading, error, and empty states. The rowIndexPath array (v2.2.8+: now contains ONLY numeric indices) provides a direct path to update nested data. The optional rowIdPath (when rowIdAccessor is provided) offers stable ID-based navigation. Perfect for lazy-loading hierarchical data on demand.",
+      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information including helper functions for managing loading, error, and empty states. The rowIndexPath array (v2.2.9+: contains ONLY numeric indices) provides a direct path to update nested data. The optional rowIdPath (when getRowId is provided) offers stable ID-based navigation. Perfect for lazy-loading hierarchical data on demand.",
     type: "(props: OnRowGroupExpandProps) => void",
     link: "/docs/api-reference#on-row-group-expand-props",
     example: `<SimpleTable
-  rowIdAccessor="id"  // Recommended for stable row identification
+  getRowId={({ row }) => row.id}  // Recommended for stable row identification
   onRowGroupExpand={async ({ 
     row, 
     depth, 
@@ -76,8 +76,8 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     setLoading,
     setError,
     setEmpty,
-    rowIndexPath,  // v2.2.8+: [0, 2, 5] (only numbers)
-    rowIdPath      // ['REG-1', 'stores', 'STORE-101'] (when rowIdAccessor set)
+    rowIndexPath,  // v2.2.9+: [0, 2, 5] (only numbers)
+    rowIdPath      // ['REG-1', 'stores', 'STORE-101'] (when getRowId set)
   }) => {
     if (!isExpanded) return;
     
@@ -262,12 +262,12 @@ const RowGroupingContent = () => {
 
         <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
           <h4 className="font-bold text-gray-800 dark:text-white mb-2">
-            🔑 Recommended: Use rowIdAccessor
+            🔑 Recommended: Use getRowId
           </h4>
           <p className="text-gray-700 dark:text-gray-300 mb-2">
             When using row grouping with external sorting or dynamic data, it's highly recommended
             to provide the{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">rowIdAccessor</code>{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">getRowId</code>{" "}
             prop. This ensures stable row identification across data updates:
           </p>
           <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
@@ -283,11 +283,11 @@ const RowGroupingContent = () => {
           <p className="text-gray-700 dark:text-gray-300 mt-2">
             Example:{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-              rowIdAccessor="id"
+              {"getRowId={({ row }) => row.id}"}
             </code>{" "}
             or{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-              rowIdAccessor="uuid"
+              {"getRowId={({ row }) => row.uuid}"}
             </code>
           </p>
         </div>
@@ -433,11 +433,11 @@ const RowGroupingContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             rowIndexPath
           </code>{" "}
-          (v2.2.8+: now contains only numeric indices) and{" "}
+          (v2.2.9+: contains only numeric indices) and{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             rowIdPath
           </code>{" "}
-          (when rowIdAccessor is provided) for easy nested data updates.
+          (when getRowId is provided) for easy nested data updates.
         </p>
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">

@@ -474,7 +474,7 @@ const DynamicRowLoadingDemo = ({
       height={height}
       onRowGroupExpand={handleRowExpand}
       rowGrouping={["stores", "products"]}
-      rowIdAccessor="id"
+      getRowId={({ row }) => row.id}
       rows={rows}
       selectableCells
       theme={theme}

@@ -39,15 +39,15 @@ const TABLE_PROPS: PropInfo[] = [
 ];`,
   },
   {
-    key: "rowIdAccessor",
-    name: "rowIdAccessor",
+    key: "getRowId",
+    name: "getRowId",
     required: false,
     description:
-      "Optional but recommended: Accessor to a unique identifier in your row data (e.g., 'id', 'uuid'). Enables stable row identification across sorting and filtering. Highly recommended for tables with row grouping, external sorting, or dynamic data updates.",
-    type: "string",
+      "Optional but recommended: Function to generate unique identifiers for each row. Receives detailed context (row, depth, index, paths). Enables stable row identification across sorting and filtering. Highly recommended for tables with row grouping, external sorting, or dynamic data updates.",
+    type: "(params: GetRowIdParams) => string | number",
     link: "/docs/api-reference#simple-table-props",
-    example: `rowIdAccessor="id"
-rowIdAccessor="uuid"`,
+    example: `getRowId={({ row }) => row.id}
+getRowId={({ row }) => row.uuid}`,
   },
   {
     key: "height",
@@ -326,24 +326,24 @@ const data = [
         transition={{ duration: 0.5, delay: 0.42 }}
       >
         <h3 className="font-bold text-gray-800 dark:text-white mb-2">
-          🔑 Optional but Recommended: rowIdAccessor
+          🔑 Optional but Recommended: getRowId
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-2">
           While not required, providing a{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            rowIdAccessor
+            getRowId
           </code>{" "}
-          helps optimize your table by enabling stable row identification:
+          function helps optimize your table by enabling stable row identification:
         </p>
         <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
           <li>
-            <strong>What it does:</strong> Points to a unique identifier in your data (like{" "}
+            <strong>What it does:</strong> Function that returns a unique identifier from your row data (like{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              id
+              row.id
             </code>{" "}
             or{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-              uuid
+              row.uuid
             </code>
             )
           </li>
@@ -359,7 +359,7 @@ const data = [
         <p className="text-gray-700 dark:text-gray-300">
           Example:{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            rowIdAccessor="id"
+            {"getRowId={({ row }) => row.id}"}
           </code>
         </p>
       </motion.div>

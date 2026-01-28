@@ -239,16 +239,16 @@ initialSortDirection="asc"`,
     example: `rowGrouping={["department", "team"]}`,
   },
   {
-    key: "rowIdAccessor",
-    name: "rowIdAccessor",
+    key: "getRowId",
+    name: "getRowId",
     required: false,
     description:
-      "Optional accessor to a unique identifier property in your row data (e.g., 'id', 'uuid', 'customId'). Enables stable row identification using data properties instead of array indices. Critical for scenarios where row order changes (sorting, filtering, dynamic data). When provided, row IDs are based on this property value, and rowIdPath becomes available in OnRowGroupExpandProps. Highly recommended for tables with row grouping and external sorting to maintain correct expansion state across data updates.",
-    type: "Accessor",
-    link: "#union-types",
+      "Optional function to generate unique identifiers for each row. Receives detailed context (row, depth, index, rowPath, rowIndexPath, groupingKey) enabling flexible ID generation. Critical for scenarios where row order changes (sorting, filtering, dynamic data). When provided, row IDs are based on this function's return value, and rowIdPath becomes available in OnRowGroupExpandProps. Highly recommended for tables with row grouping and external sorting to maintain correct expansion state across data updates.",
+    type: "(params: GetRowIdParams) => string | number",
+    link: "#get-row-id-params",
     example: `// Basic usage with id field
 <SimpleTable
-  rowIdAccessor="id"
+  getRowId={({ row }) => row.id}
   rows={[
     { id: 'REG-1', name: 'Region 1', stores: [...] },
     { id: 'REG-2', name: 'Region 2', stores: [...] }
@@ -256,13 +256,15 @@ initialSortDirection="asc"`,
   // ... other props
 />
 
-// With nested data and external sorting
+// With nested data and custom ID generation
 <SimpleTable
-  rowIdAccessor="uuid"
+  getRowId={({ row, depth, groupingKey }) => {
+    return \`\${groupingKey || 'root'}-\${row.id}\`;
+  }}
   rowGrouping={["stores", "products"]}
   externalSortHandling={true}
   onRowGroupExpand={({ rowIdPath }) => {
-    // rowIdPath: ['REG-1', 'stores', 'STORE-101']
+    // rowIdPath: ['root-REG-1', 'stores', 'stores-STORE-101']
     // Much more stable than index-based paths when sorted
   }}
   // ... other props

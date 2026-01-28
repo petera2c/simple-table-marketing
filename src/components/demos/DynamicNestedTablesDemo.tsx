@@ -211,9 +211,9 @@ const DynamicNestedTablesDemo = ({
             return;
           }
 
-          // Update nested data using rowIndexPath (v2.2.8+: now only numeric indices)
+          // Update nested data using rowIndexPath (v2.2.9+: now only numeric indices)
           // rowIndexPath = [0] means rows[0]
-          // rowIdPath = ['COMP-1'] (stable ID-based path when rowIdAccessor is set)
+          // rowIdPath = ['COMP-1'] (stable ID-based path when getRowId is set)
           setRows((prevRows) => {
             const newRows = [...prevRows];
             const companyIndex = rowIndexPath[0];
@@ -273,7 +273,7 @@ const DynamicNestedTablesDemo = ({
       expandAll={false}
       height={height}
       rowGrouping={["divisions"]}
-      rowIdAccessor="id"
+      getRowId={({ row }) => row.id}
       rows={rows}
       onRowGroupExpand={handleCompanyExpand}
       theme={theme}

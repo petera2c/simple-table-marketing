@@ -260,7 +260,7 @@ const NestedTablesDemo = ({
       defaultHeaders={companyHeaders}
       rows={sampleData}
       rowGrouping={["divisions"]}
-      rowIdAccessor="id"
+      getRowId={({ row }) => row.id}
       expandAll={false}
       columnResizing={true}
       height={height}

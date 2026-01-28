@@ -542,7 +542,7 @@ const RowGroupingDemo = ({
         expandAll={expandAll}
         height={height}
         rowGrouping={["divisions", "departments"]}
-        rowIdAccessor="id"
+        getRowId={({ row }) => row.id}
         rows={rows}
         theme={theme}
       />
