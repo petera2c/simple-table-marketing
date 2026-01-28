@@ -488,24 +488,52 @@ export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
     name: "rowIndexPath",
     required: true,
     description:
-      "Array path through the nested data structure to reach this row. Each element is either a number (array index) or string (property name). Use this to directly navigate and update nested data without complex traversal logic.",
-    type: "(string | number)[]",
+      "Array containing ONLY numeric indices for navigating the nested data structure. Changed in v2.2.8: Previously mixed indices with grouping keys, now contains only numbers for clean, predictable navigation. Use this for direct array access to update nested data.",
+    type: "number[]",
     example: `// For rows[0]
 props.rowIndexPath // [0]
 
 // For rows[0].teams[1]
-props.rowIndexPath // [0, "teams", 1]
+props.rowIndexPath // [0, 2]  (NOT [0, "teams", 1])
 
 // For rows[2].stores[3].products[0]
-props.rowIndexPath // [2, "stores", 3, "products", 0]
+props.rowIndexPath // [2, 5, 0]  (numeric indices only)
 
 // Usage: Direct nested data update
 setRows(prevRows => {
   const newRows = [...prevRows];
-  // Access: rows[0].teams[1]
-  newRows[rowIndexPath[0]][rowIndexPath[1]][rowIndexPath[2]].children = data;
+  let current = newRows;
+  
+  // Navigate to parent using all but last index
+  for (let i = 0; i < rowIndexPath.length - 1; i++) {
+    current = current[rowIndexPath[i]][groupingKey];
+  }
+  
+  // Update the target row
+  current[rowIndexPath[rowIndexPath.length - 1]].children = data;
   return newRows;
 });`,
+  },
+  {
+    key: "rowIdPath",
+    name: "rowIdPath",
+    required: false,
+    description:
+      "Array containing ID-based path through the hierarchy (only available when rowIdAccessor prop is provided). Contains the actual ID values from your data, providing stable identification that persists across sorting and filtering. Much more reliable than index-based paths for dynamic data.",
+    type: "(string | number)[]",
+    example: `// When rowIdAccessor="id" is set:
+// For rows[0] with id='REG-1'
+props.rowIdPath // ['REG-1']
+
+// For rows[0].stores[2] with ids 'REG-1' and 'STORE-101'
+props.rowIdPath // ['REG-1', 'stores', 'STORE-101']
+
+// For rows[1].stores[0].products[3]
+props.rowIdPath // ['REG-2', 'stores', 'STORE-200', 'products', 'PROD-5']
+
+// Compare with rowIndexPath (changes with sorting):
+props.rowIndexPath // [1, 0, 3]  (changes when sorted)
+props.rowIdPath    // ['REG-2', 'stores', 'STORE-200', 'products', 'PROD-5']  (stable)`,
   },
   {
     key: "groupingKeys",

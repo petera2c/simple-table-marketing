@@ -239,6 +239,36 @@ initialSortDirection="asc"`,
     example: `rowGrouping={["department", "team"]}`,
   },
   {
+    key: "rowIdAccessor",
+    name: "rowIdAccessor",
+    required: false,
+    description:
+      "Optional accessor to a unique identifier property in your row data (e.g., 'id', 'uuid', 'customId'). Enables stable row identification using data properties instead of array indices. Critical for scenarios where row order changes (sorting, filtering, dynamic data). When provided, row IDs are based on this property value, and rowIdPath becomes available in OnRowGroupExpandProps. Highly recommended for tables with row grouping and external sorting to maintain correct expansion state across data updates.",
+    type: "Accessor",
+    link: "#union-types",
+    example: `// Basic usage with id field
+<SimpleTable
+  rowIdAccessor="id"
+  rows={[
+    { id: 'REG-1', name: 'Region 1', stores: [...] },
+    { id: 'REG-2', name: 'Region 2', stores: [...] }
+  ]}
+  // ... other props
+/>
+
+// With nested data and external sorting
+<SimpleTable
+  rowIdAccessor="uuid"
+  rowGrouping={["stores", "products"]}
+  externalSortHandling={true}
+  onRowGroupExpand={({ rowIdPath }) => {
+    // rowIdPath: ['REG-1', 'stores', 'STORE-101']
+    // Much more stable than index-based paths when sorted
+  }}
+  // ... other props
+/>`,
+  },
+  {
     key: "onRowGroupExpand",
     name: "onRowGroupExpand",
     required: false,

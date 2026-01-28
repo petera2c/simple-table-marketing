@@ -38,7 +38,17 @@ const TABLE_PROPS: PropInfo[] = [
   { id: 2, name: "Jane Smith", age: 25 }
 ];`,
   },
-
+  {
+    key: "rowIdAccessor",
+    name: "rowIdAccessor",
+    required: false,
+    description:
+      "Optional but recommended: Accessor to a unique identifier in your row data (e.g., 'id', 'uuid'). Enables stable row identification across sorting and filtering. Highly recommended for tables with row grouping, external sorting, or dynamic data updates.",
+    type: "string",
+    link: "/docs/api-reference#simple-table-props",
+    example: `rowIdAccessor="id"
+rowIdAccessor="uuid"`,
+  },
   {
     key: "height",
     name: "height",
@@ -55,7 +65,8 @@ height="100%"`,
     key: "customTheme",
     name: "customTheme",
     required: false,
-    description: "Custom theme configuration for dimensions and spacing. Only specify the properties you want to customize.",
+    description:
+      "Custom theme configuration for dimensions and spacing. Only specify the properties you want to customize.",
     type: "CustomTheme",
     link: "/docs/custom-theme",
     example: `customTheme={{
@@ -305,6 +316,51 @@ const data = [
             Table Height documentation
           </a>
           .
+        </p>
+      </motion.div>
+
+      <motion.div
+        className="bg-purple-50 dark:bg-purple-900/20 border-l-4 border-purple-500 p-4 rounded-lg shadow-sm mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.42 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+          🔑 Optional but Recommended: rowIdAccessor
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-2">
+          While not required, providing a{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowIdAccessor
+          </code>{" "}
+          helps optimize your table by enabling stable row identification:
+        </p>
+        <ul className="list-disc list-inside text-gray-700 dark:text-gray-300 space-y-1 mb-2">
+          <li>
+            <strong>What it does:</strong> Points to a unique identifier in your data (like{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              id
+            </code>{" "}
+            or{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              uuid
+            </code>
+            )
+          </li>
+          <li>
+            <strong>When to use:</strong> Especially important for tables with sorting, filtering,
+            row grouping, or frequently changing data
+          </li>
+          <li>
+            <strong>Benefits:</strong> Maintains row state (like expansion) across data updates and
+            improves performance
+          </li>
+        </ul>
+        <p className="text-gray-700 dark:text-gray-300">
+          Example:{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowIdAccessor="id"
+          </code>
         </p>
       </motion.div>
 

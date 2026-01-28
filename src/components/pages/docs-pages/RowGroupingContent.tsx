@@ -63,10 +63,11 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     name: "onRowGroupExpand",
     required: false,
     description:
-      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information including helper functions for managing loading, error, and empty states. The rowIndexPath array provides a direct path to update nested data. Perfect for lazy-loading hierarchical data on demand.",
+      "Callback function triggered when a grouped row is expanded or collapsed. Receives detailed information including helper functions for managing loading, error, and empty states. The rowIndexPath array (v2.2.8+: now contains ONLY numeric indices) provides a direct path to update nested data. The optional rowIdPath (when rowIdAccessor is provided) offers stable ID-based navigation. Perfect for lazy-loading hierarchical data on demand.",
     type: "(props: OnRowGroupExpandProps) => void",
     link: "/docs/api-reference#on-row-group-expand-props",
     example: `<SimpleTable
+  rowIdAccessor="id"  // Recommended for stable row identification
   onRowGroupExpand={async ({ 
     row, 
     depth, 
@@ -75,7 +76,8 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
     setLoading,
     setError,
     setEmpty,
-    rowIndexPath 
+    rowIndexPath,  // v2.2.8+: [0, 2, 5] (only numbers)
+    rowIdPath      // ['REG-1', 'stores', 'STORE-101'] (when rowIdAccessor set)
   }) => {
     if (!isExpanded) return;
     
@@ -91,8 +93,8 @@ const ROW_GROUPING_PROPS: PropInfo[] = [
         return;
       }
       
-      // Update using rowIndexPath
-      // e.g., [0, 'teams', 1] = rows[0].teams[1]
+      // Update using rowIndexPath (clean numeric path)
+      // e.g., [0, 2] = rows[0].stores[2]
       setRows(prev => {
         const newRows = [...prev];
         newRows[rowIndexPath[0]][groupingKey] = children;
@@ -258,8 +260,42 @@ const RowGroupingContent = () => {
           </ul>
         </div>
 
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            🔑 Recommended: Use rowIdAccessor
+          </h4>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            When using row grouping with external sorting or dynamic data, it's highly recommended
+            to provide the{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">rowIdAccessor</code>{" "}
+            prop. This ensures stable row identification across data updates:
+          </p>
+          <ul className="list-disc pl-5 space-y-1 text-gray-700 dark:text-gray-300">
+            <li>Maintains correct expansion state when data is sorted or filtered</li>
+            <li>
+              Provides stable{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">rowIdPath</code> in
+              onRowGroupExpand
+            </li>
+            <li>Prevents row group collapse when row order changes</li>
+            <li>Essential for tables with external sorting enabled</li>
+          </ul>
+          <p className="text-gray-700 dark:text-gray-300 mt-2">
+            Example:{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+              rowIdAccessor="id"
+            </code>{" "}
+            or{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+              rowIdAccessor="uuid"
+            </code>
+          </p>
+        </div>
+
         <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm mb-6">
-          <h4 className="font-bold text-gray-800 dark:text-white mb-2">🎯 Need Different Columns at Each Level?</h4>
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">
+            🎯 Need Different Columns at Each Level?
+          </h4>
           <p className="text-gray-700 dark:text-gray-300">
             Row grouping shows child rows with the same columns as parent rows. If you need each
             level to have its own independent column structure (e.g., companies with 9 columns,
@@ -397,7 +433,11 @@ const RowGroupingContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             rowIndexPath
           </code>{" "}
-          for easy nested data updates.
+          (v2.2.8+: now contains only numeric indices) and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowIdPath
+          </code>{" "}
+          (when rowIdAccessor is provided) for easy nested data updates.
         </p>
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">

@@ -259,6 +259,17 @@ const NestedTablesContent = () => {
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">nestedTable</code>{" "}
               configuration for multi-level nesting
             </li>
+            <li>
+              <strong>Recommended:</strong> Use{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                rowIdAccessor
+              </code>{" "}
+              (e.g.,{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                rowIdAccessor="id"
+              </code>
+              ) for stable row identification, especially with sorting or dynamic data
+            </li>
           </ul>
         </div>
 

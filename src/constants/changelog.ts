@@ -10,6 +10,58 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_2_8: ChangelogEntry = {
+  version: "2.2.8",
+  date: "2026-01-28",
+  title: "Row ID Accessor & Enhanced Row Grouping Stability",
+  description:
+    "Re-introduces rowIdAccessor as an optional prop to fix critical issues with row grouping and external sorting. Includes breaking changes to OnRowGroupExpandProps.rowIndexPath type and adds new rowIdPath property for stable row identification. IMPORTANT: This version includes breaking changes to the onRowGroupExpand callback - see migration guide below.",
+  changes: [
+    {
+      type: "breaking",
+      description:
+        "⚠️ MIGRATION REQUIRED: OnRowGroupExpandProps.rowIndexPath now contains ONLY numeric array indices (previously mixed with grouping keys). Old behavior: [0, 'stores', 2, 'products', 5] with mixed types. New behavior: [0, 2, 5] with only numbers. If you were using rowIndexPath in onRowGroupExpand, remove any logic that filtered out string keys - the array is now clean. If you need ID-based paths for stable identification, use the new rowIdPath property (requires rowIdAccessor prop). Example migration: OLD: const indices = rowIndexPath.filter(x => typeof x === 'number'); NEW: const indices = rowIndexPath; // Already clean!",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "feature",
+      description:
+        "Re-introduced rowIdAccessor prop as optional (previously removed in v2.2.0, now back with improved behavior). Enables stable row identification using data properties instead of array indices. Critical for scenarios where row order changes (sorting, filtering, dynamic data). When provided, enables ID-based row tracking that persists across data updates. Highly recommended for tables with row grouping and external sorting. Note: Unlike v2.2.0 where it was required, rowIdAccessor is now completely optional - use it only when you need stable row identification across data mutations.",
+      link: "/docs/quick-start",
+    },
+    {
+      type: "feature",
+      description:
+        "Added rowIdPath to OnRowGroupExpandProps for ID-based row navigation (available when rowIdAccessor is provided). Complements rowIndexPath by providing stable identifiers that don't change when data is sorted or filtered.",
+      link: "/docs/api-reference#on-row-group-expand-props",
+    },
+    {
+      type: "feature",
+      description:
+        "Added rowIndexPath property to TableRow type for consistent index-based navigation across all table features. Always available and contains only numeric indices for direct data access.",
+      link: "/docs/api-reference#union-types",
+    },
+    {
+      type: "bugfix",
+      description:
+        "Fixed skeleton loaders not displaying correctly when pagination is enabled. Improved row processing logic to handle loading states with pagination.",
+      link: "/docs/loading-state",
+    },
+    {
+      type: "bugfix",
+      description:
+        "Fixed external sorting breaking row group functionality. Row groups now maintain correct structure and expansion state when data is sorted externally. This fix required re-introducing rowIdAccessor for stable row identification.",
+      link: "/docs/column-sorting",
+    },
+    {
+      type: "bugfix",
+      description:
+        "Tables now automatically disable virtualization when no height or maxHeight is provided. Prevents performance issues and rendering problems in non-virtualized scenarios. No action required from consumers - handled automatically.",
+      link: "/docs/table-height",
+    },
+  ],
+};
+
 export const v2_2_7: ChangelogEntry = {
   version: "2.2.7",
   date: "2026-01-25",
@@ -1088,6 +1140,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_2_8,
   v2_2_7,
   v2_2_6,
   v2_2_1,

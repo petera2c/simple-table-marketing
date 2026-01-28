@@ -386,6 +386,7 @@ const DynamicRowLoadingDemo = ({
       setError,
       setEmpty,
       rowIndexPath,
+      rowIdPath,
     }: OnRowGroupExpandProps) => {
       // Don't fetch if collapsing
       if (!isExpanded) {
@@ -403,7 +404,7 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch stores from "API"
-          const stores = await fetchStoresForRegion(String(row.regionId));
+          const stores = await fetchStoresForRegion(row.id);
 
           // Clear loading state
           setLoading(false);
@@ -414,11 +415,12 @@ const DynamicRowLoadingDemo = ({
             return;
           }
 
-          // Update nested data using rowIndexPath
+          // Update nested data using rowIndexPath (v2.2.8+: now only numeric indices)
           // rowIndexPath = [0] means rows[0]
+          // rowIdPath = ['REG-1'] (stable ID-based path)
           setRows((prevRows) => {
             const newRows = [...prevRows];
-            const regionIndex = rowIndexPath[0] as number;
+            const regionIndex = rowIndexPath[0];
             newRows[regionIndex].stores = stores;
             return newRows;
           });
@@ -427,7 +429,7 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch products from "API"
-          const products = await fetchProductsForStore(String(row.storeId));
+          const products = await fetchProductsForStore(row.id);
 
           // Clear loading state
           setLoading(false);
@@ -438,12 +440,13 @@ const DynamicRowLoadingDemo = ({
             return;
           }
 
-          // Update nested data using rowIndexPath
-          // rowIndexPath = [0, 'stores', 1] means rows[0].stores[1]
+          // Update nested data using rowIndexPath (v2.2.8+: only numeric indices)
+          // rowIndexPath = [0, 1] means rows[0].stores[1] (NOT [0, 'stores', 1])
+          // rowIdPath = ['REG-1', 'stores', 'STORE-101'] (stable ID-based path)
           setRows((prevRows) => {
             const newRows = [...prevRows];
-            const regionIndex = rowIndexPath[0] as number;
-            const storeIndex = rowIndexPath[2] as number;
+            const regionIndex = rowIndexPath[0];
+            const storeIndex = rowIndexPath[1];
             const region = newRows[regionIndex];
             if (region.stores && region.stores[storeIndex]) {
               region.stores[storeIndex].products = products;
@@ -457,7 +460,7 @@ const DynamicRowLoadingDemo = ({
         setError(error instanceof Error ? error.message : "Failed to load data");
       }
     },
-    []
+    [],
   );
 
   return (
@@ -469,6 +472,7 @@ const DynamicRowLoadingDemo = ({
       height={height}
       onRowGroupExpand={handleRowExpand}
       rowGrouping={["stores", "products"]}
+      rowIdAccessor="id"
       rows={rows}
       selectableCells
       theme={theme}
