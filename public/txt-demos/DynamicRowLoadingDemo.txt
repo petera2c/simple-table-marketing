@@ -404,7 +404,8 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch stores from "API"
-          const stores = await fetchStoresForRegion(row.id);
+          const region = row as Region;
+          const stores = await fetchStoresForRegion(region.id);
 
           // Clear loading state
           setLoading(false);
@@ -429,7 +430,8 @@ const DynamicRowLoadingDemo = ({
           setLoading(true);
 
           // Fetch products from "API"
-          const products = await fetchProductsForStore(row.id);
+          const store = row as Store;
+          const products = await fetchProductsForStore(store.id);
 
           // Clear loading state
           setLoading(false);
