@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_3_0: ChangelogEntry = {
+  version: "2.3.0",
+  date: "2026-01-29",
+  title: "Column Visibility Checkbox Logic Fix",
+  description:
+    "Fixed the column visibility checkbox logic in the column editing popout. The checkbox state now correctly represents whether a column is visible.",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed column visibility checkbox logic in the column editing popout. Checkboxes are now checked when columns are visible, and unchecked when hidden (previously was inverted).",
+      link: "/docs/column-editing",
+    },
+  ],
+};
+
 export const v2_2_9: ChangelogEntry = {
   version: "2.2.9",
   date: "2026-01-28",
@@ -1120,6 +1136,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_3_0,
   v2_2_9,
   v2_2_7,
   v2_2_6,
