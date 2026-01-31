@@ -76,8 +76,8 @@ export default function TanStackVsAgGridPage() {
         </div>
 
         <p className="text-lg max-w-3xl mx-auto text-center text-gray-700 dark:text-gray-300">
-          TanStack Table (formerly React Table) or AG Grid? We break down features, performance, pricing, and developer
-          experience to help you choose the right React data grid.
+          TanStack Table (formerly React Table) or AG Grid? We break down features, performance,
+          pricing, and developer experience to help you choose the right React data grid.
         </p>
       </section>
 
@@ -88,11 +88,11 @@ export default function TanStackVsAgGridPage() {
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="mb-4 text-gray-700 dark:text-gray-300">
-                TanStack Table (formerly known as React Table, now at v8) and AG Grid represent two fundamentally
-                different philosophies for building data grids in React. TanStack Table (React Table) is the
-                minimalist's choice—a headless, logic-only library that gives you complete UI
-                control. AG Grid is the maximalist's toolbox—a feature-packed, batteries-included
-                solution with opinions about everything.
+                TanStack Table (formerly known as React Table, now at v8) and AG Grid represent two
+                fundamentally different philosophies for building data grids in React. TanStack
+                Table (React Table) is the minimalist's choice—a headless, logic-only library that
+                gives you complete UI control. AG Grid is the maximalist's toolbox—a feature-packed,
+                batteries-included solution with opinions about everything.
               </p>
 
               <p className="mb-4 text-gray-700 dark:text-gray-300">
@@ -214,7 +214,8 @@ export default function TanStackVsAgGridPage() {
                   TanStack Table (React Table): Headless
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  <strong>Philosophy:</strong> "We handle the logic, you handle the UI." (Formerly React Table, now TanStack Table v8)
+                  <strong>Philosophy:</strong> "We handle the logic, you handle the UI." (Formerly
+                  React Table, now TanStack Table v8)
                 </p>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">

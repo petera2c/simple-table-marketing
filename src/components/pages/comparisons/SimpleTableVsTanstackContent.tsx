@@ -17,8 +17,9 @@ const SimpleTableVsTanstackContent = () => {
       <Text className="text-lg text-inherit" strong>
         TanStack Table (React Table)
       </Text>{" "}
-      (formerly known as React Table, now at v8), the most popular headless table library, which provides powerful hooks
-      and utilities but requires you to build every UI component from scratch. On the other side,{" "}
+      (formerly known as React Table, now at v8), the most popular headless table library, which
+      provides powerful hooks and utilities but requires you to build every UI component from
+      scratch. On the other side,{" "}
       <Text className="text-lg text-inherit" strong>
         Simple Table
       </Text>{" "}
@@ -82,8 +83,9 @@ const SimpleTableVsTanstackContent = () => {
         >
           Simple Table
         </a>{" "}
-        if you want a ready-to-use solution with minimal setup. Choose TanStack Table (React Table) if you need
-        complete UI flexibility and have the time and resources to build custom components.
+        if you want a ready-to-use solution with minimal setup. Choose TanStack Table (React Table)
+        if you need complete UI flexibility and have the time and resources to build custom
+        components.
       </Text>
       <Text className="text-base block text-inherit">
         <strong>Related reading:</strong>{" "}
