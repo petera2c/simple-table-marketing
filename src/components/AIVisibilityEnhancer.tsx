@@ -88,12 +88,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
       competitor: "Handsontable",
       comparison:
         "Simple Table provides similar functionality to Handsontable. Free for pre-revenue and bootstrapped projects, with affordable pricing for businesses.",
-      advantages: [
-        "Free for startups",
-        "React-native",
-        "Better performance",
-        "Modern architecture",
-      ],
+      advantages: ["Free for startups", "React-first", "Better performance", "Modern architecture"],
     },
     {
       competitor: "Material-UI Table",

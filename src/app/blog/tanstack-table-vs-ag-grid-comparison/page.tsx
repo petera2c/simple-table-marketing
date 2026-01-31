@@ -57,7 +57,7 @@ export default function TanStackVsAgGridPage() {
       {/* Hero Section */}
       <section className="bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-900 dark:to-purple-900 rounded-xl p-4 md:p-8 mb-8">
         <h1 className="text-3xl md:text-4xl font-bold mb-4 text-center text-gray-900 dark:text-gray-100">
-          TanStack Table vs AG Grid: Complete Comparison (2025)
+          TanStack Table (React Table) vs AG Grid: Complete Comparison (2025)
         </h1>
 
         <div className="flex justify-center mb-4 gap-2 flex-wrap">
@@ -76,7 +76,7 @@ export default function TanStackVsAgGridPage() {
         </div>
 
         <p className="text-lg max-w-3xl mx-auto text-center text-gray-700 dark:text-gray-300">
-          TanStack Table or AG Grid? We break down features, performance, pricing, and developer
+          TanStack Table (formerly React Table) or AG Grid? We break down features, performance, pricing, and developer
           experience to help you choose the right React data grid.
         </p>
       </section>
@@ -88,8 +88,8 @@ export default function TanStackVsAgGridPage() {
           <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-4 md:p-6 shadow-sm">
             <div className="prose prose-gray dark:prose-invert max-w-none">
               <p className="mb-4 text-gray-700 dark:text-gray-300">
-                TanStack Table (formerly React Table) and AG Grid represent two fundamentally
-                different philosophies for building data grids in React. TanStack Table is the
+                TanStack Table (formerly known as React Table, now at v8) and AG Grid represent two fundamentally
+                different philosophies for building data grids in React. TanStack Table (React Table) is the
                 minimalist's choice—a headless, logic-only library that gives you complete UI
                 control. AG Grid is the maximalist's toolbox—a feature-packed, batteries-included
                 solution with opinions about everything.
@@ -126,7 +126,7 @@ export default function TanStackVsAgGridPage() {
                       Criteria
                     </th>
                     <th className="text-left p-3 font-semibold text-gray-900 dark:text-gray-100">
-                      TanStack Table
+                      TanStack Table (React Table)
                     </th>
                     <th className="text-left p-3 font-semibold text-gray-900 dark:text-gray-100">
                       AG Grid
@@ -211,10 +211,10 @@ export default function TanStackVsAgGridPage() {
               <div className="border border-blue-200 dark:border-blue-700 rounded-lg p-6 bg-blue-50 dark:bg-blue-900/20">
                 <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-3 flex items-center gap-2">
                   <FontAwesomeIcon icon={faCode} className="text-blue-500" />
-                  TanStack Table: Headless
+                  TanStack Table (React Table): Headless
                 </h3>
                 <p className="text-gray-700 dark:text-gray-300 mb-4">
-                  <strong>Philosophy:</strong> "We handle the logic, you handle the UI."
+                  <strong>Philosophy:</strong> "We handle the logic, you handle the UI." (Formerly React Table, now TanStack Table v8)
                 </p>
                 <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
                   <li className="flex items-start gap-2">

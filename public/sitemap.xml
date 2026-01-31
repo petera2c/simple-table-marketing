@@ -81,6 +81,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/handsontable-pricing-breakdown-2026</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/material-react-table-vs-simple-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -137,6 +142,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/replicating-gojiberry-ui-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/tabulator-alternatives-react-2026</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

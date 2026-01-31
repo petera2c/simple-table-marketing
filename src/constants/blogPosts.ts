@@ -289,8 +289,30 @@ export const nestedTablesReactPost: BlogPostMetadata = {
   updatedAt: "2026-01-24",
 };
 
+export const handsontablePricing2026Post: BlogPostMetadata = {
+  title: "Handsontable Pricing Breakdown 2026: What You Actually Pay Per Developer",
+  description:
+    "Complete breakdown of Handsontable's 2026 pricing: from $899/dev/year to enterprise costs. Understand licensing terms, hidden fees, and free alternatives that could save you $20K+.",
+  slug: "handsontable-pricing-breakdown-2026",
+  tags: ["react", "handsontable", "pricing", "comparison", "alternatives"],
+  createdAt: "2026-01-30",
+  updatedAt: "2026-01-30",
+};
+
+export const tabulatorAlternativesReact2026Post: BlogPostMetadata = {
+  title: "Tabulator Alternatives for React: Modern Options in 2026",
+  description:
+    "Looking for Tabulator alternatives for React? Discover modern, React-first data grid libraries built specifically for React that offer better performance, TypeScript support, and seamless integration.",
+  slug: "tabulator-alternatives-react-2026",
+  tags: ["react", "tabulator", "alternatives", "comparison", "react-table"],
+  createdAt: "2026-01-30",
+  updatedAt: "2026-01-30",
+};
+
 // Array of all blog posts using the individual objects
 export const BLOG_POSTS: BlogPostMetadata[] = [
+  tabulatorAlternativesReact2026Post,
+  handsontablePricing2026Post,
   nestedTablesReactPost,
   editableReactDataGridsPost,
   reactTableColumnResizingGuidePost,

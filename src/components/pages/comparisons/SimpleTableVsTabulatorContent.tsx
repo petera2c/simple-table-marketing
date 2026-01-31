@@ -33,11 +33,7 @@ const SimpleVsTabulator = () => {
         {SIMPLE_TABLE_INFO.bundleSizeMinGzip}
       </Link>{" "}
       compared to Tabulator's{" "}
-      <Link
-        className="text-[length:inherit]"
-        href={TABULATOR_INFO.bundlePhobiaUrl}
-        target="_blank"
-      >
+      <Link className="text-[length:inherit]" href={TABULATOR_INFO.bundlePhobiaUrl} target="_blank">
         {TABULATOR_INFO.bundleSizeMinGzip}
       </Link>{" "}
       plus{" "}
@@ -49,11 +45,11 @@ const SimpleVsTabulator = () => {
         {REACT_TABULATOR_INFO.bundleSizeMinGzip}
       </Link>{" "}
       for the React wrapper (totaling {TABULATOR_TOTAL_SIZE}, minified + gzipped), Simple Table
-      provides a more streamlined solution. This comparison examines whether a React-native
-      approach with TypeScript-first design can deliver the functionality you need with better
-      React integration, or if Tabulator's mature ecosystem and extensive features make it worth
-      the integration complexity. We'll explore the differences in developer experience, React
-      patterns, and feature sets to help you choose the right fit for your project.
+      provides a more streamlined solution. This comparison examines whether a React-first approach
+      with TypeScript-first design can deliver the functionality you need with better React
+      integration, or if Tabulator's mature ecosystem and extensive features make it worth the
+      integration complexity. We'll explore the differences in developer experience, React patterns,
+      and feature sets to help you choose the right fit for your project.
     </>
   );
 
@@ -63,7 +59,7 @@ const SimpleVsTabulator = () => {
         <Text className="text-lg text-inherit" strong>
           Simple Table
         </Text>{" "}
-        is a React-native data grid built specifically for the React ecosystem, offering features
+        is a React-first data grid built specifically for the React ecosystem, offering features
         like virtualization, infinite scroll, row grouping, and cell editing with seamless React
         integration. At{" "}
         <Link
@@ -74,8 +70,8 @@ const SimpleVsTabulator = () => {
           {SIMPLE_TABLE_INFO.bundleSizeMinGzip} minified + gzipped
         </Link>
         , it provides a declarative API that feels natural in React applications. It's ideal for
-        developers who want a TypeScript-first, React-native solution without the overhead of
-        wrapper libraries.
+        developers who want a TypeScript-first, React-first solution without the overhead of wrapper
+        libraries.
       </Text>
       <Text className="text-lg mb-4 block text-inherit">
         <Text className="text-lg text-inherit" strong>
@@ -104,7 +100,7 @@ const SimpleVsTabulator = () => {
         patterns.
       </Text>
       <Text className="text-lg block text-inherit">
-        If you're building a React application and want a React-native solution with excellent
+        If you're building a React application and want a React-first solution with excellent
         TypeScript support,{" "}
         <Link className="text-[length:inherit]" href="https://www.simple-table.com">
           try Simple Table
@@ -118,7 +114,7 @@ const SimpleVsTabulator = () => {
   return (
     <ComparisonLayout
       title="Simple Table vs. Tabulator"
-      subtitle="Comparing a React-native data grid with a framework-agnostic solution"
+      subtitle="Comparing a React-first data grid with a framework-agnostic solution"
       introText={introText}
       competitorName="Tabulator"
       competitorPackage="tabulator"
@@ -152,4 +148,3 @@ const SimpleVsTabulator = () => {
 };
 
 export default SimpleVsTabulator;
-
