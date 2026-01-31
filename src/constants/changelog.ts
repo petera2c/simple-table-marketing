@@ -10,6 +10,28 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_3_1: ChangelogEntry = {
+  version: "2.3.1",
+  date: "2026-01-30",
+  title: "Column Visibility API Methods",
+  description:
+    "Added powerful new API methods for programmatic control of column visibility and the column editor menu. Control which columns are visible and toggle the column editor UI programmatically.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added toggleColumnEditor() method to programmatically open, close, or toggle the column editor menu. Call with true to open, false to close, or no argument to toggle.",
+      link: "/docs/column-editing",
+    },
+    {
+      type: "feature",
+      description:
+        "Added applyColumnVisibility() method to programmatically control which columns are visible. Pass a partial or complete visibility state object to show/hide specific columns. Perfect for implementing custom column visibility presets or views.",
+      link: "/docs/column-editing",
+    },
+  ],
+};
+
 export const v2_3_0: ChangelogEntry = {
   version: "2.3.0",
   date: "2026-01-29",
@@ -1136,6 +1158,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_3_1,
   v2_3_0,
   v2_2_9,
   v2_2_7,

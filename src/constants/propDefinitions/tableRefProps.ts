@@ -536,6 +536,97 @@ if (targetDepth !== -1) {
   }
 }`,
   },
+  {
+    key: "toggleColumnEditor",
+    name: "toggleColumnEditor",
+    required: false,
+    description:
+      "Opens, closes, or toggles the column editor menu programmatically. When called without arguments, it toggles the current state (open if closed, close if open). Pass true to explicitly open the menu, or false to explicitly close it. This gives you full control over when the column editor UI is displayed, enabling custom column visibility workflows and user experiences.",
+    type: "(open?: boolean) => void",
+    example: `// Toggle the column editor (open if closed, close if open)
+tableRef.current?.toggleColumnEditor();
+
+// Explicitly open the column editor
+tableRef.current?.toggleColumnEditor(true);
+
+// Explicitly close the column editor
+tableRef.current?.toggleColumnEditor(false);
+
+// Open editor on button click
+<button onClick={() => tableRef.current?.toggleColumnEditor(true)}>
+  Open Column Editor
+</button>
+
+// Toggle editor with keyboard shortcut
+useEffect(() => {
+  const handleKeyPress = (e: KeyboardEvent) => {
+    if (e.ctrlKey && e.key === 'e') {
+      tableRef.current?.toggleColumnEditor();
+    }
+  };
+  window.addEventListener('keydown', handleKeyPress);
+  return () => window.removeEventListener('keydown', handleKeyPress);
+}, []);`,
+  },
+  {
+    key: "applyColumnVisibility",
+    name: "applyColumnVisibility",
+    required: false,
+    description:
+      "Programmatically controls which columns are visible in the table. Accepts a partial or complete visibility state object where keys are column accessors and values are booleans (true = visible, false = hidden). This method is async and returns a Promise. You can pass just the columns you want to change, and other columns will maintain their current visibility state. Perfect for implementing custom column visibility presets, views, or user preferences.",
+    type: "(visibilityState: Record<Accessor, boolean>) => Promise<void>",
+    link: "#column-visibility-state",
+    example: `// Show/hide specific columns
+await tableRef.current?.applyColumnVisibility({
+  name: true,      // Show name column
+  email: false,    // Hide email column
+  phone: false,    // Hide phone column
+});
+
+// Create a "basic info" view preset
+await tableRef.current?.applyColumnVisibility({
+  name: true,
+  age: true,
+  department: true,
+  salary: false,
+  email: false,
+  phone: false,
+});
+
+// Show all columns
+await tableRef.current?.applyColumnVisibility({
+  name: true,
+  age: true,
+  department: true,
+  salary: true,
+  email: true,
+  phone: true,
+});
+
+// Hide just contact columns (partial update)
+await tableRef.current?.applyColumnVisibility({
+  email: false,
+  phone: false,
+});
+
+// Create view presets
+const viewPresets = {
+  basic: { name: true, age: true, department: true },
+  contact: { name: true, email: true, phone: true },
+  financial: { name: true, department: true, salary: true },
+};
+
+// Apply a preset
+await tableRef.current?.applyColumnVisibility(viewPresets.contact);
+
+// Save and restore visibility state
+const currentVisibility = tableRef.current?.getColumnVisibilityState();
+localStorage.setItem('columnVisibility', JSON.stringify(currentVisibility));
+
+// Later...
+const savedVisibility = JSON.parse(localStorage.getItem('columnVisibility') || '{}');
+await tableRef.current?.applyColumnVisibility(savedVisibility);`,
+  },
 ];
 
 export const EXPORT_TO_CSV_PROPS: PropInfo[] = [

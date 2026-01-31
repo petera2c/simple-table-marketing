@@ -181,6 +181,127 @@ const ColumnEditingContent = () => {
         <PropTable props={COLUMN_EDITING_PROPS} title="Column Editing Properties" />
       </motion.div>
 
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        Programmatic Column Visibility Control
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Simple Table provides powerful API methods for programmatically controlling column visibility
+          and the column editor menu. These methods are available through the table ref and enable you
+          to build custom column visibility controls, presets, and views.
+        </p>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
+          toggleColumnEditor()
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Opens, closes, or toggles the column editor menu programmatically. This gives you full
+          control over when the column editor UI is displayed.
+        </p>
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
+            <code>{`// Toggle the column editor (open if closed, close if open)
+tableRef.current?.toggleColumnEditor();
+
+// Explicitly open the column editor
+tableRef.current?.toggleColumnEditor(true);
+
+// Explicitly close the column editor
+tableRef.current?.toggleColumnEditor(false);`}</code>
+          </pre>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
+          applyColumnVisibility()
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Programmatically controls which columns are visible in the table. You can pass a partial or
+          complete visibility state object to show or hide specific columns. This method is async and
+          returns a Promise.
+        </p>
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
+            <code>{`// Show/hide specific columns
+await tableRef.current?.applyColumnVisibility({
+  name: true,      // Show name column
+  email: false,    // Hide email column
+  phone: false,    // Hide phone column
+});
+
+// Create a "basic info" view preset
+await tableRef.current?.applyColumnVisibility({
+  name: true,
+  age: true,
+  department: true,
+  salary: false,
+  email: false,
+  phone: false,
+});
+
+// Show all columns
+await tableRef.current?.applyColumnVisibility({
+  name: true,
+  age: true,
+  department: true,
+  salary: true,
+  email: true,
+  phone: true,
+});
+
+// Hide just contact columns (partial update)
+await tableRef.current?.applyColumnVisibility({
+  email: false,
+  phone: false,
+});`}</code>
+          </pre>
+        </div>
+
+        <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-4">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            <strong className="text-blue-700 dark:text-blue-400">Tip:</strong> You can combine these
+            methods to create powerful column visibility workflows. For example, open the column editor
+            programmatically and apply a preset view at the same time.
+          </p>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
+          Use Cases
+        </h3>
+        <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
+          <li>
+            <strong>View Presets:</strong> Create predefined column visibility configurations like
+            "Basic Info", "Contact Details", "Financial View", etc.
+          </li>
+          <li>
+            <strong>User Preferences:</strong> Save and restore user-specific column visibility
+            preferences across sessions
+          </li>
+          <li>
+            <strong>Responsive Layouts:</strong> Automatically hide less important columns on smaller
+            screens
+          </li>
+          <li>
+            <strong>Guided Tours:</strong> Control column visibility during onboarding or tutorial
+            flows
+          </li>
+          <li>
+            <strong>Context-Aware Views:</strong> Show different columns based on user role,
+            permissions, or current workflow
+          </li>
+        </ul>
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );
