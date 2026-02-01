@@ -538,7 +538,7 @@ const RowGroupingDemo = ({
       </div>
       <SimpleTable
         defaultHeaders={headers}
-        enableStickyParents
+        // enableStickyParents
         expandAll={expandAll}
         getRowId={({ row }) => row.id as string}
         height={height}
