@@ -537,13 +537,14 @@ const RowGroupingDemo = ({
         </button>
       </div>
       <SimpleTable
-        tableRef={tableRef}
         defaultHeaders={headers}
+        enableStickyParents
         expandAll={expandAll}
+        getRowId={({ row }) => row.id as string}
         height={height}
         rowGrouping={["divisions", "departments"]}
-        getRowId={({ row }) => row.id as string}
         rows={rows}
+        tableRef={tableRef}
         theme={theme}
       />
     </div>

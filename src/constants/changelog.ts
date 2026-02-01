@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_3_3: ChangelogEntry = {
+  version: "2.3.3",
+  date: "2026-01-31",
+  title: "Sticky Parent Rows (Beta)",
+  description:
+    "Beta feature: Added enableStickyParents prop for sticky parent rows while scrolling through hierarchical data. When enabled, parent rows remain visible at the top while scrolling through their children.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added enableStickyParents prop (beta) to make parent rows sticky while scrolling through their children in row grouping. Defaults to false. This is a beta feature and may have edge cases that need refinement.",
+      link: "/docs/row-grouping",
+    },
+  ],
+};
+
 export const v2_3_1: ChangelogEntry = {
   version: "2.3.1",
   date: "2026-01-30",
@@ -1158,6 +1174,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_3_3,
   v2_3_1,
   v2_3_0,
   v2_2_9,

@@ -183,6 +183,19 @@ emptyStateRenderer={
   // ... other props
 />`,
   },
+  {
+    key: "enableStickyParents",
+    name: "enableStickyParents",
+    required: false,
+    description:
+      "Beta feature: When enabled, parent rows with children will remain sticky at the top while scrolling down through their child rows. This helps maintain context when navigating deep hierarchical data. Defaults to false as this is still a beta feature.",
+    type: "boolean",
+    example: `<SimpleTable
+  enableStickyParents={true}
+  rowGrouping={["departments", "teams"]}
+  // ... other props
+/>`,
+  },
 ];
 
 const RowGroupingContent = () => {
@@ -392,6 +405,42 @@ const RowGroupingContent = () => {
               - Get the depth index for a grouping property name
             </li>
           </ul>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
+      >
+        Sticky Parent Rows (Beta)
+      </motion.h2>
+
+      <motion.div
+        className="mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.66 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          The{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            enableStickyParents
+          </code>{" "}
+          prop is a beta feature that makes parent rows stick to the top while scrolling through
+          their children. This helps maintain context when navigating deep hierarchical data
+          structures.
+        </p>
+
+        <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
+          <h4 className="font-bold text-gray-800 dark:text-white mb-2">⚠️ Beta Feature</h4>
+          <p className="text-gray-700 dark:text-gray-300 mb-2">
+            This feature is currently in beta and defaults to{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">false</code>. While
+            it works well in most scenarios, there may be edge cases that need refinement. Use with
+            caution in production environments.
+          </p>
         </div>
       </motion.div>
 

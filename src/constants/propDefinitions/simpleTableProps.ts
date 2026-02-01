@@ -125,6 +125,22 @@ customTheme={{
     example: `expandAll={true}`,
   },
   {
+    key: "enableStickyParents",
+    name: "enableStickyParents",
+    required: false,
+    description:
+      "Beta feature: When enabled, parent rows with children will remain sticky at the top while scrolling down through their child rows in row grouping. This helps maintain context when navigating deep hierarchical data. Defaults to false as this is still a beta feature and may have edge cases that need refinement.",
+    type: "boolean",
+    link: "/docs/row-grouping",
+    example: `// Enable sticky parent rows
+<SimpleTable
+  enableStickyParents={true}
+  rowGrouping={["departments", "teams"]}
+  expandAll={true}
+  // ... other props
+/>`,
+  },
+  {
     key: "expandIcon",
     name: "expandIcon",
     required: false,
