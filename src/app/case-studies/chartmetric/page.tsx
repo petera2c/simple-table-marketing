@@ -37,6 +37,22 @@ export const metadata: Metadata = {
   },
 };
 
+// Color configuration for easy customization
+const COLORS = {
+  question: {
+    light: "text-gray-900",
+    dark: "dark:text-white",
+  },
+  answer: {
+    light: "text-gray-700",
+    dark: "dark:text-gray-300",
+  },
+  bold: {
+    light: "text-gray-900",
+    dark: "dark:text-white",
+  },
+};
+
 interface QAItemProps {
   question: string;
   answer: string | React.ReactNode;
@@ -54,8 +70,14 @@ function QAItem({ question, answer, icon, iconColor }: QAItemProps) {
           <FontAwesomeIcon icon={icon} className="text-white" />
         </div>
         <div className="flex-1">
-          <h3 className="text-base font-medium text-gray-900 dark:text-white mb-4">{question}</h3>
-          <div className="text-base text-gray-600 dark:text-gray-400 leading-relaxed [&_strong]:text-gray-900 [&_strong]:dark:text-white [&_strong]:font-semibold">
+          <h3
+            className={`text-base font-medium ${COLORS.question.light} ${COLORS.question.dark} mb-4`}
+          >
+            {question}
+          </h3>
+          <div
+            className={`text-base ${COLORS.answer.light} ${COLORS.answer.dark} leading-relaxed [&_strong]:${COLORS.bold.light} [&_strong]:${COLORS.bold.dark} [&_strong]:font-semibold`}
+          >
             {answer}
           </div>
         </div>
@@ -239,12 +261,12 @@ export default function ChartMetricCaseStudyPage() {
             answer={
               <div className="space-y-4">
                 <p>
-                  One area that could be improved is <strong>smoother animations</strong>—for
-                  example, when sorting, or expanding/collapsing rows or panels.
+                  One area that could be improved is smoother animations—for example, when sorting,
+                  or expanding/collapsing rows or panels.
                 </p>
                 <p>
-                  It would also be helpful to have a <strong>more programmatic API</strong> with
-                  examples covering various use cases on the site.
+                  It would also be helpful to have a more programmatic API with examples covering
+                  various use cases on the site.
                 </p>
               </div>
             }
@@ -256,10 +278,9 @@ export default function ChartMetricCaseStudyPage() {
             <div className="text-lg font-medium text-gray-900 dark:text-white mb-4">
               Would you recommend Simple Table?
             </div>
-            <div className="text-2xl font-semibold text-gray-600 dark:text-gray-400 mb-6 [&_strong]:text-gray-900 [&_strong]:dark:text-white">
-              "Yes, definitely! It's a great fit for <strong>table-heavy products</strong> like
-              ours. It's <strong>affordable</strong>, <strong>lightweight</strong>,{" "}
-              <strong>feature-rich</strong>, and <strong>easy to customize</strong>."
+            <div className="text-2xl font-semibold text-gray-900 dark:text-white mb-6">
+              "Yes, definitely! It's a great fit for table-heavy products like ours. It's
+              affordable, lightweight, feature-rich, and easy to customize."
             </div>
             <div className="flex items-center justify-center gap-2 text-yellow-500">
               <FontAwesomeIcon icon={faCheckCircle} className="text-2xl" />
