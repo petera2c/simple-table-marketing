@@ -1045,4 +1045,22 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table changelog, release notes, version history, updates, react table releases, data grid updates, feature updates, bug fixes, version notes",
   },
+  caseStudies: {
+    chartmetric: {
+      title: "ChartMetric Case Study - Simple Table",
+      description:
+        "Learn how ChartMetric chose Simple Table over AG Grid, TanStack Table, and Material UI Data Grid. Discover how they saved over $19K in the first year while getting responsive support and a customizable, lightweight data grid solution.",
+      keywords: [
+        "chartmetric case study",
+        "simple table case study",
+        "ag grid alternative",
+        "tanstack table comparison",
+        "material ui data grid alternative",
+        "react table case study",
+        "data grid pricing comparison",
+        "simple table review",
+        "simple table testimonial",
+      ],
+    },
+  },
 };

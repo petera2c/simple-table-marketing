@@ -44,6 +44,9 @@ const TrustedBySection = dynamic(() => import("@/components/sections/TrustedBySe
 const FeaturedOnSection = dynamic(() => import("@/components/sections/FeaturedOnSection"), {
   ssr: true,
 });
+const CaseStudySection = dynamic(() => import("@/components/sections/CaseStudySection"), {
+  ssr: true,
+});
 
 export default function HomeContent() {
   const isMobile = useIsMobile();
@@ -368,6 +371,9 @@ export default function HomeContent() {
 
         {/* Trusted By Section */}
         <TrustedBySection />
+
+        {/* Case Study Section */}
+        <CaseStudySection />
 
         {/* Featured On Section */}
         <FeaturedOnSection />

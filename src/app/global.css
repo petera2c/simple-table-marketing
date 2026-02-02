@@ -1967,6 +1967,10 @@ video {
   --tw-gradient-to: #fffbeb var(--tw-gradient-to-position);
 }
 
+.to-blue-100 {
+  --tw-gradient-to: #dbeafe var(--tw-gradient-to-position);
+}
+
 .to-blue-50 {
   --tw-gradient-to: #eff6ff var(--tw-gradient-to-position);
 }
@@ -1981,6 +1985,10 @@ video {
 
 .to-emerald-50 {
   --tw-gradient-to: #ecfdf5 var(--tw-gradient-to-position);
+}
+
+.to-green-100 {
+  --tw-gradient-to: #dcfce7 var(--tw-gradient-to-position);
 }
 
 .to-green-50 {
@@ -2013,6 +2021,10 @@ video {
 
 .to-pink-600 {
   --tw-gradient-to: #db2777 var(--tw-gradient-to-position);
+}
+
+.to-purple-100 {
+  --tw-gradient-to: #f3e8ff var(--tw-gradient-to-position);
 }
 
 .to-purple-50 {
@@ -3499,6 +3511,10 @@ body {
   --tw-gradient-to: #451a03 var(--tw-gradient-to-position);
 }
 
+.dark\:to-blue-800:is(.dark *) {
+  --tw-gradient-to: #1e40af var(--tw-gradient-to-position);
+}
+
 .dark\:to-blue-900:is(.dark *) {
   --tw-gradient-to: #1e3a8a var(--tw-gradient-to-position);
 }
@@ -3525,6 +3541,10 @@ body {
 
 .dark\:to-gray-900:is(.dark *) {
   --tw-gradient-to: #111827 var(--tw-gradient-to-position);
+}
+
+.dark\:to-green-800:is(.dark *) {
+  --tw-gradient-to: #166534 var(--tw-gradient-to-position);
 }
 
 .dark\:to-green-900:is(.dark *) {
@@ -3565,6 +3585,10 @@ body {
 
 .dark\:to-pink-950:is(.dark *) {
   --tw-gradient-to: #500724 var(--tw-gradient-to-position);
+}
+
+.dark\:to-purple-800:is(.dark *) {
+  --tw-gradient-to: #6b21a8 var(--tw-gradient-to-position);
 }
 
 .dark\:to-purple-900:is(.dark *) {
@@ -4040,6 +4064,11 @@ body {
     line-height: 2.5rem;
   }
 
+  .md\:text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+  }
+
   .md\:text-6xl {
     font-size: 3.75rem;
     line-height: 1;
@@ -4152,4 +4181,18 @@ body {
 .\[\&_\.ant-table-thead_th\]\:text-xs .ant-table-thead th {
   font-size: 0.75rem;
   line-height: 1rem;
+}
+
+.\[\&_strong\]\:font-semibold strong {
+  font-weight: 600;
+}
+
+.\[\&_strong\]\:text-gray-900 strong {
+  --tw-text-opacity: 1;
+  color: rgb(17 24 39 / var(--tw-text-opacity, 1));
+}
+
+.\[\&_strong\]\:dark\:text-white:is(.dark *) strong {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }

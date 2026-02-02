@@ -106,6 +106,9 @@ async function generateSitemap() {
       } else if (route.startsWith("comparisons/")) {
         routeConfig.priority = 0.9;
         routeConfig.changefreq = "weekly";
+      } else if (route.startsWith("case-studies/")) {
+        routeConfig.priority = 0.9;
+        routeConfig.changefreq = "monthly";
       } else if (route.startsWith("docs/")) {
         routeConfig.priority = 0.8;
         routeConfig.changefreq = "weekly";
