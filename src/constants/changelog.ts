@@ -10,6 +10,22 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_4_0: ChangelogEntry = {
+  version: "2.4.0",
+  date: "2026-02-03",
+  title: "Copy Functionality Fix with Row Selection",
+  description:
+    "Fixed a bug with the copy functionality when enableRowSelection is enabled. The copy feature now works correctly regardless of row selection state.",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed copy functionality bug when enableRowSelection is enabled. Copy operations now work correctly with row selection enabled.",
+      link: "/docs/row-selection",
+    },
+  ],
+};
+
 export const v2_3_8: ChangelogEntry = {
   version: "2.3.8",
   date: "2026-01-31",
@@ -1174,6 +1190,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_4_0,
   v2_3_8,
   v2_3_1,
   v2_3_0,
