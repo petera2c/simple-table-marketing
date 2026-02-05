@@ -12,6 +12,8 @@ export interface PackageInfo {
   bundlePhobiaUrl: string;
   pricing: {
     free: boolean;
+    cost?: string;
+    hasFreeTier?: boolean;
     paidTier?: {
       name: string;
       pricePerDeveloperPerYear: number;
@@ -30,7 +32,9 @@ export const SIMPLE_TABLE_INFO: PackageInfo = {
   bundleSizeMinGzipKB: 42,
   bundlePhobiaUrl: "https://bundlephobia.com/package/simple-table-core",
   pricing: {
-    free: true,
+    free: false,
+    cost: "$0-$850/year",
+    hasFreeTier: true,
   },
   officialWebsite: "https://www.simple-table.com",
 };
@@ -171,6 +175,128 @@ export const REACT_TABULATOR_INFO: PackageInfo = {
 
 export const TABULATOR_TOTAL_SIZE = "103.2 kB";
 export const TABULATOR_TOTAL_SIZE_KB = 103.2;
+
+// ka-table
+export const KA_TABLE_INFO: PackageInfo = {
+  name: "ka-table",
+  npmPackage: "ka-table",
+  bundleSizeMinGzip: "60 kB",
+  bundleSizeMinGzipKB: 60,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/ka-table",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://ka-table.com",
+};
+
+// Mantine DataTable
+export const MANTINE_DATATABLE_INFO: PackageInfo = {
+  name: "Mantine DataTable",
+  npmPackage: "mantine-datatable",
+  bundleSizeMinGzip: "95 kB",
+  bundleSizeMinGzipKB: 95,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/mantine-datatable",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://icflorescu.github.io/mantine-datatable/",
+};
+
+// MUI-Datatables
+export const MUI_DATATABLES_INFO: PackageInfo = {
+  name: "MUI-Datatables",
+  npmPackage: "mui-datatables",
+  bundleSizeMinGzip: "88 kB",
+  bundleSizeMinGzipKB: 88,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/mui-datatables",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://github.com/gregnb/mui-datatables",
+};
+
+// React Data Table Component
+export const REACT_DATA_TABLE_COMPONENT_INFO: PackageInfo = {
+  name: "React Data Table Component",
+  npmPackage: "react-data-table-component",
+  bundleSizeMinGzip: "94 kB",
+  bundleSizeMinGzipKB: 94,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/react-data-table-component",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://react-data-table-component.netlify.app",
+};
+
+// React Table Library
+export const REACT_TABLE_LIBRARY_INFO: PackageInfo = {
+  name: "React Table Library",
+  npmPackage: "@table-library/react-table-library",
+  bundleSizeMinGzip: "28 kB",
+  bundleSizeMinGzipKB: 28,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/@table-library/react-table-library",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://react-table-library.com",
+};
+
+// RSuite Table
+export const RSUITE_TABLE_INFO: PackageInfo = {
+  name: "RSuite Table",
+  npmPackage: "rsuite-table",
+  bundleSizeMinGzip: "102 kB",
+  bundleSizeMinGzipKB: 102,
+  bundlePhobiaUrl: "https://bundlephobia.com/package/rsuite-table",
+  pricing: {
+    free: true,
+  },
+  officialWebsite: "https://rsuitejs.com/components/table",
+};
+
+// DevExtreme React Grid (Commercial)
+export const DEVEXTREME_GRID_INFO: PackageInfo = {
+  name: "DevExtreme React Grid",
+  npmPackage: "devextreme-react",
+  bundleSizeMinGzip: "N/A",
+  bundleSizeMinGzipKB: 0,
+  bundlePhobiaUrl: "",
+  pricing: {
+    free: false,
+    cost: "$899/year",
+  },
+  officialWebsite: "https://js.devexpress.com/React/",
+};
+
+// KendoReact Grid (Commercial)
+export const KENDOREACT_GRID_INFO: PackageInfo = {
+  name: "KendoReact Grid",
+  npmPackage: "@progress/kendo-react-grid",
+  bundleSizeMinGzip: "N/A",
+  bundleSizeMinGzipKB: 0,
+  bundlePhobiaUrl: "",
+  pricing: {
+    free: false,
+    cost: "$649-$1,199/year",
+    hasFreeTier: true,
+  },
+  officialWebsite: "https://www.telerik.com/kendo-react-ui",
+};
+
+// Smart React Grid (Commercial)
+export const SMART_GRID_INFO: PackageInfo = {
+  name: "Smart React Grid",
+  npmPackage: "smart-webcomponents-react",
+  bundleSizeMinGzip: "N/A",
+  bundleSizeMinGzipKB: 0,
+  bundlePhobiaUrl: "",
+  pricing: {
+    free: false,
+    cost: "$399-$1,499",
+    hasFreeTier: true,
+  },
+  officialWebsite: "https://www.htmlelements.com/react/grid/",
+};
 
 // Helper function to get total bundle size
 export function getTotalBundleSize(packages: PackageInfo[]): string {
