@@ -61,6 +61,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/devextreme-grid-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/editable-react-data-grids-in-cell-vs-form-editing</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -86,6 +91,21 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/ka-table-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/kendoreact-grid-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/mantine-datatable-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/material-react-table-vs-simple-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -97,6 +117,11 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/mobile-compatibility-react-tables</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/mui-datatables-vs-simple-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -116,6 +141,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/react-data-table-component-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/react-grid-column-pinning-tutorial</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -131,6 +161,11 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/blog/react-table-library-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/blog/react-table-row-selection-guide</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -142,6 +177,16 @@
   </url>
   <url>
     <loc>https://www.simple-table.com/blog/replicating-gojiberry-ui-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/rsuite-table-vs-simple-table</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.simple-table.com/blog/smart-grid-vs-simple-table</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
