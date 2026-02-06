@@ -11,6 +11,20 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_4_2: ChangelogEntry = {
+  version: "2.4.2",
+  date: "2026-02-06",
+  title: "Last row group bug fix",
+  description: "Fixed a bug where the last row group was not being displayed correctly.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed a bug where the last row group was not being displayed correctly.",
+      link: "/docs/row-grouping",
+    },
+  ],
+};
+
 export const v2_4_1: ChangelogEntry = {
   version: "2.4.1",
   date: "2026-02-06",
