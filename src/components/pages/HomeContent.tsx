@@ -3,7 +3,7 @@
 import { Button, Tooltip } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageWrapper from "@/components/PageWrapper";
-import { faRocket, faCode, faBox, faStar } from "@fortawesome/free-solid-svg-icons";
+import { faRocket, faCode, faBox, faStar, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -22,6 +22,7 @@ import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
 import { getExampleUrl } from "@/utils/getExampleUrl";
+import ContactModal from "@/components/ContactModal";
 
 // Dynamically import heavy components that are below the fold or conditional
 const CodeBlock = dynamic(() => import("@/components/CodeBlock"), { ssr: false });
@@ -56,6 +57,7 @@ export default function HomeContent() {
   const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
   const [selectedTheme, setSelectedTheme] = useState<Theme>();
   const [isCodeVisible, setIsCodeVisible] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const tableIcons = getTableIcons(iconLibrary);
 
   // FAQ Schema for AI visibility
@@ -287,11 +289,11 @@ export default function HomeContent() {
 
               <Button
                 size="large"
-                onClick={handleExamplesClick}
+                onClick={() => setIsContactModalOpen(true)}
                 className="hover:scale-105 transition-transform"
               >
-                <FontAwesomeIcon icon={faRocket} className="mr-2" />
-                View Demos
+                <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+                Contact Us
               </Button>
             </motion.div>
           </motion.div>
@@ -414,6 +416,7 @@ export default function HomeContent() {
         {/* FAQ Section */}
         <FAQSection />
       </div>
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </PageWrapper>
   );
 }

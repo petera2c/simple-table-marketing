@@ -25,6 +25,7 @@ import { TECHNICAL_STRINGS } from "../constants/strings/technical";
 import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import PageWrapper from "./PageWrapper";
 import { getDefaultExampleUrl } from "@/utils/getExampleUrl";
+import ContactModal from "./ContactModal";
 
 // Unified link button component that handles both internal and external links
 interface LinkButtonProps {
@@ -207,9 +208,11 @@ const MoreDropdown = ({ includeThemeBuilder = false }: { includeThemeBuilder?: b
 const SupportDropdown = ({
   isMobile = false,
   onMobileClick,
+  onContactClick,
 }: {
   isMobile?: boolean;
   onMobileClick?: () => void;
+  onContactClick?: () => void;
 }) => {
   const supportLinks = [
     {
@@ -220,11 +223,10 @@ const SupportDropdown = ({
       isExternal: true,
     },
     {
-      key: "email",
-      href: "mailto:peter@peteryng.com",
-      label: "Email Support (peter@peteryng.com)",
+      key: "contact",
+      label: "Contact Us",
       icon: faEnvelope,
-      isExternal: true,
+      onClick: onContactClick,
     },
     {
       key: "github",
@@ -248,12 +250,27 @@ const SupportDropdown = ({
             </>
           );
 
+          if (link.onClick) {
+            return (
+              <button
+                key={link.key}
+                onClick={() => {
+                  link.onClick?.();
+                  onMobileClick?.();
+                }}
+                className={linkClasses}
+              >
+                {linkContent}
+              </button>
+            );
+          }
+
           if (link.isExternal) {
             return (
               <a
                 key={link.key}
                 href={link.href}
-                {...(link.href.startsWith("mailto:")
+                {...(link.href?.startsWith("mailto:")
                   ? {}
                   : { target: "_blank", rel: "noopener noreferrer" })}
                 className={linkClasses}
@@ -265,7 +282,7 @@ const SupportDropdown = ({
             return (
               <Link
                 key={link.key}
-                href={link.href}
+                href={link.href!}
                 onClick={() => onMobileClick && onMobileClick()}
                 className={linkClasses}
               >
@@ -280,10 +297,18 @@ const SupportDropdown = ({
 
   const menuItems: MenuProps["items"] = supportLinks.map((link) => ({
     key: link.key,
-    label: link.isExternal ? (
+    label: link.onClick ? (
+      <button
+        onClick={link.onClick}
+        className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors w-full"
+      >
+        <FontAwesomeIcon icon={link.icon} className="mr-2 w-4" />
+        {link.label}
+      </button>
+    ) : link.isExternal ? (
       <a
         href={link.href}
-        {...(link.href.startsWith("mailto:")
+        {...(link.href?.startsWith("mailto:")
           ? {}
           : { target: "_blank", rel: "noopener noreferrer" })}
         className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
@@ -293,7 +318,7 @@ const SupportDropdown = ({
       </a>
     ) : (
       <Link
-        href={link.href}
+        href={link.href!}
         className="flex items-center text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
       >
         <FontAwesomeIcon icon={link.icon} className="mr-2 w-4" />
@@ -314,6 +339,7 @@ const SupportDropdown = ({
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const isMobile = useIsMobile();
   const { theme, toggleTheme } = useThemeContext();
   const headerRef = useRef<HTMLElement>(null);
@@ -447,7 +473,7 @@ const Header = () => {
                 {externalLinks.map((link) => (
                   <LinkButton key={link.href} {...link} isExternal={true} />
                 ))}
-                <SupportDropdown />
+                <SupportDropdown onContactClick={() => setIsContactModalOpen(true)} />
 
                 <button
                   onClick={toggleTheme}
@@ -490,12 +516,17 @@ const Header = () => {
                   />
                 ))}
 
-                <SupportDropdown isMobile={true} onMobileClick={() => setIsMenuOpen(false)} />
+                <SupportDropdown
+                  isMobile={true}
+                  onMobileClick={() => setIsMenuOpen(false)}
+                  onContactClick={() => setIsContactModalOpen(true)}
+                />
               </div>
             </div>
           )}
         </nav>
       </header>
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </PageWrapper>
   );
 };

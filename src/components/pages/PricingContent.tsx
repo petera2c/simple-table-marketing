@@ -12,12 +12,14 @@ import {
   faCrown,
   faGift,
   faCreditCard,
+  faEnvelope,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { redirectToCheckout } from "@/utils/stripe";
 import { getStripePriceId, STRIPE_CUSTOMER_PORTAL_URL } from "@/constants/stripe";
+import ContactModal from "@/components/ContactModal";
 
 interface PlanFeature {
   text: string;
@@ -46,6 +48,7 @@ interface Plan {
 const PricingContent: React.FC = () => {
   const router = useRouter();
   const [isAnnual, setIsAnnual] = useState(false);
+  const [isContactModalOpen, setIsContactModalOpen] = useState(false);
 
   const plans: Plan[] = [
     {
@@ -81,7 +84,11 @@ const PricingContent: React.FC = () => {
         { text: "Priority email & Discord support", included: true, highlight: true },
         { text: "Direct developer access", included: true, highlight: true },
         { text: "Feature request prioritization", included: true, highlight: true },
-        { text: "Commercial EULA - required for revenue-generating companies", included: true, highlight: false },
+        {
+          text: "Commercial EULA - required for revenue-generating companies",
+          included: true,
+          highlight: false,
+        },
       ],
       cta: "Start Pro Plan",
       ctaVariant: "primary",
@@ -319,6 +326,30 @@ const PricingContent: React.FC = () => {
           ))}
         </motion.section>
 
+        {/* Questions Section */}
+        <motion.section
+          className="mt-8 text-center bg-gray-50 dark:bg-gray-800 rounded-xl p-8 max-w-4xl mx-auto"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true }}
+        >
+          <h3 className="text-2xl font-bold text-gray-800 dark:text-white mb-3">Have Questions?</h3>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-2xl mx-auto">
+            Not sure which plan is right for you? Need a custom solution or have specific
+            requirements? We're here to help!
+          </p>
+          <Button
+            type="primary"
+            size="large"
+            onClick={() => setIsContactModalOpen(true)}
+            className="h-12 px-8"
+          >
+            <FontAwesomeIcon icon={faEnvelope} className="mr-2" />
+            Contact Us
+          </Button>
+        </motion.section>
+
         {/* Important Licensing Information */}
         <motion.section
           className="mt-12 max-w-4xl mx-auto"
@@ -333,8 +364,8 @@ const PricingContent: React.FC = () => {
             </h3>
             <p className="text-gray-700 dark:text-gray-300 mb-2">
               The <strong>FREE plan</strong> is available only for companies, products, or
-              organizations with <strong>zero revenue</strong>. If your company generates any revenue
-              whatsoever, you must upgrade to the <strong>PRO plan</strong>.
+              organizations with <strong>zero revenue</strong>. If your company generates any
+              revenue whatsoever, you must upgrade to the <strong>PRO plan</strong>.
             </p>
             <p className="text-gray-700 dark:text-gray-300">
               For complete licensing terms, please review:
@@ -416,6 +447,7 @@ const PricingContent: React.FC = () => {
           </div>
         </motion.section>
       </div>
+      <ContactModal isOpen={isContactModalOpen} onClose={() => setIsContactModalOpen(false)} />
     </PageWrapper>
   );
 };
