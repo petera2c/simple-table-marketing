@@ -107,8 +107,8 @@ const COLLAPSIBLE_COLUMNS_PROPS: PropInfo[] = [
 }`,
   },
   {
-    key: "headerExpandIcon",
-    name: "headerExpandIcon",
+    key: "icons.headerExpand",
+    name: "icons.headerExpand",
     required: false,
     description:
       "Custom icon component for the expand state of collapsible column headers. Shows when a column group can be expanded to reveal child columns.",
@@ -117,13 +117,15 @@ const COLLAPSIBLE_COLUMNS_PROPS: PropInfo[] = [
 import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 
 <SimpleTable
-  headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
+  icons={{
+    headerExpand: <FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />
+  }}
   // ... other props
 />`,
   },
   {
-    key: "headerCollapseIcon",
-    name: "headerCollapseIcon",
+    key: "icons.headerCollapse",
+    name: "icons.headerCollapse",
     required: false,
     description:
       "Custom icon component for the collapse state of collapsible column headers. Shows when a column group can be collapsed to hide child columns.",
@@ -132,7 +134,9 @@ import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
 <SimpleTable
-  headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
+  icons={{
+    headerCollapse: <FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />
+  }}
   // ... other props
 />`,
   },

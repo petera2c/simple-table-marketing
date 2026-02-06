@@ -110,8 +110,8 @@ const ColumnEditingContent = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Column editing enables users to modify table structure dynamically by editing column names,
-        adding new columns, and customizing the table layout. This feature is essential for building
-        flexible data management interfaces.
+        reordering columns via drag-and-drop, searching for specific columns, and customizing the
+        table layout. This feature is essential for building flexible data management interfaces.
       </motion.p>
 
       <motion.div
@@ -156,6 +156,20 @@ const ColumnEditingContent = () => {
             (required for column editing to work)
           </li>
           <li>
+            Enable the column editor with{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              editColumns={true}
+            </code>{" "}
+            to show/hide columns and reorder them via drag-and-drop
+          </li>
+          <li>
+            Configure the column editor with{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+              columnEditorConfig
+            </code>{" "}
+            to customize button text, enable search, and more
+          </li>
+          <li>
             Enable header editing with{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
               enableHeaderEditing={true}
@@ -187,7 +201,7 @@ const ColumnEditingContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
       >
-        Programmatic Column Visibility Control
+        Column Editor Configuration
       </motion.h2>
 
       <motion.div
@@ -197,9 +211,95 @@ const ColumnEditingContent = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Simple Table provides powerful API methods for programmatically controlling column visibility
-          and the column editor menu. These methods are available through the table ref and enable you
-          to build custom column visibility controls, presets, and views.
+          The column editor can be customized using the{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            columnEditorConfig
+          </code>{" "}
+          prop. This provides comprehensive control over the column editor's appearance and
+          behavior.
+        </p>
+
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
+            <code>{`<SimpleTable
+  editColumns={true}
+  columnEditorConfig={{
+    text: "Columns",                      // Button text (default: "Columns")
+    searchEnabled: true,                  // Enable search (default: true)
+    searchPlaceholder: "Search columns...", // Search placeholder
+    searchFunction: (header, searchTerm) => { // Optional: custom search logic
+      return header.label.toLowerCase().includes(searchTerm.toLowerCase());
+    }
+  }}
+  // ... other props
+/>`}</code>
+          </pre>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
+          Column Search
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          The column editor includes built-in search functionality that allows users to quickly find
+          columns by typing in the search box. The search automatically expands nested headers to
+          show matching columns.
+        </p>
+
+        <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-4">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            <strong className="text-blue-700 dark:text-blue-400">Tip:</strong> Search is enabled by
+            default. Set{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+              searchEnabled: false
+            </code>{" "}
+            in{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+              columnEditorConfig
+            </code>{" "}
+            to disable it.
+          </p>
+        </div>
+
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
+          Drag and Drop Column Reordering
+        </h3>
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Users can reorder columns by dragging them within the column editor. A visual separator
+          line shows where the column will be dropped. This works alongside the existing header
+          drag-and-drop functionality.
+        </p>
+
+        <div className="bg-green-50 dark:bg-green-900/20 border-l-4 border-green-500 p-4 mb-4">
+          <p className="text-sm text-gray-700 dark:text-gray-300">
+            <strong className="text-green-700 dark:text-green-400">Note:</strong> Drag-and-drop in
+            the column editor is automatically enabled when{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+              editColumns={true}
+            </code>
+            . No additional configuration needed!
+          </p>
+        </div>
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.7 }}
+      >
+        Programmatic Column Visibility Control
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.8 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Simple Table provides powerful API methods for programmatically controlling column
+          visibility and the column editor menu. These methods are available through the table ref
+          and enable you to build custom column visibility controls, presets, and views.
         </p>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
@@ -226,9 +326,9 @@ tableRef.current?.toggleColumnEditor(false);`}</code>
           applyColumnVisibility()
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Programmatically controls which columns are visible in the table. You can pass a partial or
-          complete visibility state object to show or hide specific columns. This method is async and
-          returns a Promise.
+          Programmatically controls which columns are visible in the table. You can pass a partial
+          or complete visibility state object to show or hide specific columns. This method is async
+          and returns a Promise.
         </p>
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
           <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
@@ -270,14 +370,12 @@ await tableRef.current?.applyColumnVisibility({
         <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-4">
           <p className="text-sm text-gray-700 dark:text-gray-300">
             <strong className="text-blue-700 dark:text-blue-400">Tip:</strong> You can combine these
-            methods to create powerful column visibility workflows. For example, open the column editor
-            programmatically and apply a preset view at the same time.
+            methods to create powerful column visibility workflows. For example, open the column
+            editor programmatically and apply a preset view at the same time.
           </p>
         </div>
 
-        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
-          Use Cases
-        </h3>
+        <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">Use Cases</h3>
         <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 mb-6">
           <li>
             <strong>View Presets:</strong> Create predefined column visibility configurations like
@@ -288,8 +386,8 @@ await tableRef.current?.applyColumnVisibility({
             preferences across sessions
           </li>
           <li>
-            <strong>Responsive Layouts:</strong> Automatically hide less important columns on smaller
-            screens
+            <strong>Responsive Layouts:</strong> Automatically hide less important columns on
+            smaller screens
           </li>
           <li>
             <strong>Guided Tours:</strong> Control column visibility during onboarding or tutorial

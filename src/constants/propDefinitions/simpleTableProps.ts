@@ -141,12 +141,36 @@ customTheme={{
 />`,
   },
   {
-    key: "expandIcon",
-    name: "expandIcon",
+    key: "icons",
+    name: "icons",
     required: false,
-    description: "Icon for expandable rows (will rotate on expand/collapse).",
-    type: "ReactNode",
-    example: `expandIcon={<ChevronIcon />}`,
+    description:
+      "Unified object for configuring all table icons. Provides a cleaner, more organized API for customizing icons used throughout the table including sort indicators, pagination buttons, row expansion, filters, and drag handles.",
+    type: "IconsConfig",
+    link: "/docs/custom-icons",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faCaretUp, 
+  faCaretDown, 
+  faFilter,
+  faChevronRight,
+  faChevronDown,
+  faAngleLeft,
+  faAngleRight,
+  faGripVertical
+} from "@fortawesome/free-solid-svg-icons";
+
+icons={{
+  sortUp: <FontAwesomeIcon icon={faCaretUp} />,
+  sortDown: <FontAwesomeIcon icon={faCaretDown} />,
+  filter: <FontAwesomeIcon icon={faFilter} />,
+  expand: <FontAwesomeIcon icon={faChevronRight} />,
+  headerExpand: <FontAwesomeIcon icon={faChevronRight} />,
+  headerCollapse: <FontAwesomeIcon icon={faChevronDown} />,
+  prev: <FontAwesomeIcon icon={faAngleLeft} />,
+  next: <FontAwesomeIcon icon={faAngleRight} />,
+  drag: <FontAwesomeIcon icon={faGripVertical} />,
+}}`,
   },
   {
     key: "externalFilterHandling",
@@ -749,30 +773,6 @@ useEffect(() => {
 ]}`,
   },
   {
-    key: "headerExpandIcon",
-    name: "headerExpandIcon",
-    required: false,
-    description:
-      "Custom icon component for the expand state of collapsible column headers. Shows when a column group can be expanded to reveal child columns.",
-    type: "ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
-headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} />}`,
-  },
-  {
-    key: "headerCollapseIcon",
-    name: "headerCollapseIcon",
-    required: false,
-    description:
-      "Custom icon component for the collapse state of collapsible column headers. Shows when a column group can be collapsed to hide child columns.",
-    type: "ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-
-headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} />}`,
-  },
-  {
     key: "className",
     name: "className",
     required: false,
@@ -781,22 +781,21 @@ headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} />}`,
     example: `className="my-custom-table"`,
   },
   {
-    key: "columnEditorPosition",
-    name: "columnEditorPosition",
+    key: "columnEditorConfig",
+    name: "columnEditorConfig",
     required: false,
-    description: "Position of the column editor panel when editColumns is enabled.",
-    type: "ColumnEditorPosition",
-    link: "#union-types",
-    example: `columnEditorPosition="left"
-columnEditorPosition="right"`,
-  },
-  {
-    key: "columnEditorText",
-    name: "columnEditorText",
-    required: false,
-    description: "Custom text label for the column editor panel.",
-    type: "string",
-    example: `columnEditorText="Customize Columns"`,
+    description:
+      "Configuration object for the column editor. Provides comprehensive control over the column editor's appearance and behavior including button text, search functionality, and custom search logic.",
+    type: "ColumnEditorConfig",
+    link: "/docs/column-editing",
+    example: `columnEditorConfig={{
+  text: "Columns",                      // Button text (default: "Columns")
+  searchEnabled: true,                  // Enable search (default: true)
+  searchPlaceholder: "Search columns...", // Search placeholder
+  searchFunction: (header, searchTerm) => { // Optional: custom search logic
+    return header.label.toLowerCase().includes(searchTerm.toLowerCase());
+  }
+}}`,
   },
   {
     key: "onGridReady",

@@ -496,6 +496,11 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>https://www.simple-table.com/migrations/v2-4-1</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://www.simple-table.com/pricing</loc>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>

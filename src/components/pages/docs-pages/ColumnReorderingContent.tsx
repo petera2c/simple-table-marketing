@@ -83,7 +83,12 @@ export default function ColumnReorderingContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Column reordering allows users to drag and drop columns to reorganize the table layout
-        according to their preferences.
+        according to their preferences. Columns can be reordered by dragging column headers or
+        through the column editor (when{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          editColumns={true}
+        </code>
+        ).
       </motion.p>
 
       <motion.div

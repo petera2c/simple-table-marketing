@@ -48,7 +48,17 @@ function VersionCard({ entry }: { entry: ChangelogEntry }) {
   return (
     <div className="mb-12">
       {/* Version number as large title */}
-      <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100 mb-3">{entry.version}</h2>
+      <div className="flex items-center gap-4 mb-3">
+        <h2 className="text-4xl font-bold text-gray-900 dark:text-gray-100">{entry.version}</h2>
+        {entry.titleLink && (
+          <Link
+            href={entry.titleLink}
+            className="text-blue-600 dark:text-blue-400 hover:underline text-lg font-medium"
+          >
+            Migration Guide →
+          </Link>
+        )}
+      </div>
 
       {/* Date tag */}
       <div className="inline-block mb-6">

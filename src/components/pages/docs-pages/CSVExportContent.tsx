@@ -56,7 +56,7 @@ tableRef.current?.exportToCSV({ filename: "report.csv" });`,
     name: "HeaderObject.excludeFromRender",
     required: false,
     description:
-      "When true, hides the column from the table display and from the column visibility drawer/popout menu, while keeping it in CSV exports. Perfect for internal IDs, database keys, or technical fields that shouldn't clutter the UI but are needed in exports.",
+      "When true, hides the column from the table display and from the column editor, while keeping it in CSV exports. Perfect for internal IDs, database keys, or technical fields that shouldn't clutter the UI but are needed in exports.",
     type: "boolean",
     example: `{
   accessor: "internalId",

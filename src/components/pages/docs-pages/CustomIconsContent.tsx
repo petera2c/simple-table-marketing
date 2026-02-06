@@ -12,116 +12,111 @@ import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const CUSTOM_ICON_PROPS: PropInfo[] = [
   {
-    key: "sortUpIcon",
-    name: "sortUpIcon",
+    key: "icons",
+    name: "icons",
+    required: false,
+    description:
+      "Unified object for configuring all table icons. Provides a cleaner, more organized API for icon customization.",
+    type: "IconsConfig",
+    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { 
+  faCaretUp, 
+  faCaretDown, 
+  faFilter,
+  faChevronRight,
+  faChevronDown,
+  faAngleLeft,
+  faAngleRight,
+  faGripVertical
+} from "@fortawesome/free-solid-svg-icons";
+
+<SimpleTable
+  icons={{
+    sortUp: <FontAwesomeIcon icon={faCaretUp} />,
+    sortDown: <FontAwesomeIcon icon={faCaretDown} />,
+    filter: <FontAwesomeIcon icon={faFilter} />,
+    expand: <FontAwesomeIcon icon={faChevronRight} />,
+    headerExpand: <FontAwesomeIcon icon={faChevronRight} />,
+    headerCollapse: <FontAwesomeIcon icon={faChevronDown} />,
+    prev: <FontAwesomeIcon icon={faAngleLeft} />,
+    next: <FontAwesomeIcon icon={faAngleRight} />,
+    drag: <FontAwesomeIcon icon={faGripVertical} />,
+  }}
+  // ... other props
+/>`,
+  },
+  {
+    key: "icons.sortUp",
+    name: "icons.sortUp",
     required: false,
     description: "Custom icon component for ascending sort indicator in column headers.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretUp } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  sortUpIcon={<FontAwesomeIcon icon={faCaretUp} className="text-blue-500" />}
-  // ... other props
-/>`,
+    example: `icons={{ sortUp: <FontAwesomeIcon icon={faCaretUp} /> }}`,
   },
   {
-    key: "sortDownIcon",
-    name: "sortDownIcon",
+    key: "icons.sortDown",
+    name: "icons.sortDown",
     required: false,
     description: "Custom icon component for descending sort indicator in column headers.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  sortDownIcon={<FontAwesomeIcon icon={faCaretDown} className="text-blue-500" />}
-  // ... other props
-/>`,
+    example: `icons={{ sortDown: <FontAwesomeIcon icon={faCaretDown} /> }}`,
   },
   {
-    key: "nextIcon",
-    name: "nextIcon",
-    required: false,
-    description: "Custom icon component for pagination next button.",
-    type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
-  // ... other props
-/>`,
-  },
-  {
-    key: "prevIcon",
-    name: "prevIcon",
-    required: false,
-    description: "Custom icon component for pagination previous button.",
-    type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
-  // ... other props
-/>`,
-  },
-  {
-    key: "filterIcon",
-    name: "filterIcon",
+    key: "icons.filter",
+    name: "icons.filter",
     required: false,
     description: "Custom icon component for the column filter button in filterable columns.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faFilter } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  filterIcon={<FontAwesomeIcon icon={faFilter} className="text-blue-600" />}
-  // ... other props
-/>`,
+    example: `icons={{ filter: <FontAwesomeIcon icon={faFilter} /> }}`,
   },
   {
-    key: "expandIcon",
-    name: "expandIcon",
+    key: "icons.expand",
+    name: "icons.expand",
     required: false,
     description: "Custom icon component for collapsed row groups in hierarchical data display.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-  // ... other props
-/>`,
+    example: `icons={{ expand: <FontAwesomeIcon icon={faChevronRight} /> }}`,
   },
   {
-    key: "headerExpandIcon",
-    name: "headerExpandIcon",
+    key: "icons.headerExpand",
+    name: "icons.headerExpand",
     required: false,
     description: "Custom icon component for the expand state of collapsible column headers.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronRight } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  headerExpandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-blue-600" />}
-  // ... other props
-/>`,
+    example: `icons={{ headerExpand: <FontAwesomeIcon icon={faChevronRight} /> }}`,
   },
   {
-    key: "headerCollapseIcon",
-    name: "headerCollapseIcon",
+    key: "icons.headerCollapse",
+    name: "icons.headerCollapse",
     required: false,
     description: "Custom icon component for the collapse state of collapsible column headers.",
     type: "React.ReactNode",
-    example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-
-<SimpleTable
-  headerCollapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-blue-600" />}
-  // ... other props
-/>`,
+    example: `icons={{ headerCollapse: <FontAwesomeIcon icon={faChevronDown} /> }}`,
+  },
+  {
+    key: "icons.prev",
+    name: "icons.prev",
+    required: false,
+    description: "Custom icon component for pagination previous button.",
+    type: "React.ReactNode",
+    example: `icons={{ prev: <FontAwesomeIcon icon={faAngleLeft} /> }}`,
+  },
+  {
+    key: "icons.next",
+    name: "icons.next",
+    required: false,
+    description: "Custom icon component for pagination next button.",
+    type: "React.ReactNode",
+    example: `icons={{ next: <FontAwesomeIcon icon={faAngleRight} /> }}`,
+  },
+  {
+    key: "icons.drag",
+    name: "icons.drag",
+    required: false,
+    description:
+      "Custom icon component for the drag handle in the column editor. Used for drag-and-drop column reordering.",
+    type: "React.ReactNode",
+    example: `icons={{ drag: <FontAwesomeIcon icon={faGripVertical} /> }}`,
   },
 ];
 
@@ -146,10 +141,30 @@ export default function CustomIconsContent() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Simple Table allows you to override the default icons used for sorting, pagination, and
-        other UI elements. This customization helps you maintain consistent branding and design
-        language across your application.
+        Simple Table allows you to override the default icons used for sorting, pagination, row
+        expansion, filtering, and drag-and-drop operations. Use the unified{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          icons
+        </code>{" "}
+        prop to customize all icons in one place, maintaining consistent branding across your
+        application.
       </motion.p>
+
+      <motion.div
+        className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.25 }}
+      >
+        <h3 className="font-bold text-gray-800 dark:text-white mb-2">New in v2.4.1</h3>
+        <p className="text-gray-700 dark:text-gray-300">
+          All icon props have been consolidated into a single{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">icons</code> object for
+          better organization. The new{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">drag</code> icon is
+          used for the drag handle in the column editor.
+        </p>
+      </motion.div>
 
       {/* Demo Section */}
       <motion.div
@@ -211,10 +226,19 @@ export default function CustomIconsContent() {
           <li>Use colors that match your application's theme</li>
           <li>Ensure icons are clear and intuitive for their purpose</li>
           <li>
-            For row grouping, choose expandIcon that clearly indicate the expand/collapse state
+            For row grouping, choose expand icons that clearly indicate the expand/collapse state
+          </li>
+          <li>
+            For drag handles, use icons like grip-vertical or drag indicators that suggest
+            draggability
           </li>
           <li>Consider using the same icon family throughout your application</li>
           <li>Test your icons for visibility against different background colors</li>
+          <li>
+            Use the unified{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">icons</code> prop to
+            keep all icon configurations in one place
+          </li>
         </ul>
       </motion.div>
 

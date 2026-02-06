@@ -83,7 +83,7 @@ const COLUMN_VISIBILITY_PROPS: PropInfo[] = [
     name: "HeaderObject.excludeFromRender",
     required: false,
     description:
-      "When true, excludes the column from both the rendered table and the column visibility drawer. The column is still included in CSV exports. Useful for ID columns or metadata that should be exported but not displayed or toggled by users.",
+      "When true, excludes the column from both the rendered table and the column editor. The column is still included in CSV exports. Useful for ID columns or metadata that should be exported but not displayed or toggled by users.",
     type: "boolean",
     example: `{
   accessor: "id",
@@ -115,8 +115,9 @@ const ColumnVisibilityContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Column visibility controls allow users to show or hide specific columns, customizing their
-        view to focus on the most relevant data.
+        Column visibility controls allow users to show or hide specific columns through the column
+        editor. Users can search for columns, reorder them via drag-and-drop, and toggle visibility
+        to customize their view and focus on the most relevant data.
       </motion.p>
 
       <motion.div

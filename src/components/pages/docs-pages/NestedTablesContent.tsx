@@ -435,11 +435,9 @@ const NestedTablesContent = () => {
             </li>
             <li>
               Icon props (
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">expandIcon</code>,{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">filterIcon</code>,{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">sortUpIcon</code>,{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">sortDownIcon</code>
-              , etc.) - Icons are consistent across all nesting levels
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">icons</code>{" "}
+              (expand, filter, sortUp, sortDown, etc.) , etc.) - Icons are consistent across all
+              nesting levels
             </li>
           </ul>
         </div>

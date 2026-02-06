@@ -2,6 +2,7 @@ export interface ChangelogEntry {
   version: string;
   date: string;
   title: string;
+  titleLink?: string;
   description: string;
   changes: {
     type: "feature" | "improvement" | "bugfix" | "breaking";
@@ -9,6 +10,63 @@ export interface ChangelogEntry {
     link?: string;
   }[];
 }
+
+export const v2_4_1: ChangelogEntry = {
+  version: "2.4.1",
+  date: "2026-02-06",
+  title: "Enhanced Column Editor with Drag & Drop, Search, and Unified Icons API",
+  titleLink: "/migrations/v2-4-1",
+  description:
+    "Major enhancement to the column editor with drag-and-drop column reordering, built-in search functionality, and a new unified icons API. Includes breaking changes to columnEditorPosition and deprecation of individual icon props in favor of a cleaner, more organized API.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added drag-and-drop column reordering in the column editor with visual drop indicators",
+      link: "/docs/column-editing",
+    },
+    {
+      type: "feature",
+      description:
+        "Added built-in search functionality in the column editor with support for custom search functions",
+      link: "/docs/column-editing",
+    },
+    {
+      type: "feature",
+      description:
+        "Added columnEditorConfig prop to replace columnEditorText with more configuration options",
+      link: "/docs/column-editing",
+    },
+    {
+      type: "feature",
+      description:
+        "Added unified icons prop for configuring all table icons in one place (drag, expand, filter, sort, pagination, etc.)",
+      link: "/docs/custom-icons",
+    },
+    {
+      type: "improvement",
+      description:
+        "Improved column editor UI/UX with better spacing, sticky search bar, and text overflow handling",
+      link: "/docs/column-editing",
+    },
+    {
+      type: "improvement",
+      description: "Added new CSS classes and variables for column editor styling",
+      link: "/docs/custom-theme",
+    },
+    {
+      type: "breaking",
+      description: "Removed columnEditorPosition prop",
+      link: "/docs/api-reference",
+    },
+    {
+      type: "breaking",
+      description:
+        "Deprecated individual icon props (expandIcon, filterIcon, sortUpIcon, etc.) in favor of unified icons prop",
+      link: "/docs/custom-icons",
+    },
+  ],
+};
 
 export const v2_4_0: ChangelogEntry = {
   version: "2.4.0",
@@ -1190,6 +1248,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_4_1,
   v2_4_0,
   v2_3_8,
   v2_3_1,
