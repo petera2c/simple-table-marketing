@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Modal, Input, Button, message } from "antd";
+import { Modal, Input, Button, App } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope, faUser, faBuilding, faComment } from "@fortawesome/free-solid-svg-icons";
 
@@ -13,6 +13,7 @@ interface ContactModalProps {
 }
 
 const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
+  const { message } = App.useApp();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -50,8 +51,7 @@ const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
       if (response.ok) {
         message.success({
-          content: "Message sent successfully! We'll get back to you within 8 hours.",
-          duration: 10,
+          content: "Message sent successfully! We'll get back to you within 24 hours.",
         });
         setFormData({ name: "", email: "", company: "", message: "" });
         onClose();
