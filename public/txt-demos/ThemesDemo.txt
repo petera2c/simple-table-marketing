@@ -1,5 +1,7 @@
 import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -100,7 +102,7 @@ const EMPLOYEE_DATA = [
 
 const ThemesDemo = ({ height = "400px", theme }: { height?: string | number; theme: Theme }) => {
   return (
-    <SimpleTable defaultHeaders={headers} height={height} rows={EMPLOYEE_DATA} theme={theme} />
+    <SimpleTable defaultHeaders={headers} height={height} rows={EMPLOYEE_DATA} theme={mapThemeOptionToTheme(theme as ThemeOption)} />
   );
 };
 

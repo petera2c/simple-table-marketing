@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const HEADERS: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, type: "number" },
@@ -14,7 +16,7 @@ const EmptyStateDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   const emptyState = (
     <div
@@ -52,7 +54,7 @@ const EmptyStateDemo = ({
       height={height}
       rows={[]}
       tableEmptyStateRenderer={emptyState}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };

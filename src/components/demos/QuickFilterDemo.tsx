@@ -1,0 +1,208 @@
+import { useState } from "react";
+import { SimpleTable, HeaderObject, QuickFilterMode } from "simple-table-core";
+import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
+import { Input, Radio, Checkbox, Space } from "antd";
+import type { RadioChangeEvent } from "antd";
+
+// Sample data with variety for testing quick filter
+const sampleData = [
+  {
+    id: 1,
+    name: "Alice Johnson",
+    age: 28,
+    email: "alice.johnson@example.com",
+    department: "Engineering",
+    salary: 95000,
+    status: "Active",
+    location: "New York",
+  },
+  {
+    id: 2,
+    name: "Bob Smith",
+    age: 35,
+    email: "bob.smith@example.com",
+    department: "Sales",
+    salary: 75000,
+    status: "Active",
+    location: "Los Angeles",
+  },
+  {
+    id: 3,
+    name: "Charlie Davis",
+    age: 42,
+    email: "charlie.davis@example.com",
+    department: "Engineering",
+    salary: 110000,
+    status: "Active",
+    location: "San Francisco",
+  },
+  {
+    id: 4,
+    name: "Diana Prince",
+    age: 31,
+    email: "diana.prince@example.com",
+    department: "Marketing",
+    salary: 82000,
+    status: "Inactive",
+    location: "Chicago",
+  },
+  {
+    id: 5,
+    name: "Ethan Hunt",
+    age: 29,
+    email: "ethan.hunt@example.com",
+    department: "Sales",
+    salary: 78000,
+    status: "Active",
+    location: "Boston",
+  },
+  {
+    id: 6,
+    name: "Fiona Green",
+    age: 38,
+    email: "fiona.green@example.com",
+    department: "Engineering",
+    salary: 105000,
+    status: "Active",
+    location: "Seattle",
+  },
+  {
+    id: 7,
+    name: "George Wilson",
+    age: 26,
+    email: "george.wilson@example.com",
+    department: "Marketing",
+    salary: 68000,
+    status: "Active",
+    location: "Austin",
+  },
+  {
+    id: 8,
+    name: "Hannah Lee",
+    age: 33,
+    email: "hannah.lee@example.com",
+    department: "Sales",
+    salary: 88000,
+    status: "Inactive",
+    location: "Denver",
+  },
+  {
+    id: 9,
+    name: "Isaac Chen",
+    age: 27,
+    email: "isaac.chen@example.com",
+    department: "Engineering",
+    salary: 92000,
+    status: "Active",
+    location: "San Diego",
+  },
+  {
+    id: 10,
+    name: "Julia Brown",
+    age: 30,
+    email: "julia.brown@example.com",
+    department: "Marketing",
+    salary: 72000,
+    status: "Inactive",
+    location: "Miami",
+  },
+  {
+    id: 11,
+    name: "Kevin Davis",
+    age: 28,
+    email: "kevin.davis@example.com",
+    department: "Sales",
+    salary: 85000,
+    status: "Active",
+    location: "Phoenix",
+  },
+  {
+    id: 12,
+    name: "Laura Garcia",
+    age: 32,
+    email: "laura.garcia@example.com",
+    department: "Engineering",
+    salary: 102000,
+    status: "Active",
+    location: "San Antonio",
+  },
+];
+
+const headers: HeaderObject[] = [
+  {
+    accessor: "name",
+    label: "Employee Name",
+    width: 180,
+    type: "string",
+  },
+  {
+    accessor: "age",
+    label: "Age",
+    width: 80,
+    type: "number",
+  },
+  {
+    accessor: "department",
+    label: "Department",
+    width: 140,
+    type: "string",
+  },
+  {
+    accessor: "salary",
+    label: "Salary",
+    width: 120,
+    type: "number",
+    valueFormatter: ({ value }) => `$${(value || 0).toLocaleString()}`,
+    align: "right",
+  },
+  {
+    accessor: "status",
+    label: "Status",
+    width: 100,
+    type: "string",
+  },
+  {
+    accessor: "location",
+    label: "Location",
+    width: 140,
+    type: "string",
+  },
+  {
+    accessor: "email",
+    label: "Email",
+    width: 220,
+    type: "string",
+  },
+];
+
+const QuickFilterDemo = ({
+  height = "400px",
+  theme,
+  searchText = "",
+  filterMode = "simple",
+  caseSensitive = false,
+}: {
+  height?: string | number;
+  theme?: ThemeOption;
+  searchText?: string;
+  filterMode?: QuickFilterMode;
+  caseSensitive?: boolean;
+}) => {
+  return (
+    <SimpleTable
+      defaultHeaders={headers}
+      rows={sampleData}
+      quickFilter={{
+        text: searchText,
+        mode: filterMode,
+        caseSensitive: caseSensitive,
+      }}
+      height={height}
+      theme={mapThemeOptionToTheme(theme)}
+    />
+  );
+};
+
+export default QuickFilterDemo;

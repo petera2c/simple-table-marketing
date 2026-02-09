@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers with various properties
 const headers: HeaderObject[] = [
@@ -165,7 +167,7 @@ const customIcons = {
   ),
 };
 
-const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
+const CustomIconsDemo = ({ theme }: { theme?: ThemeOption }) => {
   return (
     <SimpleTable
       defaultHeaders={headers}
@@ -179,7 +181,7 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
       prevIcon={customIcons.prevIcon}
       sortDownIcon={customIcons.sortDownIcon}
       sortUpIcon={customIcons.sortUpIcon}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };

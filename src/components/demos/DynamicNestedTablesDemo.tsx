@@ -1,6 +1,8 @@
 import { useState, useCallback, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme, OnRowGroupExpandProps, Row } from "simple-table-core";
+import { SimpleTable, HeaderObject, OnRowGroupExpandProps, Row } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Type definitions
 interface Company extends Row {
@@ -177,7 +179,7 @@ const DynamicNestedTablesDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   const [rows, setRows] = useState<Company[]>(INITIAL_COMPANIES);
 
@@ -276,7 +278,7 @@ const DynamicNestedTablesDemo = ({
       getRowId={({ row }) => row.id as string}
       rows={rows}
       onRowGroupExpand={handleCompanyExpand}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
       loadingStateRenderer={
         <div style={{ padding: "20px", textAlign: "center", color: "#666" }}>
           <div>Loading...</div>

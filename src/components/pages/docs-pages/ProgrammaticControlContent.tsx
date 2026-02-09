@@ -85,7 +85,7 @@ const ProgrammaticControlContent = () => {
       {/* Data Manipulation Methods */}
       <PropTable
         props={TABLE_REF_TYPE_METHODS.filter((method) =>
-          ["updateData", "setHeaderRename"].includes(method.key)
+          ["updateData", "setHeaderRename"].includes(method.key),
         ).map((method) => ({
           ...method,
           link: method.link ? `/docs/api-reference${method.link}` : undefined,
@@ -96,7 +96,7 @@ const ProgrammaticControlContent = () => {
       {/* Data Access Methods */}
       <PropTable
         props={TABLE_REF_TYPE_METHODS.filter((method) =>
-          ["getVisibleRows", "getAllRows", "getHeaders"].includes(method.key)
+          ["getVisibleRows", "getAllRows", "getHeaders"].includes(method.key),
         ).map((method) => ({
           ...method,
           link: method.link ? `/docs/api-reference${method.link}` : undefined,
@@ -110,7 +110,7 @@ const ProgrammaticControlContent = () => {
           (method) => ({
             ...method,
             link: method.link ? `/docs/api-reference${method.link}` : undefined,
-          })
+          }),
         )}
         title="Export Methods"
       />
@@ -125,9 +125,10 @@ const ProgrammaticControlContent = () => {
             "applyFilter",
             "clearFilter",
             "clearAllFilters",
+            "setQuickFilter",
             "getCurrentPage",
             "setPage",
-          ].includes(method.key)
+          ].includes(method.key),
         ).map((method) => ({
           ...method,
           link: method.link ? `/docs/api-reference${method.link}` : undefined,
@@ -165,7 +166,7 @@ const ProgrammaticControlContent = () => {
               "getExpandedDepths",
               "getGroupingProperty",
               "getGroupingDepth",
-            ].includes(method.key)
+            ].includes(method.key),
           ).map((method) => ({
             ...method,
             link: method.link ? `/docs/api-reference${method.link}` : undefined,

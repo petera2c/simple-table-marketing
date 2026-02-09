@@ -11,6 +11,52 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_4_3: ChangelogEntry = {
+  version: "2.4.3",
+  date: "2026-02-09",
+  title: "Quick Filter / Global Search",
+  description:
+    "Added powerful global search functionality with quick filter support. Search across all columns with a single input, featuring both simple text matching and smart search modes with advanced operators.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "Added quickFilter prop to enable global search across all columns with simple text matching mode",
+      link: "/docs/quick-filter",
+    },
+    {
+      type: "feature",
+      description:
+        "Added smart search mode with multi-word AND logic, phrase search (quotes), negation (minus sign), and column-specific search (column:value syntax)",
+      link: "/docs/quick-filter",
+    },
+    {
+      type: "feature",
+      description:
+        "Added QuickFilterConfig for controlling filter text, mode, case sensitivity, searchable columns, and onChange callbacks",
+      link: "/docs/quick-filter",
+    },
+    {
+      type: "feature",
+      description:
+        "Added tableRef.setQuickFilter() method for programmatic control of the quick filter text",
+      link: "/docs/programmatic-control",
+    },
+    {
+      type: "feature",
+      description:
+        "Added quickFilterable and quickFilterGetter properties to HeaderObject for customizing column behavior in quick filter",
+      link: "/docs/api-reference#header-object",
+    },
+    {
+      type: "feature",
+      description:
+        "Exported QuickFilterConfig, QuickFilterMode, QuickFilterGetter, and QuickFilterGetterProps types for TypeScript support",
+      link: "/docs/api-reference",
+    },
+  ],
+};
+
 export const v2_4_2: ChangelogEntry = {
   version: "2.4.2",
   date: "2026-02-06",
@@ -1262,6 +1308,8 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_4_3,
+  v2_4_2,
   v2_4_1,
   v2_4_0,
   v2_3_8,

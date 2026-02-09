@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme, SortColumn } from "simple-table-core";
+import { SimpleTable, HeaderObject, SortColumn } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Type for our sample data
 type EmployeeData = {
@@ -216,7 +218,7 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
+const ExternalSortDemo = ({ theme }: { theme?: ThemeOption }) => {
   const [sortConfig, setSortConfig] = useState<SortColumn | null>(null);
 
   // Sort data externally based on sortConfig
@@ -263,7 +265,7 @@ const ExternalSortDemo = ({ theme }: { theme?: Theme }) => {
         columnResizing={true}
         columnReordering={true}
         height={"338px"}
-        theme={theme}
+        theme={mapThemeOptionToTheme(theme)}
       />
     </div>
   );

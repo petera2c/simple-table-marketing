@@ -224,3 +224,92 @@ export const COLUMN_VISIBILITY_STATE_PROPS: PropInfo[] = [
 }`,
   },
 ];
+
+export const QUICK_FILTER_CONFIG_PROPS: PropInfo[] = [
+  {
+    key: "text",
+    name: "text",
+    required: true,
+    description:
+      "The search text to filter by. All columns will be searched for this text unless specific columns are configured.",
+    type: "string",
+    example: `{ text: "engineering" }`,
+  },
+  {
+    key: "mode",
+    name: "mode",
+    required: false,
+    description:
+      "Search mode: 'simple' for basic contains matching, or 'smart' for advanced search with multi-word AND logic, phrase search (quotes), negation (minus), and column-specific search. Defaults to 'simple'.",
+    type: '"simple" | "smart"',
+    example: `{ mode: "simple" }
+{ mode: "smart" }`,
+  },
+  {
+    key: "caseSensitive",
+    name: "caseSensitive",
+    required: false,
+    description: "Whether the search should be case-sensitive. Defaults to false.",
+    type: "boolean",
+    example: `{ caseSensitive: true }`,
+  },
+  {
+    key: "columns",
+    name: "columns",
+    required: false,
+    description:
+      "Array of column accessors to search. If not provided, all columns are searched (unless a column has quickFilterable: false).",
+    type: "Accessor[]",
+    example: `{ columns: ["name", "email", "department"] }`,
+  },
+  {
+    key: "useFormattedValue",
+    name: "useFormattedValue",
+    required: false,
+    description:
+      "Whether to search the formatted value (from valueFormatter) instead of the raw value. Defaults to false.",
+    type: "boolean",
+    example: `{ useFormattedValue: true }`,
+  },
+  {
+    key: "onChange",
+    name: "onChange",
+    required: false,
+    description:
+      "Callback function triggered when the quick filter text changes. Useful for tracking search analytics or syncing with external state.",
+    type: "(text: string) => void",
+    example: `{
+  onChange: (text) => {
+    console.log("User searched for:", text);
+    trackSearchAnalytics(text);
+  }
+}`,
+  },
+];
+
+export const QUICK_FILTER_GETTER_PROPS: PropInfo[] = [
+  {
+    key: "row",
+    name: "row",
+    required: true,
+    description: "The row data object.",
+    type: "Row",
+    example: `({ row }) => row.customField`,
+  },
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor.",
+    type: "Accessor",
+    example: `({ accessor }) => accessor`,
+  },
+  {
+    key: "formattedValue",
+    name: "formattedValue",
+    required: false,
+    description: "The formatted value if a valueFormatter is defined.",
+    type: "string | number | boolean | string[] | number[] | null | undefined",
+    example: `({ formattedValue }) => formattedValue?.toString() || ""`,
+  },
+];

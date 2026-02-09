@@ -1,5 +1,7 @@
-import { HeaderObject, SimpleTable, Theme } from "simple-table-core";
+import { HeaderObject, SimpleTable } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const headers: HeaderObject[] = [
   { accessor: "name", label: "Name", width: 200, expandable: true, type: "string" },
@@ -415,7 +417,7 @@ const AggregateFunctionsDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   return (
     <SimpleTable
@@ -424,7 +426,7 @@ const AggregateFunctionsDemo = ({
       rows={rows}
       rowGrouping={["categories", "creators"]}
       height={height}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };

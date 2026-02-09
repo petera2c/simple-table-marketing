@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -115,7 +117,7 @@ const RowHeightDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   return (
     <SimpleTable
@@ -125,7 +127,7 @@ const RowHeightDemo = ({
       customTheme={{
         rowHeight: 32,
       }}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };

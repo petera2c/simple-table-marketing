@@ -33,6 +33,8 @@ export {
   SORT_CONFIG_PROPS,
   TABLE_FILTER_STATE_PROPS,
   COLUMN_VISIBILITY_STATE_PROPS,
+  QUICK_FILTER_CONFIG_PROPS,
+  QUICK_FILTER_GETTER_PROPS,
 } from "./configProps";
 
 // Table ref and export props

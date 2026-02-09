@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const HEADERS: HeaderObject[] = [
   { accessor: "id", label: "Project ID", width: 80, type: "number" },
@@ -97,7 +99,7 @@ const ROWS = [
   },
 ];
 
-const LoadingStateDemo = ({ height, theme }: { height?: string | number; theme?: Theme }) => {
+const LoadingStateDemo = ({ height, theme }: { height?: string | number; theme?: ThemeOption }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState<typeof ROWS>([]);
 
@@ -129,7 +131,7 @@ const LoadingStateDemo = ({ height, theme }: { height?: string | number; theme?:
         height="380px"
         isLoading={isLoading}
         rows={data}
-        theme={theme}
+        theme={mapThemeOptionToTheme(theme)}
       />
     </div>
   );

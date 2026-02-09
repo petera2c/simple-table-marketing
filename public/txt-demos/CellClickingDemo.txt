@@ -1,6 +1,8 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme, CellClickProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, CellClickProps } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 type ProjectTask = {
   id: number;
@@ -205,7 +207,7 @@ const PROJECT_TASKS: ProjectTask[] = [
   },
 ];
 
-const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }) => {
+const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOption }) => {
   const [clickInfo, setClickInfo] = useState<string>("");
   const [selectedTask, setSelectedTask] = useState<ProjectTask | null>(null);
   const [priorityFilter, setPriorityFilter] = useState<string>("");
@@ -437,7 +439,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }
         height={"320px"}
         onCellClick={handleCellClick}
         rows={rows}
-        theme={theme}
+        theme={mapThemeOptionToTheme(theme)}
       />
     </div>
   );

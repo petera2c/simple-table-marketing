@@ -227,6 +227,34 @@ initialSortDirection="asc"`,
     example: `hideFooter={true}`,
   },
   {
+    key: "quickFilter",
+    name: "quickFilter",
+    required: false,
+    description:
+      "Enable global search/quick filter across all columns. Accepts a QuickFilterConfig object to control the search text, mode (simple or smart), case sensitivity, and which columns to search. The quick filter applies before column-specific filters in the filter chain.",
+    type: "QuickFilterConfig",
+    link: "/docs/quick-filter",
+    example: `// Simple mode - basic text matching
+quickFilter={{
+  text: searchText,
+  mode: "simple",
+}}
+
+// Smart mode with advanced operators
+quickFilter={{
+  text: searchText,
+  mode: "smart",
+  caseSensitive: false,
+  onChange: (text) => console.log("Filter changed:", text),
+}}
+
+// Search specific columns only
+quickFilter={{
+  text: searchText,
+  columns: ["name", "email", "department"],
+}}`,
+  },
+  {
     key: "onFilterChange",
     name: "onFilterChange",
     required: false,

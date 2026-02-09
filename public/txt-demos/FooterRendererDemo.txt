@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -380,7 +382,7 @@ const FooterRendererDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   // Theme-aware color scheme
   const isDark = theme === "dark";
@@ -402,7 +404,7 @@ const FooterRendererDemo = ({
       shouldPaginate={true}
       rowsPerPage={10}
       height={height}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
       footerRenderer={({
         currentPage,
         startRow,

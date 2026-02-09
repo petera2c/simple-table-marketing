@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 import { useState, useEffect } from "react";
 
 // Define headers with different width strategies
@@ -136,7 +138,7 @@ const ColumnWidthDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -157,7 +159,7 @@ const ColumnWidthDemo = ({
       defaultHeaders={headers}
       height={height}
       rows={EMPLOYEE_DATA}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };

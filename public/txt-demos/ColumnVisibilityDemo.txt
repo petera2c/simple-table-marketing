@@ -1,5 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 import { useMemo, useCallback } from "react";
 
 const STORAGE_KEY = "columnVisibilityDemo";
@@ -130,7 +132,7 @@ const ColumnVisibilityDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   // Load saved visibility state from localStorage
   const getSavedVisibility = useCallback(() => {
@@ -173,7 +175,7 @@ const ColumnVisibilityDemo = ({
       editColumnsInitOpen
       rows={EMPLOYEE_DATA}
       height={height}
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
       onColumnVisibilityChange={handleVisibilityChange}
     />
   );

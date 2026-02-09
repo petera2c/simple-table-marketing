@@ -24,6 +24,7 @@ import {
   faBolt,
   faCalculator,
   faFilter,
+  faSearch,
   faBook,
   faInfinity,
   faCheckSquare,
@@ -214,6 +215,12 @@ export const docSections: DocSection[] = [
     icon: faPuzzlePiece,
     subsections: [
       {
+        id: "quick-filter",
+        label: "Quick Filter",
+        path: "/docs/quick-filter",
+        icon: faSearch,
+      },
+      {
         id: "header-renderer",
         label: "Header Renderer",
         path: "/docs/header-renderer",
@@ -237,7 +244,7 @@ export const docSections: DocSection[] = [
       },
       {
         id: "csv-export",
-        label: "CSV Export (beta)",
+        label: "CSV Export",
         path: "/docs/csv-export",
         icon: faDownload,
       },
@@ -268,7 +275,7 @@ export const getAllDocPages = (): Array<{ id: string; path: string; label: strin
       id: subsection.id,
       path: subsection.path,
       label: subsection.label,
-    }))
+    })),
   );
 };
 

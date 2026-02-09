@@ -285,6 +285,36 @@ await tableRef.current?.applyFilter({
 });`,
   },
   {
+    key: "setQuickFilter",
+    name: "setQuickFilter",
+    required: false,
+    description:
+      "Programmatically sets the quick filter text. This allows you to control the global search/quick filter from your code. Pass a string to set the filter text, or an empty string to clear it. The filter will use the mode and other settings from the quickFilter prop configuration.",
+    type: "(text: string) => void",
+    example: `// Set quick filter text
+tableRef.current?.setQuickFilter("engineering");
+
+// Clear quick filter
+tableRef.current?.setQuickFilter("");
+
+// Set filter based on user action
+const handleSearch = (query: string) => {
+  tableRef.current?.setQuickFilter(query);
+};
+
+// Keyboard shortcut to focus and set filter
+useEffect(() => {
+  const handleKeyPress = (e: KeyboardEvent) => {
+    if (e.ctrlKey && e.key === 'f') {
+      e.preventDefault();
+      searchInputRef.current?.focus();
+    }
+  };
+  window.addEventListener('keydown', handleKeyPress);
+  return () => window.removeEventListener('keydown', handleKeyPress);
+}, []);`,
+  },
+  {
     key: "getCurrentPage",
     name: "getCurrentPage",
     required: false,

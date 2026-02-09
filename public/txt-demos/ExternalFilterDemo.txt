@@ -1,6 +1,8 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme, Accessor, TableFilterState } from "simple-table-core";
+import { SimpleTable, HeaderObject, Accessor, TableFilterState } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Type for our sample data
 type EmployeeData = {
@@ -297,7 +299,7 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
+const ExternalFilterDemo = ({ theme }: { theme?: ThemeOption }) => {
   const [filters, setFilters] = useState<TableFilterState>({});
 
   // Filter data externally based on filters
@@ -384,7 +386,7 @@ const ExternalFilterDemo = ({ theme }: { theme?: Theme }) => {
         columnResizing={true}
         columnReordering={true}
         height={"338px"}
-        theme={theme}
+        theme={mapThemeOptionToTheme(theme)}
       />
     </div>
   );

@@ -899,6 +899,13 @@ export const SEO_STRINGS = {
     keywords:
       "simple-table, react-table, react-grid, data-grid, datagrid, data table, column filtering, table filtering, data filtering, typescript table, search table",
   },
+  quickFilter: {
+    title: "Quick Filter / Global Search for React Table - Simple Table",
+    description:
+      "Add powerful global search to your react-table with Simple Table. Search across all columns with simple or smart mode featuring multi-word AND logic, phrase search, negation, and column-specific queries in your datagrid with TypeScript support.",
+    keywords:
+      "simple-table, react-table, react-grid, data-grid, datagrid, data table, quick filter, global search, table search, search across columns, smart search, advanced search, search operators, typescript table, instant search, filter table",
+  },
   columnPinning: {
     title: "Column Pinning with Simple Table React Grid",
     description:

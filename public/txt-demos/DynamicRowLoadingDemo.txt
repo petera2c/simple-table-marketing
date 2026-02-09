@@ -1,6 +1,8 @@
 import { useState, useCallback } from "react";
-import { SimpleTable, HeaderObject, Theme, Row, OnRowGroupExpandProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, Row, OnRowGroupExpandProps } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -371,7 +373,7 @@ const DynamicRowLoadingDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   // Initialize with regions only (no stores/products loaded yet)
   const [rows, setRows] = useState<Region[]>(() => generateInitialRegions());
@@ -477,7 +479,7 @@ const DynamicRowLoadingDemo = ({
       getRowId={({ row }) => row.id as string}
       rows={rows}
       selectableCells
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
       useOddEvenRowBackground
       loadingStateRenderer={<div style={{ paddingLeft: "16px" }}>Loading...</div>}
       errorStateRenderer={<div style={{ paddingLeft: "16px" }}>Error loading data</div>}

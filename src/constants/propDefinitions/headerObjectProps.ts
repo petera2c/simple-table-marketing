@@ -157,6 +157,42 @@ sortingOrder: ['desc', null]`,
     example: `filterable: true`,
   },
   {
+    key: "quickFilterable",
+    name: "quickFilterable",
+    required: false,
+    description:
+      "Controls whether this column should be included in quick filter searches. Set to false to exclude a column from global search. Defaults to true.",
+    type: "boolean",
+    link: "/docs/quick-filter",
+    example: `// Exclude ID column from quick filter
+quickFilterable: false
+
+// Include in quick filter (default)
+quickFilterable: true`,
+  },
+  {
+    key: "quickFilterGetter",
+    name: "quickFilterGetter",
+    required: false,
+    description:
+      "Custom function to extract the searchable value for this column in quick filter. Useful for complex data structures, computed values, or custom search logic. Receives QuickFilterGetterProps and returns a string or string array to search.",
+    type: "QuickFilterGetter",
+    link: "/docs/quick-filter#quick-filter-getter",
+    example: `// Search nested object
+quickFilterGetter: ({ row }) => row.user?.fullName || ""
+
+// Search multiple fields
+quickFilterGetter: ({ row }) => [
+  row.firstName,
+  row.lastName,
+  row.email
+].filter(Boolean)
+
+// Custom formatting for search
+quickFilterGetter: ({ row }) => 
+  row.tags?.map(t => t.name).join(" ") || ""`,
+  },
+  {
     key: "isEditable",
     name: "isEditable",
     required: false,

@@ -1,6 +1,8 @@
 import React, { useMemo, useState } from "react";
-import { SimpleTable, HeaderObject, Theme, HeaderRendererProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, HeaderRendererProps } from "simple-table-core";
 import "simple-table-core/styles.css";
+import { ThemeOption } from "@/types/theme";
+import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Initial astronomical data
 const INITIAL_STAR_DATA = [
@@ -107,7 +109,7 @@ const HeaderRendererDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: Theme;
+  theme?: ThemeOption;
 }) => {
   const [starData, setStarData] = useState(INITIAL_STAR_DATA);
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: "asc" | "desc" } | null>(
@@ -148,7 +150,7 @@ const HeaderRendererDemo = ({
   };
 
   // Theme-based color configuration
-  const getThemeColors = (theme?: Theme) => {
+  const getThemeColors = (theme?: ThemeOption) => {
     switch (theme) {
       case "dark":
         return {
@@ -297,7 +299,7 @@ const HeaderRendererDemo = ({
       height={height}
       rows={starData}
       selectableCells
-      theme={theme}
+      theme={mapThemeOptionToTheme(theme)}
     />
   );
 };
