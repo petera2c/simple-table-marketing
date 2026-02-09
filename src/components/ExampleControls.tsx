@@ -107,18 +107,6 @@ export default function ExampleControls({ codeButton, sandboxButton }: ExampleCo
   return (
     <div className="mb-4 flex items-end gap-3 flex-wrap justify-between">
       <div className="flex gap-3">
-        {currentExample.id !== "music" && currentExample.id !== "crm" && (
-          <div className="flex flex-col gap-1">
-            <span className="text-sm text-gray-600 dark:text-gray-300">Rows</span>
-            <Select
-              placeholder="Select row count"
-              style={{ width: 150 }}
-              onChange={handleRowCountChange}
-              value={currentRowCount}
-              options={rowCountOptions}
-            />
-          </div>
-        )}
         <div className="flex flex-col gap-1">
           <span className="text-sm text-gray-600 dark:text-gray-300">Example</span>
           <Select
@@ -169,6 +157,18 @@ export default function ExampleControls({ codeButton, sandboxButton }: ExampleCo
             onChange={handleIconLibraryChange}
           />
         </div>
+        {currentExample.id !== "music" && currentExample.id !== "crm" && (
+          <div className="flex flex-col gap-1">
+            <span className="text-sm text-gray-600 dark:text-gray-300">Rows</span>
+            <Select
+              placeholder="Select row count"
+              style={{ width: 150 }}
+              onChange={handleRowCountChange}
+              value={currentRowCount}
+              options={rowCountOptions}
+            />
+          </div>
+        )}
       </div>
 
       <div className="flex gap-3">
