@@ -9,9 +9,6 @@ const EXAMPLE_NAVIGATION_BOTTOM_MARGIN = 16;
 
 const TABLE_SCROLLBAR_WIDTH = 12;
 const TABLE_FOOTER_HEIGHT = 50;
-const CONTENT_BOTTOM_PADDING = 32;
-const CONTENT_BOTTOM_MARGIN = 32;
-const SANDBOX_BUTTONS_HEIGHT = 32;
 
 export const useExampleHeight = ({
   isUsingPagination,
@@ -33,18 +30,12 @@ export const useExampleHeight = ({
           EXAMPLE_NAVIGATION_BOTTOM_MARGIN +
           rowHeight +
           TABLE_SCROLLBAR_WIDTH +
-          TABLE_FOOTER_HEIGHT +
-          CONTENT_BOTTOM_PADDING +
-          CONTENT_BOTTOM_MARGIN +
-          SANDBOX_BUTTONS_HEIGHT
+          TABLE_FOOTER_HEIGHT
         : HEADER_HEIGHT +
           CONTENT_TOP_MARGIN +
           CONTENT_TOP_PADDING +
           EXAMPLES_NAVIGATION_HEIGHT +
-          EXAMPLE_NAVIGATION_BOTTOM_MARGIN +
-          CONTENT_BOTTOM_PADDING +
-          CONTENT_BOTTOM_MARGIN +
-          SANDBOX_BUTTONS_HEIGHT;
+          EXAMPLE_NAVIGATION_BOTTOM_MARGIN;
 
       setContainerHeight(viewportHeight - heightToSubtract);
     };

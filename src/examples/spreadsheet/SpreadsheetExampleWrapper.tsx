@@ -5,10 +5,10 @@ import { Theme } from "simple-table-core";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
-import SearchParamsSuspenseWrapper from "@/components/SearchParamsSuspenseWrapper";
 import ExamplesWrapper from "../ExamplesWrapper";
-import { useSearchParams } from "next/navigation";
-import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
+import { getTableIcons } from "@/utils/getTableIcons";
+import { useExamplesContext } from "@/providers/ExamplesProvider";
+import ExampleControls from "@/components/ExampleControls";
 
 const ROW_HEIGHT = 24;
 
@@ -18,14 +18,15 @@ type SpreadsheetExampleWrapperProps = {
   rowCount?: number;
 };
 
-const SpreadsheetExampleWrapper = ({
+export default function SpreadsheetExampleWrapper({
   onGridReady,
   theme,
   rowCount,
-}: SpreadsheetExampleWrapperProps) => {
-  const searchParams = useSearchParams();
-  const iconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
-  const tableIcons = getTableIcons(iconLibrary);
+}: SpreadsheetExampleWrapperProps) {
+  const { currentTheme, currentIconLibrary } = useExamplesContext();
+  const selectedTheme = (currentTheme as Theme) || theme;
+  const tableIcons = getTableIcons(currentIconLibrary);
+  
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -36,25 +37,21 @@ const SpreadsheetExampleWrapper = ({
       demoCodeFilename="SpreadsheetExample.txt"
       height={`${containerHeight}px`}
       link={SANDBOX_LIST["examples/spreadsheet/SpreadsheetExample.tsx"].url}
+      selectedTheme={selectedTheme}
+      titleRenderer={({ codeButton, sandboxButton }) => (
+        <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
+      )}
       Preview={() => (
         <ExamplesWrapper>
           <SpreadsheetExample
             height={containerHeight}
             onGridReady={onGridReady}
             rowCount={rowCount}
-            theme={theme}
+            theme={selectedTheme}
             {...tableIcons}
           />
         </ExamplesWrapper>
       )}
     />
-  );
-};
-
-export default function SpreadsheetExampleContainer(props: SpreadsheetExampleWrapperProps) {
-  return (
-    <SearchParamsSuspenseWrapper>
-      <SpreadsheetExampleWrapper {...props} />
-    </SearchParamsSuspenseWrapper>
   );
 }

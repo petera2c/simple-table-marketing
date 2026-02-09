@@ -1,11 +1,13 @@
 import PageLayout from "@/components/PageLayout";
-import ExamplesNavigation from "@/components/ExamplesNavigation";
+import { ExamplesProvider } from "@/providers/ExamplesProvider";
+import { Suspense } from "react";
 
 export default function ExamplesLayout({ children }: { children: React.ReactNode }) {
   return (
     <PageLayout sidebar={null}>
-      <ExamplesNavigation />
-      <div className="flex-grow">{children}</div>
+      <Suspense fallback={<div />}>
+        <ExamplesProvider>{children}</ExamplesProvider>
+      </Suspense>
     </PageLayout>
   );
 }
