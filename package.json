@@ -60,7 +60,7 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
     "resend": "^6.9.1",
-    "simple-table-core": "^2.4.3",
+    "simple-table-core": "^2.4.4",
     "source-map-explorer": "^2.5.3"
   },
   "devDependencies": {

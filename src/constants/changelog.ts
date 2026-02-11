@@ -11,6 +11,20 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_4_4: ChangelogEntry = {
+  version: "2.4.4",
+  date: "2026-02-11",
+  title: "Column Editor Improvements",
+  description: "Column editor popout bug fix",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed a drag/drop bug in the column editor popout.",
+      link: "/docs/column-editing",
+    },
+  ],
+};
+
 export const v2_4_3: ChangelogEntry = {
   version: "2.4.3",
   date: "2026-02-09",
@@ -1308,6 +1322,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_4_4,
   v2_4_3,
   v2_4_2,
   v2_4_1,

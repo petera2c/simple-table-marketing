@@ -70,6 +70,7 @@ export default function InfrastructureExample({
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
+      editColumns
       expandIcon={expandIcon}
       filterIcon={filterIcon}
       headerCollapseIcon={headerCollapseIcon}

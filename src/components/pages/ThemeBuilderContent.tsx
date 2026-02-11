@@ -143,6 +143,7 @@ interface ThemeConfig {
   selectedSubCellColor: string;
   chartColor: string;
   chartFillColor: string;
+  dragSeparatorColor: string;
 }
 
 const lightThemeDefaults: ThemeConfig = {
@@ -221,6 +222,9 @@ const lightThemeDefaults: ThemeConfig = {
   // Chart colors
   chartColor: "#93c5fd", // blue-300
   chartFillColor: "#93c5fd", // blue-300
+
+  // Drag separator color
+  dragSeparatorColor: "#3b82f6", // blue-500
 
   // Navigation button colors
   nextPrevBtnColor: "#475569", // slate-600
@@ -326,6 +330,9 @@ const darkThemeDefaults: ThemeConfig = {
   // Chart colors
   chartColor: "#60a5fa", // blue-400
   chartFillColor: "#60a5fa", // blue-400
+
+  // Drag separator color
+  dragSeparatorColor: "#60a5fa", // blue-400
 
   // Navigation button colors
   nextPrevBtnColor: "#94a3b8", // slate-400
@@ -865,6 +872,11 @@ export default function ThemeBuilderContent() {
             key: "draggingBackgroundColor",
             type: "color",
             tooltip: "Background color for columns while being dragged",
+          },
+          {
+            key: "dragSeparatorColor",
+            type: "color",
+            tooltip: "Color of the drag drop indicator line in the column editor",
           },
           {
             key: "resizeHandleColor",

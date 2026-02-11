@@ -97,6 +97,9 @@
   /* Chart colors */
   --st-chart-color: var(--st-violet-500);
   --st-chart-fill-color: var(--st-violet-300);
+
+  /* Drag separator color */
+  --st-drag-separator-color: var(--st-violet-500);
 }
 
 /* Custom styles for table headers */

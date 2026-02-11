@@ -78,6 +78,9 @@
   --st-header-highlight-indicator-color: oklch(87.2% 0.01 258.338);
   --st-selection-highlight-indicator-color: oklch(87.2% 0.01 258.338);
 
+  /* Drag separator color */
+  --st-drag-separator-color: #6a7282;
+
   /* Navigation button colors */
   --st-next-prev-btn-color: oklch(44.6% 0.03 256.802);
   --st-next-prev-btn-disabled-color: oklch(70.7% 0.022 261.325);
@@ -173,6 +176,9 @@
   /* Header/selection highlight indicator colors */
   --st-header-highlight-indicator-color: #475569;
   --st-selection-highlight-indicator-color: #475569;
+
+  /* Drag separator color */
+  --st-drag-separator-color: #94a3b8;
 
   /* Navigation button colors */
   --st-next-prev-btn-color: #cbd5e1;

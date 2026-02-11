@@ -1,10 +1,7 @@
-import { useState } from "react";
 import { SimpleTable, HeaderObject, QuickFilterMode } from "simple-table-core";
 import "simple-table-core/styles.css";
 import { ThemeOption } from "@/types/theme";
 import { mapThemeOptionToTheme } from "@/utils/themeMapper";
-import { Input, Radio, Checkbox, Space } from "antd";
-import type { RadioChangeEvent } from "antd";
 
 // Sample data with variety for testing quick filter
 const sampleData = [
@@ -12,7 +9,6 @@ const sampleData = [
     id: 1,
     name: "Alice Johnson",
     age: 28,
-    email: "alice.johnson@example.com",
     department: "Engineering",
     salary: 95000,
     status: "Active",
@@ -22,7 +18,6 @@ const sampleData = [
     id: 2,
     name: "Bob Smith",
     age: 35,
-    email: "bob.smith@example.com",
     department: "Sales",
     salary: 75000,
     status: "Active",
@@ -32,7 +27,6 @@ const sampleData = [
     id: 3,
     name: "Charlie Davis",
     age: 42,
-    email: "charlie.davis@example.com",
     department: "Engineering",
     salary: 110000,
     status: "Active",
@@ -42,7 +36,6 @@ const sampleData = [
     id: 4,
     name: "Diana Prince",
     age: 31,
-    email: "diana.prince@example.com",
     department: "Marketing",
     salary: 82000,
     status: "Inactive",
@@ -52,7 +45,6 @@ const sampleData = [
     id: 5,
     name: "Ethan Hunt",
     age: 29,
-    email: "ethan.hunt@example.com",
     department: "Sales",
     salary: 78000,
     status: "Active",
@@ -62,7 +54,6 @@ const sampleData = [
     id: 6,
     name: "Fiona Green",
     age: 38,
-    email: "fiona.green@example.com",
     department: "Engineering",
     salary: 105000,
     status: "Active",
@@ -72,7 +63,6 @@ const sampleData = [
     id: 7,
     name: "George Wilson",
     age: 26,
-    email: "george.wilson@example.com",
     department: "Marketing",
     salary: 68000,
     status: "Active",
@@ -82,7 +72,6 @@ const sampleData = [
     id: 8,
     name: "Hannah Lee",
     age: 33,
-    email: "hannah.lee@example.com",
     department: "Sales",
     salary: 88000,
     status: "Inactive",
@@ -92,7 +81,6 @@ const sampleData = [
     id: 9,
     name: "Isaac Chen",
     age: 27,
-    email: "isaac.chen@example.com",
     department: "Engineering",
     salary: 92000,
     status: "Active",
@@ -102,7 +90,6 @@ const sampleData = [
     id: 10,
     name: "Julia Brown",
     age: 30,
-    email: "julia.brown@example.com",
     department: "Marketing",
     salary: 72000,
     status: "Inactive",
@@ -112,7 +99,6 @@ const sampleData = [
     id: 11,
     name: "Kevin Davis",
     age: 28,
-    email: "kevin.davis@example.com",
     department: "Sales",
     salary: 85000,
     status: "Active",
@@ -122,7 +108,6 @@ const sampleData = [
     id: 12,
     name: "Laura Garcia",
     age: 32,
-    email: "laura.garcia@example.com",
     department: "Engineering",
     salary: 102000,
     status: "Active",
@@ -167,12 +152,6 @@ const headers: HeaderObject[] = [
     accessor: "location",
     label: "Location",
     width: 140,
-    type: "string",
-  },
-  {
-    accessor: "email",
-    label: "Email",
-    width: 220,
     type: "string",
   },
 ];
