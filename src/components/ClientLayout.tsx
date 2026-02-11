@@ -7,23 +7,20 @@ import Footer from "./Footer";
 import "../app/global.css";
 import { QueryProvider } from "../providers/QueryProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
-import { App } from "antd";
 
 const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryProvider>
-      <App>
-        <div
-          id="main-scroll-container"
-          className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
-        >
-          <Header />
-          <div className="w-full flex-grow z-10 text-gray-800 dark:text-white">
-            <main className="flex-grow">{children}</main>
-            <Footer />
-          </div>
+      <div
+        id="main-scroll-container"
+        className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
+      >
+        <Header />
+        <div className="w-full flex-grow z-10 text-gray-800 dark:text-white">
+          <main className="flex-grow">{children}</main>
+          <Footer />
         </div>
-      </App>
+      </div>
     </QueryProvider>
   );
 };

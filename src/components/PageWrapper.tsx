@@ -1,6 +1,6 @@
 "use client";
 
-import { ConfigProvider, theme } from "antd";
+import { App, ConfigProvider, theme } from "antd";
 import { useThemeContext } from "../providers/ThemeProvider";
 import useScrollRestoration from "../hooks/useScrollRestoration";
 
@@ -22,7 +22,7 @@ export default function PageWrapper({ children, disableScrollRestoration }: Page
         },
       }}
     >
-      {children}
+      <App>{children}</App>
     </ConfigProvider>
   );
 }
