@@ -3,6 +3,22 @@ import { HeaderObject } from "simple-table-core";
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
   const themes = {
+    "modern-light": {
+      gray: "#374151",
+      grayMuted: "#9ca3af",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      progressColors: {
+        high: "#10B981",
+        medium: "#3B82F6",
+        low: "#D97706",
+      },
+    },
     light: {
       gray: "#374151",
       grayMuted: "#9ca3af",
@@ -17,6 +33,22 @@ const getThemeColors = (theme?: string) => {
         high: "#10B981",
         medium: "#3B82F6",
         low: "#D97706",
+      },
+    },
+    "modern-dark": {
+      gray: "#f3f4f6",
+      grayMuted: "#f3f4f6",
+      success: {
+        high: { color: "#86efac", fontWeight: "bold" },
+        medium: "#4ade80",
+        low: "#22c55e",
+      },
+      info: "#60a5fa",
+      warning: "#facc15",
+      progressColors: {
+        high: "#34D399",
+        medium: "#60A5FA",
+        low: "#FBBF24",
       },
     },
     dark: {
@@ -101,7 +133,7 @@ const getThemeColors = (theme?: string) => {
     },
   };
 
-  return themes[theme as keyof typeof themes] || themes.light;
+  return themes[theme as keyof typeof themes] || themes["modern-light"];
 };
 
 // Custom Tag component

@@ -152,11 +152,23 @@ const HeaderRendererDemo = ({
   // Theme-based color configuration
   const getThemeColors = (theme?: ThemeOption) => {
     switch (theme) {
+      case "modern-dark":
+        return {
+          baseColor: "#d1d5db",
+          hoverColor: "#f3f4f6",
+          sortActiveColor: "#60a5fa",
+        };
       case "dark":
         return {
           baseColor: "#9ca3af",
           hoverColor: "#e5e7eb",
           sortActiveColor: "#60a5fa",
+        };
+      case "modern-light":
+        return {
+          baseColor: "#6b7280",
+          hoverColor: "#111827",
+          sortActiveColor: "#3b82f6",
         };
       case "violet":
         return {
@@ -176,7 +188,8 @@ const HeaderRendererDemo = ({
           hoverColor: "#737373",
           sortActiveColor: "#404040",
         };
-      default: // light theme
+      case "light":
+      default:
         return {
           baseColor: "#374151",
           hoverColor: "#6366f1",

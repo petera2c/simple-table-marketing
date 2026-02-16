@@ -194,30 +194,57 @@ export const HEADERS: HeaderObject[] = [
 
       // Theme-aware color mapping with improved dark theme visibility
       const getStatusColors = (status: string, theme?: string) => {
-        const isDark = theme === "dark";
+        const isModernDark = theme === "modern-dark";
+        const isDark = theme === "dark" || isModernDark;
+        const isModernLight = theme === "modern-light";
+        const isLight = theme === "light" || isModernLight;
 
         const colorMaps = {
-          Running: isDark
+          Running: isModernDark
+            ? { bg: "rgba(6, 95, 70, 0.4)", text: "#6ee7b7" }
+            : isDark
             ? { bg: "rgba(6, 78, 59, 0.4)", text: "#6ee7b7" }
+            : isLight
+            ? { bg: "#dcfce7", text: "#16a34a" }
             : { bg: "#f6ffed", text: "#2a6a0d" },
-          "Scheduled Maintenance": isDark
+          "Scheduled Maintenance": isModernDark
+            ? { bg: "rgba(30, 64, 175, 0.4)", text: "#93c5fd" }
+            : isDark
             ? { bg: "rgba(30, 58, 138, 0.4)", text: "#93c5fd" }
+            : isLight
+            ? { bg: "#dbeafe", text: "#3b82f6" }
             : { bg: "#e6f7ff", text: "#0050b3" },
-          "Unplanned Downtime": isDark
+          "Unplanned Downtime": isModernDark
+            ? { bg: "rgba(153, 27, 27, 0.4)", text: "#fca5a5" }
+            : isDark
             ? { bg: "rgba(127, 29, 29, 0.4)", text: "#fca5a5" }
+            : isLight
+            ? { bg: "#fee2e2", text: "#dc2626" }
             : { bg: "#fff1f0", text: "#a8071a" },
-          Idle: isDark
+          Idle: isModernDark
+            ? { bg: "rgba(146, 64, 14, 0.4)", text: "#fcd34d" }
+            : isDark
             ? { bg: "rgba(120, 53, 15, 0.4)", text: "#fcd34d" }
+            : isLight
+            ? { bg: "#fef3c7", text: "#d97706" }
             : { bg: "#fff7e6", text: "#ad4e00" },
-          Setup: isDark
+          Setup: isModernDark
+            ? { bg: "rgba(109, 40, 217, 0.4)", text: "#c4b5fd" }
+            : isDark
             ? { bg: "rgba(88, 28, 135, 0.4)", text: "#c4b5fd" }
+            : isLight
+            ? { bg: "#e9d5ff", text: "#9333ea" }
             : { bg: "#f9f0ff", text: "#391085" },
         };
 
         return (
           colorMaps[status as keyof typeof colorMaps] ||
-          (isDark
+          (isModernDark
+            ? { bg: "rgba(75, 85, 99, 0.4)", text: "#d1d5db" }
+            : isDark
             ? { bg: "rgba(55, 65, 81, 0.4)", text: "#d1d5db" }
+            : isLight
+            ? { bg: "#f3f4f6", text: "#6b7280" }
             : { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" })
         );
       };

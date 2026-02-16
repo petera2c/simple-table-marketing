@@ -56,15 +56,15 @@ export default function MusicExample({
       <SimpleTable
         columnReordering
         columnResizing
+        customTheme={{
+          headerHeight: 30,
+          rowHeight: 85,
+        }}
         defaultHeaders={HEADERS}
         expandIcon={expandIcon}
         filterIcon={filterIcon}
         headerCollapseIcon={headerCollapseIcon}
         headerExpandIcon={headerExpandIcon}
-        customTheme={{
-          headerHeight: 30,
-          rowHeight: 85,
-        }}
         height={height ? height : "70dvh"}
         nextIcon={nextIcon}
         prevIcon={prevIcon}

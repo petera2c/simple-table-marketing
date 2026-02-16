@@ -3,6 +3,36 @@ import { HeaderObject } from "simple-table-core";
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
   const themes = {
+    "modern-light": {
+      gray: "#1f2937",
+      grayMuted: "#6b7280",
+      success: {
+        high: { color: "#15803d", fontWeight: "bold" },
+        medium: "#16a34a",
+        low: "#22c55e",
+      },
+      info: "#3b82f6",
+      warning: "#ca8a04",
+      avatar: {
+        bg: "#1890ff",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#f6ffed", text: "#2a6a0d" },
+        orange: { bg: "#fff7e6", text: "#ad4e00" },
+        blue: { bg: "#e6f7ff", text: "#0050b3" },
+        purple: { bg: "#f9f0ff", text: "#391085" },
+        red: { bg: "#fff1f0", text: "#a8071a" },
+        default: { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" },
+      },
+      progressColors: {
+        success: "#52c41a",
+        normal: "#1890ff",
+        exception: "#ff4d4f",
+        bg: "#f5f5f5",
+        text: "rgba(0, 0, 0, 0.65)",
+      },
+    },
     light: {
       gray: "#1f2937",
       grayMuted: "#6b7280",
@@ -31,6 +61,36 @@ const getThemeColors = (theme?: string) => {
         exception: "#ff4d4f",
         bg: "#f5f5f5",
         text: "rgba(0, 0, 0, 0.65)",
+      },
+    },
+    "modern-dark": {
+      gray: "#f3f4f6",
+      grayMuted: "#f3f4f6",
+      success: {
+        high: { color: "#86efac", fontWeight: "bold" },
+        medium: "#4ade80",
+        low: "#22c55e",
+      },
+      info: "#60a5fa",
+      warning: "#facc15",
+      avatar: {
+        bg: "#3b82f6",
+        text: "#ffffff",
+      },
+      tagColors: {
+        green: { bg: "#065f46", text: "#86efac" },
+        orange: { bg: "#9a3412", text: "#fed7aa" },
+        blue: { bg: "#1e3a8a", text: "#93c5fd" },
+        purple: { bg: "#581c87", text: "#c4b5fd" },
+        red: { bg: "#991b1b", text: "#fca5a5" },
+        default: { bg: "#374151", text: "#e5e7eb" },
+      },
+      progressColors: {
+        success: "#34d399",
+        normal: "#60a5fa",
+        exception: "#f87171",
+        bg: "#374151",
+        text: "#d1d5db",
       },
     },
     dark: {
@@ -185,7 +245,7 @@ const getThemeColors = (theme?: string) => {
     },
   };
 
-  return themes[theme as keyof typeof themes] || themes.light;
+  return themes[theme as keyof typeof themes] || themes["modern-light"];
 };
 
 // Custom Avatar component

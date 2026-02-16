@@ -156,7 +156,7 @@ export default function HandlingOneMillionRowsContent() {
                 title="Simple Table Performance Demo"
                 description="Experience how Simple Table effortlessly handles one million rows with near-instant rendering and smooth scrolling."
                 height="500px"
-                theme="light"
+                theme="modern-light"
                 initialRowCount={10000}
                 dataCategories={[
                   "Software",

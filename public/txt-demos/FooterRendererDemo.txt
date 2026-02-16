@@ -385,17 +385,54 @@ const FooterRendererDemo = ({
   theme?: ThemeOption;
 }) => {
   // Theme-aware color scheme
-  const isDark = theme === "dark";
-  const footerColors = {
-    background: isDark ? "#1f2937" : "#f8fafc",
-    border: isDark ? "#374151" : "#e2e8f0",
-    text: isDark ? "#e5e7eb" : "#475569",
-    buttonBg: isDark ? "#374151" : "white",
-    buttonBorder: isDark ? "#4b5563" : "#e2e8f0",
-    buttonActive: isDark ? "#3b82f6" : "#3b82f6",
-    buttonText: isDark ? "#d1d5db" : "#64748b",
-    buttonDisabled: isDark ? "#6b7280" : "#cbd5e1",
-  };
+  const isModernDark = theme === "modern-dark";
+  const isDark = theme === "dark" || isModernDark;
+  const isModernLight = theme === "modern-light";
+  const isLight = theme === "light" || isModernLight;
+  
+  const footerColors = isModernDark
+    ? {
+        background: "#1f2937",
+        border: "#374151",
+        text: "#d1d5db",
+        buttonBg: "#374151",
+        buttonBorder: "#4b5563",
+        buttonActive: "#3b82f6",
+        buttonText: "#d1d5db",
+        buttonDisabled: "#6b7280",
+      }
+    : isDark
+    ? {
+        background: "#1f2937",
+        border: "#374151",
+        text: "#e5e7eb",
+        buttonBg: "#374151",
+        buttonBorder: "#4b5563",
+        buttonActive: "#3b82f6",
+        buttonText: "#d1d5db",
+        buttonDisabled: "#6b7280",
+      }
+    : isLight
+    ? {
+        background: "white",
+        border: "#f3f4f6",
+        text: "#6b7280",
+        buttonBg: "white",
+        buttonBorder: "#e5e7eb",
+        buttonActive: "#3b82f6",
+        buttonText: "#374151",
+        buttonDisabled: "#d1d5db",
+      }
+    : {
+        background: "#f8fafc",
+        border: "#e2e8f0",
+        text: "#475569",
+        buttonBg: "white",
+        buttonBorder: "#e2e8f0",
+        buttonActive: "#3b82f6",
+        buttonText: "#64748b",
+        buttonDisabled: "#cbd5e1",
+      };
 
   return (
     <SimpleTable

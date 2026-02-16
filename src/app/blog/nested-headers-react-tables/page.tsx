@@ -391,7 +391,7 @@ export default function StudentGradeTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={studentData}
-      theme="light"
+      theme="modern-light"
       height="400px"
       columnResizing
     />

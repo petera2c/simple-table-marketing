@@ -146,7 +146,8 @@ const ColumnWidthContent = () => {
             autoExpandColumns
           </code>{" "}
           prop makes your table columns automatically fill the entire container width by scaling all
-          column widths proportionally:
+          column widths proportionally. When enabled, the resize handle is removed from the last
+          column since all columns scale together to maintain full width:
         </p>
 
         <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-800 p-4 rounded-lg mb-4">

@@ -3,6 +3,28 @@ import type { HeaderObject } from "simple-table-core";
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
   const themes = {
+    "modern-light": {
+      gray: "#374151",
+      grayMuted: "#9ca3af",
+      success: "#16a34a",
+      successBg: "#f0fdf4",
+      successLight: "#dcfce7",
+      error: "#dc2626",
+      errorBg: "#fef2f2",
+      errorLight: "#fee2e2",
+      primary: "#2563eb",
+      primaryBg: "#eff6ff",
+      warning: "#d97706",
+      warningBg: "#fffbeb",
+      tagBorder: "#e5e7eb",
+      tagBg: "#ffffff",
+      tagText: "#000000",
+      progressBg: "#e5e7eb",
+      highScore: "#16a34a",
+      mediumScore: "#2563eb",
+      lowScore: "#f59e0b",
+      veryLowScore: "#ef4444",
+    },
     light: {
       gray: "#374151",
       grayMuted: "#9ca3af",
@@ -24,6 +46,28 @@ const getThemeColors = (theme?: string) => {
       mediumScore: "#2563eb",
       lowScore: "#f59e0b",
       veryLowScore: "#ef4444",
+    },
+    "modern-dark": {
+      gray: "#e5e7eb",
+      grayMuted: "#9ca3af",
+      success: "#22c55e",
+      successBg: "#052e16",
+      successLight: "#14532d",
+      error: "#ef4444",
+      errorBg: "#450a0a",
+      errorLight: "#7f1d1d",
+      primary: "#60a5fa",
+      primaryBg: "#1e3a8a",
+      warning: "#f59e0b",
+      warningBg: "#451a03",
+      tagBorder: "#4b5563",
+      tagBg: "#111827",
+      tagText: "#f9fafb",
+      progressBg: "#374151",
+      highScore: "#22c55e",
+      mediumScore: "#60a5fa",
+      lowScore: "#fbbf24",
+      veryLowScore: "#f87171",
     },
     dark: {
       gray: "#e5e7eb",
@@ -137,7 +181,7 @@ const getThemeColors = (theme?: string) => {
     },
   };
 
-  return themes[theme as keyof typeof themes] || themes.light;
+  return themes[theme as keyof typeof themes] || themes["modern-light"];
 };
 
 // Custom Tag component with theme support

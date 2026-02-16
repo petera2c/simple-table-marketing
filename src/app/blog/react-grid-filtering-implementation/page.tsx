@@ -329,7 +329,7 @@ export default function CustomerTable({ data }) {
       rows={data}
       
       height="600px"
-      theme="light"
+      theme="modern-light"
     />
   );
 }`}

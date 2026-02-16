@@ -347,18 +347,18 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         style={{
           marginTop: "16px",
           padding: "12px",
-          backgroundColor: theme === "dark" ? "#374151" : "#f3f4f6",
+          backgroundColor: theme === "modern-dark" || theme === "dark" ? "#374151" : theme === "modern-light" || theme === "light" ? "white" : "#f3f4f6",
           borderRadius: "8px",
-          border: `1px solid ${theme === "dark" ? "#4b5563" : "#d1d5db"}`,
+          border: `1px solid ${theme === "modern-dark" || theme === "dark" ? "#4b5563" : theme === "modern-light" || theme === "light" ? "#e5e7eb" : "#d1d5db"}`,
           minHeight: "48px",
           display: "flex",
           alignItems: "center",
         }}
       >
-        <strong style={{ marginRight: "8px", color: theme === "dark" ? "#f9fafb" : "#1f2937" }}>
+        <strong style={{ marginRight: "8px", color: theme === "modern-dark" || theme === "dark" ? "#f9fafb" : "#1f2937" }}>
           Last Click:
         </strong>
-        <span style={{ color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+        <span style={{ color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
           {clickInfo || "Click any cell to see interaction details..."}
         </span>
       </div>
@@ -381,7 +381,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         >
           <div
             style={{
-              backgroundColor: theme === "dark" ? "#1f2937" : "white",
+              backgroundColor: theme === "modern-dark" || theme === "dark" ? "#1f2937" : "white",
               padding: "24px",
               borderRadius: "8px",
               maxWidth: "500px",
@@ -393,26 +393,26 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
             <h3
               style={{
                 margin: "0 0 16px 0",
-                color: theme === "dark" ? "#f9fafb" : "#1f2937",
+                color: theme === "modern-dark" || theme === "dark" ? "#f9fafb" : "#1f2937",
                 fontSize: "18px",
                 fontWeight: "bold",
               }}
             >
               Task Details
             </h3>
-            <p style={{ margin: "8px 0", color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
               <strong>Task:</strong> {selectedTask.task}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
               <strong>Details:</strong> {selectedTask.details}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
               <strong>Assignee:</strong> {selectedTask.assignee}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
               <strong>Status:</strong> {selectedTask.status}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "dark" ? "#d1d5db" : "#4b5563" }}>
+            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
               <strong>Priority:</strong> {selectedTask.priority}
             </p>
             <button

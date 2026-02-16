@@ -720,6 +720,25 @@ useEffect(() => {
 }}`,
   },
   {
+    key: "onColumnWidthChange",
+    name: "onColumnWidthChange",
+    required: false,
+    description:
+      "Callback triggered when column widths change through user resizing or double-click auto-sizing. Receives the updated headers array with new width values. Perfect for persisting user column width preferences to localStorage or a backend.",
+    type: "(headers: HeaderObject[]) => void",
+    link: "/docs/column-resizing",
+    example: `onColumnWidthChange={(headers) => {
+  console.log('Column widths changed:', headers);
+  
+  // Save to localStorage
+  const widths = headers.reduce((acc, header) => {
+    acc[header.accessor] = header.width;
+    return acc;
+  }, {});
+  localStorage.setItem('columnWidths', JSON.stringify(widths));
+}}`,
+  },
+  {
     key: "autoExpandColumns",
     name: "autoExpandColumns",
     required: false,

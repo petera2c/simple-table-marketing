@@ -6,6 +6,7 @@ import { useThemeContext } from "@/providers/ThemeProvider";
 import { ThemeOption } from "@/types/theme";
 import { IconLibrary } from "@/utils/getTableIcons";
 import { useEffect } from "react";
+import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
 
 interface ExamplesContextType {
   currentTheme: ThemeOption;
@@ -26,7 +27,8 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
   const searchParams = useSearchParams();
   const { theme } = useThemeContext();
 
-  const currentTheme = (searchParams?.get("theme") as ThemeOption) || theme;
+  // Use URL param theme if set, otherwise use modern version of website theme
+  const currentTheme = (searchParams?.get("theme") as ThemeOption) || mapWebsiteThemeToTableTheme(theme);
   const currentRowCount = parseInt(searchParams?.get("rows") || "1000");
   const currentIconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
 
@@ -68,7 +70,7 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
       } else {
         // Non-CRM examples should not use custom themes
         if (currentTheme === "custom-light" || currentTheme === "custom-dark") {
-          params.set("theme", theme);
+          params.set("theme", mapWebsiteThemeToTableTheme(theme));
         }
       }
     }
@@ -76,11 +78,11 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
     router.push(`${examplePath}?${params.toString()}`);
   };
 
-  // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to the website theme
+  // If we are not on the CRM example, and the theme is custom-light or custom-dark, set the theme to modern version
   useEffect(() => {
     if (currentExampleId !== "crm") {
       if (currentTheme === "custom-light" || currentTheme === "custom-dark") {
-        handleThemeChange(theme);
+        handleThemeChange(mapWebsiteThemeToTableTheme(theme));
       }
     } else {
       // CRM example

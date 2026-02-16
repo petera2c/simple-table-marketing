@@ -396,7 +396,7 @@ export default function CustomizingReactTableThemesContent() {
             </p>
 
             <div className="mb-6">
-              <CellRendererDemo height="400px" theme="light" />
+              <CellRendererDemo height="400px" theme="modern-light" />
             </div>
 
             <h4 className="mb-3 text-gray-900 dark:text-gray-100 text-lg font-medium">
@@ -508,7 +508,7 @@ cellRenderer: ({ row }) => {
             </p>
 
             <div className="mb-6">
-              <HeaderRendererDemo height="400px" theme="light" />
+              <HeaderRendererDemo height="400px" theme="modern-light" />
             </div>
 
             <h4 className="mb-3 text-gray-900 dark:text-gray-100 text-lg font-medium">

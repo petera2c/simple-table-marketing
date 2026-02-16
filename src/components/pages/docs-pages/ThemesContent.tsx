@@ -25,9 +25,9 @@ const THEME_PROPS: PropInfo[] = [
       "Built-in theme option for styling the table. Choose from predefined themes to quickly customize your table's appearance.",
     type: "Theme",
     link: "/docs/api-reference#union-types",
-    enumValues: ["light", "dark", "sky", "violet", "neutral"],
+    enumValues: ["light", "dark", "sky", "violet", "neutral", "modern-light", "modern-dark"],
     example: `<SimpleTable
-  theme="dark"
+  theme="modern-dark"
   // ... other props
 />`,
   },
@@ -110,7 +110,7 @@ export default function ThemesContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Simple Table includes several beautiful built-in themes to match your application's visual
-        design. Choose from Light, Dark, Sky, Violet, or Neutral themes. Learn more about{" "}
+        design. Choose from Modern Light, Modern Dark, Light, Dark, Sky, Violet, or Neutral themes. Learn more about{" "}
         <Link
           href="/blog/customizing-react-table-look-simple-table-themes"
           className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
@@ -163,7 +163,15 @@ export default function ThemesContent() {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             theme
           </code>{" "}
-          prop with one of the available theme options:
+          prop with one of the available theme options. The new{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            modern-light
+          </code>{" "}
+          and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            modern-dark
+          </code>{" "}
+          themes feature a clean, minimal design that works great for modern applications:
         </p>
       </motion.div>
 
@@ -203,7 +211,7 @@ export default function MyTable() {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      theme="dark"
+      theme="modern-dark"
       useHoverRowBackground={true}
       useOddEvenRowBackground={true}
       useOddColumnBackground={false}

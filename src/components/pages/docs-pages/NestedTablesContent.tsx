@@ -33,7 +33,7 @@ const NESTED_TABLE_PROPS: PropInfo[] = [
     autoExpandColumns: true,
     enableRowSelection: true,
     columnResizing: false,
-    theme: "dark",
+    theme: "modern-dark",
     shouldPaginate: true,
     pageSize: 10,
     // ... any other SimpleTable prop

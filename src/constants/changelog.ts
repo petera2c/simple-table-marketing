@@ -11,6 +11,46 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_4_7: ChangelogEntry = {
+  version: "2.4.7",
+  date: "2026-02-16",
+  title: "Column Resizing Enhancements & Modern Themes",
+  description:
+    "New column width change callback, double-click auto-size, modern themes, and sticky row fixes",
+  changes: [
+    {
+      type: "feature",
+      description: "onColumnWidthChange callback fires when columns are resized or auto-sized",
+      link: "/docs/column-resizing",
+    },
+    {
+      type: "feature",
+      description: "Double-click resize handles to auto-fit columns to content",
+      link: "/docs/column-resizing",
+    },
+    {
+      type: "feature",
+      description: "Added modern-light and modern-dark themes with clean, minimal design",
+      link: "/docs/themes",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed hover effects on sticky parent rows",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed horizontal scrolling on sticky rows",
+      link: "/docs/row-grouping",
+    },
+    {
+      type: "bugfix",
+      description: "Removed resize handle from last column when autoExpandColumns is enabled",
+      link: "/docs/column-width",
+    },
+  ],
+};
+
 export const v2_4_4: ChangelogEntry = {
   version: "2.4.4",
   date: "2026-02-11",
@@ -1322,6 +1362,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_4_7,
   v2_4_4,
   v2_4_3,
   v2_4_2,

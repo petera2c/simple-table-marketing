@@ -23,6 +23,8 @@ import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
 import { getExampleUrl } from "@/utils/getExampleUrl";
 import ContactModal from "@/components/ContactModal";
+import { mapThemeOptionToTheme, mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
+import { ThemeOption } from "@/types/theme";
 
 // Dynamically import heavy components that are below the fold or conditional
 const CodeBlock = dynamic(() => import("@/components/CodeBlock"), { ssr: false });
@@ -55,10 +57,15 @@ export default function HomeContent() {
   const { theme } = useThemeContext();
   const { stars } = useGitHubStars("petera2c", "simple-table");
   const [iconLibrary, setIconLibrary] = useState<IconLibrary>("default");
-  const [selectedTheme, setSelectedTheme] = useState<Theme>();
+  const [selectedTheme, setSelectedTheme] = useState<ThemeOption>();
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const tableIcons = getTableIcons(iconLibrary);
+  
+  // Map theme: if user selected a theme, use it; otherwise use modern version of website theme
+  const tableTheme = selectedTheme 
+    ? mapThemeOptionToTheme(selectedTheme)
+    : mapWebsiteThemeToTableTheme(theme);
 
   // FAQ Schema for AI visibility
   const faqSchema = {
@@ -363,7 +370,7 @@ export default function HomeContent() {
           ) : (
             <Suspense fallback={<div />}>
               <InfrastructureExample
-                theme={selectedTheme || theme}
+                theme={tableTheme}
                 height={"70dvh"}
                 {...tableIcons}
               />

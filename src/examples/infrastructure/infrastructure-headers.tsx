@@ -71,12 +71,26 @@ export const HEADERS: HeaderObject[] = [
             const level = getLevel();
 
             switch (theme) {
+              case "modern-dark":
+                return {
+                  critical: { color: "#fca5a5", backgroundColor: "rgba(127, 29, 29, 0.4)" },
+                  warning: { color: "#fcd34d", backgroundColor: "rgba(146, 64, 14, 0.4)" },
+                  moderate: { color: "#60a5fa", backgroundColor: "rgba(30, 64, 175, 0.3)" },
+                  good: { color: "#4ade80", backgroundColor: "rgba(21, 128, 61, 0.3)" },
+                }[level];
               case "dark":
                 return {
                   critical: { color: "#f87171", backgroundColor: "rgba(127, 29, 29, 0.3)" },
                   warning: { color: "#fbbf24", backgroundColor: "rgba(146, 64, 14, 0.3)" },
                   moderate: { color: "#60a5fa", backgroundColor: "rgba(30, 58, 138, 0.3)" },
                   good: { color: "#4ade80", backgroundColor: "rgba(20, 83, 45, 0.3)" },
+                }[level];
+              case "modern-light":
+                return {
+                  critical: { color: "#dc2626", backgroundColor: "#fee2e2" },
+                  warning: { color: "#d97706", backgroundColor: "#fef3c7" },
+                  moderate: { color: "#3b82f6", backgroundColor: "#dbeafe" },
+                  good: { color: "#16a34a", backgroundColor: "#dcfce7" },
                 }[level];
               case "sky":
                 return {
@@ -152,12 +166,26 @@ export const HEADERS: HeaderObject[] = [
             const level = getLevel();
 
             switch (theme) {
+              case "modern-dark":
+                return {
+                  critical: { color: "#fca5a5", backgroundColor: "rgba(127, 29, 29, 0.4)" },
+                  warning: { color: "#fcd34d", backgroundColor: "rgba(146, 64, 14, 0.4)" },
+                  moderate: { color: "#60a5fa", backgroundColor: "rgba(30, 64, 175, 0.3)" },
+                  good: { color: "#4ade80", backgroundColor: "rgba(21, 128, 61, 0.3)" },
+                }[level];
               case "dark":
                 return {
                   critical: { color: "#f87171", backgroundColor: "rgba(127, 29, 29, 0.3)" },
                   warning: { color: "#fbbf24", backgroundColor: "rgba(146, 64, 14, 0.3)" },
                   moderate: { color: "#60a5fa", backgroundColor: "rgba(30, 58, 138, 0.3)" },
                   good: { color: "#4ade80", backgroundColor: "rgba(20, 83, 45, 0.3)" },
+                }[level];
+              case "modern-light":
+                return {
+                  critical: { color: "#dc2626", backgroundColor: "#fee2e2" },
+                  warning: { color: "#d97706", backgroundColor: "#fef3c7" },
+                  moderate: { color: "#3b82f6", backgroundColor: "#dbeafe" },
+                  good: { color: "#16a34a", backgroundColor: "#dcfce7" },
                 }[level];
               case "sky":
                 return {
@@ -247,12 +275,26 @@ export const HEADERS: HeaderObject[] = [
             const level = getLevel();
 
             switch (theme) {
+              case "modern-dark":
+                return {
+                  critical: { color: "#fca5a5" },
+                  warning: { color: "#fcd34d" },
+                  moderate: { color: "#60a5fa" },
+                  good: { color: "#4ade80" },
+                }[level];
               case "dark":
                 return {
                   critical: { color: "#f87171" },
                   warning: { color: "#fbbf24" },
                   moderate: { color: "#60a5fa" },
                   good: { color: "#4ade80" },
+                }[level];
+              case "modern-light":
+                return {
+                  critical: { color: "#dc2626" },
+                  warning: { color: "#d97706" },
+                  moderate: { color: "#3b82f6" },
+                  good: { color: "#16a34a" },
                 }[level];
               case "sky":
                 return {
@@ -346,6 +388,39 @@ export const HEADERS: HeaderObject[] = [
         const type = getStatusType(status);
 
         switch (theme) {
+          case "modern-dark":
+            return {
+              online: {
+                color: "#6ee7b7",
+                backgroundColor: "rgba(6, 95, 70, 0.4)",
+                fontWeight: "600",
+              },
+              warning: {
+                color: "#fcd34d",
+                backgroundColor: "rgba(146, 64, 14, 0.4)",
+                fontWeight: "600",
+              },
+              critical: {
+                color: "#fca5a5",
+                backgroundColor: "rgba(153, 27, 27, 0.4)",
+                fontWeight: "600",
+              },
+              maintenance: {
+                color: "#93c5fd",
+                backgroundColor: "rgba(30, 64, 175, 0.4)",
+                fontWeight: "600",
+              },
+              offline: {
+                color: "#d1d5db",
+                backgroundColor: "rgba(75, 85, 99, 0.4)",
+                fontWeight: "600",
+              },
+              unknown: {
+                color: "#d1d5db",
+                backgroundColor: "rgba(75, 85, 99, 0.4)",
+                fontWeight: "600",
+              },
+            }[type];
           case "dark":
             return {
               online: {
@@ -378,6 +453,15 @@ export const HEADERS: HeaderObject[] = [
                 backgroundColor: "rgba(55, 65, 81, 0.4)",
                 fontWeight: "600",
               },
+            }[type];
+          case "modern-light":
+            return {
+              online: { color: "#16a34a", backgroundColor: "#dcfce7", fontWeight: "600" },
+              warning: { color: "#d97706", backgroundColor: "#fef3c7", fontWeight: "600" },
+              critical: { color: "#dc2626", backgroundColor: "#fee2e2", fontWeight: "600" },
+              maintenance: { color: "#3b82f6", backgroundColor: "#dbeafe", fontWeight: "600" },
+              offline: { color: "#6b7280", backgroundColor: "#f3f4f6", fontWeight: "600" },
+              unknown: { color: "#6b7280", backgroundColor: "#f3f4f6", fontWeight: "600" },
             }[type];
           case "sky":
             return {

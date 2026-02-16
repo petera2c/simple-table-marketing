@@ -2,9 +2,13 @@ import { SimpleTable, HeaderObject } from "simple-table-core";
 import "simple-table-core/styles.css";
 import { ThemeOption } from "@/types/theme";
 import { mapThemeOptionToTheme } from "@/utils/themeMapper";
+import { useState, useEffect } from "react";
 
-// Define headers with minimum and maximum widths
-const headers: HeaderObject[] = [
+// Storage key for persisting column widths
+const STORAGE_KEY = "columnResizingDemo_widths";
+
+// Define initial headers
+const initialHeaders: HeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "First Name", width: "1fr", minWidth: 100, type: "string" },
   { accessor: "age", label: "Age", width: "1fr", minWidth: 50, type: "string" },
@@ -120,14 +124,94 @@ const ColumnResizingDemo = ({
   height?: string | number;
   theme?: ThemeOption;
 }) => {
+  const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
+  const [saveMessage, setSaveMessage] = useState<string>("");
+
+  // Load saved column widths from localStorage on mount
+  useEffect(() => {
+    try {
+      const savedWidths = localStorage.getItem(STORAGE_KEY);
+      if (savedWidths) {
+        const widthMap = JSON.parse(savedWidths);
+        const updatedHeaders = initialHeaders.map((header) => ({
+          ...header,
+          width: widthMap[header.accessor] ?? header.width,
+        }));
+        setHeaders(updatedHeaders);
+      }
+    } catch (error) {
+      console.error("Failed to load saved column widths:", error);
+    }
+  }, []);
+
+  // Handle column width changes
+  const handleColumnWidthChange = (updatedHeaders: HeaderObject[]) => {
+    try {
+      // Extract widths into a simple object
+      const widthMap = updatedHeaders.reduce((acc, header) => {
+        acc[header.accessor] = header.width;
+        return acc;
+      }, {} as Record<string, number | string>);
+
+      // Save to localStorage
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(widthMap));
+
+      // Update headers state
+      setHeaders(updatedHeaders);
+
+      // Show save confirmation
+      setSaveMessage("Column widths saved! ✓");
+      setTimeout(() => setSaveMessage(""), 2000);
+    } catch (error) {
+      console.error("Failed to save column widths:", error);
+      setSaveMessage("Failed to save widths");
+      setTimeout(() => setSaveMessage(""), 2000);
+    }
+  };
+
   return (
-    <SimpleTable
-      columnResizing
-      defaultHeaders={headers}
-      rows={EMPLOYEE_DATA}
-      height={height}
-      theme={mapThemeOptionToTheme(theme)}
-    />
+    <div style={{ position: "relative", height: "100%" }}>
+      {saveMessage && (
+        <div
+          style={{
+            position: "absolute",
+            top: "8px",
+            right: "8px",
+            background: "#10b981",
+            color: "white",
+            padding: "8px 16px",
+            borderRadius: "6px",
+            fontSize: "14px",
+            fontWeight: "500",
+            zIndex: 1000,
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+            animation: "fadeIn 0.2s ease-in",
+          }}
+        >
+          {saveMessage}
+        </div>
+      )}
+      <SimpleTable
+        columnResizing
+        defaultHeaders={headers}
+        rows={EMPLOYEE_DATA}
+        height={height}
+        theme={mapThemeOptionToTheme(theme)}
+        onColumnWidthChange={handleColumnWidthChange}
+      />
+      <style jsx>{`
+        @keyframes fadeIn {
+          from {
+            opacity: 0;
+            transform: translateY(-10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+      `}</style>
+    </div>
   );
 };
 

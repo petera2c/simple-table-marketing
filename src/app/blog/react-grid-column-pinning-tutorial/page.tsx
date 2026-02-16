@@ -410,7 +410,7 @@ export default function CRMTable({ data }) {
       rows={data}
       
       height="500px"
-      theme="light"
+      theme="modern-light"
     />
   );
 }`}

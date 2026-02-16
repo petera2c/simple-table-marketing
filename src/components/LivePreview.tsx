@@ -6,6 +6,7 @@ import CodeBlock from "./CodeBlock";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
 import { ThemeOption } from "@/types/theme";
+import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
 
 interface LivePreviewProps {
   demoCodeFilename?: string;
@@ -29,7 +30,8 @@ const LivePreview = ({
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const { theme: contextTheme } = useThemeContext();
 
-  const currentTheme = selectedTheme || contextTheme;
+  // Use selected theme if provided, otherwise use modern version of website theme
+  const currentTheme = selectedTheme || mapWebsiteThemeToTableTheme(contextTheme);
 
   const codeButton = (
     <Tooltip title={isCodeVisible ? "Show preview" : "Show code"}>

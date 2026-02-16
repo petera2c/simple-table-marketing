@@ -209,7 +209,7 @@ export default function CustomizingDataGridsStylingEasyPage() {
   headerClassName="bg-gradient-to-r from-purple-500 to-pink-500 text-white"
   rowClassName="hover:bg-blue-50 transition-colors duration-200"
   cellClassName="border-b border-gray-100 px-4 py-3"
-  theme="light"
+  theme="modern-light"
 />`}
             </pre>
 
