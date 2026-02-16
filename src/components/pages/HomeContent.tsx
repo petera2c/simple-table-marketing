@@ -61,9 +61,9 @@ export default function HomeContent() {
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
   const tableIcons = getTableIcons(iconLibrary);
-  
+
   // Map theme: if user selected a theme, use it; otherwise use modern version of website theme
-  const tableTheme = selectedTheme 
+  const tableTheme = selectedTheme
     ? mapThemeOptionToTheme(selectedTheme)
     : mapWebsiteThemeToTableTheme(theme);
 
@@ -210,10 +210,6 @@ export default function HomeContent() {
     router.push("/docs/installation");
   };
 
-  const handleExamplesClick = () => {
-    router.push(getExampleUrl(DEFAULT_EXAMPLE_PATH, theme));
-  };
-
   return (
     <PageWrapper>
       <AIVisibilityEnhancer pageType="home" />
@@ -341,10 +337,7 @@ export default function HomeContent() {
               transition={{ duration: 0.5, delay: 0.7 }}
             >
               <span className="text-sm text-gray-600 dark:text-gray-300">Theme:</span>
-              <ThemeSelector
-                currentTheme={selectedTheme || theme}
-                setCurrentTheme={setSelectedTheme}
-              />
+              <ThemeSelector currentTheme={selectedTheme} setCurrentTheme={setSelectedTheme} />
             </motion.div>
             <motion.div
               className="flex items-center gap-2"
@@ -369,11 +362,7 @@ export default function HomeContent() {
             <CodeBlock demoCodeFilename="InfrastructureExample.txt" />
           ) : (
             <Suspense fallback={<div />}>
-              <InfrastructureExample
-                theme={tableTheme}
-                height={"70dvh"}
-                {...tableIcons}
-              />
+              <InfrastructureExample theme={tableTheme} height={"70dvh"} {...tableIcons} />
             </Suspense>
           )}
         </motion.section>
