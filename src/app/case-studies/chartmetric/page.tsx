@@ -106,7 +106,7 @@ export default function ChartMetricCaseStudyPage() {
           {/* Key Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
             <div className="bg-gradient-to-br from-green-50 to-green-100 dark:from-green-900 dark:to-green-800 rounded-lg p-6">
-              <div className="text-3xl font-bold text-green-700 dark:text-green-200 mb-2">
+              <div className="text-2xl font-bold text-green-700 dark:text-green-200 mb-2">
                 $19K+
               </div>
               <div className="text-sm text-green-600 dark:text-green-300">
@@ -114,17 +114,17 @@ export default function ChartMetricCaseStudyPage() {
               </div>
             </div>
             <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900 dark:to-blue-800 rounded-lg p-6">
-              <div className="text-3xl font-bold text-blue-700 dark:text-blue-200 mb-2">99%</div>
+              <div className="text-2xl font-bold text-blue-700 dark:text-blue-200 mb-2">99%</div>
               <div className="text-sm text-blue-600 dark:text-blue-300">
                 Customization needs met
               </div>
             </div>
             <div className="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900 dark:to-purple-800 rounded-lg p-6">
-              <div className="text-3xl font-bold text-purple-700 dark:text-purple-200 mb-2">
-                Days
+              <div className="text-2xl font-bold text-purple-700 dark:text-purple-200 mb-2">
+                Highly Responsive
               </div>
               <div className="text-sm text-purple-600 dark:text-purple-300">
-                Response time for bug fixes
+                Support & bug fixes
               </div>
             </div>
           </div>

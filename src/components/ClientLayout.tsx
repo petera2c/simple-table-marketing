@@ -12,11 +12,13 @@ const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
     <QueryProvider>
       <div
-        id="main-scroll-container"
-        className="h-screen flex flex-col overflow-auto transition-colors duration-200 bg-white dark:bg-gray-900"
+        className="h-screen flex flex-col transition-colors duration-200 bg-white dark:bg-gray-900"
       >
         <Header />
-        <div className="w-full flex-grow z-10 text-gray-800 dark:text-white">
+        <div
+          id="main-scroll-container"
+          className="w-full flex-grow z-10 text-gray-800 dark:text-white overflow-auto"
+        >
           <main className="flex-grow">{children}</main>
           <Footer />
         </div>

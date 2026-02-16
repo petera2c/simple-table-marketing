@@ -56,10 +56,10 @@ export default function CaseStudySection() {
             </div>
             <div className="bg-white dark:bg-gray-800 rounded-lg p-4 text-center">
               <div className="text-2xl font-bold text-purple-600 dark:text-purple-400 mb-1">
-                Days
+                Highly Responsive
               </div>
               <div className="text-sm text-gray-600 dark:text-gray-400">
-                Response time for fixes
+                Support & bug fixes
               </div>
             </div>
           </div>
