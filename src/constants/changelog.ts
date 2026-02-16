@@ -11,8 +11,8 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v2_4_7: ChangelogEntry = {
-  version: "2.4.7",
+export const v2_4_8: ChangelogEntry = {
+  version: "2.4.8",
   date: "2026-02-16",
   title: "Column Resizing Enhancements & Modern Themes",
   description:
@@ -1362,7 +1362,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v2_4_7,
+  v2_4_8,
   v2_4_4,
   v2_4_3,
   v2_4_2,
