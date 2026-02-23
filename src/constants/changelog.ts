@@ -11,6 +11,46 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_5_0: ChangelogEntry = {
+  version: "2.5.0",
+  date: "2026-02-22",
+  title: "Column Pinning & Resizing Improvements",
+  description:
+    "Major refactor of autoExpandColumns feature with enhanced column auto-sizing logic and fixed column resizing behavior with pinned columns and nested headers",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed column resizing when pinned sections reach max width",
+      link: "/docs/column-pinning",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed double-resize issue on chart columns",
+      link: "/docs/chart-columns",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed pinned columns behavior with nested headers",
+      link: "/docs/column-pinning",
+    },
+    {
+      type: "bugfix",
+      description: "Fixed pinned columns compatibility with autoExpandColumns",
+      link: "/docs/column-pinning",
+    },
+    {
+      type: "improvement",
+      description: "Enhanced column auto-sizing logic and constraints",
+      link: "/docs/column-width",
+    },
+    {
+      type: "improvement",
+      description: "Improved resize behavior across pinned and main sections",
+      link: "/docs/column-resizing",
+    },
+  ],
+};
+
 export const v2_4_8: ChangelogEntry = {
   version: "2.4.8",
   date: "2026-02-16",
@@ -1362,6 +1402,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_5_0,
   v2_4_8,
   v2_4_4,
   v2_4_3,
