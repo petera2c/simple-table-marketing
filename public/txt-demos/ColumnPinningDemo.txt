@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define all headers with pinned status
 const headers: HeaderObject[] = [
@@ -189,7 +187,7 @@ const ColumnPinningDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   return (
     <SimpleTable
@@ -197,7 +195,7 @@ const ColumnPinningDemo = ({
       defaultHeaders={headers}
       height={height}
       rows={EMPLOYEE_DATA}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

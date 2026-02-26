@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -382,14 +380,14 @@ const FooterRendererDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   // Theme-aware color scheme
   const isModernDark = theme === "modern-dark";
   const isDark = theme === "dark" || isModernDark;
   const isModernLight = theme === "modern-light";
   const isLight = theme === "light" || isModernLight;
-  
+
   const footerColors = isModernDark
     ? {
         background: "#1f2937",
@@ -402,37 +400,37 @@ const FooterRendererDemo = ({
         buttonDisabled: "#6b7280",
       }
     : isDark
-    ? {
-        background: "#1f2937",
-        border: "#374151",
-        text: "#e5e7eb",
-        buttonBg: "#374151",
-        buttonBorder: "#4b5563",
-        buttonActive: "#3b82f6",
-        buttonText: "#d1d5db",
-        buttonDisabled: "#6b7280",
-      }
-    : isLight
-    ? {
-        background: "white",
-        border: "#f3f4f6",
-        text: "#6b7280",
-        buttonBg: "white",
-        buttonBorder: "#e5e7eb",
-        buttonActive: "#3b82f6",
-        buttonText: "#374151",
-        buttonDisabled: "#d1d5db",
-      }
-    : {
-        background: "#f8fafc",
-        border: "#e2e8f0",
-        text: "#475569",
-        buttonBg: "white",
-        buttonBorder: "#e2e8f0",
-        buttonActive: "#3b82f6",
-        buttonText: "#64748b",
-        buttonDisabled: "#cbd5e1",
-      };
+      ? {
+          background: "#1f2937",
+          border: "#374151",
+          text: "#e5e7eb",
+          buttonBg: "#374151",
+          buttonBorder: "#4b5563",
+          buttonActive: "#3b82f6",
+          buttonText: "#d1d5db",
+          buttonDisabled: "#6b7280",
+        }
+      : isLight
+        ? {
+            background: "white",
+            border: "#f3f4f6",
+            text: "#6b7280",
+            buttonBg: "white",
+            buttonBorder: "#e5e7eb",
+            buttonActive: "#3b82f6",
+            buttonText: "#374151",
+            buttonDisabled: "#d1d5db",
+          }
+        : {
+            background: "#f8fafc",
+            border: "#e2e8f0",
+            text: "#475569",
+            buttonBg: "white",
+            buttonBorder: "#e2e8f0",
+            buttonActive: "#3b82f6",
+            buttonText: "#64748b",
+            buttonDisabled: "#cbd5e1",
+          };
 
   return (
     <SimpleTable
@@ -441,7 +439,7 @@ const FooterRendererDemo = ({
       shouldPaginate={true}
       rowsPerPage={10}
       height={height}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
       footerRenderer={({
         currentPage,
         startRow,

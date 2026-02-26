@@ -1,8 +1,6 @@
 import { useRef } from "react";
-import { SimpleTable, HeaderObject, TableRefType } from "simple-table-core";
+import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers with new CSV formatting features
 const headers: HeaderObject[] = [
@@ -230,7 +228,7 @@ const CSVExportDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const tableRef = useRef<TableRefType>(null);
 
@@ -252,7 +250,7 @@ const CSVExportDemo = ({
         `Total Revenue: $${totalRevenue.toLocaleString("en-US", {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
-        })}`
+        })}`,
     );
   };
 
@@ -281,7 +279,7 @@ const CSVExportDemo = ({
           rowHeight: 32,
         }}
         selectableCells
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
         tableRef={tableRef}
       />
     </div>

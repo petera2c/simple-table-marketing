@@ -1,8 +1,6 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Sample data
 const EMPLOYEE_DATA = [
@@ -109,7 +107,7 @@ const ColumnEditingDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
   const [, setLastAction] = useState<string>("");
@@ -169,7 +167,7 @@ const ColumnEditingDemo = ({
         ),
       },
     ],
-    [additionalColumns]
+    [additionalColumns],
   );
 
   const handleHeaderEdit = (header: HeaderObject, newLabel: string) => {
@@ -184,7 +182,7 @@ const ColumnEditingDemo = ({
       onHeaderEdit={handleHeaderEdit}
       rows={EMPLOYEE_DATA}
       selectableColumns={true}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

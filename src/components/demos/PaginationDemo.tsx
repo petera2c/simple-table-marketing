@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const ROWS_PER_PAGE = 9;
 const HEADERS: HeaderObject[] = [
@@ -417,7 +415,7 @@ const ROWS = [
   },
 ];
 
-const PaginationDemo = ({ theme }: { theme?: ThemeOption }) => {
+const PaginationDemo = ({ theme }: { theme?: Theme }) => {
   // Only hold the current page data, not all data
   const [rows, setRows] = useState(ROWS.slice(0, ROWS_PER_PAGE));
   const [isLoading, setIsLoading] = useState(false);
@@ -450,7 +448,7 @@ const PaginationDemo = ({ theme }: { theme?: ThemeOption }) => {
       rows={rows}
       rowsPerPage={ROWS_PER_PAGE}
       shouldPaginate
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

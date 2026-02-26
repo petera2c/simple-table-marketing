@@ -13,6 +13,7 @@ import {
   faTable,
 } from "@fortawesome/free-solid-svg-icons";
 import ThemeSelector from "@/components/ThemeSelector";
+import { Theme } from "simple-table-core";
 import IconLibrarySelector from "@/components/IconLibrarySelector";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
 import { ReactNode } from "react";
@@ -137,7 +138,7 @@ export default function ExampleControls({ codeButton, sandboxButton }: ExampleCo
             currentTheme={currentTheme}
             setCurrentTheme={handleThemeChange}
             restrictedThemes={
-              currentExample.id === "crm" ? ["custom-dark", "custom-light"] : undefined
+              currentExample.id === "crm" ? (["custom-dark", "custom-light"] as any[]) : undefined
             }
             themeLabels={
               currentExample.id === "crm"

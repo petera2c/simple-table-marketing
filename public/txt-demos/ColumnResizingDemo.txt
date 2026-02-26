@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 import { useState, useEffect } from "react";
 
 // Storage key for persisting column widths
@@ -122,7 +120,7 @@ const ColumnResizingDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
   const [saveMessage, setSaveMessage] = useState<string>("");
@@ -148,10 +146,13 @@ const ColumnResizingDemo = ({
   const handleColumnWidthChange = (updatedHeaders: HeaderObject[]) => {
     try {
       // Extract widths into a simple object
-      const widthMap = updatedHeaders.reduce((acc, header) => {
-        acc[header.accessor] = header.width;
-        return acc;
-      }, {} as Record<string, number | string>);
+      const widthMap = updatedHeaders.reduce(
+        (acc, header) => {
+          acc[header.accessor] = header.width;
+          return acc;
+        },
+        {} as Record<string, number | string>,
+      );
 
       // Save to localStorage
       localStorage.setItem(STORAGE_KEY, JSON.stringify(widthMap));
@@ -196,7 +197,7 @@ const ColumnResizingDemo = ({
         defaultHeaders={headers}
         rows={EMPLOYEE_DATA}
         height={height}
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
         onColumnWidthChange={handleColumnWidthChange}
       />
       <style jsx>{`

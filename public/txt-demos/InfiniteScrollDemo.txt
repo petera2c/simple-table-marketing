@@ -1,8 +1,6 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import { useState, useCallback } from "react";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -97,7 +95,7 @@ const InfiniteScrollDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const [rows, setRows] = useState(initialData);
   const [loading, setLoading] = useState(false);
@@ -137,7 +135,7 @@ const InfiniteScrollDemo = ({
         rows={rows}
         height={height}
         onLoadMore={handleLoadMore}
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
       />
 
       {loading && (

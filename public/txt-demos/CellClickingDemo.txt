@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, CellClickProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, CellClickProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 type ProjectTask = {
   id: number;
@@ -61,14 +59,14 @@ const headers: HeaderObject[] = [
             row.status === "Completed"
               ? "#dcfce7"
               : row.status === "In Progress"
-              ? "#fef3c7"
-              : "#fee2e2",
+                ? "#fef3c7"
+                : "#fee2e2",
           color:
             row.status === "Completed"
               ? "#166534"
               : row.status === "In Progress"
-              ? "#92400e"
-              : "#991b1b",
+                ? "#92400e"
+                : "#991b1b",
           padding: "4px 8px",
           borderRadius: "4px",
           fontSize: "12px",
@@ -207,7 +205,7 @@ const PROJECT_TASKS: ProjectTask[] = [
   },
 ];
 
-const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOption }) => {
+const CellClickingDemo = ({ theme }: { height?: string | number; theme?: Theme }) => {
   const [clickInfo, setClickInfo] = useState<string>("");
   const [selectedTask, setSelectedTask] = useState<ProjectTask | null>(null);
   const [priorityFilter, setPriorityFilter] = useState<string>("");
@@ -243,7 +241,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
             : filtered;
         });
         setClickInfo(
-          `🎯 ${newFilter ? `Filtering by ${value} priority` : "Cleared priority filter"}`
+          `🎯 ${newFilter ? `Filtering by ${value} priority` : "Cleared priority filter"}`,
         );
         break;
 
@@ -262,8 +260,8 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
 
         setRows(() =>
           PROJECT_TASKS.map((item) =>
-            item.id === task.id ? { ...item, status: nextStatus } : item
-          )
+            item.id === task.id ? { ...item, status: nextStatus } : item,
+          ),
         );
 
         setClickInfo(`⚡ Status changed from "${value}" to "${nextStatus}"`);
@@ -282,7 +280,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         setClickInfo(
           `📅 Due: ${value} ${
             dueSoon ? "⚠️ (Due soon!)" : daysUntilDue < 0 ? "❌ (Overdue!)" : "✅"
-          }`
+          }`,
         );
         break;
 
@@ -299,11 +297,11 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
 
         setRows((prev) =>
           PROJECT_TASKS.map((item) =>
-            item.id === task.id ? { ...item, estimatedHours: newEstimated } : item
-          )
+            item.id === task.id ? { ...item, estimatedHours: newEstimated } : item,
+          ),
         );
         setClickInfo(
-          `⏱️ Estimated hours increased from ${task.estimatedHours}h to ${newEstimated}h`
+          `⏱️ Estimated hours increased from ${task.estimatedHours}h to ${newEstimated}h`,
         );
         break;
 
@@ -320,20 +318,20 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
 
         setRows(() =>
           PROJECT_TASKS.map((item) =>
-            item.id === task.id ? { ...item, completedHours: newCompleted } : item
-          )
+            item.id === task.id ? { ...item, completedHours: newCompleted } : item,
+          ),
         );
         const newProgress = (newCompleted / task.estimatedHours) * 100;
         setClickInfo(
           `⏱️ Progress updated: ${newCompleted}h / ${task.estimatedHours}h (${newProgress.toFixed(
-            1
-          )}%)`
+            1,
+          )}%)`,
         );
         break;
 
       default:
         setClickInfo(
-          `Clicked ${accessor}: ${value} in row ${rowIndex + 1}, column ${colIndex + 1}`
+          `Clicked ${accessor}: ${value} in row ${rowIndex + 1}, column ${colIndex + 1}`,
         );
     }
   };
@@ -347,7 +345,12 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         style={{
           marginTop: "16px",
           padding: "12px",
-          backgroundColor: theme === "modern-dark" || theme === "dark" ? "#374151" : theme === "modern-light" || theme === "light" ? "white" : "#f3f4f6",
+          backgroundColor:
+            theme === "modern-dark" || theme === "dark"
+              ? "#374151"
+              : theme === "modern-light" || theme === "light"
+                ? "white"
+                : "#f3f4f6",
           borderRadius: "8px",
           border: `1px solid ${theme === "modern-dark" || theme === "dark" ? "#4b5563" : theme === "modern-light" || theme === "light" ? "#e5e7eb" : "#d1d5db"}`,
           minHeight: "48px",
@@ -355,10 +358,24 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
           alignItems: "center",
         }}
       >
-        <strong style={{ marginRight: "8px", color: theme === "modern-dark" || theme === "dark" ? "#f9fafb" : "#1f2937" }}>
+        <strong
+          style={{
+            marginRight: "8px",
+            color: theme === "modern-dark" || theme === "dark" ? "#f9fafb" : "#1f2937",
+          }}
+        >
           Last Click:
         </strong>
-        <span style={{ color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+        <span
+          style={{
+            color:
+              theme === "modern-dark" || theme === "dark"
+                ? "#d1d5db"
+                : theme === "modern-light" || theme === "light"
+                  ? "#6b7280"
+                  : "#4b5563",
+          }}
+        >
           {clickInfo || "Click any cell to see interaction details..."}
         </span>
       </div>
@@ -400,19 +417,69 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
             >
               Task Details
             </h3>
-            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+            <p
+              style={{
+                margin: "8px 0",
+                color:
+                  theme === "modern-dark" || theme === "dark"
+                    ? "#d1d5db"
+                    : theme === "modern-light" || theme === "light"
+                      ? "#6b7280"
+                      : "#4b5563",
+              }}
+            >
               <strong>Task:</strong> {selectedTask.task}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+            <p
+              style={{
+                margin: "8px 0",
+                color:
+                  theme === "modern-dark" || theme === "dark"
+                    ? "#d1d5db"
+                    : theme === "modern-light" || theme === "light"
+                      ? "#6b7280"
+                      : "#4b5563",
+              }}
+            >
               <strong>Details:</strong> {selectedTask.details}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+            <p
+              style={{
+                margin: "8px 0",
+                color:
+                  theme === "modern-dark" || theme === "dark"
+                    ? "#d1d5db"
+                    : theme === "modern-light" || theme === "light"
+                      ? "#6b7280"
+                      : "#4b5563",
+              }}
+            >
               <strong>Assignee:</strong> {selectedTask.assignee}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+            <p
+              style={{
+                margin: "8px 0",
+                color:
+                  theme === "modern-dark" || theme === "dark"
+                    ? "#d1d5db"
+                    : theme === "modern-light" || theme === "light"
+                      ? "#6b7280"
+                      : "#4b5563",
+              }}
+            >
               <strong>Status:</strong> {selectedTask.status}
             </p>
-            <p style={{ margin: "8px 0", color: theme === "modern-dark" || theme === "dark" ? "#d1d5db" : theme === "modern-light" || theme === "light" ? "#6b7280" : "#4b5563" }}>
+            <p
+              style={{
+                margin: "8px 0",
+                color:
+                  theme === "modern-dark" || theme === "dark"
+                    ? "#d1d5db"
+                    : theme === "modern-light" || theme === "light"
+                      ? "#6b7280"
+                      : "#4b5563",
+              }}
+            >
               <strong>Priority:</strong> {selectedTask.priority}
             </p>
             <button
@@ -439,7 +506,7 @@ const CellClickingDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         height={"320px"}
         onCellClick={handleCellClick}
         rows={rows}
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
       />
     </div>
   );

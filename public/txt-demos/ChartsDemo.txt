@@ -1,13 +1,11 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Generate sample data with trends
 const generateTrendData = (
   baseValue: number,
   volatility: number,
-  length: number = 12
+  length: number = 12,
 ): number[] => {
   const data: number[] = [];
   let current = baseValue;
@@ -208,7 +206,13 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ChartsDemo = ({ height = "400px", theme }: { height?: string | number; theme?: ThemeOption }) => {
+const ChartsDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       columnReordering
@@ -217,7 +221,7 @@ const ChartsDemo = ({ height = "400px", theme }: { height?: string | number; the
       rows={CHARTS_DATA}
       selectableCells
       height={height}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

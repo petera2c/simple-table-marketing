@@ -1,8 +1,6 @@
 import React, { useMemo, useState } from "react";
-import { SimpleTable, HeaderObject, HeaderRendererProps } from "simple-table-core";
+import { SimpleTable, HeaderObject, HeaderRendererProps, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Initial astronomical data
 const INITIAL_STAR_DATA = [
@@ -109,11 +107,11 @@ const HeaderRendererDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const [starData, setStarData] = useState(INITIAL_STAR_DATA);
   const [sortConfig, setSortConfig] = useState<{ key: string; direction: "asc" | "desc" } | null>(
-    null
+    null,
   );
 
   const handleSort = (key: string) => {
@@ -150,7 +148,7 @@ const HeaderRendererDemo = ({
   };
 
   // Theme-based color configuration
-  const getThemeColors = (theme?: ThemeOption) => {
+  const getThemeColors = (theme?: Theme) => {
     switch (theme) {
       case "modern-dark":
         return {
@@ -302,7 +300,7 @@ const HeaderRendererDemo = ({
         headerRenderer: createHeaderRenderer("distanceLY", "Distance"),
       },
     ],
-    [sortConfig, theme]
+    [sortConfig, theme],
   );
 
   return (
@@ -312,7 +310,7 @@ const HeaderRendererDemo = ({
       height={height}
       rows={starData}
       selectableCells
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

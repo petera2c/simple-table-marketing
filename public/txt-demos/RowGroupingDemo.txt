@@ -1,8 +1,6 @@
 import { useRef } from "react";
-import { SimpleTable, HeaderObject, TableRefType } from "simple-table-core";
+import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const headers: HeaderObject[] = [
   { accessor: "organization", label: "Organization", width: 200, expandable: true, type: "string" },
@@ -418,7 +416,7 @@ const RowGroupingDemo = ({
 }: {
   expandAll: boolean;
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const tableRef = useRef<TableRefType>(null);
 
@@ -547,7 +545,7 @@ const RowGroupingDemo = ({
         rowGrouping={["divisions", "departments"]}
         rows={rows}
         tableRef={tableRef}
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
       />
     </div>
   );

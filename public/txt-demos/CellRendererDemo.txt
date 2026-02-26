@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers with custom cell renderers
 const headers: HeaderObject[] = [
@@ -149,8 +147,8 @@ const headers: HeaderObject[] = [
                     i < fullStars
                       ? "#FBBF24"
                       : i === fullStars && hasHalfStar
-                      ? "#FBBF24"
-                      : "#D1D5DB",
+                        ? "#FBBF24"
+                        : "#D1D5DB",
                   opacity: i === fullStars && hasHalfStar ? 0.5 : 1,
                 }}
               >
@@ -376,7 +374,7 @@ const CellRendererDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   return (
     <SimpleTable
@@ -384,7 +382,7 @@ const CellRendererDemo = ({
       height={height}
       rows={EMPLOYEE_DATA}
       selectableCells
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
       customTheme={{
         rowHeight: 48,
       }}

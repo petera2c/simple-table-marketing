@@ -5,16 +5,16 @@ import { ReactNode, useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
-import { ThemeOption } from "@/types/theme";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
+import { Theme } from "simple-table-core";
 
 interface LivePreviewProps {
+  Preview: ({ height, theme }: { height?: string | number; theme?: Theme }) => JSX.Element;
   demoCodeFilename?: string;
+  demoHeight?: string | number;
   height?: string | number;
   link: string;
-  Preview: ({ height, theme }: { height?: string | number; theme?: ThemeOption }) => JSX.Element;
-  demoHeight?: string | number;
-  selectedTheme?: ThemeOption;
+  selectedTheme?: Theme;
   titleRenderer?: (buttons: { codeButton: ReactNode; sandboxButton: ReactNode }) => ReactNode;
 }
 

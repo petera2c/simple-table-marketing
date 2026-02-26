@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 const EXAMPLE_DATA = [
   {
@@ -192,7 +190,13 @@ const HEADERS: HeaderObject[] = [
   },
 ];
 
-const TooltipDemo = ({ height = "400px", theme }: { height?: string | number; theme?: ThemeOption }) => {
+const TooltipDemo = ({
+  height = "400px",
+  theme,
+}: {
+  height?: string | number;
+  theme?: Theme;
+}) => {
   return (
     <SimpleTable
       defaultHeaders={HEADERS}
@@ -201,7 +205,7 @@ const TooltipDemo = ({ height = "400px", theme }: { height?: string | number; th
       columnResizing
       columnReordering
       selectableCells
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

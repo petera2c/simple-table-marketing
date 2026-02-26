@@ -1,8 +1,6 @@
 import { useRef, useState } from "react";
-import { SimpleTable, HeaderObject, TableRefType } from "simple-table-core";
+import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers with various types for comprehensive testing
 const headers: HeaderObject[] = [
@@ -192,7 +190,7 @@ const ProgrammaticControlDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const tableRef = useRef<TableRefType>(null);
   const [statusMessage, setStatusMessage] = useState<string>("");
@@ -241,7 +239,7 @@ const ProgrammaticControlDemo = ({
         `Total Inventory Value: $${totalValue.toLocaleString("en-US", {
           minimumFractionDigits: 2,
           maximumFractionDigits: 2,
-        })}`
+        })}`,
     );
   };
 
@@ -299,7 +297,7 @@ const ProgrammaticControlDemo = ({
         rows={PRODUCT_DATA}
         tableRef={tableRef}
         height={height}
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
       />
     </div>
   );

@@ -3,17 +3,17 @@
 import { createContext, useContext, ReactNode } from "react";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useThemeContext } from "@/providers/ThemeProvider";
-import { ThemeOption } from "@/types/theme";
 import { IconLibrary } from "@/utils/getTableIcons";
 import { useEffect } from "react";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
+import { Theme } from "simple-table-core";
 
 interface ExamplesContextType {
-  currentTheme: ThemeOption;
+  currentTheme: Theme;
   currentRowCount: number;
   currentIconLibrary: IconLibrary;
   currentExampleId: string;
-  handleThemeChange: (theme: ThemeOption) => void;
+  handleThemeChange: (theme: Theme) => void;
   handleRowCountChange: (rowCount: number) => void;
   handleIconLibraryChange: (iconLibrary: IconLibrary) => void;
   handleExampleChange: (examplePath: string) => void;
@@ -28,14 +28,14 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
   const { theme } = useThemeContext();
 
   // Use URL param theme if set, otherwise use modern version of website theme
-  const currentTheme = (searchParams?.get("theme") as ThemeOption) || mapWebsiteThemeToTableTheme(theme);
+  const currentTheme = (searchParams?.get("theme") as any) || mapWebsiteThemeToTableTheme(theme);
   const currentRowCount = parseInt(searchParams?.get("rows") || "1000");
   const currentIconLibrary = (searchParams?.get("icons") as IconLibrary) || "default";
 
   // Determine current example ID from pathname
   const currentExampleId = pathname?.split("/examples/")[1]?.split("/")[0] || "crm";
 
-  const handleThemeChange = (newTheme: ThemeOption) => {
+  const handleThemeChange = (newTheme: Theme) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
     params.set("theme", newTheme);
     router.replace(`${pathname}?${params.toString()}`);
@@ -55,7 +55,7 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
 
   const handleExampleChange = (examplePath: string) => {
     const params = new URLSearchParams(searchParams?.toString() || "");
-    
+
     // Determine the target example from the path
     const targetExampleId = examplePath.split("/examples/")[1]?.split("/")[0];
 
@@ -88,7 +88,7 @@ export function ExamplesProvider({ children }: { children: ReactNode }) {
       // CRM example
       const expectedTheme = theme === "dark" ? "custom-dark" : "custom-light";
       if (currentTheme !== "custom-light" && currentTheme !== "custom-dark") {
-        handleThemeChange(expectedTheme);
+        handleThemeChange(expectedTheme as Theme);
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -1,9 +1,16 @@
 import { Select } from "antd";
-import { ThemeOption } from "@/types/theme";
 import { Theme } from "simple-table-core";
 import { useThemeContext } from "@/providers/ThemeProvider";
 
-const THEME_OPTIONS: Theme[] = ["modern-light", "modern-dark", "light", "dark", "sky", "violet", "neutral"];
+const THEME_OPTIONS: Theme[] = [
+  "modern-light",
+  "modern-dark",
+  "light",
+  "dark",
+  "sky",
+  "violet",
+  "neutral",
+];
 
 const DEFAULT_THEME_LABELS: Record<string, string> = {
   "modern-light": "Modern Light",
@@ -21,17 +28,17 @@ const ThemeSelector = ({
   restrictedThemes,
   themeLabels,
 }: {
-  currentTheme?: ThemeOption;
+  currentTheme?: Theme;
   setCurrentTheme: (theme: Theme) => void;
-  restrictedThemes?: ThemeOption[];
+  restrictedThemes?: Theme[];
   themeLabels?: Record<string, string>;
 }) => {
   const { theme: websiteTheme } = useThemeContext();
-  
+
   // Default to modern-dark if website theme is dark, otherwise modern-light
   const defaultTheme = websiteTheme === "dark" ? "modern-dark" : "modern-light";
   const effectiveTheme = currentTheme || defaultTheme;
-  
+
   const availableThemes = restrictedThemes || THEME_OPTIONS;
   const labels = { ...DEFAULT_THEME_LABELS, ...themeLabels };
 

@@ -1,7 +1,5 @@
-import { SimpleTable, HeaderObject, QuickFilterMode } from "simple-table-core";
+import { SimpleTable, HeaderObject, QuickFilterMode, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Sample data with variety for testing quick filter
 const sampleData = [
@@ -164,7 +162,7 @@ const QuickFilterDemo = ({
   caseSensitive = false,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
   searchText?: string;
   filterMode?: QuickFilterMode;
   caseSensitive?: boolean;
@@ -179,7 +177,7 @@ const QuickFilterDemo = ({
         caseSensitive: caseSensitive,
       }}
       height={height}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

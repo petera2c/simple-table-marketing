@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers for the demo
 const initialHeaders: HeaderObject[] = [
@@ -124,11 +122,11 @@ const ColumnReorderingDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
   const [, setCurrentColumnOrder] = useState<string>(
-    initialHeaders.map((header) => header.accessor).join(", ")
+    initialHeaders.map((header) => header.accessor).join(", "),
   );
 
   const handleColumnOrderChange = (newHeaders: HeaderObject[]) => {
@@ -143,7 +141,7 @@ const ColumnReorderingDemo = ({
       height={height}
       rows={EMPLOYEE_DATA}
       onColumnOrderChange={handleColumnOrderChange}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

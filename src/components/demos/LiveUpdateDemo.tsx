@@ -1,8 +1,6 @@
-import { SimpleTable, TableRefType, HeaderObject } from "simple-table-core";
+import { SimpleTable, TableRefType, HeaderObject, Theme } from "simple-table-core";
 import { useRef, useEffect } from "react";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 // Define headers
 const headers: HeaderObject[] = [
@@ -191,7 +189,7 @@ const LiveUpdateDemo = ({
   theme,
 }: {
   height?: string | number;
-  theme?: ThemeOption;
+  theme?: Theme;
 }) => {
   // Keep a local copy of the data to update
   const tableRef = useRef<TableRefType | null>(null);
@@ -226,7 +224,7 @@ const LiveUpdateDemo = ({
 
           // Find the current row in data
           const actualRowIndex = currentData.findIndex(
-            (row: (typeof initialData)[0]) => row.id === rowId
+            (row: (typeof initialData)[0]) => row.id === rowId,
           );
           if (actualRowIndex === -1) {
             return;
@@ -379,7 +377,7 @@ const LiveUpdateDemo = ({
       rows={initialData}
       tableRef={tableRef}
       height={height}
-      theme={mapThemeOptionToTheme(theme)}
+      theme={theme}
     />
   );
 };

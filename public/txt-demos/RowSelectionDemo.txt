@@ -1,8 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
 import "simple-table-core/styles.css";
-import { ThemeOption } from "@/types/theme";
-import { mapThemeOptionToTheme } from "@/utils/themeMapper";
 
 type LibraryBook = {
   id: number;
@@ -207,7 +205,7 @@ const LIBRARY_BOOKS: LibraryBook[] = [
   },
 ];
 
-const RowSelectionDemo = ({ theme }: { height?: string | number; theme?: ThemeOption }) => {
+const RowSelectionDemo = ({ theme }: { height?: string | number; theme?: Theme }) => {
   const [selectedRowsInfo, setSelectedRowsInfo] = useState<LibraryBook[]>([]);
   const [lastAction, setLastAction] = useState<string>("");
 
@@ -279,7 +277,7 @@ const RowSelectionDemo = ({ theme }: { height?: string | number; theme?: ThemeOp
         enableRowSelection={true}
         onRowSelectionChange={handleRowSelectionChange}
         height="348px"
-        theme={mapThemeOptionToTheme(theme)}
+        theme={theme}
         columnResizing={true}
         columnReordering={true}
         selectableCells={true}
