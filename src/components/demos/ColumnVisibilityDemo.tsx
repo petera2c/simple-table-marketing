@@ -8,7 +8,20 @@ const STORAGE_KEY = "columnVisibilityDemo";
 
 // Define base headers structure
 const BASE_HEADERS: HeaderObject[] = [
-  { accessor: "id", label: "ID", width: 60, type: "number" },
+  {
+    accessor: "id",
+    label: "ID",
+    width: 60,
+    type: "number",
+    columnEditorRowRenderer: ({ components }) => (
+      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+        {components?.dragIcon}
+        {components?.expandIcon}
+        {components?.labelContent}
+        {components?.checkbox}
+      </div>
+    ),
+  },
   { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
   { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
   { accessor: "role", label: "Role", width: 150, type: "string" },

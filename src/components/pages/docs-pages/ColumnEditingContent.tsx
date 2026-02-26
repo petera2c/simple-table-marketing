@@ -229,7 +229,14 @@ const ColumnEditingContent = () => {
     searchPlaceholder: "Search columns...", // Search placeholder
     searchFunction: (header, searchTerm) => { // Optional: custom search logic
       return header.label.toLowerCase().includes(searchTerm.toLowerCase());
-    }
+    },
+    rowRenderer: ({ components }) => (    // Optional: custom row layout
+      <div style={{ display: 'flex', gap: '8px' }}>
+        {components.checkbox}
+        {components.dragIcon}
+        {components.labelContent}
+      </div>
+    )
   }}
   // ... other props
 />`}</code>

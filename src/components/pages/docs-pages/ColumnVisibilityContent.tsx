@@ -163,6 +163,51 @@ const ColumnVisibilityContent = () => {
         <PropTable props={COLUMN_VISIBILITY_PROPS} title="Column Visibility Configuration" />
       </motion.div>
 
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+        id="custom-row-renderer"
+      >
+        Custom Column Editor Row Layout
+      </motion.h2>
+
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            rowRenderer
+          </code>{" "}
+          in{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            columnEditorConfig
+          </code>{" "}
+          to reorder components in the column editor drawer.
+        </p>
+
+        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
+          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
+            <code>{`<SimpleTable
+  columnEditorConfig={{
+    rowRenderer: ({ components }) => (
+      <div style={{ display: 'flex', gap: '8px' }}>
+        {components.checkbox}
+        {components.dragIcon}
+        {components.labelContent}
+      </div>
+    )
+  }}
+  // ... other props
+/>`}</code>
+          </pre>
+        </div>
+      </motion.div>
+
       <DocNavigationButtons />
     </PageWrapper>
   );

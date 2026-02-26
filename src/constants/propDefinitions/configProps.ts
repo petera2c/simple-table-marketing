@@ -313,3 +313,58 @@ export const QUICK_FILTER_GETTER_PROPS: PropInfo[] = [
     example: `({ formattedValue }) => formattedValue?.toString() || ""`,
   },
 ];
+
+export const COLUMN_EDITOR_CONFIG_PROPS: PropInfo[] = [
+  {
+    key: "text",
+    name: "text",
+    required: false,
+    description: "Text displayed on the column editor button.",
+    type: "string",
+    example: `{ text: "Columns" }`,
+  },
+  {
+    key: "searchEnabled",
+    name: "searchEnabled",
+    required: false,
+    description: "Enable search functionality in the column editor. Defaults to true.",
+    type: "boolean",
+    example: `{ searchEnabled: true }`,
+  },
+  {
+    key: "searchPlaceholder",
+    name: "searchPlaceholder",
+    required: false,
+    description: "Placeholder text for the search input.",
+    type: "string",
+    example: `{ searchPlaceholder: "Search columns..." }`,
+  },
+  {
+    key: "searchFunction",
+    name: "searchFunction",
+    required: false,
+    description: "Custom search function to override default search behavior.",
+    type: "(header: HeaderObject, searchTerm: string) => boolean",
+    example: `{
+  searchFunction: (header, searchTerm) => 
+    header.label.toLowerCase().includes(searchTerm.toLowerCase())
+}`,
+  },
+  {
+    key: "rowRenderer",
+    name: "rowRenderer",
+    required: false,
+    description: "Custom renderer for column editor row layout to reposition icons and labels.",
+    type: "ColumnEditorRowRenderer",
+    link: "/docs/column-visibility#custom-row-renderer",
+    example: `{
+  rowRenderer: ({ components }) => (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      {components.checkbox}
+      {components.dragIcon}
+      {components.labelContent}
+    </div>
+  )
+}`,
+  },
+];

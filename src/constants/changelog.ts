@@ -11,6 +11,25 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_5_3: ChangelogEntry = {
+  version: "2.5.3",
+  date: "2026-02-25",
+  title: "Column Editor Row Customization",
+  description: "Added rowRenderer to ColumnEditorConfig to customize column editor row layout",
+  changes: [
+    {
+      type: "feature",
+      description: "Added rowRenderer to ColumnEditorConfig to customize row component order",
+      link: "/docs/column-visibility#custom-row-renderer",
+    },
+    {
+      type: "feature",
+      description: "Exported ColumnEditorRowRenderer types for TypeScript",
+      link: "/docs/api-reference#column-editor-config",
+    },
+  ],
+};
+
 export const v2_5_0: ChangelogEntry = {
   version: "2.5.0",
   date: "2026-02-22",
@@ -1402,6 +1421,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_5_3,
   v2_5_0,
   v2_4_8,
   v2_4_4,

@@ -22,6 +22,7 @@ export {
   CELL_CLICK_PROPS,
   ON_ROW_GROUP_EXPAND_PROPS,
   HEADER_RENDERER_PROPS,
+  COLUMN_EDITOR_ROW_RENDERER_PROPS,
 } from "./callbackProps";
 
 // Config props (aggregation, sort, filter, chart)
@@ -35,6 +36,7 @@ export {
   COLUMN_VISIBILITY_STATE_PROPS,
   QUICK_FILTER_CONFIG_PROPS,
   QUICK_FILTER_GETTER_PROPS,
+  COLUMN_EDITOR_CONFIG_PROPS,
 } from "./configProps";
 
 // Table ref and export props

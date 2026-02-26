@@ -429,6 +429,47 @@ headerRenderer: ({ components, header }) => (
   },
 ];
 
+export const COLUMN_EDITOR_ROW_RENDERER_PROPS: PropInfo[] = [
+  {
+    key: "accessor",
+    name: "accessor",
+    required: true,
+    description: "The column accessor/key identifying which column this row represents",
+    type: "Accessor",
+    link: "#union-types",
+    example: `props.accessor // "firstName", "email", etc.`,
+  },
+  {
+    key: "header",
+    name: "header",
+    required: true,
+    description:
+      "The complete HeaderObject containing all configuration for this column including label, width, and other properties",
+    type: "HeaderObject",
+    link: "#header-object",
+    example: `props.header.label // "Name", "Status", etc.
+props.header.width // 150, "1fr", etc.`,
+  },
+  {
+    key: "components",
+    name: "components",
+    required: false,
+    description:
+      "Pre-rendered components (expandIcon, checkbox, dragIcon, labelContent) to arrange in custom layout.",
+    type: "ColumnEditorRowRendererComponents",
+    example: `// Used in columnEditorConfig
+columnEditorConfig={{
+  rowRenderer: ({ components }) => (
+    <div style={{ display: 'flex', gap: '8px' }}>
+      {components.checkbox}
+      {components.dragIcon}
+      {components.labelContent}
+    </div>
+  )
+}}`,
+  },
+];
+
 export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [
   {
     key: "row",

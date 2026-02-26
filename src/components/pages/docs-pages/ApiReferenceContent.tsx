@@ -25,6 +25,7 @@ import {
   CELL_CLICK_PROPS,
   ON_ROW_GROUP_EXPAND_PROPS,
   HEADER_RENDERER_PROPS,
+  COLUMN_EDITOR_ROW_RENDERER_PROPS,
   ENUM_OPTION_PROPS,
   AGGREGATION_CONFIG_PROPS,
   CHART_OPTIONS_PROPS,
@@ -34,6 +35,7 @@ import {
   COLUMN_VISIBILITY_STATE_PROPS,
   QUICK_FILTER_CONFIG_PROPS,
   QUICK_FILTER_GETTER_PROPS,
+  COLUMN_EDITOR_CONFIG_PROPS,
   TABLE_REF_TYPE_METHODS,
   EXPORT_TO_CSV_PROPS,
   FOOTER_RENDERER_PROPS,
@@ -215,6 +217,10 @@ const ApiReferenceContent = () => {
         <PropTable props={HEADER_RENDERER_PROPS} title="HeaderRendererProps" />
       </div>
 
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="column-editor-row-renderer-props">
+        <PropTable props={COLUMN_EDITOR_ROW_RENDERER_PROPS} title="ColumnEditorRowRendererProps" />
+      </div>
+
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="filter-condition">
         <PropTable props={FILTER_CONDITION_PROPS} title="FilterCondition" />
       </div>
@@ -241,6 +247,10 @@ const ApiReferenceContent = () => {
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="quick-filter-getter-props">
         <PropTable props={QUICK_FILTER_GETTER_PROPS} title="QuickFilterGetterProps" />
+      </div>
+
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="column-editor-config">
+        <PropTable props={COLUMN_EDITOR_CONFIG_PROPS} title="ColumnEditorConfig" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-ref-type">
