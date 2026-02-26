@@ -13,14 +13,6 @@ const BASE_HEADERS: HeaderObject[] = [
     label: "ID",
     width: 60,
     type: "number",
-    columnEditorRowRenderer: ({ components }) => (
-      <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-        {components?.dragIcon}
-        {components?.expandIcon}
-        {components?.labelContent}
-        {components?.checkbox}
-      </div>
-    ),
   },
   { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
   { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
@@ -190,6 +182,27 @@ const ColumnVisibilityDemo = ({
       height={height}
       theme={mapThemeOptionToTheme(theme)}
       onColumnVisibilityChange={handleVisibilityChange}
+      columnEditorConfig={{
+        rowRenderer: ({ components }) => (
+          <div
+            style={{
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              gap: "8px",
+              paddingRight: "8px",
+            }}
+          >
+            <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+              {components?.expandIcon}
+              {components?.checkbox}
+              {components?.labelContent}
+            </div>
+            <div>{components?.dragIcon}</div>
+          </div>
+        ),
+      }}
     />
   );
 };
