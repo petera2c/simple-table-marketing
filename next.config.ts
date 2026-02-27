@@ -29,6 +29,11 @@ const config: NextConfig = {
         permanent: true,
       },
       {
+        source: "/comparisons/ag-grid-vs-simple-table",
+        destination: "/comparisons/simple-table-vs-ag-grid",
+        permanent: true,
+      },
+      {
         source: "/examples/finance",
         destination: "/examples/infrastructure",
         permanent: true,

@@ -858,8 +858,8 @@ export default function MuiDatatablesVsSimpleTablePage() {
           href: "/docs/installation",
         }}
         secondaryButton={{
-          text: "Migrate from MUI-Datatables",
-          href: "/docs/migration/mui-datatables",
+          text: "View Quick Start",
+          href: "/docs/quick-start",
         }}
       />
     </BlogLayout>

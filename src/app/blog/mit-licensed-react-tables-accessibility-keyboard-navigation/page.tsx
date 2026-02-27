@@ -909,7 +909,7 @@ export default function AccessibilityComparisonPage() {
               <div className="text-sm text-gray-700 dark:text-gray-300">
                 Try it yourself with{" "}
                 <Link
-                  href="/docs/keyboard-navigation"
+                  href="/docs/cell-highlighting"
                   className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
                 >
                   keyboard navigation
@@ -1018,7 +1018,7 @@ export default function AccessibilityComparisonPage() {
         }}
         secondaryButton={{
           text: "Test Keyboard Navigation Live",
-          href: "/docs/keyboard-navigation",
+          href: "/examples/crm",
         }}
       />
     </BlogLayout>

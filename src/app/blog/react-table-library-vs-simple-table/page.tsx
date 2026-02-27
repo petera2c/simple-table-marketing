@@ -965,7 +965,7 @@ export default function ReactTableLibraryVsSimpleTablePage() {
         }}
         secondaryButton={{
           text: "See Feature Comparison",
-          href: "/docs/features",
+          href: "/comparisons/simple-table-vs-tanstack",
         }}
       />
     </BlogLayout>

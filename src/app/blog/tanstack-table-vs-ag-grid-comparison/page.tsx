@@ -1044,7 +1044,7 @@ export default function TanStackVsAgGridPage() {
         }}
         secondaryButton={{
           text: "Compare All Features",
-          href: "/comparisons/ag-grid-vs-simple-table",
+          href: "/comparisons/simple-table-vs-ag-grid",
         }}
       />
     </BlogLayout>

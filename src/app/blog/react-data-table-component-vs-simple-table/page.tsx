@@ -950,8 +950,8 @@ export default function ReactDataTableComponentVsSimpleTablePage() {
           href: "/docs/installation",
         }}
         secondaryButton={{
-          text: "See All Features",
-          href: "/docs/features",
+          text: "View Quick Start",
+          href: "/docs/quick-start",
         }}
       />
     </BlogLayout>

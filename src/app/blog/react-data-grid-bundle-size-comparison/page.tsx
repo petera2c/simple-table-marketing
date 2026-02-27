@@ -951,7 +951,7 @@ export default function BundleSizeComparisonPage() {
         }}
         secondaryButton={{
           text: "Compare Features",
-          href: "/comparisons/ag-grid-vs-simple-table",
+          href: "/comparisons/simple-table-vs-ag-grid",
         }}
       />
     </BlogLayout>
