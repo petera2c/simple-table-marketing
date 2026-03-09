@@ -11,8 +11,8 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v2_5_4: ChangelogEntry = {
-  version: "2.5.4",
+export const v2_5_6: ChangelogEntry = {
+  version: "2.5.6",
   date: "2026-03-09",
   title: "Column Editor Custom Renderer & Reset API",
   description: "Full control over column editor layout via customRenderer, plus resetColumns API",
@@ -1450,7 +1450,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v2_5_4,
+  v2_5_6,
   v2_5_3,
   v2_5_0,
   v2_4_8,
