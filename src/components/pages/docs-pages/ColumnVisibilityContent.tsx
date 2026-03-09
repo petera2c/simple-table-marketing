@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import ColumnVisibilityDemo from "@/components/demos/ColumnVisibilityDemo";
+import ColumnEditorCustomRendererDemo from "@/components/demos/ColumnEditorCustomRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -168,6 +169,54 @@ const ColumnVisibilityContent = () => {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.5 }}
+        id="custom-renderer"
+      >
+        Custom Column Editor Layout
+      </motion.h2>
+
+      <motion.div
+        className="mb-8"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
+      >
+        <p className="text-gray-700 dark:text-gray-300 mb-4">
+          Use{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            customRenderer
+          </code>{" "}
+          in{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            columnEditorConfig
+          </code>{" "}
+          to fully control the column editor popout layout. It receives{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            searchSection
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            listSection
+          </code>
+          , and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            resetColumns
+          </code>
+        </p>
+
+        <LivePreview
+          demoCodeFilename="ColumnEditorCustomRendererDemo.txt"
+          height="300px"
+          demoHeight="270px"
+          link={SANDBOX_LIST["ColumnEditorCustomRendererDemo.tsx"].url}
+          Preview={ColumnEditorCustomRendererDemo}
+        />
+      </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
         id="custom-row-renderer"
       >
         Custom Column Editor Row Layout
@@ -176,7 +225,7 @@ const ColumnVisibilityContent = () => {
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ duration: 0.5, delay: 0.6 }}
+        transition={{ duration: 0.5, delay: 0.65 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Use{" "}

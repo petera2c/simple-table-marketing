@@ -11,6 +11,35 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_5_4: ChangelogEntry = {
+  version: "2.5.4",
+  date: "2026-03-09",
+  title: "Column Editor Custom Renderer & Reset API",
+  description: "Full control over column editor layout via customRenderer, plus resetColumns API",
+  changes: [
+    {
+      type: "feature",
+      description: "columnEditorConfig.customRenderer for full column editor layout control",
+      link: "/docs/column-visibility#custom-renderer",
+    },
+    {
+      type: "feature",
+      description: "tableRef.resetColumns() restores default column order and visibility",
+      link: "/docs/column-visibility#custom-renderer",
+    },
+    {
+      type: "feature",
+      description: "resetColumns callback in customRenderer for reset button without tableRef",
+      link: "/docs/column-visibility#custom-renderer",
+    },
+    {
+      type: "improvement",
+      description: "defaultHeaders is never mutated; table clones internally",
+      link: "/docs/column-visibility",
+    },
+  ],
+};
+
 export const v2_5_3: ChangelogEntry = {
   version: "2.5.3",
   date: "2026-02-25",
@@ -1421,6 +1450,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_5_4,
   v2_5_3,
   v2_5_0,
   v2_4_8,
