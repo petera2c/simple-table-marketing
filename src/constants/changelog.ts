@@ -11,6 +11,21 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_5_7: ChangelogEntry = {
+  version: "2.5.7",
+  date: "2026-03-16",
+  title: "No column table height bug fix",
+  description:
+    "Fixed a bug where the table height was not being calculated correctly when there were no columns.",
+  changes: [
+    {
+      type: "bugfix",
+      description:
+        "Fixed a bug where the table height was not being calculated correctly when there were no columns.",
+    },
+  ],
+};
+
 export const v2_5_6: ChangelogEntry = {
   version: "2.5.6",
   date: "2026-03-09",
@@ -1450,6 +1465,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_5_7,
   v2_5_6,
   v2_5_3,
   v2_5_0,
