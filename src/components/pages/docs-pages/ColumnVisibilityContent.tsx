@@ -10,6 +10,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import Link from "next/link";
 
 const COLUMN_VISIBILITY_PROPS: PropInfo[] = [
   {
@@ -109,18 +110,15 @@ const ColumnVisibilityContent = () => {
         </div>
         <h1 className="text-3xl font-bold text-gray-800 dark:text-white">Column Visibility</h1>
       </motion.div>
-
       <motion.p
         className="text-gray-700 dark:text-gray-300 mb-6 text-lg"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        Column visibility controls allow users to show or hide specific columns through the column
-        editor. Users can search for columns, reorder them via drag-and-drop, and toggle visibility
-        to customize their view and focus on the most relevant data.
+        Column visibility lets users show or hide columns through the column editor. They can
+        search, drag to reorder, and toggle which columns appear in the grid.
       </motion.p>
-
       <motion.div
         className="mb-8"
         initial={{ opacity: 0 }}
@@ -134,7 +132,6 @@ const ColumnVisibilityContent = () => {
           Preview={ColumnVisibilityDemo}
         />
       </motion.div>
-
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
@@ -143,7 +140,6 @@ const ColumnVisibilityContent = () => {
       >
         Basic Implementation
       </motion.h2>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -163,7 +159,6 @@ const ColumnVisibilityContent = () => {
 
         <PropTable props={COLUMN_VISIBILITY_PROPS} title="Column Visibility Configuration" />
       </motion.div>
-
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
@@ -173,7 +168,6 @@ const ColumnVisibilityContent = () => {
       >
         Custom Column Editor Layout
       </motion.h2>
-
       <motion.div
         className="mb-8"
         initial={{ opacity: 0 }}
@@ -181,15 +175,26 @@ const ColumnVisibilityContent = () => {
         transition={{ duration: 0.5, delay: 0.55 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             customRenderer
           </code>{" "}
-          in{" "}
+          replaces the default popout. When the table uses left and right pin regions, the built-in
+          layout may show left-pinned, main, and right-pinned columns as separate lists. Set{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            allowColumnPinning: false
+          </code>{" "}
+          on{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             columnEditorConfig
           </code>{" "}
-          to fully control the column editor popout layout. It receives{" "}
+          to hide pin controls while keeping drag and visibility toggles (
+          <Link
+            href="/docs/api-reference#column-editor-config"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            ColumnEditorConfig
+          </Link>
+          ). Besides{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             searchSection
           </code>
@@ -201,6 +206,19 @@ const ColumnVisibilityContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             resetColumns
           </code>
+          , you can receive{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            pinnedLeftList
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            unpinnedList
+          </code>
+          , and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            pinnedRightList
+          </code>{" "}
+          when the UI is split by pin section.
         </p>
 
         <LivePreview
@@ -211,7 +229,6 @@ const ColumnVisibilityContent = () => {
           Preview={ColumnEditorCustomRendererDemo}
         />
       </motion.div>
-
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
         initial={{ opacity: 0 }}
@@ -221,22 +238,43 @@ const ColumnVisibilityContent = () => {
       >
         Custom Column Editor Row Layout
       </motion.h2>
-
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.65 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             rowRenderer
           </code>{" "}
-          in{" "}
+          controls each row’s layout; props include{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            columnEditorConfig
-          </code>{" "}
-          to reorder components in the column editor drawer.
+            panelSection
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            isEssential
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            canToggleVisibility
+          </code>
+          ,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            allowColumnPinning
+          </code>
+          , and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            pinControl
+          </code>
+          . See{" "}
+          <Link
+            href="/docs/api-reference#column-editor-row-renderer-props"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            ColumnEditorRowRendererProps
+          </Link>
+          .
         </p>
 
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
@@ -256,7 +294,6 @@ const ColumnVisibilityContent = () => {
           </pre>
         </div>
       </motion.div>
-
       <DocNavigationButtons />
     </PageWrapper>
   );

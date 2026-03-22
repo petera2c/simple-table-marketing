@@ -351,10 +351,21 @@ export const COLUMN_EDITOR_CONFIG_PROPS: PropInfo[] = [
 }`,
   },
   {
+    key: "allowColumnPinning",
+    name: "allowColumnPinning",
+    required: false,
+    description:
+      "Default true: show left/right pin controls in the column editor. False hides them; visibility checkboxes and drag reorder stay. Pins can still come from column data or tableRef.applyPinnedState.",
+    type: "boolean",
+    link: "/docs/column-visibility",
+    example: `{ allowColumnPinning: false }`,
+  },
+  {
     key: "rowRenderer",
     name: "rowRenderer",
     required: false,
-    description: "Custom renderer for column editor row layout to reposition icons and labels.",
+    description:
+      "Custom per-row layout: components plus panelSection, isEssential, canToggleVisibility, allowColumnPinning, and optional pinControl.",
     type: "ColumnEditorRowRenderer",
     link: "/docs/column-visibility#custom-row-renderer",
     example: `{
@@ -365,6 +376,32 @@ export const COLUMN_EDITOR_CONFIG_PROPS: PropInfo[] = [
       {components.labelContent}
     </div>
   )
+}`,
+  },
+  {
+    key: "customRenderer",
+    name: "customRenderer",
+    required: false,
+    description:
+      "Replace the default column editor layout. Receives searchSection, listSection, and when pins split the UI also pinnedLeftList, unpinnedList, pinnedRightList, plus resetColumns and related callbacks.",
+    type: "ColumnEditorCustomRenderer",
+    link: "/docs/column-visibility#custom-renderer",
+    example: `{
+  customRenderer: ({
+    searchSection,
+    pinnedLeftList,
+    unpinnedList,
+    pinnedRightList,
+    resetColumns,
+  }) => (
+    <div>
+      {searchSection}
+      <section>{pinnedLeftList}</section>
+      <section>{unpinnedList}</section>
+      <section>{pinnedRightList}</section>
+      <button type="button" onClick={resetColumns}>Reset</button>
+    </div>
+  ),
 }`,
   },
 ];

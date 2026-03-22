@@ -657,6 +657,38 @@ localStorage.setItem('columnVisibility', JSON.stringify(currentVisibility));
 const savedVisibility = JSON.parse(localStorage.getItem('columnVisibility') || '{}');
 await tableRef.current?.applyColumnVisibility(savedVisibility);`,
   },
+  {
+    key: "getPinnedState",
+    name: "getPinnedState",
+    required: false,
+    description:
+      "Returns { left, main, right }: root accessors in each pin band. Use with applyPinnedState to save and restore layout.",
+    type: "() => { left: Accessor[]; main: Accessor[]; right: Accessor[] }",
+    link: "#table-ref-type",
+    example: `const { left, main, right } = tableRef.current?.getPinnedState() ?? {
+  left: [],
+  main: [],
+  right: [],
+};
+localStorage.setItem("tablePins", JSON.stringify({ left, main, right }));`,
+  },
+  {
+    key: "applyPinnedState",
+    name: "applyPinnedState",
+    required: false,
+    description:
+      "Set column order and pin sides in one call. Each root accessor must appear exactly once across left, main, and right. Columns with isEssential keep required order within each section.",
+    type: "(state: { left: Accessor[]; main: Accessor[]; right: Accessor[] }) => Promise<void>",
+    link: "#table-ref-type",
+    example: `await tableRef.current?.applyPinnedState({
+  left: ["id", "name"],
+  main: ["email", "department"],
+  right: ["actions"],
+});
+
+const saved = JSON.parse(localStorage.getItem("tablePins") || "null");
+if (saved) await tableRef.current?.applyPinnedState(saved);`,
+  },
 ];
 
 export const EXPORT_TO_CSV_PROPS: PropInfo[] = [

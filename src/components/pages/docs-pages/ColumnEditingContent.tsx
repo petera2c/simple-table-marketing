@@ -9,6 +9,7 @@ import PageWrapper from "@/components/PageWrapper";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
+import Link from "next/link";
 
 const COLUMN_EDITING_PROPS: PropInfo[] = [
   {
@@ -211,12 +212,18 @@ const ColumnEditingContent = () => {
         transition={{ duration: 0.5, delay: 0.6 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The column editor can be customized using the{" "}
+          The{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             columnEditorConfig
           </code>{" "}
-          prop. This provides comprehensive control over the column editor's appearance and
-          behavior.
+          prop covers search, optional pin controls, custom layout, and more — see{" "}
+          <Link
+            href="/docs/api-reference#column-editor-config"
+            className="text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            ColumnEditorConfig
+          </Link>{" "}
+          in the API Reference.
         </p>
 
         <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">

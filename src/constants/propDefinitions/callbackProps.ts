@@ -468,6 +468,64 @@ columnEditorConfig={{
   )
 }}`,
   },
+  {
+    key: "panelSection",
+    name: "panelSection",
+    required: false,
+    description: "Which editor section this row is in: left, main, or right.",
+    type: "'left' | 'main' | 'right'",
+    link: "/docs/api-reference#column-editor-row-renderer-props",
+    example: `rowRenderer: ({ panelSection, components }) => (
+  <div data-section={panelSection}>{components.labelContent}</div>
+)`,
+  },
+  {
+    key: "isEssential",
+    name: "isEssential",
+    required: false,
+    description: "True when the column is essential (stricter visibility and pin/reorder rules).",
+    type: "boolean",
+    link: "/docs/api-reference#column-editor-row-renderer-props",
+    example: `rowRenderer: ({ isEssential, components }) => (
+  <div style={{ fontWeight: isEssential ? 600 : 400 }}>{components.labelContent}</div>
+)`,
+  },
+  {
+    key: "canToggleVisibility",
+    name: "canToggleVisibility",
+    required: false,
+    description: "Whether the visibility control can hide this column.",
+    type: "boolean",
+    link: "/docs/api-reference#column-editor-row-renderer-props",
+    example: `rowRenderer: ({ canToggleVisibility, components }) => (
+  <div>{canToggleVisibility ? components.checkbox : null}{components.labelContent}</div>
+)`,
+  },
+  {
+    key: "allowColumnPinning",
+    name: "allowColumnPinning",
+    required: false,
+    description: "Same as columnEditorConfig.allowColumnPinning; useful for custom row layouts.",
+    type: "boolean",
+    link: "/docs/api-reference#column-editor-config",
+    example: `rowRenderer: ({ allowColumnPinning, pinControl }) => (
+  <div>{allowColumnPinning ? pinControl?.pinLeft : null}</div>
+)`,
+  },
+  {
+    key: "pinControl",
+    name: "pinControl",
+    required: false,
+    description: "Optional pinLeft, pinRight, unpin UI and flags for what is allowed on this row.",
+    type: "ColumnEditorPinControl",
+    link: "/docs/api-reference#column-editor-row-renderer-props",
+    example: `rowRenderer: ({ pinControl }) => (
+  <div style={{ display: "flex", gap: 4 }}>
+    {pinControl?.pinLeft}
+    {pinControl?.pinRight}
+  </div>
+)`,
+  },
 ];
 
 export const ON_ROW_GROUP_EXPAND_PROPS: PropInfo[] = [

@@ -264,6 +264,22 @@ quickFilterGetter: ({ row }) =>
     example: `pinned: "left"`,
   },
   {
+    key: "isEssential",
+    name: "isEssential",
+    required: false,
+    description:
+      "Marks the column as essential: not hideable in the column editor, not unpinable from its pinned side, and it stays in the leading essential group when reordering within each left / main / right section.",
+    type: "boolean",
+    link: "/docs/api-reference#header-object",
+    example: `{
+  accessor: "id",
+  label: "ID",
+  width: 72,
+  pinned: "left",
+  isEssential: true,
+}`,
+  },
+  {
     key: "children",
     name: "children",
     required: false,

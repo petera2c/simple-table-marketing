@@ -136,6 +136,21 @@ const ProgrammaticControlContent = () => {
         title="Sorting, Filtering, and Pagination Methods"
       />
 
+      <PropTable
+        props={TABLE_REF_TYPE_METHODS.filter((method) =>
+          [
+            "toggleColumnEditor",
+            "applyColumnVisibility",
+            "getPinnedState",
+            "applyPinnedState",
+          ].includes(method.key),
+        ).map((method) => ({
+          ...method,
+          link: method.link ? `/docs/api-reference${method.link}` : undefined,
+        }))}
+        title="Column editor and pin layout"
+      />
+
       {/* Row Grouping Control Methods */}
       <motion.div
         className="mt-8"

@@ -145,7 +145,7 @@ customTheme={{
     name: "icons",
     required: false,
     description:
-      "Unified object for configuring all table icons. Provides a cleaner, more organized API for customizing icons used throughout the table including sort indicators, pagination buttons, row expansion, filters, and drag handles.",
+      "Unified table icons (sort, pagination, expand, filter, drag, etc.). Optional column-editor pin icons: pinnedLeftIcon, pinnedRightIcon.",
     type: "IconsConfig",
     link: "/docs/custom-icons",
     example: `import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -157,7 +157,8 @@ import {
   faChevronDown,
   faAngleLeft,
   faAngleRight,
-  faGripVertical
+  faGripVertical,
+  faThumbtack
 } from "@fortawesome/free-solid-svg-icons";
 
 icons={{
@@ -170,6 +171,8 @@ icons={{
   prev: <FontAwesomeIcon icon={faAngleLeft} />,
   next: <FontAwesomeIcon icon={faAngleRight} />,
   drag: <FontAwesomeIcon icon={faGripVertical} />,
+  pinnedLeftIcon: <FontAwesomeIcon icon={faThumbtack} />,
+  pinnedRightIcon: <FontAwesomeIcon icon={faThumbtack} />,
 }}`,
   },
   {
@@ -832,7 +835,7 @@ useEffect(() => {
     name: "columnEditorConfig",
     required: false,
     description:
-      "Configuration object for the column editor. Provides comprehensive control over the column editor's appearance and behavior including button text, search functionality, and custom search logic.",
+      "Column editor UI: text, search, allowColumnPinning, customRenderer, rowRenderer, etc. See ColumnEditorConfig in API Reference.",
     type: "ColumnEditorConfig",
     link: "/docs/column-editing",
     example: `columnEditorConfig={{

@@ -11,6 +11,54 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v2_6_1: ChangelogEntry = {
+  version: "2.6.1",
+  date: "2026-03-22",
+  title: "Essential columns, pin layout API, and column editor pinning",
+  description:
+    "Essential columns, programmatic pin layout, column editor sections and customization.",
+  changes: [
+    {
+      type: "feature",
+      description:
+        "columnEditorConfig.allowColumnPinning — hide L/R pin controls in the editor (default true)",
+      link: "/docs/api-reference#column-editor-config",
+    },
+    {
+      type: "feature",
+      description: "HeaderObject.isEssential",
+      link: "/docs/api-reference#header-object",
+    },
+    {
+      type: "feature",
+      description:
+        "tableRef.getPinnedState and applyPinnedState for left / main / right accessor lists",
+      link: "/docs/api-reference#table-ref-type",
+    },
+    {
+      type: "feature",
+      description: "icons.pinnedLeftIcon and icons.pinnedRightIcon for column editor pins",
+      link: "/docs/custom-icons",
+    },
+    {
+      type: "feature",
+      description: "customRenderer: pinnedLeftList, unpinnedList, pinnedRightList plus listSection",
+      link: "/docs/api-reference#column-editor-config",
+    },
+    {
+      type: "feature",
+      description:
+        "rowRenderer: panelSection, isEssential, canToggleVisibility, allowColumnPinning, pinControl",
+      link: "/docs/api-reference#column-editor-row-renderer-props",
+    },
+    {
+      type: "improvement",
+      description: "Default column editor can list left, main, and right sections when pins apply",
+      link: "/docs/column-visibility",
+    },
+  ],
+};
+
 export const v2_5_7: ChangelogEntry = {
   version: "2.5.7",
   date: "2026-03-16",
@@ -1465,6 +1513,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v2_6_1,
   v2_5_7,
   v2_5_6,
   v2_5_3,

@@ -27,7 +27,8 @@ import {
   faChevronDown,
   faAngleLeft,
   faAngleRight,
-  faGripVertical
+  faGripVertical,
+  faThumbtack
 } from "@fortawesome/free-solid-svg-icons";
 
 <SimpleTable
@@ -41,6 +42,8 @@ import {
     prev: <FontAwesomeIcon icon={faAngleLeft} />,
     next: <FontAwesomeIcon icon={faAngleRight} />,
     drag: <FontAwesomeIcon icon={faGripVertical} />,
+    pinnedLeftIcon: <FontAwesomeIcon icon={faThumbtack} />,
+    pinnedRightIcon: <FontAwesomeIcon icon={faThumbtack} />,
   }}
   // ... other props
 />`,
@@ -117,6 +120,22 @@ import {
       "Custom icon component for the drag handle in the column editor. Used for drag-and-drop column reordering.",
     type: "React.ReactNode",
     example: `icons={{ drag: <FontAwesomeIcon icon={faGripVertical} /> }}`,
+  },
+  {
+    key: "icons.pinnedLeftIcon",
+    name: "icons.pinnedLeftIcon",
+    required: false,
+    description: "Column editor icon for pinning a column to the left.",
+    type: "React.ReactNode",
+    example: `icons={{ pinnedLeftIcon: <FontAwesomeIcon icon={faThumbtack} /> }}`,
+  },
+  {
+    key: "icons.pinnedRightIcon",
+    name: "icons.pinnedRightIcon",
+    required: false,
+    description: "Column editor icon for pinning a column to the right.",
+    type: "React.ReactNode",
+    example: `icons={{ pinnedRightIcon: <FontAwesomeIcon icon={faThumbtack} /> }}`,
   },
 ];
 

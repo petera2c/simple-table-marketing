@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Link from "next/link";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
@@ -101,6 +102,67 @@ const ColumnPinningContent = () => {
 
         <PropTable props={COLUMN_PINNING_PROPS} title="Column Pinning Configuration" />
       </motion.div>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.45 }}
+      >
+        Essential columns
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-700 dark:text-gray-300 mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.5 }}
+      >
+        To lock columns so users cannot hide them or unpin them from an edge, and to keep them in
+        a fixed leading group when reordering inside each pin section, set{" "}
+        <Link
+          href="/docs/api-reference#header-object"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+            isEssential
+          </code>
+        </Link>{" "}
+        on the column&apos;s header object.
+      </motion.p>
+
+      <motion.h2
+        className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700 mt-12"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.55 }}
+      >
+        Saving pin layout
+      </motion.h2>
+
+      <motion.p
+        className="text-gray-700 dark:text-gray-300 mb-4"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+      >
+        Use{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          tableRef.getPinnedState()
+        </code>{" "}
+        and{" "}
+        <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
+          tableRef.applyPinnedState(...)
+        </code>{" "}
+        to read and restore left / main / right accessor lists (
+        <Link
+          href="/docs/api-reference#table-ref-type"
+          className="text-blue-600 dark:text-blue-400 hover:underline"
+        >
+          TableRefType
+        </Link>
+        ).
+      </motion.p>
 
       <DocNavigationButtons />
     </PageWrapper>
