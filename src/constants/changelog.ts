@@ -11,8 +11,21 @@ export interface ChangelogEntry {
   }[];
 }
 
-export const v2_6_1: ChangelogEntry = {
-  version: "2.6.1",
+export const v2_6_3: ChangelogEntry = {
+  version: "2.6.3",
+  date: "2026-03-28",
+  title: "Copy-paste bug fixes",
+  description: "Fixed several bugs related to copy-paste behavior.",
+  changes: [
+    {
+      type: "bugfix",
+      description: "Fixed copy-paste issues in table cells.",
+    },
+  ],
+};
+
+export const v2_6_2: ChangelogEntry = {
+  version: "2.6.2",
   date: "2026-03-22",
   title: "Essential columns, pin layout API, and column editor pinning",
   description:
@@ -1513,7 +1526,8 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
-  v2_6_1,
+  v2_6_3,
+  v2_6_2,
   v2_5_7,
   v2_5_6,
   v2_5_3,
