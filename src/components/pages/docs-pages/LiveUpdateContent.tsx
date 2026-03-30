@@ -11,16 +11,16 @@ import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const LIVE_UPDATE_PROPS: PropInfo[] = [
   {
-    key: "tableRef",
-    name: "tableRef",
+    key: "ref",
+    name: "ref",
     required: false,
     description:
       "React ref object that provides access to table methods for programmatic updates. Used to call updateData method.",
-    type: "React.RefObject<TableRefType>",
-    example: `const tableRef = useRef<TableRefType | null>(null);
+    type: "React.RefObject<TableAPI>",
+    example: `const tableRef = useRef<TableAPI>(null);
 
 <SimpleTable
-  tableRef={tableRef}
+  ref={tableRef}
   // ... other props
 />`,
   },
@@ -210,7 +210,7 @@ const LiveUpdateContent = () => {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           The{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            TableRefType
+            TableAPI
           </code>{" "}
           provides methods to interact with the table. Currently, it offers the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">

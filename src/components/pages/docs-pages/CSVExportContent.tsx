@@ -11,16 +11,16 @@ import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const CSV_EXPORT_PROPS: PropInfo[] = [
   {
-    key: "tableRef",
-    name: "tableRef",
+    key: "ref",
+    name: "ref",
     required: true,
     description:
       "React ref object that provides access to table methods including exportToCSV. Pass this ref to the SimpleTable component to enable CSV export functionality.",
-    type: "React.RefObject<TableRefType>",
-    example: `const tableRef = useRef<TableRefType>(null);
+    type: "React.RefObject<TableAPI>",
+    example: `const tableRef = useRef<TableAPI>(null);
 
 <SimpleTable
-  tableRef={tableRef}
+  ref={tableRef}
   // ... other props
 />`,
   },

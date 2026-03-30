@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SimpleTable, ReactHeaderObject, TableRefType, Theme } from "@simple-table/react";
+import { SimpleTable, ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 const headers: ReactHeaderObject[] = [
@@ -418,7 +418,7 @@ const RowGroupingDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
 
   const handleExpandAll = () => {
     tableRef.current?.expandAll();
@@ -544,7 +544,7 @@ const RowGroupingDemo = ({
         height={height}
         rowGrouping={["divisions", "departments"]}
         rows={rows}
-        tableRef={tableRef}
+        ref={tableRef}
         theme={theme}
       />
     </div>

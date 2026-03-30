@@ -129,17 +129,11 @@ const PRODUCT_DATA = [
   },
 ];
 
-// Custom icons using simple HTML/CSS
 const customIcons = {
-  // For sorting columns
-  sortUpIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
-  sortDownIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
-
-  // For filtering columns
-  filterIcon: <span style={{ color: "#3b82f6", fontSize: "1rem" }}>⚡</span>,
-
-  // For pagination navigation
-  nextIcon: (
+  sortUp: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
+  sortDown: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
+  filter: <span style={{ color: "#3b82f6", fontSize: "1rem" }}>⚡</span>,
+  next: (
     <span
       style={{
         color: "#2563eb",
@@ -151,7 +145,7 @@ const customIcons = {
       ▲
     </span>
   ),
-  prevIcon: (
+  prev: (
     <span
       style={{
         color: "#2563eb",
@@ -170,15 +164,10 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
     <SimpleTable
       defaultHeaders={headers}
       height={"auto"}
+      icons={customIcons}
       rows={PRODUCT_DATA}
       rowsPerPage={7}
       shouldPaginate
-      // Custom icons props
-      filterIcon={customIcons.filterIcon}
-      nextIcon={customIcons.nextIcon}
-      prevIcon={customIcons.prevIcon}
-      sortDownIcon={customIcons.sortDownIcon}
-      sortUpIcon={customIcons.sortUpIcon}
       theme={theme}
     />
   );

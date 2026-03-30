@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SimpleTable, TableRefType, Theme } from "@simple-table/react";
+import { SimpleTable, TableAPI, Theme, ReactIconsConfig } from "@simple-table/react";
 import { HEADERS } from "./music-headers";
 
 import "@simple-table/react/styles.css";
@@ -7,31 +7,17 @@ import "./MusicTheme.css";
 import { useMusicData } from "./useMusicData";
 
 export default function MusicExample({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height,
-  nextIcon,
-  prevIcon,
+  icons,
   rowCount = 1000,
-  sortDownIcon,
-  sortUpIcon,
   theme,
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height?: string | number;
-  nextIcon?: React.ReactNode;
-  prevIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   rowCount?: number;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
-  const tableRef = useRef<TableRefType | null>(null);
+  const tableRef = useRef<TableAPI | null>(null);
   const { data, isLoading } = useMusicData(rowCount);
 
   if (isLoading) {
@@ -61,18 +47,11 @@ export default function MusicExample({
           rowHeight: 85,
         }}
         defaultHeaders={HEADERS}
-        expandIcon={expandIcon}
-        filterIcon={filterIcon}
-        headerCollapseIcon={headerCollapseIcon}
-        headerExpandIcon={headerExpandIcon}
         height={height ? height : "70dvh"}
-        nextIcon={nextIcon}
-        prevIcon={prevIcon}
+        icons={icons}
         rows={data}
         selectableCells
-        sortDownIcon={sortDownIcon}
-        sortUpIcon={sortUpIcon}
-        tableRef={tableRef}
+        ref={tableRef}
         theme={theme}
       />
     </div>

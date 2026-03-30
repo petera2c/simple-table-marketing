@@ -154,10 +154,10 @@ const ColumnPinningContent = () => {
         </code>{" "}
         to read and restore left / main / right accessor lists (
         <Link
-          href="/docs/api-reference#table-ref-type"
+          href="/docs/api-reference#table-api"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          TableRefType
+          TableAPI
         </Link>
         ).
       </motion.p>

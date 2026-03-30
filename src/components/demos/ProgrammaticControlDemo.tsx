@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { SimpleTable, ReactHeaderObject, TableRefType, Theme } from "@simple-table/react";
+import { SimpleTable, ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with various types for comprehensive testing
@@ -192,7 +192,7 @@ const ProgrammaticControlDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
   const [statusMessage, setStatusMessage] = useState<string>("");
 
   // Sort State Methods
@@ -295,7 +295,7 @@ const ProgrammaticControlDemo = ({
       <SimpleTable
         defaultHeaders={headers}
         rows={PRODUCT_DATA}
-        tableRef={tableRef}
+        ref={tableRef}
         height={height}
         theme={theme}
       />

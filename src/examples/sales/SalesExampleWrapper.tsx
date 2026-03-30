@@ -43,9 +43,9 @@ export default function SalesExampleWrapper({
         <ExamplesWrapper>
           <SalesExample
             height={containerHeight}
-            theme={selectedTheme}
+            icons={tableIcons}
             onGridReady={onGridReady}
-            {...tableIcons}
+            theme={selectedTheme}
           />
         </ExamplesWrapper>
       )}

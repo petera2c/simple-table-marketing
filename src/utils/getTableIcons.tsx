@@ -1,9 +1,7 @@
-import { ReactNode } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChevronDown,
   faChevronRight,
-  faChevronUp,
   faAngleLeft,
   faAngleRight,
   faSortDown,
@@ -23,76 +21,58 @@ import {
 import {
   DownOutlined as AntDownOutlined,
   RightOutlined as AntRightOutlined,
-  UpOutlined as AntUpOutlined,
   LeftOutlined as AntLeftOutlined,
   CaretDownOutlined as AntCaretDownOutlined,
   CaretUpOutlined as AntCaretUpOutlined,
   FilterOutlined as AntFilterOutlined,
 } from "@ant-design/icons";
+import { ReactIconsConfig } from "@simple-table/react";
 
 export type IconLibrary = "default" | "fontawesome" | "mui" | "antd";
 
-export interface TableIconsProps {
-  expandIcon?: ReactNode;
-  filterIcon?: ReactNode;
-  headerCollapseIcon?: ReactNode;
-  headerExpandIcon?: ReactNode;
-  nextIcon?: ReactNode;
-  prevIcon?: ReactNode;
-  sortDownIcon?: ReactNode;
-  sortUpIcon?: ReactNode;
-}
-
-/**
- * Get icon props for SimpleTable based on selected icon library
- * @param library - The icon library to use ('default' | 'fontawesome' | 'mui' | 'antd')
- * @returns Object with icon props for SimpleTable, or empty object for default
- */
-export function getTableIcons(library: IconLibrary): TableIconsProps {
+export function getTableIcons(library: IconLibrary): ReactIconsConfig {
   if (library === "default") {
-    // Return empty object to use Simple Table's default icons
     return {};
   }
 
   if (library === "fontawesome") {
     return {
-      expandIcon: <FontAwesomeIcon icon={faChevronDown} />,
-      filterIcon: <FontAwesomeIcon icon={faFilter} />,
-      headerCollapseIcon: <FontAwesomeIcon icon={faChevronRight} />,
-      headerExpandIcon: <FontAwesomeIcon icon={faChevronDown} />,
-      nextIcon: <FontAwesomeIcon icon={faAngleRight} />,
-      prevIcon: <FontAwesomeIcon icon={faAngleLeft} />,
-      sortDownIcon: <FontAwesomeIcon icon={faSortDown} />,
-      sortUpIcon: <FontAwesomeIcon icon={faSortUp} />,
+      expand: <FontAwesomeIcon icon={faChevronDown} />,
+      filter: <FontAwesomeIcon icon={faFilter} />,
+      headerCollapse: <FontAwesomeIcon icon={faChevronRight} />,
+      headerExpand: <FontAwesomeIcon icon={faChevronDown} />,
+      next: <FontAwesomeIcon icon={faAngleRight} />,
+      prev: <FontAwesomeIcon icon={faAngleLeft} />,
+      sortDown: <FontAwesomeIcon icon={faSortDown} />,
+      sortUp: <FontAwesomeIcon icon={faSortUp} />,
     };
   }
 
   if (library === "mui") {
     return {
-      expandIcon: <MuiExpandMore />,
-      filterIcon: <MuiFilterList />,
-      headerCollapseIcon: <MuiChevronRight />,
-      headerExpandIcon: <MuiUnfoldMore />,
-      nextIcon: <MuiNavigateNext />,
-      prevIcon: <MuiNavigateBefore />,
-      sortDownIcon: <MuiArrowDownward />,
-      sortUpIcon: <MuiArrowUpward />,
+      expand: <MuiExpandMore />,
+      filter: <MuiFilterList />,
+      headerCollapse: <MuiChevronRight />,
+      headerExpand: <MuiUnfoldMore />,
+      next: <MuiNavigateNext />,
+      prev: <MuiNavigateBefore />,
+      sortDown: <MuiArrowDownward />,
+      sortUp: <MuiArrowUpward />,
     };
   }
 
   if (library === "antd") {
     return {
-      expandIcon: <AntDownOutlined />,
-      filterIcon: <AntFilterOutlined />,
-      headerCollapseIcon: <AntRightOutlined />,
-      headerExpandIcon: <AntDownOutlined />,
-      nextIcon: <AntRightOutlined />,
-      prevIcon: <AntLeftOutlined />,
-      sortDownIcon: <AntCaretDownOutlined />,
-      sortUpIcon: <AntCaretUpOutlined />,
+      expand: <AntDownOutlined />,
+      filter: <AntFilterOutlined />,
+      headerCollapse: <AntRightOutlined />,
+      headerExpand: <AntDownOutlined />,
+      next: <AntRightOutlined />,
+      prev: <AntLeftOutlined />,
+      sortDown: <AntCaretDownOutlined />,
+      sortUp: <AntCaretUpOutlined />,
     };
   }
 
-  // Fallback to empty object
   return {};
 }

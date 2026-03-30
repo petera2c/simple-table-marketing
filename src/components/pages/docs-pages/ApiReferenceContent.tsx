@@ -253,8 +253,8 @@ const ApiReferenceContent = () => {
         <PropTable props={COLUMN_EDITOR_CONFIG_PROPS} title="ColumnEditorConfig" />
       </div>
 
-      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-ref-type">
-        <PropTable props={TABLE_REF_TYPE_METHODS} title="TableRefType Methods" />
+      <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="table-api">
+        <PropTable props={TABLE_REF_TYPE_METHODS} title="TableAPI Methods" />
       </div>
 
       <div style={{ scrollMarginTop: `${HEADER_HEIGHT}px` }} id="export-to-csv-props">

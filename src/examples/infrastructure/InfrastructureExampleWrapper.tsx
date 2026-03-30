@@ -41,8 +41,8 @@ export default function InfrastructureExampleWrapper({
         <ExamplesWrapper>
           <InfrastructureExample
             height={height ? height : `${containerHeight}px`}
+            icons={tableIcons}
             theme={selectedTheme}
-            {...tableIcons}
           />
         </ExamplesWrapper>
       )}

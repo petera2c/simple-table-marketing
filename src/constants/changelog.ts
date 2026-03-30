@@ -75,7 +75,7 @@ export const v2_6_2: ChangelogEntry = {
       type: "feature",
       description:
         "tableRef.getPinnedState and applyPinnedState for left / main / right accessor lists",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
@@ -506,7 +506,7 @@ export const v2_2_7: ChangelogEntry = {
       type: "breaking",
       description:
         "tableRef.setPage() is now async and returns Promise<void>. Update your code to use await tableRef.current?.setPage(3) for consistency with other async API methods.",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
   ],
 };
@@ -681,12 +681,12 @@ export const v2_1_0: ChangelogEntry = {
     {
       type: "feature",
       description: "Added expandAll() method to expand all rows at all depths in hierarchical data",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
       description: "Added collapseAll() method to collapse all rows at all depths",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
@@ -716,19 +716,19 @@ export const v2_1_0: ChangelogEntry = {
       type: "feature",
       description:
         "Added getExpandedDepths() method to retrieve currently expanded depths as a Set - useful for saving expansion state",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
       description:
         "Added getGroupingProperty(depth) method to get the grouping property name for a specific depth index",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
       description:
         "Added getGroupingDepth(property) method to get the depth index for a specific grouping property name",
-      link: "/docs/api-reference#table-ref-type",
+      link: "/docs/api-reference#table-api",
     },
   ],
 };
@@ -815,14 +815,14 @@ export const v2_0_3: ChangelogEntry = {
     {
       type: "feature",
       description:
-        "Added getCurrentPage() method to TableRefType for retrieving the current page number",
-      link: "/docs/api-reference#table-ref-type",
+        "Added getCurrentPage() method to TableAPI for retrieving the current page number",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
       description:
-        "Added setPage() method to TableRefType for programmatically changing the current page",
-      link: "/docs/api-reference#table-ref-type",
+        "Added setPage() method to TableAPI for programmatically changing the current page",
+      link: "/docs/api-reference#table-api",
     },
   ],
 };
@@ -925,14 +925,14 @@ export const v1_9_4: ChangelogEntry = {
     {
       type: "feature",
       description:
-        "Added getAllRows() method to TableRefType for retrieving all flattened rows including nested/grouped data",
-      link: "/docs/api-reference#table-ref-type",
+        "Added getAllRows() method to TableAPI for retrieving all flattened rows including nested/grouped data",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",
       description:
-        "Added getHeaders() method to TableRefType for retrieving the table's current header/column definitions",
-      link: "/docs/api-reference#table-ref-type",
+        "Added getHeaders() method to TableAPI for retrieving the table's current header/column definitions",
+      link: "/docs/api-reference#table-api",
     },
     {
       type: "feature",

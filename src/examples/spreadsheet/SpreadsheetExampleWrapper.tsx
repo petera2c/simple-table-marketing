@@ -43,10 +43,10 @@ export default function SpreadsheetExampleWrapper({
         <ExamplesWrapper>
           <SpreadsheetExample
             height={containerHeight}
+            icons={tableIcons}
             onGridReady={onGridReady}
             rowCount={rowCount}
             theme={selectedTheme}
-            {...tableIcons}
           />
         </ExamplesWrapper>
       )}

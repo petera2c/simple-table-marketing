@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SimpleTable, ReactHeaderObject, TableRefType, Theme } from "@simple-table/react";
+import { SimpleTable, ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with new CSV formatting features
@@ -230,7 +230,7 @@ const CSVExportDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
 
   const handleGetTableInfo = () => {
     const allRows = tableRef.current?.getAllRows();
@@ -280,7 +280,7 @@ const CSVExportDemo = ({
         }}
         selectableCells
         theme={theme}
-        tableRef={tableRef}
+        ref={tableRef}
       />
     </div>
   );

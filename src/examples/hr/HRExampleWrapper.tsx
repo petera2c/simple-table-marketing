@@ -36,9 +36,9 @@ export default function HRExampleWrapper({ theme }: HRExampleWrapperProps) {
         <ExamplesWrapper>
           <HRExample
             height={containerHeight}
+            icons={tableIcons}
             rowHeight={ROW_HEIGHT}
             theme={selectedTheme}
-            {...tableIcons}
           />
         </ExamplesWrapper>
       )}

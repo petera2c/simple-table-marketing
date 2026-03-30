@@ -56,9 +56,9 @@ export default function CRMExampleWrapper({
           <ExamplesWrapper>
             <CRMExample
               height={containerHeight}
-              theme={crmTheme}
+              icons={tableIcons}
               onGridReady={onGridReady}
-              {...tableIcons}
+              theme={crmTheme}
             />
           </ExamplesWrapper>
         </div>

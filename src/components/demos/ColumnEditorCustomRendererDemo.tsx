@@ -2,7 +2,7 @@ import {
   SimpleTable,
   ReactHeaderObject,
   Row,
-  TableRefType,
+  TableAPI,
   Theme,
   ColumnEditorCustomRendererProps,
 } from "@simple-table/react";
@@ -155,7 +155,7 @@ const ColumnEditorCustomRendererDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
   const defaultHeaders = headers;
   console.log("defaultHeaders", defaultHeaders);
 
@@ -217,7 +217,7 @@ const ColumnEditorCustomRendererDemo = ({
         }}
         height={height}
         theme={theme}
-        tableRef={tableRef}
+        ref={tableRef}
       />
     </div>
   );

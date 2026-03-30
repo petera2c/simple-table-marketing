@@ -237,8 +237,8 @@ export default function CustomIconsReactGridsPage() {
                     Ascending, descending, and unsorted state indicators in column headers.
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    <strong>Typical props:</strong> <code>sortUpIcon</code>,{" "}
-                    <code>sortDownIcon</code>, <code>sortNeutralIcon</code>
+                    <strong>Typical props:</strong> <code>icons.sortUp</code>,{" "}
+                    <code>icons.sortDown</code>
                   </p>
                 </div>
 
@@ -251,7 +251,7 @@ export default function CustomIconsReactGridsPage() {
                     Button to open filter dropdowns or menus in column headers.
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    <strong>Typical props:</strong> <code>filterIcon</code>
+                    <strong>Typical props:</strong> <code>icons.filter</code>
                   </p>
                 </div>
 
@@ -266,8 +266,8 @@ export default function CustomIconsReactGridsPage() {
                     For row grouping, hierarchical data, or collapsible column groups.
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    <strong>Typical props:</strong> <code>expandIcon</code>,{" "}
-                    <code>collapseIcon</code>
+                    <strong>Typical props:</strong> <code>icons.expand</code>,{" "}
+                    <code>icons.headerCollapse</code>
                   </p>
                 </div>
 
@@ -282,7 +282,8 @@ export default function CustomIconsReactGridsPage() {
                     Previous, next, first, and last page navigation buttons in the footer.
                   </p>
                   <p className="text-xs text-gray-600 dark:text-gray-400">
-                    <strong>Typical props:</strong> <code>prevIcon</code>, <code>nextIcon</code>
+                    <strong>Typical props:</strong> <code>icons.prev</code>,{" "}
+                    <code>icons.next</code>
                   </p>
                 </div>
               </div>
@@ -328,23 +329,16 @@ export default function CustomIconTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      
       height="500px"
-      
-      // Sorting icons
-      sortUpIcon={<FontAwesomeIcon icon={faSortUp} className="text-blue-600" />}
-      sortDownIcon={<FontAwesomeIcon icon={faSortDown} className="text-blue-600" />}
-      
-      // Filter icon
-      filterIcon={<FontAwesomeIcon icon={faFilter} className="text-gray-600" />}
-      
-      // Expand/collapse icons (for row grouping)
-      expandIcon={<FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />}
-      collapseIcon={<FontAwesomeIcon icon={faChevronDown} className="text-gray-600" />}
-      
-      // Pagination icons
-      prevIcon={<FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />}
-      nextIcon={<FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />}
+      icons={{
+        sortUp: <FontAwesomeIcon icon={faSortUp} className="text-blue-600" />,
+        sortDown: <FontAwesomeIcon icon={faSortDown} className="text-blue-600" />,
+        filter: <FontAwesomeIcon icon={faFilter} className="text-gray-600" />,
+        expand: <FontAwesomeIcon icon={faChevronRight} className="text-gray-600" />,
+        headerCollapse: <FontAwesomeIcon icon={faChevronDown} className="text-gray-600" />,
+        prev: <FontAwesomeIcon icon={faAngleLeft} className="text-blue-600" />,
+        next: <FontAwesomeIcon icon={faAngleRight} className="text-blue-600" />,
+      }}
     />
   );
 }`}
@@ -385,10 +379,11 @@ export default function CustomSVGTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      
-      sortUpIcon={<SortUpIcon />}
-      sortDownIcon={<SortDownIcon />}
-      filterIcon={<FilterIcon />}
+      icons={{
+        sortUp: <SortUpIcon />,
+        sortDown: <SortDownIcon />,
+        filter: <FilterIcon />,
+      }}
     />
   );
 }`}
@@ -415,14 +410,13 @@ export default function LucideIconTable({ data, headers }) {
     <SimpleTable
       defaultHeaders={headers}
       rows={data}
-      
-      
-      // Lucide icons with custom size and color
-      sortUpIcon={<ChevronUp size={16} className="text-indigo-600" />}
-      sortDownIcon={<ChevronDown size={16} className="text-indigo-600" />}
-      filterIcon={<Filter size={14} className="text-gray-500" />}
-      prevIcon={<ChevronLeft size={18} className="text-indigo-600" />}
-      nextIcon={<ChevronRight size={18} className="text-indigo-600" />}
+      icons={{
+        sortUp: <ChevronUp size={16} className="text-indigo-600" />,
+        sortDown: <ChevronDown size={16} className="text-indigo-600" />,
+        filter: <Filter size={14} className="text-gray-500" />,
+        prev: <ChevronLeft size={18} className="text-indigo-600" />,
+        next: <ChevronRight size={18} className="text-indigo-600" />,
+      }}
     />
   );
 }`}
@@ -578,8 +572,10 @@ const AnimatedSortIcon = ({ direction }: { direction: 'up' | 'down' }) => (
 
 // Usage
 <SimpleTable
-  sortUpIcon={<AnimatedSortIcon direction="up" />}
-  sortDownIcon={<AnimatedSortIcon direction="down" />}
+  icons={{
+    sortUp: <AnimatedSortIcon direction="up" />,
+    sortDown: <AnimatedSortIcon direction="down" />,
+  }}
   // ... other props
 />`}
               />
@@ -614,14 +610,14 @@ const FilterIconWithState = ({ isActive }: { isActive: boolean }) => (
                 code={`// Icon theme configurations
 const iconThemes = {
   modern: {
-    sortUpIcon: <ChevronUp size={14} className="text-indigo-500" />,
-    sortDownIcon: <ChevronDown size={14} className="text-indigo-500" />,
-    filterIcon: <Filter size={14} className="text-gray-500" />,
+    sortUp: <ChevronUp size={14} className="text-indigo-500" />,
+    sortDown: <ChevronDown size={14} className="text-indigo-500" />,
+    filter: <Filter size={14} className="text-gray-500" />,
   },
   classic: {
-    sortUpIcon: <FontAwesomeIcon icon={faSortUp} className="text-gray-700" />,
-    sortDownIcon: <FontAwesomeIcon icon={faSortDown} className="text-gray-700" />,
-    filterIcon: <FontAwesomeIcon icon={faFilter} className="text-gray-700" />,
+    sortUp: <FontAwesomeIcon icon={faSortUp} className="text-gray-700" />,
+    sortDown: <FontAwesomeIcon icon={faSortDown} className="text-gray-700" />,
+    filter: <FontAwesomeIcon icon={faFilter} className="text-gray-700" />,
   },
 };
 
@@ -629,7 +625,7 @@ const iconThemes = {
 export default function ThemedTable({ theme = "modern", data, headers }) {
   return (
     <SimpleTable
-      {...iconThemes[theme]}
+      icons={iconThemes[theme]}
       defaultHeaders={headers}
       rows={data}
     />

@@ -45,8 +45,8 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
           <ExamplesWrapper>
             <MusicExample
               height={height ? height : `${containerHeight}px`}
+              icons={tableIcons}
               theme={selectedTheme}
-              {...tableIcons}
             />
           </ExamplesWrapper>
         </div>

@@ -35,7 +35,7 @@ export default function ManufacturingExampleWrapper({ theme }: ManufacturingExam
       )}
       Preview={() => (
         <ExamplesWrapper>
-          <ManufacturingExample height={containerHeight} theme={selectedTheme} {...tableIcons} />
+          <ManufacturingExample height={containerHeight} icons={tableIcons} theme={selectedTheme} />
         </ExamplesWrapper>
       )}
     />

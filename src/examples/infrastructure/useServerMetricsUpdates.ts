@@ -1,5 +1,5 @@
 import { useEffect, RefObject } from "react";
-import { TableRefType, Row } from "@simple-table/react";
+import { TableAPI, Row } from "@simple-table/react";
 
 // Configuration for individual server update timers
 const UPDATE_CONFIG = {
@@ -7,7 +7,7 @@ const UPDATE_CONFIG = {
   maxInterval: 1000, // 1 second
 };
 
-export function useServerMetricsUpdates(tableRef: RefObject<TableRefType>, data: Row[]) {
+export function useServerMetricsUpdates(tableRef: RefObject<TableAPI>, data: Row[]) {
   useEffect(() => {
     const timerMap = new Map<string, NodeJS.Timeout>();
     let isActive = true;

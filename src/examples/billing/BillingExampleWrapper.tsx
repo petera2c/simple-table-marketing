@@ -38,9 +38,9 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
         <ExamplesWrapper>
           <BillingExample
             height={containerHeight}
+            icons={tableIcons}
             onGridReady={onGridReady}
             theme={selectedTheme}
-            {...tableIcons}
           />
         </ExamplesWrapper>
       )}

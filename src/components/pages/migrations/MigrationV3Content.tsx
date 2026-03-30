@@ -148,7 +148,7 @@ import "@simple-table/react/styles.css";`}
                 </tr>
               </thead>
               <tbody className="text-gray-700 dark:text-gray-300">
-                <tr>
+                <tr className="border-b border-gray-100 dark:border-gray-700/50">
                   <td className="py-2">
                     <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
                       HeaderObject
@@ -157,6 +157,18 @@ import "@simple-table/react/styles.css";`}
                   <td className="py-2">
                     <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
                       ReactHeaderObject
+                    </code>
+                  </td>
+                </tr>
+                <tr>
+                  <td className="py-2">
+                    <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                      TableRefType
+                    </code>
+                  </td>
+                  <td className="py-2">
+                    <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                      TableAPI
                     </code>
                   </td>
                 </tr>
@@ -173,13 +185,39 @@ import "@simple-table/react/styles.css";`}
               AngularHeaderObject
             </code>
             ). Types like{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Row</code>,{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Theme</code>, and{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-              TableRefType
-            </code>{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Row</code> and{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Theme</code>{" "}
             remain the same.
           </p>
+        </div>
+
+        {/* tableRef -> ref */}
+        <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg mb-6">
+          <h3 className="font-bold text-gray-800 dark:text-white mb-2">
+            Table Ref: <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop replaced by standard React <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-3">
+            SimpleTable now uses React&#39;s{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">forwardRef</code>,
+            so you pass a ref using the standard{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code> prop
+            instead of the custom{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop.
+            The ref type has also been renamed from{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
+            to{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
+          </p>
+          <CodeBlock
+            code={`// v2
+const tableRef = useRef<TableRefType>(null);
+<SimpleTable tableRef={tableRef} ... />
+
+// v3
+const tableRef = useRef<TableAPI>(null);
+<SimpleTable ref={tableRef} ... />`}
+            language="tsx"
+          />
         </div>
 
         {/* Adapter packages */}
@@ -367,16 +405,40 @@ import "@simple-table/react/styles.css";`}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
               ReactHeaderObject
             </code>{" "}
-            (or your framework's equivalent). This type now includes framework-specific fields like{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">cellRenderer</code>{" "}
-            that accept framework components.
+            (or your framework's equivalent), and rename{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
+            to{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
           </p>
           <CodeBlock
             code={`// v2
 const headers: HeaderObject[] = [...]
+const tableRef = useRef<TableRefType>(null);
 
 // v3
-const headers: ReactHeaderObject[] = [...]`}
+const headers: ReactHeaderObject[] = [...]
+const tableRef = useRef<TableAPI>(null);`}
+            language="tsx"
+          />
+        </div>
+
+        {/* Step 3b */}
+        <div className="mb-8">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
+            4. Update tableRef to ref
+          </h3>
+          <p className="text-gray-700 dark:text-gray-300 mb-3">
+            The custom{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code>{" "}
+            prop has been replaced by the standard React{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code> prop.
+          </p>
+          <CodeBlock
+            code={`// v2
+<SimpleTable tableRef={tableRef} ... />
+
+// v3
+<SimpleTable ref={tableRef} ... />`}
             language="tsx"
           />
         </div>
@@ -384,7 +446,7 @@ const headers: ReactHeaderObject[] = [...]`}
         {/* Step 4 */}
         <div className="mb-8">
           <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-            4. Remove simple-table-core from your dependencies
+            5. Remove simple-table-core from your dependencies
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
             You no longer need{" "}
@@ -462,8 +524,17 @@ export default function MyTable() {
         </div>
 
         <p className="text-gray-700 dark:text-gray-300 mt-4">
-          That's it — the only change is the import path. All props, types, and behavior are the
-          same.
+          That's it — update the import path, rename{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">HeaderObject</code>{" "}
+          to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ReactHeaderObject</code>,{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
+          to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>, and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code>{" "}
+          to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>.
+          All other props and behavior are the same.
         </p>
       </motion.div>
 
@@ -544,6 +615,32 @@ export default function MyTable() {
               to{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
                 ReactHeaderObject
+              </code>
+            </span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-600 dark:text-blue-400 mt-1">&#9744;</span>
+            <span>
+              Rename{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                TableRefType
+              </code>{" "}
+              to{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                TableAPI
+              </code>
+            </span>
+          </li>
+          <li className="flex items-start gap-2">
+            <span className="text-blue-600 dark:text-blue-400 mt-1">&#9744;</span>
+            <span>
+              Replace{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                tableRef={"{tableRef}"}
+              </code>{" "}
+              with{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                ref={"{tableRef}"}
               </code>
             </span>
           </li>

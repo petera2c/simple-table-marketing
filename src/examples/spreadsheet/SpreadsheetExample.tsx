@@ -1,36 +1,22 @@
 import { getSpreadsheetHeaders } from "./spreadsheet-headers";
 import { useState, useEffect, useMemo } from "react";
-import { SimpleTable, CellChangeProps, Theme, ReactHeaderObject } from "@simple-table/react";
+import { SimpleTable, CellChangeProps, Theme, ReactHeaderObject, ReactIconsConfig } from "@simple-table/react";
 
 import "@simple-table/react/styles.css";
 import "./SpreadsheetCustom.css";
 import { useSpreadsheetData } from "./useSpreadsheetData";
 
 const SpreadsheetExampleComponent = ({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height,
-  nextIcon,
+  icons,
   onGridReady,
-  prevIcon,
   rowCount = 100,
-  sortDownIcon,
-  sortUpIcon,
   theme = "light",
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height?: number | null;
-  nextIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   onGridReady?: () => void;
-  prevIcon?: React.ReactNode;
   rowCount?: number;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) => {
   const { data: fetchedData, isLoading } = useSpreadsheetData(rowCount);
@@ -182,23 +168,16 @@ const SpreadsheetExampleComponent = ({
         defaultHeaders={headers}
         enableHeaderEditing
         enableRowSelection
-        expandIcon={expandIcon}
-        filterIcon={filterIcon}
-        headerCollapseIcon={headerCollapseIcon}
-        headerExpandIcon={headerExpandIcon}
         height={height ? `${height}px` : "70dvh"}
-        nextIcon={nextIcon}
+        icons={icons}
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
-        prevIcon={prevIcon}
         customTheme={{
           rowHeight: 22,
         }}
         rows={data}
         selectableCells
         selectableColumns
-        sortDownIcon={sortDownIcon}
-        sortUpIcon={sortUpIcon}
         theme={theme}
         useOddEvenRowBackground
       />

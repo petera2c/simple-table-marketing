@@ -1,4 +1,4 @@
-import { SimpleTable, TableRefType, ReactHeaderObject, Theme } from "@simple-table/react";
+import { SimpleTable, TableAPI, ReactHeaderObject, Theme } from "@simple-table/react";
 import { useRef, useEffect } from "react";
 import "@simple-table/react/styles.css";
 
@@ -192,7 +192,7 @@ const LiveUpdateDemo = ({
   theme?: Theme;
 }) => {
   // Keep a local copy of the data to update
-  const tableRef = useRef<TableRefType | null>(null);
+  const tableRef = useRef<TableAPI | null>(null);
 
   // Set up intervals for automatic updates (like Infrastructure example)
   useEffect(() => {
@@ -375,7 +375,7 @@ const LiveUpdateDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       rows={initialData}
-      tableRef={tableRef}
+      ref={tableRef}
       height={height}
       theme={theme}
     />
