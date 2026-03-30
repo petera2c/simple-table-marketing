@@ -54,15 +54,16 @@ export default function FAQSection() {
               {
                 icon: faTable,
                 question: "What is Simple Table?",
-                answer: `Simple Table is a lightweight React data grid library (only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) designed for developers who need professional data grid functionality without the bloat. It provides 30+ features including cell editing, column management, sorting, filtering, row grouping, and full TypeScript support. Perfect for dashboards, admin panels, and data-heavy applications.`,
+                answer: `Simple Table is a lightweight JavaScript data grid library (only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip}) with adapters for React, Vue, Angular, Svelte, Solid, and vanilla TypeScript. It provides 30+ features including cell editing, column management, sorting, filtering, row grouping, and full TypeScript support. Perfect for dashboards, admin panels, and data-heavy applications in any framework.`,
               },
               {
                 icon: faDownload,
                 question: "How do I install and get started?",
                 answer: (
                   <>
-                    Install via npm: 'npm install simple-table-core'. Import the component and CSS,
-                    define your columns and data, and you're ready to go. Our{" "}
+                    Install via npm: 'npm install simple-table-core' along with a framework adapter
+                    like '@simple-table/react' or '@simple-table/vue'. Define your columns and data,
+                    and you're ready to go. Our{" "}
                     <Link
                       href="/docs/quick-start"
                       className="text-blue-600 dark:text-blue-400 hover:underline cursor-pointer font-medium"
@@ -70,8 +71,7 @@ export default function FAQSection() {
                     >
                       Quick Start guide
                     </Link>{" "}
-                    has you up and running in under 5 minutes with complete code examples for React
-                    and Next.js.
+                    has you up and running in any framework in under 5 minutes.
                   </>
                 ),
               },
@@ -85,7 +85,7 @@ export default function FAQSection() {
                 icon: faCodeBranch,
                 question: "Which frameworks and versions are supported?",
                 answer:
-                  "Simple Table works with React 16.8+, React 18, React 19 and Next.js (both Pages and App Router). It's compatible with all major bundlers (Webpack, Vite, Rollup) and works in both JavaScript and TypeScript projects.",
+                  "Simple Table supports React (16.8+, 18, 19), Vue 3, Angular 16+, Svelte 4+, Solid, and vanilla TypeScript. It works with Next.js, Nuxt, Analog, SvelteKit, SolidStart, and any modern bundler (Vite, Webpack, Rollup). You can also use it without a framework at all — just plain TypeScript or JavaScript.",
               },
             ].map((faq, index) => (
               <motion.details
@@ -210,12 +210,12 @@ export default function FAQSection() {
                 icon: faColumns,
                 question: "How does it compare to TanStack Table?",
                 answer:
-                  "TanStack Table is a headless library requiring you to build the UI layer. Simple Table is a complete, ready-to-use component with built-in styling, themes, and interactions. If you need a table running today (not in 2 weeks), Simple Table is the faster choice. TanStack is great if you want total UI control.",
+                  "TanStack Table is a headless library requiring you to build the UI layer yourself. Simple Table is a complete, ready-to-use component with built-in styling, themes, and interactions. Both support multiple frameworks, but Simple Table ships a working grid out of the box. If you need a table running today (not in 2 weeks), Simple Table is the faster choice.",
               },
               {
                 icon: faPuzzlePiece,
                 question: "What about Material-UI or Ant Design tables?",
-                answer: `Simple Table offers significantly more features than MUI or Ant Design's basic tables (column pinning, row grouping, inline editing, advanced filtering). It's also framework-agnostic - you're not locked into a component ecosystem. Plus, our ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} bundle won't add the overhead of entire UI libraries.`,
+                answer: `Simple Table offers significantly more features than MUI or Ant Design's basic tables (column pinning, row grouping, inline editing, advanced filtering). Unlike those React-only solutions, Simple Table works across React, Vue, Angular, Svelte, Solid, and vanilla TypeScript — you're not locked into a single ecosystem. Plus, our ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} bundle won't add the overhead of entire UI libraries.`,
               },
               {
                 icon: faRocket,

@@ -6,10 +6,8 @@ import { faUpDown } from "@fortawesome/free-solid-svg-icons";
 import TableHeightDemo from "@/components/demos/TableHeightDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
 import Link from "next/link";
 
 const TABLE_HEIGHT_PROPS: PropInfo[] = [
@@ -111,9 +109,8 @@ export default function TableHeightContent() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="TableHeightDemo.txt"
+          demoId="table-height"
           height="500px"
-          link={SANDBOX_LIST["TableHeightDemo.tsx"]?.url || "#"}
           Preview={TableHeightDemo}
         />
       </motion.div>
@@ -236,17 +233,8 @@ export default function TableHeightContent() {
           Fixed Height Table
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          The table has a fixed height and handles its own scrolling:
+          The table has a fixed height and handles its own scrolling.
         </p>
-        <CodeBlock
-          code={`<SimpleTable
-  defaultHeaders={headers}
-  rows={data}
-  
-  height="400px"
-/>`}
-          language="tsx"
-        />
       </motion.div>
 
       <motion.div
@@ -260,17 +248,8 @@ export default function TableHeightContent() {
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Use maxHeight when you want the table to shrink with fewer rows but grow up to a maximum
-          height. Perfect for tables with variable data amounts:
+          height. Perfect for tables with variable data amounts.
         </p>
-        <CodeBlock
-          code={`<SimpleTable
-  defaultHeaders={headers}
-  rows={data}
-  
-  maxHeight="600px"
-/>`}
-          language="tsx"
-        />
       </motion.div>
 
       <motion.div
@@ -283,17 +262,8 @@ export default function TableHeightContent() {
           Viewport-Relative Height
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use viewport units for responsive heights that adapt to screen size:
+          Use viewport units for responsive heights that adapt to screen size.
         </p>
-        <CodeBlock
-          code={`<SimpleTable
-  defaultHeaders={headers}
-  rows={data}
-  
-  height="60vh"
-/>`}
-          language="tsx"
-        />
       </motion.div>
 
       <motion.div
@@ -306,20 +276,8 @@ export default function TableHeightContent() {
           Fill Parent Container
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Use percentage height when the parent container has a defined height:
+          Use percentage height when the parent container has a defined height.
         </p>
-        <CodeBlock
-          code={`// Parent must have a defined height
-<div style={{ height: '500px' }}>
-  <SimpleTable
-    defaultHeaders={headers}
-    rows={data}
-    
-    height="100%"
-  />
-</div>`}
-          language="tsx"
-        />
       </motion.div>
 
       <motion.div
@@ -332,20 +290,8 @@ export default function TableHeightContent() {
           Parent-Controlled Overflow
         </h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Omit height when you want the parent to handle scrolling:
+          Omit height when you want the parent to handle scrolling.
         </p>
-        <CodeBlock
-          code={`// Table expands to full height, parent handles overflow
-<div style={{ height: '400px', overflow: 'auto' }}>
-  <SimpleTable
-    defaultHeaders={headers}
-    rows={data}
-    
-    // No height prop - table overflows parent
-  />
-</div>`}
-          language="tsx"
-        />
       </motion.div>
 
       <motion.div

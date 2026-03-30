@@ -6,10 +6,8 @@ import { faChartLine } from "@fortawesome/free-solid-svg-icons";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
 import ChartsDemo from "@/components/demos/ChartsDemo";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExampleLink from "@/components/ExampleLink";
 
 const CHART_COLUMN_PROPS: PropInfo[] = [
@@ -142,9 +140,8 @@ const ChartColumnsContent = () => {
           comma-separated format.
         </div>
         <LivePreview
-          demoCodeFilename="ChartsDemo.txt"
+          demoId="charts"
           height="400px"
-          link={SANDBOX_LIST["ChartsDemo.tsx"]?.url}
           Preview={ChartsDemo}
         />
       </motion.div>
@@ -180,56 +177,6 @@ const ChartColumnsContent = () => {
           . The cell data should be an array of numbers.
         </p>
 
-        <CodeBlock
-          language="typescript"
-          code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
-
-const headers: HeaderObject[] = [
-  {
-    accessor: "product",
-    label: "Product",
-    width: 180,
-    type: "string",
-  },
-  {
-    accessor: "monthlySales",
-    label: "Monthly Sales (12mo)",
-    width: 150,
-    type: "lineAreaChart",
-    tooltip: "Sales trend over the past 12 months",
-    align: "center",
-  },
-  {
-    accessor: "quarterlyRevenue",
-    label: "Quarterly Revenue",
-    width: 140,
-    type: "barChart",
-    tooltip: "Revenue by quarter",
-    align: "center",
-  },
-];
-
-const rows = [
-  {
-    id: 1,
-    product: "Laptop Pro",
-    monthlySales: [150, 165, 142, 178, 195, 188, 203, 215, 198, 225, 240, 235],
-    quarterlyRevenue: [45000, 52000, 48000, 61000],
-  },
-  {
-    id: 2,
-    product: "Wireless Mouse",
-    monthlySales: [300, 315, 328, 342, 338, 355, 370, 368, 382, 395, 408, 415],
-    quarterlyRevenue: [12000, 15000, 18000, 21000],
-  },
-];
-
-<SimpleTable
-  defaultHeaders={headers}
-  rows={rows}
-  
-/>`}
-        />
       </motion.div>
 
       {/* Chart Types Section */}
@@ -255,23 +202,6 @@ const rows = [
           continuous data like daily metrics, monthly sales, or historical performance data.
         </p>
 
-        <CodeBlock
-          language="typescript"
-          code={`{
-  accessor: "dailyViews",
-  label: "Daily Views (30d)",
-  width: 150,
-  type: "lineAreaChart",
-  tooltip: "Daily page views for the past 30 days",
-  align: "center",
-}
-
-// Data structure
-const row = {
-  dailyViews: [500, 520, 485, 550, 575, 590, 610, ...], // 30 values
-};`}
-        />
-
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">Bar Chart</h3>
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Bar charts excel at comparing discrete values across categories. They're ideal for
@@ -279,22 +209,6 @@ const row = {
           values.
         </p>
 
-        <CodeBlock
-          language="typescript"
-          code={`{
-  accessor: "weeklyOrders",
-  label: "Weekly Orders",
-  width: 130,
-  type: "barChart",
-  tooltip: "Orders per week over the past 7 weeks",
-  align: "center",
-}
-
-// Data structure
-const row = {
-  weeklyOrders: [23, 28, 31, 25, 29, 35, 38], // 7 values
-};`}
-        />
       </motion.div>
 
       {/* Copy-Paste Functionality Section */}
@@ -451,34 +365,6 @@ const row = {
           new values and removing old ones.
         </p>
 
-        <CodeBlock
-          language="typescript"
-          code={`// Example: Update CPU history with live data
-const updateCPUHistory = (rowIndex: number, newValue: number) => {
-  const row = data[rowIndex];
-  const currentHistory = row.cpuHistory as number[];
-  
-  // Add new value and remove oldest (keep array length constant)
-  const updatedHistory = [...currentHistory.slice(1), newValue];
-  
-  tableRef.current?.updateData({
-    accessor: "cpuHistory",
-    rowIndex: rowIndex,
-    newValue: updatedHistory,
-  });
-};
-
-// Use with setInterval or WebSocket for real-time updates
-useEffect(() => {
-  const interval = setInterval(() => {
-    const newCPU = Math.random() * 100; // Simulate CPU reading
-    updateCPUHistory(0, newCPU);
-  }, 1000);
-  
-  return () => clearInterval(interval);
-}, []);`}
-        />
-
         <p className="text-gray-700 dark:text-gray-300 mt-4">
           Check out the{" "}
           <ExampleLink
@@ -514,43 +400,6 @@ useEffect(() => {
           property to customize the appearance and behavior of your chart columns. You can control
           dimensions, colors, scaling, and other visual aspects.
         </p>
-
-        <CodeBlock
-          language="typescript"
-          code={`// Line/area chart with custom options
-{
-  accessor: "cpuHistory",
-  label: "CPU Usage",
-  type: "lineAreaChart",
-  width: 150,
-  chartOptions: {
-    min: 0,           // Minimum value for scaling
-    max: 100,         // Maximum value for scaling
-    width: 120,       // Chart width in pixels
-    height: 35,       // Chart height in pixels
-    color: "#3b82f6", // Line color (overrides theme)
-    fillColor: "#93c5fd",     // Area fill color
-    fillOpacity: 0.3,         // Fill opacity (0-1)
-    strokeWidth: 2            // Line thickness
-  }
-}
-
-// Bar chart with custom options
-{
-  accessor: "quarterlyRevenue",
-  label: "Quarterly",
-  type: "barChart",
-  width: 140,
-  chartOptions: {
-    min: 0,           // Minimum value for scaling
-    max: 100000,      // Maximum value for scaling
-    width: 120,       // Chart width in pixels
-    height: 40,       // Chart height in pixels
-    color: "#10b981", // Bar color (overrides theme)
-    gap: 3            // Gap between bars in pixels
-  }
-}`}
-        />
 
         <div className="mt-4 space-y-3">
           <h4 className="text-lg font-semibold text-gray-800 dark:text-white">Available Options</h4>

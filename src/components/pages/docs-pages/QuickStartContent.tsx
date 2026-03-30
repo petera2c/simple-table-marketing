@@ -5,12 +5,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
 import QuickStartDemo from "@/components/demos/QuickStartDemo";
 import PageWrapper from "@/components/PageWrapper";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { UI_STRINGS } from "@/constants/strings/ui";
-import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const TABLE_PROPS: PropInfo[] = [
@@ -125,8 +122,8 @@ const QuickStartContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
       >
-        This guide will help you quickly set up Simple Table in your React project. In just a few
-        minutes, you'll have a fully functional data table.
+        This guide will help you quickly set up Simple Table in your project. In just a few minutes,
+        you'll have a fully functional data table.
       </motion.p>
 
       <motion.div
@@ -136,9 +133,8 @@ const QuickStartContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="QuickStartDemo.txt"
+          demoId="quick-start"
           height="400px"
-          link={SANDBOX_LIST["QuickStartDemo.tsx"].url}
           Preview={QuickStartDemo}
         />
       </motion.div>
@@ -183,27 +179,6 @@ const QuickStartContent = () => {
             </code>{" "}
             value must match a property name in your data objects:
           </p>
-          <CodeBlock
-            code={`// Column definitions with accessors
-const headers = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "name", label: "Name", width: 150 },
-  { accessor: "age", label: "Age", width: 100 }
-];
-
-// Data objects - property names match the accessors
-const data = [
-  { id: 1, name: "John Doe", age: 30 },
-  { id: 2, name: "Jane Smith", age: 25 }
-];
-
-// The table will display:
-// | ID | Name       | Age |
-// |----|------------|-----|
-// | 1  | John Doe   | 30  |
-// | 2  | Jane Smith | 25  |`}
-            language="typescript"
-          />
         </div>
 
         <div className="mb-3">
@@ -237,28 +212,6 @@ const data = [
           <h4 className="font-semibold text-gray-800 dark:text-white mb-2">
             Example with Nested Data
           </h4>
-          <CodeBlock
-            code={`const headers = [
-  { accessor: "id", label: "ID", width: 80 },
-  { accessor: "user.name", label: "Name", width: 150 },
-  { accessor: "user.email", label: "Email", width: 200 },
-  { accessor: "address.city", label: "City", width: 120 }
-];
-
-const data = [
-  {
-    id: 1,
-    user: { name: "John Doe", email: "john@example.com" },
-    address: { city: "New York", zip: "10001" }
-  },
-  {
-    id: 2,
-    user: { name: "Jane Smith", email: "jane@example.com" },
-    address: { city: "Los Angeles", zip: "90001" }
-  }
-];`}
-            language="typescript"
-          />
         </div>
 
         <div className="bg-white dark:bg-gray-800 p-3 rounded border border-blue-200 dark:border-blue-700">
@@ -421,8 +374,6 @@ const data = [
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           {UI_STRINGS.docs.cssSetup.description}
         </p>
-
-        <CodeBlock code={TECHNICAL_STRINGS.css.import} language="js" />
 
         <p className="text-gray-700 dark:text-gray-300">{UI_STRINGS.docs.cssSetup.note}</p>
       </motion.div>

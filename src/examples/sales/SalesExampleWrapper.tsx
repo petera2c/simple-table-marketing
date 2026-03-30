@@ -4,7 +4,6 @@ import SalesExample from "./SalesExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
@@ -34,9 +33,8 @@ export default function SalesExampleWrapper({
 
   return (
     <LivePreview
-      demoCodeFilename="SalesExample.txt"
+      demoId="sales"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/sales/SalesExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

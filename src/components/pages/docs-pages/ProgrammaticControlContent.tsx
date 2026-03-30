@@ -6,7 +6,6 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import ProgrammaticControlDemo from "@/components/demos/ProgrammaticControlDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable from "@/components/PropTable";
 import { TABLE_REF_TYPE_METHODS } from "@/constants/propDefinitions";
@@ -51,10 +50,9 @@ const ProgrammaticControlContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ProgrammaticControlDemo.txt"
+          demoId="programmatic-control"
           demoHeight={400}
           height={520}
-          link={SANDBOX_LIST["ProgrammaticControlDemo.tsx"].url}
           Preview={ProgrammaticControlDemo}
         />
       </motion.div>

@@ -3,7 +3,6 @@
 import InfrastructureExample from "./InfrastructureExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
@@ -32,9 +31,8 @@ export default function InfrastructureExampleWrapper({
 
   return (
     <LivePreview
-      demoCodeFilename="InfrastructureExample.txt"
+      demoId="infrastructure"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

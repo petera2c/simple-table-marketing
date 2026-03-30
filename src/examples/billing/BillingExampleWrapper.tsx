@@ -3,7 +3,6 @@
 import BillingExample from "./BillingExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
@@ -29,9 +28,8 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
 
   return (
     <LivePreview
-      demoCodeFilename="BillingExample.txt"
+      demoId="billing"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/billing/BillingExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

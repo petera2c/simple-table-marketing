@@ -3,7 +3,6 @@
 import HRExample from "./HRExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
@@ -28,8 +27,7 @@ export default function HRExampleWrapper({ theme }: HRExampleWrapperProps) {
 
   return (
     <LivePreview
-      demoCodeFilename="HRExample.txt"
-      link={SANDBOX_LIST["examples/hr/HRExample.tsx"].url}
+      demoId="hr"
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

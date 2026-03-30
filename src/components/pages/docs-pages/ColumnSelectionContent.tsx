@@ -6,7 +6,6 @@ import { faMousePointer } from "@fortawesome/free-solid-svg-icons";
 import ColumnSelectionDemo from "@/components/demos/ColumnSelectionDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -77,9 +76,8 @@ const ColumnSelectionContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnSelectionDemo.txt"
+          demoId="column-selection"
           height="400px"
-          link={SANDBOX_LIST["ColumnSelectionDemo.tsx"].url}
           Preview={(props) => <ColumnSelectionDemo {...props} />}
         />
       </motion.div>

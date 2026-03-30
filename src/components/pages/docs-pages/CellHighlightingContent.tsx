@@ -6,7 +6,6 @@ import { faCopy } from "@fortawesome/free-solid-svg-icons";
 import CellHighlightingDemo from "@/components/demos/CellHighlightingDemo";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -84,9 +83,8 @@ const CellHighlightingContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="CellHighlightingDemo.txt"
+          demoId="cell-highlighting"
           height="400px"
-          link={SANDBOX_LIST["CellHighlightingDemo.tsx"].url}
           Preview={CellHighlightingDemo}
         />
       </motion.div>

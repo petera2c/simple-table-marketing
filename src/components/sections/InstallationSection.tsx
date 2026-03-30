@@ -6,9 +6,14 @@ import { faDownload, faCode } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "antd";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { useFramework, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
+import { FRAMEWORK_INSTALL_COMMANDS } from "@/constants/strings/technical";
 
 export default function InstallationSection() {
   const router = useRouter();
+  const { framework } = useFramework();
+  const commands = FRAMEWORK_INSTALL_COMMANDS[framework];
+  const label = FRAMEWORK_LABELS[framework];
 
   const handleDocumentationClick = () => {
     router.push("/docs/installation");
@@ -33,8 +38,8 @@ export default function InstallationSection() {
           Get Full Integration In Minutes
         </h2>
         <p className="text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
-          Use with your favorite React framework, whether you're using Next.js, Gatsby, or just
-          React. Simple Table will fit right in.
+          Works with React, Vue, Angular, Svelte, Solid, and vanilla TypeScript. Simple Table fits
+          right into your {label} project.
         </p>
       </div>
 
@@ -42,13 +47,11 @@ export default function InstallationSection() {
         <div className="bg-gray-900 dark:bg-gray-950 text-gray-100 dark:text-gray-100 p-3 sm:p-4 lg:p-6 rounded-lg mb-6 font-mono text-sm overflow-x-auto border border-gray-700 dark:border-gray-700">
           <div className="mb-4">
             <div className="text-gray-400 dark:text-gray-400 mb-1"># Install via npm</div>
-            <code className="text-green-400 dark:text-green-400">
-              npm install simple-table-core
-            </code>
+            <code className="text-green-400 dark:text-green-400">{commands.npm}</code>
           </div>
           <div>
             <div className="text-gray-400 dark:text-gray-400 mb-1"># Or via yarn</div>
-            <code className="text-green-400 dark:text-green-400">yarn add simple-table-core</code>
+            <code className="text-green-400 dark:text-green-400">{commands.yarn}</code>
           </div>
         </div>
 

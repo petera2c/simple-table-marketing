@@ -1,3 +1,47 @@
+import type { Framework } from "@/providers/FrameworkProvider";
+
+export const FRAMEWORK_INSTALL_COMMANDS: Record<Framework, { npm: string; yarn: string; pnpm: string }> = {
+  react: {
+    npm: "npm install @simple-table/react simple-table-core",
+    yarn: "yarn add @simple-table/react simple-table-core",
+    pnpm: "pnpm add @simple-table/react simple-table-core",
+  },
+  vue: {
+    npm: "npm install @simple-table/vue simple-table-core",
+    yarn: "yarn add @simple-table/vue simple-table-core",
+    pnpm: "pnpm add @simple-table/vue simple-table-core",
+  },
+  angular: {
+    npm: "npm install @simple-table/angular simple-table-core",
+    yarn: "yarn add @simple-table/angular simple-table-core",
+    pnpm: "pnpm add @simple-table/angular simple-table-core",
+  },
+  svelte: {
+    npm: "npm install @simple-table/svelte simple-table-core",
+    yarn: "yarn add @simple-table/svelte simple-table-core",
+    pnpm: "pnpm add @simple-table/svelte simple-table-core",
+  },
+  solid: {
+    npm: "npm install @simple-table/solid simple-table-core",
+    yarn: "yarn add @simple-table/solid simple-table-core",
+    pnpm: "pnpm add @simple-table/solid simple-table-core",
+  },
+  vanilla: {
+    npm: "npm install simple-table-core",
+    yarn: "yarn add simple-table-core",
+    pnpm: "pnpm add simple-table-core",
+  },
+};
+
+export const FRAMEWORK_REQUIREMENTS: Record<Framework, string> = {
+  react: "React 16.8+",
+  vue: "Vue 3.0+",
+  angular: "Angular 19+",
+  svelte: "Svelte 5+",
+  solid: "Solid 1.0+",
+  vanilla: "Any modern browser (ES2020+)",
+};
+
 export const TECHNICAL_STRINGS = {
   installation: {
     npm: "npm install simple-table-core",
@@ -49,7 +93,7 @@ import "simple-table-core/styles.css";`,
     npm: "https://www.npmjs.com/package/simple-table-core",
     github: "https://github.com/petera2c/simple-table",
     discord: "https://discord.gg/RvKHCfg3PC",
-    demo: "https://codesandbox.io/p/sandbox/simple-table-pagination-example-rdjm5d",
+    demo: "https://stackblitz.com/github/petera2c/simple-table/tree/stackblitz-examples/react/quick-start",
     githubIssues: "https://github.com/petera2c/simple-table/issues",
   },
   files: {

@@ -26,6 +26,7 @@ import { IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import PageWrapper from "./PageWrapper";
 import { getDefaultExampleUrl } from "@/utils/getExampleUrl";
 import ContactModal from "./ContactModal";
+import FrameworkSelector from "./FrameworkSelector";
 
 // Unified link button component that handles both internal and external links
 interface LinkButtonProps {
@@ -380,7 +381,6 @@ const Header = () => {
   }, [isMenuOpen, isMobile]);
 
   const navLinks = [
-    { href: "/", label: "Home" },
     { href: "/docs/installation", label: "Documentation", useActivePath: true },
     { href: getDefaultExampleUrl(theme), label: "Examples", useActivePath: true },
     { href: "/theme-builder", label: "Theme Builder" },
@@ -468,6 +468,7 @@ const Header = () => {
               <Divider type="vertical" className="h-8" />
 
               <div className="flex items-center gap-3 lg:gap-4">
+                <FrameworkSelector />
                 <GitHubLink />
                 <DiscordLink />
                 {externalLinks.map((link) => (
@@ -498,6 +499,13 @@ const Header = () => {
                     onMobileClick={() => setIsMenuOpen(false)}
                   />
                 ))}
+
+                <Divider className="my-2" />
+
+                <div className="px-0 py-1">
+                  <span className="px-3 text-xs font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Framework</span>
+                  <FrameworkSelector isMobile={true} />
+                </div>
 
                 <Divider className="my-2" />
 

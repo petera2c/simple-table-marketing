@@ -6,7 +6,6 @@ import { faRulerHorizontal } from "@fortawesome/free-solid-svg-icons";
 import ColumnWidthDemo from "@/components/demos/ColumnWidthDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -118,9 +117,8 @@ const ColumnWidthContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnWidthDemo.txt"
+          demoId="column-width"
           height="400px"
-          link={SANDBOX_LIST["ColumnWidthDemo.tsx"].url}
           Preview={ColumnWidthDemo}
         />
       </motion.div>
@@ -191,33 +189,6 @@ const ColumnWidthContent = () => {
           </p>
         </div>
 
-        <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 p-4 rounded-lg">
-          <h3 className="font-semibold text-gray-800 dark:text-white mb-2">
-            Responsive Implementation
-          </h3>
-          <p className="text-gray-700 dark:text-gray-300 mb-3 text-sm">
-            Here's how to conditionally enable auto-expand based on screen size:
-          </p>
-          <pre className="bg-gray-800 text-gray-100 p-3 rounded-lg text-xs overflow-x-auto">
-            <code>{`const [isMobile, setIsMobile] = useState(false);
-
-useEffect(() => {
-  const checkMobile = () => {
-    setIsMobile(window.innerWidth < 768);
-  };
-  checkMobile();
-  window.addEventListener("resize", checkMobile);
-  return () => window.removeEventListener("resize", checkMobile);
-}, []);
-
-<SimpleTable
-  autoExpandColumns={!isMobile}
-  defaultHeaders={headers}
-  rows={data}
-  
-/>`}</code>
-          </pre>
-        </div>
       </motion.div>
 
       <motion.h2

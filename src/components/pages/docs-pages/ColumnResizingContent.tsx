@@ -6,7 +6,6 @@ import ColumnResizingDemo from "@/components/demos/ColumnResizingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import { faLeftRight } from "@fortawesome/free-solid-svg-icons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -86,9 +85,8 @@ const ColumnResizingContent = () => {
           </p>
         </div>
         <LivePreview
-          demoCodeFilename="ColumnResizingDemo.txt"
+          demoId="column-resizing"
           height="400px"
-          link={SANDBOX_LIST["ColumnResizingDemo.tsx"].url}
           Preview={ColumnResizingDemo}
         />
       </motion.div>

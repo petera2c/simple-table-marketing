@@ -5,13 +5,32 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCopy, faCheck, faSun, faMoon } from "@fortawesome/free-solid-svg-icons";
 import { Highlight, themes } from "prism-react-renderer";
 import { useDemoCode } from "@/hooks/useDemoCode";
+import { useFramework, type Framework } from "@/providers/FrameworkProvider";
 
 type ThemeType = "dark" | "light";
+
+const FRAMEWORK_LANGUAGE: Record<Framework, string> = {
+  react: "tsx",
+  vue: "markup",
+  angular: "typescript",
+  svelte: "markup",
+  solid: "tsx",
+  vanilla: "typescript",
+};
+
+const FRAMEWORK_LANGUAGE_LABEL: Record<Framework, string> = {
+  react: "React TSX",
+  vue: "Vue SFC",
+  angular: "Angular",
+  svelte: "Svelte",
+  solid: "Solid TSX",
+  vanilla: "TypeScript",
+};
 
 interface CodeBlockProps {
   className?: string;
   code?: string;
-  demoCodeFilename?: string;
+  demoId?: string;
   initialTheme?: ThemeType;
   language?: string;
   showLineNumbers?: boolean;
@@ -21,14 +40,18 @@ interface CodeBlockProps {
 const CodeBlock = ({
   className = "",
   code = "",
-  demoCodeFilename = "",
+  demoId,
   initialTheme = "dark",
-  language = "tsx",
+  language,
   showLineNumbers = true,
   showThemeToggle = true,
 }: CodeBlockProps) => {
-  const demoCode = useDemoCode(demoCodeFilename);
+  const demoCode = useDemoCode(demoId);
+  const { framework } = useFramework();
   code = demoCode ? demoCode.toString() : code.toString();
+  if (!language) {
+    language = demoId ? FRAMEWORK_LANGUAGE[framework] : "tsx";
+  }
   const [copied, setCopied] = useState(false);
   const [theme, setTheme] = useState<ThemeType>(initialTheme);
 
@@ -45,8 +68,8 @@ const CodeBlock = ({
 
   const selectedTheme = theme === "dark" ? themes.nightOwl : themes.nightOwlLight;
 
-  // Get language display name
   const getLanguageDisplayName = () => {
+    if (demoId) return FRAMEWORK_LANGUAGE_LABEL[framework];
     const displayNames: Record<string, string> = {
       jsx: "React JSX",
       tsx: "React TSX",
@@ -56,9 +79,9 @@ const CodeBlock = ({
       html: "HTML",
       bash: "Shell",
       json: "JSON",
+      markup: "HTML",
     };
-
-    return displayNames[language] || language.toUpperCase();
+    return displayNames[language!] || language!.toUpperCase();
   };
 
   // Filename extraction from first comment line (e.g. "// SomeFile.tsx")

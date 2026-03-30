@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfinity } from "@fortawesome/free-solid-svg-icons";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import InfiniteScrollDemo from "@/components/demos/InfiniteScrollDemo";
@@ -68,9 +67,8 @@ const InfiniteScrollContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="InfiniteScrollDemo.txt"
+          demoId="infinite-scroll"
           height="400px"
-          link={SANDBOX_LIST["InfiniteScrollDemo.tsx"].url}
           Preview={InfiniteScrollDemo}
         />
       </motion.div>

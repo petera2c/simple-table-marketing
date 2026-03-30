@@ -7,7 +7,6 @@ import RowGroupingDemo from "@/components/demos/RowGroupingDemo";
 import DynamicRowLoadingDemo from "@/components/demos/DynamicRowLoadingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import { Button } from "antd";
 import { useState } from "react";
@@ -231,10 +230,9 @@ const RowGroupingContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="RowGroupingDemo.txt"
+          demoId="row-grouping"
           height="500px"
           demoHeight="428px"
-          link={SANDBOX_LIST["RowGroupingDemo.tsx"].url}
           Preview={(props) => <RowGroupingDemo expandAll={expandAll} {...props} />}
         />
       </motion.div>
@@ -502,9 +500,8 @@ const RowGroupingContent = () => {
         </div>
 
         <LivePreview
-          demoCodeFilename="DynamicRowLoadingDemo.txt"
+          demoId="dynamic-row-loading"
           height="400px"
-          link={SANDBOX_LIST["DynamicRowLoadingDemo.tsx"].url}
           Preview={(props) => <DynamicRowLoadingDemo {...props} />}
         />
       </motion.div>

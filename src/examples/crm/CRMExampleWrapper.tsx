@@ -3,7 +3,6 @@
 import CRMExample from "./CRMExample";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
@@ -46,9 +45,8 @@ export default function CRMExampleWrapper({
 
   return (
     <LivePreview
-      demoCodeFilename="CRMExample.txt"
+      demoId="crm"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/crm/CRMExample.tsx"].url}
       selectedTheme={crmTheme as Theme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

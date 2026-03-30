@@ -7,6 +7,7 @@ import Footer from "./Footer";
 import "../app/global.css";
 import { QueryProvider } from "../providers/QueryProvider";
 import { ThemeProvider } from "../providers/ThemeProvider";
+import { FrameworkProvider } from "../providers/FrameworkProvider";
 
 const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -30,7 +31,9 @@ const ClientLayoutContent = ({ children }: { children: React.ReactNode }) => {
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
     <ThemeProvider>
-      <ClientLayoutContent>{children}</ClientLayoutContent>
+      <FrameworkProvider>
+        <ClientLayoutContent>{children}</ClientLayoutContent>
+      </FrameworkProvider>
     </ThemeProvider>
   );
 }

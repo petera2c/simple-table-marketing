@@ -3,7 +3,6 @@
 import MusicExample from "./MusicExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { Inter } from "next/font/google";
@@ -35,9 +34,8 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
 
   return (
     <LivePreview
-      demoCodeFilename="MusicExample.txt"
+      demoId="music"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/music/MusicExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />

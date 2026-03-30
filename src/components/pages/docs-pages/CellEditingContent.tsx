@@ -6,7 +6,6 @@ import { motion } from "framer-motion";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const CELL_EDITING_PROPS: PropInfo[] = [
@@ -143,9 +142,8 @@ export default function CellEditingContent() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="CellEditingDemo.txt"
+          demoId="cell-editing"
           height="400px"
-          link={SANDBOX_LIST["CellEditingDemo.tsx"].url}
           Preview={CellEditingDemo}
         />
       </motion.div>

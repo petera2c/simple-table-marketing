@@ -6,7 +6,6 @@ import { faFootballBall } from "@fortawesome/free-solid-svg-icons";
 import FooterRendererDemo from "@/components/demos/FooterRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import { FOOTER_RENDERER_PROPS as FOOTER_RENDERER_PARAMS_PROPS } from "@/constants/propDefinitions";
@@ -56,9 +55,8 @@ const FooterRendererContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="FooterRendererDemo.txt"
+          demoId="footer-renderer"
           height="400px"
-          link={(SANDBOX_LIST as any)["FooterRendererDemo.tsx"]?.url || "#"}
           Preview={FooterRendererDemo}
         />
       </motion.div>

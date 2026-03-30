@@ -7,7 +7,6 @@ import ColumnVisibilityDemo from "@/components/demos/ColumnVisibilityDemo";
 import ColumnEditorCustomRendererDemo from "@/components/demos/ColumnEditorCustomRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import Link from "next/link";
@@ -126,9 +125,8 @@ const ColumnVisibilityContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnVisibilityDemo.txt"
+          demoId="column-visibility"
           height="400px"
-          link={SANDBOX_LIST["ColumnVisibilityDemo.tsx"].url}
           Preview={ColumnVisibilityDemo}
         />
       </motion.div>
@@ -222,10 +220,9 @@ const ColumnVisibilityContent = () => {
         </p>
 
         <LivePreview
-          demoCodeFilename="ColumnEditorCustomRendererDemo.txt"
+          demoId="column-editor-custom-renderer"
           height="300px"
           demoHeight="270px"
-          link={SANDBOX_LIST["ColumnEditorCustomRendererDemo.tsx"].url}
           Preview={ColumnEditorCustomRendererDemo}
         />
       </motion.div>
@@ -277,22 +274,6 @@ const ColumnVisibilityContent = () => {
           .
         </p>
 
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            <code>{`<SimpleTable
-  columnEditorConfig={{
-    rowRenderer: ({ components }) => (
-      <div style={{ display: 'flex', gap: '8px' }}>
-        {components.checkbox}
-        {components.dragIcon}
-        {components.labelContent}
-      </div>
-    )
-  }}
-  // ... other props
-/>`}</code>
-          </pre>
-        </div>
       </motion.div>
       <DocNavigationButtons />
     </PageWrapper>

@@ -6,10 +6,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import CellRendererDemo from "@/components/demos/CellRendererDemo";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
 import { CELL_RENDERER_PROPS as CELL_RENDERER_PARAMS_PROPS } from "@/constants/propDefinitions";
 
 const CELL_RENDERER_PROPS: PropInfo[] = [
@@ -61,9 +59,8 @@ const CellRendererContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="CellRendererDemo.txt"
+          demoId="cell-renderer"
           height="400px"
-          link={SANDBOX_LIST["CellRendererDemo.tsx"].url}
           Preview={CellRendererDemo}
         />
       </motion.div>
@@ -215,34 +212,6 @@ const CellRendererContent = () => {
           parameter passed to your cell renderer is a flat object containing all the row's data:
         </p>
 
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`type Row = {
-  id: string | number;           // Unique identifier for the row
-  [accessor: Accessor]: CellValue; // All cell values accessible by column accessor
-  
-  // For hierarchical data (optional):
-  children?: Row[];              // Child rows (e.g., invoices array, stations array)
-};
-
-// CellValue now supports arrays and objects:
-type CellValue = string | number | boolean | undefined | null | string[] | number[] | Record<string, any>[];
-
-// Example row structure:
-{
-  id: "SALE-123",
-  repName: "John Doe",
-  dealSize: 15000,
-  isWon: true,
-  category: "Software",
-  tags: ["Enterprise", "SaaS"],           // string array
-  teamMembers: [                          // object array
-    { name: "Alice", role: "Manager" },
-    { name: "Bob", role: "Developer" }
-  ]
-}`}
-          />
-        </div>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           To access a specific cell value, use{" "}

@@ -7,7 +7,6 @@ import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import QuickFilterDemo from "@/components/demos/QuickFilterDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import { Input, Radio, Checkbox, Space } from "antd";
@@ -271,9 +270,8 @@ const QuickFilterContent = () => {
         </Space>
 
         <LivePreview
-          demoCodeFilename="QuickFilterDemo.txt"
+          demoId="quick-filter"
           height="400px"
-          link={SANDBOX_LIST["QuickFilterDemo.tsx"]?.url}
           Preview={(props) => (
             <QuickFilterDemo
               {...props}
@@ -475,27 +473,6 @@ const QuickFilterContent = () => {
           integrating with external search components.
         </p>
 
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            {`// Set quick filter text programmatically
-tableRef.current?.setQuickFilter("engineering");
-
-// Clear quick filter
-tableRef.current?.setQuickFilter("");
-
-// Keyboard shortcut example
-useEffect(() => {
-  const handleKeyPress = (e: KeyboardEvent) => {
-    if (e.ctrlKey && e.key === 'f') {
-      e.preventDefault();
-      searchInputRef.current?.focus();
-    }
-  };
-  window.addEventListener('keydown', handleKeyPress);
-  return () => window.removeEventListener('keydown', handleKeyPress);
-}, []);`}
-          </pre>
-        </div>
 
         <p className="text-gray-700 dark:text-gray-300 mt-4">
           For more details, see the{" "}

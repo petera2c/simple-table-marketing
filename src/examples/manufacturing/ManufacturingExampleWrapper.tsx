@@ -4,7 +4,6 @@ import ManufacturingExample from "./ManufacturingExample";
 import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
@@ -28,9 +27,8 @@ export default function ManufacturingExampleWrapper({ theme }: ManufacturingExam
 
   return (
     <LivePreview
-      demoCodeFilename="ManufacturingExample.txt"
+      demoId="manufacturing"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/manufacturing/ManufacturingExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
