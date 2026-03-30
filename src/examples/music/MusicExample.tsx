@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { SimpleTable, TableRefType, Theme } from "@simple-table/react";
 import { HEADERS } from "./music-headers";
 
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import "./MusicTheme.css";
 import { useMusicData } from "./useMusicData";
 

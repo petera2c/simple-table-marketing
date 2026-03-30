@@ -1,7 +1,7 @@
 import { SimpleTable, Row, CellChangeProps, Theme } from "@simple-table/react";
 import { SALES_HEADERS } from "./sales-headers";
 import { useState, useEffect } from "react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { useSalesData } from "./useSalesData";
 
 export default function SalesExample({

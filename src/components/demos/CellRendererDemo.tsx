@@ -1,8 +1,8 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with custom cell renderers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: 180, type: "string" },
   {

@@ -11,6 +11,35 @@ export interface ChangelogEntry {
   }[];
 }
 
+export const v3_0_0: ChangelogEntry = {
+  version: "3.0.0",
+  date: "2026-03-29",
+  title: "Framework Adapters & Column Virtualization",
+  titleLink: "/migrations/v3",
+  description:
+    "Major release: simple-table-core is now a framework-agnostic plain JavaScript engine. React, Vue, Angular, Svelte, and Solid each have dedicated npm adapter packages. Also introduces column virtualization for tables with many columns.",
+  changes: [
+    {
+      type: "breaking",
+      description:
+        "Import from @simple-table/react (or /vue, /angular, /svelte, /solid) instead of simple-table-core",
+    },
+    {
+      type: "breaking",
+      description:
+        "simple-table-core is now plain JS — no framework components exported",
+    },
+    {
+      type: "feature",
+      description: "Column virtualization for tables with many columns",
+    },
+    {
+      type: "improvement",
+      description: "Framework-agnostic core with dedicated adapters for each framework",
+    },
+  ],
+};
+
 export const v2_6_3: ChangelogEntry = {
   version: "2.6.3",
   date: "2026-03-28",
@@ -1526,6 +1555,7 @@ export const v1_4_4: ChangelogEntry = {
 
 // Array of all changelog entries (newest first)
 export const CHANGELOG_ENTRIES: ChangelogEntry[] = [
+  v3_0_0,
   v2_6_3,
   v2_6_2,
   v2_5_7,

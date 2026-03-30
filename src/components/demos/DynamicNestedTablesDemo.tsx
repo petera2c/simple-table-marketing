@@ -1,6 +1,6 @@
 import { useState, useCallback, useMemo } from "react";
-import { SimpleTable, HeaderObject, OnRowGroupExpandProps, Row, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, OnRowGroupExpandProps, Row, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Type definitions
 interface Company extends Row {
@@ -234,7 +234,7 @@ const DynamicNestedTablesDemo = ({
   );
 
   // Division headers for nested table
-  const divisionHeaders: HeaderObject[] = useMemo(
+  const divisionHeaders: ReactHeaderObject[] = useMemo(
     () => [
       { accessor: "divisionName", label: "Division", width: 200 },
       { accessor: "revenue", label: "Revenue", width: 120 },
@@ -246,7 +246,7 @@ const DynamicNestedTablesDemo = ({
   );
 
   // Company headers with nested table configuration
-  const companyHeaders: HeaderObject[] = useMemo(
+  const companyHeaders: ReactHeaderObject[] = useMemo(
     () => [
       {
         accessor: "companyName",

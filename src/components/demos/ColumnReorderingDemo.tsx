@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers for the demo
-const initialHeaders: HeaderObject[] = [
+const initialHeaders: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", type: "string" },
   { accessor: "age", label: "Age", width: 80, align: "right", type: "number" },
@@ -124,12 +124,12 @@ const ColumnReorderingDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
+  const [headers, setHeaders] = useState<ReactHeaderObject[]>(initialHeaders);
   const [, setCurrentColumnOrder] = useState<string>(
     initialHeaders.map((header) => header.accessor).join(", "),
   );
 
-  const handleColumnOrderChange = (newHeaders: HeaderObject[]) => {
+  const handleColumnOrderChange = (newHeaders: ReactHeaderObject[]) => {
     setHeaders(newHeaders);
     setCurrentColumnOrder(newHeaders.map((header) => header.accessor).join(", "));
   };

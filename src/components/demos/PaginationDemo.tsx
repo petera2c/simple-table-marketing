@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const ROWS_PER_PAGE = 9;
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", minWidth: 100, type: "string" },
   { accessor: "email", label: "Email", width: 200, type: "string" },

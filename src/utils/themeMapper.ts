@@ -1,4 +1,4 @@
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 
 /**
  * Maps website theme (from ThemeProvider) to default table theme.

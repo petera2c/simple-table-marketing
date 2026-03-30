@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { HeaderObject } from "@simple-table/react";
+import { ReactHeaderObject } from "@simple-table/react";
 
-export const getCRMHeaders = (isDark: boolean): HeaderObject[] => {
+export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
   const colors = isDark
     ? {
         text: "#cbd5e1",

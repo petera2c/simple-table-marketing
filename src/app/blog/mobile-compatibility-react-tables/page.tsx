@@ -434,7 +434,7 @@ export default function MobileCompatibilityReactTablesPage() {
               <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto text-sm leading-relaxed">
                 {`import React from "react";
 import { SimpleTable } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 const headers = [
   { 

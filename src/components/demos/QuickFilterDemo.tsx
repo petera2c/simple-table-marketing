@@ -1,5 +1,5 @@
-import { SimpleTable, HeaderObject, QuickFilterMode, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, QuickFilterMode, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Sample data with variety for testing quick filter
 const sampleData = [
@@ -113,7 +113,7 @@ const sampleData = [
   },
 ];
 
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "name",
     label: "Employee Name",

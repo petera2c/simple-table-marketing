@@ -1,8 +1,8 @@
 import { getSpreadsheetHeaders } from "./spreadsheet-headers";
 import { useState, useEffect, useMemo } from "react";
-import { SimpleTable, CellChangeProps, Theme, HeaderObject } from "@simple-table/react";
+import { SimpleTable, CellChangeProps, Theme, ReactHeaderObject } from "@simple-table/react";
 
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import "./SpreadsheetCustom.css";
 import { useSpreadsheetData } from "./useSpreadsheetData";
 
@@ -35,7 +35,7 @@ const SpreadsheetExampleComponent = ({
 }) => {
   const { data: fetchedData, isLoading } = useSpreadsheetData(rowCount);
   const [data, setData] = useState(fetchedData);
-  const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
+  const [additionalColumns, setAdditionalColumns] = useState<ReactHeaderObject[]>([]);
 
   // Update local data when fetched data changes
   useEffect(() => {
@@ -59,7 +59,7 @@ const SpreadsheetExampleComponent = ({
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button
               onClick={() => {
-                const newColumn: HeaderObject = {
+                const newColumn: ReactHeaderObject = {
                   accessor: `column${baseHeaders.length + additionalColumns.length + 1}`,
                   label: `Column ${baseHeaders.length + additionalColumns.length + 1}`,
                   width: 120,

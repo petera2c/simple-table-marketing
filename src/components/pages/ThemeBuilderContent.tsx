@@ -45,7 +45,7 @@ import MobileUnsupportedPage from "@/components/MobileUnsupported";
 import { CellChangeProps, Row, SimpleTable, Theme } from "@simple-table/react";
 import { SALES_HEADERS } from "@/examples/sales/sales-headers";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 const ROW_HEIGHT = 32;
 const HEADER_HEIGHT = 32;

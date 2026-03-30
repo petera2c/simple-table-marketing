@@ -1,4 +1,4 @@
-import { HeaderObject } from "@simple-table/react";
+import { ReactHeaderObject } from "@simple-table/react";
 
 // Custom Tag component
 const Tag = ({
@@ -112,7 +112,7 @@ const Progress = ({
   );
 };
 
-export const HEADERS: HeaderObject[] = [
+export const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "productLine",
     label: "Production Line",

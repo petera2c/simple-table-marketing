@@ -1,12 +1,12 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import { useState, useEffect } from "react";
 
 // Storage key for persisting column widths
 const STORAGE_KEY = "columnResizingDemo_widths";
 
 // Define initial headers
-const initialHeaders: HeaderObject[] = [
+const initialHeaders: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "name", label: "First Name", width: "1fr", minWidth: 100, type: "string" },
   { accessor: "age", label: "Age", width: "1fr", minWidth: 50, type: "string" },
@@ -122,7 +122,7 @@ const ColumnResizingDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const [headers, setHeaders] = useState<HeaderObject[]>(initialHeaders);
+  const [headers, setHeaders] = useState<ReactHeaderObject[]>(initialHeaders);
   const [saveMessage, setSaveMessage] = useState<string>("");
 
   // Load saved column widths from localStorage on mount
@@ -143,7 +143,7 @@ const ColumnResizingDemo = ({
   }, []);
 
   // Handle column width changes
-  const handleColumnWidthChange = (updatedHeaders: HeaderObject[]) => {
+  const handleColumnWidthChange = (updatedHeaders: ReactHeaderObject[]) => {
     try {
       // Extract widths into a simple object
       const widthMap = updatedHeaders.reduce(

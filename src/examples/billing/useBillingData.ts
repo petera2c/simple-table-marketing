@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row } from "simple-table-core";
+import { Row } from "@simple-table/react";
 
 export function useBillingData(rowCount?: number) {
   const [data, setData] = useState<Row[]>([]);

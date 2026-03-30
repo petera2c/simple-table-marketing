@@ -1,8 +1,8 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with filterable property
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",

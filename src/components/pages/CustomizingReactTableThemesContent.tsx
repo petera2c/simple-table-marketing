@@ -680,7 +680,7 @@ headerRenderer: createHeaderRenderer("name", "Star Name"),
           }}
           secondaryButton={{
             text: "View on NPM",
-            href: "https://www.npmjs.com/package/simple-table-core",
+            href: "https://www.npmjs.com/package/@simple-table/react",
             external: true,
           }}
         />

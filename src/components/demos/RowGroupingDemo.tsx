@@ -1,8 +1,8 @@
 import { useRef } from "react";
-import { SimpleTable, HeaderObject, TableRefType, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, TableRefType, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "organization", label: "Organization", width: 200, expandable: true, type: "string" },
   { accessor: "employees", label: "Employees", width: 100, type: "number" },
   { accessor: "budget", label: "Annual Budget", width: 140, type: "string" },

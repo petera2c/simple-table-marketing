@@ -1,5 +1,5 @@
 import { useEffect, RefObject } from "react";
-import { TableRefType, Row } from "simple-table-core";
+import { TableRefType, Row } from "@simple-table/react";
 
 // Configuration for individual server update timers
 const UPDATE_CONFIG = {

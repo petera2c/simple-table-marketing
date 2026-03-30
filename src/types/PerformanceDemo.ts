@@ -1,4 +1,4 @@
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 
 export interface PerformanceDemoProps {
   // Table configuration

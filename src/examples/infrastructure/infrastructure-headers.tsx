@@ -1,6 +1,6 @@
-import { HeaderObject } from "@simple-table/react";
+import { ReactHeaderObject } from "@simple-table/react";
 
-export const HEADERS: HeaderObject[] = [
+export const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "serverId",
     align: "left",

@@ -311,7 +311,7 @@ export default function CustomIconsReactGridsPage() {
               <CodeBlock
                 className="mb-6"
                 code={`import { SimpleTable } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faSortUp,
@@ -401,7 +401,7 @@ export default function CustomSVGTable({ data, headers }) {
               <CodeBlock
                 className="mb-6"
                 code={`import { SimpleTable } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import {
   ChevronUp,
   ChevronDown,

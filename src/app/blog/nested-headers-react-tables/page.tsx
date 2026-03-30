@@ -307,7 +307,7 @@ export default function NestedHeadersReactTablesPage() {
 
               <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto mb-6 text-sm leading-relaxed">
                 {`import { SimpleTable, HeaderObject } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 const headers: HeaderObject[] = [
   {
@@ -541,7 +541,7 @@ export default function StudentGradeTable() {
           description="Simple Table makes complex data organization simple with intuitive nested headers. No complex configuration required."
           primaryButton={{
             text: "View on NPM",
-            href: "https://www.npmjs.com/package/simple-table-core",
+            href: "https://www.npmjs.com/package/@simple-table/react",
             external: true,
           }}
           secondaryButton={{

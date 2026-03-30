@@ -51,7 +51,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
     framework: "React, Vue, Angular, Svelte, Solid, Vanilla TypeScript",
     language: "TypeScript",
     license: "MIT",
-    npmPackage: "simple-table-core",
+    npmPackage: "@simple-table/react",
     github: "https://github.com/simple-table",
     documentation: "https://www.simple-table.com/docs",
     examples: "https://www.simple-table.com/examples",
@@ -145,7 +145,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
         </ul>
 
         <h2>Installation and Setup</h2>
-        <p>Install Simple Table using npm: npm install simple-table-core</p>
+        <p>Install Simple Table using npm: npm install @simple-table/react</p>
         <p>Import and use in your application with minimal configuration</p>
         <p>Supports TypeScript with full type definitions</p>
         <p>Works with React, Vue, Angular, Svelte, Solid, and vanilla TypeScript</p>

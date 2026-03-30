@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, CellClickProps, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, CellClickProps, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 type ProjectTask = {
   id: number;
@@ -15,7 +15,7 @@ type ProjectTask = {
 };
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "Task ID", width: 80, isSortable: true, type: "number" },
   {
     accessor: "task",

@@ -507,7 +507,7 @@ const handleMouseMove = (e: MouseEvent) => {
               <CodeBlock
                 className="mb-6"
                 code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 const headers: HeaderObject[] = [
   { 

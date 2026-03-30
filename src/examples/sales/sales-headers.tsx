@@ -1,4 +1,4 @@
-import { HeaderObject } from "@simple-table/react";
+import { ReactHeaderObject } from "@simple-table/react";
 
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
@@ -253,7 +253,7 @@ const Progress = ({
   );
 };
 
-export const SALES_HEADERS: HeaderObject[] = [
+export const SALES_HEADERS: ReactHeaderObject[] = [
   {
     accessor: "repName",
     label: "Sales Representative",

@@ -2,7 +2,7 @@ import { getCRMHeaders } from "./crm-headers";
 import { useState, useEffect } from "react";
 import { SimpleTable, CellChangeProps, Row, FooterRendererProps } from "@simple-table/react";
 
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import "./CustomTheme.css";
 import CRMCustomFooter from "./CRMFooter";
 import { useCRMData } from "./useCRMData";

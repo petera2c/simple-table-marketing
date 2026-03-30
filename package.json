@@ -43,7 +43,7 @@
     "@mui/material": "^7.3.4",
     "@next/bundle-analyzer": "^16.0.0",
     "@next/mdx": "^16.1.6",
-    "@simple-table/react": "^3.0.0-beta.14",
+    "@simple-table/react": "^3.0.0-beta.15",
     "@tanstack/react-query": "^5.72.2",
     "@types/cheerio": "^0.22.35",
     "@types/mdx": "^2.0.13",
@@ -64,7 +64,6 @@
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.4.0",
     "resend": "^6.9.1",
-    "simple-table-core": "^3.0.0-beta.14",
     "source-map-explorer": "^2.5.3",
     "typescript": "^5.8.3"
   },

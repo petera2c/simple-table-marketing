@@ -507,64 +507,46 @@ export default function BestFreeReactDataGrid2026Page() {
             </h3>
 
             <p className="mb-4 text-gray-700 dark:text-gray-300">
-              Ready to experience the best free React data grid of 2026? Here's how simple it is to
-              get started:
+              Ready to experience the best free React data grid of 2026? Getting started takes just
+              a few minutes:
             </p>
 
             <div className="space-y-4">
-              <div>
-                <h4 className="mb-2 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                  1. Install Simple Table
-                </h4>
-                <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto text-sm leading-relaxed">
-                  {`npm install simple-table-core
-# or
-yarn add simple-table-core`}
-                </pre>
-              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">1</div>
+                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-1">
+                    Install the package
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    One npm install — that's the only dependency you need.
+                  </p>
+                </div>
 
-              <div>
-                <h4 className="mb-2 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                  2. Basic Implementation
-                </h4>
-                <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto text-sm leading-relaxed">
-                  {`import React from "react";
-import { SimpleTable } from "@simple-table/react";
-import "simple-table-core/styles.css";
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">2</div>
+                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-1">
+                    Define your columns
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Pass an array of header definitions and your row data to the{" "}
+                    <code className="text-xs bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+                      SimpleTable
+                    </code>{" "}
+                    component.
+                  </p>
+                </div>
 
-const headers = [
-  { accessor: "id", label: "ID", width: 80, type: "number" },
-  { accessor: "name", label: "Name", width: "1fr", type: "string" },
-  { accessor: "age", label: "Age", width: 100, type: "number" },
-  { accessor: "email", label: "Email", width: 200, type: "string" },
-];
-
-const data = [
-  { id: 1, name: "John Doe", age: 30, email: "john@example.com" },
-  { id: 2, name: "Jane Smith", age: 25, email: "jane@example.com" },
-];
-
-export default function MyTable() {
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={data}
-      
-    />
-  );
-}`}
-                </pre>
-              </div>
-
-              <div>
-                <h4 className="mb-2 text-gray-900 dark:text-gray-100 text-lg font-medium">
-                  3. That's It!
-                </h4>
-                <p className="text-gray-700 dark:text-gray-300">
-                  You now have a fully functional, high-performance data grid with sorting,
-                  filtering, virtual scrolling, and all the features you need. No complex
-                  configuration required.
-                </p>
+                <div className="border border-gray-200 dark:border-gray-700 rounded-lg p-4 bg-gray-50 dark:bg-gray-900">
+                  <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 mb-2">3</div>
+                  <h4 className="text-lg font-medium text-gray-900 dark:text-gray-100 mb-1">
+                    That's it
+                  </h4>
+                  <p className="text-gray-600 dark:text-gray-400 text-sm">
+                    Sorting, filtering, virtual scrolling, and more — all work out of the box with
+                    zero configuration.
+                  </p>
+                </div>
               </div>
             </div>
 

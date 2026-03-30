@@ -61,8 +61,8 @@ export default function FAQSection() {
                 question: "How do I install and get started?",
                 answer: (
                   <>
-                    Install via npm: 'npm install simple-table-core' along with a framework adapter
-                    like '@simple-table/react' or '@simple-table/vue'. Define your columns and data,
+                    Install via npm with your framework adapter, e.g. 'npm install
+                    @simple-table/react' (or @simple-table/vue, etc.). Define your columns and data,
                     and you're ready to go. Our{" "}
                     <Link
                       href="/docs/quick-start"

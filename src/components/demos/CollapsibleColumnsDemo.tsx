@@ -1,5 +1,5 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Sample data showcasing quarterly sales performance - perfect for collapsible columns
 const SALES_DATA = [
@@ -402,7 +402,7 @@ const SALES_DATA = [
 ];
 
 // Define headers showcasing meaningful collapsible scenarios
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",

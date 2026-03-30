@@ -1,6 +1,6 @@
 import { Row, SimpleTable, Theme } from "@simple-table/react";
 import { HEADERS } from "./manufacturing-headers";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { useManufacturingData } from "./useManufacturingData";
 
 export default function ManufacturingExample({

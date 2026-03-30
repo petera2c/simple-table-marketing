@@ -1,6 +1,6 @@
 import { SimpleTable, Theme } from "@simple-table/react";
 import { HEADERS } from "./billing-headers";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { useBillingData } from "./useBillingData";
 
 export default function BillingExample({

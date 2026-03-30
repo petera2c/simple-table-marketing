@@ -1,10 +1,10 @@
-import { HeaderObject } from "@simple-table/react";
+import { ReactHeaderObject } from "@simple-table/react";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
 // Generate header configs for 2024 months
 const generateMonthHeaders = () => {
-  const headers: HeaderObject[] = [];
+  const headers: ReactHeaderObject[] = [];
   const year = 2024;
 
   // Add all months for 2024 in reverse chronological order (Dec to Jan)
@@ -68,7 +68,7 @@ const generateMonthHeaders = () => {
 };
 
 // Main headers
-export const HEADERS: HeaderObject[] = [
+export const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "name",
     label: "Name",

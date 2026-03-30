@@ -1,5 +1,5 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Sample student performance data
 const STUDENT_DATA = [
@@ -127,7 +127,7 @@ const STUDENT_DATA = [
 ];
 
 // Define headers with singleRowChildren feature
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "studentId",
     label: "Student ID",

@@ -1,5 +1,5 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const EXAMPLE_DATA = [
   {
@@ -139,7 +139,7 @@ const EXAMPLE_DATA = [
   },
 ];
 
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "productName",
     label: "Product",

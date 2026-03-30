@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Accessor, TableFilterState, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Accessor, TableFilterState, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Type for our sample data
 type EmployeeData = {
@@ -218,7 +218,7 @@ const sampleData: EmployeeData[] = [
   },
 ];
 
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "name",
     label: "Name",

@@ -1,9 +1,9 @@
-import { SimpleTable, TableRefType, HeaderObject, Theme } from "@simple-table/react";
+import { SimpleTable, TableRefType, ReactHeaderObject, Theme } from "@simple-table/react";
 import { useRef, useEffect } from "react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "product", label: "Product", width: 180, type: "string" },
   {

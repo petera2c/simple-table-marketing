@@ -115,7 +115,7 @@ export default function HomeContent() {
         name: "How do I install Simple Table?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can install Simple Table using npm: 'npm install simple-table-core' along with a framework adapter like '@simple-table/react' or '@simple-table/vue'. The library is ready to use with minimal configuration in any supported framework.",
+          text: "Install Simple Table with your framework adapter, e.g. 'npm install @simple-table/react' (or @simple-table/vue, @simple-table/angular, etc.). The library is ready to use with minimal configuration in any supported framework.",
         },
       },
     ],
@@ -166,7 +166,7 @@ export default function HomeContent() {
     ],
     description: `Simple Table is a lightweight JavaScript data grid with adapters for React, Vue, Angular, Svelte, Solid, and vanilla TypeScript. Only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size, production-ready with 30+ features including cell editing, column management, sorting, filtering, and full TypeScript support.`,
     url: "https://www.simple-table.com",
-    downloadUrl: "https://www.npmjs.com/package/simple-table-core",
+    downloadUrl: "https://www.npmjs.com/package/@simple-table/react",
     softwareVersion: SIMPLE_TABLE_INFO.version,
     author: {
       "@type": "Organization",
@@ -175,7 +175,7 @@ export default function HomeContent() {
     },
     sameAs: [
       "https://github.com/petera2c/simple-table",
-      "https://www.npmjs.com/package/simple-table-core",
+      "https://www.npmjs.com/package/@simple-table/react",
       "https://github.com/brillout/awesome-react-components",
     ],
   };

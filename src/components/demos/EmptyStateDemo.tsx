@@ -1,7 +1,7 @@
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, type: "number" },
   { accessor: "name", label: "Name", width: "1fr", minWidth: 150, type: "string" },
   { accessor: "email", label: "Email", width: 220, type: "string" },

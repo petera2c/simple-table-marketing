@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, CellChangeProps, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, CellChangeProps, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with editable property and various types
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "firstName",
     label: "First Name",

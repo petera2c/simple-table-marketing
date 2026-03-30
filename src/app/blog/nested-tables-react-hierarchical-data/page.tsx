@@ -830,7 +830,7 @@ const companyHeaders: HeaderObject[] = [
               <CodeBlock
                 className="mb-6"
                 code={`import { SimpleTable } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 function CorporateHierarchy() {
   return (

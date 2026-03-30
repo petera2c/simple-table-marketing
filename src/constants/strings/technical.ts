@@ -2,29 +2,29 @@ import type { Framework } from "@/providers/FrameworkProvider";
 
 export const FRAMEWORK_INSTALL_COMMANDS: Record<Framework, { npm: string; yarn: string; pnpm: string }> = {
   react: {
-    npm: "npm install @simple-table/react simple-table-core",
-    yarn: "yarn add @simple-table/react simple-table-core",
-    pnpm: "pnpm add @simple-table/react simple-table-core",
+    npm: "npm install @simple-table/react",
+    yarn: "yarn add @simple-table/react",
+    pnpm: "pnpm add @simple-table/react",
   },
   vue: {
-    npm: "npm install @simple-table/vue simple-table-core",
-    yarn: "yarn add @simple-table/vue simple-table-core",
-    pnpm: "pnpm add @simple-table/vue simple-table-core",
+    npm: "npm install @simple-table/vue",
+    yarn: "yarn add @simple-table/vue",
+    pnpm: "pnpm add @simple-table/vue",
   },
   angular: {
-    npm: "npm install @simple-table/angular simple-table-core",
-    yarn: "yarn add @simple-table/angular simple-table-core",
-    pnpm: "pnpm add @simple-table/angular simple-table-core",
+    npm: "npm install @simple-table/angular",
+    yarn: "yarn add @simple-table/angular",
+    pnpm: "pnpm add @simple-table/angular",
   },
   svelte: {
-    npm: "npm install @simple-table/svelte simple-table-core",
-    yarn: "yarn add @simple-table/svelte simple-table-core",
-    pnpm: "pnpm add @simple-table/svelte simple-table-core",
+    npm: "npm install @simple-table/svelte",
+    yarn: "yarn add @simple-table/svelte",
+    pnpm: "pnpm add @simple-table/svelte",
   },
   solid: {
-    npm: "npm install @simple-table/solid simple-table-core",
-    yarn: "yarn add @simple-table/solid simple-table-core",
-    pnpm: "pnpm add @simple-table/solid simple-table-core",
+    npm: "npm install @simple-table/solid",
+    yarn: "yarn add @simple-table/solid",
+    pnpm: "pnpm add @simple-table/solid",
   },
   vanilla: {
     npm: "npm install simple-table-core",
@@ -44,13 +44,13 @@ export const FRAMEWORK_REQUIREMENTS: Record<Framework, string> = {
 
 export const TECHNICAL_STRINGS = {
   installation: {
-    npm: "npm install simple-table-core",
-    yarn: "yarn add simple-table-core",
-    pnpm: "pnpm add simple-table-core",
+    npm: "npm install @simple-table/react",
+    yarn: "yarn add @simple-table/react",
+    pnpm: "pnpm add @simple-table/react",
   },
   css: {
     import: `// In your JavaScript or TypeScript file
-import "simple-table-core/styles.css";`,
+import "@simple-table/react/styles.css";`,
     themeVariables: {
       light: `/* light theme */
 .theme-custom {
@@ -90,7 +90,7 @@ import "simple-table-core/styles.css";`,
     },
   },
   links: {
-    npm: "https://www.npmjs.com/package/simple-table-core",
+    npm: "https://www.npmjs.com/package/@simple-table/react",
     github: "https://github.com/petera2c/simple-table",
     discord: "https://discord.gg/RvKHCfg3PC",
     demo: "https://stackblitz.com/github/petera2c/simple-table/tree/stackblitz-examples/react/quick-start",

@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
   {
     accessor: "name",
@@ -126,9 +126,9 @@ const ColumnSelectionDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const [selectedColumn, setSelectedColumn] = useState<HeaderObject | null>(null);
+  const [selectedColumn, setSelectedColumn] = useState<ReactHeaderObject | null>(null);
 
-  const handleColumnSelect = (header: HeaderObject) => {
+  const handleColumnSelect = (header: ReactHeaderObject) => {
     setSelectedColumn(header);
   };
 

@@ -1,9 +1,9 @@
 import { useRef, useState } from "react";
-import { SimpleTable, HeaderObject, TableRefType, Theme } from "@simple-table/react";
-import "simple-table-core/styles.css";
+import { SimpleTable, ReactHeaderObject, TableRefType, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with various types for comprehensive testing
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",

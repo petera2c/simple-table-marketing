@@ -939,9 +939,16 @@ export default function HandsontableAlternativesPage() {
                     </span>
                     Install Simple Table
                   </h4>
-                  <code className="block bg-gray-800 text-gray-100 p-3 rounded text-sm">
-                    npm install simple-table-core
-                  </code>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Follow the{" "}
+                    <Link
+                      href="/docs/installation"
+                      className="text-blue-600 dark:text-blue-400 underline font-medium"
+                    >
+                      installation guide
+                    </Link>{" "}
+                    to add Simple Table to your project — it's a single npm install.
+                  </p>
                 </div>
 
                 <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
