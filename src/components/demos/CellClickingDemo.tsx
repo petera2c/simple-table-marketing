@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, ReactHeaderObject, CellClickProps, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, CellClickProps, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 type ProjectTask = {

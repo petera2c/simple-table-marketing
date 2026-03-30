@@ -1,4 +1,4 @@
-import { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject } from "@simple-table/react";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

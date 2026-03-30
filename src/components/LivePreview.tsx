@@ -7,7 +7,7 @@ import { useThemeContext } from "@/providers/ThemeProvider";
 import { useFramework, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
 import PageWrapper from "./PageWrapper";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 import { getStackBlitzUrl } from "@/utils/getStackBlitzUrl";
 
 interface LivePreviewProps {

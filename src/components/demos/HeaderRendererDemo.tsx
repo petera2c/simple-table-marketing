@@ -1,5 +1,6 @@
 import React, { useMemo, useState } from "react";
-import { SimpleTable, ReactHeaderObject, HeaderRendererProps, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, HeaderRendererProps, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Initial astronomical data

@@ -1,4 +1,4 @@
-import { FooterRendererProps } from "@simple-table/react";
+import type { FooterRendererProps } from "@simple-table/react";
 
 const CRMCustomFooter = ({
   currentPage,

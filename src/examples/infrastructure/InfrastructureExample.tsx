@@ -1,5 +1,7 @@
 import { useRef, useState, useEffect } from "react";
-import { SimpleTable, TableAPI, Theme, ReactIconsConfig } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactIconsConfig } from "@simple-table/react";
+import type { TableAPI, Theme } from "simple-table-core";
 import "@simple-table/react/styles.css";
 import { HEADERS } from "./infrastructure-headers";
 import { useServerMetricsUpdates } from "./useServerMetricsUpdates";

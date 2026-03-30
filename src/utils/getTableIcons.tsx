@@ -26,7 +26,7 @@ import {
   CaretUpOutlined as AntCaretUpOutlined,
   FilterOutlined as AntFilterOutlined,
 } from "@ant-design/icons";
-import { ReactIconsConfig } from "@simple-table/react";
+import type { ReactIconsConfig } from "@simple-table/react";
 
 export type IconLibrary = "default" | "fontawesome" | "mui" | "antd";
 

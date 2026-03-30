@@ -1,5 +1,6 @@
 import { useRef, useState } from "react";
-import { SimpleTable, ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with various types for comprehensive testing

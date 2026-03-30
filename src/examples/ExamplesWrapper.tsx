@@ -2,7 +2,7 @@
 import React from "react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import { useSearchParams } from "next/navigation";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 
 const ExamplesWrapper = ({ children }: { children: React.ReactNode }) => {
   const searchParams = useSearchParams();

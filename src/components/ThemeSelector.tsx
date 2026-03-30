@@ -1,5 +1,5 @@
 import { Select } from "antd";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 
 const THEME_OPTIONS: Theme[] = [

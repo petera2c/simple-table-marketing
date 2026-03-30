@@ -1,4 +1,5 @@
-import { SimpleTable, Theme, ReactIconsConfig } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { Theme, ReactIconsConfig } from "@simple-table/react";
 import { HEADERS } from "./manufacturing-headers";
 import "@simple-table/react/styles.css";
 import { useManufacturingData } from "./useManufacturingData";

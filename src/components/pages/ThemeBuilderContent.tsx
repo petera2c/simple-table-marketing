@@ -42,7 +42,8 @@ import ThemeColorPicker from "@/components/ThemeColorPicker";
 import ThemeInput from "@/components/ThemeInput";
 import MobileUnsupportedPage from "@/components/MobileUnsupported";
 
-import { CellChangeProps, Row, SimpleTable, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { CellChangeProps, Row, Theme } from "@simple-table/react";
 import { SALES_HEADERS } from "@/examples/sales/sales-headers";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import "@simple-table/react/styles.css";

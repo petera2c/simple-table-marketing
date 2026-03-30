@@ -1,6 +1,7 @@
 import { getSpreadsheetHeaders } from "./spreadsheet-headers";
 import { useState, useEffect, useMemo } from "react";
-import { SimpleTable, CellChangeProps, Theme, ReactHeaderObject, ReactIconsConfig } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { CellChangeProps, Theme, ReactHeaderObject, ReactIconsConfig } from "@simple-table/react";
 
 import "@simple-table/react/styles.css";
 import "./SpreadsheetCustom.css";

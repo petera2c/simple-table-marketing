@@ -1,6 +1,7 @@
 import { getCRMHeaders } from "./crm-headers";
 import { useState, useEffect } from "react";
-import { SimpleTable, CellChangeProps, ReactIconsConfig } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { CellChangeProps, ReactIconsConfig } from "@simple-table/react";
 
 import "@simple-table/react/styles.css";
 import "./CustomTheme.css";

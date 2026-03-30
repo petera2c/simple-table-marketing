@@ -1,4 +1,4 @@
-import { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject } from "@simple-table/react";
 
 export const HEADERS: ReactHeaderObject[] = [
   {

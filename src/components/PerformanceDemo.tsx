@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { SimpleTable, Row, CellChangeProps } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { Row, CellChangeProps } from "@simple-table/react";
 import { Typography, Button, Tag } from "antd";
 import { SALES_HEADERS } from "@/examples/sales/sales-headers";
 import "@simple-table/react/styles.css";

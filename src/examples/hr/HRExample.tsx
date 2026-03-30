@@ -1,4 +1,5 @@
-import { SimpleTable, Theme, CellChangeProps, ReactIconsConfig } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { Theme, CellChangeProps, ReactIconsConfig } from "@simple-table/react";
 import { HEADERS } from "./hr-headers";
 import { useState, useEffect } from "react";
 import "@simple-table/react/styles.css";

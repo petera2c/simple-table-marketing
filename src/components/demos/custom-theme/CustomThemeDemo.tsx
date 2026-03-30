@@ -1,4 +1,5 @@
-import { SimpleTable, ReactHeaderObject } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 import "./CustomTheme.css";
 

@@ -10,7 +10,7 @@ import PageWrapper from "@/components/PageWrapper";
 import LivePreview from "@/components/LivePreview";
 import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, useState } from "react";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 

@@ -6,7 +6,7 @@ import { useThemeContext } from "@/providers/ThemeProvider";
 import { IconLibrary } from "@/utils/getTableIcons";
 import { useEffect } from "react";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 
 interface ExamplesContextType {
   currentTheme: Theme;

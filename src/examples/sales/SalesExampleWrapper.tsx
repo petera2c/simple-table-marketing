@@ -1,7 +1,7 @@
 "use client";
 
 import SalesExample from "./SalesExample";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";

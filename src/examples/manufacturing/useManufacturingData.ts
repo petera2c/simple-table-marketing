@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Row } from "@simple-table/react";
+import type { Row } from "@simple-table/react";
 
 export function useManufacturingData(rowCount?: number) {
   const [data, setData] = useState<Row[]>([]);

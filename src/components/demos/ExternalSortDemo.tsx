@@ -1,5 +1,6 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, ReactHeaderObject, SortColumn, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, SortColumn, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Type for our sample data

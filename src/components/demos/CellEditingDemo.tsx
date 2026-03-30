@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { SimpleTable, ReactHeaderObject, CellChangeProps, Theme } from "@simple-table/react";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, CellChangeProps, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with editable property and various types

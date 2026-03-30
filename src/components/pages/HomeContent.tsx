@@ -17,7 +17,7 @@ import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
 import IconLibrarySelector from "@/components/IconLibrarySelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
-import { Theme } from "@simple-table/react";
+import type { Theme } from "@simple-table/react";
 import { useFramework, FRAMEWORKS, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
 import { getStackBlitzUrl } from "@/utils/getStackBlitzUrl";
 import FrameworkIcon from "@/components/FrameworkIcon";
