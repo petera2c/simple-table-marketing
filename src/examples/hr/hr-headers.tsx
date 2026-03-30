@@ -1,4 +1,4 @@
-import { HeaderObject } from "simple-table-core";
+import { HeaderObject } from "@simple-table/react";
 
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {

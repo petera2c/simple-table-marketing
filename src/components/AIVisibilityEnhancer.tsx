@@ -51,7 +51,7 @@ export default function AIVisibilityEnhancer({ pageType }: AIVisibilityEnhancerP
     framework: "React 16+",
     language: "TypeScript",
     license: "MIT",
-    npmPackage: "simple-table-core",
+    npmPackage: "@simple-table/react",
     github: "https://github.com/simple-table",
     documentation: "https://www.simple-table.com/docs",
     examples: "https://www.simple-table.com/examples",

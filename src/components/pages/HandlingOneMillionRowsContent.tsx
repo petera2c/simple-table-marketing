@@ -204,7 +204,7 @@ export default function HandlingOneMillionRowsContent() {
 
             <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto mb-6 text-sm leading-relaxed">
               {`import React, { useState, useEffect } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Define headers for the performance demo

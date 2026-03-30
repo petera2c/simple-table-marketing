@@ -8,7 +8,7 @@ import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
 import ExampleControls from "@/components/ExampleControls";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 
 /* @import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); */
 import { Plus_Jakarta_Sans } from "next/font/google";

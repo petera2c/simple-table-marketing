@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, TableRefType, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Define headers with new CSV formatting features

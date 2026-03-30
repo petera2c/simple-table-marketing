@@ -12,7 +12,7 @@ import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import { Input, Radio, Checkbox, Space } from "antd";
 import type { RadioChangeEvent } from "antd";
-import type { QuickFilterMode } from "simple-table-core";
+import type { QuickFilterMode } from "@simple-table/react";
 
 const QUICK_FILTER_PROPS: PropInfo[] = [
   {
@@ -246,11 +246,7 @@ const QuickFilterContent = () => {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.1 }}
       >
-        <Space
-          direction="vertical"
-          size="middle"
-          style={{ width: "100%", marginBottom: "16px" }}
-        >
+        <Space direction="vertical" size="middle" style={{ width: "100%", marginBottom: "16px" }}>
           <Input
             placeholder="Search across all columns..."
             value={searchText}

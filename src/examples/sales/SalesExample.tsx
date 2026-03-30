@@ -1,4 +1,4 @@
-import { SimpleTable, Row, CellChangeProps, Theme } from "simple-table-core";
+import { SimpleTable, Row, CellChangeProps, Theme } from "@simple-table/react";
 import { SALES_HEADERS } from "./sales-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
@@ -60,7 +60,7 @@ export default function SalesExample({
           };
         }
         return item;
-      })
+      }),
     );
   };
 

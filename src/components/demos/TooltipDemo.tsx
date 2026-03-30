@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 const EXAMPLE_DATA = [
@@ -190,13 +190,7 @@ const HEADERS: HeaderObject[] = [
   },
 ];
 
-const TooltipDemo = ({
-  height = "400px",
-  theme,
-}: {
-  height?: string | number;
-  theme?: Theme;
-}) => {
+const TooltipDemo = ({ height = "400px", theme }: { height?: string | number; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={HEADERS}

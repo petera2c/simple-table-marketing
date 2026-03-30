@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Accessor, TableFilterState, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Accessor, TableFilterState, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Type for our sample data

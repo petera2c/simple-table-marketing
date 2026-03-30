@@ -326,7 +326,7 @@ export default function ReactGridColumnPinningPage() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject } from "simple-table-core";
+                code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 const headers: HeaderObject[] = [

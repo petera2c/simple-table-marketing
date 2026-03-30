@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Initial headers with different alignments

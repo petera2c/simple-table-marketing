@@ -1,4 +1,4 @@
-import { SimpleTable, Theme } from "simple-table-core";
+import { SimpleTable, Theme } from "@simple-table/react";
 import { HEADERS } from "./billing-headers";
 import "simple-table-core/styles.css";
 import { useBillingData } from "./useBillingData";

@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import { useState, useCallback } from "react";
 import "simple-table-core/styles.css";
 

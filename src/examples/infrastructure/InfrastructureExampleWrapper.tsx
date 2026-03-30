@@ -1,7 +1,7 @@
 "use client";
 
 import InfrastructureExample from "./InfrastructureExample";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
@@ -24,7 +24,7 @@ export default function InfrastructureExampleWrapper({
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,

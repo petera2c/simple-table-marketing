@@ -1,5 +1,5 @@
 import { useRef, useState, useEffect } from "react";
-import { SimpleTable, TableRefType, Theme } from "simple-table-core";
+import { SimpleTable, TableRefType, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 import { HEADERS } from "./infrastructure-headers";
 import { useServerMetricsUpdates } from "./useServerMetricsUpdates";

@@ -310,7 +310,7 @@ export default function CustomIconsReactGridsPage() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable } from "simple-table-core";
+                code={`import { SimpleTable } from "@simple-table/react";
 import "simple-table-core/styles.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -400,7 +400,7 @@ export default function CustomSVGTable({ data, headers }) {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable } from "simple-table-core";
+                code={`import { SimpleTable } from "@simple-table/react";
 import "simple-table-core/styles.css";
 import {
   ChevronUp,

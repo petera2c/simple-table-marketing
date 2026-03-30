@@ -1,5 +1,5 @@
 import { useState, useCallback, useMemo } from "react";
-import { SimpleTable, HeaderObject, OnRowGroupExpandProps, Row, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, OnRowGroupExpandProps, Row, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Type definitions

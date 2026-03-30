@@ -42,7 +42,7 @@ import ThemeColorPicker from "@/components/ThemeColorPicker";
 import ThemeInput from "@/components/ThemeInput";
 import MobileUnsupportedPage from "@/components/MobileUnsupported";
 
-import { CellChangeProps, Row, SimpleTable, Theme } from "simple-table-core";
+import { CellChangeProps, Row, SimpleTable, Theme } from "@simple-table/react";
 import { SALES_HEADERS } from "@/examples/sales/sales-headers";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import "simple-table-core/styles.css";
@@ -388,7 +388,7 @@ export default function ThemeBuilderContent() {
   const [theme, setTheme] = useState<ThemeConfig>(
     appTheme === "light"
       ? { ...lightThemeDefaults, ...userChanges }
-      : { ...darkThemeDefaults, ...userChanges }
+      : { ...darkThemeDefaults, ...userChanges },
   );
 
   const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
@@ -1100,7 +1100,7 @@ export default function ThemeBuilderContent() {
   // Count total filtered variables
   const totalMatches = Object.values(filteredSections).reduce(
     (acc, configs) => acc + configs.reduce((sum, config) => sum + config.fields.length, 0),
-    0
+    0,
   );
 
   // Section metadata (titles and icons)
@@ -1399,7 +1399,7 @@ function SalesExample({
           };
         }
         return item;
-      })
+      }),
     );
   };
 

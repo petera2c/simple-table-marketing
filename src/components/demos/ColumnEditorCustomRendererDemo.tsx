@@ -5,7 +5,7 @@ import {
   TableRefType,
   Theme,
   ColumnEditorCustomRendererProps,
-} from "simple-table-core";
+} from "@simple-table/react";
 import "simple-table-core/styles.css";
 import { useRef } from "react";
 

@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, QuickFilterMode, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, QuickFilterMode, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Sample data with variety for testing quick filter

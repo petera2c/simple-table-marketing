@@ -883,7 +883,7 @@ function MyTable() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable } from "simple-table-core";
+                code={`import { SimpleTable } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 const headers = [

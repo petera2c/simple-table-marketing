@@ -6,7 +6,7 @@ import CodeBlock from "./CodeBlock";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import PageWrapper from "./PageWrapper";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 
 interface LivePreviewProps {
   Preview: ({ height, theme }: { height?: string | number; theme?: Theme }) => JSX.Element;

@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Generate sample data with trends
@@ -206,13 +206,7 @@ const headers: HeaderObject[] = [
   },
 ];
 
-const ChartsDemo = ({
-  height = "400px",
-  theme,
-}: {
-  height?: string | number;
-  theme?: Theme;
-}) => {
+const ChartsDemo = ({ height = "400px", theme }: { height?: string | number; theme?: Theme }) => {
   return (
     <SimpleTable
       columnReordering

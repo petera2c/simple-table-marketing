@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Define headers
@@ -100,12 +100,7 @@ const EMPLOYEE_DATA = [
 
 const ThemesDemo = ({ height = "400px", theme }: { height?: string | number; theme: Theme }) => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      height={height}
-      rows={EMPLOYEE_DATA}
-      theme={theme}
-    />
+    <SimpleTable defaultHeaders={headers} height={height} rows={EMPLOYEE_DATA} theme={theme} />
   );
 };
 

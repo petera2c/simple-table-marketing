@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { SimpleTable, TableRefType, Theme } from "simple-table-core";
+import { SimpleTable, TableRefType, Theme } from "@simple-table/react";
 import { HEADERS } from "./music-headers";
 
 import "simple-table-core/styles.css";

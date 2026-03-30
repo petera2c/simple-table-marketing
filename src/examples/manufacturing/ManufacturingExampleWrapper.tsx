@@ -1,7 +1,7 @@
 "use client";
 
 import ManufacturingExample from "./ManufacturingExample";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -20,7 +20,7 @@ export default function ManufacturingExampleWrapper({ theme }: ManufacturingExam
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,

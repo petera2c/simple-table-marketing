@@ -17,7 +17,7 @@ import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
 import IconLibrarySelector from "@/components/IconLibrarySelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";

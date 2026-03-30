@@ -1,7 +1,7 @@
 "use client";
 
 import SalesExample from "./SalesExample";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
@@ -26,7 +26,7 @@ export default function SalesExampleWrapper({
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,

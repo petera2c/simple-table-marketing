@@ -1,4 +1,4 @@
-import { HeaderObject } from "simple-table-core";
+import { HeaderObject } from "@simple-table/react";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 

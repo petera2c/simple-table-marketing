@@ -1,4 +1,4 @@
-import { Row, SimpleTable, Theme } from "simple-table-core";
+import { Row, SimpleTable, Theme } from "@simple-table/react";
 import { HEADERS } from "./manufacturing-headers";
 import "simple-table-core/styles.css";
 import { useManufacturingData } from "./useManufacturingData";

@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
+import { SimpleTable, HeaderObject } from "@simple-table/react";
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";
 

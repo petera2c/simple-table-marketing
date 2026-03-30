@@ -1,6 +1,6 @@
 import { getCRMHeaders } from "./crm-headers";
 import { useState, useEffect } from "react";
-import { SimpleTable, CellChangeProps, Row, FooterRendererProps } from "simple-table-core";
+import { SimpleTable, CellChangeProps, Row, FooterRendererProps } from "@simple-table/react";
 
 import "simple-table-core/styles.css";
 import "./CustomTheme.css";

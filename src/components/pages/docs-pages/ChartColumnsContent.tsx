@@ -182,7 +182,7 @@ const ChartColumnsContent = () => {
 
         <CodeBlock
           language="typescript"
-          code={`import { SimpleTable, HeaderObject } from "simple-table-core";
+          code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
 
 const headers: HeaderObject[] = [
   {

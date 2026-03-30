@@ -11,7 +11,7 @@ import LivePreview from "@/components/LivePreview";
 import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, useState } from "react";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import { useThemeContext } from "@/providers/ThemeProvider";
 import CodeBlock from "@/components/CodeBlock";
 import PropTable, { type PropInfo } from "@/components/PropTable";
@@ -110,7 +110,8 @@ export default function ThemesContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Simple Table includes several beautiful built-in themes to match your application's visual
-        design. Choose from Modern Light, Modern Dark, Light, Dark, Sky, Violet, or Neutral themes. Learn more about{" "}
+        design. Choose from Modern Light, Modern Dark, Light, Dark, Sky, Violet, or Neutral themes.
+        Learn more about{" "}
         <Link
           href="/blog/customizing-react-table-look-simple-table-themes"
           className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"

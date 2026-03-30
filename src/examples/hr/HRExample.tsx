@@ -1,4 +1,4 @@
-import { SimpleTable, Theme, CellChangeProps, Row } from "simple-table-core";
+import { SimpleTable, Theme, CellChangeProps, Row } from "@simple-table/react";
 import { HEADERS } from "./hr-headers";
 import { useState, useEffect } from "react";
 import "simple-table-core/styles.css";
@@ -51,7 +51,7 @@ export default function HRExample({
           };
         }
         return item;
-      })
+      }),
     );
   };
 

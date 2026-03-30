@@ -766,7 +766,7 @@ yarn add simple-table-core`}
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable } from "simple-table-core";
+                code={`import { SimpleTable } from "@simple-table/react";
 
 const headers = [
   {

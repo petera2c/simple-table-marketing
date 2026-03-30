@@ -1,4 +1,4 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable, HeaderObject, Theme } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 // Define headers with filterable property
@@ -221,12 +221,7 @@ const ColumnFilteringDemo = ({
   theme?: Theme;
 }) => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={EMPLOYEE_DATA}
-      height={height}
-      theme={theme}
-    />
+    <SimpleTable defaultHeaders={headers} rows={EMPLOYEE_DATA} height={height} theme={theme} />
   );
 };
 

@@ -1,6 +1,6 @@
 import { getSpreadsheetHeaders } from "./spreadsheet-headers";
 import { useState, useEffect, useMemo } from "react";
-import { SimpleTable, CellChangeProps, Theme, HeaderObject } from "simple-table-core";
+import { SimpleTable, CellChangeProps, Theme, HeaderObject } from "@simple-table/react";
 
 import "simple-table-core/styles.css";
 import "./SpreadsheetCustom.css";
@@ -105,20 +105,20 @@ const SpreadsheetExampleComponent = ({
               accessor === "principal"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.principal === "number"
-                ? item.principal
-                : 0;
+                  ? item.principal
+                  : 0;
             const interestRate =
               accessor === "interestRate"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.interestRate === "number"
-                ? item.interestRate
-                : 0;
+                  ? item.interestRate
+                  : 0;
             const monthlyPayment =
               accessor === "monthlyPayment"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.monthlyPayment === "number"
-                ? item.monthlyPayment
-                : 0;
+                  ? item.monthlyPayment
+                  : 0;
 
             // Calculate remaining values using amortization
             const monthlyRate = interestRate / 100 / 12;
@@ -141,7 +141,7 @@ const SpreadsheetExampleComponent = ({
             const totalPaidValue = typeof item.totalPaid === "number" ? item.totalPaid : 0;
             const estimatedPaymentsMade = Math.max(
               0,
-              Math.min(120, Math.floor(totalPaidValue / calculatedPayment))
+              Math.min(120, Math.floor(totalPaidValue / calculatedPayment)),
             );
 
             // Calculate remaining balance
@@ -167,7 +167,7 @@ const SpreadsheetExampleComponent = ({
           return updatedItem;
         }
         return item;
-      })
+      }),
     );
   };
 

@@ -1,4 +1,4 @@
-import { HeaderObject } from "simple-table-core";
+import { HeaderObject } from "@simple-table/react";
 
 export const getSpreadsheetHeaders = (additionalColumns: HeaderObject[] = []): HeaderObject[] => [
   {

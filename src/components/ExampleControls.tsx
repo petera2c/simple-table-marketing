@@ -13,7 +13,7 @@ import {
   faTable,
 } from "@fortawesome/free-solid-svg-icons";
 import ThemeSelector from "@/components/ThemeSelector";
-import { Theme } from "simple-table-core";
+import { Theme } from "@simple-table/react";
 import IconLibrarySelector from "@/components/IconLibrarySelector";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
 import { ReactNode } from "react";

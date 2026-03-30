@@ -529,7 +529,7 @@ yarn add simple-table-core`}
                 </h4>
                 <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto text-sm leading-relaxed">
                   {`import React from "react";
-import { SimpleTable } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
 import "simple-table-core/styles.css";
 
 const headers = [
