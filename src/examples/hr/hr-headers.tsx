@@ -1,4 +1,4 @@
-import type { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
@@ -394,7 +394,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "left",
     pinned: "left",
     type: "string",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       // Employee row, render with avatar and details
       const initials = `${row.firstName?.toString().charAt(0) || ""}${
         row.lastName?.toString().charAt(0) || ""
@@ -424,7 +424,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: true,
     align: "center",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const score = row.performanceScore as number;
       const colors = getThemeColors(theme);
 
@@ -514,7 +514,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: true,
     align: "left",
     type: "date",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       if (!row.hireDate) return "";
       // Parse YYYY-MM-DD format correctly without timezone conversion
       const [year, month, day] = (row.hireDate as string).split("-").map(Number);
@@ -540,7 +540,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       if (row.yearsOfService === null) return "";
       const colors = getThemeColors(theme);
 
@@ -555,7 +555,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const colors = getThemeColors(theme);
 
       return (
@@ -585,7 +585,7 @@ export const HEADERS: ReactHeaderObject[] = [
       { label: "Terminated", value: "Terminated" },
     ],
     // Sort by HR priority: Terminated > Probation > Contract > On Leave > Active
-    valueGetter: ({ row }) => {
+    valueGetter: ({ row }: ValueGetterProps) => {
       const status = row.status as string;
       const priorityMap: Record<string, number> = {
         Terminated: 1,
@@ -596,7 +596,7 @@ export const HEADERS: ReactHeaderObject[] = [
       };
       return priorityMap[status] || 999;
     },
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       if (!row.status) return "";
 
       const status = row.status as string;

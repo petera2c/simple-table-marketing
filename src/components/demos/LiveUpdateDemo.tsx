@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { TableAPI, ReactHeaderObject, Theme } from "@simple-table/react";
+import type { TableAPI, ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import { useRef, useEffect } from "react";
 import "@simple-table/react/styles.css";
 
@@ -12,7 +12,7 @@ const headers: ReactHeaderObject[] = [
     label: "Price",
     width: "1fr",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price;
       if (typeof price === "number") {
         return `$${price.toFixed(2)}`;

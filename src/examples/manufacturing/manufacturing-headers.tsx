@@ -1,4 +1,4 @@
-import type { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
 // Custom Tag component
 const Tag = ({
@@ -122,7 +122,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       return hasChildren ? (
         <span className="font-bold">{row.productLine as string}</span>
@@ -139,7 +139,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         return <span className="text-gray-500">{row.id as string}</span>;
@@ -172,7 +172,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "center",
     type: "string",
     // Sort by operational priority: Unplanned Downtime > Idle > Setup > Scheduled Maintenance > Running
-    valueGetter: ({ row }) => {
+    valueGetter: ({ row }: ValueGetterProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return 999; // Parent rows sort last
 
@@ -186,7 +186,7 @@ export const HEADERS: ReactHeaderObject[] = [
       };
       return priorityMap[status] || 999;
     },
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 
@@ -278,7 +278,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.outputRate as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -293,7 +293,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const value = row.cycletime as number;
@@ -311,7 +311,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "center",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const efficiency = row.efficiency as number;
@@ -363,7 +363,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const rate = row.defectRate as number;
@@ -384,7 +384,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.defectCount as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -399,7 +399,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const hours = row.downtime as number;
@@ -420,7 +420,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const value = row.utilization as number;
@@ -438,7 +438,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.energy as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -452,7 +452,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "date",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 

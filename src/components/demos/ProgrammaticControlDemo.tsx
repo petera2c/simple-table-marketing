@@ -1,6 +1,6 @@
 import { useRef, useState } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, TableAPI, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with various types for comprehensive testing
@@ -44,7 +44,7 @@ const headers: ReactHeaderObject[] = [
     type: "number",
     isSortable: true,
     filterable: true,
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price as number;
       return `$${price.toFixed(2)}`;
     },
@@ -70,7 +70,7 @@ const headers: ReactHeaderObject[] = [
       { label: "Low Stock", value: "Low Stock" },
       { label: "Out of Stock", value: "Out of Stock" },
     ],
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const status = row.status as string;
       const colors: Record<string, string> = {
         Available: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",

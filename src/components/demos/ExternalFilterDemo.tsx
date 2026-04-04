@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Accessor, TableFilterState, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, Accessor, TableFilterState, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Type for our sample data
@@ -284,7 +284,7 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     type: "boolean",
     filterable: true,
-    cellRenderer: ({ row }) => (row.active ? "✓ Yes" : "✗ No"),
+    cellRenderer: ({ row }: CellRendererProps) => (row.active ? "✓ Yes" : "✗ No"),
     align: "center",
   },
   {
@@ -293,7 +293,7 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     type: "number",
     filterable: true,
-    cellRenderer: ({ row }) => `$${(row.salary || 0).toLocaleString()}`,
+    cellRenderer: ({ row }: CellRendererProps) => `$${(row.salary || 0).toLocaleString()}`,
     align: "right",
   },
 ];

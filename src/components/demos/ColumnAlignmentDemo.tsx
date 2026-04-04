@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { HeaderObject, ReactHeaderObject, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Initial headers with different alignments
@@ -107,7 +107,8 @@ const ColumnAlignmentDemo = ({
   theme?: Theme;
 }) => {
   // Change column alignment
-  const onColumnOrderChange = (newHeaders: ReactHeaderObject[]) => {
+  const onColumnOrderChange = (newHeaders: HeaderObject[]) => {
+    void newHeaders;
     // Call api to change alignment in the database
   };
 

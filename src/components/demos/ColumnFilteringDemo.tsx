@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with filterable property
@@ -60,7 +60,7 @@ const headers: ReactHeaderObject[] = [
     type: "number",
     isSortable: true,
     filterable: true,
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const salary = row.salary as number;
       return `$${salary.toLocaleString()}`;
     },

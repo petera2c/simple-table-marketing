@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, CellClickProps, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, CellClickProps, CellRendererProps, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 type ProjectTask = {
@@ -33,7 +33,7 @@ const headers: ReactHeaderObject[] = [
     width: 100,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           color:
@@ -53,7 +53,7 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           backgroundColor:
@@ -88,7 +88,7 @@ const headers: ReactHeaderObject[] = [
     label: "View Details",
     width: 120,
     type: "other",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <button
         style={{
           backgroundColor: "#3b82f6",

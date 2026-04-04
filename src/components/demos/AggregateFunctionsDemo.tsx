@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { CellValue, ReactHeaderObject, Theme, ValueFormatterProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 const headers: ReactHeaderObject[] = [
@@ -10,7 +10,7 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     type: "number",
     aggregation: { type: "sum" },
-    valueFormatter: ({ value }) => {
+    valueFormatter: ({ value }: ValueFormatterProps) => {
       if (typeof value === "number") {
         return value >= 1000000
           ? `${(value / 1000000).toFixed(1)}M`
@@ -28,13 +28,14 @@ const headers: ReactHeaderObject[] = [
     type: "string",
     aggregation: {
       type: "sum",
-      parseValue: (value: string) => {
+      parseValue: (value: CellValue) => {
         // Parse values like "$15.5K" to numbers
-        const numericValue = parseFloat(value.replace(/[$K]/g, ""));
+        const s = String(value ?? "");
+        const numericValue = parseFloat(s.replace(/[$K]/g, ""));
         return isNaN(numericValue) ? 0 : numericValue;
       },
     },
-    valueFormatter: ({ value }) => {
+    valueFormatter: ({ value }: ValueFormatterProps) => {
       if (typeof value === "number") {
         // This is an aggregated value, format as currency
         return `$${value.toFixed(1)}K`;
@@ -52,7 +53,7 @@ const headers: ReactHeaderObject[] = [
     width: 100,
     type: "number",
     aggregation: { type: "average" },
-    valueFormatter: ({ value }) => {
+    valueFormatter: ({ value }: ValueFormatterProps) => {
       if (typeof value === "number") {
         return `${value.toFixed(1)} ⭐`;
       }
@@ -72,7 +73,7 @@ const headers: ReactHeaderObject[] = [
     width: 130,
     type: "number",
     aggregation: { type: "average" },
-    valueFormatter: ({ value }) => {
+    valueFormatter: ({ value }: ValueFormatterProps) => {
       if (typeof value === "number") {
         return `${Math.round(value)}min`;
       }

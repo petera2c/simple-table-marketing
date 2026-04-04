@@ -1,7 +1,7 @@
 import { getCRMHeaders } from "./crm-headers";
 import { useState, useEffect } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { CellChangeProps, ReactIconsConfig } from "@simple-table/react";
+import type { CellChangeProps, FooterRendererProps, ReactIconsConfig } from "@simple-table/react";
 
 import "@simple-table/react/styles.css";
 import "./CustomTheme.css";
@@ -53,7 +53,7 @@ const CRMExampleComponent = ({
         columnResizing
         defaultHeaders={getCRMHeaders(isDark)}
         enableRowSelection
-        footerRenderer={(props) => (
+        footerRenderer={(props: FooterRendererProps) => (
           <CRMCustomFooter {...props} isDark={isDark} setRowsPerPage={setRowsPerPage} />
         )}
         customTheme={{

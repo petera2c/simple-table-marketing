@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { HeaderObject, ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Sample data
@@ -161,7 +161,7 @@ const ColumnEditingDemo = ({
             </button>
           </div>
         ),
-        cellRenderer: ({ row }) => (
+        cellRenderer: ({ row }: CellRendererProps) => (
           <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
             <span style={{ fontSize: "12px", color: "#666" }}>Row {String(row.id || "")}</span>
           </div>
@@ -171,7 +171,7 @@ const ColumnEditingDemo = ({
     [additionalColumns],
   );
 
-  const handleHeaderEdit = (header: ReactHeaderObject, newLabel: string) => {
+  const handleHeaderEdit = (header: HeaderObject, newLabel: string) => {
     setLastAction(`Renamed column "${header.label}" to: ${newLabel}`);
   };
 

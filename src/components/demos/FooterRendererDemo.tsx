@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { FooterRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers
@@ -452,7 +452,7 @@ const FooterRendererDemo = ({
         onPrevPage,
         onNextPage,
         onPageChange,
-      }) => {
+      }: FooterRendererProps) => {
         return (
           <div
             style={{

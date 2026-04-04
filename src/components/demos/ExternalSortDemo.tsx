@@ -1,6 +1,6 @@
 import { useState, useMemo } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, SortColumn, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, SortColumn, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Type for our sample data
@@ -212,7 +212,7 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     isSortable: true,
     type: "number",
-    cellRenderer: ({ row }) => `$${(row.salary || 0).toLocaleString()}`,
+    cellRenderer: ({ row }: CellRendererProps) => `$${(row.salary || 0).toLocaleString()}`,
     align: "right",
   },
 ];

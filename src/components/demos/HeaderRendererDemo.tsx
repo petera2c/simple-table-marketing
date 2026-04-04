@@ -274,7 +274,7 @@ const HeaderRendererDemo = ({
         type: "number",
         isSortable: true,
         filterable: true,
-        headerRenderer: ({ components }) => {
+        headerRenderer: ({ components }: HeaderRendererProps) => {
           return (
             <>
               {components?.labelContent}

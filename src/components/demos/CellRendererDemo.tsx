@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with custom cell renderers
@@ -11,7 +11,7 @@ const headers: ReactHeaderObject[] = [
     label: "Team",
     width: 280,
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const teamMembers = row.teamMembers as { name: string; role: string }[];
       return (
         <div style={{ display: "flex", alignItems: "center", gap: "8px", overflow: "hidden" }}>
@@ -45,7 +45,7 @@ const headers: ReactHeaderObject[] = [
     label: "Website",
     width: 180,
     type: "string",
-    cellRenderer: ({ row }) => (
+    cellRenderer: ({ row }: CellRendererProps) => (
       <div style={{ display: "flex", alignItems: "center" }}>
         <span style={{ color: "#6B7280", marginRight: "8px" }}>🌐</span>
         <a
@@ -66,7 +66,7 @@ const headers: ReactHeaderObject[] = [
     label: "Status",
     width: 120,
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const status = row.status as string;
       let color = "#6B7280";
       let icon = "•";
@@ -95,7 +95,7 @@ const headers: ReactHeaderObject[] = [
     label: "Progress",
     width: 150,
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const progress = row.progress as number;
       let color = "#3B82F6";
 
@@ -132,7 +132,7 @@ const headers: ReactHeaderObject[] = [
     label: "Rating",
     width: 150,
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const rating = row.rating as number;
       const fullStars = Math.floor(rating);
       const hasHalfStar = rating % 1 >= 0.5;
@@ -167,7 +167,7 @@ const headers: ReactHeaderObject[] = [
     label: "Verified",
     width: 100,
     type: "boolean",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const verified = row.verified as boolean;
 
       return verified ? (
@@ -188,7 +188,7 @@ const headers: ReactHeaderObject[] = [
     label: "Tags",
     width: 250,
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const tags = row.tags as string[];
       return (
         <div style={{ display: "flex", flexWrap: "nowrap", gap: "4px", overflow: "hidden" }}>

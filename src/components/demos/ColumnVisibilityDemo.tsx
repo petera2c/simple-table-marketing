@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { ColumnEditorRowRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 import { useMemo, useCallback } from "react";
 
@@ -182,7 +182,7 @@ const ColumnVisibilityDemo = ({
       theme={theme}
       onColumnVisibilityChange={handleVisibilityChange}
       columnEditorConfig={{
-        rowRenderer: ({ components }) => (
+        rowRenderer: ({ components }: ColumnEditorRowRendererProps) => (
           <div
             style={{
               width: "100%",

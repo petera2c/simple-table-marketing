@@ -1,4 +1,4 @@
-import type { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject, CellRendererProps } from "@simple-table/react";
 
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
@@ -291,7 +291,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "left",
     type: "string",
     pinned: "left",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const name = row.artistName as string;
       const firstLetter = name?.charAt(0).toUpperCase() || "?";
       const growthStatus = row.growthStatus as string;
@@ -354,7 +354,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "left",
     type: "string",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const artistType = row.artistType as string;
       const pronouns = row.pronouns as string;
       const recordLabel = row.recordLabel as string;
@@ -386,7 +386,7 @@ export const HEADERS: ReactHeaderObject[] = [
         isSortable: true,
         isEditable: false,
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const formatted = row.followersFormatted as string;
           const growth = row.followersGrowthFormatted as string;
           const growthPercent = row.followersGrowthPercent as number;
@@ -418,7 +418,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.followers7DayGrowth as number;
           const growthPercent = row.followers7DayGrowthPercent as number;
           return (
@@ -440,7 +440,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.followers28DayGrowth as number;
           const growthPercent = row.followers28DayGrowthPercent as number;
           return (
@@ -462,7 +462,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.followers60DayGrowth as number;
           const growthPercent = row.followers60DayGrowthPercent as number;
           return (
@@ -485,7 +485,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const score = row.popularity as number;
       const changePercent = row.popularityChangePercent as number;
       const isPositive = changePercent >= 0;
@@ -517,7 +517,7 @@ export const HEADERS: ReactHeaderObject[] = [
         isSortable: true,
         isEditable: false,
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const formattedValue = row.playlistReachFormatted as string;
           const growth = row.playlistReachChange as number;
           const growthFormatted = row.playlistReachChangeFormatted as string;
@@ -545,7 +545,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistReach7DayGrowth as number;
           const growthPercent = row.playlistReach7DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -569,7 +569,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistReach28DayGrowth as number;
           const growthPercent = row.playlistReach28DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -593,7 +593,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistReach60DayGrowth as number;
           const growthPercent = row.playlistReach60DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -624,7 +624,7 @@ export const HEADERS: ReactHeaderObject[] = [
         isSortable: true,
         isEditable: false,
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const count = row.playlistCount as number;
           const growth = row.playlistCountGrowth as number;
           const growthPercent = row.playlistCountGrowthPercent as number;
@@ -656,7 +656,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistCount7DayGrowth as number;
           const growthPercent = row.playlistCount7DayGrowthPercent as number;
           return (
@@ -678,7 +678,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistCount28DayGrowth as number;
           const growthPercent = row.playlistCount28DayGrowthPercent as number;
           return (
@@ -700,7 +700,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.playlistCount60DayGrowth as number;
           const growthPercent = row.playlistCount60DayGrowthPercent as number;
           return (
@@ -729,7 +729,7 @@ export const HEADERS: ReactHeaderObject[] = [
         isSortable: true,
         isEditable: false,
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const formattedValue = row.monthlyListenersFormatted as string;
           const growth = row.monthlyListenersChange as number;
           const growthFormatted = row.monthlyListenersChangeFormatted as string;
@@ -757,7 +757,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.monthlyListeners7DayGrowth as number;
           const growthPercent = row.monthlyListeners7DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -781,7 +781,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.monthlyListeners28DayGrowth as number;
           const growthPercent = row.monthlyListeners28DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -805,7 +805,7 @@ export const HEADERS: ReactHeaderObject[] = [
         align: "right",
         type: "number",
         showWhen: "parentExpanded",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const growth = row.monthlyListeners60DayGrowth as number;
           const growthPercent = row.monthlyListeners60DayGrowthPercent as number;
           const isPositive = growth >= 0;
@@ -830,7 +830,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "right",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const percent = row.conversionRate as number;
       const colors = getThemeColors(theme);
       return <span style={{ color: colors.gray }}>{percent.toFixed(2)}%</span>;
@@ -844,7 +844,7 @@ export const HEADERS: ReactHeaderObject[] = [
     isEditable: false,
     align: "right",
     type: "number",
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const percent = row.reachFollowersRatio as number;
       const colors = getThemeColors(theme);
       return <span style={{ color: colors.gray }}>{percent.toFixed(1)}x</span>;

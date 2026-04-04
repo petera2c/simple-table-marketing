@@ -1,5 +1,5 @@
 import { useState } from "react";
-import type { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
 export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
   const colors = isDark
@@ -215,7 +215,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
       isSortable: true,
       isEditable: true,
       type: "string",
-      cellRenderer: ({ row }) => {
+      cellRenderer: ({ row }: CellRendererProps) => {
         const initials = (row.name as string)
           .split(" ")
           .map((n) => n[0])
@@ -291,7 +291,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
       isSortable: true,
       isEditable: true,
       type: "string",
-      cellRenderer: ({ row }) => {
+      cellRenderer: ({ row }: CellRendererProps) => {
         return (
           <div>
             <div style={{ color: colors.textSecondary, marginBottom: "4px", fontSize: "0.875rem" }}>
@@ -320,7 +320,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
       isSortable: true,
       align: "center",
       type: "number",
-      cellRenderer: ({ row }) => {
+      cellRenderer: ({ row }: CellRendererProps) => {
         const score = row.aiScore as number;
         const fireEmojis = "🔥".repeat(score);
 
@@ -353,7 +353,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
       isSortable: true,
       align: "center",
       type: "string",
-      cellRenderer: ({ row }) => {
+      cellRenderer: ({ row }: CellRendererProps) => {
         return (
           <div style={{ fontSize: "13px", color: colors.textSecondary }}>
             {row.timeAgo as string}
@@ -379,7 +379,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
         { label: "Nurture", value: "Nurture" },
       ],
       // Custom sorting by priority (Hot > Warm > Enterprise > Leads > SMB > Cold > Nurture)
-      valueGetter: ({ row }) => {
+      valueGetter: ({ row }: ValueGetterProps) => {
         const list = row.list as string;
         const priorityMap: Record<string, number> = {
           "Hot Leads": 1,
@@ -392,7 +392,7 @@ export const getCRMHeaders = (isDark: boolean): ReactHeaderObject[] => {
         };
         return priorityMap[list] || 999;
       },
-      cellRenderer: ({ row }) => {
+      cellRenderer: ({ row }: CellRendererProps) => {
         const listName = row.list as string;
 
         return (

@@ -1,10 +1,11 @@
-import {
-  SimpleTable,
+import { SimpleTable } from "@simple-table/react";
+import type {
+  ColumnEditorCustomRendererProps,
   ReactHeaderObject,
   Row,
   TableAPI,
   Theme,
-  ColumnEditorCustomRendererProps,
+  ValueFormatterProps,
 } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 import { useRef } from "react";
@@ -104,15 +105,18 @@ const headers: ReactHeaderObject[] = [
     width: 120,
     filterable: true,
     type: "number",
-    valueFormatter: ({ value }) => `$${(value || 0).toLocaleString()}`,
+    valueFormatter: ({ value }: ValueFormatterProps) => `$${(value || 0).toLocaleString()}`,
     align: "right",
   },
   { accessor: "status", label: "Status", width: 100, filterable: true, type: "string" },
   { accessor: "location", label: "Location", width: 140, filterable: true, type: "string" },
 ];
 
-function hasHeaderChanged(currentHeaders: ReactHeaderObject[], defaultHeaders: ReactHeaderObject[]): boolean {
-  const filter = (h: ReactHeaderObject[]) =>
+function hasHeaderChanged(
+  currentHeaders: readonly ReactHeaderObject[],
+  defaultHeaders: readonly ReactHeaderObject[],
+): boolean {
+  const filter = (h: readonly ReactHeaderObject[]) =>
     h.filter(
       (x) =>
         !(x as ReactHeaderObject & { isSelectionColumn?: boolean }).isSelectionColumn &&
@@ -137,8 +141,8 @@ function hasHeaderChanged(currentHeaders: ReactHeaderObject[], defaultHeaders: R
       console.log("pinned differs", cur.pinned, def.pinned);
       return true;
     }
-    const curChildren = filter(cur.children ?? []);
-    const defChildren = filter(def.children ?? []);
+    const curChildren = filter((cur.children ?? []) as ReactHeaderObject[]);
+    const defChildren = filter((def.children ?? []) as ReactHeaderObject[]);
     if (curChildren.length !== defChildren.length) return true;
     return curChildren.some((c, i) => headerDiffers(c, defChildren[i]));
   };
@@ -165,7 +169,10 @@ const ColumnEditorCustomRendererDemo = ({
     resetColumns,
     headers: currentHeaders,
   }: ColumnEditorCustomRendererProps) => {
-    const showResetButton = hasHeaderChanged(currentHeaders, defaultHeaders);
+    const showResetButton = hasHeaderChanged(
+      currentHeaders as ReactHeaderObject[],
+      defaultHeaders,
+    );
 
     return (
       <>
@@ -177,7 +184,7 @@ const ColumnEditorCustomRendererDemo = ({
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                resetColumns();
+                resetColumns?.();
               }}
               style={{
                 width: "100%",

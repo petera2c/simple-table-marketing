@@ -1,4 +1,4 @@
-import type { ReactHeaderObject } from "@simple-table/react";
+import type { ReactHeaderObject, CellRendererProps, ValueFormatterProps } from "@simple-table/react";
 
 const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 
@@ -30,7 +30,7 @@ const generateMonthHeaders = () => {
           align: "right",
           type: "number",
           aggregation: { type: "sum" },
-          valueFormatter: ({ value }) => {
+          valueFormatter: ({ value }: ValueFormatterProps) => {
             const balance = value as number;
             if (balance === undefined || balance === null || balance === 0) return "—";
 
@@ -50,7 +50,7 @@ const generateMonthHeaders = () => {
           align: "right",
           type: "number",
           aggregation: { type: "sum" },
-          valueFormatter: ({ value }) => {
+          valueFormatter: ({ value }: ValueFormatterProps) => {
             const revenue = value as number;
             if (revenue === undefined || revenue === null || revenue === 0) return "—";
 
@@ -79,7 +79,7 @@ export const HEADERS: ReactHeaderObject[] = [
     align: "left",
     pinned: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const name = row.name as string;
 
       return <div className={row.type === "account" ? "font-semibold" : ""}>{name}</div>;

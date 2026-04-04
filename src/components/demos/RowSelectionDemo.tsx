@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { CellRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 type LibraryBook = {
@@ -40,7 +40,7 @@ const headers: ReactHeaderObject[] = [
     width: 100,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           color:

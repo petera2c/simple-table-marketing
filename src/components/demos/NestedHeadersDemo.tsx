@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { CellRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 const headers: ReactHeaderObject[] = [
@@ -31,7 +31,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },
@@ -43,7 +43,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },
@@ -55,7 +55,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },

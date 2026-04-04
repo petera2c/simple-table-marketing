@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Sample data showcasing quarterly sales performance - perfect for collapsible columns
@@ -440,7 +440,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.totalSales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.totalSales as number).toLocaleString()}`,
       },
       {
         accessor: "q1Sales",
@@ -450,7 +450,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.q1Sales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.q1Sales as number).toLocaleString()}`,
       },
       {
         accessor: "q2Sales",
@@ -460,7 +460,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.q2Sales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.q2Sales as number).toLocaleString()}`,
       },
       {
         accessor: "q3Sales",
@@ -470,7 +470,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.q3Sales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.q3Sales as number).toLocaleString()}`,
       },
       {
         accessor: "q4Sales",
@@ -480,7 +480,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.q4Sales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.q4Sales as number).toLocaleString()}`,
       },
     ],
   },
@@ -501,7 +501,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.avgMonthly as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.avgMonthly as number).toLocaleString()}`,
       },
       {
         accessor: "bestMonth",
@@ -511,7 +511,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.bestMonth as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.bestMonth as number).toLocaleString()}`,
       },
       {
         accessor: "jan",
@@ -521,7 +521,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.jan as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.jan as number).toLocaleString()}`,
       },
       {
         accessor: "feb",
@@ -531,7 +531,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.feb as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.feb as number).toLocaleString()}`,
       },
       {
         accessor: "mar",
@@ -541,7 +541,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.mar as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.mar as number).toLocaleString()}`,
       },
       {
         accessor: "apr",
@@ -551,7 +551,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.apr as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.apr as number).toLocaleString()}`,
       },
       {
         accessor: "may",
@@ -561,7 +561,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.may as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.may as number).toLocaleString()}`,
       },
       {
         accessor: "jun",
@@ -571,7 +571,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.jun as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.jun as number).toLocaleString()}`,
       },
       {
         accessor: "jul",
@@ -581,7 +581,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.jul as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.jul as number).toLocaleString()}`,
       },
       {
         accessor: "aug",
@@ -591,7 +591,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.aug as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.aug as number).toLocaleString()}`,
       },
       {
         accessor: "sep",
@@ -601,7 +601,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.sep as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.sep as number).toLocaleString()}`,
       },
       {
         accessor: "oct",
@@ -611,7 +611,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.oct as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.oct as number).toLocaleString()}`,
       },
       {
         accessor: "nov",
@@ -621,7 +621,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.nov as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.nov as number).toLocaleString()}`,
       },
       {
         accessor: "dec",
@@ -631,7 +631,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.dec as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.dec as number).toLocaleString()}`,
       },
     ],
   },
@@ -660,7 +660,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.softwareSales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.softwareSales as number).toLocaleString()}`,
       },
       {
         accessor: "hardwareSales",
@@ -670,7 +670,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.hardwareSales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.hardwareSales as number).toLocaleString()}`,
       },
       {
         accessor: "servicesSales",
@@ -680,7 +680,7 @@ const headers: ReactHeaderObject[] = [
         isSortable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row }) => `$${(row.servicesSales as number).toLocaleString()}`,
+        cellRenderer: ({ row }: CellRendererProps) => `$${(row.servicesSales as number).toLocaleString()}`,
       },
     ],
   },

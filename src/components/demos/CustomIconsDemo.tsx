@@ -1,5 +1,5 @@
 import { SimpleTable } from "@simple-table/react";
-import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import "@simple-table/react/styles.css";
 
 // Define headers with various properties
@@ -27,7 +27,7 @@ const headers: ReactHeaderObject[] = [
     isSortable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price as number;
       return `$${price.toFixed(2)}`;
     },
@@ -47,7 +47,7 @@ const headers: ReactHeaderObject[] = [
     isSortable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const rating = row.rating as number;
       return `${rating.toFixed(1)} ★`;
     },
