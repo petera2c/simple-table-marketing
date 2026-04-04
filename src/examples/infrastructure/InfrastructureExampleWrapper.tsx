@@ -40,6 +40,7 @@ export default function InfrastructureExampleWrapper({
       Preview={() => (
         <ExamplesWrapper>
           <InfrastructureExample
+            key={currentIconLibrary}
             height={height ? height : `${containerHeight}px`}
             icons={tableIcons}
             theme={selectedTheme}

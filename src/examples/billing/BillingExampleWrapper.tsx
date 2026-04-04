@@ -37,6 +37,7 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
       Preview={() => (
         <ExamplesWrapper>
           <BillingExample
+            key={currentIconLibrary}
             height={containerHeight}
             icons={tableIcons}
             onGridReady={onGridReady}

@@ -42,6 +42,7 @@ export default function SpreadsheetExampleWrapper({
       Preview={() => (
         <ExamplesWrapper>
           <SpreadsheetExample
+            key={currentIconLibrary}
             height={containerHeight}
             icons={tableIcons}
             onGridReady={onGridReady}

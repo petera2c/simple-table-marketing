@@ -55,6 +55,7 @@ export default function CRMExampleWrapper({
         <div className={plusJakartaSans.className}>
           <ExamplesWrapper>
             <CRMExample
+              key={currentIconLibrary}
               height={containerHeight}
               icons={tableIcons}
               onGridReady={onGridReady}

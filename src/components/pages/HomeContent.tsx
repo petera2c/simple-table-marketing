@@ -358,7 +358,12 @@ export default function HomeContent() {
             <CodeBlock demoId="infrastructure" />
           ) : (
             <Suspense fallback={<div />}>
-              <InfrastructureExample theme={tableTheme} height={"70dvh"} icons={tableIcons} />
+              <InfrastructureExample
+                key={iconLibrary}
+                theme={tableTheme}
+                height={"70dvh"}
+                icons={tableIcons}
+              />
             </Suspense>
           )}
         </motion.section>

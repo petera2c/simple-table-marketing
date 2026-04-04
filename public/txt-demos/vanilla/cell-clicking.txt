@@ -99,9 +99,6 @@ export function renderCellClickingDemo(
           table.update({ rows });
           break;
         case "status": {
-          // #region agent log
-          fetch('http://127.0.0.1:7670/ingest/26f514b8-9d80-409e-b91d-53d50ab3600d',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'4d1567'},body:JSON.stringify({sessionId:'4d1567',runId:'post-fix',location:'CellClickingDemo.ts:status',message:'status click',data:{value,typeofValue:typeof value,taskId:task.id,taskStatus:task.status,rowsLength:rows.length,rowFromRows:rows.find((r)=>r.id===task.id)?.status},timestamp:Date.now(),hypothesisId:'H2-H3'})}).catch(()=>{});
-          // #endregion
           const idx = CELL_CLICKING_STATUSES.indexOf(String(value));
           const next = CELL_CLICKING_STATUSES[(idx + 1) % CELL_CLICKING_STATUSES.length];
           rows = rows.map((t) => (t.id === task.id ? { ...t, status: next } : t));

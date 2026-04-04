@@ -1094,6 +1094,13 @@ export const SEO_STRINGS = {
       keywords:
         "simple-table, data-grid, datagrid, data table, crm table, leads management, sales leads, contact management, responsive table, javascript data grid",
     },
+    sales: {
+      title: "Sales Pipeline with Simple Table",
+      description:
+        "Build a sales pipeline table with Simple Table. A JavaScript data grid for reps, deals, quotas, and revenue metrics using a responsive datagrid.",
+      keywords:
+        "simple-table, data-grid, datagrid, data table, sales pipeline, sales dashboard, revenue table, sales metrics, responsive table, javascript data grid",
+    },
     spreadsheet: {
       title: "Spreadsheet Table with Cell Editing & Formulas",
       description:

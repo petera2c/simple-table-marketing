@@ -44,6 +44,7 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
         <div className={inter.className}>
           <ExamplesWrapper>
             <MusicExample
+              key={currentIconLibrary}
               height={height ? height : `${containerHeight}px`}
               icons={tableIcons}
               theme={selectedTheme}

@@ -35,6 +35,7 @@ export default function HRExampleWrapper({ theme }: HRExampleWrapperProps) {
       Preview={() => (
         <ExamplesWrapper>
           <HRExample
+            key={currentIconLibrary}
             height={containerHeight}
             icons={tableIcons}
             rowHeight={ROW_HEIGHT}

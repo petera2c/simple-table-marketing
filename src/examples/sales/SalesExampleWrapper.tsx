@@ -42,6 +42,7 @@ export default function SalesExampleWrapper({
       Preview={() => (
         <ExamplesWrapper>
           <SalesExample
+            key={currentIconLibrary}
             height={containerHeight}
             icons={tableIcons}
             onGridReady={onGridReady}
