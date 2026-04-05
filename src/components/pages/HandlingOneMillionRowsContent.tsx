@@ -204,8 +204,9 @@ export default function HandlingOneMillionRowsContent() {
 
             <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto mb-6 text-sm leading-relaxed">
               {`import React, { useState, useEffect } from "react";
-import { SimpleTable, HeaderObject } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { HeaderObject } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers for the performance demo
 const PERFORMANCE_HEADERS: HeaderObject[] = [
@@ -386,7 +387,7 @@ export default function PerformanceDemo() {
           description="Simple Table makes it easy to handle large datasets with lightning-fast performance."
           primaryButton={{
             text: "View on NPM",
-            href: "https://www.npmjs.com/package/simple-table-core",
+            href: "https://www.npmjs.com/package/@simple-table/react",
             external: true,
           }}
           secondaryButton={{

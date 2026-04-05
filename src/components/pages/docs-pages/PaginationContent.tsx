@@ -6,7 +6,6 @@ import { faPager } from "@fortawesome/free-solid-svg-icons";
 import PaginationDemo from "@/components/demos/PaginationDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -148,9 +147,8 @@ const PaginationContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="PaginationDemo.txt"
+          demoId="pagination"
           height="400px"
-          link={SANDBOX_LIST["PaginationDemo.tsx"].url}
           Preview={PaginationDemo}
         />
       </motion.div>

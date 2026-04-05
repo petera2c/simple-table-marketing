@@ -6,7 +6,6 @@ import { faCommentAlt } from "@fortawesome/free-solid-svg-icons";
 import TooltipDemo from "@/components/demos/TooltipDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -59,9 +58,8 @@ const TooltipContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="TooltipDemo.txt"
+          demoId="tooltip"
           height="400px"
-          link={SANDBOX_LIST["TooltipDemo.tsx"].url}
           Preview={TooltipDemo}
         />
       </motion.div>

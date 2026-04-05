@@ -6,7 +6,6 @@ import { faLayerGroup } from "@fortawesome/free-solid-svg-icons";
 import NestedHeadersDemo from "@/components/demos/NestedHeadersDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -78,9 +77,8 @@ export default function NestedHeadersContent() {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="NestedHeadersDemo.txt"
+          demoId="nested-headers"
           height="400px"
-          link={SANDBOX_LIST["NestedHeadersDemo.tsx"].url}
           Preview={NestedHeadersDemo}
         />
       </motion.div>

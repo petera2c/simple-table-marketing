@@ -7,7 +7,6 @@ import ExternalFilterDemo from "@/components/demos/ExternalFilterDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import { faFilter } from "@fortawesome/free-solid-svg-icons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -136,9 +135,8 @@ const ColumnFilteringContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnFilteringDemo.txt"
+          demoId="column-filtering"
           height="400px"
-          link={SANDBOX_LIST["ColumnFilteringDemo.tsx"].url}
           Preview={ColumnFilteringDemo}
         />
       </motion.div>
@@ -192,9 +190,8 @@ const ColumnFilteringContent = () => {
 
         <div className="mb-6">
           <LivePreview
-            demoCodeFilename="ExternalFilterDemo.txt"
+            demoId="external-filter"
             height="400px"
-            link={SANDBOX_LIST["ExternalFilterDemo.tsx"].url}
             Preview={ExternalFilterDemo}
           />
         </div>

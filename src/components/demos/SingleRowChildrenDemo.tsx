@@ -1,5 +1,6 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Sample student performance data
 const STUDENT_DATA = [
@@ -127,7 +128,7 @@ const STUDENT_DATA = [
 ];
 
 // Define headers with singleRowChildren feature
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "studentId",
     label: "Student ID",
@@ -160,7 +161,7 @@ const headers: HeaderObject[] = [
         type: "number",
         align: "right",
         showWhen: "parentCollapsed", // Show overall GPA when collapsed
-        cellRenderer: ({ row }) => (row.overallGPA as number).toFixed(2),
+        cellRenderer: ({ row }: CellRendererProps) => (row.overallGPA as number).toFixed(2),
       },
       {
         accessor: "mathGrade",

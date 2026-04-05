@@ -1,9 +1,8 @@
 "use client";
 
 import MusicExample from "./MusicExample";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { Inter } from "next/font/google";
@@ -27,7 +26,7 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -35,9 +34,8 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
 
   return (
     <LivePreview
-      demoCodeFilename="MusicExample.txt"
+      demoId="music"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/music/MusicExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
@@ -46,9 +44,10 @@ export default function MusicExampleWrapper({ height, theme }: MusicExampleWrapp
         <div className={inter.className}>
           <ExamplesWrapper>
             <MusicExample
+              key={currentIconLibrary}
               height={height ? height : `${containerHeight}px`}
+              icons={tableIcons}
               theme={selectedTheme}
-              {...tableIcons}
             />
           </ExamplesWrapper>
         </div>

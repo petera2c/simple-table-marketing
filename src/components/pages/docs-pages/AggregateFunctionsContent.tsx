@@ -6,7 +6,6 @@ import AggregateFunctionsDemo from "@/components/demos/AggregateFunctionsDemo";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -107,9 +106,8 @@ const AggregateFunctionsContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="AggregateFunctionsDemo.txt"
+          demoId="aggregate-functions"
           height="500px"
-          link={(SANDBOX_LIST as any)["AggregateFunctionsDemo.tsx"]?.url || "#"}
           Preview={AggregateFunctionsDemo}
         />
       </motion.div>
@@ -159,11 +157,6 @@ const AggregateFunctionsContent = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-2">
                 Calculates the total of all numeric values in a group.
               </p>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <code>{`{
-  aggregation: { type: "sum" }
-}`}</code>
-              </pre>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                 Perfect for totaling budgets, employee counts, or any cumulative metrics.
               </p>
@@ -174,11 +167,6 @@ const AggregateFunctionsContent = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-2">
                 Computes the arithmetic mean of all values in a group.
               </p>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <code>{`{
-  aggregation: { type: "average" }
-}`}</code>
-              </pre>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                 Ideal for ratings, performance scores, or any metric where the mean is meaningful.
               </p>
@@ -189,11 +177,6 @@ const AggregateFunctionsContent = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-2">
                 Counts the number of non-null values in a group.
               </p>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <code>{`{
-  aggregation: { type: "count" }
-}`}</code>
-              </pre>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                 Useful for counting projects, tasks, or any discrete items within groups.
               </p>
@@ -204,15 +187,6 @@ const AggregateFunctionsContent = () => {
               <p className="text-gray-700 dark:text-gray-300 mb-2">
                 Finds the minimum or maximum value in a group.
               </p>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-2 rounded">
-                <code>{`{
-  aggregation: { type: "min" }
-}
-// or
-{
-  aggregation: { type: "max" }
-}`}</code>
-              </pre>
               <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                 Great for finding ranges, extremes, or boundary values in your data.
               </p>
@@ -228,37 +202,6 @@ const AggregateFunctionsContent = () => {
               values before aggregation.
             </p>
 
-            <div className="mb-4">
-              <h4 className="font-semibold text-gray-800 dark:text-white mb-2">Custom Function</h4>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto">
-                <code>{`{
-  aggregation: {
-    type: "custom",
-    customFn: (values: any[]) => {
-      // Calculate weighted average or any custom logic
-      const sum = values.reduce((acc, val) => acc + parseFloat(val), 0);
-      return Math.round((sum / values.length) * 10) / 10;
-    }
-  }
-}`}</code>
-              </pre>
-            </div>
-
-            <div>
-              <h4 className="font-semibold text-gray-800 dark:text-white mb-2">Value Parsing</h4>
-              <pre className="text-sm bg-gray-100 dark:bg-gray-900 p-3 rounded overflow-x-auto">
-                <code>{`{
-  aggregation: {
-    type: "sum",
-    parseValue: (value: string) => {
-      // Parse "$15.0M" to 15.0
-      const numericValue = parseFloat(value.replace(/[$M]/g, ""));
-      return isNaN(numericValue) ? 0 : numericValue;
-    }
-  }
-}`}</code>
-              </pre>
-            </div>
           </div>
 
           <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm">

@@ -1,5 +1,5 @@
 import path from "path";
-import type { Row } from "simple-table-core";
+import type { Row } from "@simple-table/react";
 import fs from "fs";
 import { fileURLToPath } from "url";
 

@@ -4,25 +4,23 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBolt } from "@fortawesome/free-solid-svg-icons";
 import LiveUpdateDemo from "@/components/demos/LiveUpdateDemo";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const LIVE_UPDATE_PROPS: PropInfo[] = [
   {
-    key: "tableRef",
-    name: "tableRef",
+    key: "ref",
+    name: "ref",
     required: false,
     description:
       "React ref object that provides access to table methods for programmatic updates. Used to call updateData method.",
-    type: "React.RefObject<TableRefType>",
-    example: `const tableRef = useRef<TableRefType | null>(null);
+    type: "React.RefObject<TableAPI>",
+    example: `const tableRef = useRef<TableAPI>(null);
 
 <SimpleTable
-  tableRef={tableRef}
+  ref={tableRef}
   // ... other props
 />`,
   },
@@ -110,9 +108,8 @@ const LiveUpdateContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="LiveUpdateDemo.txt"
+          demoId="live-update"
           height="400px"
-          link={SANDBOX_LIST["LiveUpdateDemo.tsx"].url}
           Preview={LiveUpdateDemo}
         />
       </motion.div>
@@ -213,7 +210,7 @@ const LiveUpdateContent = () => {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           The{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
-            TableRefType
+            TableAPI
           </code>{" "}
           provides methods to interact with the table. Currently, it offers the{" "}
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
@@ -224,25 +221,6 @@ const LiveUpdateContent = () => {
 
         <PropTable props={UPDATE_DATA_PARAMS_PROPS} title="updateData Method Parameters" />
 
-        <CodeBlock
-          className="mb-4"
-          code={`// Example: Update multiple cells
-const updatePrices = () => {
-  // Update first row
-  tableRef.current?.updateData({
-    accessor: "price",
-    rowIndex: 0,
-    newValue: 25.99
-  });
-  
-  // Update third row
-  tableRef.current?.updateData({
-    accessor: "status", 
-    rowIndex: 2,
-    newValue: "updated"
-  });
-};`}
-        />
       </motion.div>
 
       {/* Cell Update Flash Section */}
@@ -269,16 +247,6 @@ const updatePrices = () => {
           is enabled, cells will momentarily highlight when their value changes, providing a subtle
           visual cue to users:
         </p>
-
-        <CodeBlock
-          className="mb-4"
-          code={`<SimpleTable
-  cellUpdateFlash={true} // Enable the flash animation
-  defaultHeaders={headers}
-  rows={tableData}
-  tableRef={tableRef}
-/>`}
-        />
 
         <div className="bg-amber-50 dark:bg-amber-900/30 border-l-4 border-amber-400 dark:border-amber-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Important Notes</h3>
@@ -320,34 +288,6 @@ const updatePrices = () => {
           demo above shows this in action with Stock Trend (line chart) and Sales Trend (bar chart)
           columns.
         </p>
-
-        <CodeBlock
-          className="mb-4"
-          code={`// Example: Update chart with new data point
-const updateStockHistory = (rowIndex: number, newStock: number) => {
-  // Get current history
-  const currentHistory = data[rowIndex].stockHistory as number[];
-  
-  // Add new value and remove oldest (keep array length constant)
-  const updatedHistory = [...currentHistory.slice(1), newStock];
-  
-  // Update the table
-  tableRef.current?.updateData({
-    accessor: "stockHistory",
-    rowIndex: rowIndex,
-    newValue: updatedHistory,
-  });
-};
-
-// Update both stock value and chart
-tableRef.current?.updateData({
-  accessor: "stock",
-  rowIndex: 0,
-  newValue: 150,
-});
-
-updateStockHistory(0, 150); // Add to chart`}
-        />
 
         <div className="bg-blue-50 dark:bg-blue-900/30 border-l-4 border-blue-400 dark:border-blue-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">💡 Pro Tip</h3>

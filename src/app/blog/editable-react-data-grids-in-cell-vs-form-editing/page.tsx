@@ -169,8 +169,8 @@ export default function EditableReactDataGridsPage() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject, CellChangeProps } from "simple-table-core";
-import "simple-table-core/styles.css";
+                code={`import { SimpleTable, HeaderObject, CellChangeProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import { useState } from "react";
 
 interface Product {
@@ -459,8 +459,8 @@ export default function ProductTable() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject, CellClickProps } from "simple-table-core";
-import "simple-table-core/styles.css";
+                code={`import { SimpleTable, HeaderObject, CellClickProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import { useState } from "react";
 import { Modal, Form, Input, Select, DatePicker, Button } from "antd"; // or any UI library
 

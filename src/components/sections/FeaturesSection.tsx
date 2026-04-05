@@ -52,7 +52,7 @@ export default function FeaturesSection() {
           Full-Featured Data Grid Component
         </h2>
         <p className="text-lg text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-          Make your data handling look professional. Here's what our component brings to your React
+          Make your data handling look professional. Here's what our component brings to your
           projects
         </p>
       </div>

@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from "react";
-import { SimpleTable, HeaderObject, HeaderRendererProps, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, HeaderRendererProps, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Initial astronomical data
 const INITIAL_STAR_DATA = [
@@ -243,7 +244,7 @@ const HeaderRendererDemo = ({
     };
   };
 
-  const headers: HeaderObject[] = useMemo(
+  const headers: ReactHeaderObject[] = useMemo(
     () => [
       {
         accessor: "id",
@@ -273,7 +274,7 @@ const HeaderRendererDemo = ({
         type: "number",
         isSortable: true,
         filterable: true,
-        headerRenderer: ({ components }) => {
+        headerRenderer: ({ components }: HeaderRendererProps) => {
           return (
             <>
               {components?.labelContent}

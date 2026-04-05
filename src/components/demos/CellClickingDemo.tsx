@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, CellClickProps, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, CellClickProps, CellRendererProps, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 type ProjectTask = {
   id: number;
@@ -15,7 +16,7 @@ type ProjectTask = {
 };
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "Task ID", width: 80, isSortable: true, type: "number" },
   {
     accessor: "task",
@@ -32,7 +33,7 @@ const headers: HeaderObject[] = [
     width: 100,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           color:
@@ -52,7 +53,7 @@ const headers: HeaderObject[] = [
     width: 120,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           backgroundColor:
@@ -87,7 +88,7 @@ const headers: HeaderObject[] = [
     label: "View Details",
     width: 120,
     type: "other",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <button
         style={{
           backgroundColor: "#3b82f6",

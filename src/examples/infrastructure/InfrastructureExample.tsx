@@ -1,36 +1,24 @@
 import { useRef, useState, useEffect } from "react";
-import { SimpleTable, TableRefType, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactIconsConfig } from "@simple-table/react";
+import type { TableAPI, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import { HEADERS } from "./infrastructure-headers";
 import { useServerMetricsUpdates } from "./useServerMetricsUpdates";
 import { useInfrastructureData } from "./useInfrastructureData";
 
 export default function InfrastructureExample({
   height,
+  icons,
   theme,
   rowCount = 1000,
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
-  nextIcon,
-  prevIcon,
-  sortDownIcon,
-  sortUpIcon,
 }: {
   height?: string | number;
+  icons?: ReactIconsConfig;
   theme?: Theme;
   rowCount?: number;
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
-  nextIcon?: React.ReactNode;
-  prevIcon?: React.ReactNode;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
 }) {
-  const tableRef = useRef<TableRefType | null>(null);
+  const tableRef = useRef<TableAPI | null>(null);
   const { data, isLoading } = useInfrastructureData(rowCount);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -71,18 +59,11 @@ export default function InfrastructureExample({
       columnResizing
       defaultHeaders={HEADERS}
       editColumns
-      expandIcon={expandIcon}
-      filterIcon={filterIcon}
-      headerCollapseIcon={headerCollapseIcon}
-      headerExpandIcon={headerExpandIcon}
       height={height ? height : "70dvh"}
-      nextIcon={nextIcon}
-      prevIcon={prevIcon}
+      icons={icons}
       rows={data}
       selectableCells
-      sortDownIcon={sortDownIcon}
-      sortUpIcon={sortUpIcon}
-      tableRef={tableRef}
+      ref={tableRef}
       theme={theme}
     />
   );

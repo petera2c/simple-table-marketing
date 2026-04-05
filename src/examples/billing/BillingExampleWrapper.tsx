@@ -1,9 +1,8 @@
 "use client";
 
 import BillingExample from "./BillingExample";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
@@ -21,7 +20,7 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: false,
     rowHeight: ROW_HEIGHT,
@@ -29,9 +28,8 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
 
   return (
     <LivePreview
-      demoCodeFilename="BillingExample.txt"
+      demoId="billing"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/billing/BillingExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
@@ -39,10 +37,11 @@ export default function BillingExampleWrapper({ onGridReady, theme }: BillingExa
       Preview={() => (
         <ExamplesWrapper>
           <BillingExample
+            key={currentIconLibrary}
             height={containerHeight}
+            icons={tableIcons}
             onGridReady={onGridReady}
             theme={selectedTheme}
-            {...tableIcons}
           />
         </ExamplesWrapper>
       )}

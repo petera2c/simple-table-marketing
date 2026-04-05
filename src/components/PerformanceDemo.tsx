@@ -1,10 +1,11 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { SimpleTable, Row, CellChangeProps } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { Row, CellChangeProps } from "@simple-table/react";
 import { Typography, Button, Tag } from "antd";
 import { SALES_HEADERS } from "@/examples/sales/sales-headers";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { PerformanceDemoProps } from "@/types/PerformanceDemo";
 
 const { Text } = Typography;
@@ -18,7 +19,7 @@ const generateLargeDataset = (
     minDealValue?: number;
     maxProfit?: number;
     minProfit?: number;
-  }
+  },
 ): Row[] => {
   const data: Row[] = [];
   const config = {
@@ -145,7 +146,7 @@ export default function PerformanceDemo({
           };
         }
         return item;
-      })
+      }),
     );
   };
 

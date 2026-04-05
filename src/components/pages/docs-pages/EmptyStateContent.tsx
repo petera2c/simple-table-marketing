@@ -8,7 +8,6 @@ import PageWrapper from "@/components/PageWrapper";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import LivePreview from "@/components/LivePreview";
 import EmptyStateDemo from "@/components/demos/EmptyStateDemo";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 
 const EMPTY_STATE_PROPS: PropInfo[] = [
   {
@@ -53,9 +52,8 @@ const EmptyStateContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="EmptyStateDemo.txt"
+          demoId="empty-state"
           height="450px"
-          link={SANDBOX_LIST["EmptyStateDemo.tsx"].url}
           Preview={EmptyStateDemo}
         />
       </motion.div>

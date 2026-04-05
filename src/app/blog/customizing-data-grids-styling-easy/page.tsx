@@ -200,7 +200,7 @@ export default function CustomizingDataGridsStylingEasyPage() {
             </p>
 
             <pre className="bg-gray-900 dark:bg-gray-950 text-gray-100 p-4 rounded-lg overflow-auto mb-6 text-sm leading-relaxed">
-              {`import { SimpleTable } from "simple-table-core";
+              {`import { SimpleTable } from "@simple-table/react";
 
 <SimpleTable
   defaultHeaders={headers}
@@ -306,7 +306,7 @@ export default function CustomizingDataGridsStylingEasyPage() {
           description="Simple Table makes customizing data grids as easy as writing regular CSS. No complex overrides, no fighting with existing styles."
           primaryButton={{
             text: "View on NPM",
-            href: "https://www.npmjs.com/package/simple-table-core",
+            href: "https://www.npmjs.com/package/@simple-table/react",
             external: true,
           }}
           secondaryButton={{

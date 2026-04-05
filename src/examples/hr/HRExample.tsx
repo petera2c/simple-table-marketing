@@ -1,34 +1,21 @@
-import { SimpleTable, Theme, CellChangeProps, Row } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { Theme, CellChangeProps, ReactIconsConfig } from "@simple-table/react";
 import { HEADERS } from "./hr-headers";
 import { useState, useEffect } from "react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { useHRData } from "./useHRData";
 
 export default function HRExample({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height = 500,
-  nextIcon,
-  prevIcon,
+  icons,
   rowCount = 1000,
   rowHeight = 48,
-  sortDownIcon,
-  sortUpIcon,
   theme,
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height: number | null;
-  nextIcon?: React.ReactNode;
-  prevIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   rowCount?: number;
   rowHeight?: number;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
   const { data: fetchedData, isLoading } = useHRData(rowCount);
@@ -51,7 +38,7 @@ export default function HRExample({
           };
         }
         return item;
-      })
+      }),
     );
   };
 
@@ -77,13 +64,8 @@ export default function HRExample({
       columnReordering
       columnResizing
       defaultHeaders={HEADERS}
-      expandIcon={expandIcon}
-      filterIcon={filterIcon}
-      headerCollapseIcon={headerCollapseIcon}
-      headerExpandIcon={headerExpandIcon}
-      nextIcon={nextIcon}
+      icons={icons}
       onCellEdit={handleCellEdit}
-      prevIcon={prevIcon}
       customTheme={{
         rowHeight: rowHeight,
       }}
@@ -91,8 +73,6 @@ export default function HRExample({
       rowsPerPage={howManyRowsCanFit}
       selectableCells
       shouldPaginate
-      sortDownIcon={sortDownIcon}
-      sortUpIcon={sortUpIcon}
       theme={theme}
     />
   );

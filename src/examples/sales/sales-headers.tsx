@@ -1,4 +1,4 @@
-import { HeaderObject } from "simple-table-core";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
 // Theme-dependent color helper function
 const getThemeColors = (theme?: string) => {
@@ -253,7 +253,7 @@ const Progress = ({
   );
 };
 
-export const SALES_HEADERS: HeaderObject[] = [
+export const SALES_HEADERS: ReactHeaderObject[] = [
   {
     accessor: "repName",
     label: "Sales Representative",
@@ -300,7 +300,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         tooltip: "The value of the deal in dollars",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           if (row.dealValue === "—") return "—";
           const value = row.dealValue as number;
           const colors = getThemeColors(theme);
@@ -332,7 +332,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "center",
         type: "boolean",
         tooltip: "Whether the deal was won or lost",
-        cellRenderer: ({ row }) => {
+        cellRenderer: ({ row }: CellRendererProps) => {
           if (row.isWon === "—") return "—";
           const isWon = row.isWon as boolean;
           return (
@@ -384,7 +384,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         tooltip: "The commission earned from the deal in dollars",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           if (row.commission === "—") return "—";
           const value = row.commission as number;
           const colors = getThemeColors(theme);
@@ -407,14 +407,15 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         tooltip: "The profit margin of the deal",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           if (row.profitMargin === "—") return "—";
           const value = row.profitMargin as number;
           const colors = getThemeColors(theme);
 
           // Enhanced color coding based on profit margin tiers
           let colorStyle: React.CSSProperties = { color: colors.gray };
-          if (value >= 0.7) colorStyle = colors.success.high; // Software-like margins
+          if (value >= 0.7)
+            colorStyle = colors.success.high; // Software-like margins
           else if (value >= 0.5) colorStyle = { color: colors.success.medium };
           else if (value >= 0.4) colorStyle = { color: colors.success.low };
           else if (value >= 0.3) colorStyle = { color: colors.info };
@@ -432,8 +433,8 @@ export const SALES_HEADERS: HeaderObject[] = [
                     value >= 0.5
                       ? colors.progressColors.high
                       : value >= 0.3
-                      ? colors.progressColors.medium
-                      : colors.progressColors.low
+                        ? colors.progressColors.medium
+                        : colors.progressColors.low
                   }
                 />
               </div>
@@ -461,7 +462,7 @@ export const SALES_HEADERS: HeaderObject[] = [
         align: "right",
         type: "number",
         tooltip: "The profit of the deal in dollars",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           if (row.dealProfit === "—") return "—";
           const value = row.dealProfit as number;
           const colors = getThemeColors(theme);
@@ -504,7 +505,7 @@ export const SALES_HEADERS: HeaderObject[] = [
           { label: "Support", value: "Support" },
         ],
         // Sort by typical deal value/priority: Software > Consulting > Services > Hardware > Training > Support
-        valueGetter: ({ row }) => {
+        valueGetter: ({ row }: ValueGetterProps) => {
           const category = row.category as string;
           const priorityMap: Record<string, number> = {
             Software: 1,

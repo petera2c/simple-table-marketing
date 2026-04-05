@@ -1,4 +1,4 @@
-import { HeaderObject } from "simple-table-core";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
 // Custom Tag component
 const Tag = ({
@@ -112,7 +112,7 @@ const Progress = ({
   );
 };
 
-export const HEADERS: HeaderObject[] = [
+export const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "productLine",
     label: "Production Line",
@@ -122,7 +122,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       return hasChildren ? (
         <span className="font-bold">{row.productLine as string}</span>
@@ -139,7 +139,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "left",
     type: "string",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         return <span className="text-gray-500">{row.id as string}</span>;
@@ -172,7 +172,7 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "string",
     // Sort by operational priority: Unplanned Downtime > Idle > Setup > Scheduled Maintenance > Running
-    valueGetter: ({ row }) => {
+    valueGetter: ({ row }: ValueGetterProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return 999; // Parent rows sort last
 
@@ -186,7 +186,7 @@ export const HEADERS: HeaderObject[] = [
       };
       return priorityMap[status] || 999;
     },
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 
@@ -203,38 +203,38 @@ export const HEADERS: HeaderObject[] = [
           Running: isModernDark
             ? { bg: "rgba(6, 95, 70, 0.4)", text: "#6ee7b7" }
             : isDark
-            ? { bg: "rgba(6, 78, 59, 0.4)", text: "#6ee7b7" }
-            : isLight
-            ? { bg: "#dcfce7", text: "#16a34a" }
-            : { bg: "#f6ffed", text: "#2a6a0d" },
+              ? { bg: "rgba(6, 78, 59, 0.4)", text: "#6ee7b7" }
+              : isLight
+                ? { bg: "#dcfce7", text: "#16a34a" }
+                : { bg: "#f6ffed", text: "#2a6a0d" },
           "Scheduled Maintenance": isModernDark
             ? { bg: "rgba(30, 64, 175, 0.4)", text: "#93c5fd" }
             : isDark
-            ? { bg: "rgba(30, 58, 138, 0.4)", text: "#93c5fd" }
-            : isLight
-            ? { bg: "#dbeafe", text: "#3b82f6" }
-            : { bg: "#e6f7ff", text: "#0050b3" },
+              ? { bg: "rgba(30, 58, 138, 0.4)", text: "#93c5fd" }
+              : isLight
+                ? { bg: "#dbeafe", text: "#3b82f6" }
+                : { bg: "#e6f7ff", text: "#0050b3" },
           "Unplanned Downtime": isModernDark
             ? { bg: "rgba(153, 27, 27, 0.4)", text: "#fca5a5" }
             : isDark
-            ? { bg: "rgba(127, 29, 29, 0.4)", text: "#fca5a5" }
-            : isLight
-            ? { bg: "#fee2e2", text: "#dc2626" }
-            : { bg: "#fff1f0", text: "#a8071a" },
+              ? { bg: "rgba(127, 29, 29, 0.4)", text: "#fca5a5" }
+              : isLight
+                ? { bg: "#fee2e2", text: "#dc2626" }
+                : { bg: "#fff1f0", text: "#a8071a" },
           Idle: isModernDark
             ? { bg: "rgba(146, 64, 14, 0.4)", text: "#fcd34d" }
             : isDark
-            ? { bg: "rgba(120, 53, 15, 0.4)", text: "#fcd34d" }
-            : isLight
-            ? { bg: "#fef3c7", text: "#d97706" }
-            : { bg: "#fff7e6", text: "#ad4e00" },
+              ? { bg: "rgba(120, 53, 15, 0.4)", text: "#fcd34d" }
+              : isLight
+                ? { bg: "#fef3c7", text: "#d97706" }
+                : { bg: "#fff7e6", text: "#ad4e00" },
           Setup: isModernDark
             ? { bg: "rgba(109, 40, 217, 0.4)", text: "#c4b5fd" }
             : isDark
-            ? { bg: "rgba(88, 28, 135, 0.4)", text: "#c4b5fd" }
-            : isLight
-            ? { bg: "#e9d5ff", text: "#9333ea" }
-            : { bg: "#f9f0ff", text: "#391085" },
+              ? { bg: "rgba(88, 28, 135, 0.4)", text: "#c4b5fd" }
+              : isLight
+                ? { bg: "#e9d5ff", text: "#9333ea" }
+                : { bg: "#f9f0ff", text: "#391085" },
         };
 
         return (
@@ -242,10 +242,10 @@ export const HEADERS: HeaderObject[] = [
           (isModernDark
             ? { bg: "rgba(75, 85, 99, 0.4)", text: "#d1d5db" }
             : isDark
-            ? { bg: "rgba(55, 65, 81, 0.4)", text: "#d1d5db" }
-            : isLight
-            ? { bg: "#f3f4f6", text: "#6b7280" }
-            : { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" })
+              ? { bg: "rgba(55, 65, 81, 0.4)", text: "#d1d5db" }
+              : isLight
+                ? { bg: "#f3f4f6", text: "#6b7280" }
+                : { bg: "#f0f0f0", text: "rgba(0, 0, 0, 0.85)" })
         );
       };
 
@@ -278,7 +278,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.outputRate as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -293,7 +293,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const value = row.cycletime as number;
@@ -311,7 +311,7 @@ export const HEADERS: HeaderObject[] = [
     align: "center",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const efficiency = row.efficiency as number;
@@ -363,7 +363,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const rate = row.defectRate as number;
@@ -384,7 +384,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.defectCount as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -399,7 +399,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const hours = row.downtime as number;
@@ -420,7 +420,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "average" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) {
         const value = row.utilization as number;
@@ -438,7 +438,7 @@ export const HEADERS: HeaderObject[] = [
     align: "right",
     type: "number",
     aggregation: { type: "sum" },
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       const value = row.energy as number;
       return <div className={hasChildren ? "font-bold" : ""}>{value.toLocaleString()}</div>;
@@ -452,7 +452,7 @@ export const HEADERS: HeaderObject[] = [
     isEditable: false,
     align: "center",
     type: "date",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const hasChildren = row.stations && Array.isArray(row.stations);
       if (hasChildren) return "—";
 

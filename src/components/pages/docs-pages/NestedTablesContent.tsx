@@ -7,7 +7,6 @@ import NestedTablesDemo from "@/components/demos/NestedTablesDemo";
 import DynamicNestedTablesDemo from "@/components/demos/DynamicNestedTablesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import Link from "next/link";
@@ -134,10 +133,9 @@ const NestedTablesContent = () => {
           location.
         </p>
         <LivePreview
-          demoCodeFilename="NestedTablesDemo.txt"
+          demoId="nested-tables"
           height="472px"
           demoHeight="460px"
-          link={SANDBOX_LIST["NestedTablesDemo.tsx"].url}
           Preview={(props) => <NestedTablesDemo {...props} />}
         />
       </motion.div>
@@ -158,13 +156,9 @@ const NestedTablesContent = () => {
           handler manages dynamic data loading with built-in loading states.
         </p>
         <LivePreview
-          demoCodeFilename="DynamicNestedTablesDemo.txt"
+          demoId="dynamic-nested-tables"
           height="472px"
           demoHeight="460px"
-          link={
-            SANDBOX_LIST["DynamicNestedTablesDemo.tsx"]?.url ||
-            SANDBOX_LIST["NestedTablesDemo.tsx"].url
-          }
           Preview={(props) => <DynamicNestedTablesDemo {...props} />}
         />
       </motion.div>
@@ -349,34 +343,6 @@ const NestedTablesContent = () => {
           configuration:
         </p>
 
-        <div className="bg-gray-50 dark:bg-gray-800 p-4 rounded-lg mb-4 overflow-x-auto">
-          <pre className="text-sm text-gray-800 dark:text-gray-200">
-            {`const data = [
-  {
-    // Company level (Level 0)
-    companyName: "TechCorp Global",
-    industry: "Technology",
-    founded: 2015,
-    employees: 50000,
-    // ... other company fields
-    
-    // Child divisions (Level 1)
-    divisions: [
-      {
-        divisionId: "DIV-001",
-        divisionName: "Cloud Services",
-        revenue: "$15B",
-        profitMargin: "35%",
-        headcount: 250,
-        location: "San Francisco, CA"
-      },
-      // ... more divisions
-    ]
-  },
-  // ... more companies
-];`}
-          </pre>
-        </div>
       </motion.div>
 
       <motion.h2

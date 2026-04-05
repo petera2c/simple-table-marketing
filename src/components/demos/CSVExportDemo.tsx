@@ -1,9 +1,10 @@
 import { useRef } from "react";
-import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, TableAPI, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with new CSV formatting features
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "Internal ID",
@@ -230,7 +231,7 @@ const CSVExportDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
 
   const handleGetTableInfo = () => {
     const allRows = tableRef.current?.getAllRows();
@@ -280,7 +281,7 @@ const CSVExportDemo = ({
         }}
         selectableCells
         theme={theme}
-        tableRef={tableRef}
+        ref={tableRef}
       />
     </div>
   );

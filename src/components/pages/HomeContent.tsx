@@ -3,7 +3,7 @@
 import { Button, Tooltip } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import PageWrapper from "@/components/PageWrapper";
-import { faRocket, faCode, faBox, faStar, faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faCode, faBox, faStar, faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { motion } from "framer-motion";
 import { useRouter } from "next/navigation";
@@ -17,11 +17,11 @@ import AIVisibilityEnhancer from "@/components/AIVisibilityEnhancer";
 import IconLibrarySelector from "@/components/IconLibrarySelector";
 import ThemeSelector from "@/components/ThemeSelector";
 import { IconLibrary, getTableIcons } from "@/utils/getTableIcons";
-import { Theme } from "simple-table-core";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
-import { DEFAULT_EXAMPLE_PATH } from "@/constants/global";
+import type { Theme } from "@simple-table/react";
+import { useFramework, FRAMEWORKS, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
+import { getStackBlitzUrl } from "@/utils/getStackBlitzUrl";
+import FrameworkIcon from "@/components/FrameworkIcon";
 import { SIMPLE_TABLE_INFO, AG_GRID_TOTAL_SIZE } from "@/constants/packageInfo";
-import { getExampleUrl } from "@/utils/getExampleUrl";
 import ContactModal from "@/components/ContactModal";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
 
@@ -59,6 +59,7 @@ export default function HomeContent() {
   const [selectedTheme, setSelectedTheme] = useState<Theme>();
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const [isContactModalOpen, setIsContactModalOpen] = useState(false);
+  const { framework, setFramework } = useFramework();
   const tableIcons = getTableIcons(iconLibrary);
 
   // Map theme: if user selected a theme, use it; otherwise use modern version of website theme
@@ -74,7 +75,7 @@ export default function HomeContent() {
         name: "What is Simple Table?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: `Simple Table is a lightweight React data grid and table library that's only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size. It provides comprehensive features like cell editing, column management, sorting, filtering, and TypeScript support, making it perfect for building responsive datagrids in React applications.`,
+          text: `Simple Table is a lightweight JavaScript data grid and table library that's only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size. It works with React, Vue, Angular, Svelte, Solid, and vanilla TypeScript, providing comprehensive features like cell editing, column management, sorting, filtering, and full TypeScript support.`,
         },
       },
       {
@@ -114,7 +115,7 @@ export default function HomeContent() {
         name: "How do I install Simple Table?",
         acceptedAnswer: {
           "@type": "Answer",
-          text: "You can install Simple Table using npm: 'npm install simple-table-core'. Then import and use it in your React components. The library is ready to use with minimal configuration required.",
+          text: "Install Simple Table with your framework adapter, e.g. 'npm install @simple-table/react' (or @simple-table/vue, @simple-table/angular, etc.). The library is ready to use with minimal configuration in any supported framework.",
         },
       },
     ],
@@ -163,9 +164,9 @@ export default function HomeContent() {
         description: "For revenue-generating businesses with priority support",
       },
     ],
-    description: `Simple Table is a lightweight React data grid and table library that's only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size. Production-ready with 30+ features including cell editing, column management, sorting, filtering, and full TypeScript support.`,
+    description: `Simple Table is a lightweight JavaScript data grid with adapters for React, Vue, Angular, Svelte, Solid, and vanilla TypeScript. Only ${SIMPLE_TABLE_INFO.bundleSizeMinGzip} in size, production-ready with 30+ features including cell editing, column management, sorting, filtering, and full TypeScript support.`,
     url: "https://www.simple-table.com",
-    downloadUrl: "https://www.npmjs.com/package/simple-table-core",
+    downloadUrl: "https://www.npmjs.com/package/@simple-table/react",
     softwareVersion: SIMPLE_TABLE_INFO.version,
     author: {
       "@type": "Organization",
@@ -174,7 +175,7 @@ export default function HomeContent() {
     },
     sameAs: [
       "https://github.com/petera2c/simple-table",
-      "https://www.npmjs.com/package/simple-table-core",
+      "https://www.npmjs.com/package/@simple-table/react",
       "https://github.com/brillout/awesome-react-components",
     ],
   };
@@ -242,12 +243,12 @@ export default function HomeContent() {
             </motion.div>
 
             <motion.h1
-              className="text-4xl md:text-6xl font-bold text-gray-800 dark:text-white mb-4"
+              className="text-3xl md:text-5xl font-bold text-gray-800 dark:text-white mb-4"
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              React Data Grid
+              The Simple Data Grid
             </motion.h1>
 
             <motion.h2
@@ -256,7 +257,7 @@ export default function HomeContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
-              Powerful, Lightweight and Production-Ready
+              Powerful, Multi-Framework and Production-Ready
             </motion.h2>
 
             <motion.p
@@ -265,10 +266,8 @@ export default function HomeContent() {
               animate={{ opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Render large datasets quickly with a highly customizable data grid that integrates
-              seamlessly with your React and Next.js applications in minutes, not days. The
-              lightweight alternative to AG Grid, TanStack Table, Material-UI Table, Ant Design
-              Table, and Handsontable.
+              A highly customizable data grid for React, Vue, Angular, Svelte, Solid, and vanilla
+              TypeScript. Ship faster with 30+ features in a tiny, lightweight package.
             </motion.p>
 
             <motion.div
@@ -316,13 +315,13 @@ export default function HomeContent() {
                 {isCodeVisible ? "Preview" : "Code"}
               </Button>
             </Tooltip>
-            <Tooltip title="Sandbox">
+            <Tooltip title="Open in StackBlitz">
               <Button
-                href={SANDBOX_LIST["examples/infrastructure/InfrastructureExample.tsx"].url}
+                href={getStackBlitzUrl("infrastructure", framework)}
                 icon={<FontAwesomeIcon icon={faBox} />}
                 target="_blank"
               >
-                CodeSandbox
+                StackBlitz
               </Button>
             </Tooltip>
           </motion.div>
@@ -356,13 +355,41 @@ export default function HomeContent() {
           transition={{ duration: 0.8, delay: 0.8 }}
         >
           {isCodeVisible ? (
-            <CodeBlock demoCodeFilename="InfrastructureExample.txt" />
+            <CodeBlock demoId="infrastructure" />
           ) : (
             <Suspense fallback={<div />}>
-              <InfrastructureExample theme={tableTheme} height={"70dvh"} {...tableIcons} />
+              <InfrastructureExample
+                key={iconLibrary}
+                theme={tableTheme}
+                height={"70dvh"}
+                icons={tableIcons}
+              />
             </Suspense>
           )}
         </motion.section>
+
+        {/* Framework Toggle Buttons */}
+        <motion.div
+          className="flex justify-center gap-2 flex-wrap mb-16"
+          initial={{ opacity: 0, y: 10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.9 }}
+        >
+          {FRAMEWORKS.map((fw) => (
+            <button
+              key={fw}
+              onClick={() => setFramework(fw)}
+              className={`flex items-center gap-2 px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                framework === fw
+                  ? "bg-blue-600 text-white shadow-md scale-105"
+                  : "bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-105"
+              }`}
+            >
+              <FrameworkIcon framework={fw} size={16} />
+              {FRAMEWORK_LABELS[fw]}
+            </button>
+          ))}
+        </motion.div>
 
         {/* Trusted By Section */}
         <TrustedBySection />

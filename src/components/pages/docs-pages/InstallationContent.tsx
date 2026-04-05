@@ -7,9 +7,15 @@ import Link from "next/link";
 import CodeBlock from "@/components/CodeBlock";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
-import { TECHNICAL_STRINGS } from "@/constants/strings/technical";
+import { FRAMEWORK_INSTALL_COMMANDS, FRAMEWORK_REQUIREMENTS } from "@/constants/strings/technical";
+import { useFramework, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
 
 const InstallationContent = () => {
+  const { framework } = useFramework();
+  const commands = FRAMEWORK_INSTALL_COMMANDS[framework];
+  const requirement = FRAMEWORK_REQUIREMENTS[framework];
+  const label = FRAMEWORK_LABELS[framework];
+
   return (
     <PageWrapper>
       <motion.div
@@ -31,20 +37,12 @@ const InstallationContent = () => {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Getting started with Simple Table is easy. This guide will walk you through the installation
-        process and help you set up the library in your React project. Looking for alternatives?
-        Check out our{" "}
-        <Link
-          href="/blog/best-react-table-libraries-2026"
-          className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
-        >
-          comparison of the best React table libraries
-        </Link>
-        .
+        process and help you set up the library in your {label} project.
       </motion.p>
 
-      <CodeBlock className="mb-4" code={`${TECHNICAL_STRINGS.installation.npm}`} language="bash" />
-      <CodeBlock className="mb-4" code={`${TECHNICAL_STRINGS.installation.yarn}`} language="bash" />
-      <CodeBlock className="mb-4" code={`${TECHNICAL_STRINGS.installation.pnpm}`} language="bash" />
+      <CodeBlock className="mb-4" code={commands.npm} language="bash" />
+      <CodeBlock className="mb-4" code={commands.yarn} language="bash" />
+      <CodeBlock className="mb-4" code={commands.pnpm} language="bash" />
 
       <motion.h2
         className="text-2xl font-bold text-gray-800 dark:text-white mb-4 flex items-center gap-2 pb-2 border-b border-gray-200 dark:border-gray-700"
@@ -61,16 +59,16 @@ const InstallationContent = () => {
         transition={{ duration: 0.5, delay: 0.5 }}
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Simple Table requires the following peer dependencies:
+          Simple Table requires the following:
         </p>
 
         <ul className="list-disc pl-8 space-y-2 text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border border-gray-100 dark:border-gray-700">
-          <li>React 16.8+ (Hooks support)</li>
+          <li>{requirement}</li>
         </ul>
 
         <div className="mt-6 p-4 bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 rounded-lg">
           <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">
-            <strong>🚀 Why Simple Table?</strong>
+            <strong>Why Simple Table?</strong>
           </p>
           <p className="text-sm text-gray-700 dark:text-gray-300">
             Simple Table is a lightweight, feature-rich alternative to expensive enterprise solutions.
@@ -81,19 +79,12 @@ const InstallationContent = () => {
             >
               vs AG Grid
             </Link>
-            {" • "}
+            {" \u2022 "}
             <Link
               href="/comparisons/simple-table-vs-tanstack"
               className="text-blue-600 dark:text-blue-400 hover:underline"
             >
               vs TanStack Table
-            </Link>
-            {" • "}
-            <Link
-              href="/blog/ag-grid-alternatives-free-react-data-grids"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              All alternatives
             </Link>
           </p>
         </div>

@@ -1,8 +1,9 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { FooterRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "product", label: "Product Name", width: 220, type: "string" },
   { accessor: "category", label: "Category", width: 150, type: "string" },
@@ -451,7 +452,7 @@ const FooterRendererDemo = ({
         onPrevPage,
         onNextPage,
         onPageChange,
-      }) => {
+      }: FooterRendererProps) => {
         return (
           <div
             style={{

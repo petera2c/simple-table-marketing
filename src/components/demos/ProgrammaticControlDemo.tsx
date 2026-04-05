@@ -1,9 +1,10 @@
 import { useRef, useState } from "react";
-import { SimpleTable, HeaderObject, TableRefType, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, TableAPI, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with various types for comprehensive testing
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",
@@ -43,7 +44,7 @@ const headers: HeaderObject[] = [
     type: "number",
     isSortable: true,
     filterable: true,
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price as number;
       return `$${price.toFixed(2)}`;
     },
@@ -69,7 +70,7 @@ const headers: HeaderObject[] = [
       { label: "Low Stock", value: "Low Stock" },
       { label: "Out of Stock", value: "Out of Stock" },
     ],
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const status = row.status as string;
       const colors: Record<string, string> = {
         Available: "bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200",
@@ -192,7 +193,7 @@ const ProgrammaticControlDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
   const [statusMessage, setStatusMessage] = useState<string>("");
 
   // Sort State Methods
@@ -295,7 +296,7 @@ const ProgrammaticControlDemo = ({
       <SimpleTable
         defaultHeaders={headers}
         rows={PRODUCT_DATA}
-        tableRef={tableRef}
+        ref={tableRef}
         height={height}
         theme={theme}
       />

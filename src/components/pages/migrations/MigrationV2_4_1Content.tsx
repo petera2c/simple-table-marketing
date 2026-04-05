@@ -408,7 +408,7 @@ import { faGripVertical } from "@fortawesome/free-solid-svg-icons";
             ❌ Before (v2.4.0):
           </p>
           <CodeBlock
-            code={`import { SimpleTable } from "simple-table-core";
+            code={`import { SimpleTable } from "@simple-table/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faChevronRight, 
@@ -436,7 +436,7 @@ import {
             ✅ After (v2.4.1):
           </p>
           <CodeBlock
-            code={`import { SimpleTable } from "simple-table-core";
+            code={`import { SimpleTable } from "@simple-table/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { 
   faChevronRight, 

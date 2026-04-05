@@ -7,7 +7,6 @@ import SingleRowChildrenDemo from "@/components/demos/SingleRowChildrenDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import { faFolderMinus } from "@fortawesome/free-solid-svg-icons";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -175,9 +174,8 @@ const CollapsibleColumnsContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="CollapsibleColumnsDemo.txt"
+          demoId="collapsible-columns"
           height="400px"
-          link={SANDBOX_LIST["CollapsibleColumnsDemo.tsx"].url}
           Preview={CollapsibleColumnsDemo}
         />
       </motion.div>
@@ -294,9 +292,8 @@ const CollapsibleColumnsContent = () => {
         </p>
 
         <LivePreview
-          demoCodeFilename="SingleRowChildrenDemo.txt"
+          demoId="single-row-children"
           height="400px"
-          link={SANDBOX_LIST["SingleRowChildrenDemo.tsx"].url}
           Preview={SingleRowChildrenDemo}
         />
       </motion.div>

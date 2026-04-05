@@ -1,6 +1,6 @@
-import { HeaderObject } from "simple-table-core";
+import type { ReactHeaderObject, CellRendererProps, ValueGetterProps } from "@simple-table/react";
 
-export const HEADERS: HeaderObject[] = [
+export const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "serverId",
     align: "left",
@@ -12,7 +12,7 @@ export const HEADERS: HeaderObject[] = [
     pinned: "left",
     type: "string",
     width: "1.2fr",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       return (
         <span style={{ fontFamily: "monospace", fontSize: "0.85rem" }}>
           {row.serverId as string}
@@ -57,7 +57,7 @@ export const HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const cpu = row.cpuUsage as number;
 
           const getColorStyles = (cpu: number, theme: string) => {
@@ -152,7 +152,7 @@ export const HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const memory = row.memoryUsage as number;
 
           const getColorStyles = (memory: number, theme: string) => {
@@ -247,7 +247,7 @@ export const HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const disk = row.diskUsage as number;
           return `${disk.toFixed(1)}%`;
         },
@@ -261,7 +261,7 @@ export const HEADERS: HeaderObject[] = [
         isEditable: true,
         align: "right",
         type: "number",
-        cellRenderer: ({ row, theme }) => {
+        cellRenderer: ({ row, theme }: CellRendererProps) => {
           const responseTime = row.responseTime as number;
 
           const getColorStyles = (time: number, theme: string) => {
@@ -353,7 +353,7 @@ export const HEADERS: HeaderObject[] = [
       { label: "Offline", value: "offline" },
     ],
     // Sort by severity: critical > offline > warning > maintenance > online
-    valueGetter: ({ row }) => {
+    valueGetter: ({ row }: ValueGetterProps) => {
       const status = row.status as string;
       const severityMap: Record<string, number> = {
         critical: 1,
@@ -364,7 +364,7 @@ export const HEADERS: HeaderObject[] = [
       };
       return severityMap[status] || 999;
     },
-    cellRenderer: ({ row, theme }) => {
+    cellRenderer: ({ row, theme }: CellRendererProps) => {
       const status = row.status as string;
 
       const getColorStyles = (status: string, theme: string) => {

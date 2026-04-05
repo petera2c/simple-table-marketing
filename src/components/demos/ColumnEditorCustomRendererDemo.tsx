@@ -1,12 +1,13 @@
-import {
-  SimpleTable,
-  HeaderObject,
-  Row,
-  TableRefType,
-  Theme,
+import { SimpleTable } from "@simple-table/react";
+import type {
   ColumnEditorCustomRendererProps,
-} from "simple-table-core";
-import "simple-table-core/styles.css";
+  ReactHeaderObject,
+  Row,
+  TableAPI,
+  Theme,
+  ValueFormatterProps,
+} from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import { useRef } from "react";
 
 const sampleData: Row[] = [
@@ -94,7 +95,7 @@ const sampleData: Row[] = [
   },
 ];
 
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "name", label: "Employee Name", width: 180, filterable: true, type: "string" },
   { accessor: "age", label: "Age", width: 80, filterable: true, type: "number" },
   { accessor: "department", label: "Department", width: 140, filterable: true, type: "string" },
@@ -104,18 +105,21 @@ const headers: HeaderObject[] = [
     width: 120,
     filterable: true,
     type: "number",
-    valueFormatter: ({ value }) => `$${(value || 0).toLocaleString()}`,
+    valueFormatter: ({ value }: ValueFormatterProps) => `$${(value || 0).toLocaleString()}`,
     align: "right",
   },
   { accessor: "status", label: "Status", width: 100, filterable: true, type: "string" },
   { accessor: "location", label: "Location", width: 140, filterable: true, type: "string" },
 ];
 
-function hasHeaderChanged(currentHeaders: HeaderObject[], defaultHeaders: HeaderObject[]): boolean {
-  const filter = (h: HeaderObject[]) =>
+function hasHeaderChanged(
+  currentHeaders: readonly ReactHeaderObject[],
+  defaultHeaders: readonly ReactHeaderObject[],
+): boolean {
+  const filter = (h: readonly ReactHeaderObject[]) =>
     h.filter(
       (x) =>
-        !(x as HeaderObject & { isSelectionColumn?: boolean }).isSelectionColumn &&
+        !(x as ReactHeaderObject & { isSelectionColumn?: boolean }).isSelectionColumn &&
         !x.excludeFromRender,
     );
   const current = filter(currentHeaders);
@@ -123,7 +127,7 @@ function hasHeaderChanged(currentHeaders: HeaderObject[], defaultHeaders: Header
 
   if (current.length !== defaults.length) return true;
 
-  const headerDiffers = (cur: HeaderObject, def: HeaderObject): boolean => {
+  const headerDiffers = (cur: ReactHeaderObject, def: ReactHeaderObject): boolean => {
     if (cur.accessor !== def.accessor) {
       console.log("accessor differs", cur.accessor, def.accessor);
       return true;
@@ -137,8 +141,8 @@ function hasHeaderChanged(currentHeaders: HeaderObject[], defaultHeaders: Header
       console.log("pinned differs", cur.pinned, def.pinned);
       return true;
     }
-    const curChildren = filter(cur.children ?? []);
-    const defChildren = filter(def.children ?? []);
+    const curChildren = filter((cur.children ?? []) as ReactHeaderObject[]);
+    const defChildren = filter((def.children ?? []) as ReactHeaderObject[]);
     if (curChildren.length !== defChildren.length) return true;
     return curChildren.some((c, i) => headerDiffers(c, defChildren[i]));
   };
@@ -155,7 +159,7 @@ const ColumnEditorCustomRendererDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const tableRef = useRef<TableRefType>(null);
+  const tableRef = useRef<TableAPI>(null);
   const defaultHeaders = headers;
   console.log("defaultHeaders", defaultHeaders);
 
@@ -165,7 +169,10 @@ const ColumnEditorCustomRendererDemo = ({
     resetColumns,
     headers: currentHeaders,
   }: ColumnEditorCustomRendererProps) => {
-    const showResetButton = hasHeaderChanged(currentHeaders, defaultHeaders);
+    const showResetButton = hasHeaderChanged(
+      currentHeaders as ReactHeaderObject[],
+      defaultHeaders,
+    );
 
     return (
       <>
@@ -177,7 +184,7 @@ const ColumnEditorCustomRendererDemo = ({
               type="button"
               onClick={(e) => {
                 e.stopPropagation();
-                resetColumns();
+                resetColumns?.();
               }}
               style={{
                 width: "100%",
@@ -217,7 +224,7 @@ const ColumnEditorCustomRendererDemo = ({
         }}
         height={height}
         theme={theme}
-        tableRef={tableRef}
+        ref={tableRef}
       />
     </div>
   );

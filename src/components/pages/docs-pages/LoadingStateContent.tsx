@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSpinner } from "@fortawesome/free-solid-svg-icons";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import LoadingStateDemo from "@/components/demos/LoadingStateDemo";
@@ -51,9 +50,8 @@ const LoadingStateContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="LoadingStateDemo.txt"
+          demoId="loading-state"
           height="450px"
-          link={SANDBOX_LIST["LoadingStateDemo.tsx"]?.url}
           Preview={LoadingStateDemo}
         />
       </motion.div>
@@ -145,18 +143,6 @@ const LoadingStateContent = () => {
             </code>{" "}
             class:
           </p>
-          <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            {`.theme-custom {
-  /* Change skeleton background color */
-  --st-loading-skeleton-bg-color: var(--st-blue-200);
-}
-
-/* Or use the class directly */
-.st-loading-skeleton {
-  background-color: #e0e7ff;
-  /* Add custom animations or styles */
-}`}
-          </pre>
         </div>
 
         <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm">

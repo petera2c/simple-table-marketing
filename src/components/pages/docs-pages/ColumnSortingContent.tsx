@@ -7,10 +7,9 @@ import ColumnSortingDemo from "@/components/demos/ColumnSortingDemo";
 import ExternalSortDemo from "@/components/demos/ExternalSortDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
+
 
 const COLUMN_SORTING_PROPS: PropInfo[] = [
   {
@@ -184,9 +183,8 @@ const ColumnSortingContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnSortingDemo.txt"
+          demoId="column-sorting"
           height="400px"
-          link={SANDBOX_LIST["ColumnSortingDemo.tsx"].url}
           Preview={ColumnSortingDemo}
         />
       </motion.div>
@@ -303,36 +301,6 @@ const ColumnSortingContent = () => {
           </ul>
         </div>
 
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`const headers = [
-  {
-    accessor: "name",
-    label: "Name",
-    isSortable: true,
-    sortingOrder: ['asc', 'desc', null]  // Text: A-Z first
-  },
-  {
-    accessor: "revenue",
-    label: "Revenue",
-    isSortable: true,
-    sortingOrder: ['desc', 'asc', null]  // Numbers: highest first
-  },
-  {
-    accessor: "date",
-    label: "Date",
-    isSortable: true,
-    sortingOrder: ['desc', 'asc', null]  // Dates: newest first
-  },
-  {
-    accessor: "priority",
-    label: "Priority",
-    isSortable: true,
-    sortingOrder: ['asc', 'desc']  // Always keep sorted
-  }
-];`}
-          />
-        </div>
       </motion.div>
 
       <motion.h2
@@ -449,17 +417,6 @@ const ColumnSortingContent = () => {
           </ul>
         </div>
 
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`<SimpleTable
-  defaultHeaders={headers}
-  rows={data}
-  initialSortColumn="revenue"        // Sort by revenue column
-  initialSortDirection="desc"  // Show highest revenue first
-  // ... other props
-/>`}
-          />
-        </div>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           The table will load with the sort applied, and users can still change the sort by clicking
@@ -490,9 +447,8 @@ const ColumnSortingContent = () => {
 
         <div className="mb-6">
           <LivePreview
-            demoCodeFilename="ExternalSortDemo.txt"
+            demoId="external-sort"
             height="400px"
-            link={SANDBOX_LIST["ExternalSortDemo.tsx"].url}
             Preview={ExternalSortDemo}
           />
         </div>

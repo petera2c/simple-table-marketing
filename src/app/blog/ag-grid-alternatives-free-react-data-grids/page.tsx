@@ -1084,9 +1084,16 @@ export default function AgGridAlternativesPage() {
                     </span>
                     Install Simple Table
                   </h4>
-                  <code className="block bg-gray-800 text-gray-100 p-3 rounded text-sm">
-                    npm install simple-table-core
-                  </code>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Follow the{" "}
+                    <Link
+                      href="/docs/installation"
+                      className="text-blue-600 dark:text-blue-400 underline font-medium"
+                    >
+                      installation guide
+                    </Link>{" "}
+                    to add Simple Table to your project — it's a single npm install.
+                  </p>
                 </div>
 
                 <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4">
@@ -1096,14 +1103,20 @@ export default function AgGridAlternativesPage() {
                     </span>
                     Replace AG Grid imports
                   </h4>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">Instead of:</p>
-                  <code className="block bg-gray-800 text-gray-100 p-3 rounded text-sm mb-2">
-                    import &#123; AgGridReact &#125; from 'ag-grid-react';
-                  </code>
-                  <p className="text-sm text-gray-700 dark:text-gray-300 mb-2">Use:</p>
-                  <code className="block bg-gray-800 text-gray-100 p-3 rounded text-sm">
-                    import &#123; Table &#125; from 'simple-table-core';
-                  </code>
+                  <p className="text-sm text-gray-700 dark:text-gray-300">
+                    Swap out the AG Grid component for Simple Table's{" "}
+                    <code className="bg-gray-200 dark:bg-gray-700 px-1 rounded text-xs">
+                      SimpleTable
+                    </code>{" "}
+                    component. See the{" "}
+                    <Link
+                      href="/docs/quick-start"
+                      className="text-blue-600 dark:text-blue-400 underline font-medium"
+                    >
+                      quick start guide
+                    </Link>{" "}
+                    for the full setup.
+                  </p>
                 </div>
 
                 <div className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-lg p-4">

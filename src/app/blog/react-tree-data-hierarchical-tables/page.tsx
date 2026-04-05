@@ -356,8 +356,8 @@ const data = [
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject } from "simple-table-core";
-import "simple-table-core/styles.css";
+                code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const headers: HeaderObject[] = [
   {
@@ -474,8 +474,8 @@ const headers: HeaderObject[] = [
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject } from "simple-table-core";
-import "simple-table-core/styles.css";
+                code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const headers: HeaderObject[] = [
   { 
@@ -586,7 +586,7 @@ export default function OrgChartTable() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject, OnRowGroupExpandProps } from "simple-table-core";
+                code={`import { SimpleTable, HeaderObject, OnRowGroupExpandProps } from "@simple-table/react";
 import { useState } from "react";
 
 export default function LazyTreeTable() {

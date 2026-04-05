@@ -1,5 +1,6 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const EXAMPLE_DATA = [
   {
@@ -139,7 +140,7 @@ const EXAMPLE_DATA = [
   },
 ];
 
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "productName",
     label: "Product",
@@ -162,7 +163,7 @@ const HEADERS: HeaderObject[] = [
     isSortable: true,
     align: "right",
     tooltip: "Current retail price in US dollars (USD) including all standard features",
-    cellRenderer: ({ row }) => `$${(row.price as number).toFixed(2)}`,
+    cellRenderer: ({ row }: CellRendererProps) => `$${(row.price as number).toFixed(2)}`,
   },
   {
     accessor: "stock",
@@ -179,7 +180,7 @@ const HEADERS: HeaderObject[] = [
     isSortable: true,
     align: "center",
     tooltip: "Customer satisfaction rating based on verified purchase reviews (scale: 1-5 stars)",
-    cellRenderer: ({ row }) => `${row.rating}/5`,
+    cellRenderer: ({ row }: CellRendererProps) => `${row.rating}/5`,
   },
   {
     accessor: "lastUpdated",
@@ -190,13 +191,7 @@ const HEADERS: HeaderObject[] = [
   },
 ];
 
-const TooltipDemo = ({
-  height = "400px",
-  theme,
-}: {
-  height?: string | number;
-  theme?: Theme;
-}) => {
+const TooltipDemo = ({ height = "400px", theme }: { height?: string | number; theme?: Theme }) => {
   return (
     <SimpleTable
       defaultHeaders={HEADERS}

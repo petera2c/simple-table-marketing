@@ -1,9 +1,10 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme } from "@simple-table/react";
 import { useState, useCallback } from "react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, type: "number" },
   { accessor: "name", label: "User Name", width: "1fr", type: "string" },
   { accessor: "email", label: "Email", width: "1fr", type: "string" },

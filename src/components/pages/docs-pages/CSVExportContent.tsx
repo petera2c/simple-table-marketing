@@ -4,25 +4,23 @@ import { motion } from "framer-motion";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faDownload } from "@fortawesome/free-solid-svg-icons";
 import CSVExportDemo from "@/components/demos/CSVExportDemo";
-import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const CSV_EXPORT_PROPS: PropInfo[] = [
   {
-    key: "tableRef",
-    name: "tableRef",
+    key: "ref",
+    name: "ref",
     required: true,
     description:
       "React ref object that provides access to table methods including exportToCSV. Pass this ref to the SimpleTable component to enable CSV export functionality.",
-    type: "React.RefObject<TableRefType>",
-    example: `const tableRef = useRef<TableRefType>(null);
+    type: "React.RefObject<TableAPI>",
+    example: `const tableRef = useRef<TableAPI>(null);
 
 <SimpleTable
-  tableRef={tableRef}
+  ref={tableRef}
   // ... other props
 />`,
   },
@@ -105,9 +103,8 @@ const CSVExportContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="CSVExportDemo.txt"
+          demoId="csv-export"
           height={500}
-          link={SANDBOX_LIST["CSVExportDemo.tsx"]?.url || "#"}
           Preview={CSVExportDemo}
         />
       </motion.div>
@@ -230,20 +227,6 @@ const CSVExportContent = () => {
               Export the same formatted values that are displayed in the table. Perfect when you
               want CSV exports to match what users see on screen.
             </p>
-            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <CodeBlock
-                code={`{
-  accessor: "salary",
-  label: "Annual Salary",
-  valueFormatter: ({ value }) => \`$\${(value / 1000).toFixed(0)}K\`,
-  useFormattedValueForCSV: true
-}
-
-// Table displays: "$85K"
-// CSV exports: "$85K"
-// Without flag: CSV would export 85000`}
-              />
-            </div>
           </div>
 
           <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-700 p-5 rounded-lg">
@@ -255,23 +238,6 @@ const CSVExportContent = () => {
               priority. Ideal for adding codes, identifiers, or transforming data for spreadsheet
               compatibility.
             </p>
-            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <CodeBlock
-                code={`{
-  accessor: "completionRate",
-  label: "Completion Rate",
-  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`,
-  exportValueGetter: ({ value }) => {
-    // Round to whole percentage for CSV
-    return \`\${Math.round(value * 100)}%\`;
-  }
-}
-
-// Table displays: "92.5%"
-// CSV exports: "93%"
-// Raw value: 0.925`}
-              />
-            </div>
           </div>
 
           <div className="bg-purple-50 dark:bg-purple-900/20 border border-purple-200 dark:border-purple-700 p-5 rounded-lg">
@@ -282,28 +248,6 @@ const CSVExportContent = () => {
               Use exportValueGetter to add department codes, identifiers, or additional context for
               better data clarity:
             </p>
-            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <CodeBlock
-                code={`{
-  accessor: "department",
-  label: "Department",
-  valueFormatter: ({ value }) => capitalize(value),
-  exportValueGetter: ({ value }) => {
-    const codes = {
-      engineering: "ENG",
-      product: "PRD",
-      sales: "SLS",
-      marketing: "MKT"
-    };
-    const code = codes[value] || "OTH";
-    return \`\${capitalize(value)} (\${code})\`;
-  }
-}
-
-// Table displays: "Engineering"
-// CSV exports: "Engineering (ENG)"`}
-              />
-            </div>
           </div>
         </div>
       </motion.div>
@@ -344,27 +288,6 @@ const CSVExportContent = () => {
               plus metadata like depth, position, and rowPath. Perfect for analytics, batch
               operations, or custom exports.
             </p>
-            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <CodeBlock
-                code={`// Calculate total revenue from all rows
-const allRows = tableRef.current?.getAllRows();
-const totalRevenue = allRows?.reduce((sum, tableRow) => 
-  sum + (tableRow.row.revenue || 0), 0
-);
-
-// Access row metadata
-allRows?.forEach(tableRow => {
-  console.log(\`Depth: \${tableRow.depth}, Position: \${tableRow.position}\`);
-  console.log("Data:", tableRow.row);
-});
-
-// Export raw data to custom format
-const allRows = tableRef.current?.getAllRows();
-const rawData = allRows?.map(tableRow => tableRow.row);
-const jsonData = JSON.stringify(rawData, null, 2);
-downloadFile(jsonData, "data.json");`}
-              />
-            </div>
           </div>
 
           <div className="bg-indigo-50 dark:bg-indigo-900/20 border border-indigo-200 dark:border-indigo-700 p-5 rounded-lg">
@@ -375,18 +298,6 @@ downloadFile(jsonData, "data.json");`}
               Returns the table's current header/column definitions. Useful for dynamic table
               manipulation or building custom UI controls.
             </p>
-            <div className="bg-gray-800 text-white p-4 rounded-md overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-              <CodeBlock
-                code={`// Get all column names
-const headers = tableRef.current?.getHeaders();
-const columnNames = headers?.map(h => h.label);
-console.log("Columns:", columnNames);
-
-// Validate configuration
-const sortableColumns = headers?.filter(h => h.isSortable);
-console.log(\`\${sortableColumns.length} sortable columns\`);`}
-              />
-            </div>
           </div>
         </div>
       </motion.div>

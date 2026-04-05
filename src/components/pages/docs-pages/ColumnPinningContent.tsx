@@ -6,7 +6,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faThumbtack } from "@fortawesome/free-solid-svg-icons";
 import ColumnPinningDemo from "@/components/demos/ColumnPinningDemo";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -71,9 +70,8 @@ const ColumnPinningContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnPinningDemo.txt"
+          demoId="column-pinning"
           height="400px"
-          link={SANDBOX_LIST["ColumnPinningDemo.tsx"].url}
           Preview={ColumnPinningDemo}
         />
       </motion.div>
@@ -156,10 +154,10 @@ const ColumnPinningContent = () => {
         </code>{" "}
         to read and restore left / main / right accessor lists (
         <Link
-          href="/docs/api-reference#table-ref-type"
+          href="/docs/api-reference#table-api"
           className="text-blue-600 dark:text-blue-400 hover:underline"
         >
-          TableRefType
+          TableAPI
         </Link>
         ).
       </motion.p>

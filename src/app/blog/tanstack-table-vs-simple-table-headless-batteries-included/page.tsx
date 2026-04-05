@@ -366,8 +366,8 @@ export function TanStackTableExample({ data, columns }) {
               <div className="bg-gray-900 text-gray-100 rounded-lg p-4 overflow-x-auto text-sm mb-3">
                 <pre className="text-xs">
                   {`// ~15 lines of code for the same features
-import { SimpleTable } from 'simple-table-core'
-import 'simple-table-core/styles.css'
+import { SimpleTable } from '@simple-table/react'
+import '@simple-table/react/styles.css'
 
 export function SimpleTableExample({ data, columns }) {
   return (

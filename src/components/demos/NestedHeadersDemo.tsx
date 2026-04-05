@@ -1,7 +1,8 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { CellRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",
@@ -30,7 +31,7 @@ const headers: HeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },
@@ -42,7 +43,7 @@ const headers: HeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },
@@ -54,7 +55,7 @@ const headers: HeaderObject[] = [
         isSortable: true,
         type: "number",
         align: "right",
-        cellRenderer: ({ row, accessor }) => {
+        cellRenderer: ({ row, accessor }: CellRendererProps) => {
           const score = row[accessor] as number;
           return score >= 90 ? <span className="text-green-600 font-bold">{score}</span> : score;
         },

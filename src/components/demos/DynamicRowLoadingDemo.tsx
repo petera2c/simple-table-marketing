@@ -1,6 +1,7 @@
 import { useState, useCallback } from "react";
-import { SimpleTable, HeaderObject, Row, OnRowGroupExpandProps, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Row, OnRowGroupExpandProps, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // ============================================================================
 // TYPE DEFINITIONS
@@ -47,7 +48,7 @@ type TableRow = Region | Store | Product;
 // HEADERS CONFIGURATION
 // ============================================================================
 
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   {
     accessor: "name",
     label: "Name",

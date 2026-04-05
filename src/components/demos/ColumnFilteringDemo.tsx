@@ -1,8 +1,9 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with filterable property
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   {
     accessor: "id",
     label: "ID",
@@ -59,7 +60,7 @@ const headers: HeaderObject[] = [
     type: "number",
     isSortable: true,
     filterable: true,
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const salary = row.salary as number;
       return `$${salary.toLocaleString()}`;
     },
@@ -221,12 +222,7 @@ const ColumnFilteringDemo = ({
   theme?: Theme;
 }) => {
   return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={EMPLOYEE_DATA}
-      height={height}
-      theme={theme}
-    />
+    <SimpleTable defaultHeaders={headers} rows={EMPLOYEE_DATA} height={height} theme={theme} />
   );
 };
 

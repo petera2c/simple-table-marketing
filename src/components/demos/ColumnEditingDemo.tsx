@@ -1,6 +1,7 @@
 import { useState, useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { HeaderObject, ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Sample data
 const EMPLOYEE_DATA = [
@@ -109,11 +110,11 @@ const ColumnEditingDemo = ({
   height?: string | number;
   theme?: Theme;
 }) => {
-  const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
+  const [additionalColumns, setAdditionalColumns] = useState<ReactHeaderObject[]>([]);
   const [, setLastAction] = useState<string>("");
 
   // Define headers with add column functionality
-  const headers: HeaderObject[] = useMemo(
+  const headers: ReactHeaderObject[] = useMemo(
     () => [
       { accessor: "id", label: "ID", width: 80, type: "number" },
       {
@@ -160,7 +161,7 @@ const ColumnEditingDemo = ({
             </button>
           </div>
         ),
-        cellRenderer: ({ row }) => (
+        cellRenderer: ({ row }: CellRendererProps) => (
           <div style={{ display: "flex", justifyContent: "center", gap: "4px" }}>
             <span style={{ fontSize: "12px", color: "#666" }}>Row {String(row.id || "")}</span>
           </div>

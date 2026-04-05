@@ -62,8 +62,8 @@ export default function ProductionSection() {
           </div>
           <h3 className="text-xl font-bold mb-2 text-gray-800 dark:text-white">Production-Ready</h3>
           <p className="text-gray-600 dark:text-gray-300">
-            Battle-tested with comprehensive examples for React, Next.js, and more so you can ship
-            faster.
+            Battle-tested with comprehensive examples for React, Vue, Angular, Svelte, Solid, and
+            vanilla TypeScript so you can ship faster.
           </p>
         </motion.div>
 

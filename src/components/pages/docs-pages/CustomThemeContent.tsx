@@ -7,7 +7,6 @@ import CustomThemeDemo from "@/components/demos/custom-theme/CustomThemeDemo";
 import CodeBlock from "@/components/CodeBlock";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import { CUSTOM_THEME_PROPS } from "@/constants/propDefinitions";
@@ -122,47 +121,6 @@ export default function CustomThemeContent() {
 
         <PropTable props={CUSTOM_THEME_PROPS} title="customTheme Properties" />
 
-        <div className="mt-6">
-          <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3">
-            Example Usage
-          </h3>
-          <CodeBlock
-            className="mb-4"
-            code={`import { SimpleTable } from 'simple-table-core';
-import 'simple-table-core/styles.css';
-
-export default function MyTable() {
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={data}
-      customTheme={{
-        // Row and header dimensions
-        rowHeight: 48,
-        headerHeight: 56,
-        footerHeight: 60,
-        
-        // Border widths
-        rowSeparatorWidth: 1,
-        borderWidth: 2,
-        pinnedBorderWidth: 3,
-        
-        // Nested grid configuration
-        nestedGridBorderWidth: 2,
-        nestedGridPaddingTop: 12,
-        nestedGridPaddingBottom: 12,
-        nestedGridPaddingLeft: 20,
-        nestedGridPaddingRight: 20,
-        nestedGridMaxHeight: 400,
-        
-        // Column dimensions
-        selectionColumnWidth: 50,
-      }}
-    />
-  );
-}`}
-          />
-        </div>
 
         <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mt-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Common Use Cases</h3>
@@ -228,9 +186,8 @@ export default function MyTable() {
         </p>
 
         <LivePreview
-          demoCodeFilename="custom-theme/CustomThemeDemo.txt"
+          demoId="custom-theme"
           height="400px"
-          link={SANDBOX_LIST["src/CustomThemeDemo.tsx"].url}
           Preview={CustomThemeDemo}
         />
       </motion.div>
@@ -317,7 +274,7 @@ export default function MyTable() {
           Here are the CSS variables used to create the custom theme in the demo above:
         </p>
 
-        <CodeBlock className="mb-0" demoCodeFilename="custom-theme/CustomTheme.txt" />
+        <CodeBlock className="mb-0" demoId="custom-theme" />
       </motion.div>
 
       <motion.h2
@@ -339,30 +296,6 @@ export default function MyTable() {
           You can use both CSS theming and the customTheme prop together for complete control over
           your table's appearance:
         </p>
-
-        <CodeBlock
-          className="mb-4"
-          code={`import { SimpleTable } from 'simple-table-core';
-import 'simple-table-core/styles.css';
-import './my-custom-theme.css'; // Your CSS variables
-
-export default function MyTable() {
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={data}
-      // CSS theming for colors and visual styling
-      theme="custom"
-      // Layout dimensions for virtualization
-      customTheme={{
-        rowHeight: 48,
-        headerHeight: 56,
-        nestedGridMaxHeight: 400,
-      }}
-    />
-  );
-}`}
-        />
 
         <div className="bg-purple-50 dark:bg-purple-900/30 border-l-4 border-purple-400 dark:border-purple-700 p-4 rounded-lg shadow-sm">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Best Practice</h3>

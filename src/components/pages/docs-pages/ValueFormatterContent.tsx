@@ -6,10 +6,8 @@ import { faCode } from "@fortawesome/free-solid-svg-icons";
 import PageWrapper from "@/components/PageWrapper";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PropTable, { type PropInfo } from "@/components/PropTable";
-import CodeBlock from "@/components/CodeBlock";
 import LivePreview from "@/components/LivePreview";
 import ValueFormatterDemo from "@/components/demos/ValueFormatterDemo";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import { VALUE_FORMATTER_PROPS as VALUE_FORMATTER_PARAMS_PROPS } from "@/constants/propDefinitions";
 
 const VALUE_FORMATTER_PROPS: PropInfo[] = [
@@ -102,9 +100,8 @@ const ValueFormatterContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ValueFormatterDemo.txt"
+          demoId="value-formatter"
           height="400px"
-          link={(SANDBOX_LIST as any)["ValueFormatterDemo.tsx"]?.url || "#"}
           Preview={ValueFormatterDemo}
         />
       </motion.div>
@@ -194,128 +191,40 @@ const ValueFormatterContent = () => {
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Format numeric values as currency with proper locale formatting:
+          Format numeric values as currency with proper locale formatting.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "price",
-  label: "Price",
-  type: "number",
-  valueFormatter: ({ value }) => {
-    return \`$\${(value as number).toLocaleString("en-US", {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    })}\`;
-  }
-}
-
-// Display: $1,234.56 (from raw value: 1234.56)`}
-          />
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
           Date Formatting
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Format date strings or timestamps into readable dates:
+          Format date strings or timestamps into readable dates.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "createdDate",
-  label: "Created",
-  type: "date",
-  valueFormatter: ({ value }) => {
-    const date = new Date(value as string);
-    return date.toLocaleDateString("en-US", {
-      month: "short",
-      day: "numeric",
-      year: "numeric",
-    });
-  }
-}
-
-// Display: Dec 25, 2024 (from raw value: "2024-12-25")`}
-          />
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
           Percentage Formatting
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Display decimal values as percentages:
+          Display decimal values as percentages.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "profitMargin",
-  label: "Margin",
-  type: "number",
-  valueFormatter: ({ value }) => {
-    return \`\${((value as number) * 100).toFixed(1)}%\`;
-  }
-}
-
-// Display: 15.5% (from raw value: 0.155)`}
-          />
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
           Conditional Formatting
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Format values differently based on conditions:
+          Format values differently based on conditions.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "balance",
-  label: "Balance",
-  type: "number",
-  valueFormatter: ({ value }) => {
-    const balance = value as number;
-    if (balance === 0) return "—";
-    if (balance < 0) return \`(\${Math.abs(balance).toFixed(2)})\`;
-    return \`$\${balance.toFixed(2)}\`;
-  }
-}
-
-// Display: $100.00, (50.00), or —`}
-          />
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
           Using Multiple Row Values
         </h3>
 
         <p className="text-gray-700 dark:text-gray-300 mb-4">
-          Access other column values from the same row for combined formatting:
+          Access other column values from the same row for combined formatting.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "firstName",
-  label: "Name",
-  type: "string",
-  valueFormatter: ({ value, row }) => {
-    const firstName = value as string;
-    const lastName = row.lastName as string;
-    return \`\${firstName} \${lastName}\`;
-  }
-}
-
-// Display: John Doe (from firstName: "John", lastName: "Doe")`}
-          />
-        </div>
       </motion.div>
 
       {/* Clipboard and CSV Formatting */}
@@ -392,25 +301,8 @@ const ValueFormatterContent = () => {
           <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded text-gray-800 dark:text-gray-200">
             valueFormatter
           </code>
-          , formatted values are automatically copied when users press Ctrl+C or Cmd+C:
+          , formatted values are automatically copied when users press Ctrl+C or Cmd+C.
         </p>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "salary",
-  label: "Salary",
-  valueFormatter: ({ value }) => \`$\${(value as number).toLocaleString()}\`
-  // useFormattedValueForClipboard: true (automatically defaults to true)
-}
-
-// User copies cell: Gets "$85,000" instead of 85000
-// Perfect for pasting into reports or presentations
-
-// To copy raw values instead, explicitly set to false:
-// useFormattedValueForClipboard: false`}
-          />
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-8">
           CSV Export Formatting
@@ -426,21 +318,8 @@ const ValueFormatterContent = () => {
               Option 1: Automatic Formatting (v1.8.6+)
             </h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
-              When a valueFormatter is defined, CSV exports automatically use the formatted value:
+              When a valueFormatter is defined, CSV exports automatically use the formatted value.
             </p>
-            <div className="bg-gray-800 text-white p-3 rounded-md overflow-x-auto">
-              <CodeBlock
-                code={`{
-  accessor: "margin",
-  valueFormatter: ({ value }) => \`\${(value * 100).toFixed(1)}%\`
-  // useFormattedValueForCSV: true (automatically defaults to true)
-}
-// CSV exports: "92.5%" instead of 0.925
-
-// To export raw values, explicitly set to false:
-// useFormattedValueForCSV: false`}
-              />
-            </div>
           </div>
 
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-700 p-4 rounded-lg">
@@ -448,22 +327,8 @@ const ValueFormatterContent = () => {
               Option 2: exportValueGetter (Higher Priority)
             </h4>
             <p className="text-gray-700 dark:text-gray-300 mb-3">
-              Provide completely custom values for CSV export:
+              Provide completely custom values for CSV export.
             </p>
-            <div className="bg-gray-800 text-white p-3 rounded-md overflow-x-auto">
-              <CodeBlock
-                code={`{
-  accessor: "department",
-  valueFormatter: ({ value }) => capitalize(value),
-  exportValueGetter: ({ value }) => {
-    const codes = { engineering: "ENG", sales: "SLS" };
-    return \`\${capitalize(value)} (\${codes[value]})\`;
-  }
-}
-// Display: "Engineering"
-// CSV exports: "Engineering (ENG)"`}
-              />
-            </div>
           </div>
         </div>
 
@@ -586,48 +451,6 @@ const ValueFormatterContent = () => {
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           Here's the same formatting task using both approaches:
         </p>
-
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
-          Using valueFormatter (Recommended for simple text)
-        </h3>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "price",
-  label: "Price",
-  type: "number",
-  valueFormatter: ({ value }) => {
-    return \`$\${(value as number).toFixed(2)}\`;
-  }
-}`}
-          />
-        </div>
-
-        <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-3">
-          Using cellRenderer (For custom styling)
-        </h3>
-
-        <div className="bg-gray-800 text-white p-4 rounded-md mb-6 overflow-x-auto shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]">
-          <CodeBlock
-            code={`{
-  accessor: "price",
-  label: "Price",
-  type: "number",
-  cellRenderer: ({ value }) => {
-    const price = value as number;
-    return (
-      <span style={{ 
-        color: price > 100 ? '#10b981' : '#6b7280',
-        fontWeight: 'bold'
-      }}>
-        \${price.toFixed(2)}
-      </span>
-    );
-  }
-}`}
-          />
-        </div>
 
         <p className="text-gray-700 dark:text-gray-300">
           Both approaches display the same text, but{" "}

@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
-const HEADERS: HeaderObject[] = [
+const HEADERS: ReactHeaderObject[] = [
   { accessor: "id", label: "Project ID", width: 80, type: "number" },
   { accessor: "projectName", label: "Project Name", width: "1fr", minWidth: 120, type: "string" },
   { accessor: "client", label: "Client", width: 180, type: "string" },

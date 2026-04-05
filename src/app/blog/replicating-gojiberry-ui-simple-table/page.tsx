@@ -745,12 +745,16 @@ export default function ReplicatingGojiberryUIPage() {
                 1. Install Simple Table
               </h3>
 
-              <CodeBlock
-                className="mb-6"
-                code={`npm install simple-table-core
-# or
-yarn add simple-table-core`}
-              />
+              <p className="mb-6 text-gray-700 dark:text-gray-300">
+                Follow the{" "}
+                <Link
+                  href="/docs/installation"
+                  className="text-blue-600 dark:text-blue-400 underline font-medium"
+                >
+                  installation guide
+                </Link>{" "}
+                to add Simple Table to your project.
+              </p>
 
               <h3 className="text-lg font-semibold mb-3 text-gray-900 dark:text-gray-100">
                 2. Start with Custom Cell Renderers
@@ -766,7 +770,7 @@ yarn add simple-table-core`}
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable } from "simple-table-core";
+                code={`import { SimpleTable } from "@simple-table/react";
 
 const headers = [
   {

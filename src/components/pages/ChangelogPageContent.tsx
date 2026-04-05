@@ -110,7 +110,7 @@ export default function ChangelogPageContent() {
             GitHub Releases →
           </a>
           <a
-            href="https://www.npmjs.com/package/simple-table-core"
+            href="https://www.npmjs.com/package/@simple-table/react"
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 dark:text-blue-400 hover:underline"

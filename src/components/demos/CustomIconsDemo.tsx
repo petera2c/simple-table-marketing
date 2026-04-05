@@ -1,8 +1,9 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define headers with various properties
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, isSortable: true, type: "number" },
   {
     accessor: "product",
@@ -26,7 +27,7 @@ const headers: HeaderObject[] = [
     isSortable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price as number;
       return `$${price.toFixed(2)}`;
     },
@@ -46,7 +47,7 @@ const headers: HeaderObject[] = [
     isSortable: true,
     align: "right",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const rating = row.rating as number;
       return `${rating.toFixed(1)} ★`;
     },
@@ -129,17 +130,11 @@ const PRODUCT_DATA = [
   },
 ];
 
-// Custom icons using simple HTML/CSS
 const customIcons = {
-  // For sorting columns
-  sortUpIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
-  sortDownIcon: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
-
-  // For filtering columns
-  filterIcon: <span style={{ color: "#3b82f6", fontSize: "1rem" }}>⚡</span>,
-
-  // For pagination navigation
-  nextIcon: (
+  sortUp: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▲</span>,
+  sortDown: <span style={{ color: "#3b82f6", fontSize: "1.125rem" }}>▼</span>,
+  filter: <span style={{ color: "#3b82f6", fontSize: "1rem" }}>⚡</span>,
+  next: (
     <span
       style={{
         color: "#2563eb",
@@ -151,7 +146,7 @@ const customIcons = {
       ▲
     </span>
   ),
-  prevIcon: (
+  prev: (
     <span
       style={{
         color: "#2563eb",
@@ -170,15 +165,10 @@ const CustomIconsDemo = ({ theme }: { theme?: Theme }) => {
     <SimpleTable
       defaultHeaders={headers}
       height={"auto"}
+      icons={customIcons}
       rows={PRODUCT_DATA}
       rowsPerPage={7}
       shouldPaginate
-      // Custom icons props
-      filterIcon={customIcons.filterIcon}
-      nextIcon={customIcons.nextIcon}
-      prevIcon={customIcons.prevIcon}
-      sortDownIcon={customIcons.sortDownIcon}
-      sortUpIcon={customIcons.sortUpIcon}
       theme={theme}
     />
   );

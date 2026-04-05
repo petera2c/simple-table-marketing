@@ -1,9 +1,10 @@
-import { SimpleTable, HeaderObject } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { CellRendererProps, ReactHeaderObject } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 import "./CustomTheme.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 80, type: "number" },
   { accessor: "name", label: "Name", minWidth: 100, width: "1fr", type: "string" },
   { accessor: "email", label: "Email", minWidth: 100, width: "1fr", type: "string" },
@@ -14,7 +15,7 @@ const headers: HeaderObject[] = [
     label: "Number",
     width: 150,
     type: "number",
-    cellRenderer: ({ accessor, row }) => {
+    cellRenderer: ({ accessor, row }: CellRendererProps) => {
       const number = row[accessor]?.toString() ?? "";
       const areaCode = number.slice(0, 3);
       const prefix = number.slice(3, 6);

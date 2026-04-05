@@ -7,7 +7,7 @@ export const metadata: Metadata = {
     "Complete guide to programmatic control of SimpleTable. Learn to manage sorting, filtering, and data access via tableRef API. Control your React data grid programmatically with TypeScript support.",
   keywords: [
     "simple-table",
-    "simple-table-core",
+    "@simple-table/react",
     "react table",
     "programmatic control",
     "table api",

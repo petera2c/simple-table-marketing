@@ -1,10 +1,9 @@
 "use client";
 
 import SalesExample from "./SalesExample";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
@@ -26,7 +25,7 @@ export default function SalesExampleWrapper({
   const { currentTheme, currentIconLibrary } = useExamplesContext();
   const selectedTheme = (currentTheme as Theme) || theme;
   const tableIcons = getTableIcons(currentIconLibrary);
-  
+
   const containerHeight = useExampleHeight({
     isUsingPagination: shouldPaginate,
     rowHeight: ROW_HEIGHT,
@@ -34,9 +33,8 @@ export default function SalesExampleWrapper({
 
   return (
     <LivePreview
-      demoCodeFilename="SalesExample.txt"
+      demoId="sales"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/sales/SalesExample.tsx"].url}
       selectedTheme={selectedTheme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
@@ -44,10 +42,11 @@ export default function SalesExampleWrapper({
       Preview={() => (
         <ExamplesWrapper>
           <SalesExample
+            key={currentIconLibrary}
             height={containerHeight}
-            theme={selectedTheme}
+            icons={tableIcons}
             onGridReady={onGridReady}
-            {...tableIcons}
+            theme={selectedTheme}
           />
         </ExamplesWrapper>
       )}

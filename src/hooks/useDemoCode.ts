@@ -1,20 +1,22 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { useFramework } from "@/providers/FrameworkProvider";
 
-export const useDemoCode = (demoPath?: string) => {
+export const useDemoCode = (demoId?: string) => {
   const [demoCode, setDemoCode] = useState("");
+  const { framework } = useFramework();
 
   useEffect(() => {
-    if (!demoPath) return;
+    if (!demoId) return;
     const fetchDemoCode = async () => {
-      const response = await fetch(`/txt-demos/${demoPath}`);
+      const response = await fetch(`/txt-demos/${framework}/${demoId}.txt`);
       const text = await response.text();
       setDemoCode(text);
     };
 
     fetchDemoCode();
-  }, [demoPath]);
+  }, [demoId, framework]);
 
   return demoCode;
 };

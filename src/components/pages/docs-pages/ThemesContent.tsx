@@ -8,12 +8,10 @@ import ThemesDemo from "@/components/demos/ThemesDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ThemeSelector from "@/components/ThemeSelector";
 import { useEffect, useState } from "react";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
 import { useThemeContext } from "@/providers/ThemeProvider";
-import CodeBlock from "@/components/CodeBlock";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
 const THEME_PROPS: PropInfo[] = [
@@ -110,12 +108,13 @@ export default function ThemesContent() {
         transition={{ duration: 0.5, delay: 0.2 }}
       >
         Simple Table includes several beautiful built-in themes to match your application's visual
-        design. Choose from Modern Light, Modern Dark, Light, Dark, Sky, Violet, or Neutral themes. Learn more about{" "}
+        design. Choose from Modern Light, Modern Dark, Light, Dark, Sky, Violet, or Neutral themes.
+        Learn more about{" "}
         <Link
           href="/blog/customizing-react-table-look-simple-table-themes"
           className="text-blue-600 dark:text-blue-400 hover:underline font-semibold"
         >
-          customizing your React table
+          customizing your table
         </Link>{" "}
         or explore{" "}
         <Link
@@ -136,9 +135,8 @@ export default function ThemesContent() {
         <div className="flex flex-col gap-4 h-full">
           <ThemeSelector currentTheme={currentTheme} setCurrentTheme={setCurrentTheme} />
           <LivePreview
-            demoCodeFilename="ThemesDemo.txt"
+            demoId="themes"
             height="400px"
-            link={SANDBOX_LIST["ThemesDemo.tsx"].url}
             Preview={({ height }) => <ThemesDemo height={height} theme={currentTheme} />}
           />
         </div>
@@ -200,26 +198,6 @@ export default function ThemesContent() {
           You can use these flags together with any theme to control the visual presentation of your
           table:
         </p>
-
-        <CodeBlock
-          className="mb-6"
-          code={`import { SimpleTable } from 'simple-table-core';
-import 'simple-table-core/styles.css';
-
-export default function MyTable() {
-  return (
-    <SimpleTable
-      defaultHeaders={headers}
-      rows={data}
-      theme="modern-dark"
-      useHoverRowBackground={true}
-      useOddEvenRowBackground={true}
-      useOddColumnBackground={false}
-      columnBorders={true}
-    />
-  );
-}`}
-        />
 
         <div className="bg-yellow-50 dark:bg-yellow-900/30 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">Tip</h3>

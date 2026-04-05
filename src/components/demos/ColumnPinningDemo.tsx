@@ -1,8 +1,9 @@
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Define all headers with pinned status
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "name", label: "Name", width: 132, pinned: "left", type: "string" },
   { accessor: "email", label: "Email", width: 220, type: "string" },
   { accessor: "role", label: "Role", width: 150, type: "string" },

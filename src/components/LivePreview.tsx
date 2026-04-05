@@ -4,34 +4,35 @@ import { Button, Tooltip } from "antd";
 import { ReactNode, useState } from "react";
 import CodeBlock from "./CodeBlock";
 import { useThemeContext } from "@/providers/ThemeProvider";
+import { useFramework, FRAMEWORK_LABELS } from "@/providers/FrameworkProvider";
 import PageWrapper from "./PageWrapper";
 import { mapWebsiteThemeToTableTheme } from "@/utils/themeMapper";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
+import { getStackBlitzUrl } from "@/utils/getStackBlitzUrl";
 
 interface LivePreviewProps {
   Preview: ({ height, theme }: { height?: string | number; theme?: Theme }) => JSX.Element;
-  demoCodeFilename?: string;
+  demoId: string;
   demoHeight?: string | number;
   height?: string | number;
-  link: string;
   selectedTheme?: Theme;
   titleRenderer?: (buttons: { codeButton: ReactNode; sandboxButton: ReactNode }) => ReactNode;
 }
 
 const LivePreview = ({
-  demoCodeFilename,
+  demoId,
   height = "auto",
-  link,
   Preview,
   demoHeight,
   selectedTheme,
   titleRenderer,
 }: LivePreviewProps) => {
+  const { framework } = useFramework();
   const [isCodeVisible, setIsCodeVisible] = useState(false);
   const { theme: contextTheme } = useThemeContext();
 
-  // Use selected theme if provided, otherwise use modern version of website theme
   const currentTheme = selectedTheme || mapWebsiteThemeToTableTheme(contextTheme);
+  const stackBlitzUrl = getStackBlitzUrl(demoId, framework);
 
   const codeButton = (
     <Tooltip title={isCodeVisible ? "Show preview" : "Show code"}>
@@ -46,9 +47,9 @@ const LivePreview = ({
   );
 
   const sandboxButton = (
-    <Tooltip title="Sandbox">
-      <Button href={link} icon={<FontAwesomeIcon icon={faBox} />} target="_blank">
-        CodeSandbox
+    <Tooltip title="Open in StackBlitz">
+      <Button href={stackBlitzUrl} icon={<FontAwesomeIcon icon={faBox} />} target="_blank">
+        StackBlitz
       </Button>
     </Tooltip>
   );
@@ -60,7 +61,7 @@ const LivePreview = ({
 
         <div style={{ height }}>
           {isCodeVisible ? (
-            <CodeBlock className={`h-full`} demoCodeFilename={demoCodeFilename} />
+            <CodeBlock className="h-full" demoId={demoId} />
           ) : (
             <Preview height={demoHeight || height} theme={currentTheme} />
           )}

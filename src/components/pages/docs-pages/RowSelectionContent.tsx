@@ -6,7 +6,6 @@ import { faCheckSquare } from "@fortawesome/free-solid-svg-icons";
 import RowSelectionDemo from "@/components/demos/RowSelectionDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import { ROW_SELECTION_CHANGE_PROPS } from "@/constants/propDefinitions";
@@ -74,9 +73,8 @@ const RowSelectionContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="RowSelectionDemo.txt"
+          demoId="row-selection"
           height="500px"
-          link={SANDBOX_LIST["RowSelectionDemo.tsx"].url}
           Preview={RowSelectionDemo}
         />
       </motion.div>
@@ -162,25 +160,6 @@ const RowSelectionContent = () => {
 
         <PropTable props={ROW_SELECTION_CHANGE_PROPS} title="RowSelectionChangeProps" />
 
-        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-4 mt-4">
-          <h4 className="font-bold text-gray-800 dark:text-white mb-2">Example Usage</h4>
-          <pre className="text-sm text-gray-700 dark:text-gray-300 overflow-x-auto">
-            <code>{`const handleRowSelectionChange = ({ row, isSelected, selectedRows }) => {
-  if (isSelected) {
-    console.log(\`Selected: \${row.name}\`);
-  } else {
-    console.log(\`Deselected: \${row.name}\`);
-  }
-  
-  // Convert Set to Array for further processing
-  const selectedRowsArray = Array.from(selectedRows);
-  console.log(\`Total selected: \${selectedRowsArray.length}\`);
-  
-  // Implement your business logic here
-  handleBulkOperations(selectedRowsArray);
-};`}</code>
-          </pre>
-        </div>
       </motion.div>
 
       {/* Use Cases Section */}

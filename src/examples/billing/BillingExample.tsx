@@ -1,33 +1,20 @@
-import { SimpleTable, Theme } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { Theme, ReactIconsConfig } from "@simple-table/react";
 import { HEADERS } from "./billing-headers";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import { useBillingData } from "./useBillingData";
 
 export default function BillingExample({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height,
-  nextIcon,
+  icons,
   onGridReady,
-  prevIcon,
   rowCount = 1000,
-  sortDownIcon,
-  sortUpIcon,
   theme,
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height: number | null;
-  nextIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   onGridReady?: () => void;
-  prevIcon?: React.ReactNode;
   rowCount?: number;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) {
   const { data, isLoading } = useBillingData(rowCount);
@@ -55,21 +42,14 @@ export default function BillingExample({
       columnResizing
       defaultHeaders={HEADERS}
       editColumns
-      expandIcon={expandIcon}
-      filterIcon={filterIcon}
-      headerCollapseIcon={headerCollapseIcon}
-      headerExpandIcon={headerExpandIcon}
       height={height ? `${height}px` : "70dvh"}
-      initialSortColumn="amount" // Show highest amounts first
+      icons={icons}
+      initialSortColumn="amount"
       initialSortDirection="desc"
-      nextIcon={nextIcon}
       onGridReady={onGridReady}
-      prevIcon={prevIcon}
       rowGrouping={["invoices", "charges"]}
       rows={data}
       selectableCells
-      sortDownIcon={sortDownIcon}
-      sortUpIcon={sortUpIcon}
       theme={theme}
       useOddColumnBackground
     />

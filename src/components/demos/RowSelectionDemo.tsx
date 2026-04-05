@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { CellRendererProps, ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 type LibraryBook = {
   id: number;
@@ -17,7 +18,7 @@ type LibraryBook = {
 };
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "Book ID", width: 80, isSortable: true, type: "number" },
   { accessor: "isbn", label: "ISBN", width: 120, isSortable: true, type: "string" },
   {
@@ -39,7 +40,7 @@ const headers: HeaderObject[] = [
     width: 100,
     isSortable: true,
     type: "string",
-    cellRenderer: ({ accessor, colIndex, row, theme }) => (
+    cellRenderer: ({ accessor, colIndex, row, theme }: CellRendererProps) => (
       <span
         style={{
           color:

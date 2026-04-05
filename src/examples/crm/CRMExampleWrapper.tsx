@@ -3,12 +3,11 @@
 import CRMExample from "./CRMExample";
 import { useExampleHeight } from "@/hooks/useExampleHeight";
 import LivePreview from "@/components/LivePreview";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import ExamplesWrapper from "../ExamplesWrapper";
 import { getTableIcons } from "@/utils/getTableIcons";
 import { useExamplesContext } from "@/providers/ExamplesProvider";
 import ExampleControls from "@/components/ExampleControls";
-import { Theme } from "simple-table-core";
+import type { Theme } from "@simple-table/react";
 
 /* @import url("https://fonts.googleapis.com/css2?family=BBH+Sans+Hegarty&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"); */
 import { Plus_Jakarta_Sans } from "next/font/google";
@@ -46,9 +45,8 @@ export default function CRMExampleWrapper({
 
   return (
     <LivePreview
-      demoCodeFilename="CRMExample.txt"
+      demoId="crm"
       height={`${containerHeight}px`}
-      link={SANDBOX_LIST["examples/crm/CRMExample.tsx"].url}
       selectedTheme={crmTheme as Theme}
       titleRenderer={({ codeButton, sandboxButton }) => (
         <ExampleControls codeButton={codeButton} sandboxButton={sandboxButton} />
@@ -57,10 +55,11 @@ export default function CRMExampleWrapper({
         <div className={plusJakartaSans.className}>
           <ExamplesWrapper>
             <CRMExample
+              key={currentIconLibrary}
               height={containerHeight}
-              theme={crmTheme}
+              icons={tableIcons}
               onGridReady={onGridReady}
-              {...tableIcons}
+              theme={crmTheme}
             />
           </ExamplesWrapper>
         </div>

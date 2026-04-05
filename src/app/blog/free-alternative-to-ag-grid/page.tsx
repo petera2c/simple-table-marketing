@@ -233,7 +233,7 @@ export default function FreeAlternativeToAgGridPage() {
           description="Simple Table is lightweight, free, and packed with features to make your React tables shine. I'd really appreciate it if you could check it out and share your feedback—it'd mean the world to me and help make this project even better."
           primaryButton={{
             text: "View on NPM",
-            href: "https://www.npmjs.com/package/simple-table-core",
+            href: "https://www.npmjs.com/package/@simple-table/react",
             external: true,
           }}
           secondaryButton={{

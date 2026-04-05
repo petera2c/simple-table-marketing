@@ -1,7 +1,8 @@
 "use client";
 import { useMemo } from "react";
-import { SimpleTable, HeaderObject, Theme } from "simple-table-core";
-import "simple-table-core/styles.css";
+import { SimpleTable } from "@simple-table/react";
+import type { ReactHeaderObject, Theme } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 // Data generation utilities
 const industries = [
@@ -219,7 +220,7 @@ const generateSampleData = (count: number = 25) => {
 };
 
 // Child grid for divisions: 6 columns with detailed metrics
-const divisionHeaders: HeaderObject[] = [
+const divisionHeaders: ReactHeaderObject[] = [
   { accessor: "divisionId", label: "Division ID", width: 120 },
   { accessor: "revenue", label: "Revenue", width: 120 },
   { accessor: "profitMargin", label: "Profit Margin", width: 130 },
@@ -228,7 +229,7 @@ const divisionHeaders: HeaderObject[] = [
 ];
 
 // Parent grid: 9 columns for companies
-const companyHeaders: HeaderObject[] = [
+const companyHeaders: ReactHeaderObject[] = [
   {
     accessor: "companyName",
     label: "Company",

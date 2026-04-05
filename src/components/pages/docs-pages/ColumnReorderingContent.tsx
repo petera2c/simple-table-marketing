@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import ColumnReorderingDemo from "@/components/demos/ColumnReorderingDemo";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -101,9 +100,8 @@ export default function ColumnReorderingContent() {
           Try dragging column headers to reorder them.
         </div>
         <LivePreview
-          demoCodeFilename="ColumnReorderingDemo.txt"
+          demoId="column-reordering"
           height="400px"
-          link={SANDBOX_LIST["ColumnReorderingDemo.tsx"].url}
           Preview={ColumnReorderingDemo}
         />
       </motion.div>

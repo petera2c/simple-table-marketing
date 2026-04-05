@@ -870,17 +870,17 @@ useEffect(() => {
 }}`,
   },
   {
-    key: "tableRef",
-    name: "tableRef",
+    key: "ref",
+    name: "ref",
     required: false,
     description:
       "React ref object to access table methods and state programmatically. Provides access to methods like exportToCSV and updateData.",
-    type: "MutableRefObject<TableRefType | null>",
-    link: "#table-ref-type",
-    example: `const tableRef = useRef(null);
+    type: "React.RefObject<TableAPI>",
+    link: "#table-api",
+    example: `const tableRef = useRef<TableAPI>(null);
 
 <SimpleTable
-  tableRef={tableRef}
+  ref={tableRef}
   // ... other props
 />
 

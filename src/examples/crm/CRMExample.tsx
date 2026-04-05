@@ -1,35 +1,22 @@
 import { getCRMHeaders } from "./crm-headers";
 import { useState, useEffect } from "react";
-import { SimpleTable, CellChangeProps, Row, FooterRendererProps } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { CellChangeProps, FooterRendererProps, ReactIconsConfig } from "@simple-table/react";
 
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import "./CustomTheme.css";
 import CRMCustomFooter from "./CRMFooter";
 import { useCRMData } from "./useCRMData";
 
 const CRMExampleComponent = ({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height,
-  nextIcon,
+  icons,
   onGridReady,
-  prevIcon,
-  sortDownIcon,
-  sortUpIcon,
   theme = "custom-light",
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height?: number | null;
-  nextIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   onGridReady?: () => void;
-  prevIcon?: React.ReactNode;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: "custom-light" | "custom-dark";
 }) => {
   const { data: fetchedData, isLoading } = useCRMData();
@@ -66,27 +53,20 @@ const CRMExampleComponent = ({
         columnResizing
         defaultHeaders={getCRMHeaders(isDark)}
         enableRowSelection
-        expandIcon={expandIcon}
-        filterIcon={filterIcon}
-        footerRenderer={(props) => (
+        footerRenderer={(props: FooterRendererProps) => (
           <CRMCustomFooter {...props} isDark={isDark} setRowsPerPage={setRowsPerPage} />
         )}
-        headerCollapseIcon={headerCollapseIcon}
-        headerExpandIcon={headerExpandIcon}
         customTheme={{
           headerHeight: 48,
           rowHeight: 92,
         }}
         height={height ? `${height}px` : "70dvh"}
-        nextIcon={nextIcon}
+        icons={icons}
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
-        prevIcon={prevIcon}
         rows={data}
         rowsPerPage={rowsPerPage}
         shouldPaginate
-        sortDownIcon={sortDownIcon}
-        sortUpIcon={sortUpIcon}
         theme="custom"
       />
     </div>

@@ -6,7 +6,6 @@ import { faPaintBrush } from "@fortawesome/free-solid-svg-icons";
 import HeaderRendererDemo from "@/components/demos/HeaderRendererDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 
@@ -130,9 +129,8 @@ const HeaderRendererContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="HeaderRendererDemo.txt"
+          demoId="header-renderer"
           height="400px"
-          link={(SANDBOX_LIST as any)["HeaderRendererDemo.tsx"]?.url || "#"}
           Preview={HeaderRendererDemo}
         />
       </motion.div>
@@ -285,23 +283,6 @@ const HeaderRendererContent = () => {
           sort and filter icons:
         </p>
 
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 overflow-x-auto">
-          <pre className="text-sm text-gray-800 dark:text-gray-200">
-            <code>{`{
-  accessor: "name",
-  label: "Name",
-  sortable: true,
-  filterable: true,
-  headerRenderer: ({ components }) => (
-    <>
-      {components?.labelContent}
-      {components?.sortIcon}
-      {components?.filterIcon}
-    </>
-  )
-}`}</code>
-          </pre>
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-4 mt-6">
           Example: Custom Layout with Flexbox
@@ -311,30 +292,6 @@ const HeaderRendererContent = () => {
           You can also create more complex layouts using CSS:
         </p>
 
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-6 overflow-x-auto">
-          <pre className="text-sm text-gray-800 dark:text-gray-200">
-            <code>{`{
-  accessor: "status",
-  label: "Status",
-  sortable: true,
-  filterable: true,
-  headerRenderer: ({ components }) => (
-    <div style={{ 
-      display: 'flex', 
-      justifyContent: 'space-between',
-      alignItems: 'center'
-    }}>
-      <span>{components?.labelContent}</span>
-      <div style={{ display: 'flex', gap: '4px' }}>
-        {components?.filterIcon}
-        {components?.sortIcon}
-        {components?.collapseIcon}
-      </div>
-    </div>
-  )
-}`}</code>
-          </pre>
-        </div>
 
         <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg shadow-sm mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">✨ Why Use Components?</h3>

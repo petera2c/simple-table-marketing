@@ -1,41 +1,28 @@
 import { getSpreadsheetHeaders } from "./spreadsheet-headers";
 import { useState, useEffect, useMemo } from "react";
-import { SimpleTable, CellChangeProps, Theme, HeaderObject } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { CellChangeProps, Theme, ReactHeaderObject, ReactIconsConfig } from "@simple-table/react";
 
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 import "./SpreadsheetCustom.css";
 import { useSpreadsheetData } from "./useSpreadsheetData";
 
 const SpreadsheetExampleComponent = ({
-  expandIcon,
-  filterIcon,
-  headerCollapseIcon,
-  headerExpandIcon,
   height,
-  nextIcon,
+  icons,
   onGridReady,
-  prevIcon,
   rowCount = 100,
-  sortDownIcon,
-  sortUpIcon,
   theme = "light",
 }: {
-  expandIcon?: React.ReactNode;
-  filterIcon?: React.ReactNode;
-  headerCollapseIcon?: React.ReactNode;
-  headerExpandIcon?: React.ReactNode;
   height?: number | null;
-  nextIcon?: React.ReactNode;
+  icons?: ReactIconsConfig;
   onGridReady?: () => void;
-  prevIcon?: React.ReactNode;
   rowCount?: number;
-  sortDownIcon?: React.ReactNode;
-  sortUpIcon?: React.ReactNode;
   theme?: Theme;
 }) => {
   const { data: fetchedData, isLoading } = useSpreadsheetData(rowCount);
   const [data, setData] = useState(fetchedData);
-  const [additionalColumns, setAdditionalColumns] = useState<HeaderObject[]>([]);
+  const [additionalColumns, setAdditionalColumns] = useState<ReactHeaderObject[]>([]);
 
   // Update local data when fetched data changes
   useEffect(() => {
@@ -59,7 +46,7 @@ const SpreadsheetExampleComponent = ({
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button
               onClick={() => {
-                const newColumn: HeaderObject = {
+                const newColumn: ReactHeaderObject = {
                   accessor: `column${baseHeaders.length + additionalColumns.length + 1}`,
                   label: `Column ${baseHeaders.length + additionalColumns.length + 1}`,
                   width: 120,
@@ -105,20 +92,20 @@ const SpreadsheetExampleComponent = ({
               accessor === "principal"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.principal === "number"
-                ? item.principal
-                : 0;
+                  ? item.principal
+                  : 0;
             const interestRate =
               accessor === "interestRate"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.interestRate === "number"
-                ? item.interestRate
-                : 0;
+                  ? item.interestRate
+                  : 0;
             const monthlyPayment =
               accessor === "monthlyPayment"
                 ? parseFloat(newValue as string) || 0
                 : typeof item.monthlyPayment === "number"
-                ? item.monthlyPayment
-                : 0;
+                  ? item.monthlyPayment
+                  : 0;
 
             // Calculate remaining values using amortization
             const monthlyRate = interestRate / 100 / 12;
@@ -141,7 +128,7 @@ const SpreadsheetExampleComponent = ({
             const totalPaidValue = typeof item.totalPaid === "number" ? item.totalPaid : 0;
             const estimatedPaymentsMade = Math.max(
               0,
-              Math.min(120, Math.floor(totalPaidValue / calculatedPayment))
+              Math.min(120, Math.floor(totalPaidValue / calculatedPayment)),
             );
 
             // Calculate remaining balance
@@ -167,7 +154,7 @@ const SpreadsheetExampleComponent = ({
           return updatedItem;
         }
         return item;
-      })
+      }),
     );
   };
 
@@ -182,23 +169,16 @@ const SpreadsheetExampleComponent = ({
         defaultHeaders={headers}
         enableHeaderEditing
         enableRowSelection
-        expandIcon={expandIcon}
-        filterIcon={filterIcon}
-        headerCollapseIcon={headerCollapseIcon}
-        headerExpandIcon={headerExpandIcon}
         height={height ? `${height}px` : "70dvh"}
-        nextIcon={nextIcon}
+        icons={icons}
         onCellEdit={handleCellEdit}
         onGridReady={onGridReady}
-        prevIcon={prevIcon}
         customTheme={{
           rowHeight: 22,
         }}
         rows={data}
         selectableCells
         selectableColumns
-        sortDownIcon={sortDownIcon}
-        sortUpIcon={sortUpIcon}
         theme={theme}
         useOddEvenRowBackground
       />

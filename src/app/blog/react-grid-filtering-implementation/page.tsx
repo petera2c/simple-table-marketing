@@ -249,8 +249,8 @@ export default function ReactGridFilteringPage() {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject } from "simple-table-core";
-import "simple-table-core/styles.css";
+                code={`import { SimpleTable, HeaderObject } from "@simple-table/react";
+import "@simple-table/react/styles.css";
 
 const headers: HeaderObject[] = [
   {
@@ -461,7 +461,7 @@ export default function CustomerTable({ data }) {
 
               <CodeBlock
                 className="mb-6"
-                code={`import { SimpleTable, HeaderObject, TableFilterState } from "simple-table-core";
+                code={`import { SimpleTable, HeaderObject, TableFilterState } from "@simple-table/react";
 import { useState, useEffect } from "react";
 
 export default function ServerSideFilterTable() {

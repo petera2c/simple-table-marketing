@@ -6,7 +6,6 @@ import { faEdit } from "@fortawesome/free-solid-svg-icons";
 import ColumnEditingDemo from "@/components/demos/ColumnEditingDemo";
 import DocNavigationButtons from "@/components/DocNavigationButtons";
 import PageWrapper from "@/components/PageWrapper";
-import SANDBOX_LIST from "@/constants/codesandbox-list.json";
 import LivePreview from "@/components/LivePreview";
 import PropTable, { type PropInfo } from "@/components/PropTable";
 import Link from "next/link";
@@ -122,9 +121,8 @@ const ColumnEditingContent = () => {
         transition={{ duration: 0.5, delay: 0.1 }}
       >
         <LivePreview
-          demoCodeFilename="ColumnEditingDemo.txt"
+          demoId="column-editing"
           height="400px"
-          link={SANDBOX_LIST["ColumnEditingDemo.tsx"].url}
           Preview={(props) => <ColumnEditingDemo {...props} />}
         />
       </motion.div>
@@ -226,29 +224,6 @@ const ColumnEditingContent = () => {
           in the API Reference.
         </p>
 
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            <code>{`<SimpleTable
-  editColumns={true}
-  columnEditorConfig={{
-    text: "Columns",                      // Button text (default: "Columns")
-    searchEnabled: true,                  // Enable search (default: true)
-    searchPlaceholder: "Search columns...", // Search placeholder
-    searchFunction: (header, searchTerm) => { // Optional: custom search logic
-      return header.label.toLowerCase().includes(searchTerm.toLowerCase());
-    },
-    rowRenderer: ({ components }) => (    // Optional: custom row layout
-      <div style={{ display: 'flex', gap: '8px' }}>
-        {components.checkbox}
-        {components.dragIcon}
-        {components.labelContent}
-      </div>
-    )
-  }}
-  // ... other props
-/>`}</code>
-          </pre>
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
           Column Search
@@ -323,18 +298,6 @@ const ColumnEditingContent = () => {
           Opens, closes, or toggles the column editor menu programmatically. This gives you full
           control over when the column editor UI is displayed.
         </p>
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            <code>{`// Toggle the column editor (open if closed, close if open)
-tableRef.current?.toggleColumnEditor();
-
-// Explicitly open the column editor
-tableRef.current?.toggleColumnEditor(true);
-
-// Explicitly close the column editor
-tableRef.current?.toggleColumnEditor(false);`}</code>
-          </pre>
-        </div>
 
         <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-3 mt-6">
           applyColumnVisibility()
@@ -344,42 +307,6 @@ tableRef.current?.toggleColumnEditor(false);`}</code>
           or complete visibility state object to show or hide specific columns. This method is async
           and returns a Promise.
         </p>
-        <div className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg mb-4">
-          <pre className="text-sm text-gray-800 dark:text-gray-200 overflow-x-auto">
-            <code>{`// Show/hide specific columns
-await tableRef.current?.applyColumnVisibility({
-  name: true,      // Show name column
-  email: false,    // Hide email column
-  phone: false,    // Hide phone column
-});
-
-// Create a "basic info" view preset
-await tableRef.current?.applyColumnVisibility({
-  name: true,
-  age: true,
-  department: true,
-  salary: false,
-  email: false,
-  phone: false,
-});
-
-// Show all columns
-await tableRef.current?.applyColumnVisibility({
-  name: true,
-  age: true,
-  department: true,
-  salary: true,
-  email: true,
-  phone: true,
-});
-
-// Hide just contact columns (partial update)
-await tableRef.current?.applyColumnVisibility({
-  email: false,
-  phone: false,
-});`}</code>
-          </pre>
-        </div>
 
         <div className="bg-blue-50 dark:bg-blue-900/20 border-l-4 border-blue-500 p-4 mb-4">
           <p className="text-sm text-gray-700 dark:text-gray-300">

@@ -1,9 +1,10 @@
-import { SimpleTable, TableRefType, HeaderObject, Theme } from "simple-table-core";
+import { SimpleTable } from "@simple-table/react";
+import type { TableAPI, ReactHeaderObject, Theme, CellRendererProps } from "@simple-table/react";
 import { useRef, useEffect } from "react";
-import "simple-table-core/styles.css";
+import "@simple-table/react/styles.css";
 
 // Define headers
-const headers: HeaderObject[] = [
+const headers: ReactHeaderObject[] = [
   { accessor: "id", label: "ID", width: 60, type: "number" },
   { accessor: "product", label: "Product", width: 180, type: "string" },
   {
@@ -11,7 +12,7 @@ const headers: HeaderObject[] = [
     label: "Price",
     width: "1fr",
     type: "number",
-    cellRenderer: ({ row }) => {
+    cellRenderer: ({ row }: CellRendererProps) => {
       const price = row.price;
       if (typeof price === "number") {
         return `$${price.toFixed(2)}`;
@@ -192,7 +193,7 @@ const LiveUpdateDemo = ({
   theme?: Theme;
 }) => {
   // Keep a local copy of the data to update
-  const tableRef = useRef<TableRefType | null>(null);
+  const tableRef = useRef<TableAPI | null>(null);
 
   // Set up intervals for automatic updates (like Infrastructure example)
   useEffect(() => {
@@ -375,7 +376,7 @@ const LiveUpdateDemo = ({
     <SimpleTable
       defaultHeaders={headers}
       rows={initialData}
-      tableRef={tableRef}
+      ref={tableRef}
       height={height}
       theme={theme}
     />
