@@ -1112,7 +1112,7 @@ export const SEO_STRINGS = {
   liveUpdates: {
     title: "Live Updates in Simple Table Data Grid",
     description:
-      "Add live updates to your data grid with Simple Table. Use tableRef for real-time datagrids and data tables with responsive design.",
+      "Add live updates to your data grid with Simple Table. Use a React ref to TableAPI for real-time datagrids and data tables with responsive design.",
     keywords:
       "simple-table, data-grid, datagrid, data table, live updates, real-time table, typescript table, responsive table, javascript data grid",
   },

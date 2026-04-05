@@ -101,8 +101,8 @@ export default function MigrationV3Content() {
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
               simple-table-core
             </code>{" "}
-            is a plain JavaScript engine and no longer exports framework components. Import from your
-            framework's adapter package instead.
+            is a plain JavaScript engine and no longer exports framework components. Import from
+            your framework's adapter package instead.
           </p>
 
           <div className="mb-3">
@@ -136,8 +136,8 @@ import "@simple-table/react/styles.css";`}
             Framework-Specific Type Names
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
-            Some types are now prefixed with the framework name since each adapter can have
-            slightly different type signatures. For React:
+            Some types are now prefixed with the framework name since each adapter can have slightly
+            different type signatures. For React:
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-sm text-left">
@@ -186,27 +186,29 @@ import "@simple-table/react/styles.css";`}
             </code>
             ). Types like{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Row</code> and{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Theme</code>{" "}
-            remain the same.
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">Theme</code> remain
+            the same.
           </p>
         </div>
 
         {/* tableRef -> ref */}
         <div className="bg-yellow-50 dark:bg-yellow-900/20 border-l-4 border-yellow-400 dark:border-yellow-700 p-4 rounded-lg mb-6">
           <h3 className="font-bold text-gray-800 dark:text-white mb-2">
-            Table Ref: <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop replaced by standard React <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>
+            Table Ref:{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop
+            replaced by standard React{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
             SimpleTable now uses React&#39;s{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">forwardRef</code>,
-            so you pass a ref using the standard{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">forwardRef</code>, so
+            you pass a ref using the standard{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code> prop
             instead of the custom{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop.
             The ref type has also been renamed from{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
-            to{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
+            to <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
           </p>
           <CodeBlock
             code={`// v2
@@ -308,8 +310,8 @@ const tableRef = useRef<TableAPI>(null);
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
               simple-table-core
             </code>{" "}
-            as a dependency — you do not need to install it separately. CSS styles are imported
-            from your adapter package (e.g.{" "}
+            as a dependency — you do not need to install it separately. CSS styles are imported from
+            your adapter package (e.g.{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
               @simple-table/react/styles.css
             </code>
@@ -361,20 +363,14 @@ const tableRef = useRef<TableAPI>(null);
 
           <div className="mb-3">
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">Find:</p>
-            <CodeBlock
-              code={`from "simple-table-core"`}
-              language="tsx"
-            />
+            <CodeBlock code={`from "simple-table-core"`} language="tsx" />
           </div>
 
           <div>
             <p className="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">
               Replace with:
             </p>
-            <CodeBlock
-              code={`from "@simple-table/react"`}
-              language="tsx"
-            />
+            <CodeBlock code={`from "@simple-table/react"`} language="tsx" />
           </div>
 
           <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg mt-4">
@@ -407,8 +403,7 @@ const tableRef = useRef<TableAPI>(null);
             </code>{" "}
             (or your framework's equivalent), and rename{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
-            to{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
+            to <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>.
           </p>
           <CodeBlock
             code={`// v2
@@ -429,8 +424,8 @@ const tableRef = useRef<TableAPI>(null);`}
           </h3>
           <p className="text-gray-700 dark:text-gray-300 mb-3">
             The custom{" "}
-            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code>{" "}
-            prop has been replaced by the standard React{" "}
+            <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> prop
+            has been replaced by the standard React{" "}
             <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code> prop.
           </p>
           <CodeBlock
@@ -525,16 +520,15 @@ export default function MyTable() {
 
         <p className="text-gray-700 dark:text-gray-300 mt-4">
           That's it — update the import path, rename{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">HeaderObject</code>{" "}
-          to{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ReactHeaderObject</code>,{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
-          to{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>, and{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code>{" "}
-          to{" "}
-          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>.
-          All other props and behavior are the same.
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">HeaderObject</code> to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
+            ReactHeaderObject
+          </code>
+          , <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
+          to <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>, and{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">tableRef</code> to{" "}
+          <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">ref</code>. All other
+          props and behavior are the same.
         </p>
       </motion.div>
 
@@ -557,15 +551,15 @@ export default function MyTable() {
       >
         <p className="text-gray-700 dark:text-gray-300 mb-4">
           v3 introduces column virtualization. Previously, Simple Table only virtualized rows. Now
-          columns are also virtualized — only the columns visible in the viewport are rendered in the
-          DOM. This dramatically improves performance for tables with a large number of columns.
+          columns are also virtualized — only the columns visible in the viewport are rendered in
+          the DOM. This dramatically improves performance for tables with a large number of columns.
         </p>
 
         <div className="bg-green-50 dark:bg-green-900/30 border-l-4 border-green-400 dark:border-green-700 p-4 rounded-lg">
           <p className="text-gray-700 dark:text-gray-300">
             <strong>No configuration needed.</strong> Column virtualization is enabled automatically
-            when your table has a fixed height and horizontal scrolling. There is nothing to opt into
-            — it just works.
+            when your table has a fixed height and horizontal scrolling. There is nothing to opt
+            into — it just works.
           </p>
         </div>
       </motion.div>
@@ -609,9 +603,7 @@ export default function MyTable() {
             <span className="text-blue-600 dark:text-blue-400 mt-1">&#9744;</span>
             <span>
               Rename{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                HeaderObject
-              </code>{" "}
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">HeaderObject</code>{" "}
               to{" "}
               <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
                 ReactHeaderObject
@@ -622,13 +614,8 @@ export default function MyTable() {
             <span className="text-blue-600 dark:text-blue-400 mt-1">&#9744;</span>
             <span>
               Rename{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                TableRefType
-              </code>{" "}
-              to{" "}
-              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">
-                TableAPI
-              </code>
+              <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableRefType</code>{" "}
+              to <code className="bg-gray-200 dark:bg-gray-700 px-1 py-0.5 rounded">TableAPI</code>
             </span>
           </li>
           <li className="flex items-start gap-2">
